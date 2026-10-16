@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import './style.css';
 import './mobile-controls.css';
 import './dialogue.css';
-import { loadSave, newGameSave, saveGame, type GameSave } from './persistence/save-store';
+import { createUniqueId, loadSave, newGameSave, saveGame, type GameSave } from './persistence/save-store';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 const TILE = 32;
@@ -310,7 +310,7 @@ class Borgofonte extends Phaser.Scene {
       button.className='starter-choice';button.type='button';button.textContent=starter.name;
       button.addEventListener('click',()=>{
         if(this.save.flags.includes('q_starter_selected'))return;
-        const instanceId=crypto.randomUUID();
+        const instanceId=createUniqueId();
         this.save.party=[{instanceId,speciesId:starter.speciesId,level:5,experience:0,hp:starter.hp,maxHp:starter.hp,moves:starter.moves.map(([id,pp])=>({id:id as string,pp:pp as number}))}];
         this.save.flags.push('q_starter_selected','q_research_sample_received');
         this.starterChoices.hidden=true;

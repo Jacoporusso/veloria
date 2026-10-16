@@ -27,6 +27,17 @@ const STORE_NAME = 'saves';
 const SLOT = 'main';
 const FALLBACK_KEY = 'veloria-save-v1';
 
+export function createUniqueId(): string {
+  if (typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+  const bytes = new Uint8Array(16);
+  if (typeof crypto.getRandomValues === 'function') crypto.getRandomValues(bytes);
+  else for (let i = 0; i < bytes.length; i++) bytes[i] = Math.floor(Math.random() * 256);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = [...bytes].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
 function isSave(value: unknown): value is GameSave {
   if (!value || typeof value !== 'object') return false;
   const save = value as Partial<GameSave>;
@@ -87,7 +98,7 @@ export function newGameSave(): GameSave {
   return {
     schemaVersion: 1,
     contentVersion: 'veloria-content-0.3',
-    saveId: crypto.randomUUID(),
+    saveId: createUniqueId(),
     savedAt: new Date().toISOString(),
     player: { name: 'Allenatore', mapId: 'veloria/borgofonte', spawnPointId: 'start', money: 300, x: 20, y: 20 },
     party: [], storage: [], flags: ['q_prologue_started'], badges: [], inventory: { potion: 2, 'poke-ball': 5 }, rngState: 1234567,
