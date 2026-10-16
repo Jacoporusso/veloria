@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Veloria GameSave v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "contentVersion",
+    "saveId",
+    "savedAt",
+    "player",
+    "party",
+    "storage",
+    "flags",
+    "badges",
+    "inventory",
+    "rngState"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "contentVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "saveId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "savedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "name",
+        "mapId",
+        "spawnPointId",
+        "money"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "spawnPointId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "money": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "party": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": [
+          "instanceId",
+          "speciesId",
+          "level",
+          "experience",
+          "hp",
+          "maxHp",
+          "moves"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "instanceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speciesId": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "experience": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "hp": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "maxHp": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "moves": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "pp"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "pp": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "storage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "instanceId",
+          "speciesId"
+        ],
+        "properties": {
+          "instanceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speciesId": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "rngState": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

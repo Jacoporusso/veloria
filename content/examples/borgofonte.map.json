@@ -1,0 +1,38 @@
+{
+  "id": "veloria/borgofonte",
+  "version": 1,
+  "displayName": "Borgofonte",
+  "biomeId": "rural",
+  "tiledAsset": "tilemaps/bg_borgofonte.tmj",
+  "spawns": [
+    {
+      "id": "start",
+      "x": 10,
+      "y": 12,
+      "facing": "down"
+    },
+    {
+      "id": "from_r01",
+      "x": 23,
+      "y": 11,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r01_sentiero_alba",
+      "viaSpawnId": "from_r01",
+      "targetSpawnId": "from_borgofonte",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "prof_elia",
+    "nilo"
+  ],
+  "scriptRefs": [
+    "quest_prologue"
+  ],
+  "musicId": "ambient_borgofonte"
+}

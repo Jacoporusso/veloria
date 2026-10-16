@@ -1,0 +1,45 @@
+{
+  "id": "veloria/brumalta",
+  "version": 1,
+  "displayName": "Brumalta",
+  "biomeId": "urban_park",
+  "tiledAsset": "tilemaps/brumalta.tmj",
+  "spawns": [
+    {
+      "id": "from_r02",
+      "x": 2,
+      "y": 12,
+      "facing": "down"
+    },
+    {
+      "id": "to_gym",
+      "x": 22,
+      "y": 5,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r02_viale_fronde",
+      "viaSpawnId": "from_r02",
+      "targetSpawnId": "to_brumalta",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym01_brumalta",
+      "viaSpawnId": "to_gym",
+      "targetSpawnId": "from_city",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "nurse",
+    "shopkeeper",
+    "mira"
+  ],
+  "scriptRefs": [
+    "gym01"
+  ],
+  "musicId": "ambient_brumalta"
+}

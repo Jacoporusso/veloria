@@ -1,0 +1,25 @@
+{
+  "id": "veloria/trainer_mira_gym01",
+  "name": "Mira",
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym01_mira_defeated",
+  "rewardMoney": 500,
+  "team": [
+    {
+      "speciesId": 161,
+      "level": 8,
+      "moveIds": [
+        "tackle",
+        "defense-curl"
+      ]
+    },
+    {
+      "speciesId": 19,
+      "level": 10,
+      "moveIds": [
+        "tackle",
+        "quick-attack"
+      ]
+    }
+  ]
+}

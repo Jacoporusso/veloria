@@ -1,0 +1,39 @@
+{
+  "id": "veloria/r02_viale_fronde",
+  "version": 1,
+  "displayName": "Viale delle Fronde",
+  "biomeId": "forest_city_transition",
+  "tiledAsset": "tilemaps/r02_viale_fronde.tmj",
+  "spawns": [
+    {
+      "id": "from_bosco",
+      "x": 1,
+      "y": 9,
+      "facing": "down"
+    },
+    {
+      "id": "to_brumalta",
+      "x": 26,
+      "y": 9,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/d01_bosco_veli",
+      "viaSpawnId": "from_bosco",
+      "targetSpawnId": "to_r02",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/brumalta",
+      "viaSpawnId": "to_brumalta",
+      "targetSpawnId": "from_r02",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02"
+}

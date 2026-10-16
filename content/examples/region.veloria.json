@@ -1,0 +1,60 @@
+{
+  "id": "veloria",
+  "contentVersion": "veloria-content-0.3",
+  "primaryProgression": [
+    "veloria/borgofonte",
+    "veloria/r01_sentiero_alba",
+    "veloria/d01_bosco_veli",
+    "veloria/r02_viale_fronde",
+    "veloria/brumalta",
+    "veloria/gym01_brumalta"
+  ],
+  "fullGameTargets": {
+    "gymCount": 8,
+    "routeCount": 16,
+    "dungeonCount": 6,
+    "nationalDexMax": 251
+  },
+  "gymOrder": [
+    {
+      "number": 1,
+      "cityId": "brumalta",
+      "type": "normal"
+    },
+    {
+      "number": 2,
+      "cityId": "petalora",
+      "type": "grass"
+    },
+    {
+      "number": 3,
+      "cityId": "vetracielo",
+      "type": "electric"
+    },
+    {
+      "number": 4,
+      "cityId": "ferraluce",
+      "type": "steel"
+    },
+    {
+      "number": 5,
+      "cityId": "portolume",
+      "type": "water"
+    },
+    {
+      "number": 6,
+      "cityId": "acquariva",
+      "type": "psychic"
+    },
+    {
+      "number": 7,
+      "cityId": "biancavetta",
+      "type": "ice"
+    },
+    {
+      "number": 8,
+      "cityId": "concordia",
+      "type": "dragon"
+    }
+  ]
+}

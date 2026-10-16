@@ -1,0 +1,41 @@
+{
+  "id": "veloria/q_prologue",
+  "version": 1,
+  "displayName": "La prima missione",
+  "steps": [
+    {
+      "id": "choose_starter",
+      "trigger": "interaction/prof_elia/starter_chosen",
+      "setFlag": "q_starter_selected",
+      "requiresFlags": []
+    },
+    {
+      "id": "take_readings",
+      "trigger": "interaction/prof_elia/readings",
+      "setFlag": "q_research_sample_received",
+      "requiresFlags": [
+        "q_starter_selected"
+      ]
+    },
+    {
+      "id": "help_ada",
+      "trigger": "interaction/ada/resolved",
+      "setFlag": "q_ada_helped",
+      "requiresFlags": [
+        "q_research_sample_received"
+      ]
+    },
+    {
+      "id": "enter_city",
+      "trigger": "area/veloria/brumalta/enter",
+      "setFlag": "q_brumalta_visited",
+      "requiresFlags": [
+        "q_ada_helped"
+      ]
+    }
+  ],
+  "completionFlag": "q_brumalta_visited",
+  "reward": {
+    "money": 100
+  }
+}

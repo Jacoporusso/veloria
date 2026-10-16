@@ -1,0 +1,43 @@
+{
+  "id": "veloria/d01_bosco_veli",
+  "version": 1,
+  "displayName": "Bosco dei Veli",
+  "biomeId": "old_forest",
+  "tiledAsset": "tilemaps/d01_bosco_veli.tmj",
+  "spawns": [
+    {
+      "id": "from_r01",
+      "x": 4,
+      "y": 30,
+      "facing": "down"
+    },
+    {
+      "id": "to_r02",
+      "x": 33,
+      "y": 4,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r01_sentiero_alba",
+      "viaSpawnId": "from_r01",
+      "targetSpawnId": "to_bosco",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r02_viale_fronde",
+      "viaSpawnId": "to_r02",
+      "targetSpawnId": "from_bosco",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "ada"
+  ],
+  "scriptRefs": [
+    "quest_ada"
+  ],
+  "musicId": "ambient_forest"
+}

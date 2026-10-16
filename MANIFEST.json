@@ -1,0 +1,170 @@
+{
+  "project": "Veloria",
+  "packVersion": "0.3",
+  "created": "2026-10-09",
+  "status": "design-and-technical-handoff",
+  "note": "Non contiene il gioco completo. La mappa è un concept, non una tilemap giocabile.",
+  "fileCountExcludingManifest": 32,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 811,
+      "sha256": "9e6825765affbff1a42f88c58c53cb17a922039e589f9811aca3db39b9dcfc5a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4965,
+      "sha256": "45d7e69f3667dcc1813c274729c0070177fbfc05eb3ca2291901564493a1a733"
+    },
+    {
+      "path": "assets/ASSET_REGISTER.csv",
+      "bytes": 279,
+      "sha256": "61468b3c6b95ef513c88c44b895715a42ad33b89bff89630e88356cd5bdecfd3"
+    },
+    {
+      "path": "assets/concept/Veloria_World_Map_Concept_v0.1.png",
+      "bytes": 4067386,
+      "sha256": "41b30768f6b14d1fce0bdd7e5e054f5cd63127360e4f28a500ee72b3d5fae86a"
+    },
+    {
+      "path": "content/examples/borgofonte.map.json",
+      "bytes": 679,
+      "sha256": "3da98a65b1f16886df56ebf711bff736c70cca43598c9d33093ded87045ba8c0"
+    },
+    {
+      "path": "content/examples/brumalta.map.json",
+      "bytes": 820,
+      "sha256": "0fb90cf656bab669fff826e5b5447d17e22bc6992414b25165fbbe1009ca9911"
+    },
+    {
+      "path": "content/examples/d01_bosco_veli.map.json",
+      "bytes": 809,
+      "sha256": "5512cb4861a437a8af0e0ef1797e8145b514559b4f003659c1478f247426048a"
+    },
+    {
+      "path": "content/examples/gym01_brumalta.map.json",
+      "bytes": 562,
+      "sha256": "d5b3f7f432b7c935deb3a8133eeb98e3d25c689c39c6b24c972b07ae68565141"
+    },
+    {
+      "path": "content/examples/gym01_mira.trainer.json",
+      "bytes": 427,
+      "sha256": "ef83d81561244857459bfcc90ac1582f9c0de2133a172eacfdf83d8341b3d9d3"
+    },
+    {
+      "path": "content/examples/quest_prologue.quest.json",
+      "bytes": 916,
+      "sha256": "2e1da72c0310240b36824e21b1771597d6a1817b54460a237c5af21aa1e4209d"
+    },
+    {
+      "path": "content/examples/r01_sentiero_alba.map.json",
+      "bytes": 903,
+      "sha256": "3ffde4d5f16331c8da7db562618ca96b3c01a9113f169712117f288da5e0605f"
+    },
+    {
+      "path": "content/examples/r01_tall_grass.encounter.json",
+      "bytes": 1188,
+      "sha256": "2251de6d2f13c2e431c061afe05c31aee263fd6387a820888968960acff7305f"
+    },
+    {
+      "path": "content/examples/r02_viale_fronde.map.json",
+      "bytes": 796,
+      "sha256": "c831474e489c3da4b7bd0eec8ffeb2c7e01d4af0b8487ad406a895e03d9ef5dc"
+    },
+    {
+      "path": "content/examples/region.veloria.json",
+      "bytes": 1078,
+      "sha256": "4129043a5968ce3e3664c141fef4dc0d4f7f1c2f7b1853c5306bb53abadb98df"
+    },
+    {
+      "path": "content/examples/save.v1.example.json",
+      "bytes": 789,
+      "sha256": "226dea50ee0a13191ce390e90ccee8b1ce298a2ac6b087ae89c0ba1ce8df689b"
+    },
+    {
+      "path": "docs/01_GDD_Veloria_v0.1.md",
+      "bytes": 19669,
+      "sha256": "8c2453460dc22ea9375276a9423d16db0aa76246bee6367d886c4a2b5b7fbe3c"
+    },
+    {
+      "path": "docs/02_WORLD_MAP_DESIGN_Veloria_v0.2.md",
+      "bytes": 15482,
+      "sha256": "b62e9641a877c03714c6feedaad73154543e1620c3751e06b74266702e7a86a3"
+    },
+    {
+      "path": "docs/03_MVP_FUNCTIONAL_SPEC_v0.3.md",
+      "bytes": 7152,
+      "sha256": "6efa86b751dbf8362d45d01bec54fad59804ce4c3bd3b91151f6341939f840ac"
+    },
+    {
+      "path": "docs/04_TECHNICAL_ARCHITECTURE_v0.3.md",
+      "bytes": 6995,
+      "sha256": "aa9211a913a807bcd3eaed3eb79cd31d8dc91be999831d2a021f737664e40b15"
+    },
+    {
+      "path": "docs/05_ART_DIRECTION_v0.3.md",
+      "bytes": 4625,
+      "sha256": "8b0efc18dfe365fed063765a0657beb5cf970a390678f00e77a6ad2b4b78c36e"
+    },
+    {
+      "path": "docs/06_BATTLE_AND_PROGRESSION_RULES_v0.3.md",
+      "bytes": 4824,
+      "sha256": "571dc5892dcdc6c8b26026279834e764997ad698ac611a10c24e873a211780be"
+    },
+    {
+      "path": "docs/07_CONTENT_PIPELINE_AND_EXPANSION_v0.3.md",
+      "bytes": 5849,
+      "sha256": "cb4b44a9279927a43264016f656fc2d7b5aabe790eb19e7864acfbd6ae26ef6f"
+    },
+    {
+      "path": "docs/08_ROADMAP_BACKLOG_v0.3.md",
+      "bytes": 5103,
+      "sha256": "a6ea493a89da2ff1c90aae0b94999ebb7c9afe374b2ae79825aced91068d9c70"
+    },
+    {
+      "path": "docs/09_AI_DEVELOPMENT_PLAYBOOK_v0.3.md",
+      "bytes": 4538,
+      "sha256": "126833cdcae8266733c24b534d7e2ee7b2ad7cf32e7e9a582f59f060c783c751"
+    },
+    {
+      "path": "docs/10_LICENSES_AND_REFERENCES_v0.3.md",
+      "bytes": 2604,
+      "sha256": "51afc3d89ad750da1f477162abd22bfe13a018f7f80da32b6f12ec4cda8b8d0f"
+    },
+    {
+      "path": "docs/11_WORLD_MAP_ART_REVIEW_v0.3.md",
+      "bytes": 2821,
+      "sha256": "7eaf8e3b4b2b6c6ab0ab45d6f7015727589f25dba251be283dda167e81a51a2a"
+    },
+    {
+      "path": "specs/schemas/encounter.v1.schema.json",
+      "bytes": 1552,
+      "sha256": "3b2b8bf65549435256b36dd5b4745f0458f4f17f70fe6466951e247683d6cf41"
+    },
+    {
+      "path": "specs/schemas/map.v1.schema.json",
+      "bytes": 2647,
+      "sha256": "b903b32247134160809de3b1ce0272d211c371649d1729748ff335256ba753df"
+    },
+    {
+      "path": "specs/schemas/quest.v1.schema.json",
+      "bytes": 1646,
+      "sha256": "2f6a7089f1ec1f6ea89ab8f935583365e13ed5871de11355271e00e50d8dcdc2"
+    },
+    {
+      "path": "specs/schemas/save.v1.schema.json",
+      "bytes": 3629,
+      "sha256": "5e5a526699dff7c0a01614068e4f6650600efb8331925aea0ba73e3cb65f2a8b"
+    },
+    {
+      "path": "specs/schemas/trainer.v1.schema.json",
+      "bytes": 1408,
+      "sha256": "1d800947edd56b2637641ea8dbdc579768560f10b14d0b9a100f2572d64791d4"
+    },
+    {
+      "path": "tools/validate_examples.py",
+      "bytes": 3546,
+      "sha256": "e29ffdf10b2e638ac14767e3f3874210ac55dccf13cb8f20d5655003289e7ca4"
+    }
+  ]
+}

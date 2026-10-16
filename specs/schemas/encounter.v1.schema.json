@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Veloria EncounterTable v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "mapId",
+    "version",
+    "method",
+    "timeBands"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mapId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "tall-grass",
+        "cave",
+        "surf",
+        "fishing",
+        "special"
+      ]
+    },
+    "timeBands": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": [
+            "speciesId",
+            "weight",
+            "minLevel",
+            "maxLevel"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "speciesId": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 251
+            },
+            "weight": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minLevel": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "maxLevel": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}
