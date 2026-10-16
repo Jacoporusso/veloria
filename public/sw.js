@@ -1,5 +1,16 @@
-const CACHE = 'veloria-shell-v3';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './favicon.svg'];
+const CACHE = 'veloria-shell-v4';
+const SHELL = [
+  './', './index.html', './manifest.webmanifest', './favicon.svg',
+  './assets/tilesets/veloria-ground-v1.png',
+  './assets/sprites/borgofonte-house-01.png',
+  './assets/sprites/borgofonte-tree-01.png',
+  './assets/sprites/veloria-traveler-down.png',
+  './assets/sprites/veloria-traveler-up.png',
+  './assets/sprites/veloria-traveler-left.png',
+  './assets/sprites/veloria-traveler-right.png',
+  './tilemaps/bg_borgofonte.tmj',
+  './tilemaps/r01_sentiero_alba.tmj',
+];
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);

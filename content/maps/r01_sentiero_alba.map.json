@@ -1,0 +1,46 @@
+{
+  "id": "veloria/r01_sentiero_alba",
+  "version": 1,
+  "displayName": "Sentiero dell'Alba",
+  "biomeId": "grassland",
+  "tiledAsset": "tilemaps/r01_sentiero_alba.tmj",
+  "spawns": [
+    {
+      "id": "from_borgofonte",
+      "x": 1,
+      "y": 10,
+      "facing": "right"
+    },
+    {
+      "id": "to_bosco",
+      "x": 29,
+      "y": 8,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/borgofonte",
+      "viaSpawnId": "from_borgofonte",
+      "targetSpawnId": "from_r01",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/d01_bosco_veli",
+      "viaSpawnId": "to_bosco",
+      "targetSpawnId": "from_r01",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r01_tall_grass"
+  ],
+  "npcRefs": [
+    "trainer_route01_a",
+    "trainer_route01_b"
+  ],
+  "scriptRefs": [
+    "wild_encounters"
+  ],
+  "musicId": "ambient_route01"
+}

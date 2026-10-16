@@ -1,2 +1,9 @@
 asset_id,filename,creator,source_url,license,usage_permission,status
 worldmap-concept-v01,concept/Veloria_World_Map_Concept_v0.1.png,Generato con AI per il concept Veloria,,Concept art interna da verificare per altri usi,Da usare come riferimento di design,approved-concept-only
+veloria-ground-v1,../public/assets/tilesets/veloria-ground-v1.png,Generato proceduralmente per Veloria,,Originale; palette coerente con art direction v0.3,Uso nel prototipo,prototype-use
+borgofonte-house-01,../public/assets/sprites/borgofonte-house-01.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+borgofonte-tree-01,../public/assets/sprites/borgofonte-tree-01.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+veloria-traveler-down,../public/assets/sprites/veloria-traveler-down.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+veloria-traveler-up,../public/assets/sprites/veloria-traveler-up.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+veloria-traveler-left,../public/assets/sprites/veloria-traveler-left.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+veloria-traveler-right,../public/assets/sprites/veloria-traveler-right.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use

@@ -7,14 +7,14 @@
   "spawns": [
     {
       "id": "start",
-      "x": 10,
-      "y": 12,
+      "x": 20,
+      "y": 20,
       "facing": "down"
     },
     {
       "id": "from_r01",
-      "x": 23,
-      "y": 11,
+      "x": 22,
+      "y": 8,
       "facing": "down"
     }
   ],
