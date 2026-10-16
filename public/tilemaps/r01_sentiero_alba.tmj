@@ -1768,6 +1768,11 @@
               "name": "coat",
               "type": "int",
               "value": 14724177
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "route_trainer"
             }
           ]
         },
@@ -1796,6 +1801,11 @@
               "name": "coat",
               "type": "int",
               "value": 6650000
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "route_trainer"
             }
           ]
         }
@@ -1930,6 +1940,11 @@
               "name": "kind",
               "type": "string",
               "value": "rock"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una roccia coperta di muschio, levigata dalla pioggia."
             }
           ]
         },
@@ -1948,6 +1963,11 @@
               "name": "kind",
               "type": "string",
               "value": "rock"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una roccia coperta di muschio, levigata dalla pioggia."
             }
           ]
         },
@@ -1966,6 +1986,11 @@
               "name": "kind",
               "type": "string",
               "value": "sign"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Bosco dei Veli · L’avventura ti aspetta."
             }
           ]
         }

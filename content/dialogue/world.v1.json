@@ -1,0 +1,28 @@
+{
+  "prof_elia": {
+    "speaker": "Professoressa Elia",
+    "beforeStarter": [
+      "Benvenuta a Borgofonte. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
+      "È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
+    ],
+    "afterStarter": [
+      "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
+      "Ricorda: il Sentiero dell’Alba si trova a nord della piazza."
+    ],
+    "requiresStarterChoice": true
+  },
+  "nilo": {
+    "speaker": "Nilo",
+    "lines": [
+      "Ehi, anche tu senti il profumo del pane?",
+      "Dicono che dal Sentiero dell’Alba si arrivi al Bosco dei Veli. Non vedo l’ora di partire."
+    ]
+  },
+  "route_trainer": {
+    "speaker": "Viaggiatore",
+    "lines": [
+      "Il sentiero prosegue verso il Bosco dei Veli.",
+      "Fai attenzione all’erba alta: qualcosa si muove tra gli steli."
+    ]
+  }
+}

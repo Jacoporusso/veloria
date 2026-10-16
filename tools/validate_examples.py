@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "content" / "examples"
 MAPS = ROOT / "content" / "maps"
 PUBLIC = ROOT / "public"
+DIALOGUE_FILE = ROOT / "content" / "dialogue" / "world.v1.json"
+STARTER_FILE = ROOT / "content" / "starters" / "starting-partners.v1.json"
 
 def read(name):
     return json.loads((EXAMPLES / name).read_text(encoding="utf-8"))
@@ -44,6 +46,12 @@ runtime_maps = sorted(MAPS.glob("*.map.json"))
 runtime_by_id = {}
 trigger_destinations_by_id = {}
 required_layers = {"ground", "terrain_detail", "collision", "characters", "canopy_overhead", "interactions", "triggers"}
+dialogues = json.loads(DIALOGUE_FILE.read_text(encoding="utf-8"))
+starters = json.loads(STARTER_FILE.read_text(encoding="utf-8"))["starters"]
+check(len(starters) == 4, "Expected four starter partners")
+check(len({starter["speciesId"] for starter in starters}) == len(starters), "Duplicate starter species")
+for starter in starters:
+    check(1 <= starter["hp"] <= 100 and 1 <= len(starter["moves"]) <= 4, f"Invalid starter data: {starter['name']}")
 for file in runtime_maps:
     metadata = json.loads(file.read_text(encoding="utf-8"))
     check(metadata["id"] not in runtime_by_id, f"Duplicate runtime map ID: {metadata['id']}")
@@ -60,6 +68,14 @@ for file in runtime_maps:
         layer = layers[name]
         check(layer.get("type") == "tilelayer", f"{name} must be a tile layer in {tiled_path.name}")
         check(len(layer.get("data", [])) == tiled["width"] * tiled["height"], f"{name} dimensions mismatch in {tiled_path.name}")
+    for layer_name in ("characters", "canopy_overhead", "interactions"):
+        for obj in layers[layer_name].get("objects", []):
+            properties = {prop["name"]: prop.get("value") for prop in obj.get("properties", [])}
+            kind = properties.get("kind", obj.get("class", obj.get("type", "")))
+            if kind == "npc":
+                check(properties.get("dialogueId") in dialogues, f"Unknown dialogue ID in {metadata['id']}: {properties.get('dialogueId')}")
+            elif kind in {"house", "sign", "mill-wheel", "rock"}:
+                check(isinstance(properties.get("message"), str), f"Missing interaction message in {metadata['id']}: {obj.get('name')}")
     spawn_ids = {spawn["id"] for spawn in metadata["spawns"]}
     check(len(spawn_ids) == len(metadata["spawns"]), f"Duplicate runtime spawn in {metadata['id']}")
     collision_layer = layers["collision"]

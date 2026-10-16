@@ -24,8 +24,8 @@ The renderer expects `ground` and `terrain_detail` tile layers, plus these objec
 
 Use the Tiled custom property `kind` to select a renderer:
 
-- `npc`: set `npcId` to a stable content ID. `prof_elia`, `nilo`, and `trainer_route01_*` currently have dialogue handlers.
-- `house`, `tree`, `sign`, `mill-wheel`, and `rock`: rendered as landmarks. Object names provide their visible labels.
+- `npc`: set `npcId` and `dialogueId` to stable content IDs. Dialogue text lives in `content/dialogue/`, not in the Phaser scene.
+- `house`, `tree`, `sign`, `mill-wheel`, and `rock`: rendered as landmarks. Object names provide their visible labels; set `message` for the interaction text.
 - `triggers`: set `kind` to `map-exit` or `message`. For a map exit, set both `destinationMapId` and `destinationSpawnId`; add `requiredFlag` to gate it. For an area message, set `message`. Message zones show once each time the player enters them.
 
 Add matching `spawns` and `connections` in the MapDefinition. Spawn coordinates must be inside the Tiled map and outside collision objects; each destination spawn ID must exist in its target map. Map IDs and spawn IDs are persistent save data, so do not rename them after players have saved.

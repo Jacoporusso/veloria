@@ -1,7 +1,9 @@
 import Phaser from 'phaser';
 import { createUniqueId, saveGame, type GameSave } from '../../persistence/save-store';
+import { getStarterName, selectStarter, starters } from '../../core/party/select-starter';
 import { getMap, getMapKey, getSpawn, listMaps } from '../maps/map-registry';
 import type { MapTrigger, MapInteractable, RegisteredMap } from '../maps/map-types';
+import { getNpcDialogue } from '../interactions/dialogue-catalog';
 import { renderMap } from '../rendering/MapRenderer';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -137,24 +139,16 @@ export class WorldScene extends Phaser.Scene {
     const d={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]}[this.facing];
     const x=this.playerTile.x+d[0],y=this.playerTile.y+d[1];
     const prop=this.interactableAtTile(x,y);
-    const npcId=String(prop?.properties.npcId??prop?.id);
-    if(prop?.kind==='npc'&&npcId==='prof_elia'){
-      if(!this.save.flags.includes('q_starter_selected')){
-        this.afterDialogue=()=>this.showStarterChoices();
-        this.showDialogue('Professoressa Elia',['Benvenuta a Borgofonte. Sono Elia, la professoressa che si prende cura di questo laboratorio.','È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?']);
-      } else this.showDialogue('Professoressa Elia',[`Il tuo ${this.starterName()} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.`,'Ricorda: il Sentiero dell’Alba si trova a nord della piazza.']);
+    if (prop?.kind === 'npc') {
+      const dialogueId = String(prop.properties.dialogueId ?? prop.properties.npcId ?? prop.id);
+      const dialogue = getNpcDialogue(dialogueId, this.save.flags.includes('q_starter_selected'));
+      if (!dialogue) { this.showDialogue(prop.name, ['Un saluto cordiale.']); return; }
+      if (dialogue.requiresStarterChoice) this.afterDialogue = () => this.showStarterChoices();
+      this.showDialogue(dialogue.speaker, dialogue.lines.map(line => line.replaceAll('{starter}', this.starterName())));
       return;
     }
-    if(prop?.kind==='npc'&&npcId==='nilo'){this.showDialogue('Nilo',['Ehi, anche tu senti il profumo del pane?','Dicono che dal Sentiero dell’Alba si arrivi al Bosco dei Veli. Non vedo l’ora di partire.']);return;}
-    if(prop?.kind==='npc'&&npcId.startsWith('trainer_route01')){this.showDialogue(prop.name,['Il sentiero prosegue verso il Bosco dei Veli.','Fai attenzione all’erba alta: qualcosa si muove tra gli steli.']);return;}
-    if(prop?.kind==='sign'){this.showToast(`${prop.name} · L’avventura ti aspetta.`);return;}
-    if(prop?.kind==='mill-wheel'){this.showToast('La ruota del vecchio mulino gira lenta tra le acque.');return;}
-    if(prop?.kind==='house'){
-      const message=prop.id==='emporio'?'Presto troverai qui tutto ciò che serve per il viaggio.':prop.id==='laboratorio'?'Il laboratorio di Elia custodisce appunti e strumenti di ricerca.':`Una luce calda brilla dietro le finestre di ${prop.name}.`;
-      this.showToast(message);return;
-    }
-    if(prop?.kind==='rock'){this.showToast('Una roccia coperta di muschio, levigata dalla pioggia.');return;}
-    this.showToast('Una brezza leggera attraversa la piazza.');
+    const message = prop?.properties.message;
+    this.showToast(typeof message === 'string' ? message : 'Una brezza leggera attraversa la piazza.');
   }
 
   private interactableAtTile(x:number,y:number):MapInteractable|undefined {
@@ -224,20 +218,13 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector<HTMLElement>('#dialogue-speaker')!.textContent='SCEGLI IL TUO COMPAGNO';
     document.querySelector<HTMLElement>('#dialogue-text')!.textContent='Quattro avventure diverse. Scegli con chi iniziare.';
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=true;
-    const starters=[
-      {name:'Pikachu',speciesId:25,hp:19,moves:[['thunder-shock',30],['growl',40]]},
-      {name:'Charmander',speciesId:4,hp:19,moves:[['scratch',35],['growl',40]]},
-      {name:'Squirtle',speciesId:7,hp:20,moves:[['tackle',35],['tail-whip',30]]},
-      {name:'Bulbasaur',speciesId:1,hp:20,moves:[['tackle',35],['growl',40]]},
-    ];
     this.starterChoices.replaceChildren(...starters.map(starter=>{
       const button=document.createElement('button');
       button.className='starter-choice';button.type='button';button.textContent=starter.name;
       button.addEventListener('click',()=>{
-        if(this.save.flags.includes('q_starter_selected'))return;
-        const instanceId=createUniqueId();
-        this.save.party=[{instanceId,speciesId:starter.speciesId,level:5,experience:0,hp:starter.hp,maxHp:starter.hp,moves:starter.moves.map(([id,pp])=>({id:id as string,pp:pp as number}))}];
-        this.save.flags.push('q_starter_selected','q_research_sample_received');
+        const selected = selectStarter(this.save, starter.speciesId, createUniqueId());
+        if (!selected) return;
+        this.save = selected;
         this.starterChoices.hidden=true;
         document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
         this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Ho registrato il tuo nuovo compagno. Nessun viaggio si affronta da soli.']);
@@ -249,7 +236,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private starterName() {
-    return ({25:'Pikachu',4:'Charmander',7:'Squirtle',1:'Bulbasaur'} as Record<number,string>)[this.save.party[0]?.speciesId] ?? 'compagno';
+    return getStarterName(this.save.party[0]?.speciesId);
   }
 
   private persistProgress(showToast=false) {

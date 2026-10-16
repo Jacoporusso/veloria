@@ -2876,6 +2876,11 @@
               "name": "kind",
               "type": "string",
               "value": "collision"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una luce calda brilla dietro le finestre di Casa Elia."
             }
           ]
         },
@@ -2894,6 +2899,11 @@
               "name": "kind",
               "type": "string",
               "value": "collision"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Presto troverai qui tutto ciò che serve per il viaggio."
             }
           ]
         },
@@ -2912,6 +2922,11 @@
               "name": "kind",
               "type": "string",
               "value": "collision"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Il laboratorio di Elia custodisce appunti e strumenti di ricerca."
             }
           ]
         },
@@ -2930,6 +2945,11 @@
               "name": "kind",
               "type": "string",
               "value": "collision"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una luce calda brilla dietro le finestre dell’Officina."
             }
           ]
         },
@@ -3744,6 +3764,11 @@
               "name": "coat",
               "type": "int",
               "value": 7506681
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "prof_elia"
             }
           ]
         },
@@ -3772,6 +3797,11 @@
               "name": "coat",
               "type": "int",
               "value": 6711194
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "nilo"
             }
           ]
         }
@@ -3980,6 +4010,11 @@
               "name": "label",
               "type": "string",
               "value": "casa-elia"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una luce calda brilla dietro le finestre di Casa Elia."
             }
           ]
         },
@@ -4003,6 +4038,11 @@
               "name": "label",
               "type": "string",
               "value": "emporio"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Presto troverai qui tutto ciò che serve per il viaggio."
             }
           ]
         },
@@ -4026,6 +4066,11 @@
               "name": "label",
               "type": "string",
               "value": "laboratorio"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Il laboratorio di Elia custodisce appunti e strumenti di ricerca."
             }
           ]
         },
@@ -4049,6 +4094,11 @@
               "name": "label",
               "type": "string",
               "value": "officina"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Una luce calda brilla dietro le finestre dell’Officina."
             }
           ]
         },
@@ -4067,6 +4117,11 @@
               "name": "kind",
               "type": "string",
               "value": "mill-wheel"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "La ruota del vecchio mulino gira lenta tra le acque."
             }
           ]
         },
@@ -4085,6 +4140,11 @@
               "name": "kind",
               "type": "string",
               "value": "sign"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Sentiero dell’Alba · L’avventura ti aspetta."
             }
           ]
         },
@@ -4103,6 +4163,11 @@
               "name": "kind",
               "type": "string",
               "value": "sign"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Piazza del Mulino · L’avventura ti aspetta."
             }
           ]
         }
