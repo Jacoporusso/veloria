@@ -54,3 +54,16 @@ Questo archivio raccoglie **tutti gli output di progettazione prodotti finora** 
 - `SPEC` = decisione di progetto; `PROPOSTA` = modificabile tramite review; `TODO` = implementazione mancante.
 - Le mappe illustrate non sono tilemap e i nomi di fantasia restano provvisori se non ancora approvati.
 - Il numero 20 dell'MVP indica una **selezione iniziale di 20 specie di partenza/incontro**. Le forme evolute non già presenti nell'elenco vanno esplicitamente aggiunte al runtime se diventano ottenibili durante l'MVP, invece di introdurre evoluzioni volutamente spezzate. Il conteggio finale degli sprite MVP va pertanto confermato con il level design.
+
+## Avvio del prototipo
+
+Il primo prototipo esplorabile si avvia in locale con Node.js:
+
+```sh
+npm install
+npm run dev
+```
+
+Aprire l'indirizzo mostrato da Vite. Usare **WASD** o le frecce per muoversi, **E** o **Spazio** per interagire, **M** per salvare. Su telefono, usare la croce direzionale, i pulsanti A/B e S per salvare. La scelta dello starter viene conservata in IndexedDB. `npm run build` compila TypeScript e genera la PWA nella cartella `dist/`.
+
+Questa prima scena include Borgofonte esplorabile, ostacoli, dialoghi, scelta dello starter e salvataggio locale. Il resto del vertical slice — percorsi, Bosco dei Veli, battaglie, catture e palestra — è in sviluppo.

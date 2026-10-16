@@ -7,7 +7,9 @@
     "name": "Allenatore",
     "mapId": "veloria/borgofonte",
     "spawnPointId": "start",
-    "money": 300
+    "money": 300,
+    "x": 20,
+    "y": 20
   },
   "party": [
     {

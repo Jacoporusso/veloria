@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#132925" />
+    <meta name="description" content="Esplora Borgofonte, il primo villaggio della regione di Veloria." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Veloria — Borgofonte</title>
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Veloria, gioco di esplorazione">
+      <header class="game-header">
+        <a class="brand" href="/" aria-label="Veloria, torna alla mappa"><span class="brand-mark" aria-hidden="true">V</span><span>VELORIA<small>REGIONE DI FRONTIERA</small></span></a>
+        <div class="location"><span class="location-dot"></span><span>BORGOFONTE</span><span class="location-separator">·</span><span>Ore serene</span></div>
+        <button class="sound-button" id="help-button" aria-label="Mostra i comandi">?</button>
+      </header>
+      <section class="game-stage" aria-label="Area di gioco">
+        <div id="game" aria-label="Mappa interattiva di Borgofonte"></div>
+        <div class="scene-caption" aria-hidden="true"><span class="caption-line"></span><span>IL PRIMO GIORNO</span><span class="caption-line"></span></div>
+        <div class="controls-hint" id="hint">Muoviti con <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o le frecce</div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <section class="dialogue-box" id="dialogue-box" aria-live="polite" aria-label="Dialogo" hidden>
+          <div class="dialogue-speaker" id="dialogue-speaker"></div>
+          <p class="dialogue-text" id="dialogue-text"></p>
+          <div class="starter-choices" id="starter-choices" hidden aria-label="Scegli il tuo compagno iniziale"></div>
+          <div class="dialogue-footer"><span>STORIA DI VELORIA</span><span id="dialogue-prompt">A · Continua ▸</span></div>
+        </section>
+      </section>
+      <footer class="game-footer">
+        <div class="footer-note"><span class="footer-sparkle">✳</span> Un mondo da scoprire, un passo alla volta</div>
+        <div class="dpad" aria-label="Comandi di movimento touch">
+          <button class="dpad-key up" data-direction="up" aria-label="Vai in alto">▲</button>
+          <button class="dpad-key left" data-direction="left" aria-label="Vai a sinistra">◀</button>
+          <button class="dpad-key down" data-direction="down" aria-label="Vai in basso">▼</button>
+          <button class="dpad-key right" data-direction="right" aria-label="Vai a destra">▶</button>
+        </div>
+        <div class="touch-actions" aria-label="Azioni touch">
+          <button class="action-button" id="action-a" aria-label="Conferma e interagisci">A</button>
+          <button class="action-button action-secondary" id="action-b" aria-label="Annulla">B</button>
+          <button class="action-button action-save" id="action-save" aria-label="Salva la partita">S</button>
+        </div>
+        <div class="footer-legend"><span class="legend-dot"></span> Un prototipo originale di Veloria</div>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

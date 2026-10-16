@@ -1,0 +1,11 @@
+{
+  "name": "Veloria — Borgofonte",
+  "short_name": "Veloria",
+  "description": "Esplora il villaggio di Borgofonte, nella regione di Veloria.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#132925",
+  "theme_color": "#132925",
+  "orientation": "any",
+  "icons": [{ "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
