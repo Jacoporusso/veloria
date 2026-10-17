@@ -701,6 +701,9 @@ test('E2E-09: the R01 first-aid pickup grants one potion and stays collected aft
 });
 
 test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP, PP, and XP', async ({ page }) => {
+  // This scenario includes the full indoor prologue, route traversal and several turns.
+  // Keep the same journey budget as E2E-02; the final reload must also be verified.
+  test.setTimeout(120_000);
   // The smallest supported portrait candidate catches battle UI overflow before device QA.
   await page.setViewportSize({ width: 320, height: 568 });
   await page.addInitScript(() => {
