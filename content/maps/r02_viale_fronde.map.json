@@ -1,0 +1,65 @@
+{
+  "id": "veloria/r02_viale_fronde",
+  "version": 2,
+  "displayName": "Viale delle Fronde",
+  "biomeId": "forest_city_transition",
+  "tiledAsset": "tilemaps/r02_viale_fronde.tmj",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-forest-ground",
+      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bosco-ancient-tree-v1",
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "brumalta-center",
+      "path": "assets/sprites/brumalta-center-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_bosco",
+      "x": 1,
+      "y": 9,
+      "facing": "down"
+    },
+    {
+      "id": "to_brumalta",
+      "x": 26,
+      "y": 9,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/d01_bosco_veli",
+      "viaSpawnId": "from_bosco",
+      "targetSpawnId": "to_r02",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/brumalta",
+      "viaSpawnId": "to_brumalta",
+      "targetSpawnId": "from_r02",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02"
+}

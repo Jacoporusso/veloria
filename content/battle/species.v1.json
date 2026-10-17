@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "statFormula": {
+    "id": "veloria-stat-prototype-v1",
+    "hp": "floor(2 * baseStat * level / 100) + level + 10",
+    "other": "floor(2 * baseStat * level / 100) + 5",
+    "iv": 0,
+    "ev": 0,
+    "natureModifier": 1,
+    "notes": "Battle stats and balance are prototype values; the project documents have not approved an IV/EV/nature model or a final stat formula."
+  },
+  "experienceYieldNote": "These yields are prototype values for encounter testing, not a locked progression curve.",
+  "species": {
+    "1": {
+      "speciesId": 1,
+      "name": "Bulbasaur",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "speed": 45
+      },
+      "experienceYield": 64,
+      "defaultMoveIds": [
+        "tackle",
+        "growl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "4": {
+      "speciesId": 4,
+      "name": "Charmander",
+      "types": [
+        "fire"
+      ],
+      "baseStats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "specialAttack": 60,
+        "specialDefense": 50,
+        "speed": 65
+      },
+      "experienceYield": 62,
+      "defaultMoveIds": [
+        "scratch",
+        "growl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "7": {
+      "speciesId": 7,
+      "name": "Squirtle",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "specialAttack": 50,
+        "specialDefense": 64,
+        "speed": 43
+      },
+      "experienceYield": 63,
+      "defaultMoveIds": [
+        "tackle",
+        "tail-whip"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "10": {
+      "speciesId": 10,
+      "name": "Caterpie",
+      "types": [
+        "bug"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "attack": 30,
+        "defense": 35,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "speed": 45
+      },
+      "experienceYield": 53,
+      "defaultMoveIds": [
+        "tackle",
+        "growl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "11": {
+      "speciesId": 11,
+      "name": "Metapod",
+      "types": [
+        "bug"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 55,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "speed": 30
+      },
+      "experienceYield": 72,
+      "defaultMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "12": {
+      "speciesId": 12,
+      "name": "Butterfree",
+      "types": [
+        "bug",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 45,
+        "defense": 50,
+        "specialAttack": 90,
+        "specialDefense": 80,
+        "speed": 70
+      },
+      "experienceYield": 160,
+      "defaultMoveIds": [
+        "gust",
+        "tackle"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "13": {
+      "speciesId": 13,
+      "name": "Weedle",
+      "types": [
+        "bug",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "speed": 50
+      },
+      "experienceYield": 52,
+      "defaultMoveIds": [
+        "poison-sting",
+        "tackle"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "14": {
+      "speciesId": 14,
+      "name": "Kakuna",
+      "types": [
+        "bug",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "attack": 25,
+        "defense": 50,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "speed": 35
+      },
+      "experienceYield": 71,
+      "defaultMoveIds": [
+        "poison-sting",
+        "defense-curl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "15": {
+      "speciesId": 15,
+      "name": "Beedrill",
+      "types": [
+        "bug",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 40,
+        "specialAttack": 45,
+        "specialDefense": 80,
+        "speed": 75
+      },
+      "experienceYield": 159,
+      "defaultMoveIds": [
+        "poison-sting",
+        "quick-attack"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "16": {
+      "speciesId": 16,
+      "name": "Pidgey",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 40,
+        "specialAttack": 35,
+        "specialDefense": 35,
+        "speed": 56
+      },
+      "experienceYield": 50,
+      "defaultMoveIds": [
+        "tackle",
+        "gust"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "19": {
+      "speciesId": 19,
+      "name": "Rattata",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "speed": 72
+      },
+      "experienceYield": 51,
+      "defaultMoveIds": [
+        "tackle",
+        "quick-attack"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "25": {
+      "speciesId": 25,
+      "name": "Pikachu",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 35,
+        "attack": 55,
+        "defense": 40,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 90
+      },
+      "experienceYield": 82,
+      "defaultMoveIds": [
+        "thunder-shock",
+        "growl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "43": {
+      "speciesId": 43,
+      "name": "Oddish",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 55,
+        "specialAttack": 75,
+        "specialDefense": 65,
+        "speed": 30
+      },
+      "experienceYield": 78,
+      "defaultMoveIds": [
+        "tackle",
+        "poison-sting"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "60": {
+      "speciesId": 60,
+      "name": "Poliwag",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 50,
+        "defense": 40,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "speed": 90
+      },
+      "experienceYield": 60,
+      "defaultMoveIds": [
+        "tackle",
+        "tail-whip"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "69": {
+      "speciesId": 69,
+      "name": "Bellsprout",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 35,
+        "specialAttack": 70,
+        "specialDefense": 30,
+        "speed": 40
+      },
+      "experienceYield": 84,
+      "defaultMoveIds": [
+        "tackle",
+        "poison-sting"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "161": {
+      "speciesId": 161,
+      "name": "Sentret",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 35,
+        "attack": 46,
+        "defense": 34,
+        "specialAttack": 35,
+        "specialDefense": 45,
+        "speed": 20
+      },
+      "experienceYield": 57,
+      "defaultMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "163": {
+      "speciesId": 163,
+      "name": "Hoothoot",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 30,
+        "defense": 30,
+        "specialAttack": 36,
+        "specialDefense": 56,
+        "speed": 50
+      },
+      "experienceYield": 52,
+      "defaultMoveIds": [
+        "tackle",
+        "gust"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "167": {
+      "speciesId": 167,
+      "name": "Spinarak",
+      "types": [
+        "bug",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 60,
+        "defense": 40,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "speed": 30
+      },
+      "experienceYield": 50,
+      "defaultMoveIds": [
+        "poison-sting",
+        "tackle"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "179": {
+      "speciesId": 179,
+      "name": "Mareep",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 40,
+        "specialAttack": 65,
+        "specialDefense": 45,
+        "speed": 35
+      },
+      "experienceYield": 56,
+      "defaultMoveIds": [
+        "thunder-shock",
+        "growl"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    },
+    "194": {
+      "speciesId": 194,
+      "name": "Wooper",
+      "types": [
+        "water",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 45,
+        "defense": 45,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "speed": 15
+      },
+      "experienceYield": 42,
+      "defaultMoveIds": [
+        "tackle",
+        "tail-whip"
+      ],
+      "growthCurveId": "veloria_medium_fast_v1"
+    }
+  }
+}

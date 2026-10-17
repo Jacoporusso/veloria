@@ -1,0 +1,35 @@
+{
+  "id": "veloria/gym01_brumalta",
+  "version": 2,
+  "displayName": "Palestra di Brumalta",
+  "biomeId": "indoor_gym",
+  "tiledAsset": "tilemaps/gym01_brumalta.tmj",
+  "renderAssets": [
+    { "kind": "tileset", "key": "veloria-ground", "path": "assets/tilesets/veloria-ground-v1.png", "tiledName": "veloria_terrain", "tileWidth": 32, "tileHeight": 32 },
+    { "kind": "image", "key": "borgofonte-tree", "path": "assets/sprites/borgofonte-tree-01.png" }
+  ],
+  "spawns": [
+    {
+      "id": "from_city",
+      "x": 13,
+      "y": 17,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/brumalta",
+      "viaSpawnId": "from_city",
+      "targetSpawnId": "to_gym",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "mira"
+  ],
+  "scriptRefs": [
+    "gym01"
+  ],
+  "musicId": "gym01_theme"
+}

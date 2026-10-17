@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "note": "Curva temporanea da calibrare con playtest del primo atto; non è una decisione canonica del progetto.",
+  "growthCurves": {
+    "veloria_medium_fast_v1": {
+      "exponent": 3,
+      "multiplier": 1
+    }
+  },
+  "evolutions": []
+}

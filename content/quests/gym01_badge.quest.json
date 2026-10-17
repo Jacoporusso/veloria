@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_gym01_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Aurora",
+  "steps": [
+    {
+      "id": "defeat_mira",
+      "trigger": "battle/trainer_mira/defeated",
+      "setFlag": "badge_aurora_awarded",
+      "addBadge": "badge_aurora",
+      "requiresFlags": ["q_brumalta_visited"]
+    }
+  ],
+  "completionFlag": "badge_aurora_awarded",
+  "reward": {}
+}

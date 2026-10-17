@@ -1,9 +1,29 @@
 {
   "id": "veloria/borgofonte",
-  "version": 1,
+  "version": 2,
   "displayName": "Borgofonte",
   "biomeId": "rural",
   "tiledAsset": "tilemaps/bg_borgofonte.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground",
+      "path": "assets/tilesets/veloria-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-house",
+      "path": "assets/sprites/borgofonte-house-01.png"
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-tree",
+      "path": "assets/sprites/borgofonte-tree-01.png"
+    }
+  ],
   "spawns": [
     {
       "id": "start",
@@ -16,6 +36,18 @@
       "x": 22,
       "y": 8,
       "facing": "down"
+    },
+    {
+      "id": "from_home",
+      "x": 15,
+      "y": 14,
+      "facing": "down"
+    },
+    {
+      "id": "from_lab",
+      "x": 20,
+      "y": 31,
+      "facing": "down"
     }
   ],
   "connections": [
@@ -24,15 +56,24 @@
       "viaSpawnId": "from_r01",
       "targetSpawnId": "from_borgofonte",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/borgofonte_home",
+      "viaSpawnId": "from_home",
+      "targetSpawnId": "from_village",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/borgofonte_lab",
+      "viaSpawnId": "from_lab",
+      "targetSpawnId": "from_village",
+      "requiresFlags": []
     }
   ],
   "encounterTableIds": [],
   "npcRefs": [
-    "prof_elia",
     "nilo"
   ],
-  "scriptRefs": [
-    "quest_prologue"
-  ],
+  "scriptRefs": [],
   "musicId": "ambient_borgofonte"
 }

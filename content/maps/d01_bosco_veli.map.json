@@ -1,0 +1,97 @@
+{
+  "id": "veloria/d01_bosco_veli",
+  "version": 2,
+  "displayName": "Bosco dei Veli",
+  "biomeId": "forest",
+  "tiledAsset": "tilemaps/d01_bosco_veli.tmj",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-forest-ground",
+      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-tree",
+      "path": "assets/sprites/borgofonte-tree-01.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bosco-ancient-tree-v1",
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bosco-pond-v1",
+      "path": "assets/sprites/veloria-bosco-pond-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r01",
+      "x": 1,
+      "y": 10,
+      "facing": "right"
+    },
+    {
+      "id": "to_brumalta",
+      "x": 29,
+      "y": 10,
+      "facing": "right"
+    },
+    {
+      "id": "to_r02",
+      "x": 29,
+      "y": 10,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r01_sentiero_alba",
+      "viaSpawnId": "from_r01",
+      "targetSpawnId": "to_bosco",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r02_viale_fronde",
+      "viaSpawnId": "to_r02",
+      "targetSpawnId": "from_bosco",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/d01_woodland"
+  ],
+  "npcRefs": [
+    "forest_ranger_ada"
+  ],
+  "scriptRefs": [
+    "event/forest_signal/read",
+    "interaction/ada/report"
+  ],
+  "musicId": "ambient_forest",
+  "ambientEffects": [
+    {
+      "kind": "fireflies",
+      "count": 14,
+      "area": { "x": 128, "y": 96, "width": 704, "height": 448 },
+      "colors": ["#e7d99b", "#c8d59b", "#a5c8a9"]
+    },
+    {
+      "kind": "water-shimmer",
+      "count": 7,
+      "area": { "x": 704, "y": 96, "width": 160, "height": 96 },
+      "colors": ["#cce3cf", "#e9e6c7"]
+    }
+  ]
+}

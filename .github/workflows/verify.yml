@@ -1,0 +1,59 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Build, content, and browser tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Build and type-check
+        run: npm run build
+
+      - name: Run domain and persistence tests
+        run: npm test
+
+      - name: Validate content, maps, assets, and dependency licenses
+        run: python tools/validate_examples.py
+
+      - name: Run Python validator tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Run browser end-to-end tests
+        run: npm run test:e2e
+
+      - name: Run offline PWA end-to-end test
+        run: npm run test:e2e:offline

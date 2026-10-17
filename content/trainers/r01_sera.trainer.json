@@ -1,0 +1,13 @@
+{
+  "id": "veloria/trainer_route01_sera",
+  "name": "Sera",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_route01_sera_defeated",
+  "defeatQuestEvent": "battle/trainer_route01_sera/defeated",
+  "rewardMoney": 100,
+  "victoryMessage": "Sera ti fa i complimenti. Ricevi 100 ₿.",
+  "team": [
+    { "speciesId": 16, "level": 3, "moveIds": ["tackle", "gust"] }
+  ]
+}

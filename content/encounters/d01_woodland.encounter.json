@@ -1,0 +1,31 @@
+{
+  "id": "veloria/d01_woodland",
+  "mapId": "veloria/d01_bosco_veli",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      { "speciesId": 10, "weight": 25, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 13, "weight": 20, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 43, "weight": 30, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 69, "weight": 20, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 11, "weight": 5, "minLevel": 6, "maxLevel": 7 }
+    ],
+    "day": [
+      { "speciesId": 16, "weight": 20, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 179, "weight": 25, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 194, "weight": 20, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 12, "weight": 5, "minLevel": 8, "maxLevel": 9 },
+      { "speciesId": 15, "weight": 5, "minLevel": 8, "maxLevel": 9 },
+      { "speciesId": 14, "weight": 5, "minLevel": 6, "maxLevel": 7 },
+      { "speciesId": 10, "weight": 20, "minLevel": 3, "maxLevel": 5 }
+    ],
+    "night": [
+      { "speciesId": 163, "weight": 30, "minLevel": 3, "maxLevel": 6 },
+      { "speciesId": 167, "weight": 25, "minLevel": 3, "maxLevel": 6 },
+      { "speciesId": 194, "weight": 20, "minLevel": 3, "maxLevel": 5 },
+      { "speciesId": 60, "weight": 25, "minLevel": 3, "maxLevel": 5 }
+    ]
+  }
+}

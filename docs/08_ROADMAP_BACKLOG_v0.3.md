@@ -26,7 +26,7 @@ Il rilascio MVP si intende concluso con S6. Le fasi possono essere sovrapposte s
 ### EPIC B — Narrative
 
 - **US-B01 (P0):** Dialogo con la prof.ssa Elia; ottengo uno e uno solo dei 4 starter.
-- **US-B02 (P0):** Parlo con NPC, vedo testo paginato, scelgo opzioni e sblocco eventi.
+- **US-B02 (P0):** Parlo con NPC, vedo testo paginato, scelgo opzioni e sblocco eventi; accetto o rinvio esplicitamente le sfide degli allenatori.
 - **US-B03 (P0):** Completo mini quest di Ada con stato persistente e ricompensa senza duplicazione.
 
 ### EPIC C — Creatures & battle

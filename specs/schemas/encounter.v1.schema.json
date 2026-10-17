@@ -7,6 +7,7 @@
     "id",
     "mapId",
     "version",
+    "status",
     "method",
     "timeBands"
   ],
@@ -23,6 +24,10 @@
       "type": "integer",
       "minimum": 1
     },
+    "status": {
+      "type": "string",
+      "enum": ["prototype"]
+    },
     "method": {
       "type": "string",
       "enum": [
@@ -30,7 +35,8 @@
         "cave",
         "surf",
         "fishing",
-        "special"
+        "special",
+        "woodland-understory"
       ]
     },
     "timeBands": {

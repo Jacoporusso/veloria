@@ -7,3 +7,22 @@ veloria-traveler-down,../public/assets/sprites/veloria-traveler-down.png,OpenAI 
 veloria-traveler-up,../public/assets/sprites/veloria-traveler-up.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
 veloria-traveler-left,../public/assets/sprites/veloria-traveler-left.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
 veloria-traveler-right,../public/assets/sprites/veloria-traveler-right.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+veloria-bosco-ancient-tree-v1,../public/assets/sprites/veloria-bosco-ancient-tree-v1.png,OpenAI ImageGen,,Originale generato per Veloria; sprite trasparente in pixel art,Uso nel prototipo,prototype-use
+veloria-bosco-pond-v1,../public/assets/sprites/veloria-bosco-pond-v1.png,OpenAI ImageGen,,Original game art generated for Veloria; transparent top-down pixel-art pond overlay,Prototype use,prototype-use
+veloria-forest-ground-v1,../public/assets/tilesets/veloria-forest-ground-v1.png,"OpenAI ImageGen, downsampled and edge-blended for 32px tile repeat",,Original game art generated for Veloria,Prototype use,prototype-use
+veloria-brumalta-ground-v1,../public/assets/tilesets/veloria-brumalta-ground-v1.png,"OpenAI ImageGen, downsampled and edge-blended for 32px tile repeat",,Original game art generated for Veloria,Prototype use,prototype-use
+brumalta-center-v1,../public/assets/sprites/brumalta-center-v1.png,"OpenAI ImageGen, resized to Tiled object bounds",,Original game art generated for Veloria,Prototype use,prototype-use
+brumalta-shop-v1,../public/assets/sprites/brumalta-shop-v1.png,"OpenAI ImageGen, cropped from transparent building sheet and reduced to 192x160 pixel art",,Original game art generated for Veloria,Prototype use,prototype-use
+brumalta-gym-v1,../public/assets/sprites/brumalta-gym-v1.png,"OpenAI ImageGen, cropped from transparent building sheet and reduced to 192x160 pixel art",,Original game art generated for Veloria,Prototype use,prototype-use
+veloria-favicon-v1,../public/favicon.svg,Veloria project,,Original project-created vector mark,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-icon-180-v1,../public/icons/veloria-180.png,Veloria project,,Original project-created application icon,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-icon-192-v1,../public/icons/veloria-192.png,Veloria project,,Original project-created application icon,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-icon-512-v1,../public/icons/veloria-512.png,Veloria project,,Original project-created application icon,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-icon-192-svg-v1,../public/icons/veloria-192.svg,Veloria project,,Original project-created vector application icon,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-icon-512-svg-v1,../public/icons/veloria-512.svg,Veloria project,,Original project-created vector application icon,Use in the Veloria prototype; review before distribution,prototype-use
+veloria-battle-forest-v1,../public/assets/battle/veloria-battle-forest-v1.png,OpenAI ImageGen,,Original Veloria pixel-art battle arena background; 768x512 palette-reduced export,Prototype use,prototype-use
+radicelmo-greenhouse-v1,../public/assets/sprites/radicelmo-greenhouse-v1.png,OpenAI ImageGen,,Originale generato per Veloria,Uso nel prototipo,prototype-use
+radicelmo-community-v1,../public/assets/sprites/radicelmo-community-v1.png,OpenAI ImageGen,,Originale generato per Veloria nello stile della serra di Radicelmo,Uso nel prototipo,prototype-use
+radicelmo-herbalist-v1,../public/assets/sprites/radicelmo-herbalist-v1.png,OpenAI ImageGen,,Originale generato per Veloria nello stile della serra di Radicelmo,Uso nel prototipo,prototype-use
+borgofonte-home-interior-v1,../public/assets/sprites/borgofonte-home-interior-v1.png,OpenAI ImageGen,,Original Veloria bedroom interior artwork,Prototype use; final human art review pending,prototype-use
+borgofonte-lab-interior-v1,../public/assets/sprites/borgofonte-lab-interior-v1.png,OpenAI ImageGen,,Original Veloria laboratory interior artwork,Prototype use; final human art review pending,prototype-use

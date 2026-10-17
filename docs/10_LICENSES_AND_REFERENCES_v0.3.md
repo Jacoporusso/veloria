@@ -37,3 +37,7 @@ Il progetto è destinato a uso strettamente privato su smartphone, senza distrib
 - [ ] È chiaro cosa dovrà essere sostituito in caso di rilascio pubblico.
 
 Queste note non costituiscono una consulenza legale.
+
+La validazione automatica `python tools/validate_examples.py` verifica inoltre che ogni media pubblicato in `public/` sia registrato una sola volta, che il file resti dentro il repository e che creator, licenza, permesso e stato siano compilati. Un asset esterno deve avere anche una `source_url`; per gli asset originali del progetto basta indicare chiaramente autore/strumento e natura del materiale. Le icone PWA e il favicon seguono lo stesso registro degli asset di mappa.
+
+`assets/DEPENDENCY_LICENSES.csv` registra per ogni pacchetto bloccato da `package-lock.json` versione, licenza dichiarata da npm, URL risolto, integrity, ambito dev/prod e stato optional. Dopo una modifica alle dipendenze eseguire `python tools/sync_dependency_licenses.py`, poi il validator controlla che il registro corrisponda ancora al lockfile. Il registro è una traccia tecnica e non una valutazione legale delle licenze.

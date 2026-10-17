@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "themes": {
+    "ambient_borgofonte": { "wave": "triangle", "beatMs": 920, "notes": [293.66, 369.99, 440, 369.99, 329.63, 246.94, 329.63, 392] },
+    "ambient_route01": { "wave": "sine", "beatMs": 760, "notes": [392, 440, 523.25, 440, 392, 349.23, 329.63, 392] },
+    "ambient_forest": { "wave": "sine", "beatMs": 1080, "notes": [261.63, 329.63, 293.66, 392, 329.63, 293.66, 246.94, 293.66] },
+    "ambient_route02": { "wave": "triangle", "beatMs": 820, "notes": [349.23, 392, 440, 523.25, 440, 392, 329.63, 392] },
+    "ambient_brumalta": { "wave": "triangle", "beatMs": 700, "notes": [329.63, 392, 440, 493.88, 440, 392, 349.23, 392] },
+    "gym01_theme": { "wave": "triangle", "beatMs": 620, "notes": [293.66, 293.66, 440, 392, 349.23, 349.23, 523.25, 440] },
+    "battle_wild": { "wave": "triangle", "beatMs": 410, "notes": [392, 523.25, 440, 587.33, 523.25, 440, 493.88, 392] },
+    "battle_trainer": { "wave": "triangle", "beatMs": 360, "notes": [329.63, 440, 523.25, 493.88, 440, 392, 493.88, 523.25] },
+    "battle_gym": { "wave": "triangle", "beatMs": 330, "notes": [293.66, 392, 523.25, 587.33, 523.25, 440, 392, 493.88] }
+  }
+}

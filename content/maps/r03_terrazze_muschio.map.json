@@ -1,0 +1,94 @@
+{
+  "id": "veloria/r03_terrazze_muschio",
+  "version": 2,
+  "displayName": "Terrazze del Muschio",
+  "biomeId": "forest_terraces",
+  "tiledAsset": "tilemaps/r03_terrazze_muschio.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-forest-ground",
+      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bosco-ancient-tree-v1",
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_brumalta",
+      "x": 1,
+      "y": 17,
+      "facing": "right"
+    },
+    {
+      "id": "from_radicelmo",
+      "x": 30,
+      "y": 6,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/brumalta",
+      "viaSpawnId": "from_brumalta",
+      "targetSpawnId": "from_r03",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/radicelmo",
+      "viaSpawnId": "from_radicelmo",
+      "targetSpawnId": "from_r03",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r03_moss_terraces"
+  ],
+  "npcRefs": [
+    "r03_path_guide"
+  ],
+  "scriptRefs": [
+    "quest/radicelmo_seed_archive"
+  ],
+  "musicId": "ambient_forest",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 5,
+      "triggerIds": [
+        "Radura delle Felci",
+        "Giardino di Pietra"
+      ],
+      "colors": [
+        "#b5cb78",
+        "#d6e69a"
+      ]
+    },
+    {
+      "kind": "fireflies",
+      "count": 12,
+      "area": {
+        "x": 544,
+        "y": 64,
+        "width": 256,
+        "height": 192
+      },
+      "colors": [
+        "#d9ef91",
+        "#b7dc78"
+      ]
+    }
+  ]
+}

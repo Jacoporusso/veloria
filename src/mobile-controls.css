@@ -1,11 +1,42 @@
 .touch-actions{display:none}
 @media(max-width:700px){
-  .touch-actions{position:absolute;right:140px;bottom:18px;display:flex;gap:8px;align-items:center}
-  .action-button{width:38px;height:38px;border:1px solid #ddc8914c;border-radius:50%;background:#172920e8;color:#e8d6a6;font:500 13px 'DM Mono',monospace;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
+  .touch-actions{position:absolute;right:145px;bottom:16px;display:flex;gap:6px;align-items:center}
+  .action-button{width:44px;height:44px;border:1px solid #ddc8914c;border-radius:50%;background:#172920e8;color:#e8d6a6;font:500 13px 'DM Mono',monospace;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
   .action-button:active{background:#3a4b35;color:#fff2cd}
   .action-secondary{color:#aeb3a0}
 }
 @media(max-height:480px) and (orientation:landscape){
-  .touch-actions{right:112px;bottom:7px;gap:4px}
-  .action-button{width:30px;height:30px;font-size:11px}
+  .touch-actions{display:flex;right:132px;bottom:8px;gap:4px}
+  .action-button{width:40px;height:40px;font-size:12px}
 }
+
+/* Keep touch controls and overlays inside iPhone/Android display cutouts. */
+.game-shell{
+  height:100vh;
+  height:100dvh;
+  padding-top:env(safe-area-inset-top);
+  padding-right:max(46px,env(safe-area-inset-right));
+  padding-bottom:env(safe-area-inset-bottom);
+  padding-left:max(46px,env(safe-area-inset-left));
+}
+@media(max-width:700px){
+  .game-shell{
+    padding-right:max(15px,env(safe-area-inset-right));
+    padding-left:max(15px,env(safe-area-inset-left));
+  }
+}
+body.battle-active .game-shell{
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.game-header .location{min-width:0}
+@media(max-width:700px){
+  .game-header{gap:8px}
+  .brand{gap:6px;flex-shrink:0}
+  .brand small{display:none}
+  .location{flex:1;justify-content:center;overflow:hidden}
+  .location-separator,.location>span:last-child{display:none}
+  .location-dot{flex:none}
+  #current-location{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.07em}
+  .header-actions{gap:5px}
+}
+@media(max-width:360px){.brand>span:last-child{display:none}}

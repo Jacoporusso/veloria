@@ -1,0 +1,83 @@
+{
+  "id": "veloria/radicelmo",
+  "version": 2,
+  "displayName": "Radicelmo",
+  "biomeId": "forest_village",
+  "tiledAsset": "tilemaps/radicelmo.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-forest-ground",
+      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bosco-ancient-tree-v1",
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "radicelmo-community",
+      "path": "assets/sprites/radicelmo-community-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "radicelmo-herbalist",
+      "path": "assets/sprites/radicelmo-herbalist-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "radicelmo-greenhouse",
+      "path": "assets/sprites/radicelmo-greenhouse-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r03",
+      "x": 1,
+      "y": 14,
+      "facing": "right"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r03_terrazze_muschio",
+      "viaSpawnId": "from_r03",
+      "targetSpawnId": "from_radicelmo",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "radicelmo_keeper"
+  ],
+  "scriptRefs": [
+    "quest/radicelmo_seed_archive"
+  ],
+  "musicId": "ambient_brumalta",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "fireflies",
+      "count": 10,
+      "area": {
+        "x": 640,
+        "y": 352,
+        "width": 320,
+        "height": 192
+      },
+      "colors": [
+        "#d9ef91",
+        "#b7dc78"
+      ]
+    }
+  ]
+}

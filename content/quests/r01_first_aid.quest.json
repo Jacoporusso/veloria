@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r01_first_aid",
+  "version": 1,
+  "displayName": "Un piccolo aiuto sul sentiero",
+  "steps": [
+    {
+      "id": "collect_first_aid",
+      "trigger": "pickup/r01/first_aid",
+      "setFlag": "item_r01_potion_collected",
+      "requiresFlags": ["q_starter_selected"]
+    }
+  ],
+  "completionFlag": "item_r01_potion_collected",
+  "reward": { "items": { "potion": 1 } }
+}

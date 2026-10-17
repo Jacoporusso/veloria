@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Veloria progression rules v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "status", "growthCurves", "evolutions"],
+  "properties": {
+    "version": { "const": 1 },
+    "status": { "enum": ["prototype"] },
+    "note": { "type": "string" },
+    "statFormula": { "type": "object" },
+    "experienceYieldNote": { "type": "string" },
+    "growthCurves": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["exponent", "multiplier"],
+        "properties": {
+          "exponent": { "type": "number", "exclusiveMinimum": 0 },
+          "multiplier": { "type": "number", "exclusiveMinimum": 0 }
+        }
+      }
+    },
+    "evolutions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fromSpeciesId", "toSpeciesId", "minimumLevel", "assetId"],
+        "properties": {
+          "fromSpeciesId": { "type": "integer", "minimum": 1, "maximum": 251 },
+          "toSpeciesId": { "type": "integer", "minimum": 1, "maximum": 251 },
+          "minimumLevel": { "type": "integer", "minimum": 2, "maximum": 100 },
+          "assetId": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

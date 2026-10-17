@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r03_moss_terraces",
+  "mapId": "veloria/r03_terrazze_muschio",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 43,
+        "weight": 35,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 69,
+        "weight": 30,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 16,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 179,
+        "weight": 10,
+        "minLevel": 7,
+        "maxLevel": 9
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 16,
+        "weight": 30,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 43,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 194,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 179,
+        "weight": 20,
+        "minLevel": 7,
+        "maxLevel": 9
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 163,
+        "weight": 35,
+        "minLevel": 6,
+        "maxLevel": 9
+      },
+      {
+        "speciesId": 167,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 60,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 194,
+        "weight": 15,
+        "minLevel": 6,
+        "maxLevel": 8
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "veloria/q_gym01_resonance",
+  "version": 1,
+  "displayName": "I sigilli del giardino",
+  "steps": [
+    {
+      "id": "south_seal",
+      "trigger": "gym01/resonance/south",
+      "setFlag": "gym01_resonance_south",
+      "requiresFlags": ["q_brumalta_visited"]
+    },
+    {
+      "id": "middle_seal",
+      "trigger": "gym01/resonance/middle",
+      "setFlag": "gym01_resonance_middle",
+      "requiresFlags": ["gym01_resonance_south"]
+    },
+    {
+      "id": "north_seal",
+      "trigger": "gym01/resonance/north",
+      "setFlag": "gym01_puzzle_solved",
+      "requiresFlags": ["gym01_resonance_middle"]
+    }
+  ],
+  "completionFlag": "gym01_puzzle_solved",
+  "reward": {}
+}

@@ -69,13 +69,12 @@
           "type": "integer",
           "minimum": 0
         },
-        "itemId": {
-          "type": "string",
-          "minLength": 1
-        },
-        "quantity": {
-          "type": "integer",
-          "minimum": 0
+        "items": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
         }
       }
     }

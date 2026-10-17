@@ -1,9 +1,28 @@
 {
   "id": "veloria/r01_sentiero_alba",
-  "version": 1,
+  "version": 2,
   "displayName": "Sentiero dell'Alba",
   "biomeId": "grassland",
   "tiledAsset": "tilemaps/r01_sentiero_alba.tmj",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "renderAssets": [
+    { "kind": "tileset", "key": "veloria-ground", "path": "assets/tilesets/veloria-ground-v1.png", "tiledName": "veloria_terrain", "tileWidth": 32, "tileHeight": 32 },
+    { "kind": "image", "key": "borgofonte-tree", "path": "assets/sprites/borgofonte-tree-01.png" },
+    { "kind": "image", "key": "veloria-battle-forest-v1", "path": "assets/battle/veloria-battle-forest-v1.png" }
+  ],
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 6,
+      "triggerIds": [
+        "Erba alta ovest",
+        "Erba alta nord-est",
+        "Erba alta sud-ovest",
+        "Erba alta sud-est"
+      ],
+      "colors": ["#7f9d4e", "#92aa59", "#6e8c45"]
+    }
+  ],
   "spawns": [
     {
       "id": "from_borgofonte",

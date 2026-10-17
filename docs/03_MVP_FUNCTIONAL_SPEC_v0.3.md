@@ -31,8 +31,9 @@ Consentire una partita completa su iPhone in verticale: **Nuova partita → scel
 ## 2. Aree e passaggi di stato
 
 - `veloria/borgofonte`: prologo, casa, laboratorio, prof.ssa Elia, Nilo; senza incontri.
+- Interni collegati al borgo: `veloria/borgofonte_home` (camera, letto per riposare, diario) e `veloria/borgofonte_lab` (Elia, scelta starter, rilevazioni e strumenti). La partita iniziale parte ancora nella piazza; Elia riceve nel laboratorio. Si entra camminando sulla soglia e si interagisce con A.
 - `veloria/r01_sentiero_alba`: erba alta, due allenatori, un oggetto, checkpoint di tutorial.
-- `veloria/d01_bosco_dei_veli`: missione di Ada, oggetto chiave, blocco narrativo rimovibile, incontri selezionati.
+- `veloria/d01_bosco_veli`: missione di Ada, oggetto chiave, blocco narrativo rimovibile, incontri selezionati.
 - `veloria/brumalta`: Centro Pokémon, bottega, NPC, accesso alla Palestra.
 - `veloria/gym01_brumalta`: puzzle a passaggi, sfida a Mira, consegna Medaglia Aurora.
 
@@ -70,21 +71,23 @@ Specie di lancio aggiuntive del vertical slice: Rattata, Pidgey, Sentret, Hootho
 
 ## 5. Scenari di accettazione (E2E)
 
-**E2E-01 — Starter:** avvia nuova partita, scegli Charmander, verifica party con una sola entità e impossibilità di ricevere un secondo starter.
+**E2E-01 — Starter:** avvia nuova partita, entra nel laboratorio di Borgofonte dalla porta, parla con Elia e scegli Charmander; verifica party con una sola entità e impossibilità di ricevere un secondo starter.
 
 **E2E-02 — Navigazione:** cammina da Borgofonte al bosco, ricarica durante un percorso, verifica coordinate/spawn validi e assenza di blocco irreversibile.
 
-**E2E-03 — Combattimento:** affronta un Pidgey selvatico, esaurisci i PP di una mossa, usa un'altra mossa, termina la battaglia; HP/PP/XP persistono.
+**E2E-03 — Combattimento:** affronta un Pidgey selvatico, esaurisci i PP di una mossa, usa un'altra mossa, termina la battaglia; HP/PP/XP persistono. La porzione Playwright gira anche a 320×568 portrait e verifica che il canvas di battaglia resti dentro il viewport senza overflow di pagina; safe area e leggibilità su hardware restano da confermare sul dispositivo reale.
 
 **E2E-04 — Cattura e deposito:** con squadra piena cattura un Pokémon; entra nel deposito, verifica la nuova istanza e l'assenza di duplicazione dopo il reload.
 
 **E2E-05 — Badge:** sconfiggi Mira, ottieni una sola Medaglia Aurora; il capopalestra cambia dialogo; riavvia la PWA e verifica stato persistente.
 
-**E2E-06 — Offline:** su iPhone, apri almeno una volta il gioco installato online, conferma tutte le risorse necessarie, attiva modalità aereo, riapri e completa il loop fondamentale senza richieste remote.
+**E2E-06 — Offline:** su iPhone, apri almeno una volta il gioco installato online, conferma tutte le risorse necessarie, attiva modalità aereo, riapri e completa il loop fondamentale senza richieste remote. La porzione Playwright desktop copre precache, nuovo gioco/starter, percorso Borgofonte–Bosco, pickup, transizioni mappa, incontro e cattura con squadra e inventario persistiti, verificando zero richieste fallite; non sostituisce la prova manuale su iPhone standalone in modalità aereo.
 
 **E2E-07 — Backup:** esporta un JSON, cancella lo stato, reimporta e conferma identità univoche, mappa, progressione, party e inventario.
 
 **E2E-08 — Migrazione:** apri un salvataggio `schemaVersion=1` in una build successiva con migration test, senza perdita di medaglie o Pokémon.
+
+**E2E-13 — Interni di Borgofonte:** entra nel laboratorio e nella casa dal paese, verifica il ritorno davanti alle rispettive porte e la posizione dopo il reload. Al letto, cura una squadra con HP/PP ridotti e avvelenamento valido nello schema; la guarigione deve essere persistita. Una soglia rimane utilizzabile anche quando si sovrappone a una zona con messaggio ambientale.
 
 ## 6. Criteri di uscita (release gate)
 

@@ -1,0 +1,91 @@
+{
+  "id": "veloria/brumalta",
+  "version": 2,
+  "displayName": "Brumalta",
+  "biomeId": "urban_park",
+  "tiledAsset": "tilemaps/c01_brumalta.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-brumalta-ground",
+      "path": "assets/tilesets/veloria-brumalta-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-house",
+      "path": "assets/sprites/borgofonte-house-01.png"
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-tree",
+      "path": "assets/sprites/borgofonte-tree-01.png"
+    },
+    {
+      "kind": "image",
+      "key": "brumalta-center",
+      "path": "assets/sprites/brumalta-center-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "brumalta-shop",
+      "path": "assets/sprites/brumalta-shop-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "brumalta-gym",
+      "path": "assets/sprites/brumalta-gym-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r02",
+      "x": 1,
+      "y": 12,
+      "facing": "right"
+    },
+    {
+      "id": "to_gym",
+      "x": 28,
+      "y": 9,
+      "facing": "down"
+    },
+    {
+      "id": "from_r03",
+      "x": 34,
+      "y": 12,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r02_viale_fronde",
+      "viaSpawnId": "from_r02",
+      "targetSpawnId": "to_brumalta",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym01_brumalta",
+      "viaSpawnId": "to_gym",
+      "targetSpawnId": "from_city",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r03_terrazze_muschio",
+      "viaSpawnId": "from_r03",
+      "targetSpawnId": "from_brumalta",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ]
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [],
+  "scriptRefs": [
+    "area/veloria/brumalta/enter",
+    "gym01"
+  ],
+  "musicId": "ambient_brumalta"
+}

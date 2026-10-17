@@ -1,15 +1,30 @@
 {
   "prof_elia": {
     "speaker": "Professoressa Elia",
-    "beforeStarter": [
-      "Benvenuta a Borgofonte. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
-      "È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
-    ],
-    "afterStarter": [
-      "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
-      "Ricorda: il Sentiero dell’Alba si trova a nord della piazza."
-    ],
-    "requiresStarterChoice": true
+    "stages": [
+      {
+        "whenFlagMissing": "q_starter_selected",
+        "lines": [
+          "Benvenuta a Borgofonte. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
+          "È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
+        ],
+        "requiresStarterChoice": true
+      },
+      {
+        "whenFlagMissing": "q_research_sample_received",
+        "questEvent": "interaction/prof_elia/readings",
+        "lines": [
+          "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
+          "Ho preparato le rilevazioni per Ada. Torna da me quando sei pronto a partire."
+        ]
+      },
+      {
+        "lines": [
+          "Le rilevazioni sono pronte. Ada ti aspetta nel Bosco dei Veli.",
+          "Il Sentiero dell’Alba si trova a nord della piazza."
+        ]
+      }
+    ]
   },
   "nilo": {
     "speaker": "Nilo",
@@ -23,6 +38,117 @@
     "lines": [
       "Il sentiero prosegue verso il Bosco dei Veli.",
       "Fai attenzione all’erba alta: qualcosa si muove tra gli steli."
+    ]
+  },
+  "sera_route01": {
+    "speaker": "Sera",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_route01_sera_defeated",
+        "lines": [
+          "Mi alleno qui prima di arrivare a Brumalta.",
+          "Ti va di misurarti con me?"
+        ]
+      },
+      {
+        "lines": [
+          "Buona fortuna per la Palestra. Ricorda di tenere in forma la squadra."
+        ]
+      }
+    ]
+  },
+  "timo_route01": {
+    "speaker": "Timo",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_route01_timo_defeated",
+        "lines": [
+          "Scommetto che la mia squadra conosce il sentiero meglio di te.",
+          "Vediamo come te la cavi!"
+        ]
+      },
+      {
+        "lines": [
+          "La prossima volta mi farò trovare più preparato!"
+        ]
+      }
+    ]
+  },
+  "ada_quest": {
+    "speaker": "Ada",
+    "stages": [
+      {
+        "whenFlagMissing": "q_forest_signal_found",
+        "lines": [
+          "Le letture di Elia segnalano un’anomalia tra gli alberi. Puoi controllare il vecchio misuratore luminoso?",
+          "Si trova vicino alla radura. Quando hai i dati, torna da me."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_ada_helped",
+        "questEvent": "interaction/ada/report",
+        "lines": [
+          "Hai trovato il segnale. Registriamolo nel mio taccuino.",
+          "Grazie per l’aiuto: ti lascio una piccola scorta per il viaggio."
+        ]
+      },
+      {
+        "lines": [
+          "Grazie per aver recuperato le letture. Ora posso capire cosa sta succedendo nel bosco.",
+          "Buon viaggio, e fai attenzione ai sentieri meno battuti."
+        ]
+      }
+    ]
+  },
+  "mira_gym": {
+    "speaker": "Mira",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_gym01_mira_defeated",
+        "lines": [
+          "Benvenuta alla Palestra di Brumalta. La Medaglia Aurora premia chi sa scegliere la mossa giusta al momento giusto.",
+          "Quando sarai pronta, affronta la mia prova sul campo."
+        ]
+      },
+      {
+        "lines": [
+          "Hai conquistato la Medaglia Aurora. Porta con te la calma con cui hai affrontato la prova.",
+          "Il prossimo sentiero ti aspetta oltre il Bosco dei Veli."
+        ]
+      }
+    ]
+  },
+  "r03_path_guide": {
+    "speaker": "Rami",
+    "lines": [
+      "Le Terrazze del Muschio salgono a gradoni naturali: segui i lastroni chiari.",
+      "Fra felci e pietre crescono erbe rare. Il villaggio di Radicelmo è poco più a est."
+    ]
+  },
+  "radicelmo_keeper": {
+    "speaker": "Custode Leda",
+    "stages": [
+      {
+        "whenFlagMissing": "q_radicelmo_seed_found",
+        "lines": [
+          "Custodisco l'archivio ecologico della serra. Un seme ancestrale è caduto sulle terrazze.",
+          "Se lo trovi, riportalo qui: potremo catalogarlo senza sottrarlo al bosco."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_seed_archived",
+        "questEvent": "interaction/radicelmo/archive-report",
+        "lines": [
+          "Hai ritrovato il seme. Registriamo la sua provenienza e lasciamo l'originale al suo posto.",
+          "Per ringraziarti, conserva questa scheda viva dell'archivio e qualche rimedio per il viaggio."
+        ]
+      },
+      {
+        "lines": [
+          "La scheda del seme resta nel tuo taccuino; l'originale continua a crescere sulle terrazze.",
+          "La serra è un archivio vivente, non una collezione."
+        ]
+      }
     ]
   }
 }

@@ -23,7 +23,7 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "const": 1
     },
     "displayName": {
       "type": "string",

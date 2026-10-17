@@ -1730,6 +1730,20 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 45,
+          "name": "riparo-primo-soccorso",
+          "class": "collision",
+          "x": 480,
+          "y": 288,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            { "name": "kind", "type": "string", "value": "collision" }
+          ]
         }
       ],
       "opacity": 1,
@@ -1772,7 +1786,17 @@
             {
               "name": "dialogueId",
               "type": "string",
-              "value": "route_trainer"
+              "value": "sera_route01"
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_route01_sera"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_route01_sera_defeated"
             }
           ]
         },
@@ -1805,7 +1829,17 @@
             {
               "name": "dialogueId",
               "type": "string",
-              "value": "route_trainer"
+              "value": "timo_route01"
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_route01_timo"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_route01_timo_defeated"
             }
           ]
         }
@@ -1993,6 +2027,24 @@
               "value": "Bosco dei Veli · L’avventura ti aspetta."
             }
           ]
+        },
+        {
+          "id": 44,
+          "name": "Fascia di primo soccorso",
+          "class": "pickup",
+          "x": 480,
+          "y": 288,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            { "name": "kind", "type": "string", "value": "pickup" },
+            { "name": "itemId", "type": "string", "value": "potion" },
+            { "name": "questEvent", "type": "string", "value": "pickup/r01/first_aid" },
+            { "name": "collectedFlag", "type": "string", "value": "item_r01_potion_collected" },
+            { "name": "failureMessage", "type": "string", "value": "Qui non è rimasto nulla da raccogliere." }
+          ]
         }
       ],
       "opacity": 1,
@@ -2054,6 +2106,16 @@
               "name": "message",
               "type": "string",
               "value": "Il Bosco dei Veli si apre oltre il sentiero. La strada è in costruzione."
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/d01_bosco_veli"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_r01"
             }
           ]
         },
@@ -2071,12 +2133,17 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "message"
+              "value": "encounter-zone"
             },
             {
-              "name": "message",
+              "name": "encounterTableId",
               "type": "string",
-              "value": "Erba alta · Tra gli steli potrebbe nascondersi un incontro."
+              "value": "veloria/r01_tall_grass"
+            },
+            {
+              "name": "encounterChance",
+              "type": "float",
+              "value": 0.08
             }
           ]
         },
@@ -2094,12 +2161,17 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "message"
+              "value": "encounter-zone"
             },
             {
-              "name": "message",
+              "name": "encounterTableId",
               "type": "string",
-              "value": "Erba alta · Tra gli steli potrebbe nascondersi un incontro."
+              "value": "veloria/r01_tall_grass"
+            },
+            {
+              "name": "encounterChance",
+              "type": "float",
+              "value": 0.08
             }
           ]
         },
@@ -2117,12 +2189,17 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "message"
+              "value": "encounter-zone"
             },
             {
-              "name": "message",
+              "name": "encounterTableId",
               "type": "string",
-              "value": "Erba alta · Tra gli steli potrebbe nascondersi un incontro."
+              "value": "veloria/r01_tall_grass"
+            },
+            {
+              "name": "encounterChance",
+              "type": "float",
+              "value": 0.08
             }
           ]
         },
@@ -2140,12 +2217,17 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "message"
+              "value": "encounter-zone"
             },
             {
-              "name": "message",
+              "name": "encounterTableId",
               "type": "string",
-              "value": "Erba alta · Tra gli steli potrebbe nascondersi un incontro."
+              "value": "veloria/r01_tall_grass"
+            },
+            {
+              "name": "encounterChance",
+              "type": "float",
+              "value": 0.08
             }
           ]
         },

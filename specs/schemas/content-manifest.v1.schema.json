@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Veloria content manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "contentVersion", "status"],
+  "properties": {
+    "manifestVersion": { "const": 1 },
+    "contentVersion": { "type": "string", "pattern": "^veloria-content-[a-z0-9.-]+$" },
+    "status": { "enum": ["prototype"] }
+  }
+}

@@ -28,7 +28,8 @@ La mappa in `assets/concept/Veloria_World_Map_Concept_v0.1.png` definisce **l'at
 - **Animazioni player:** idle e camminata nelle quattro direzioni; minimo 4 frame per direzione in prima fase; più frame in fase polish.
 - **Layer Tiled:** `ground`, `terrain_detail`, `collision`, `shadows`, `characters`, `canopy_overhead`, `interactions`, `triggers`.
 - **Asset atlases:** raggruppati per area per ridurre memoria e draw calls.
-- **Neve/petali/particelle:** disattivabili o riducibili da qualità grafica; mai indispensabili per comprendere un puzzle.
+- **Erba alta, neve, petali e particelle:** gli effetti decorativi sono disattivabili o riducibili dalla qualità animazione; mai indispensabili per comprendere un puzzle. Le patch d’erba animate seguono i trigger Tiled di tipo `encounter-zone` senza alterarne incontri o collisioni.
+- **Acqua del Bosco:** la pozza usa una silhouette originale in pixel art con bordo muschio/roccia; i riflessi restano delicati e si fermano in modalità animazioni ridotte. Le collisioni rimangono negli oggetti Tiled, separate dall’immagine decorativa.
 - **UI:** pulsanti abbastanza grandi, simboli + testo, contrasto leggibile su cielo/foresta/acqua.
 
 ## 4. Asset list MVP (production checklist)
@@ -37,6 +38,7 @@ La mappa in `assets/concept/Veloria_World_Map_Concept_v0.1.png` definisce **l'at
 
 - 2 varianti di suolo, 5 erbe/cespugli, 3 alberi, rocce, corsi d'acqua, ponticello, recinti, tetti e pareti per 4–6 edifici.
 - Laboratorio ricercatrice (esterno/interno semplice), camera del protagonista (interno), 3–5 NPC, avatar giocatore.
+- Primo prototipo degli interni: camera con legno miele, intonaco crema e tessuti salvia; laboratorio con la stessa architettura, pavimento chiaro e strumenti botanici in vetro/ottone. Fondali originali ImageGen con collisioni e hotspot separati in Tiled; prompt archiviati in `assets/prompts/borgofonte-interiors-v1.md`. Sono asset di prototipo in attesa di accettazione visiva umana, non una modifica alla direzione approvata.
 
 ### Sentiero dell'Alba
 
@@ -53,6 +55,7 @@ La mappa in `assets/concept/Veloria_World_Map_Concept_v0.1.png` definisce **l'at
 ### Battaglia/UI
 
 - Schermata di selezione starter (grafica da includere **solo con diritti verificati**), campi battaglia per bosco/prato/città, elementi UI, effetti attacco generici originali, cursori, transizioni, feedback danno e cattura.
+- Fondale originale del bordo-bosco in pixel art, palette ridotta per mobile e riusabile dalle mappe di prato e foresta tramite `battleBackgroundKey`; i fondali di città e palestra restano da produrre.
 
 ### Audio
 

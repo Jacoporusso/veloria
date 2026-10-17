@@ -1,0 +1,46 @@
+{
+  "id": "veloria/borgofonte_lab",
+  "version": 2,
+  "displayName": "Laboratorio di Elia",
+  "biomeId": "indoor_laboratory",
+  "tiledAsset": "tilemaps/borgofonte_lab.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground",
+      "path": "assets/tilesets/veloria-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-lab-interior-v1",
+      "path": "assets/sprites/borgofonte-lab-interior-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_village",
+      "x": 12,
+      "y": 11,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/borgofonte",
+      "viaSpawnId": "from_village",
+      "targetSpawnId": "from_lab",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "prof_elia"
+  ],
+  "scriptRefs": [
+    "quest_prologue"
+  ],
+  "musicId": "ambient_borgofonte"
+}

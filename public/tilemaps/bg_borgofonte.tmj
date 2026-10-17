@@ -2868,7 +2868,7 @@
           "x": 384,
           "y": 320,
           "width": 192,
-          "height": 128,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -2914,7 +2914,7 @@
           "x": 512,
           "y": 864,
           "width": 224,
-          "height": 128,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -3067,24 +3067,6 @@
           "class": "collision",
           "x": 1024,
           "y": 800,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": [
-            {
-              "name": "kind",
-              "type": "string",
-              "value": "collision"
-            }
-          ]
-        },
-        {
-          "id": 25,
-          "name": "Elia",
-          "class": "collision",
-          "x": 640,
-          "y": 736,
           "width": 32,
           "height": 32,
           "rotation": 0,
@@ -3726,6 +3708,78 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 68,
+          "name": "home-door-left-wall",
+          "class": "collision",
+          "x": 384,
+          "y": 416,
+          "width": 96,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 69,
+          "name": "home-door-right-wall",
+          "class": "collision",
+          "x": 512,
+          "y": 416,
+          "width": 64,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "name": "lab-door-left-wall",
+          "class": "collision",
+          "x": 512,
+          "y": 960,
+          "width": 128,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "lab-door-right-wall",
+          "class": "collision",
+          "x": 672,
+          "y": 960,
+          "width": 64,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -3739,39 +3793,6 @@
       "id": 5,
       "name": "characters",
       "objects": [
-        {
-          "id": 23,
-          "name": "Elia",
-          "class": "npc",
-          "x": 640,
-          "y": 736,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": [
-            {
-              "name": "kind",
-              "type": "string",
-              "value": "npc"
-            },
-            {
-              "name": "npcId",
-              "type": "string",
-              "value": "prof_elia"
-            },
-            {
-              "name": "coat",
-              "type": "int",
-              "value": 7506681
-            },
-            {
-              "name": "dialogueId",
-              "type": "string",
-              "value": "prof_elia"
-            }
-          ]
-        },
         {
           "id": 24,
           "name": "Nilo",
@@ -3992,7 +4013,7 @@
       "objects": [
         {
           "id": 1,
-          "name": "casa-elia",
+          "name": "Casa di Borgofonte",
           "class": "house",
           "x": 384,
           "y": 280,
@@ -4014,7 +4035,7 @@
             {
               "name": "message",
               "type": "string",
-              "value": "Una luce calda brilla dietro le finestre di Casa Elia."
+              "value": "Casa di Borgofonte. Entra dalla porta al centro della facciata; il letto permette alla squadra di riposare."
             }
           ]
         },
@@ -4048,7 +4069,7 @@
         },
         {
           "id": 5,
-          "name": "laboratorio",
+          "name": "Laboratorio di Elia",
           "class": "house",
           "x": 512,
           "y": 824,
@@ -4070,7 +4091,7 @@
             {
               "name": "message",
               "type": "string",
-              "value": "Il laboratorio di Elia custodisce appunti e strumenti di ricerca."
+              "value": "Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud della facciata."
             }
           ]
         },
@@ -4212,7 +4233,12 @@
             {
               "name": "requiredFlag",
               "type": "string",
-              "value": "q_starter_selected"
+              "value": "q_research_sample_received"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Elia ti aspetta al laboratorio per affidarti le rilevazioni."
             }
           ]
         },
@@ -4284,6 +4310,62 @@
               "value": "Emporio di Borgofonte · Torna presto per nuove avventure."
             }
           ]
+        },
+        {
+          "id": 70,
+          "name": "Porta di casa",
+          "class": "map-exit",
+          "x": 480,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/borgofonte_home"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_village"
+            }
+          ]
+        },
+        {
+          "id": 73,
+          "name": "Porta del laboratorio",
+          "class": "map-exit",
+          "x": 640,
+          "y": 960,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/borgofonte_lab"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_village"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -4294,7 +4376,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 65,
+  "nextobjectid": 74,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

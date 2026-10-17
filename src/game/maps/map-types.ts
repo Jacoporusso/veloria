@@ -4,18 +4,42 @@ export type MapTrigger = {
   id: string;
   kind?: string;
   x: number; y: number; width: number; height: number;
-  destinationMapId?: string; destinationSpawnId?: string; requiredFlag?: string; message?: string;
+  destinationMapId?: string; destinationSpawnId?: string; requiredFlag?: string; message?: string; failureMessage?: string; questEvent?: string;
+  encounterTableId?: string; encounterChance?: number;
 };
 export type MapInteractable = {
   id: string; kind: string; name: string; x: number; y: number; width: number; height: number;
   properties: Record<string, unknown>;
 };
+export type MapRenderAsset =
+  | { kind: 'image'; key: string; path: string }
+  | { kind: 'tileset'; key: string; path: string; tiledName: string; tileWidth: number; tileHeight: number };
+export type MapAmbientArea = { x: number; y: number; width: number; height: number };
+export type MapAmbientEffect = {
+  kind: 'fireflies';
+  count: number;
+  area: MapAmbientArea;
+  colors: string[];
+} | {
+  kind: 'water-shimmer';
+  count: number;
+  area: MapAmbientArea;
+  colors: string[];
+} | {
+  kind: 'grass-sway';
+  tuftsPerArea: number;
+  triggerIds: string[];
+  colors: string[];
+};
 export type MapMetadata = {
   id: string;
-  version: number;
+  version: 1 | 2;
   displayName: string;
   biomeId: string;
   tiledAsset: string;
+  battleBackgroundKey?: string;
+  renderAssets: MapRenderAsset[];
+  ambientEffects?: MapAmbientEffect[];
   spawns: MapSpawn[];
   connections: MapConnection[];
   encounterTableIds: string[];

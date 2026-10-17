@@ -1,0 +1,42 @@
+{
+  "id": "veloria/borgofonte_home",
+  "version": 2,
+  "displayName": "Casa di Borgofonte",
+  "biomeId": "indoor_home",
+  "tiledAsset": "tilemaps/borgofonte_home.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground",
+      "path": "assets/tilesets/veloria-ground-v1.png",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 32,
+      "tileHeight": 32
+    },
+    {
+      "kind": "image",
+      "key": "borgofonte-home-interior-v1",
+      "path": "assets/sprites/borgofonte-home-interior-v1.png"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_village",
+      "x": 12,
+      "y": 12,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/borgofonte",
+      "viaSpawnId": "from_village",
+      "targetSpawnId": "from_home",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_borgofonte"
+}

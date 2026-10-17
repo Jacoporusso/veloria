@@ -16,6 +16,6 @@ export function selectStarter(save: GameSave, speciesId: number, instanceId: str
   return {
     ...save,
     party: [{ instanceId, speciesId, level: 5, experience: 0, hp: starter.hp, maxHp: starter.hp, moves: starter.moves.map(move => ({ ...move })) }],
-    flags: [...save.flags, STARTER_FLAG, 'q_research_sample_received'],
+    flags: [...save.flags, STARTER_FLAG],
   };
 }

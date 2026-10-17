@@ -37,14 +37,21 @@ function attach<T extends Phaser.GameObjects.GameObject>(container: Phaser.GameO
   return object;
 }
 
-export function renderMap(scene: Phaser.Scene, definition: RegisteredMap): RenderedMap {
+export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collectedFlags: readonly string[] = []): RenderedMap {
   const tilemap = scene.make.tilemap({ key: getMapKey(definition) });
-  const tileset = tilemap.addTilesetImage('veloria_terrain', 'veloria-ground', TILE, TILE);
-  if (!tileset) throw new Error(`Tileset veloria_terrain is missing from ${definition.metadata.tiledAsset}.`);
+  const tilesets = definition.metadata.renderAssets
+    .filter(asset => asset.kind === 'tileset')
+    .map(asset => {
+      const tileset = tilemap.addTilesetImage(asset.tiledName, asset.key, asset.tileWidth, asset.tileHeight);
+      if (!tileset) throw new Error(`Tileset ${asset.tiledName} is missing from ${definition.metadata.tiledAsset}.`);
+      return tileset;
+    });
+  if (tilesets.length === 0) throw new Error(`No tilesets are declared for ${definition.metadata.id}.`);
+  const imageKeys = new Set(definition.metadata.renderAssets.filter(asset => asset.kind === 'image').map(asset => asset.key));
 
   const container = scene.add.container();
   for (const [name, depth] of [['ground', -10], ['terrain_detail', -5]] as const) {
-    const layer = tilemap.createLayer(name, tileset, 0, 0);
+    const layer = tilemap.createLayer(name, tilesets, 0, 0);
     if (!layer) throw new Error(`Tiled layer ${name} is missing from ${definition.metadata.tiledAsset}.`);
     layer.setDepth(depth);
     container.add(layer);
@@ -52,20 +59,22 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap): Rende
 
   const occupied = collectCollision(tilemap, tilemap.width, tilemap.height);
   const interactables: MapInteractable[] = [];
-  for (const layerName of ['characters', 'canopy_overhead', 'interactions']) {
+  for (const layerName of ['decorations', 'characters', 'canopy_overhead', 'interactions']) {
     const objectLayer = tilemap.getObjectLayer(layerName);
     for (const raw of objectLayer?.objects ?? []) {
       const object = raw as TiledObject;
       const properties = propertiesOf(object);
       const kind = propString(properties, 'kind') ?? object.class ?? object.type ?? '';
+      const collectedFlag = propString(properties, 'collectedFlag');
+      if (collectedFlag && collectedFlags.includes(collectedFlag)) continue;
       const id = propString(properties, 'id') ?? object.name ?? `${layerName}-${object.id}`;
       const item: MapInteractable = {
         id, kind, name: object.name ?? id,
         x: object.x ?? 0, y: object.y ?? 0, width: object.width ?? TILE, height: object.height ?? TILE,
         properties,
       };
-      interactables.push(item);
-      renderObject(scene, container, item);
+      if (layerName !== 'decorations') interactables.push(item);
+      renderObject(scene, container, item, imageKeys);
     }
   }
 
@@ -80,6 +89,10 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap): Rende
       destinationSpawnId: propString(properties, 'destinationSpawnId'),
       requiredFlag: propString(properties, 'requiredFlag'),
       message: propString(properties, 'message'),
+      failureMessage: propString(properties, 'failureMessage'),
+      questEvent: propString(properties, 'questEvent'),
+      encounterTableId: propString(properties, 'encounterTableId'),
+      encounterChance: propNumber(properties, 'encounterChance'),
     };
   });
 
@@ -100,11 +113,16 @@ function collectCollision(tilemap: Phaser.Tilemaps.Tilemap, width: number, heigh
   return occupied;
 }
 
-function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable): void {
+function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>): void {
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    // Baked room artwork already draws this object; Tiled owns its interaction footprint.
+    case 'hotspot':
+      break;
     case 'house': {
-      const house = attach(container, scene.add.image(x, y, 'borgofonte-house').setOrigin(0, 0).setDisplaySize(item.width, item.height).setDepth(depth));
+      const sprite = propString(item.properties, 'houseSprite') ?? 'borgofonte-house';
+      requireImageAsset(imageKeys, sprite, item);
+      const house = attach(container, scene.add.image(x, y, sprite).setOrigin(0, 0).setDisplaySize(item.width, item.height).setDepth(depth));
       const tint = propNumber(item.properties, 'tint');
       if (tint) house.setTint(tint);
       attach(container, scene.add.text(x + item.width / 2, y - 5, item.name.toUpperCase(), {
@@ -112,10 +130,22 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
       }).setOrigin(.5).setDepth(depth + 1));
       break;
     }
-    case 'tree':
-      attach(container, scene.add.image(x + item.width / 2, y + item.height, 'borgofonte-tree')
+    case 'scenery-image': {
+      const sprite = propString(item.properties, 'sprite');
+      if (!sprite) throw new Error(`Scenery image ${item.id} must declare a sprite key.`);
+      requireImageAsset(imageKeys, sprite, item);
+      const renderDepth = propNumber(item.properties, 'renderDepth') ?? -4;
+      attach(container, scene.add.image(x, y, sprite)
+        .setOrigin(0, 0).setDisplaySize(item.width, item.height).setDepth(renderDepth));
+      break;
+    }
+    case 'tree': {
+      const sprite = propString(item.properties, 'sprite') ?? 'borgofonte-tree';
+      requireImageAsset(imageKeys, sprite, item);
+      attach(container, scene.add.image(x + item.width / 2, y + item.height, sprite)
         .setOrigin(.5, .94).setDisplaySize(96, 112).setDepth(depth + 8));
       break;
+    }
     case 'npc':
       renderNpc(scene, container, item);
       break;
@@ -128,7 +158,42 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
     case 'rock':
       renderRock(scene, container, x, y, depth);
       break;
+    case 'pickup':
+      renderPickup(scene, container, item);
+      break;
+    case 'resonance-plate':
+      renderResonancePlate(scene, container, item);
+      break;
   }
+}
+
+function renderPickup(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable): void {
+  const x = item.x + item.width / 2, y = item.y + item.height / 2, depth = item.y + item.height;
+  const art = attach(container, scene.add.graphics().setDepth(depth));
+  art.fillStyle(0x1b2b24, .55).fillEllipse(x, y + 9, 26, 8);
+  art.fillStyle(0xd6be83, 1).fillRoundedRect(x - 7, y - 8, 14, 20, 4);
+  art.lineStyle(1, 0xf4e2b4, 1).strokeRoundedRect(x - 7, y - 8, 14, 20, 4);
+  art.fillStyle(0x728a79, 1).fillRoundedRect(x - 5, y - 11, 10, 5, 2);
+  art.lineStyle(1, 0x26372c, .9).lineBetween(x - 6, y + 1, x + 6, y + 1);
+  art.fillStyle(0xfff0d3, .95).fillCircle(x, y + 1, 2);
+  attach(container, scene.add.text(x, item.y - 3, item.name.toUpperCase(), {
+    fontFamily: 'monospace', fontSize: '7px', color: '#fff0d3', stroke: '#26372c', strokeThickness: 3,
+  }).setOrigin(.5, 1).setDepth(depth + 1));
+}
+
+function requireImageAsset(imageKeys: ReadonlySet<string>, key: string, item: MapInteractable): void {
+  if (!imageKeys.has(key)) throw new Error(`Map object ${item.id} references undeclared image asset ${key}.`);
+}
+
+function renderResonancePlate(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable): void {
+  const x = item.x + item.width / 2, y = item.y + item.height / 2, depth = item.y + item.height - 1;
+  const art = attach(container, scene.add.graphics().setDepth(depth));
+  art.fillStyle(0x2b4136, .7).fillEllipse(x, y + 5, 24, 10);
+  art.lineStyle(2, 0xe7c77c, .9).strokeEllipse(x, y + 3, 19, 8);
+  art.fillStyle(0xf4d795, .9).fillCircle(x, y + 3, 2);
+  attach(container, scene.add.text(x, item.y - 2, item.name, {
+    fontFamily: 'monospace', fontSize: '7px', color: '#ffe5a5', stroke: '#26372c', strokeThickness: 2,
+  }).setOrigin(.5, 1).setDepth(depth + 1));
 }
 
 function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable): void {

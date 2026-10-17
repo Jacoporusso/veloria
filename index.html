@@ -5,21 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#132925" />
     <meta name="description" content="Esplora Borgofonte, il primo villaggio della regione di Veloria." />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/veloria-180.png" />
     <title>Veloria — Borgofonte</title>
   </head>
   <body>
     <main class="game-shell" aria-label="Veloria, gioco di esplorazione">
       <header class="game-header">
-        <a class="brand" href="/" aria-label="Veloria, torna alla mappa"><span class="brand-mark" aria-hidden="true">V</span><span>VELORIA<small>REGIONE DI FRONTIERA</small></span></a>
-        <div class="location"><span class="location-dot"></span><span>BORGOFONTE</span><span class="location-separator">·</span><span>Ore serene</span></div>
-        <button class="sound-button" id="help-button" aria-label="Mostra i comandi">?</button>
+        <a class="brand" href="%BASE_URL%" aria-label="Veloria, torna alla mappa"><span class="brand-mark" aria-hidden="true">V</span><span>VELORIA<small>REGIONE DI FRONTIERA</small></span></a>
+        <div class="location"><span class="location-dot"></span><span id="current-location">BORGOFONTE</span><span class="location-separator">·</span><span>Ore serene</span></div>
+        <div class="header-actions">
+          <button class="sound-button" id="pokedex-button" aria-label="Apri il Pokédex" title="Pokédex">◈</button>
+          <button class="sound-button update-button" id="update-button" aria-label="Aggiorna Veloria" hidden>↻</button>
+          <button class="sound-button" id="settings-button" aria-label="Impostazioni accessibilità e audio">⚙</button>
+          <button class="sound-button" id="backup-button" aria-label="Apri importazione ed esportazione salvataggio">↥</button>
+          <button class="sound-button" id="help-button" aria-label="Mostra i comandi">?</button>
+        </div>
+        <section class="save-menu" id="save-menu" aria-label="Gestione salvataggio" hidden>
+          <button type="button" id="export-save">Esporta backup JSON</button>
+          <button type="button" id="import-save">Importa backup JSON</button>
+          <input id="save-file" type="file" accept="application/json,.json" hidden />
+        </section>
+        <section class="settings-menu" id="settings-menu" aria-label="Impostazioni" hidden>
+          <label for="animation-quality">Qualità animazioni</label>
+          <select id="animation-quality">
+            <option value="full">Complete</option>
+            <option value="reduced">Ridotte</option>
+          </select>
+          <label for="text-speed">Velocità testo</label>
+          <select id="text-speed">
+            <option value="slow">Lenta</option>
+            <option value="normal" selected>Normale</option>
+            <option value="fast">Veloce</option>
+          </select>
+          <label for="music-volume">Volume musica</label>
+          <input id="music-volume" type="range" min="0" max="100" step="1" aria-label="Volume della musica" />
+          <button type="button" id="audio-toggle" aria-pressed="false">Attiva audio</button>
+        </section>
       </header>
       <section class="game-stage" aria-label="Area di gioco">
+        <div class="game-loading" id="game-loading" role="status" aria-live="polite"><span class="loading-mark" aria-hidden="true">✳</span><span>CARICO IL MONDO DI VELORIA</span></div>
         <div id="game" aria-label="Mappa interattiva di Borgofonte"></div>
+        <section class="pokedex-panel" id="pokedex-panel" role="dialog" aria-modal="true" aria-labelledby="pokedex-title" hidden>
+          <header class="pokedex-header">
+            <div><span class="pokedex-kicker">REGISTRO DEL VIAGGIO</span><h2 id="pokedex-title">Pokédex</h2></div>
+            <button class="pokedex-close" id="pokedex-close" type="button" aria-label="Chiudi il Pokédex">×</button>
+          </header>
+          <p class="pokedex-summary" id="pokedex-summary" aria-live="polite"></p>
+          <ol class="pokedex-list" id="pokedex-list" aria-label="Specie registrate"></ol>
+        </section>
         <div class="scene-caption" aria-hidden="true"><span class="caption-line"></span><span>IL PRIMO GIORNO</span><span class="caption-line"></span></div>
-        <div class="controls-hint" id="hint">Muoviti con <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o le frecce</div>
+        <div class="controls-hint" id="hint"><span class="keyboard-hint">Muoviti con <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> o le frecce</span><span class="touch-hint">Muoviti con la croce · A parla e interagisce</span></div>
         <div class="toast" id="toast" role="status" aria-live="polite"></div>
         <section class="dialogue-box" id="dialogue-box" aria-live="polite" aria-label="Dialogo" hidden>
           <div class="dialogue-speaker" id="dialogue-speaker"></div>

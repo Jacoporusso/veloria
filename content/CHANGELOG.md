@@ -1,0 +1,54 @@
+## veloria-content-0.3.16
+
+- Added original bedroom and laboratory interiors in Borgofonte, with reciprocal doors, furniture collisions, research hotspots, and a resting service in the bedroom.
+- Moved Elia into the laboratory: the existing starter choice and research-reading quest now take place indoors. Existing saved parties, flags and exterior map IDs remain compatible.
+- Registered and precached both room backdrops; generation prompts are recorded in `assets/prompts/borgofonte-interiors-v1.md`. Maps remain prototype art pending human visual acceptance.
+- Fixed healing persistence: cleared statuses are omitted from healed creatures, and checksums use the same representation for optional undefined object fields as JSON backups. Browser healing scenarios now start from validated wounded/poisoned records.
+
+## veloria-content-0.3.15
+
+- Added an original Brumalta city-park vista and an interactable directional sign to the Viale delle Fronde, making the forest-to-city transition readable in the Tiled map.
+
+## veloria-content-0.3.14
+
+- Added original community lodge and herbalist sprites for Radicelmo, replacing Brumalta's reused facades; both are registered and included in the offline shell cache.
+
+## veloria-content-0.3.13
+
+- Added the playable R03 moss terraces and Radicelmo village, with reciprocal travel links and Aurora Badge access from Brumalta.
+- Added a time-of-day woodland encounter table, Leda's seed archive quest, a village healing service and herb shop, and a greenhouse landmark.
+- Registered and precached an original Radicelmo greenhouse sprite; the route and village reuse the established forest tileset and battle backdrop.
+
+# Content changelog
+
+## veloria-content-0.3.12
+
+- Added an original, compact forest-edge battle background referenced by the grassland and forest map definitions. The fallback arena remains available for maps without a declared background.
+
+## veloria-content-0.3.11
+
+- Added an original Bosco dei Veli pond sprite overlay and a reusable Tiled `decorations` layer for declared scenery images. The pool remains non-walkable; the existing water shimmer sits above the artwork.
+
+## veloria-content-0.3.10
+
+- Added deterministic water highlights to the Bosco dei Veli pool. They shimmer at full animation quality and remain faint and static with reduced motion.
+
+## veloria-content-0.3.9
+
+- Added reduced-motion aware grass sway to the four tall-grass encounter patches on the Sentiero dell’Alba. Visual areas reference Tiled encounter zones and do not alter gameplay.
+
+## veloria-content-0.3.8
+
+- Added a data-driven Bosco dei Veli firefly effect profile. Motion quality settings keep reduced mode static and lighter.
+
+## veloria-content-0.3.7
+
+- Added a persistent full/reduced movement animation setting that defaults to the operating system's reduced-motion preference.
+
+## veloria-content-0.3.6
+
+- Added versioned original procedural music themes for each MVP area and battle type, with a persistent volume control.
+
+## veloria-content-0.3.5
+
+- Added original 192×160 shop and gym facade sprites for Brumalta and declared them in the map metadata, Tiled objects, asset register, and offline shell cache.

@@ -65,7 +65,13 @@ veloria/
 
 ## 4. Contratti chiave
 
-- `MapDefinition`: `id`, `version`, `biomeId`, `tiledAsset`, `connections[]`, `spawns[]`, `encounterTableId`, `npcRefs`, `scriptRefs`.
+- `MapDefinition`: `id`, `version`, `biomeId`, `tiledAsset`, `renderAssets[]` (v2), `connections[]`, `spawns[]`, `encounterTableId`, `npcRefs`, `scriptRefs`. Each tileset asset maps its Tiled `name` to a Phaser texture key and public path; map-specific images use the same asset list. Runtime v1 metadata is adapted through the legacy Veloria asset mapping; the v1 example contract remains unchanged.
+
+Runtime loading follows the same map boundary: load the active map's `renderAssets` at scene startup, load destination assets before committing a map transition, then release textures used only by the previous map. This limits decoded textures resident in Phaser. The service worker still downloads and precaches every asset in the declared MVP offline pack so offline coverage is unchanged.
+
+Interiors use ordinary MapDefinition/Tiled maps with reciprocal doorway triggers. A room may declare a background `scenery-image`; invisible `hotspot` rectangles provide furniture interactions and separate collision rectangles constrain movement. `core/world/selectAreaTrigger` gives map exits priority over overlapping ambient zones while retaining authored order for other triggers. The Phaser adapter supplies the player's pixel center and handles the chosen event. Rest points share the pure party-healing service with Pokémon Centers; only Centers expose storage. Adding rooms requires no map-ID branches or save schema changes.
+
+Large, infrequent UI such as `BattleScene` is imported when first needed. Production precache follows Vite's generated build manifest so hashed dynamic chunks are available before offline play; checking only the entry HTML script would miss them.
 - `EncounterTable`: `id`, `mapId`, `timeBand`, `entries[{speciesId,weight,minLevel,maxLevel}]`; pesi relativi, non percentuali non validate.
 - `TrainerDefinition`: `id`, `name`, `team[]`, `aiProfileId`, `reward`, `battleOnceFlag`.
 - `QuestDefinition`: `id`, `steps`, `flags`, `conditions`, `rewards`; eventi idempotenti.
@@ -93,7 +99,7 @@ L'engine calcola la transizione; Phaser traduce eventi in animazioni, senza infl
 ## 6. Cache e PWA iOS
 
 - App manifest con icone originali 192/512 e tema coerente; `display: standalone`; supportare safe area.
-- Service Worker via vite-plugin-pwa: precache **app shell + dati e asset dell'MVP**; pacchetti futuri per bioma on-demand solo se già scaricati prima di dichiararli offline.
+- Service Worker custom in `public/sw.js`: precache **app shell + tilemap e asset dell'MVP** e cache runtime delle risorse locali; i pacchetti futuri per bioma possono restare on-demand solo se già scaricati prima di dichiararli offline.
 - Versione contenuti (`contentVersion`) distinta da `schemaVersion` del salvataggio. La build non deve cancellare IndexedDB quando aggiorna la cache.
 - UI aggiornamenti: "Nuova versione disponibile", salva/sospendi e ricarica in sicurezza, evitando aggiornamenti incontrollati durante una battaglia.
 - Safari/iOS può eliminare i dati locali per motivi di spazio o gestione sistema: offrire sempre backup esportabile e messaggio educativo nel menu Save.
@@ -112,8 +118,10 @@ L'engine calcola la transizione; Phaser traduce eventi in animazioni, senza infl
 - 60 FPS target aspirazionale; modalità 30 FPS o riduzione particelle/illuminazione se il dispositivo rallenta.
 - Sprite atlas divisi per zona/bioma; streaming asset mirato; scaricare contenuti solo a scene/pack necessari.
 - Particelle neve/foglie/riflessi sono effetti **cosmetici degradabili**, non bloccanti.
+- `MapDefinition v2.ambientEffects` dichiara gli effetti per area; il renderer genera layout deterministici per map ID. In qualità reduced le particelle non si muovono e usano alpha inferiore.
 - Evitare shader/filtri GPU su tutto lo schermo nei device più vecchi.
 - Audio riprodotto dopo interazione iniziale, con fallback mute.
+- Preferenze di animazione full/reduced salvate localmente; la modalità reduced elimina il bob cosmetico del personaggio e rispetta `prefers-reduced-motion` come valore iniziale.
 
 ## 9. Test suite
 

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "items": {
+    "potion": {
+      "id": "potion",
+      "name": "Pozione",
+      "price": 200,
+      "maxStack": 99,
+      "battle": {
+        "healHp": 20
+      }
+    },
+    "antidote": {
+      "id": "antidote",
+      "name": "Antidoto",
+      "price": 100,
+      "maxStack": 99,
+      "battle": {
+        "cures": [
+          "poison"
+        ]
+      }
+    },
+    "poke-ball": {
+      "id": "poke-ball",
+      "name": "Sfera",
+      "price": 150,
+      "maxStack": 99,
+      "capture": {
+        "baseChance": 0.25,
+        "missingHpBonus": 0.55,
+        "statusBonus": 0.2
+      }
+    },
+    "ancient-seed": {
+      "id": "ancient-seed",
+      "name": "Seme ancestrale",
+      "price": 0,
+      "maxStack": 1
+    },
+    "archive-note": {
+      "id": "archive-note",
+      "name": "Scheda dell’Archivio",
+      "price": 0,
+      "maxStack": 1
+    }
+  }
+}

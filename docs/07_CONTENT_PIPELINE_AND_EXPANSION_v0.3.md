@@ -59,15 +59,23 @@ content/
 
 Pacchetto = asset+metadata verificati e referenziati tramite ID; il motore carica solo gli asset necessari per la mappa o il combattimento. `MapDefinition` è metadata di Veloria, **non sostituisce** il file `.tmj` di Tiled e non contiene le collisioni tile-by-tile.
 
+Ogni `MapDefinition` dichiara in `renderAssets` le texture usate dalla mappa. Un tileset include il suo `key` (chiave texture Phaser), `path` pubblico, `kind: "tileset"`, `tiledName` (nome esatto nel `.tmj`) e dimensioni tile. Gli sprite includono `kind: "image"`, `key` e `path`. Il preload deduplica le chiavi comuni fra mappe; aggiungere un nuovo bioma/tileset non deve richiedere un branch in `WorldScene` o un nome texture nel renderer. I riferimenti agli asset restano verificati nel registro licenze e nella validazione dei `.tmj`.
+
+MapDefinition v2 può dichiarare `battleBackgroundKey`, riferito a un'immagine `kind: "image"` nel suo `renderAssets`. `BattleScene` ritaglia il fondale per riempire il viewport e mantiene leggibili i pannelli; se il campo manca usa l'arena sintetica di fallback. Il fondale viene caricato con gli asset della mappa attiva e deve essere incluso nel precache offline.
+
+MapDefinition v2 può dichiarare `ambientEffects` con profili cosmetici delimitati da un'area della mappa. I profili usano posizioni deterministiche per map ID e non cambiano collisioni o stato di gioco; il renderer deve rispettare la preferenza reduced rendendo gli effetti statici e meno intensi. Il validatore controlla tipo, palette e limiti geometrici nel `.tmj`.
+
+Questo contratto è MapDefinition v2 (`specs/schemas/map.v2.schema.json`). I metadata runtime v1 restano caricabili con la mappatura legacy originale; `content/examples` continua a validarsi con il contratto v1 e non viene promosso automaticamente.
+
 ## 4. Aggiunta nuova mappa: procedura
 
-1. Assegnare ID permanente, es. `veloria/r03_terrazze_muschio`; indicare `biomeId` e `version`.
-2. Disegnare in Tiled con layer naming condiviso; esportare in `.tmj` JSON.
+1. Assegnare ID permanente, es. `veloria/r03_terrazze_muschio`, e creare uno scheletro con `python tools/scaffold_map.py --id veloria/r03_terrazze_muschio --name "Terrazze di Muschio" --biome forest --tileset-key veloria-forest-ground --tileset-path assets/tilesets/veloria-forest-ground-v1.png --tiled-name veloria_terrain --music-id ambient_forest`. Il comando crea metadata v2 in `content/map-drafts/` e uno scheletro `.tmj` in `public/tilemaps/_draft_<slug>.tmj`, non caricati dal runtime.
+2. Aprire lo scheletro in Tiled e realizzare terreno, collisioni e oggetti. Le mappe del progetto usano tile da 32 × 32 px e i layer condivisi descritti in `content/maps/README.md`. Prima di rendere la mappa giocabile, aggiungere contenuti e riferimenti, spostare il metadata in `content/maps/` e rinominare il Tiled JSON secondo `tiledAsset`.
 3. Aggiornare connettori e spawn in entrambe le aree coinvolte; evitare connessioni unilaterali non spiegate.
 4. Definire NPC, interazioni, quest flags, incontri e condizioni di accesso.
 5. Registrare gli asset e verificare licenze e mem-budget.
-6. Validare schema/references; eseguire test spawn, collisioni, save/load e ritorni sulle mappe precedenti.
-7. Integrare il pack di zona nel manifest; definire download/offline per la nuova area.
+6. Eseguire `python tools/validate_examples.py`, i test Python, `npm run build` e test spawn, collisioni, save/load e ritorni sulle mappe precedenti.
+7. Aggiornare contentVersion e changelog, includere gli asset runtime nel precache e integrare il pack di zona; definire download/offline per la nuova area.
 
 ## 5. Aggiunta Pokémon: procedura
 
@@ -90,7 +98,7 @@ Pacchetto = asset+metadata verificati e referenziati tramite ID; il motore caric
 
 ## 7. Validazione e qualità dei dati
 
-- JSON Schema per struttura, test di integrità referenziale oltre schema (connessioni valide, ID unici, ranges, flags leciti).
+- JSON Schema per struttura, test di integrità referenziale oltre schema (connessioni valide, ID unici, ranges, flags leciti). `tools/validate_examples.py` applica gli schemi MapDefinition v1/v2 agli esempi e alle mappe runtime; lo scaffold valida il metadata v2 generato prima di scrivere la bozza.
 - Lint di collision layer, spawns non bloccati, punti d'interazione raggiungibili, asset path validi.
 - Nessuna modifica a un JSON sorgente per 'fix veloce' direttamente nella build senza PR/version bump.
 - Uscita `contentVersion` con changelog contenuti e migrazioni necessarie.
