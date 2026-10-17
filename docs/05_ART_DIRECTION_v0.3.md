@@ -90,3 +90,9 @@ Prima **un quadrato giocabile di Borgofonte con placeholder coerenti**, poi avat
 ### Artwork starter del prototipo — 17/10/2026
 
 Su decisione esplicita dell’utente, i quattro starter usano artwork PokéAPI locali, senza elaborazioni, nella scelta, nei ritratti e in battaglia. Rimangono distinti dagli atlanti HD pixel art già generati: soluzione del prototipo privato, non nuova direzione artistica generale. Fonte e diritti nel registro asset e assets/pokeapi-starter-artwork-v1.json.
+
+### Iterazione visiva 0.3.25 — richiesta utente 17/10/2026
+
+Sei NPC originali illustrati sostituiscono i disegni geometrici (sprite/spriteFrame nei dati Tiled); quattro chiome dipinte variano la vegetazione. Borgofonte, R01 e Bosco usano un terreno ad alta risoluzione, con dimensioni sorgente indipendenti dalla griglia 32 px. Fonte e prompt in assets/prompts/world-modernization-v2.md. La richiesta aggiorna la resa verso illustrazione 2.5D più definita; edifici e protagonista precedenti restano da armonizzare con questo incremento, che richiede revisione visiva dell’utente.
+
+Comandi battaglia con superfici navy sfumate, icone geometriche e focus menta/cielo/lilla. Dodici specie usano ora artwork locali PokéAPI (starter e otto precedentemente mancanti), otto gli atlanti originali esistenti: tutte le 20 specie MVP hanno una resa visibile. Fonti, diritti e hash nei due registri artwork; uso del prototipo privato richiesto dall’utente, nessuna licenza generale di pubblicazione dedotta da PokéAPI.

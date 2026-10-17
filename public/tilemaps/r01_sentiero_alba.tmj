@@ -1742,7 +1742,11 @@
           "rotation": 0,
           "visible": true,
           "properties": [
-            { "name": "kind", "type": "string", "value": "collision" }
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
           ]
         }
       ],
@@ -1797,6 +1801,16 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_route01_sera_defeated"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 4
             }
           ]
         },
@@ -1840,6 +1854,16 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_route01_timo_defeated"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 5
             }
           ]
         }
@@ -1874,7 +1898,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -1897,7 +1921,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -1920,7 +1944,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -1943,7 +1967,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         }
@@ -2039,11 +2063,31 @@
           "rotation": 0,
           "visible": true,
           "properties": [
-            { "name": "kind", "type": "string", "value": "pickup" },
-            { "name": "itemId", "type": "string", "value": "potion" },
-            { "name": "questEvent", "type": "string", "value": "pickup/r01/first_aid" },
-            { "name": "collectedFlag", "type": "string", "value": "item_r01_potion_collected" },
-            { "name": "failureMessage", "type": "string", "value": "Qui non è rimasto nulla da raccogliere." }
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "pickup"
+            },
+            {
+              "name": "itemId",
+              "type": "string",
+              "value": "potion"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "pickup/r01/first_aid"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "item_r01_potion_collected"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Qui non è rimasto nulla da raccogliere."
+            }
           ]
         }
       ],
@@ -2272,15 +2316,15 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-ground-v1.png",
-      "imageheight": 32,
-      "imagewidth": 192,
-      "margin": 0,
+      "image": "../assets/tilesets/veloria-ground-hd-v2.png",
+      "imageheight": 1024,
+      "imagewidth": 1536,
+      "margin": 1,
       "name": "veloria_terrain",
-      "spacing": 0,
-      "tilecount": 6,
-      "tileheight": 32,
-      "tilewidth": 32
+      "spacing": 2,
+      "tilecount": 12,
+      "tileheight": 510,
+      "tilewidth": 254
     }
   ],
   "tilewidth": 32,

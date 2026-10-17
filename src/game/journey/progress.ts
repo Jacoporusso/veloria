@@ -5,9 +5,9 @@ import type { QuestDefinition } from '../../core/quests/apply-quest-event.ts';
 export const journeyMilestones = [
   { flag: 'q_starter_selected', title: 'Un compagno di viaggio', objective: 'Entra nel laboratorio a sud di Borgofonte e parla con Elia.' },
   { flag: 'q_research_sample_received', title: 'La prima ricerca', objective: 'Parla ancora con Elia: ti affiderà la sua ricerca.' },
-  { flag: 'q_forest_signal_found', title: 'Un segnale tra gli alberi', objective: 'Segui il Sentiero dell’Alba e cerca il segnale nel Bosco dei Veli.' },
-  { flag: 'q_ada_helped', title: 'La fiducia di Ada', objective: 'Racconta ad Ada, nel Bosco dei Veli, quello che hai scoperto.' },
-  { flag: 'q_brumalta_visited', title: 'Le porte di Brumalta', objective: 'Prosegui verso Brumalta: la tua prima Palestra ti aspetta.' },
+  { flag: 'q_forest_signal_found', title: 'Le rilevazioni nel Bosco dei Veli', objective: 'Segui il Sentiero dell’Alba fino al bosco. Esamina il misuratore di risonanza nella radura del Bosco dei Veli, a destra di Ada: avvicinati e premi A.' },
+  { flag: 'q_ada_helped', title: 'Riferisci ad Ada', objective: 'Torna da Ada nel Bosco dei Veli, sul sentiero a sinistra del misuratore, e premi A per riferire le rilevazioni.' },
+  { flag: 'q_brumalta_visited', title: 'Le porte di Brumalta', objective: 'Segui il sentiero a destra fino all’uscita per il Viale delle Fronde, poi raggiungi Brumalta.' },
   { flag: 'gym01_puzzle_solved', title: 'I sigilli del giardino', objective: 'Nella Palestra di Brumalta, attiva i sigilli da sud verso nord.' },
   { flag: 'badge_aurora_awarded', title: 'La Medaglia Aurora', objective: 'Affronta Mira nella Palestra di Brumalta.' },
   { flag: 'q_radicelmo_seed_found', title: 'Un seme dal passato', objective: 'Esplora la Via delle Radici e recupera il seme ancestrale.' },

@@ -99,7 +99,7 @@ S5 -> S6
 - Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
 - Flusso naturale verificato da nome a Medaglia Aurora con i quattro starter, cattura, cura, missione Ada e sigilli. Restano QA manuale, prove ripetute di bilanciamento e ampliamento dei contenuti.
 - Combattimento: Growl, Tail Whip e Defense Curl ora applicano effetti temporanei alle statistiche (ruleset prototipo v2, limiti e reset). Restano playtest di bilanciamento e ampliamento delle meccaniche; non equivale a battaglia definitiva.
-- P0 grafica: otto specie restano senza illustrazione. I quattro starter hanno ora artwork PokéAPI locali su richiesta esplicita dell’utente per il prototipo privato; il gate artistico generale non è ancora soddisfatto.
+- Grafica corrente: tutte le 20 specie MVP hanno immagini locali (12 PokéAPI e 8 dagli atlanti originali). Sei NPC illustrati, chiome e suoli HD delle aree iniziali integrati nella 0.3.25. Restano armonizzazione di protagonista/edifici e revisione visiva dell’utente.
 - Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.
 
 ### Audit tecnico progressione — 17/10/2026

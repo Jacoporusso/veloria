@@ -18,7 +18,7 @@ jobs:
   verify:
     name: Build, content, and browser tests
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Check out repository
@@ -60,7 +60,7 @@ jobs:
 
       - name: Run offline PWA end-to-end test
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        timeout-minutes: 5
+        timeout-minutes: 9
         run: npm run test:e2e:offline
 
       - name: Preserve browser screenshots and traces

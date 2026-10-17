@@ -181,7 +181,7 @@ export class WorldScene extends Phaser.Scene {
     if (!this.mapTransitionLoading && guidanceKey !== this.openingGuidanceKey) this.drawOpeningGuidance();
     this.openingGuidance?.setVisible(!blocked);
     const adjacent = adjacentGridPoint(this.playerTile, this.facing);
-    const target = !blocked && this.interactableAtTile(adjacent.x, adjacent.y);
+    const target = !blocked && (this.interactableAtTile(adjacent.x, adjacent.y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y));
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
       const verb = target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
@@ -232,7 +232,7 @@ export class WorldScene extends Phaser.Scene {
       ? this.renderedMap.triggers.find(trigger => trigger.destinationMapId === guidance.destinationMapId)
       : this.renderedMap.interactables.find(item => item.properties.npcId === guidance.npcId || item.properties.dialogueId === guidance.npcId || item.id === guidance.npcId);
     if (!target) return;
-    const marker = this.add.text(target.x + target.width / 2, target.y - 12, guidance.label, {
+    const marker = this.add.text(target.x + target.width / 2, target.y - 48, guidance.label, {
       fontFamily: 'system-ui, sans-serif', fontSize: '10px', color: '#d3fff0', backgroundColor: '#163e50',
       padding: { x: 8, y: 6 },
     }).setOrigin(.5, 1).setDepth(100000);
@@ -487,7 +487,7 @@ export class WorldScene extends Phaser.Scene {
 
   private interact() {
     const {x,y}=adjacentGridPoint(this.playerTile,this.facing);
-    const prop=this.interactableAtTile(x,y);
+    const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
     if (serviceId === 'pokemon_center' || serviceId === 'rest_point') {

@@ -33,9 +33,9 @@ type SelectableButton = { row: number; column: number; callback: () => void; pai
 
 const COLORS = {
   sky: 0xdff3ff,
-  panel: 0x1c3b50,
+  panel: 0x153448,
   panelRaised: 0xd4e6f0,
-  line: 0x63859b,
+  line: 0x87b9ce,
   paper: '#f1f9fc',
   muted: '#bdd3df',
   gold: '#ffe5a0',
@@ -222,7 +222,7 @@ export class BattleScene extends Phaser.Scene {
   private drawCreatureInfo(creature: BattleCreature, side: BattleSide, x: number, y: number, width: number, height: number): void {
     this.panel(x, y, width, height, COLORS.panel, COLORS.line, 0.98);
     const name = this.add.text(x + 12, y + 9, creature.name, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '18px', fontStyle: 'bold', color: COLORS.paper,
+      fontFamily: 'system-ui, Segoe UI, sans-serif', fontSize: '18px', fontStyle: 'bold', color: COLORS.paper,
     });
     this.ui.add(name);
     this.label(x + width - 12, y + 13, `LV ${creature.level}`, COLORS.paper, 10).setOrigin(1, 0);
@@ -412,9 +412,9 @@ export class BattleScene extends Phaser.Scene {
       const bx = x + column * (buttonWidth + gap);
       const by = y + row * (buttonHeight + gap);
       const color = this.mode === 'menu'
-        ? [COLORS.coral, COLORS.violet, COLORS.orange, COLORS.blue, 0xc6dbe9][index] ?? COLORS.panelRaised
-        : this.mode === 'moves' ? [0xffc8b9, 0xffe3a0, 0xc7e7fa, 0xdcd2f6][index % 4]
-          : this.mode === 'party' ? 0xe2d9f6 : this.mode === 'captures' ? 0xc7e7fa : 0xffdfb8;
+        ? [0xafffe3, 0xc6b1ff, 0x79cfff, 0xafffe3, 0xbdd3df][index] ?? COLORS.blue
+        : this.mode === 'moves' ? [0xafffe3, 0xc6b1ff, 0x79cfff, 0xffb6a4][index % 4]
+          : this.mode === 'party' ? 0xc6b1ff : this.mode === 'captures' ? 0xafffe3 : 0x79cfff;
       this.button(bx, by, buttonWidth, buttonHeight, option.label, option.callback, color, option.enabled, row, column);
     });
     if (this.mode !== 'menu' && !this.playerForcedToSwitch) {
@@ -425,19 +425,24 @@ export class BattleScene extends Phaser.Scene {
 
   private button(x: number, y: number, width: number, height: number, label: string, callback: () => void, color: number, enabled = true, row = 0, column = 0): void {
     const background = this.add.graphics();
+    const hasIcon = this.mode === 'menu';
     const paint = (selected: boolean): void => {
       background.clear();
-      background.fillStyle(COLORS.ink, enabled ? 0.15 : 0.07);
+      background.fillStyle(0x071a2b, enabled ? 0.30 : 0.12);
       background.fillRoundedRect(x, y + 3, width, height, 12);
-      background.fillStyle(enabled ? color : 0xe7eaf0, 1);
-      background.fillRoundedRect(x, y, width, height, 12);
-      background.lineStyle(selected ? 3 : 1, selected ? COLORS.ink : COLORS.line, 1);
-      background.strokeRoundedRect(x + 1.5, y + 1.5, width - 3, height - 3, 10);
+      this.gradientSurface(background, x, y, width, height, 12,
+        enabled ? (selected ? 0x315d6c : 0x254557) : 0x1b3042,
+        enabled ? (selected ? 0x263f61 : 0x1b304a) : 0x182a3b);
+      background.lineStyle(selected ? 1.8 : 1, enabled ? color : 0x8fa9ba, selected ? 0.95 : enabled ? 0.27 : 0.16);
+      background.strokeRoundedRect(x + 1, y + 1, width - 2, height - 2, 11);
       if (selected) {
-        // A visible shape as well as colour identifies keyboard focus.
-        background.fillStyle(COLORS.ink, 1);
-        background.fillTriangle(x + 8, y + height / 2 - 4, x + 8, y + height / 2 + 4, x + 13, y + height / 2);
+        // A continuous inset marker identifies focus independently of hue.
+        background.fillStyle(color, 1);
+        background.fillRoundedRect(x + 5, y + 12, 3, Math.max(10, height - 24), 1.5);
+        background.lineStyle(1, 0xffffff, 0.20);
+        background.lineBetween(x + 16, y + 3, x + width - 16, y + 3);
       }
+      if (hasIcon) this.commandIcon(background, label, x + 25, y + height / 2, enabled ? color : 0x8397aa, enabled ? 1 : 0.65);
     };
     paint(false);
     if (enabled) {
@@ -450,11 +455,11 @@ export class BattleScene extends Phaser.Scene {
         this.activateSelected();
       });
     }
-    const visibleLabel = enabled ? label : this.mode === 'menu' ? `${label}\n— non disponibile` : `× ${label}`;
-    const text = this.add.text(x + width / 2, y + height / 2, visibleLabel, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: this.mode === 'menu' || this.mode === 'message' ? '13px' : '12px',
-      fontStyle: 'bold', color: enabled ? '#20344f' : '#606c80',
-      align: 'center', lineSpacing: 1, wordWrap: { width: width - 28 },
+    const visibleLabel = enabled ? label : this.mode === 'menu' ? `${label}\nNon disponibile` : `× ${label}`;
+    const text = this.add.text(x + width / 2 + (hasIcon ? 13 : 0), y + height / 2, visibleLabel, {
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: !enabled && this.mode === 'menu' ? '11px' : this.mode === 'menu' || this.mode === 'message' ? '13px' : '12px',
+      fontStyle: 'bold', color: enabled ? '#f1f9fc' : '#99afbf',
+      align: 'center', lineSpacing: 2, wordWrap: { width: width - (hasIcon ? 58 : 28) },
     }).setOrigin(0.5);
     this.ui.add([background, text]);
     this.updateSelectionStyle();
@@ -482,13 +487,57 @@ export class BattleScene extends Phaser.Scene {
 
   private panel(x: number, y: number, width: number, height: number, color: number, stroke: number, alpha = 1): void {
     const graphics = this.add.graphics();
-    graphics.fillStyle(COLORS.ink, 0.13);
-    graphics.fillRoundedRect(x, y + 3, width, height, 15);
-    graphics.fillStyle(color, alpha);
-    graphics.fillRoundedRect(x, y, width, height, 15);
-    graphics.lineStyle(1.5, stroke, 0.9);
-    graphics.strokeRoundedRect(x, y, width, height, 15);
+    graphics.fillStyle(0x071a2b, 0.25);
+    graphics.fillRoundedRect(x, y + 4, width, height, 16);
+    graphics.setAlpha(alpha);
+    this.gradientSurface(graphics, x, y, width, height, 16, color, 0x22344e);
+    graphics.lineStyle(1, stroke, 0.22);
+    graphics.strokeRoundedRect(x + 0.5, y + 0.5, width - 1, height - 1, 16);
     this.ui.add(graphics);
+  }
+
+  /** Rounded gradients use a few canvas-compatible strips; no texture or asset allocation. */
+  private gradientSurface(graphics: Phaser.GameObjects.Graphics, x: number, y: number, width: number, height: number, radius: number, top: number, bottom: number): void {
+    const r = Math.min(radius, width / 2, height / 2);
+    for (let offset = 0; offset < height; offset += 2) {
+      const h = Math.min(2, height - offset);
+      const center = offset + h / 2;
+      const edge = center < r ? r - center : center > height - r ? center - (height - r) : 0;
+      const inset = edge > 0 ? r - Math.sqrt(Math.max(0, r * r - edge * edge)) : 0;
+      const t = center / height;
+      const channel = (shift: number) => Math.round(((top >> shift) & 255) * (1 - t) + ((bottom >> shift) & 255) * t);
+      graphics.fillStyle((channel(16) << 16) | (channel(8) << 8) | channel(0), 1);
+      graphics.fillRect(x + inset, y + offset, width - inset * 2, h);
+    }
+  }
+
+  /** Small geometric action marks stay crisp on phones without relying on emoji fonts. */
+  private commandIcon(graphics: Phaser.GameObjects.Graphics, label: string, x: number, y: number, color: number, alpha: number): void {
+    graphics.fillStyle(color, 0.10 * alpha);
+    graphics.fillCircle(x, y, 13);
+    graphics.lineStyle(1.7, color, alpha);
+    if (label === 'LOTTA') {
+      graphics.lineBetween(x - 5, y - 5, x + 5, y + 5);
+      graphics.lineBetween(x + 5, y - 5, x - 5, y + 5);
+      graphics.lineBetween(x - 6, y + 3, x - 3, y + 6);
+      graphics.lineBetween(x + 3, y + 6, x + 6, y + 3);
+    } else if (label === 'CATTURA') {
+      graphics.strokeCircle(x, y, 6);
+      graphics.lineBetween(x - 6, y, x + 6, y);
+      graphics.fillStyle(color, alpha);
+      graphics.fillCircle(x, y, 2);
+    } else if (label === 'BORSA') {
+      graphics.strokeRoundedRect(x - 6, y - 3, 12, 10, 2);
+      graphics.strokeRoundedRect(x - 3, y - 7, 6, 5, 2);
+    } else if (label === 'SQUADRA') {
+      graphics.strokeCircle(x, y - 4, 3);
+      graphics.strokeCircle(x - 5, y + 4, 3);
+      graphics.strokeCircle(x + 5, y + 4, 3);
+    } else {
+      graphics.lineBetween(x - 6, y, x + 6, y);
+      graphics.lineBetween(x + 1, y - 5, x + 6, y);
+      graphics.lineBetween(x + 1, y + 5, x + 6, y);
+    }
   }
 
   private rect(x: number, y: number, width: number, height: number, color: number): void {

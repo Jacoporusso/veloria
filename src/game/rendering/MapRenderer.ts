@@ -49,11 +49,24 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   if (tilesets.length === 0) throw new Error(`No tilesets are declared for ${definition.metadata.id}.`);
   const imageKeys = new Set(definition.metadata.renderAssets.filter(asset => asset.kind === 'image').map(asset => asset.key));
 
+  // Source texels may be larger than the fixed 32px world grid. Only terrain layers scale.
+  const sourceWidth = tilesets[0].tileWidth, sourceHeight = tilesets[0].tileHeight;
+  if (tilesets.some(set => set.tileWidth !== sourceWidth || set.tileHeight !== sourceHeight)) throw new Error('Terrain tilesets must share source dimensions.');
+  tilemap.setBaseTileSize(sourceWidth, sourceHeight);
+  for (const name of ['ground', 'terrain_detail']) tilemap.setLayerTileSize(sourceWidth, sourceHeight, name);
+  if (sourceWidth > TILE || sourceHeight > TILE) for (const asset of definition.metadata.renderAssets) {
+    if (asset.kind === 'tileset') scene.textures.get(asset.key).setFilter(Phaser.Textures.FilterMode.LINEAR);
+  }
   const container = scene.add.container();
   for (const [name, depth] of [['ground', -10], ['terrain_detail', -5]] as const) {
     const layer = tilemap.createLayer(name, tilesets, 0, 0);
     if (!layer) throw new Error(`Tiled layer ${name} is missing from ${definition.metadata.tiledAsset}.`);
-    layer.setDepth(depth);
+    layer.setDepth(depth).setScale(TILE / sourceWidth, TILE / sourceHeight);
+    // Alternating reflections join matching material edges instead of repeating hard seams.
+    if (sourceWidth > TILE || sourceHeight > TILE) layer.forEachTile(tile => {
+      tile.flipX = tile.x % 2 !== 0;
+      tile.flipY = tile.y % 2 !== 0;
+    });
     container.add(layer);
   }
 
@@ -140,14 +153,14 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
       break;
     }
     case 'tree': {
-      const sprite = propString(item.properties, 'sprite') ?? 'borgofonte-tree';
+      const sprite = propString(item.properties, 'sprite') ?? (imageKeys.has('veloria-canopy-v2') ? 'veloria-canopy-v2' : 'borgofonte-tree');
       requireImageAsset(imageKeys, sprite, item);
-      attach(container, scene.add.image(x + item.width / 2, y + item.height, sprite)
+      attach(container, scene.add.image(x + item.width / 2, y + item.height, sprite, sprite === 'veloria-canopy-v2' ? atlasFrame(scene, sprite, 2, 2, Math.abs(Math.floor(x / TILE) + Math.floor(y / TILE) * 3) % 4) : undefined)
         .setOrigin(.5, .94).setDisplaySize(96, 112).setDepth(depth + 8));
       break;
     }
     case 'npc':
-      renderNpc(scene, container, item);
+      renderNpc(scene, container, item, imageKeys);
       break;
     case 'sign':
       renderSign(scene, container, x, y, depth);
@@ -156,7 +169,8 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
       renderMillWheel(scene, container, item);
       break;
     case 'rock':
-      renderRock(scene, container, x, y, depth);
+      if (item.properties.questEvent === 'event/forest_signal/read') renderSensor(scene, container, x, y, depth);
+      else renderRock(scene, container, x, y, depth);
       break;
     case 'pickup':
       renderPickup(scene, container, item);
@@ -196,23 +210,40 @@ function renderResonancePlate(scene: Phaser.Scene, container: Phaser.GameObjects
   }).setOrigin(.5, 1).setDepth(depth + 1));
 }
 
-function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable): void {
+/** Frames are derived from source dimensions; world coordinates and collision stay unchanged. */
+function atlasFrame(scene: Phaser.Scene, key: string, columns: number, rows: number, index: number): string {
+  const texture = scene.textures.get(key);
+  texture.setFilter(Phaser.Textures.FilterMode.LINEAR);
+  const source = texture.getSourceImage() as HTMLImageElement;
+  const frame = 'cell-' + index;
+  if (!texture.has(frame)) texture.add(frame, 0, index % columns * source.width / columns, Math.floor(index / columns) * source.height / rows, source.width / columns, source.height / rows);
+  return frame;
+}
+
+function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>): void {
   const x = item.x + item.width / 2, y = item.y + item.height / 2;
-  const coat = propNumber(item.properties, 'coat') ?? 0x728a79;
-  attach(container, scene.add.ellipse(x, y + 9, 21, 7, 0x24382e, .38).setDepth(y + 10));
-  const npc = scene.add.container(x, y).setDepth(y + 22);
-  const art = scene.add.graphics();
-  art.fillStyle(0x403c38).fillRoundedRect(-6, -15, 12, 7, 3);
-  art.fillStyle(0xefd1a9).fillRoundedRect(-6, -12, 12, 11, 4);
-  art.fillStyle(0x40352c).fillRect(-3, -8, 2, 2).fillRect(2, -8, 2, 2);
-  art.fillStyle(coat).fillRoundedRect(-9, -2, 18, 15, 4);
-  art.fillStyle(0xe3d5b5).fillRect(-2, -1, 4, 10);
-  art.fillStyle(0x3f4c48).fillRoundedRect(-7, 10, 6, 7, 2).fillRoundedRect(1, 10, 6, 7, 2);
-  npc.add(art);
-  attach(container, npc);
-  attach(container, scene.add.text(x, y - 25, item.name.toUpperCase(), {
-    fontFamily: 'monospace', fontSize: '8px', color: '#fff0d3', stroke: '#26372c', strokeThickness: 3,
+  const sprite = propString(item.properties, 'sprite');
+  if (!sprite) throw new Error('NPC ' + item.id + ' must declare a character sprite.');
+  requireImageAsset(imageKeys, sprite, item);
+  const frame = propNumber(item.properties, 'spriteFrame') ?? 0;
+  attach(container, scene.add.ellipse(x, y + 14, 21, 7, 0x142c35, .22).setDepth(y + 10));
+  attach(container, scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, 3, 2, frame)).setOrigin(.5, 1).setDisplaySize(60, 60).setDepth(y + 22));
+  attach(container, scene.add.text(x, y - 43, item.name, {
+    fontFamily: 'system-ui, sans-serif', fontSize: '8px', fontStyle: 'bold', color: '#effcff', stroke: '#153746', strokeThickness: 2,
   }).setOrigin(.5).setDepth(y + 23));
+}
+
+/** A recognisable field instrument instead of the old generic rock placeholder. */
+function renderSensor(scene: Phaser.Scene, container: Phaser.GameObjects.Container, x: number, y: number, depth: number): void {
+  const g = attach(container, scene.add.graphics().setDepth(depth));
+  g.fillStyle(0x132d39, .24).fillEllipse(x + 16, y + 29, 28, 8);
+  g.lineStyle(3, 0xb68c68).lineBetween(x + 16, y + 14, x + 6, y + 29).lineBetween(x + 16, y + 14, x + 26, y + 29);
+  g.fillStyle(0x203f50).fillRoundedRect(x + 4, y - 4, 24, 25, 7);
+  g.lineStyle(1, 0xafffe3, .8).strokeRoundedRect(x + 4, y - 4, 24, 25, 7);
+  g.fillStyle(0x79e6d1).fillCircle(x + 16, y + 7, 7);
+  g.lineStyle(1.5, 0x173e51).lineBetween(x + 16, y + 7, x + 20, y + 3);
+  g.fillStyle(0xffffff).fillCircle(x + 11, y + 16, 1.5);
+  g.fillStyle(0xb9a8f6).fillCircle(x + 21, y + 16, 1.5);
 }
 
 function renderSign(scene: Phaser.Scene, container: Phaser.GameObjects.Container, x: number, y: number, depth: number): void {

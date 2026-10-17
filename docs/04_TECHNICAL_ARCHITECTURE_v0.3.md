@@ -153,3 +153,7 @@ BattleScene delega la selezione avversaria a una funzione pura, con policy risol
 ### Apprendimento locale delle mosse
 
 Il registro level-up-moves è validato contro specie e catalogo, poi normalizzato dal catalogo runtime nel ruleset con PP massimi. Il reducer XP emette moveLearned/moveLearningSkipped; BattleScene presenta gli eventi senza assegnare mosse. La persistenza usa gli slot già esistenti del save, senza nuovi campi o migrazione.
+
+### Terreno HD e NPC illustrati
+
+Il renderer imposta le dimensioni sorgente delle sole tile layer usando il tileset, poi scala ground/terrain_detail a 32 unità per casella. Oggetti, trigger, collisioni, spawn e salvataggi rimangono in coordinate mondo32 px. Le mappe mantengono Tiled e renderAssets versionati; nessun cambiamento al save. Gli NPC dichiarano sprite e spriteFrame; i frame vengono ricavati dalle dimensioni effettive dell’atlante. Nuove mappe con NPC devono dichiarare l’immagine in renderAssets e il relativo frame.

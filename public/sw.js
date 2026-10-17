@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v39';
+const CACHE = 'veloria-shell-v40';
 const SHELL = [
   './',
   './index.html',
@@ -11,6 +11,7 @@ const SHELL = [
   './icons/veloria-192.png',
   './icons/veloria-512.png',
   './assets/tilesets/veloria-ground-v1.png',
+  './assets/tilesets/veloria-ground-hd-v2.png',
   './assets/tilesets/veloria-brumalta-ground-v1.png',
   './assets/tilesets/veloria-forest-ground-v1.png',
   './assets/sprites/borgofonte-house-01.png',
@@ -23,6 +24,8 @@ const SHELL = [
   './assets/sprites/radicelmo-community-v1.png',
   './assets/sprites/radicelmo-herbalist-v1.png',
   './assets/sprites/borgofonte-tree-01.png',
+  './assets/sprites/veloria-npcs-v2.png',
+  './assets/sprites/veloria-canopy-v2.png',
   './assets/sprites/veloria-bosco-ancient-tree-v1.png',
   './assets/sprites/veloria-bosco-pond-v1.png',
   './assets/battle/veloria-battle-forest-v1.png',
@@ -30,6 +33,14 @@ const SHELL = [
   './assets/creatures/pokeapi-starter-4-v1.png',
   './assets/creatures/pokeapi-starter-7-v1.png',
   './assets/creatures/pokeapi-starter-25-v1.png',
+  './assets/creatures/pokeapi-route-16-v1.png',
+  './assets/creatures/pokeapi-route-19-v1.png',
+  './assets/creatures/pokeapi-route-161-v1.png',
+  './assets/creatures/pokeapi-route-163-v1.png',
+  './assets/creatures/pokeapi-route-43-v1.png',
+  './assets/creatures/pokeapi-route-60-v1.png',
+  './assets/creatures/pokeapi-route-69-v1.png',
+  './assets/creatures/pokeapi-route-194-v1.png',
   './assets/creatures/veloria-creatures-3-v1.png',
   './assets/creatures/veloria-creatures-4-v1.png',
   './assets/sprites/veloria-traveler-walk-v2.png',

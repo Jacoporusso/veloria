@@ -38,6 +38,33 @@
         "q_research_sample_received"
       ],
       "label": "↑ SENTIERO DELL’ALBA"
+    },
+    {
+      "mapId": "veloria/d01_bosco_veli",
+      "npcId": "Misuratore di risonanza",
+      "missingFlags": [
+        "q_forest_signal_found"
+      ],
+      "label": "SENSORE · A"
+    },
+    {
+      "mapId": "veloria/d01_bosco_veli",
+      "npcId": "forest_ranger_ada",
+      "requiresFlags": [
+        "q_forest_signal_found"
+      ],
+      "missingFlags": [
+        "q_ada_helped"
+      ],
+      "label": "ADA · A"
+    },
+    {
+      "mapId": "veloria/d01_bosco_veli",
+      "destinationMapId": "veloria/r02_viale_fronde",
+      "requiresFlags": [
+        "q_ada_helped"
+      ],
+      "label": "→ VIALE DELLE FRONDE"
     }
   ]
 }

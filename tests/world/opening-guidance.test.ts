@@ -11,3 +11,10 @@ test('guidance keeps Elia visible after selection and distinguishes the room exi
   assert.equal(selectOpeningGuidance('veloria/borgofonte', mission, opening.guidance)?.destinationMapId, 'veloria/r01_sentiero_alba');
   assert.equal(selectOpeningGuidance('veloria/r01_sentiero_alba', mission, opening.guidance), undefined);
 });
+
+test('Bosco guidance leads to the resonance meter, then Ada, then the unlocked onward exit', () => {
+  const bosco = 'veloria/d01_bosco_veli';
+  assert.equal(selectOpeningGuidance(bosco, ['q_research_sample_received'], opening.guidance)?.npcId, 'Misuratore di risonanza');
+  assert.equal(selectOpeningGuidance(bosco, ['q_research_sample_received', 'q_forest_signal_found'], opening.guidance)?.npcId, 'forest_ranger_ada');
+  assert.equal(selectOpeningGuidance(bosco, ['q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped'], opening.guidance)?.destinationMapId, 'veloria/r02_viale_fronde');
+});

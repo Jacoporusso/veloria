@@ -9,7 +9,9 @@ test('journey objective follows existing flags without mutating the save', () =>
   assert.match(first.objective, /laboratorio/);
   const advanced = selectJourneyProgress({ ...save, flags: ['q_starter_selected', 'q_research_sample_received'] });
   assert.equal(advanced.completed, 2);
-  assert.match(advanced.objective, /Bosco dei Veli/);
+  assert.match(advanced.objective, /misuratore di risonanza.*radura del Bosco dei Veli/i);
+  const signalFound = selectJourneyProgress({ ...save, flags: ['q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found'] });
+  assert.match(signalFound.objective, /torna da Ada nel Bosco dei Veli.*rilevazioni/i);
   assert.deepEqual(save.flags, []);
 });
 

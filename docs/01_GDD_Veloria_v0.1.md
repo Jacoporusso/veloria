@@ -334,3 +334,5 @@ Per architettura, epiche, backlog, contratti e criteri di completamento si veda 
 ### Decisione esplicita dell’utente — 17/10/2026
 
 Per il prototipo privato l’utente ha richiesto gli artwork dei quattro starter distribuiti tramite PokéAPI. Questa eccezione sostituisce per quei quattro file il precedente vincolo sui soli artwork originali/autorizzati: fonti e checksum in assets/pokeapi-starter-artwork-v1.json e registro asset. I diritti delle immagini restano a The Pokémon Company; la decisione di prototipo non dichiara diritti per una diffusione pubblica.
+
+Nella richiesta successiva sugli incontri invisibili, incluso Pidgey, lo stesso metodo locale è stato esteso alle altre otto specie mancanti. Registro separato assets/pokeapi-route-artwork-v1.json, con fonti e checksum; stesso perimetro privato e stessi diritti.

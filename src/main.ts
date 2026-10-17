@@ -1,3 +1,4 @@
+import { observeGameSize } from './game/rendering/game-size.ts';
 import Phaser from 'phaser';
 import './style.css';
 import './mobile-controls.css';
@@ -138,12 +139,12 @@ const game = new Phaser.Game({
   // unused Web Audio manager otherwise attempts an autoplay context at boot.
   audio: { noAudio: true },
   backgroundColor: '#17251d',
-  pixelArt: true,
-  antialias: false,
+  pixelArt: false,
+  antialias: true,
   scale: { mode: Phaser.Scale.RESIZE, width: '100%', height: '100%' },
   scene: [new WorldScene(save, themeId => audio.setTheme(themeId), Boolean(previewMapId))],
-  render: { roundPixels: true, antialias: false },
+  render: { roundPixels: false, antialias: true },
 });
 
 
-void game;
+observeGameSize(game, document.querySelector<HTMLElement>('#game')!);

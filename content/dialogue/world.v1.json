@@ -81,7 +81,7 @@
         "whenFlagMissing": "q_forest_signal_found",
         "lines": [
           "Le letture di Elia segnalano un’anomalia tra gli alberi. Puoi controllare il vecchio misuratore luminoso?",
-          "Si trova vicino alla radura. Quando hai i dati, torna da me."
+          "Segui il sentiero alla mia destra: il misuratore verde è nella radura. Avvicinati e premi A per leggere i dati, poi torna da me."
         ]
       },
       {
@@ -89,13 +89,13 @@
         "questEvent": "interaction/ada/report",
         "lines": [
           "Hai trovato il segnale. Registriamolo nel mio taccuino.",
-          "Grazie per l’aiuto: ti lascio una piccola scorta per il viaggio."
+          "Grazie! Ecco due Pozioni e 100 monete. Ora segui il sentiero a destra fino all’uscita per il Viale delle Fronde: da lì arriverai a Brumalta."
         ]
       },
       {
         "lines": [
           "Grazie per aver recuperato le letture. Ora posso capire cosa sta succedendo nel bosco.",
-          "Buon viaggio, e fai attenzione ai sentieri meno battuti."
+          "Per Brumalta, segui il sentiero a destra fino al Viale delle Fronde. Il misuratore ha già registrato le tue letture."
         ]
       }
     ]

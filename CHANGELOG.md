@@ -66,3 +66,11 @@
 
 - Cattura raggiungibile da tastiera anche con opzioni adiacenti disabilitate; riepilogo capitolo protetto dal tasto ancora premuto.
 - Prologo completato tramite controlli reali con tutti e quattro gli starter, cattura e salvataggio/ripresa verificati.
+
+## 17/10/2026 — Personaggi e mondo più definiti
+
+- Sei NPC illustrati, quattro varianti di chioma, terreno HD a Borgofonte/R01/Bosco e rendering indipendente dalla griglia 32 px.
+- Pidgey e altre sette specie ora visibili con artwork locali registrati; tutte le 20 specie MVP coperte.
+- Pulsanti battaglia navy a gradiente e icone, ridimensionamento osservato per rotazione mobile.
+- Sensore riconoscibile e utilizzabile anche dalla sua casella; guida contestuale e indicazioni precise di Ada.
+- Contenuti 0.3.25, cache PWA v40; prompt originali conservati.

@@ -17,6 +17,11 @@
       "kind": "image",
       "key": "borgofonte-lab-interior-v1",
       "path": "assets/sprites/borgofonte-lab-interior-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.png"
     }
   ],
   "spawns": [

@@ -97,3 +97,9 @@
 
 - Tre mosse elementali e learnset curato al livello 6 per i quattro starter.
 - Mira: Sentret lv7/Rattata lv8; profili IA v2 con una preparazione difensiva per la prima palestra.
+
+## 0.3.25 — 17/10/2026
+
+- Immagini per le otto specie mancanti, sei NPC originali e terreno/vegetazione HD.
+- Guida del Bosco: sensore, Ada, uscita per il Viale; testi e missione coerenti.
+- Collisioni, ricompense e salvataggi conservano lo schema precedente.

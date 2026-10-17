@@ -8,11 +8,11 @@
   "renderAssets": [
     {
       "kind": "tileset",
-      "key": "veloria-forest-ground",
-      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "key": "veloria-ground-hd-v2",
+      "path": "assets/tilesets/veloria-ground-hd-v2.png",
       "tiledName": "veloria_terrain",
-      "tileWidth": 32,
-      "tileHeight": 32
+      "tileWidth": 254,
+      "tileHeight": 510
     },
     {
       "kind": "image",
@@ -21,8 +21,8 @@
     },
     {
       "kind": "image",
-      "key": "borgofonte-tree",
-      "path": "assets/sprites/borgofonte-tree-01.png"
+      "key": "veloria-canopy-v2",
+      "path": "assets/sprites/veloria-canopy-v2.png"
     },
     {
       "kind": "image",
@@ -33,6 +33,11 @@
       "kind": "image",
       "key": "veloria-bosco-pond-v1",
       "path": "assets/sprites/veloria-bosco-pond-v1.png"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.png"
     }
   ],
   "spawns": [
@@ -84,14 +89,31 @@
     {
       "kind": "fireflies",
       "count": 14,
-      "area": { "x": 128, "y": 96, "width": 704, "height": 448 },
-      "colors": ["#e7d99b", "#c8d59b", "#a5c8a9"]
+      "area": {
+        "x": 128,
+        "y": 96,
+        "width": 704,
+        "height": 448
+      },
+      "colors": [
+        "#e7d99b",
+        "#c8d59b",
+        "#a5c8a9"
+      ]
     },
     {
       "kind": "water-shimmer",
       "count": 7,
-      "area": { "x": 704, "y": 96, "width": 160, "height": 96 },
-      "colors": ["#cce3cf", "#e9e6c7"]
+      "area": {
+        "x": 704,
+        "y": 96,
+        "width": 160,
+        "height": 96
+      },
+      "colors": [
+        "#cce3cf",
+        "#e9e6c7"
+      ]
     }
   ]
 }

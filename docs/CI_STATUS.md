@@ -41,3 +41,11 @@ Quattro scenari online e quello offline falliti; non è una pipeline verde. E2E-
 Verifica locale successiva: 7/7 regressioni browser passate (Cattura da tastiera, Enter/Spazio sul riepilogo, Pozione, HP/PP/XP, box e medaglia). Il risultato della nuova run GitHub va verificato separatamente.
 
 Anche il percorso PWA offline è passato localmente (1/1, rete disattivata, immagini starter, incontri, cura e Medaglia Aurora). Build, 116 test dominio, 16 persistenza, 20 test Python e validatore dei contenuti passati. Resta la verifica su smartphone fisico.
+
+## Iterazione visiva 0.3.25 — verifiche locali
+
+117 test del dominio e 16 di persistenza passati; validatore contenuti (45 asset registrati) e 20 test Python passati. Presentazione della battaglia verificata a 390×844,320×568,844×390. Pidgey visibile e copertura immagini 20/20 verificata; ridimensionamento mediante ResizeObserver condiviso dall’app e dalla fixture. Sequenza sensore→Ada→uscita verificata tramite controlli reali su fixture isolata dichiarata, senza incontri casuali; scala del terreno e layout portrait/landscape controllati. Questo test non sostituisce il playtest naturale e la QA su telefono fisico.
+
+La run precedente 39033589562 ha superato la suite online ma è scaduta nel percorso offline a 240 secondi, durante la consegna delle rilevazioni nel bosco. Il percorso lungo conserva tutte le asserzioni; budget del test portato a 8 minuti, step a 9 e job a 30 per ottenere un esito completo sul runner Linux. Questo adeguamento non è una conferma di pipeline verde o di prestazioni su smartphone.
+
+Prova offline locale finale con gli asset 0.3.25: passata 1/1 in 1,9 minuti (build inclusa nel comando, 2 minuti complessivi). Gli atlas nuovi sono dichiarati e precacheati. Verifica su telefono fisico e nuova run remota restano separate.

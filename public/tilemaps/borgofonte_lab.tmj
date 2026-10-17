@@ -1023,6 +1023,16 @@
               "name": "dialogueId",
               "type": "string",
               "value": "prof_elia"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         }

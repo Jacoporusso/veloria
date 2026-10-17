@@ -1,7 +1,7 @@
 {
   "id": "veloria/q_ada_forest_signal",
   "version": 1,
-  "displayName": "Il segnale nel Bosco dei Veli",
+  "displayName": "Le rilevazioni nel Bosco dei Veli",
   "steps": [
     {
       "id": "read_forest_signal",

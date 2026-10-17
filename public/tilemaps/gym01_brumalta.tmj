@@ -2329,6 +2329,16 @@
               "name": "battleRequiredFlag",
               "type": "string",
               "value": "gym01_puzzle_solved"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 3
             }
           ]
         }
@@ -2363,7 +2373,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -2386,7 +2396,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -2409,7 +2419,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -2432,7 +2442,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -2455,7 +2465,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -2478,7 +2488,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         }

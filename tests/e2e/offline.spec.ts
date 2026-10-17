@@ -204,7 +204,8 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
 }
 
 test('E2E-06 desktop portion: the cached starter, route, encounter, healing and Aurora Badge work offline', async ({ page, context }, testInfo) => {
-  test.setTimeout(240_000);
+  // The complete offline journey exceeded four minutes on the hosted Linux runner.
+  test.setTimeout(480_000);
   const runtimeErrors: string[] = [];
   page.on('pageerror', error => runtimeErrors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') runtimeErrors.push(message.text()); });

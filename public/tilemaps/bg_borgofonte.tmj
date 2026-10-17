@@ -3823,6 +3823,16 @@
               "name": "dialogueId",
               "type": "string",
               "value": "nilo"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         }
@@ -3857,7 +3867,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3880,7 +3890,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3903,7 +3913,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3926,7 +3936,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3949,7 +3959,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3972,7 +3982,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         },
@@ -3995,7 +4005,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "borgofonte-tree"
+              "value": "veloria-canopy-v2"
             }
           ]
         }
@@ -4385,15 +4395,15 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-ground-v1.png",
-      "imageheight": 32,
-      "imagewidth": 192,
-      "margin": 0,
+      "image": "../assets/tilesets/veloria-ground-hd-v2.png",
+      "imageheight": 1024,
+      "imagewidth": 1536,
+      "margin": 1,
       "name": "veloria_terrain",
-      "spacing": 0,
-      "tilecount": 6,
-      "tileheight": 32,
-      "tilewidth": 32
+      "spacing": 2,
+      "tilecount": 12,
+      "tileheight": 510,
+      "tilewidth": 254
     }
   ],
   "tilewidth": 32,
