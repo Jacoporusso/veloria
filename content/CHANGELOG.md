@@ -1,3 +1,9 @@
+## veloria-content-0.3.18
+
+- Applied the user's child-friendly UI direction: sky/cream shell, coral/lilac/blue tactile controls, larger rounded typography, brighter dialogue and journal panels, and distinct battle command colours with labels and keyboard focus indicators.
+- Shared HTML UI tokens live in `src/ui-theme.css`; the map illustration style, collision grid, quest rewards and save schema are unchanged.
+- Updated the PWA chrome and project-owned vector icon colours; PNG icons are rendered from those SVG sources. Shell cache v32 includes the refreshed build and icons.
+
 ## veloria-content-0.3.17
 
 - Added a four-direction, sixteen-frame traveler walk atlas and continuous tile interpolation; collision, interaction and save coordinates stay unchanged.

@@ -41,6 +41,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Build and type-check
+        id: build
         run: npm run build
 
       - name: Run domain and persistence tests
@@ -53,7 +54,22 @@ jobs:
         run: python -m unittest discover -s tests -p "test_*.py"
 
       - name: Run browser end-to-end tests
+        timeout-minutes: 16
         run: npm run test:e2e
 
       - name: Run offline PWA end-to-end test
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        timeout-minutes: 5
         run: npm run test:e2e:offline
+
+      - name: Preserve browser screenshots and traces
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            test-results/
+            test-results-e2e-offline/
+            playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -24,19 +24,24 @@ export interface BattleSceneInit {
 }
 
 type ViewMode = 'menu' | 'moves' | 'party' | 'items' | 'captures' | 'message';
-type SelectableButton = { row: number; column: number; callback: () => void; background: Phaser.GameObjects.Rectangle };
+type SelectableButton = { row: number; column: number; callback: () => void; paint: (selected: boolean) => void };
 
 const COLORS = {
-  night: 0x111d19,
-  panel: 0x172820,
-  panelRaised: 0x20372e,
-  line: 0x6f8368,
-  paper: '#efe8d5',
-  muted: '#a5b19f',
-  gold: '#d6be83',
-  green: 0x9eb47d,
-  greenDeep: 0x566f45,
-  red: 0xc66f5d,
+  sky: 0xdff3ff,
+  panel: 0xfffdf5,
+  panelRaised: 0xe3f3ff,
+  line: 0xa9c5dd,
+  paper: '#234565',
+  muted: '#506984',
+  gold: '#72521b',
+  ink: 0x234565,
+  coral: 0xf47c69,
+  blue: 0x55b9e9,
+  yellow: 0xffd263,
+  violet: 0xb0a0e5,
+  orange: 0xffbd7b,
+  green: 0x64b986,
+  red: 0xe36a61,
 };
 
 /** Mobile-first battle UI. All game rules and state transitions are delegated to the pure reducer. */
@@ -184,45 +189,45 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private drawArena(width: number, height: number): void {
-    this.cameras.main.setBackgroundColor(COLORS.night);
+    this.cameras.main.setBackgroundColor(COLORS.sky);
     if (this.arenaTextureKey && this.textures.exists(this.arenaTextureKey)) {
       const background = this.add.image(width / 2, height / 2, this.arenaTextureKey);
       const coverScale = Math.max(width / background.width, height / background.height);
       background.setScale(coverScale);
       this.ui.add(background);
-      const shade = this.add.rectangle(width / 2, height / 2, width, height, 0x111d19, 0.22);
+      const shade = this.add.rectangle(width / 2, height / 2, width, height, 0xfff2d8, 0.04);
       this.ui.add(shade);
     } else {
-      this.rect(0, 0, width, height, 0x172a22);
-      this.rect(0, height * 0.47, width, height * 0.22, 0x314332);
-      this.rect(0, height * 0.59, width, height * 0.12, 0x26382c);
+      this.rect(0, 0, width, height, COLORS.sky);
+      this.rect(0, height * 0.47, width, height * 0.53, 0xdbedc3);
+      this.rect(0, height * 0.59, width, height * 0.41, 0xc4dfa8);
     }
     const field = this.add.graphics();
-    field.fillStyle(0x708455, 0.34);
+    field.fillStyle(0xffedb2, 0.46);
     field.fillEllipse(width * 0.72, height * 0.43, width * 0.42, height * 0.09);
-    field.fillStyle(0x819562, 0.26);
+    field.fillStyle(0xffedb2, 0.42);
     field.fillEllipse(width * 0.25, height * 0.68, width * 0.44, height * 0.075);
-    field.lineStyle(1, 0xe0d29c, 0.11);
+    field.lineStyle(1, 0xfffdf5, 0.22);
     field.lineBetween(0, height * 0.55, width, height * 0.55);
     this.ui.add(field);
   }
 
   private drawCreatureInfo(creature: BattleCreature, side: BattleSide, x: number, y: number, width: number, height: number): void {
-    this.panel(x, y, width, height, COLORS.panel, COLORS.line, 0.94);
+    this.panel(x, y, width, height, COLORS.panel, COLORS.line, 0.98);
     const name = this.add.text(x + 12, y + 9, creature.name, {
-      fontFamily: 'Georgia, serif', fontSize: '18px', color: COLORS.paper,
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '18px', fontStyle: 'bold', color: COLORS.paper,
     });
     this.ui.add(name);
-    this.label(x + width - 12, y + 13, `LV ${creature.level}`, COLORS.gold, 9).setOrigin(1, 0);
-    const hpLabel = this.add.text(x + 12, y + 34, 'HP', { fontFamily: 'DM Mono, monospace', fontSize: '9px', color: COLORS.gold });
+    this.label(x + width - 12, y + 13, `LV ${creature.level}`, COLORS.paper, 10).setOrigin(1, 0);
+    const hpLabel = this.add.text(x + 12, y + 34, 'HP', { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '11px', fontStyle: 'bold', color: COLORS.muted });
     this.ui.add(hpLabel);
     const barX = x + 35;
     const barY = y + 36;
     const barWidth = Math.max(42, width - 92);
-    this.rect(barX, barY, barWidth, 7, 0x08140f);
+    this.rect(barX, barY, barWidth, 7, 0xdce6e8);
     const hp = this.visualHp.get(creature.instanceId) ?? creature.hp;
     const ratio = Phaser.Math.Clamp(hp / creature.stats.maxHp, 0, 1);
-    const hpColor = ratio > 0.5 ? COLORS.green : ratio > 0.2 ? 0xcbb76b : COLORS.red;
+    const hpColor = ratio > 0.5 ? COLORS.green : ratio > 0.2 ? COLORS.yellow : COLORS.red;
     const fill = this.add.rectangle(barX, barY, barWidth, 7, hpColor).setOrigin(0, 0).setScale(ratio, 1);
     this.ui.add(fill);
     const previousHp = this.hpTweenFrom.get(creature.instanceId);
@@ -231,20 +236,20 @@ export class BattleScene extends Phaser.Scene {
       this.tweens.add({ targets: fill, scaleX: ratio, duration: 420, ease: 'Cubic.easeOut' });
     }
     const hpText = this.add.text(x + width - 12, y + 34, `${hp}/${creature.stats.maxHp}`, {
-      fontFamily: 'DM Mono, monospace', fontSize: '9px', color: COLORS.paper,
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '11px', fontStyle: 'bold', color: COLORS.paper,
     }).setOrigin(1, 0);
     this.ui.add(hpText);
     if (creature.status) {
-      this.label(x + 12, y + 53, this.statusName(creature.status.status).toUpperCase(), '#ffad8c', 8);
+      this.label(x + 12, y + 53, this.statusName(creature.status.status).toUpperCase(), '#a33b36', 10);
     } else {
-      this.label(x + 12, y + 53, creature.types.map(battleTypeLabel).join(' · '), COLORS.muted, 8);
+      this.label(x + 12, y + 53, creature.types.map(battleTypeLabel).join(' · '), COLORS.muted, 10);
     }
     if (side === 'player') {
       const progress = battleExperienceProgress(creature, this.rules);
       if (progress) {
-        this.rect(x + 12, y + 71, width - 24, 3, 0x091812);
-        if (progress.ratio > 0) this.rect(x + 12, y + 71, (width - 24) * progress.ratio, 3, 0x87c4df);
-        this.label(x + 12, y + 78, progress.label, '#a9d5e6', 8);
+        this.rect(x + 12, y + 71, width - 24, 4, 0xdbe9f5);
+        if (progress.ratio > 0) this.rect(x + 12, y + 71, (width - 24) * progress.ratio, 4, COLORS.blue);
+        this.label(x + 12, y + 78, progress.label, COLORS.muted, 9);
       }
     }
   }
@@ -271,10 +276,10 @@ export class BattleScene extends Phaser.Scene {
     const ownParty = this.state.player.creatures;
     const opponentParty = this.state.opponent.creatures;
     const y = height - this.commandHeight() - 111;
-    this.label(24, y, 'SQUADRA', COLORS.muted, 7);
+    this.label(24, y, 'SQUADRA', COLORS.paper, 9);
     ownParty.forEach((creature, index) => this.pip(91 + index * 15, y + 4, creature.hp > 0, index === this.state.player.activeIndex));
     if (this.state.battleType === 'trainer') {
-      this.label(width - 88 - opponentParty.length * 15, y, 'AVVERSARIO', COLORS.muted, 7);
+      this.label(width - 88 - opponentParty.length * 15, y, 'AVVERSARIO', COLORS.paper, 9);
       opponentParty.forEach((creature, index) => this.pip(width - 20 - index * 15, y + 4, creature.hp > 0, index === this.state.opponent.activeIndex));
     }
   }
@@ -283,20 +288,20 @@ export class BattleScene extends Phaser.Scene {
     const x = 14;
     const y = height - this.commandHeight() - 92;
     const panelWidth = width - 28;
-    this.panel(x, y, panelWidth, 82, 0x18271f, 0x91835c, 0.96);
+    this.panel(x, y, panelWidth, 82, COLORS.panel, COLORS.line, 0.99);
     const message = this.mode === 'message'
       ? this.pendingMessages[0]?.text ?? this.outcomeMessage()
       : this.mode === 'party' && this.playerForcedToSwitch
         ? 'Scegli chi mandare in campo.'
         : 'Cosa vuoi fare?';
     const text = this.add.text(x + 14, y + 13, message, {
-      fontFamily: 'Playfair Display, Georgia, serif', fontSize: '16px', color: COLORS.paper,
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '17px', color: COLORS.paper,
       wordWrap: { width: panelWidth - 28 }, lineSpacing: 3,
     });
     this.ui.add(text);
     if (this.mode === 'message') {
       const hint = this.add.text(x + panelWidth - 12, y + 66, 'A · CONTINUA', {
-        fontFamily: 'DM Mono, monospace', fontSize: '7px', color: COLORS.gold,
+        fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '9px', fontStyle: 'bold', color: COLORS.muted,
       }).setOrigin(1, 0);
       this.ui.add(hint);
     }
@@ -306,9 +311,9 @@ export class BattleScene extends Phaser.Scene {
     const x = 14;
     const y = height - this.commandHeight();
     const panelWidth = width - 28;
-    this.panel(x, y, panelWidth, this.commandHeight(), 0x18271f, 0x91835c, 0.98);
+    this.panel(x, y, panelWidth, this.commandHeight(), COLORS.panel, COLORS.line, 0.99);
     if (this.mode === 'message') {
-      this.button(x + 8, y + 8, panelWidth - 16, 52, this.terminalShown ? 'TORNA AL VIAGGIO' : 'CONTINUA', () => this.advanceMessage(), COLORS.panelRaised, true, 0, 0);
+      this.button(x + 8, y + 8, panelWidth - 16, 52, this.terminalShown ? 'TORNA AL VIAGGIO' : 'CONTINUA', () => this.advanceMessage(), COLORS.blue, true, 0, 0);
       return;
     }
     if (this.mode === 'menu') {
@@ -391,28 +396,50 @@ export class BattleScene extends Phaser.Scene {
       const row = Math.floor(index / columns);
       const bx = x + column * (buttonWidth + gap);
       const by = y + row * (buttonHeight + gap);
-      this.button(bx, by, buttonWidth, buttonHeight, option.label, option.callback, option.enabled ? COLORS.panelRaised : 0x1a241f, option.enabled, row, column);
+      const color = this.mode === 'menu'
+        ? [COLORS.coral, COLORS.violet, COLORS.orange, COLORS.blue, 0xc6dbe9][index] ?? COLORS.panelRaised
+        : this.mode === 'moves' ? [0xffc8b9, 0xffe3a0, 0xc7e7fa, 0xdcd2f6][index % 4]
+          : this.mode === 'party' ? 0xe2d9f6 : this.mode === 'captures' ? 0xc7e7fa : 0xffdfb8;
+      this.button(bx, by, buttonWidth, buttonHeight, option.label, option.callback, color, option.enabled, row, column);
     });
     if (this.mode !== 'menu' && !this.playerForcedToSwitch) {
-      const back = this.label(x + width - 4, y + this.commandHeight() - 14, 'B · INDIETRO', COLORS.muted, 8).setOrigin(1, 0);
+      const back = this.label(x + width - 4, y + this.commandHeight() - 14, 'B · INDIETRO', COLORS.paper, 10).setOrigin(1, 0);
       back.setInteractive({ useHandCursor: true }).on('pointerdown', this.back, this);
     }
   }
 
   private button(x: number, y: number, width: number, height: number, label: string, callback: () => void, color: number, enabled = true, row = 0, column = 0): void {
-    const background = this.add.rectangle(x + width / 2, y + height / 2, width, height, color, enabled ? 1 : 0.8)
-      .setStrokeStyle(1, enabled ? 0x8e9470 : 0x526052, enabled ? 0.66 : 0.25);
+    const background = this.add.graphics();
+    const paint = (selected: boolean): void => {
+      background.clear();
+      background.fillStyle(COLORS.ink, enabled ? 0.15 : 0.07);
+      background.fillRoundedRect(x, y + 3, width, height, 12);
+      background.fillStyle(enabled ? color : 0xe7eaf0, 1);
+      background.fillRoundedRect(x, y, width, height, 12);
+      background.lineStyle(selected ? 3 : 1, selected ? COLORS.ink : COLORS.line, 1);
+      background.strokeRoundedRect(x + 1.5, y + 1.5, width - 3, height - 3, 10);
+      if (selected) {
+        // A visible shape as well as colour identifies keyboard focus.
+        background.fillStyle(COLORS.ink, 1);
+        background.fillTriangle(x + 8, y + height / 2 - 4, x + 8, y + height / 2 + 4, x + 13, y + height / 2);
+      }
+    };
+    paint(false);
     if (enabled) {
       const index = this.selectableButtons.length;
-      this.selectableButtons.push({ row, column, callback, background });
-      background.setInteractive({ useHandCursor: true }).on('pointerdown', () => {
+      this.selectableButtons.push({ row, column, callback, paint });
+      background.setInteractive(new Phaser.Geom.Rectangle(x, y, width, height), Phaser.Geom.Rectangle.Contains);
+      if (background.input) background.input.cursor = 'pointer';
+      background.on('pointerdown', () => {
         this.selectionIndex = index;
         this.activateSelected();
       });
     }
-    const text = this.add.text(x + width / 2, y + height / 2, label, {
-      fontFamily: 'DM Mono, monospace', fontSize: '11px', color: enabled ? COLORS.paper : '#788477',
-      align: 'center', lineSpacing: 2, wordWrap: { width: width - 12 },
+    const visibleLabel = enabled ? label : this.mode === 'menu' ? `${label}\n— non disponibile` : `× ${label}`;
+    const text = this.add.text(x + width / 2, y + height / 2, visibleLabel, {
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: this.mode === 'menu' || this.mode === 'message' ? '13px' : '12px',
+      fontStyle: 'bold', color: enabled ? COLORS.paper : '#606c80',
+      align: 'center', lineSpacing: 1, wordWrap: { width: width - 28 },
     }).setOrigin(0.5);
     this.ui.add([background, text]);
     this.updateSelectionStyle();
@@ -447,16 +474,18 @@ export class BattleScene extends Phaser.Scene {
 
   private updateSelectionStyle(): void {
     this.selectableButtons.forEach((button, index) => {
-      button.background.setStrokeStyle(1, index === this.selectionIndex ? 0xd6be83 : 0x8e9470, index === this.selectionIndex ? 1 : 0.66);
+      button.paint(index === this.selectionIndex);
     });
   }
 
   private panel(x: number, y: number, width: number, height: number, color: number, stroke: number, alpha = 1): void {
     const graphics = this.add.graphics();
+    graphics.fillStyle(COLORS.ink, 0.13);
+    graphics.fillRoundedRect(x, y + 3, width, height, 15);
     graphics.fillStyle(color, alpha);
-    graphics.fillRoundedRect(x, y, width, height, 9);
-    graphics.lineStyle(1, stroke, 0.52);
-    graphics.strokeRoundedRect(x, y, width, height, 9);
+    graphics.fillRoundedRect(x, y, width, height, 15);
+    graphics.lineStyle(1.5, stroke, 0.9);
+    graphics.strokeRoundedRect(x, y, width, height, 15);
     this.ui.add(graphics);
   }
 
@@ -465,17 +494,17 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private label(x: number, y: number, text: string, color: string, size: number): Phaser.GameObjects.Text {
-    const label = this.add.text(x, y, text, { fontFamily: 'DM Mono, monospace', fontSize: `${size}px`, color, letterSpacing: 1 });
+    const label = this.add.text(x, y, text, { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: `${size}px`, fontStyle: 'bold', color, letterSpacing: 0.5 });
     this.ui.add(label);
     return label;
   }
 
   private pip(x: number, y: number, alive: boolean, active: boolean): void {
     const graphics = this.add.graphics();
-    graphics.fillStyle(alive ? (active ? 0xd6be83 : COLORS.green) : 0x37443b, 1);
+    graphics.fillStyle(alive ? (active ? COLORS.yellow : COLORS.green) : 0xa4b4c2, 1);
     graphics.fillCircle(x, y, active ? 4 : 3);
     if (active) {
-      graphics.lineStyle(1, 0xefe8d5, 0.5);
+      graphics.lineStyle(2, COLORS.ink, 0.85);
       graphics.strokeCircle(x, y, 6);
     }
     this.ui.add(graphics);
@@ -631,8 +660,8 @@ export class BattleScene extends Phaser.Scene {
 
   private floatingFeedback(actor: Phaser.GameObjects.Container, text: string, color: string): void {
     const feedback = this.add.text(actor.x, actor.y - 52, text, {
-      fontFamily: 'DM Mono, monospace', fontSize: '17px', fontStyle: 'bold', color,
-      stroke: '#14271e', strokeThickness: 5,
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '18px', fontStyle: 'bold', color,
+      stroke: COLORS.paper, strokeThickness: 5,
     }).setOrigin(0.5);
     this.ui.add(feedback);
     if (!this.reducedAnimations) this.tweens.add({ targets: feedback, y: feedback.y - 18, duration: 750, ease: 'Cubic.easeOut' });

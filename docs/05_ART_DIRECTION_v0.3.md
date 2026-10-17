@@ -23,6 +23,12 @@ La mappa in `assets/concept/Veloria_World_Map_Concept_v0.1.png` definisce **l'at
 
 ## 3. Standard game-art PROPOSTI
 
+### Interfaccia per bambini — richiesta utente del 17 ottobre 2026
+
+La cornice e i pannelli del gioco usano ora cielo azzurro, crema, corallo, giallo e lilla, con testi blu scuro e caratteri arrotondati più grandi. La precedente UI verde scuro è sostituita su esplorazione, dialoghi, diario, impostazioni, Pokédex e battaglia. Il colore distingue i comandi ma è sempre accompagnato da etichette; focus e stati disabilitati restano riconoscibili senza affidarsi al colore. I token HTML sono centralizzati in `src/ui-theme.css`.
+
+Questa correzione riguarda l'interfaccia: la natura delle mappe resta ricca di vegetazione secondo il concept illustrato. Nessuna nuova specie, ricompensa o regola di salvataggio è introdotta dal tema. Le icone originali del progetto sono ricolorate nei sorgenti SVG e rasterizzate per i formati PWA già registrati.
+
 - **Tile base:** 32×32 pixel (da confermare con giocabilità mobile).
 - **Personaggio:** footprint di collisione ~1 tile; sprite figurativo circa 32×48 o 48×64 a seconda del look.
 - **Animazioni player:** idle e camminata nelle quattro direzioni; minimo 4 frame per direzione in prima fase; più frame in fase polish.

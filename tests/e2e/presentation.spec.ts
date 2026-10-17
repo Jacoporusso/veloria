@@ -14,7 +14,7 @@ test('journey journal shows real progress and returns focus without moving the p
   await page.keyboard.press('Tab');
   await expect(page.locator('.journey-close')).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('journey-mobile.png') });
-  await page.keyboard.press('Escape');
+  await page.keyboard.press('Escape', { delay: 40 });
   await expect(page.getByRole('dialog', { name: 'Il tuo viaggio' })).toBeHidden();
   await expect(journal).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('world-modernized-mobile.png') });
@@ -66,6 +66,12 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     await page.screenshot({ path: testInfo.outputPath(`battle-${width}x${height}.png`) });
   }
   if (width !== 390) { expect(errors).toEqual([]); return; }
+  await page.keyboard.press('ArrowDown', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);
+  await page.keyboard.press('Enter', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('items');
+  await page.keyboard.press('Escape', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('menu');
   await page.waitForTimeout(180);
   await page.touchscreen.tap(100, 844 - 144); // Lotta.
   await page.screenshot({ path: testInfo.outputPath('battle-moves-mobile.png') });

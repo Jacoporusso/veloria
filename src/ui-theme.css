@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light;
+  --font-ui: 'Trebuchet MS', Verdana, sans-serif;
+  --ink: #234565;
+  --muted: #526b82;
+  --cream: #fffdf5;
+  --sky: #55b9e9;
+  --sky-soft: #e2f4ff;
+  --sun: #ffd263;
+  --coral: #f47c69;
+  --lavender: #b0a0e5;
+  --leaf: #64b986;
+  --line: #c7dfeb;
+  --paper: var(--ink);
+  --gold: #805112;
+  --night: var(--ink);
+  --green: var(--sky-soft);
+  --panel-shadow: 0 8px 0 #3985af18, 0 14px 30px #345b7c18;
+}

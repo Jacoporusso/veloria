@@ -9,9 +9,10 @@
 .dpad,.touch-actions{touch-action:none}
 @media(max-width:700px){
   .touch-actions{position:absolute;right:145px;bottom:16px;display:flex;gap:6px;align-items:center}
-  .action-button{width:44px;height:44px;border:1px solid #ddc8914c;border-radius:50%;background:#172920e8;color:#e8d6a6;font:500 13px 'DM Mono',monospace;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
-  .action-button:active{background:#3a4b35;color:#fff2cd}
-  .action-secondary{color:#aeb3a0}
+  .action-button{width:44px;height:44px;border:3px solid white;border-radius:50%;background:#ffb6a4;color:#653d38;box-shadow:0 4px 0 #ce8f83;font:900 17px var(--font-ui);touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
+  .action-button:active{transform:translateY(3px);box-shadow:0 1px 0 #ce8f83}
+  .action-secondary{background:#d9c9ff;color:#503e75;box-shadow:0 4px 0 #a898ca}
+  .action-save{background:#bce8ff;color:#245678;box-shadow:0 4px 0 #8abbd4}
 }
 @media(max-height:480px) and (orientation:landscape){
   .touch-actions{display:flex;right:132px;bottom:8px;gap:4px}
