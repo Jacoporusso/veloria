@@ -55,7 +55,7 @@
       "toMapId": "veloria/r01_sentiero_alba",
       "viaSpawnId": "from_r01",
       "targetSpawnId": "from_borgofonte",
-      "requiresFlags": []
+      "requiresFlags": ["q_starter_selected"]
     },
     {
       "toMapId": "veloria/borgofonte_home",

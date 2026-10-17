@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { enterGame } from './helpers/enter-game';
 
 test('mobile movement and action controls keep thumb-sized touch targets in portrait and landscape', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
+  await enterGame(page);
   for (const button of await page.locator('.dpad-key, .action-button').all()) {
     const box = await button.boundingBox();
     expect(box?.width).toBeGreaterThanOrEqual(44);
@@ -38,6 +40,7 @@ test('long interior names and an available update keep header and touch controls
     await page.setViewportSize({ width, height: 844 });
     for (const map of ['borgofonte_home', 'borgofonte_lab']) {
       await page.goto(`/?previewMap=veloria/${map}`);
+      await enterGame(page);
       await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
       await expect(page.locator('#game canvas')).toBeVisible();
       for (const showUpdate of [false, true]) {

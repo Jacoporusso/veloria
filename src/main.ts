@@ -3,7 +3,9 @@ import './style.css';
 import './mobile-controls.css';
 import './dialogue.css';
 import './settings.css';
-import { loadSave, newGameSave } from './persistence/save-store';
+import { loadSave, newGameSave, saveGame, type GameSave } from './persistence/save-store';
+import { chooseGameSession } from './game/ui/StartScreen';
+import { personalizeNewGame } from './core/party/trainer-profile';
 import { WorldScene } from './game/scenes/WorldScene';
 import { AudioManager } from './game/audio/audio-manager';
 import { getMap, getSpawn, listMaps } from './game/maps/map-registry';
@@ -35,11 +37,47 @@ if (musicVolume) {
   musicVolume.addEventListener('input', () => audio.setVolume(Number(musicVolume.value) / 100));
 }
 
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  const updateButton = document.querySelector<HTMLButtonElement>('#update-button');
+  void navigator.serviceWorker.register('./sw.js').then(registration => {
+      const offerUpdate = (worker: ServiceWorker | null) => {
+        if (!worker || !updateButton) return;
+        updateButton.hidden = false;
+        updateButton.title = 'Nuova versione disponibile · aggiorna quando hai salvato';
+        updateButton.setAttribute('aria-label', 'Nuova versione disponibile. Aggiorna Veloria');
+        updateButton.onclick = () => {
+          if (document.body.classList.contains('battle-active')) return;
+          worker.postMessage('SKIP_WAITING');
+          updateButton.disabled = true;
+          updateButton.textContent = '…';
+        };
+      };
+      offerUpdate(registration.waiting);
+      registration.addEventListener('updatefound', () => {
+        const installing = registration.installing;
+        installing?.addEventListener('statechange', () => {
+          if (installing.state === 'installed' && navigator.serviceWorker.controller) offerUpdate(installing);
+        });
+      });
+      let refreshing = false;
+      let controlled = Boolean(navigator.serviceWorker.controller);
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // First installation already runs this build: claim it without reloading.
+        // Subsequent worker updates must reload once to activate the new bundle.
+        if (!controlled) { controlled = true; return; }
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+  }).catch(() => undefined);
+}
+
+
 const requestedPreviewMapId = import.meta.env.DEV ? new URLSearchParams(location.search).get('previewMap') : null;
 const previewMapId = requestedPreviewMapId && listMaps().some(map => map.metadata.id === requestedPreviewMapId)
   ? requestedPreviewMapId
   : null;
-let save;
+let save: GameSave;
 if (previewMapId) {
   const map = getMap(previewMapId);
   const spawn = getSpawn(map, map.metadata.spawns[0].id);
@@ -48,7 +86,22 @@ if (previewMapId) {
   preview.flags = [...preview.flags, 'badge_aurora_awarded', 'q_research_sample_received', 'q_ada_helped'];
   save = selectStarter(preview, starters[0].speciesId, createUniqueId()) ?? preview;
 } else {
-  save = await loadSave() ?? newGameSave();
+  const existing = await loadSave();
+  const shell = document.querySelector<HTMLElement>('.game-shell');
+  if (shell) shell.inert = true;
+  try {
+    let created: GameSave | undefined;
+    const choice = await chooseGameSession(existing, async name => {
+      const candidate = personalizeNewGame(newGameSave(), name);
+      await saveGame(candidate);
+      created = candidate;
+    });
+    if (choice.kind === 'continue' && existing) save = existing;
+    else if (created) save = created;
+    else throw new Error('Nessuna partita disponibile.');
+  } finally {
+    if (shell) shell.inert = false;
+  }
 }
 
 if (import.meta.env.DEV) {
@@ -92,39 +145,5 @@ const game = new Phaser.Game({
   render: { roundPixels: true, antialias: false },
 });
 
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  const updateButton = document.querySelector<HTMLButtonElement>('#update-button');
-  void navigator.serviceWorker.register('./sw.js').then(registration => {
-      const offerUpdate = (worker: ServiceWorker | null) => {
-        if (!worker || !updateButton) return;
-        updateButton.hidden = false;
-        updateButton.title = 'Nuova versione disponibile · aggiorna quando hai salvato';
-        updateButton.setAttribute('aria-label', 'Nuova versione disponibile. Aggiorna Veloria');
-        updateButton.onclick = () => {
-          if (document.body.classList.contains('battle-active')) return;
-          worker.postMessage('SKIP_WAITING');
-          updateButton.disabled = true;
-          updateButton.textContent = '…';
-        };
-      };
-      offerUpdate(registration.waiting);
-      registration.addEventListener('updatefound', () => {
-        const installing = registration.installing;
-        installing?.addEventListener('statechange', () => {
-          if (installing.state === 'installed' && navigator.serviceWorker.controller) offerUpdate(installing);
-        });
-      });
-      let refreshing = false;
-      let controlled = Boolean(navigator.serviceWorker.controller);
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        // First installation already runs this build: claim it without reloading.
-        // Subsequent worker updates must reload once to activate the new bundle.
-        if (!controlled) { controlled = true; return; }
-        if (refreshing) return;
-        refreshing = true;
-        window.location.reload();
-      });
-  }).catch(() => undefined);
-}
 
 void game;

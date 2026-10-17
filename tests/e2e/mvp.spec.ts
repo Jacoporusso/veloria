@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
+import { enterGame } from './helpers/enter-game';
 
 async function readSaveSlot(page: Page, slot: 'main' | 'backup-previous' = 'main') {
   for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -120,8 +121,7 @@ async function tapConfirm(page: Page) {
 }
 
 async function waitForWorldReady(page: Page) {
-  await expect(page.locator('#game canvas')).toBeVisible({ timeout: 30_000 });
-  await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
+  await enterGame(page);
   await expect(page.locator('#current-location')).not.toHaveText('');
 }
 
@@ -893,7 +893,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await expect(page.getByRole('button', { name: /RITIRA · Pidgey/ })).toHaveCount(1);
 
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
+  await waitForWorldReady(page);
   const restored = await readCurrentSave(page);
   expect(restored.party).toHaveLength(6);
   expect(restored.storage).toHaveLength(1);
@@ -950,6 +950,9 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
   expect(save.flags).toContain('trainer_gym01_mira_defeated');
   expect(save.flags).toContain('badge_aurora_awarded');
   expect(save.player.money).toBe(800);
+  await expect(page.getByRole('heading', { name: 'Primo capitolo completato' })).toBeVisible();
+  await page.getByRole('button', { name: 'Continua a esplorare' }).click();
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('prologue_complete_seen');
 
   await page.reload();
   await waitForWorldReady(page);

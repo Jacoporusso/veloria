@@ -1,9 +1,66 @@
 {
   "version": 1,
   "starters": [
-    { "name": "Pikachu", "speciesId": 25, "hp": 19, "moves": [{ "id": "thunder-shock", "pp": 30 }, { "id": "growl", "pp": 40 }] },
-    { "name": "Charmander", "speciesId": 4, "hp": 19, "moves": [{ "id": "scratch", "pp": 35 }, { "id": "growl", "pp": 40 }] },
-    { "name": "Squirtle", "speciesId": 7, "hp": 20, "moves": [{ "id": "tackle", "pp": 35 }, { "id": "tail-whip", "pp": 30 }] },
-    { "name": "Bulbasaur", "speciesId": 1, "hp": 20, "moves": [{ "id": "tackle", "pp": 35 }, { "id": "growl", "pp": 40 }] }
-  ]
+    {
+      "name": "Pikachu",
+      "speciesId": 25,
+      "hp": 19,
+      "moves": [
+        {
+          "id": "thunder-shock",
+          "pp": 30
+        },
+        {
+          "id": "growl",
+          "pp": 40
+        }
+      ]
+    },
+    {
+      "name": "Charmander",
+      "speciesId": 4,
+      "hp": 19,
+      "moves": [
+        {
+          "id": "scratch",
+          "pp": 35
+        },
+        {
+          "id": "growl",
+          "pp": 40
+        }
+      ]
+    },
+    {
+      "name": "Squirtle",
+      "speciesId": 7,
+      "hp": 20,
+      "moves": [
+        {
+          "id": "tackle",
+          "pp": 35
+        },
+        {
+          "id": "tail-whip",
+          "pp": 30
+        }
+      ]
+    },
+    {
+      "name": "Bulbasaur",
+      "speciesId": 1,
+      "hp": 20,
+      "moves": [
+        {
+          "id": "tackle",
+          "pp": 35
+        },
+        {
+          "id": "growl",
+          "pp": 40
+        }
+      ]
+    }
+  ],
+  "selectionFlag": "q_starter_selected"
 }

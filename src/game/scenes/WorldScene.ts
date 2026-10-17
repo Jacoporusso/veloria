@@ -26,6 +26,9 @@ import { preloadCreatureArt, createCreaturePortrait } from '../battle/creature-a
 import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
 import { JourneyPanel } from '../journey/JourneyPanel.ts';
 import { worldCameraZoom } from '../rendering/world-camera.ts';
+import { battleTypeLabel } from '../battle/presentation.ts';
+import { showPrologueCompletion } from '../ui/PrologueCompletion';
+import opening from '../../../content/dialogue/opening.v1.json';
 
 type Direction = CardinalDirection;
 const TILE = 32;
@@ -67,6 +70,9 @@ export class WorldScene extends Phaser.Scene {
   private traveler!: TravelerAnimation;
   private journey?: JourneyPanel;
   private pendingQuestCelebrations: string[] = [];
+  private promptTargetId = '';
+  private openingGuidance?: Phaser.GameObjects.Text;
+  private completionActive = false;
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
   private battleSceneReady: Promise<void> | null = null;
@@ -139,6 +145,15 @@ export class WorldScene extends Phaser.Scene {
     this.scale.on('resize', this.fitWorldCamera, this);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scale.off('resize', this.fitWorldCamera, this));
     window.setTimeout(() => { const loading = document.querySelector<HTMLElement>('#game-loading'); if (loading) loading.hidden = true; }, 120);
+    if (!this.previewMode && this.save.flags.includes('intro_started') && !this.save.flags.includes('intro_completed')) {
+      this.afterDialogue = () => {
+        this.save.flags = [...new Set([...this.save.flags, 'intro_completed'])];
+        this.persistProgress();
+      };
+      this.showDialogue(opening.speaker, opening.lines);
+    } else if (!this.previewMode && this.save.flags.includes('intro_started') && this.save.flags.includes('badge_aurora_awarded') && !this.save.flags.includes('prologue_complete_seen')) {
+      void this.presentPrologueCompletion();
+    }
     if (this.map.metadata.id === 'veloria/borgofonte' && !this.save.flags.includes('q_starter_selected')) {
       this.showToast('Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud.');
     }
@@ -152,18 +167,71 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private get navigationOpen(): boolean {
-    return Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
+    return this.completionActive || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
+  }
+
+  private updateInteractionPrompt(): void {
+    const prompt = document.querySelector<HTMLButtonElement>('#interaction-prompt');
+    if (!prompt) return;
+    const blocked = this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
+    this.openingGuidance?.setVisible(!blocked && !this.save.flags.includes('q_starter_selected'));
+    const adjacent = adjacentGridPoint(this.playerTile, this.facing);
+    const target = !blocked && this.interactableAtTile(adjacent.x, adjacent.y);
+    prompt.hidden = !target;
+    if (target && this.promptTargetId !== target.id) {
+      const verb = target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
+      prompt.textContent = 'A · ' + verb + ' ' + target.name;
+      this.promptTargetId = target.id;
+    }
+  }
+
+  private async presentPrologueCompletion(): Promise<void> {
+    if (this.completionActive || this.save.flags.includes('prologue_complete_seen')) return;
+    this.completionActive = true;
+    this.heldDirection = null;
+    this.queuedDirection = null;
+    const shell = document.querySelector<HTMLElement>('.game-shell');
+    if (shell) shell.inert = true;
+    this.scene.pause('world');
+    try {
+      await showPrologueCompletion(this.save);
+      this.save.flags = [...new Set([...this.save.flags, 'prologue_complete_seen'])];
+      this.persistProgress();
+    } finally {
+      if (shell) shell.inert = false;
+      this.completionActive = false;
+      document.querySelector<HTMLButtonElement>('#menu-button')?.focus({ preventScroll: true });
+      this.scene.resume('world');
+    }
   }
 
   private drawWorld() {
     this.renderedMap = renderMap(this, this.map, this.save.flags);
     this.mapLayer = this.renderedMap.container;
+    this.drawOpeningGuidance();
     this.renderAmbientEffects();
     this.occupied = this.renderedMap.occupied;
     this.onMusicThemeChange(this.map.metadata.musicId);
     const location = document.querySelector<HTMLElement>('#current-location');
     if (location) location.textContent = this.map.metadata.displayName.toLocaleUpperCase('it');
     document.querySelector('#game')?.setAttribute('aria-label', `Mappa interattiva: ${this.map.metadata.displayName}`);
+  }
+
+  private drawOpeningGuidance(): void {
+    this.openingGuidance = undefined;
+    if (this.save.flags.includes('q_starter_selected')) return;
+    const guidance = opening.guidance.find(target => target.mapId === this.map.metadata.id);
+    if (!guidance) return;
+    const target = guidance.destinationMapId
+      ? this.renderedMap.triggers.find(trigger => trigger.destinationMapId === guidance.destinationMapId)
+      : this.renderedMap.interactables.find(item => item.properties.npcId === guidance.npcId || item.properties.dialogueId === guidance.npcId || item.id === guidance.npcId);
+    if (!target) return;
+    const marker = this.add.text(target.x + target.width / 2, target.y - 12, guidance.label, {
+      fontFamily: 'system-ui, sans-serif', fontSize: '10px', color: '#d3fff0', backgroundColor: '#163e50',
+      padding: { x: 8, y: 6 },
+    }).setOrigin(.5, 1).setDepth(100000);
+    this.mapLayer.add(marker);
+    this.openingGuidance = marker;
   }
 
   private renderAmbientEffects() {
@@ -316,6 +384,8 @@ export class WorldScene extends Phaser.Scene {
       button.addEventListener('pointerdown',start);button.addEventListener('pointerup',stop);button.addEventListener('pointercancel',stop);button.addEventListener('pointerleave',stop);
     });
     document.querySelector('#action-a')?.addEventListener('click',()=>this.advanceOrInteract());
+    document.querySelector('#interaction-prompt')?.addEventListener('click',()=>this.advanceOrInteract());
+    document.querySelector('#title-button')?.addEventListener('click',()=>{ void this.persistProgress(true).then(saved => { if (saved) location.reload(); }); });
     document.querySelector('#action-b')?.addEventListener('click',()=>{
       if(this.journey?.isOpen)this.journey.close();
       else if(this.pokedexOpen)this.closePokedex();
@@ -363,6 +433,7 @@ export class WorldScene extends Phaser.Scene {
 
   update(time: number) {
     this.traveler?.update(time);
+    this.updateInteractionPrompt();
     if (this.navigationOpen) { this.heldDirection = null; this.queuedDirection = null; return; }
     // The UI can be replaced during a Vite hot reload while Phaser keeps its
     // scene alive for a frame. Treat a missing starter panel as closed instead
@@ -604,6 +675,7 @@ export class WorldScene extends Phaser.Scene {
     this.battleActive = true;
     this.onMusicThemeChange(this.map.metadata.id === 'veloria/gym01_brumalta' ? 'battle_gym' : trainer ? 'battle_trainer' : 'battle_wild');
     let dismissMessage = 'Lo scontro è terminato.';
+    const hadAuroraBadge = this.save.flags.includes('badge_aurora_awarded');
     void this.ensureBattleScene().then(() => {
       document.body.classList.add('battle-active');
       document.querySelector<HTMLElement>('#save-menu')!.hidden = true;
@@ -648,6 +720,7 @@ export class WorldScene extends Phaser.Scene {
           this.pendingQuestCelebrations = [];
           this.persistProgress();
           this.showToast(dismissMessage);
+          if (!hadAuroraBadge && this.save.flags.includes('badge_aurora_awarded') && !this.previewMode) void this.presentPrologueCompletion();
         },
       });
       this.scene.pause('world');
@@ -686,7 +759,7 @@ export class WorldScene extends Phaser.Scene {
   private showDialogue(speaker:string,lines:string[]) {
     this.starterChoices.hidden=true;
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
-    this.dialogueLines=lines;this.dialogueIndex=0;
+    this.dialogueLines=lines.map(line=>line.replaceAll('{trainer}',this.save.player.name));this.dialogueIndex=0;
     document.querySelector<HTMLElement>('#dialogue-speaker')!.textContent=speaker;
     this.dialogueBox.hidden=false;
     document.querySelector('.game-stage')?.classList.add('has-dialogue');
@@ -741,14 +814,20 @@ export class WorldScene extends Phaser.Scene {
     this.starterChoices.replaceChildren(...starters.map(starter=>{
       const button=document.createElement('button');
       button.className='starter-choice';button.type='button';
-      button.append(createCreaturePortrait(starter.speciesId), document.createTextNode(starter.name));
+      button.setAttribute('aria-label', starter.name);
+      const detail = document.createElement('small');
+      detail.className = 'starter-description';
+      detail.id = `starter-detail-${starter.speciesId}`;
+      detail.textContent = battleSpecies[starter.speciesId].types.map(battleTypeLabel).join(' / ') + ' · Livello 5';
+      button.setAttribute('aria-describedby', detail.id);
+      button.append(createCreaturePortrait(starter.speciesId), document.createTextNode(starter.name), detail);
       button.addEventListener('click',()=>{
         const selected = selectStarter(this.save, starter.speciesId, createUniqueId());
         if (!selected) return;
         this.save = selected;
         this.starterChoices.hidden=true;
         document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
-        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Ho registrato il tuo nuovo compagno. Nessun viaggio si affronta da soli.']);
+        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Parlami ancora prima di uscire: ho una missione da affidare a te e al tuo compagno.']);
         this.persistProgress(true);
       });
       return button;
@@ -891,14 +970,20 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector<HTMLElement>('#save-menu')!.hidden=true;
   }
 
-  private persistProgress(showToast=false) {
+  private persistProgress(showToast=false): Promise<boolean> {
     this.journey?.update(this.save);
     if (this.previewMode) {
       if (showToast) this.showToast('Anteprima: i progressi non vengono salvati.');
-      return;
+      return Promise.resolve(false);
     }
     this.save.player.x=this.playerTile.x;this.save.player.y=this.playerTile.y;
-    this.saveQueue=this.saveQueue.then(()=>saveGame(this.save)).then(()=>{if(showToast)this.showToast('Partita salvata.');}).catch(()=>{this.showToast('Salvataggio non riuscito.');});
+    const snapshot = structuredClone(this.save);
+    const operation = this.saveQueue.then(()=>saveGame(snapshot)).then(()=>{
+      if(showToast)this.showToast('Partita salvata.');
+      return true;
+    }).catch(()=>{this.showToast('Salvataggio non riuscito.');return false;});
+    this.saveQueue=operation.then(()=>undefined);
+    return operation;
   }
 
   private showToast(message:string) {

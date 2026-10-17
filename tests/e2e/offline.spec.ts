@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
+import { enterGame } from './helpers/enter-game';
 
 async function getMvpResourcePaths(): Promise<string[]> {
   const mapsDirectory = new URL('../../content/maps/', import.meta.url);
@@ -199,7 +200,7 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
   }
 }
 
-test('E2E-06 desktop portion: the cached starter, route, encounter, healing and Aurora Badge work offline', async ({ page, context }) => {
+test('E2E-06 desktop portion: the cached starter, route, encounter, healing and Aurora Badge work offline', async ({ page, context }, testInfo) => {
   test.setTimeout(240_000);
   const runtimeErrors: string[] = [];
   page.on('pageerror', error => runtimeErrors.push(error.message));
@@ -207,7 +208,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   await page.addInitScript(() => { Date.prototype.getHours = () => 12; });
   const expectedResources = await getMvpResourcePaths();
   await page.goto('/');
-  await expect(page.locator('#game canvas')).toBeVisible();
+  await enterGame(page);
 
   // First installation claims this document without an unnecessary reload.
   // WaitForFunction also survives navigation if an existing worker is updated.
@@ -251,8 +252,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   page.on('requestfailed', request => failedRequests.push(`${request.method()} ${request.url()}: ${request.failure()?.errorText ?? 'failed'}`));
   const offlineResponse = await page.reload();
   expect(offlineResponse?.status()).toBe(200);
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
 
   const directions = { alto: 'Vai in alto', basso: 'Vai in basso', sinistra: 'Vai a sinistra', destra: 'Vai a destra' } as const;
   const walk = async (direction: keyof typeof directions, count: number, stopAtMapId?: string) => {
@@ -360,8 +360,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   expect(finalSave.flags).toContain('item_r01_potion_collected');
   await seedOfflineCapture(page, findPidgeyCaptureSeed());
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   await page.getByRole('button', { name: 'Vai a destra' }).tap();
   try {
     await captureWildOffline(page);
@@ -393,8 +392,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
 
   await seedOfflineCapture(page, findNoEncounterSeed(60));
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   await walk('destra', 15, 'veloria/r02_viale_fronde');
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/r02_viale_fronde');
   await walk('destra', 26, 'veloria/brumalta');
@@ -404,8 +402,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   // Exercise the Center against a damaged, statused party while still disconnected.
   await seedOfflineHealing(page);
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   await expect.poll(async () => (await readSave(page))?.party.every((creature: any) =>
     creature.hp === 1 && creature.status?.status === 'poison' && creature.moves.every((move: any) => move.pp === 0),
   )).toBe(true);
@@ -422,8 +419,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   // Keep the offline gym battle deterministic and winnable after testing the Center's recovery service.
   await seedOfflineGymBattleParty(page);
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   await walkToMapTile('c01_brumalta.tmj', 28, 7);
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/gym01_brumalta');
   await expect(page.locator('#current-location')).toHaveText('PALESTRA DI BRUMALTA');
@@ -453,12 +449,16 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
   await expect.poll(async () => (await readSave(page))?.badges?.filter((badge: string) => badge === 'badge_aurora').length).toBe(1);
+  await expect(page.getByRole('heading', { name: 'Primo capitolo completato' })).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('first-chapter-complete-offline.png') });
+  await page.getByRole('button', { name: 'Continua a esplorare' }).click();
   const badgeSave = await readSave(page);
   expect(badgeSave.flags).toContain('trainer_gym01_mira_defeated');
   expect(badgeSave.flags).toContain('badge_aurora_awarded');
+  expect(badgeSave.flags).toContain('prologue_complete_seen');
 
   await page.reload();
-  await expect(page.locator('#game canvas')).toBeVisible();
+  await enterGame(page);
   await expect(page.locator('#current-location')).toHaveText('PALESTRA DI BRUMALTA');
   expect((await readSave(page)).badges.filter((badge: string) => badge === 'badge_aurora')).toHaveLength(1);
 

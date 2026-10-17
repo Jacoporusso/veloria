@@ -98,3 +98,14 @@ Specie di lancio aggiuntive del vertical slice: Rattata, Pidgey, Sentret, Hootho
 - Backup documentato e codice/log privi di dati personali non necessari.
 
 **Non incluso:** tempi o effort certi. Le stime si faranno dopo prototipo di movimento/asset performance.
+
+## Avvio e conclusione del primo capitolo — aggiornamento 17/10/2026
+
+- Titolo Atlante: Nuova partita e, quando esiste un salvataggio valido, Continua partita con riepilogo nome/luogo. Nuova partita richiede una conferma esplicita prima di sostituire il viaggio attuale.
+- Nome allenatore: 1–16 caratteri visibili, Unicode normalizzato, errore leggibile per nomi vuoti/invalidi. Nome e prima posizione vengono salvati prima di entrare nel mondo; nessuna migrazione perché player.name esiste già nello schema v2.
+- Introduzione di Borgofonte con nome del giocatore, motivo del viaggio e istruzioni per il laboratorio. La conclusione dell’introduzione è persistita; ricaricare durante l’introduzione consente di riprenderla.
+- Indicazioni sul laboratorio e su Elia; comando contestuale A vicino a NPC e oggetti. Pikachu, Charmander, Squirtle e Bulbasaur sono selezionabili una sola volta nel laboratorio. L’uscita verso R01 richiede lo starter; casa e laboratorio restano accessibili.
+- Dopo la prima vittoria su Mira, riepilogo Primo capitolo completato con Medaglia Aurora, nome, squadra e specie effettivamente possedute. Continua a esplorare salva la presa visione. È la conclusione del prologo MVP, non dell’avventura a otto Palestre.
+- Portrait e landscape entrambi richiesti; pad originale a destra e A/B/S a sinistra, secondo approvazione utente del 17/10. Il precedente posizionamento a sinistra descritto nella bozza è superato.
+
+La giocabilità completa senza dati di scenario artificiali resta un gate separato: i test di sistemi e le prove che preparano scenari mirati non sostituiscono il playtest di progressione naturale fino a Mira.

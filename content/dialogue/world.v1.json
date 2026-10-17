@@ -5,7 +5,7 @@
       {
         "whenFlagMissing": "q_starter_selected",
         "lines": [
-          "Benvenuta a Borgofonte. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
+          "Ti do il benvenuto, {trainer}. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
           "È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
         ],
         "requiresStarterChoice": true
@@ -15,7 +15,7 @@
         "questEvent": "interaction/prof_elia/readings",
         "lines": [
           "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
-          "Ho preparato le rilevazioni per Ada. Torna da me quando sei pronto a partire."
+          "Ti affido le rilevazioni per Ada. Esci dal laboratorio e segui il Sentiero dell’Alba a nord della piazza: il Bosco dei Veli ti aspetta."
         ]
       },
       {

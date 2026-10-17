@@ -1,0 +1,165 @@
+.prologue-completion {
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  color: #f2f8ff;
+  background: radial-gradient(ellipse at 50% 8%, #8bd9db38, transparent 52%), #091522dc;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.prologue-completion * { box-sizing: border-box; }
+
+.prologue-completion__panel {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 620px);
+  max-height: 100%;
+  overflow: auto;
+  padding: clamp(26px, 5vw, 48px);
+  border: 1px solid #d6efff30;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #13283bed, #202842f2 58%, #1d3044f5);
+  box-shadow: 0 32px 90px #030c18a8, inset 0 1px #ffffff18;
+  text-align: center;
+}
+
+.prologue-completion__glow {
+  position: absolute;
+  z-index: -1;
+  top: -150px;
+  left: 50%;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #88e8c25c 0, #91cfff30 44%, #c2a9ff20 68%, transparent 72%);
+  filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.prologue-completion__header { position: relative; }
+.prologue-completion__eyebrow { margin: 0 0 14px; color: #b9e4e6; font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.prologue-completion__title { max-width: 12em; margin: 0 auto; font-size: clamp(30px, 7vw, 48px); font-weight: 650; line-height: 1.04; letter-spacing: -.045em; }
+.prologue-completion__greeting { margin: 14px 0 0; color: #c4d2e2; font-size: 15px; }
+.prologue-completion__greeting strong { color: #fff; font-weight: 650; }
+
+.prologue-completion__medal {
+  display: inline-grid;
+  justify-items: center;
+  gap: 8px;
+  margin: 28px 0 16px;
+  color: #e9f8ff;
+}
+
+.prologue-completion__medal-icon {
+  position: relative;
+  display: block;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #d8fcf18c;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #e0fff2, #8ce2cf 30%, #7db9d7 63%, #a8a3ea);
+  box-shadow: 0 0 34px #a5f1dc54, inset 0 2px 8px #ffffff80;
+}
+
+.prologue-completion__medal-icon::before {
+  position: absolute;
+  inset: 17px;
+  border: 1px solid #ffffffaa;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #c0ffe5, #a4d7ff 56%, #d4c5ff);
+  content: '';
+}
+
+.prologue-completion__medal-icon::after {
+  position: absolute;
+  top: 21px;
+  left: 30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px 4px #fff;
+  content: '';
+}
+
+.prologue-completion__medal-label { font-size: 13px; font-weight: 650; letter-spacing: .04em; }
+.prologue-completion__story { max-width: 44em; margin: 0 auto 22px; color: #c2d0df; font-size: 14px; line-height: 1.6; }
+
+.prologue-completion__summary {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 22px;
+}
+
+.prologue-completion__stat {
+  display: grid;
+  min-width: 142px;
+  gap: 2px;
+  padding: 13px 18px;
+  border: 1px solid #c5e9f01c;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #98e9cf12, #a3c8fa14 55%, #c4aaff12);
+}
+
+.prologue-completion__stat strong { color: #e4f7ff; font-size: 21px; font-weight: 650; }
+.prologue-completion__stat span { color: #aebed0; font-size: 11px; }
+
+.prologue-completion__party {
+  width: min(100%, 420px);
+  margin: 0 auto 24px;
+  text-align: left;
+}
+
+.prologue-completion__party h2 { margin: 0 0 9px; color: #d9e9f4; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.prologue-completion__party-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 7px; margin: 0; padding: 0; list-style: none; }
+.prologue-completion__party-list li { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border: 1px solid #d5eaff1c; border-radius: 12px; background: #ffffff08; color: #e5eef8; font-size: 13px; }
+.prologue-completion__party-list li > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prologue-completion__party-list .prologue-completion__empty { justify-content: center; color: #b8c9d7; }
+.prologue-completion__level { flex: 0 0 auto; color: #a9cbd6; font-size: 11px; }
+
+.prologue-completion__continue {
+  width: min(100%, 340px);
+  min-height: 50px;
+  padding: 12px 20px;
+  border: 1px solid #d4fff070;
+  border-radius: 15px;
+  background: linear-gradient(105deg, #8fe2c6, #9acff1 54%, #c1aff4);
+  box-shadow: 0 8px 28px #79c7d52b, inset 0 1px #ffffffa8;
+  color: #15263a;
+  font-size: 14px;
+  font-weight: 700;
+  transition: filter .15s ease, transform .15s ease;
+}
+
+.prologue-completion__continue:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.prologue-completion__continue:focus-visible { outline: 3px solid #e0fbff; outline-offset: 4px; }
+
+@media (orientation: landscape) and (min-width: 720px) {
+  .prologue-completion__panel { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; align-items: center; width: min(100%, 850px); }
+  .prologue-completion__header { grid-column: 1 / -1; }
+  .prologue-completion__medal { margin: 22px auto 12px; }
+  .prologue-completion__story { grid-column: 1 / -1; }
+  .prologue-completion__summary { align-self: stretch; flex-direction: column; margin: 0; }
+  .prologue-completion__party { width: 100%; margin: 0; }
+  .prologue-completion__continue { grid-column: 1 / -1; justify-self: center; margin-top: 24px; }
+}
+
+@media (max-height: 560px) {
+  .prologue-completion { place-items: start center; }
+  .prologue-completion__panel { padding-block: 22px; }
+  .prologue-completion__medal { margin-block: 16px 10px; }
+  .prologue-completion__medal-icon { width: 56px; height: 56px; }
+  .prologue-completion__medal-icon::before { inset: 13px; }
+  .prologue-completion__medal-icon::after { top: 16px; left: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prologue-completion__continue { transition: none; }
+}

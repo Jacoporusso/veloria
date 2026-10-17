@@ -1,0 +1,238 @@
+.start-screen {
+  --ss-ink: #f4f8ff;
+  --ss-muted: #c0cfe0;
+  --ss-line: #d8edff35;
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  color: var(--ss-ink);
+  background: #0b1830;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-overflow-scrolling: touch;
+  isolation: isolate;
+}
+
+.start-screen *,
+.start-screen *::before,
+.start-screen *::after { box-sizing: border-box; }
+
+.start-screen__backdrop,
+.start-screen__veil { position: fixed; inset: 0; pointer-events: none; }
+
+.start-screen__backdrop {
+  z-index: -2;
+  background: #183544 url('../assets/concept/Veloria_World_Map_Concept_v0.1.png') center 48% / cover no-repeat;
+  transform: scale(1.015);
+  animation: start-screen-arrive 1.3s ease-out both;
+}
+
+.start-screen__veil {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #071326de 0%, #0b1830c7 30%, #111c35a6 56%, #0b18304a 100%),
+    linear-gradient(0deg, #09152de0 0%, transparent 31%, #09152d72 100%),
+    radial-gradient(ellipse at 24% 52%, #5190ad2b, transparent 42%);
+}
+
+.start-screen__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  padding: max(25px, env(safe-area-inset-top)) max(28px, env(safe-area-inset-right)) 14px max(28px, env(safe-area-inset-left));
+  text-shadow: 0 3px 18px #0713269c;
+}
+
+.start-screen__mark { width: 40px; height: 46px; flex: none; filter: drop-shadow(0 0 12px #9feee433); }
+.start-screen__wordmark { display: block; font-size: 17px; line-height: 1; font-weight: 850; letter-spacing: .18em; }
+.start-screen__edition { display: block; margin-top: 6px; color: #d3e9f2; font-size: 8px; font-weight: 650; letter-spacing: .2em; }
+
+.start-screen__content {
+  align-self: center;
+  width: min(100%, 1500px);
+  margin: 0 auto;
+  padding: clamp(26px, 7vh, 80px) max(32px, env(safe-area-inset-right)) clamp(36px, 8vh, 88px) max(32px, env(safe-area-inset-left));
+  animation: start-screen-rise .65s .08s ease-out both;
+}
+
+.start-screen__eyebrow,
+.start-screen__dialog-kicker {
+  margin: 0 0 15px;
+  color: #aaf2db;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 750;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.start-screen h1 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(48px, 7.2vw, 94px);
+  line-height: .99;
+  font-weight: 780;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+  text-shadow: 0 5px 35px #06122683;
+}
+
+.start-screen h1 span {
+  color: #d4e5ff;
+  background: linear-gradient(100deg, #afffe3 0%, #9adfff 52%, #d2bcff 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.start-screen__intro { max-width: 405px; margin: 20px 0 0; color: #d0dbea; font-size: 15px; line-height: 1.65; text-shadow: 0 2px 12px #071326b3; }
+.start-screen__actions { display: grid; gap: 10px; width: min(100%, 370px); margin-top: 30px; }
+
+.start-screen button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.start-screen button:focus-visible,
+.start-screen input:focus-visible { outline: 3px solid #93ddff; outline-offset: 4px; }
+
+.start-screen__button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 68px;
+  padding: 11px 17px;
+  color: #f6fbff;
+  text-align: left;
+  border: 1px solid var(--ss-line);
+  border-radius: 19px;
+  background: linear-gradient(135deg, #102947d9, #152542ca);
+  box-shadow: 0 13px 35px #0610203f, inset 0 1px 0 #ffffff10;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.start-screen__button:hover { transform: translateY(-2px); border-color: #b5eafc75; background: linear-gradient(135deg, #153957e8, #202b4cdb); box-shadow: 0 17px 38px #06102052, inset 0 1px 0 #ffffff18; }
+.start-screen__button:active { transform: translateY(0) scale(.99); }
+.start-screen__button--primary { border-color: #a7ecdd54; background: linear-gradient(125deg, #155161e8, #253663e3 65%, #39345fd9); }
+.start-screen__button--primary:hover { border-color: #a9f5e7b0; background: linear-gradient(125deg, #1a6970ed, #2d4577e8 65%, #483e78e3); }
+.start-screen__button-icon { display: grid; width: 38px; height: 38px; flex: none; place-items: center; border: 1px solid #d6f4ff2e; border-radius: 13px; background: linear-gradient(145deg, #a0eddf24, #a3afff26); color: #c9f6ee; font-size: 14px; }
+.start-screen__button > span:nth-child(2) { flex: 1; font-size: 14px; font-weight: 710; letter-spacing: .005em; }
+.start-screen__button small { display: block; margin-top: 4px; color: #bfd1e3; font-size: 11px; font-weight: 450; }
+.start-screen__arrow { color: #c7dcf6; font-size: 18px; }
+
+.start-screen__save-card {
+  width: min(100%, 370px);
+  margin-top: 13px;
+  padding: 12px 15px;
+  border: 1px solid #d6edff1b;
+  border-radius: 15px;
+  background: #09172bb3;
+  box-shadow: inset 0 1px 0 #ffffff08;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+.start-screen__save-line { display: flex; align-items: center; gap: 8px; margin: 0; color: #bdccdd; font-size: 11px; }
+.start-screen__save-line strong { overflow: hidden; color: #f2f7ff; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.start-screen__status { width: 7px; height: 7px; flex: none; border-radius: 50%; background: #9af1d0; box-shadow: 0 0 10px #8cf5ce80; }
+.start-screen__save-meta { margin: 6px 0 0 15px; color: #a6bad0; font-size: 10px; }
+
+.start-screen__flow { width: min(100%, 470px); scroll-margin: 20px; }
+.start-screen--editing .start-screen__eyebrow,
+.start-screen--editing h1,
+.start-screen--editing .start-screen__intro,
+.start-screen--editing .start-screen__actions,
+.start-screen--editing .start-screen__save-card { display: none; }
+.start-screen--editing .start-screen__content { align-self: center; }
+.start-screen__dialog {
+  margin-top: 15px;
+  padding: 21px;
+  border: 1px solid #d7edff38;
+  border-radius: 21px;
+  background: linear-gradient(140deg, #102744f2, #182540f2);
+  box-shadow: 0 20px 60px #06102080, inset 0 1px 0 #ffffff13;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  animation: start-screen-rise .25s ease-out both;
+}
+.start-screen__dialog-kicker { margin-bottom: 8px; font-size: 9px; letter-spacing: .15em; }
+.start-screen__dialog h2 { margin: 0; color: #fff; font-size: clamp(20px, 5vw, 25px); line-height: 1.25; letter-spacing: -.025em; }
+.start-screen__dialog > p:not(.start-screen__dialog-kicker):not(.start-screen__form-error) { margin: 10px 0 0; color: #c5d3e4; font-size: 13px; line-height: 1.6; }
+.start-screen__dialog-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 9px; margin-top: 19px; }
+.start-screen__small-button { min-height: 43px; padding: 10px 14px; border: 1px solid #d8edff35; border-radius: 13px; background: #ffffff0c; color: #ecf4ff; font-size: 12px; font-weight: 650; transition: background .16s ease, border-color .16s ease; }
+.start-screen__small-button:hover { border-color: #bce8ff71; background: #ffffff17; }
+.start-screen__small-button--accent { border-color: #a9edde60; background: linear-gradient(125deg, #226b70, #3b467c); }
+.start-screen__small-button--accent:hover { border-color: #b4f5e9b0; background: linear-gradient(125deg, #287c7d, #4d5790); }
+.start-screen__input-label { display: block; margin-top: 18px; color: #d5e1f0; font-size: 11px; font-weight: 650; }
+.start-screen__name-form input { display: block; width: 100%; min-height: 51px; margin-top: 7px; padding: 12px 14px; border: 1px solid #bcdcf04e; border-radius: 14px; background: #07152bc7; color: #fff; font: inherit; font-size: 16px; }
+.start-screen__name-form input::placeholder { color: #8da2ba; }
+.start-screen__name-form input[aria-invalid="true"] { border-color: #ffb6a4; }
+.start-screen__input-details { display: flex; justify-content: space-between; gap: 12px; margin-top: 7px; color: #aebfd2; font-size: 10px; }
+.start-screen__form-error { margin: 9px 0 0; color: #ffd0c4; font-size: 12px; }
+.start-screen__form-error[hidden] { display: none; }
+
+.start-screen__footer { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 20px max(18px, env(safe-area-inset-bottom)); color: #d4e0eea6; font-size: 8px; font-weight: 650; letter-spacing: .15em; text-align: center; text-shadow: 0 1px 9px #071326; }
+.start-screen__footer-dot { color: #b5eadd; font-size: 10px; }
+
+@keyframes start-screen-arrive { from { opacity: .55; transform: scale(1.045); } to { opacity: 1; transform: scale(1.015); } }
+@keyframes start-screen-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  .start-screen__backdrop { background-position: 58% center; }
+  .start-screen__veil { background: linear-gradient(90deg, #08162ed9 0%, #0b1830b8 60%, #0b183052 100%), linear-gradient(0deg, #09152de8 0%, #09152d18 65%, #09152d80 100%), radial-gradient(ellipse at 26% 48%, #5190ad30, transparent 53%); }
+  .start-screen__brand { gap: 9px; padding-top: max(19px, env(safe-area-inset-top)); padding-right: max(20px, env(safe-area-inset-right)); padding-left: max(20px, env(safe-area-inset-left)); }
+  .start-screen__mark { width: 33px; height: 38px; }
+  .start-screen__wordmark { font-size: 15px; }
+  .start-screen__edition { font-size: 7px; letter-spacing: .15em; }
+  .start-screen__content { padding: clamp(24px, 5vh, 48px) max(22px, env(safe-area-inset-right)) 28px max(22px, env(safe-area-inset-left)); }
+  .start-screen h1 { font-size: clamp(46px, 12vw, 72px); }
+  .start-screen__intro { max-width: 340px; margin-top: 15px; font-size: 14px; }
+  .start-screen__actions { margin-top: 23px; }
+  .start-screen__button { min-height: 64px; }
+  .start-screen__footer { gap: 8px; font-size: 7px; letter-spacing: .1em; }
+  .start-screen--editing .start-screen__content { padding-top: 12px; padding-bottom: 12px; }
+}
+
+@media (max-width: 390px) {
+  .start-screen__content { padding-top: 18px; padding-bottom: 18px; }
+  .start-screen__eyebrow { margin-bottom: 10px; font-size: 9px; }
+  .start-screen h1 { font-size: clamp(41px, 12vw, 53px); }
+  .start-screen__intro { margin-top: 12px; font-size: 13px; line-height: 1.5; }
+  .start-screen__actions { gap: 8px; margin-top: 18px; }
+  .start-screen__button { min-height: 59px; padding: 9px 12px; border-radius: 16px; }
+  .start-screen__dialog { padding: 17px; }
+  .start-screen__dialog-actions { justify-content: stretch; }
+  .start-screen__dialog-actions button { flex: 1; }
+  .start-screen--editing .start-screen__content { padding-top: 8px; padding-bottom: 8px; }
+}
+
+@media (orientation: landscape) and (max-height: 560px) {
+  .start-screen { grid-template-rows: auto 1fr auto; }
+  .start-screen__brand { padding-top: max(10px, env(safe-area-inset-top)); padding-bottom: 4px; }
+  .start-screen__mark { width: 29px; height: 33px; }
+  .start-screen__wordmark { font-size: 14px; }
+  .start-screen__edition { display: none; }
+  .start-screen__content { align-self: start; padding-top: 4px; padding-bottom: 12px; }
+  .start-screen--editing .start-screen__content { align-self: center; padding-top: 4px; padding-bottom: 4px; }
+  .start-screen__eyebrow { margin-bottom: 7px; font-size: 9px; }
+  .start-screen h1 { font-size: clamp(38px, 8vh, 58px); }
+  .start-screen__intro { max-width: 400px; margin-top: 9px; font-size: 12px; line-height: 1.45; }
+  .start-screen__actions { width: min(100%, 390px); gap: 7px; margin-top: 13px; }
+  .start-screen__button { min-height: 53px; padding: 7px 12px; }
+  .start-screen__button-icon { width: 32px; height: 32px; }
+  .start-screen__save-card { margin-top: 8px; padding: 8px 13px; }
+  .start-screen__dialog { margin-top: 8px; padding: 13px 16px; }
+  .start-screen__footer { padding-top: 7px; padding-bottom: max(9px, env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-screen__backdrop, .start-screen__content, .start-screen__dialog { animation: none; }
+  .start-screen__button, .start-screen__small-button { transition: none; }
+}

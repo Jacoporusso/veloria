@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "speaker": "Il tuo viaggio",
+  "lines": [
+    "Un nuovo mattino illumina Borgofonte. {trainer}, oggi comincia la tua avventura a Veloria.",
+    "La professoressa Elia ha osservato una luce insolita nel Bosco dei Veli. Per aiutarla, avrai bisogno del tuo primo compagno.",
+    "Scendi verso sud ed entra dalla porta sul lato inferiore del laboratorio. Avvicinati a Elia e premi A per scegliere il tuo Pokémon."
+  ],
+  "guidance": [
+    {
+      "mapId": "veloria/borgofonte",
+      "destinationMapId": "veloria/borgofonte_lab",
+      "label": "LABORATORIO · ENTRA DA SUD"
+    },
+    {
+      "mapId": "veloria/borgofonte_lab",
+      "npcId": "prof_elia",
+      "label": "ELIA · PARLA CON A"
+    }
+  ]
+}

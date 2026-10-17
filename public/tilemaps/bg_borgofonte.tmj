@@ -4233,12 +4233,12 @@
             {
               "name": "requiredFlag",
               "type": "string",
-              "value": "q_research_sample_received"
+              "value": "q_starter_selected"
             },
             {
               "name": "failureMessage",
               "type": "string",
-              "value": "Elia ti aspetta al laboratorio per affidarti le rilevazioni."
+              "value": "Prima di partire, entra nel laboratorio e scegli il tuo compagno con Elia."
             }
           ]
         },

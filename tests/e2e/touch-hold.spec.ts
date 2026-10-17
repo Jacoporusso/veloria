@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { enterGame } from './helpers/enter-game';
 
 async function playerY(page: Page): Promise<number> {
   return page.evaluate(() => new Promise<number>((resolve, reject) => {
@@ -16,7 +17,7 @@ async function playerY(page: Page): Promise<number> {
 
 test('holding the D-pad moves continuously without selection or native context menus', async ({ page, context }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   const down = page.getByRole('button', { name: 'Vai in basso' });
   const bounds = (await down.boundingBox())!;
   const session = await context.newCDPSession(page);

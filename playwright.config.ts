@@ -24,7 +24,8 @@ export default defineConfig({
     hasTouch: true,
     launchOptions: executablePath ? { executablePath } : {},
     screenshot: 'only-on-failure',
-    trace: 'retain-on-failure',
+    // Keep action diagnostics without embedding all map/audio response bodies.
+    trace: { mode: 'retain-on-failure', snapshots: false, screenshots: false },
   },
   webServer: {
     command: 'npm run dev -- --host 127.0.0.1 --port 5183 --strictPort',

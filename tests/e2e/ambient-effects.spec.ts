@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { enterGame } from './helpers/enter-game';
 
 test('forest ambient effects load from map metadata at full animation quality', async ({ page }) => {
   const pageErrors: string[] = [];
@@ -9,8 +10,7 @@ test('forest ambient effects load from map metadata at full animation quality', 
     localStorage.setItem('veloria-animation-quality', 'full');
   });
   await page.goto('/');
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
   await expect.poll(() => page.evaluate(() => new Promise<number>((resolve, reject) => {
     const request = indexedDB.open('veloria-save', 1);
@@ -44,9 +44,8 @@ test('forest ambient effects load from map metadata at full animation quality', 
     };
   }));
   await page.reload();
+  await enterGame(page);
   await expect(page.locator('#current-location')).toHaveText('BOSCO DEI VELI');
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
   expect(await page.evaluate(() => localStorage.getItem('veloria-animation-quality'))).toBe('full');
   await expect(page.locator('#toast')).not.toHaveClass(/visible/);
   expect(pageErrors).toEqual([]);

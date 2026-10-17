@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { enterGame } from './helpers/enter-game';
 
 test('journey journal shows real progress and returns focus without moving the player', async ({ page }, testInfo) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await enterGame(page);
   const journal = page.getByRole('button', { name: 'Apri diario del viaggio' });
   await expect(journal).toContainText('Un compagno di viaggio');
   await journal.click();

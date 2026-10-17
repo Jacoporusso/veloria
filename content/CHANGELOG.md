@@ -35,6 +35,10 @@
 
 # Content changelog
 
+## Unreleased
+
+- Borgofonte's exit to the Sentiero dell'Alba now stays closed until the player chooses a starter with Elia.
+
 ## veloria-content-0.3.12
 
 - Added an original, compact forest-edge battle background referenced by the grassland and forest map definitions. The fallback arena remains available for maps without a declared background.
@@ -66,3 +70,9 @@
 ## veloria-content-0.3.5
 
 - Added original 192×160 shop and gym facade sprites for Brumalta and declared them in the map metadata, Tiled objects, asset register, and offline shell cache.
+
+### 0.3.19 — Avvio del viaggio
+
+- Introduzione narrativa versionata con nome allenatore e indicazioni al laboratorio.
+- Requisito della scelta starter dichiarato nel relativo catalogo e applicato all’uscita da Borgofonte.
+- Profilo nome e flag del prologo compatibili con i salvataggi v2 esistenti.

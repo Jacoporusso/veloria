@@ -158,3 +158,9 @@
     height:48px
   }
 }
+
+.starter-description { font-size: 10px; line-height: 1.4; font-weight: 500; color: var(--muted); text-align: center; }
+.interaction-prompt { position: absolute; z-index: 3; left: 50%; bottom: 140px; transform: translateX(-50%); max-width: calc(100% - 32px); min-height: 44px; padding: 10px 15px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); color: var(--paper); backdrop-filter: blur(16px); font-size: 12px; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+@media(orientation:landscape) and (max-height:520px) { .interaction-prompt { bottom: 18px; max-width: calc(100% - 350px); } }
+
+body.battle-active .interaction-prompt, .has-dialogue .interaction-prompt { display: none; }

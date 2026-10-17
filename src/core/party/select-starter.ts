@@ -2,7 +2,7 @@ import startersData from '../../../content/starters/starting-partners.v1.json';
 import type { GameSave } from '../../persistence/save-store';
 
 export const starters = startersData.starters;
-const STARTER_FLAG = 'q_starter_selected';
+const STARTER_FLAG = startersData.selectionFlag;
 
 export function getStarterName(speciesId: number | undefined): string {
   return starters.find(starter => starter.speciesId === speciesId)?.name ?? 'compagno';

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { enterGame } from './helpers/enter-game';
 
 async function savedY(page: Page): Promise<number | undefined> {
   return page.evaluate(() => new Promise((resolve, reject) => {
@@ -16,7 +17,7 @@ async function savedY(page: Page): Promise<number | undefined> {
 
 test('immersive navigation opens real panels and restores focus', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
+  await enterGame(page);
   const menu = page.getByRole('button', { name: 'Apri menu di gioco' });
   await menu.click();
   await expect(menu).toHaveAttribute('aria-expanded', 'true');
@@ -33,7 +34,7 @@ test('immersive navigation opens real panels and restores focus', async ({ page 
 
 test('objective compacts on movement and the menu pauses movement input', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
+  await enterGame(page);
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
   await expect(page.locator('.journey-trigger')).toHaveClass(/is-compact/);
   await expect.poll(() => savedY(page)).toBe(21);

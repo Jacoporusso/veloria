@@ -139,3 +139,9 @@ Fonti: https://docs.phaser.io/phaser/concepts/loader · https://docs.phaser.io/p
 ### Presentazione Atlante approvata, 17 ottobre 2026
 
 `game/ui/ExplorationMenu.ts` gestisce la navigazione DOM e il focus; non legge o muta salvataggi. WorldScene blocca movimento e interazioni durante i pannelli di navigazione. JourneyPanel compatta l’obiettivo sui movimenti validi, mantenendo i dati derivati dal catalogo. `game/rendering/world-camera.ts` calcola uno zoom che copre il viewport per ogni mappa, senza condizioni su ID specifici, ed è richiamato a caricamento, transizione e resize. La shell occupa 100dvh e usa safe area per gli overlay.
+
+### Bootstrap e prologo
+
+StartScreen è un adapter DOM che restituisce una scelta esplicita; non cancella né scrive salvataggi. Il bootstrap carica lo slot, raccoglie nome/continua e salva la nuova partita prima di istanziare Phaser. trainer-profile valida il nome in una funzione pura. Il service worker viene registrato prima della scelta, per rendere disponibile offline anche il titolo. La preview di sviluppo salta titolo e persistenza, mantenendo l’avviso visibile.
+
+Il prologo usa opening.v1.json per dialogo e indicazioni sulle soglie/NPC delle mappe. intro_started/intro_completed e prologue_complete_seen sono flag compatibili con schema v2. La schermata PrologueCompletion legge un snapshot senza mutarlo; WorldScene sospende l’input e persiste solo la presa visione. Il requisito q_starter_selected è dichiarato come selectionFlag nel catalogo starter, consumato dal selettore e registrato nel validatore dei requisiti delle mappe.

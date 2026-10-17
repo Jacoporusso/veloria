@@ -22,3 +22,12 @@
 - Integrato il prototipo approvato: mappa a tutto schermo, menu compatto, obiettivo richiudibile, dialoghi e pannelli blu con gradienti.
 - Ripristinati esattamente aspetto e griglia del pad originale; azioni A/B/S a sinistra e movimento a destra.
 - Camera adattiva a stanze, mappe ampie e rotazione del dispositivo; PWA shell v33.
+
+## 17/10/2026 — Nuova partita e prologo
+
+- Schermata titolo Atlante con continua, conferma nuova partita e nome allenatore.
+- Introduzione personalizzata, indicazioni a laboratorio/Elia, comando A contestuale e descrizioni degli starter.
+- Riepilogo del primo capitolo dopo Mira, con dati reali di squadra e salvataggio.
+- Contenuti 0.3.19, cache PWA v34; i vecchi salvataggi restano compatibili.
+
+- Salvataggio iniziale con errore visibile e riprova; ritorno al titolo solo dopo scrittura riuscita, con test browser di memoria esaurita.

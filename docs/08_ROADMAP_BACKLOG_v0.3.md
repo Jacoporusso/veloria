@@ -92,3 +92,12 @@ S5 -> S6
 ## 7. Espansione oltre MVP
 
 **v0.5 (orientativa):** prime 4 Palestre, ~100 specie reperibili, viaggio a Vetracielo/Ferraluce. **v1.0:** 8 Palestre, 251 specie ottenibili, Lega e finale narrativo. **v2.0 opzionale:** seconda regione/postgame, fino a Gen III e oltre previa implementazione meccaniche. Queste sono **aspirazioni di contenuto**, non date garantite.
+
+## 8. Stato del flusso giocabile — 17/10/2026
+
+- Implementati e verificati: titolo/continua, nome allenatore, introduzione persistente, accesso al laboratorio, selezione unica dei quattro starter, blocco uscita senza starter, riepilogo dopo Mira.
+- Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
+- P0 successivo: una partita senza preparazione artificiale da nome a Medaglia Aurora, con training, catture, cura, missione Ada e sigilli; correggere eventuali blocchi e bilanciamento.
+- P0 combattimento: Growl, Tail Whip e Defense Curl consumano PP ma non applicano ancora variazioni alle statistiche; introdurre gli effetti prima di considerare la battaglia rifinita.
+- P0 grafica: dodici specie senza illustrazione, inclusi gli starter. La scelta è utilizzabile con etichette e tipi, ma i segnaposto non soddisfano il gate artistico finale.
+- Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.

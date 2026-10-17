@@ -99,7 +99,8 @@ render_asset_registry = {}
 zone_encounter_refs = set()
 required_layers = {"ground", "terrain_detail", "collision", "characters", "canopy_overhead", "interactions", "triggers"}
 dialogues = json.loads(DIALOGUE_FILE.read_text(encoding="utf-8"))
-starters = json.loads(STARTER_FILE.read_text(encoding="utf-8"))["starters"]
+starter_data = json.loads(STARTER_FILE.read_text(encoding="utf-8"))
+starters = starter_data["starters"]
 species_registry = json.loads(SPECIES_FILE.read_text(encoding="utf-8"))["species"]
 progression = json.loads(PROGRESSION_FILE.read_text(encoding="utf-8"))
 content_manifest = json.loads(CONTENT_MANIFEST.read_text(encoding="utf-8"))
@@ -158,6 +159,8 @@ quest_files = sorted(QUESTS.glob("*.quest.json"))
 quests = [json.loads(file.read_text(encoding="utf-8")) for file in quest_files]
 quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]}
 quest_flags = {step["setFlag"] for quest in quests for step in quest["steps"]}
+check(starter_data.get("selectionFlag") == "q_starter_selected", "Starter selection flag is missing or unsupported")
+quest_flags.add(starter_data["selectionFlag"])
 check(len({quest["id"] for quest in quests}) == len(quests), "Duplicate quest ID")
 for quest in quests:
     step_flags = [step["setFlag"] for step in quest["steps"]]
