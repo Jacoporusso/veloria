@@ -12,3 +12,6 @@ export type {
   BattleStat, StatStages, BattleStats, BattleTransition, MajorStatus, MoveCategory, MoveDefinition, MoveSlot,
   StatusEffect,
 } from './types.ts';
+
+export { chooseOpponentCommand } from './opponent-policy.ts';
+export type { OpponentPolicy } from './opponent-policy.ts';

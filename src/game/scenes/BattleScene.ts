@@ -1,3 +1,5 @@
+import { chooseOpponentCommand, type OpponentPolicy } from '../../core/battle/opponent-policy.ts';
+import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { resolveBattleTurn, type BattleCommands, type MoveCatalog } from '../../core/battle/engine.ts';
 import type { BattleRules } from '../../core/battle/rules.ts';
@@ -21,6 +23,7 @@ export interface BattleSceneInit {
   /** Optional image texture declared by the current MapDefinition. */
   readonly arenaTextureKey?: string;
   readonly reducedAnimations?: boolean;
+  readonly opponentPolicy?: OpponentPolicy;
 }
 
 type ViewMode = 'menu' | 'moves' | 'party' | 'items' | 'captures' | 'message';
@@ -49,6 +52,7 @@ export class BattleScene extends Phaser.Scene {
   private state!: BattleState;
   private moveCatalog!: MoveCatalog;
   private rules!: BattleRules;
+  private opponentPolicy!: OpponentPolicy;
   private onComplete!: BattleSceneInit['onComplete'];
   private onDismiss?: BattleSceneInit['onDismiss'];
   private createInstanceId?: BattleSceneInit['createInstanceId'];
@@ -84,6 +88,7 @@ export class BattleScene extends Phaser.Scene {
     this.state = data.state;
     this.moveCatalog = data.moveCatalog;
     this.rules = data.rules;
+    this.opponentPolicy = data.opponentPolicy ?? getOpponentPolicy();
     this.onComplete = data.onComplete;
     this.onDismiss = data.onDismiss;
     this.createInstanceId = data.createInstanceId;
@@ -548,16 +553,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private chooseOpponentCommand(): BattleCommand {
-    const opponent = this.activeCreature('opponent');
-    if (opponent.hp <= 0) {
-      const replacement = this.state.opponent.creatures.findIndex((creature, index) => index !== this.state.opponent.activeIndex && creature.hp > 0);
-      return replacement >= 0 ? { kind: 'switch', partyIndex: replacement } : { kind: 'useMove', moveSlot: 0 };
-    }
-    const availableMove = opponent.moves.findIndex(slot => slot.pp > 0 && this.moveCatalog[slot.moveId]);
-    if (availableMove >= 0) return { kind: 'useMove', moveSlot: availableMove };
-    const replacement = this.state.opponent.creatures.findIndex((creature, index) => index !== this.state.opponent.activeIndex && creature.hp > 0);
-    if (replacement >= 0) return { kind: 'switch', partyIndex: replacement };
-    return { kind: 'useMove', moveSlot: 0 };
+    return chooseOpponentCommand(this.state, this.moveCatalog, this.rules, this.opponentPolicy);
   }
 
   private advanceMessage(): void {

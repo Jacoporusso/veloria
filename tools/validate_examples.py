@@ -21,6 +21,8 @@ DIALOGUE_FILE = ROOT / "content" / "dialogue" / "world.v1.json"
 STARTER_FILE = ROOT / "content" / "starters" / "starting-partners.v1.json"
 SPECIES_FILE = ROOT / "content" / "battle" / "species.v1.json"
 MOVE_FILE = ROOT / "content" / "battle" / "moves.v1.json"
+TYPE_CHART_FILE = ROOT / "content" / "battle" / "type-chart.v1.json"
+OPPONENT_POLICIES_FILE = ROOT / "content" / "battle" / "opponent-policies.v1.json"
 PROGRESSION_FILE = ROOT / "content" / "battle" / "progression.v1.json"
 ENCOUNTERS = ROOT / "content" / "encounters"
 QUESTS = ROOT / "content" / "quests"
@@ -139,10 +141,49 @@ for move_id, move in move_registry.items():
         check(effect.get("stat") in {"attack", "defense", "specialAttack", "specialDefense", "speed"}, f"Invalid stat in {move_id}")
         change = effect.get("stages")
         check(type(change) is int and -6 <= change <= 6 and change != 0, f"Invalid stage change in {move_id}")
+type_chart_data = json.loads(TYPE_CHART_FILE.read_text(encoding="utf-8"))
+expected_battle_types = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel"]
+check(type_chart_data.get("version") == 1 and type_chart_data.get("id") == "veloria-type-chart-gen2-v1" and
+      type_chart_data.get("generation") == 2, "Unsupported or malformed generation II type chart")
+check(type_chart_data.get("types") == expected_battle_types, "Generation II type chart must list all 17 supported types in battle order")
+type_chart = type_chart_data.get("chart")
+check(isinstance(type_chart, dict) and set(type_chart) == set(expected_battle_types) and len(type_chart) == 17,
+      "Generation II type chart must contain exactly 17 attacking types")
+for attacking_type in expected_battle_types:
+    row = type_chart.get(attacking_type, {}) if isinstance(type_chart, dict) else {}
+    check(isinstance(row, dict) and set(row) == set(expected_battle_types) and len(row) == 17,
+          f"Generation II type chart row must contain all 17 defending types: {attacking_type}")
+    for defending_type in expected_battle_types:
+        factor = row.get(defending_type) if isinstance(row, dict) else None
+        check(type(factor) in (int, float) and factor in (0, 0.5, 1, 2),
+              f"Invalid type efficacy {attacking_type} -> {defending_type}: {factor}")
+source = type_chart_data.get("source", {})
+source_hashes = source.get("sha256", {}) if isinstance(source, dict) else {}
+for hash_name in ("efficacy", "historicalEfficacy", "types"):
+    check(isinstance(source_hashes.get(hash_name), str) and re.fullmatch(r"[0-9a-f]{64}", source_hashes[hash_name]),
+          f"Missing or malformed type chart source SHA-256: {hash_name}")
 item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
 trainer_files = sorted(TRAINERS.glob("*.trainer.json"))
 trainers = [json.loads(file.read_text(encoding="utf-8")) for file in trainer_files]
 trainer_registry = {trainer["id"]: trainer for trainer in trainers}
+opponent_policies_data = json.loads(OPPONENT_POLICIES_FILE.read_text(encoding="utf-8"))
+opponent_profiles = opponent_policies_data.get("profiles", {})
+required_opponent_profiles = {"wild", "route_young", "route_cautious", "gym_beginner"}
+check(opponent_policies_data.get("version") == 1 and opponent_policies_data.get("status") == "prototype",
+      "Opponent policies must remain explicitly versioned and provisional")
+check(isinstance(opponent_profiles, dict) and required_opponent_profiles <= set(opponent_profiles),
+      "Opponent policy registry is missing a required profile")
+for profile_id, profile in opponent_profiles.items():
+    check(isinstance(profile, dict), f"Invalid opponent policy: {profile_id}")
+    check(profile.get("id") == profile_id, f"Opponent profile ID mismatch: {profile_id}")
+    cadence = profile.get("statusEveryTurns")
+    check(type(cadence) is int and 0 <= cadence <= 100, f"Invalid status cadence in opponent profile {profile_id}")
+    setup_cap = profile.get("maxSetupStage")
+    check(type(setup_cap) is int and 1 <= setup_cap <= 6, f"Invalid setup stage cap in opponent profile {profile_id}")
+    check(profile.get("damageSelection") in {"best", "cycle"}, f"Invalid damage selection in opponent profile {profile_id}")
+for trainer in trainers:
+    check(trainer.get("aiProfileId") in opponent_profiles,
+          f"Trainer references unknown opponent AI profile: {trainer['id']}")
 shop_files = sorted(SHOPS.glob("*.shop.json"))
 shops = [json.loads(file.read_text(encoding="utf-8")) for file in shop_files]
 shop_registry = {shop["id"]: shop for shop in shops}

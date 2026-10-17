@@ -11,7 +11,8 @@ permissions:
 
 concurrency:
   group: verify-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Let a running integration suite finish while the latest revision waits.
+  cancel-in-progress: false
 
 jobs:
   verify:

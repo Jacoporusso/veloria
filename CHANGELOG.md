@@ -37,3 +37,10 @@
 - Ruleset prototipo v2: Growl, Tail Whip e Defense Curl modificano le statistiche durante la battaglia.
 - Effetti definiti nei dati, limiti e reset al cambio/cattura; nessuna modifica allo schema dei salvataggi.
 - Contenuti 0.3.20 e cache PWA v35.
+
+## 17/10/2026 — Efficacie dei tipi e IA
+
+- Matrice locale completa di 17 tipi con provenienza PokéAPI registrata; ruleset prototipo v3.
+- IA pura collegata ai profili allenatore: efficacie, mosse di preparazione utili e rotazione dei selvatici.
+- Contenuti 0.3.21, cache PWA v36; nessuna modifica allo schema save.
+- CI: i nuovi commit attendono la verifica in corso invece di cancellarla; resta in coda la revisione più recente.

@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v35';
+const CACHE = 'veloria-shell-v36';
 const SHELL = [
   './',
   './index.html',

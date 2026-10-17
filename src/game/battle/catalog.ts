@@ -7,7 +7,8 @@ import type { TrainerBattleDefinition } from './create-battle-state.ts';
 import type { ShopDefinition } from '../../core/services/shop.ts';
 import itemData from '../../../content/items/items.v1.json';
 import progressionData from '../../../content/battle/progression.v1.json';
-import type { EvolutionRule, ExperienceCurve } from '../../core/battle/rules.ts';
+import typeChartData from '../../../content/battle/type-chart.v1.json';
+import type { EvolutionRule, ExperienceCurve, TypeChart } from '../../core/battle/rules.ts';
 
 export const battleSpecies = (speciesData as { species: SpeciesBattleRegistry }).species;
 export const battleMoves: BattleMoveRegistry = (moveData as { moves: BattleMoveRegistry }).moves;
@@ -38,6 +39,7 @@ const progression = progressionData as {
   evolutions: readonly { fromSpeciesId: number; toSpeciesId: number; minimumLevel: number }[];
 };
 const growthCurves = progression.growthCurves;
+export const battleTypeChart = typeChartData.chart as TypeChart;
 const evolutionRules = progression.evolutions.reduce<Record<number, EvolutionRule[]>>((rules, entry) => {
   const target = battleSpecies[String(entry.toSpeciesId)];
   if (!target) throw new Error(`Evolution target ${entry.toSpeciesId} is not in the battle species registry.`);
@@ -48,7 +50,8 @@ const evolutionRules = progression.evolutions.reduce<Record<number, EvolutionRul
 /** Prototype consumable values remain content-owned until the battle balance pass. */
 export const veloriaBattleRules = {
   ...prototypeBattleRules,
-  id: prototypeBattleRules.id,
+  id: 'veloria-battle-prototype-v3',
+  typeChart: battleTypeChart,
   experienceCurves: growthCurves,
   evolutions: evolutionRules,
   items: Object.fromEntries(Object.values(itemCatalog).filter(item => item.battle).map(item => [item.id, item.battle!])),

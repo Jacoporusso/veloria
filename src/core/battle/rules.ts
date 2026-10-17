@@ -67,7 +67,7 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v2',
+  id: 'veloria-battle-prototype-v3',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,

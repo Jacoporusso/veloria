@@ -106,5 +106,5 @@ S5 -> S6
 
 - Gate verificati nei dati correnti: starter → letture di Elia → sensore nel Bosco → rapporto ad Ada → Brumalta → sigilli sud/centro/nord → Mira → Medaglia Aurora. I trigger fisici verso R02 e città richiedono Ada anche dove la metadata di connessione non specifica il requisito.
 - Bilanciamento da provare: i due allenatori opzionali di R01 assegnano 158 XP complessivi allo starter se vince tutti gli scontri; dal livello 5 arriva al 6 con 67 XP residui. Mira ha Sentret lv8 e Rattata lv10. Questo indica una necessità di playtest, non dimostra impossibilità né autorizza un cap nascosto.
-- P0: il catalogo runtime eredita ancora una typeChart vuota; introdurre una tabella dei 17 tipi esplicitamente versionata e verificata prima di dichiarare complete le efficacie.
-- P0: i profili IA dichiarati negli allenatori non governano ancora la scelta; BattleScene usa la prima mossa con PP. Introdurre politiche testabili e leggibili senza cambiare lo stato fuori dal core.
+- Risolto nel prototipo v3: catalogo runtime con matrice 17×17 locale, rapporti Gen II–V, immunità al danno e doppi tipi verificati. Restano regole di status e calibrazione.
+- Risolto nel prototipo v3: aiProfileId governa politiche pure di attacco/preparazione; ranking, PP, utilità degli stadi e replay coperti da test. Restano strumenti, cambi tattici e mossa di emergenza a PP esauriti.

@@ -69,3 +69,13 @@ Cinque statistiche supportate: Attacco, Difesa, Attacco speciale, Difesa special
 Il consumo PP e l'accuratezza precedono gli effetti; al limite si consuma comunque il turno e si emette un messaggio esplicito. Gli stadi si azzerano al cambio (uscente ed entrante), alla cattura e alla creazione di una battaglia. Non entrano nel salvataggio del mondo. Eventi semantici `statStageChanged` e `statStageLimited` guidano i messaggi UI.
 
 Restano fuori da questo prototipo accuratezza/elusione, probabilità secondaria di variazione e regole storiche con cui i critici ignorano determinati stadi. I critici usano attualmente le statistiche modificate e il moltiplicatore del ruleset: scelta esplicita di prototipo, non emulazione canonica.
+
+## 10. Efficacie e avversari del prototipo v3 — 17/10/2026
+
+Il runtime usa ora `veloria-battle-prototype-v3`. La matrice completa di 17 tipi in `content/battle/type-chart.v1.json` adotta i rapporti delle generazioni II–V: inclusi Buio/Acciaio, escluso Folletto. Fonte di import: CSV primari del progetto [PokéAPI](https://github.com/PokeAPI/pokeapi/tree/master/data/v2/csv), con URL, SHA-256 e data nel JSON. Sono applicati i soli rapporti storici con generation_id=5 (Spettro e Buio contro Acciaio a 0,5), non le differenze della prima generazione. I doppi tipi moltiplicano entrambi i fattori; un'immunità mantiene zero. Nessuna richiesta di rete durante il gioco.
+
+Questa scelta versiona il prototipo coerentemente con i 17 tipi previsti. Restano provvisori lo split per mossa, le statistiche, i critici e le immunità agli status: la matrice riguarda il danno, non implementa tutte le regole canoniche.
+
+La scelta avversaria è pura in `core/battle/opponent-policy.ts`; i profili sono in `content/battle/opponent-policies.v1.json`. Allenatori collegati tramite aiProfileId; selvatici tramite profilo wild. Il ranking degli attacchi considera potenza, precisione, statistiche effettive, STAB, efficacia e scottatura: è una funzione di utilità, non una previsione esatta dei danni. Gli effetti di preparazione sono scelti solo se utili, con cadenza per turno e soglia di stadio configurabili. Un avversario con sole mosse speciali non induce un inutile aumento di Difesa fisica.
+
+Le politiche best scelgono il miglior attacco stimato; cycle alterna gli attacchi utilizzabili e non immuni. Le riserve entrano dopo KO o esaurimento PP dell'attivo. Il selettore non modifica lo stato, non consuma RNG e non riceve il comando scelto dal giocatore. Non usa ancora strumenti né cambi tattici; il caso senza PP in tutta la squadra richiede ancora una mossa di emergenza prima di considerare completa la gestione delle battaglie lunghe.

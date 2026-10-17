@@ -7,6 +7,7 @@ import type { BattleRules } from '../../core/battle/rules.ts';
 export type TrainerBattleDefinition = {
   id: string;
   name: string;
+  aiProfileId: string;
   battleOnceFlag: string;
   defeatQuestEvent: string;
   rewardMoney: number;

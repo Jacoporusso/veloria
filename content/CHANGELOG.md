@@ -80,3 +80,7 @@
 ## 0.3.20 — 17/10/2026
 
 - Catalogo mosse versione 2: effetti statChanges per Growl, Tail Whip e Defense Curl; regole prototipo esplicite nel decision log.
+
+## 0.3.21 — 17/10/2026
+
+- Matrice tipi Gen II–V completa, sorgenti/hash registrati; profili IA versionati e collegati agli allenatori.

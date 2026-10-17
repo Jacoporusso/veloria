@@ -1,3 +1,4 @@
+import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { createUniqueId, saveGame, type GameSave } from '../../persistence/save-store';
 import { exportSave, importSave } from '../../persistence/save-backup';
@@ -680,6 +681,7 @@ export class WorldScene extends Phaser.Scene {
       document.body.classList.add('battle-active');
       document.querySelector<HTMLElement>('#save-menu')!.hidden = true;
       this.scene.launch('battle', {
+        opponentPolicy: getOpponentPolicy(trainer?.aiProfileId),
         state,
         moveCatalog: battleMoves,
         rules: veloriaBattleRules,

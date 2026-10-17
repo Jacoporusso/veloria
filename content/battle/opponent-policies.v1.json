@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "notes": [
+    "Deterministic turn cadence; no random draws or knowledge of the pending player command. Setup never replaces a damaging move beyond the configured stage threshold."
+  ],
+  "profiles": {
+    "wild": {
+      "id": "wild",
+      "statusEveryTurns": 4,
+      "maxSetupStage": 1,
+      "damageSelection": "cycle"
+    },
+    "route_young": {
+      "id": "route_young",
+      "statusEveryTurns": 4,
+      "maxSetupStage": 1,
+      "damageSelection": "cycle"
+    },
+    "route_cautious": {
+      "id": "route_cautious",
+      "statusEveryTurns": 3,
+      "maxSetupStage": 1,
+      "damageSelection": "best"
+    },
+    "gym_beginner": {
+      "id": "gym_beginner",
+      "statusEveryTurns": 3,
+      "maxSetupStage": 2,
+      "damageSelection": "best"
+    }
+  }
+}

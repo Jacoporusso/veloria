@@ -145,3 +145,7 @@ Fonti: https://docs.phaser.io/phaser/concepts/loader · https://docs.phaser.io/p
 StartScreen è un adapter DOM che restituisce una scelta esplicita; non cancella né scrive salvataggi. Il bootstrap carica lo slot, raccoglie nome/continua e salva la nuova partita prima di istanziare Phaser. trainer-profile valida il nome in una funzione pura. Il service worker viene registrato prima della scelta, per rendere disponibile offline anche il titolo. La preview di sviluppo salta titolo e persistenza, mantenendo l’avviso visibile.
 
 Il prologo usa opening.v1.json per dialogo e indicazioni sulle soglie/NPC delle mappe. intro_started/intro_completed e prologue_complete_seen sono flag compatibili con schema v2. La schermata PrologueCompletion legge un snapshot senza mutarlo; WorldScene sospende l’input e persiste solo la presa visione. Il requisito q_starter_selected è dichiarato come selectionFlag nel catalogo starter, consumato dal selettore e registrato nel validatore dei requisiti delle mappe.
+
+### IA e matrice tipi, prototipo v3
+
+BattleScene delega la selezione avversaria a una funzione pura, con policy risolta dal registro tramite aiProfileId in WorldScene. Il catalogo inietta nel ruleset una matrice locale completa 17×17; dati e profili sono validati alla build. La scena continua a ricevere comandi ed eventi, senza formule o accesso di rete. Nessuna modifica a GameSave.
