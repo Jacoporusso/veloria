@@ -1,4 +1,12 @@
 .touch-actions{display:none}
+/* A held direction is game input, never selectable text or a browser callout. */
+.game-footer,.game-footer *{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.dpad,.touch-actions{touch-action:none}
 @media(max-width:700px){
   .touch-actions{position:absolute;right:145px;bottom:16px;display:flex;gap:6px;align-items:center}
   .action-button{width:44px;height:44px;border:1px solid #ddc8914c;border-radius:50%;background:#172920e8;color:#e8d6a6;font:500 13px 'DM Mono',monospace;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}

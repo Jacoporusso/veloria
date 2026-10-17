@@ -9,6 +9,10 @@ import { AudioManager } from './game/audio/audio-manager';
 import { getMap, getSpawn, listMaps } from './game/maps/map-registry';
 import { createUniqueId } from './persistence/save-store';
 import { selectStarter, starters } from './core/party/select-starter';
+import { guardTouchControls } from './game/input/touch-control-guards';
+
+const touchFooter = document.querySelector<HTMLElement>('.game-footer');
+if (touchFooter) guardTouchControls(touchFooter);
 
 const audio = new AudioManager();
 window.addEventListener('pointerdown', () => { void audio.unlock(); }, { once: true });
