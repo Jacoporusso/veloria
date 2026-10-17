@@ -10,6 +10,10 @@ import { getMap, getSpawn, listMaps } from './game/maps/map-registry';
 import { createUniqueId } from './persistence/save-store';
 import { selectStarter, starters } from './core/party/select-starter';
 import { guardTouchControls } from './game/input/touch-control-guards';
+import { ExplorationMenu } from './game/ui/ExplorationMenu';
+
+const explorationMenu = new ExplorationMenu();
+if (import.meta.hot) import.meta.hot.dispose(() => explorationMenu.destroy());
 
 const touchFooter = document.querySelector<HTMLElement>('.game-footer');
 if (touchFooter) guardTouchControls(touchFooter);
@@ -65,7 +69,7 @@ if (import.meta.env.DEV) {
       location.assign(url);
     });
     picker.append(select);
-    stage.append(picker);
+    document.querySelector('#exploration-menu')?.append(picker);
     if (previewMapId) {
       const banner = document.createElement('div');
       banner.className = 'dev-preview-banner';
@@ -111,7 +115,11 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
         });
       });
       let refreshing = false;
+      let controlled = Boolean(navigator.serviceWorker.controller);
       navigator.serviceWorker.addEventListener('controllerchange', () => {
+        // First installation already runs this build: claim it without reloading.
+        // Subsequent worker updates must reload once to activate the new bundle.
+        if (!controlled) { controlled = true; return; }
         if (refreshing) return;
         refreshing = true;
         window.location.reload();

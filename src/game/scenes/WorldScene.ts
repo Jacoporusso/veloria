@@ -25,6 +25,7 @@ import { itemCatalog, shopCatalog } from '../battle/catalog.ts';
 import { preloadCreatureArt, createCreaturePortrait } from '../battle/creature-art.ts';
 import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
 import { JourneyPanel } from '../journey/JourneyPanel.ts';
+import { worldCameraZoom } from '../rendering/world-camera.ts';
 
 type Direction = CardinalDirection;
 const TILE = 32;
@@ -114,13 +115,13 @@ export class WorldScene extends Phaser.Scene {
       this.playerTile = { x: spawn.x, y: spawn.y };
       this.save.player.x = spawn.x; this.save.player.y = spawn.y;
     }
-    this.cameras.main.setBounds(0, 0, this.renderedMap.width * TILE, this.renderedMap.height * TILE);
-    this.cameras.main.setZoom(Math.min(1.25, Math.max(1, this.scale.width / 800)));
+
     this.player = this.makePlayer();
     this.mapLayer.add(this.player);
     this.player.setPosition(this.playerTile.x * TILE + TILE / 2, this.playerTile.y * TILE + TILE / 2).setDepth(this.player.y + 20);
     this.cameras.main.startFollow(this.player, true, .12, .12);
     this.cameras.main.setDeadzone(100, 60);
+    this.fitWorldCamera();
     this.dialogueBox=document.querySelector<HTMLElement>('#dialogue-box')!;
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
     const stage = document.querySelector<HTMLElement>('.game-stage');
@@ -135,11 +136,23 @@ export class WorldScene extends Phaser.Scene {
     this.input.keyboard!.on('keydown-M', () => this.persistProgress(true));
     this.input.keyboard!.on('keydown-P', () => this.openPokedex(document.querySelector<HTMLElement>('#pokedex-button')!));
     this.bindTouchControls();
-    this.scale.on('resize', () => this.cameras.main.setZoom(Math.min(1.25, Math.max(1, this.scale.width / 800))));
+    this.scale.on('resize', this.fitWorldCamera, this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scale.off('resize', this.fitWorldCamera, this));
     window.setTimeout(() => { const loading = document.querySelector<HTMLElement>('#game-loading'); if (loading) loading.hidden = true; }, 120);
     if (this.map.metadata.id === 'veloria/borgofonte' && !this.save.flags.includes('q_starter_selected')) {
       this.showToast('Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud.');
     }
+  }
+
+  private fitWorldCamera(): void {
+    const width = this.renderedMap.width * TILE, height = this.renderedMap.height * TILE;
+    this.cameras.main.setBounds(0, 0, width, height);
+    this.cameras.main.setZoom(worldCameraZoom(this.scale, { width, height }));
+    this.cameras.main.centerOn(this.player.x, this.player.y);
+  }
+
+  private get navigationOpen(): boolean {
+    return Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
   }
 
   private drawWorld() {
@@ -260,7 +273,7 @@ export class WorldScene extends Phaser.Scene {
     }
     panel.hidden = false;
     this.pokedexOpen = true;
-    this.pokedexReturnFocus = returnFocus;
+    this.pokedexReturnFocus = returnFocus.closest('.exploration-menu') ? document.querySelector<HTMLElement>('#menu-button') ?? returnFocus : returnFocus;
     document.querySelector<HTMLButtonElement>('#pokedex-close')?.focus();
   }
 
@@ -304,7 +317,8 @@ export class WorldScene extends Phaser.Scene {
     });
     document.querySelector('#action-a')?.addEventListener('click',()=>this.advanceOrInteract());
     document.querySelector('#action-b')?.addEventListener('click',()=>{
-      if(this.pokedexOpen)this.closePokedex();
+      if(this.journey?.isOpen)this.journey.close();
+      else if(this.pokedexOpen)this.closePokedex();
       else if(this.dialogueLines.length)this.closeDialogue();
       else {const toast=document.querySelector<HTMLElement>('#toast');toast?.classList.remove('visible');clearTimeout(this.toastTimer);}
     });
@@ -322,7 +336,7 @@ export class WorldScene extends Phaser.Scene {
       closeButton.focus();
     });
     const settingsMenu = document.querySelector<HTMLElement>('#settings-menu');
-    document.querySelector('#settings-button')?.addEventListener('click',()=>{if(settingsMenu)settingsMenu.hidden=!settingsMenu.hidden;});
+    document.querySelector('#settings-button')?.addEventListener('click',()=>{if(settingsMenu){settingsMenu.hidden=!settingsMenu.hidden;if(!settingsMenu.hidden)settingsMenu.querySelector<HTMLElement>('select, button')?.focus();}});
     const textSpeed = document.querySelector<HTMLSelectElement>('#text-speed');
     if (textSpeed) {
       try { textSpeed.value = localStorage.getItem('veloria-text-speed') ?? 'normal'; } catch { textSpeed.value = 'normal'; }
@@ -341,7 +355,7 @@ export class WorldScene extends Phaser.Scene {
       });
     }
     const saveMenu=document.querySelector<HTMLElement>('#save-menu');
-    document.querySelector('#backup-button')?.addEventListener('click',()=>{if(saveMenu)saveMenu.hidden=!saveMenu.hidden;});
+    document.querySelector('#backup-button')?.addEventListener('click',()=>{if(saveMenu){saveMenu.hidden=!saveMenu.hidden;if(!saveMenu.hidden)saveMenu.querySelector<HTMLElement>('button')?.focus();}});
     document.querySelector('#export-save')?.addEventListener('click',()=>this.exportBackup());
     document.querySelector('#import-save')?.addEventListener('click',()=>document.querySelector<HTMLInputElement>('#save-file')?.click());
     document.querySelector<HTMLInputElement>('#save-file')?.addEventListener('change',event=>void this.importBackup(event.currentTarget as HTMLInputElement));
@@ -349,6 +363,7 @@ export class WorldScene extends Phaser.Scene {
 
   update(time: number) {
     this.traveler?.update(time);
+    if (this.navigationOpen) { this.heldDirection = null; this.queuedDirection = null; return; }
     // The UI can be replaced during a Vite hot reload while Phaser keeps its
     // scene alive for a frame. Treat a missing starter panel as closed instead
     // of letting one stale DOM reference stop the whole world loop.
@@ -362,12 +377,14 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private tryMove(direction:Direction) {
+    if (this.navigationOpen) return;
     if(this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
     if(this.moving){this.queuedDirection=direction;return;}
     const destination=tryGridMove(this.playerTile,direction,this.renderedMap.width,this.renderedMap.height,this.occupied);
     this.facing=direction;this.drawFace();
     if(!destination.moved)return;
     const {x,y}=destination.position;
+    this.journey?.compact();
     this.moving=true;this.playerTile={x,y};
     this.traveler.step(direction, this.time.now, this.reducedAnimations);
     this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Linear',onUpdate:()=>this.player.setDepth(this.player.y+20),onComplete:()=>{
@@ -476,11 +493,21 @@ export class WorldScene extends Phaser.Scene {
 
   private async transitionToMap(destination: RegisteredMap, spawn: ReturnType<typeof getSpawn>) {
     const previous = this.map;
+    this.heldDirection = null;
+    this.queuedDirection = null;
+    document.querySelectorAll('.dpad-key.pressed').forEach(button => button.classList.remove('pressed'));
+    const loading = document.querySelector<HTMLElement>('#game-loading');
+    if (loading) {
+      const caption = loading.querySelector('span:last-child');
+      if (caption) caption.textContent = `Andiamo a ${destination.metadata.displayName}…`;
+      loading.hidden = false;
+    }
     try {
       await this.loadMapRenderAssets(destination);
     } catch {
       this.releaseMapRenderAssets(destination, previous);
       this.mapTransitionLoading = false;
+      if (loading) loading.hidden = true;
       this.showToast('La mappa non è disponibile. Riprova tra poco.');
       return;
     }
@@ -498,8 +525,9 @@ export class WorldScene extends Phaser.Scene {
     this.releaseMapRenderAssets(previous, destination);
     this.mapLayer.add(this.player);
     this.player.setPosition(spawn.x*TILE+TILE/2,spawn.y*TILE+TILE/2).setDepth(this.player.y+20);
-    this.cameras.main.setBounds(0,0,this.renderedMap.width*TILE,this.renderedMap.height*TILE);
+    this.fitWorldCamera();
     this.mapTransitionLoading = false;
+    if (loading) loading.hidden = true;
     this.persistProgress();
     if (destination.metadata.id === 'veloria/brumalta') this.applyQuestEvent('area/veloria/brumalta/enter');
     this.showToast(destination.metadata.displayName);
@@ -644,6 +672,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private advanceOrInteract() {
+    if (this.navigationOpen) return;
     if (this.battleActive || this.mapTransitionLoading || this.journey?.isOpen || this.pokedexOpen) return;
     if(this.dialogueLines.length){
       if (this.typingTimer !== undefined) { this.revealDialogueLine(); return; }

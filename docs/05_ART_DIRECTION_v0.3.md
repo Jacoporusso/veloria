@@ -23,11 +23,15 @@ La mappa in `assets/concept/Veloria_World_Map_Concept_v0.1.png` definisce **l'at
 
 ## 3. Standard game-art PROPOSTI
 
-### Interfaccia per bambini — richiesta utente del 17 ottobre 2026
+### Interfaccia approvata — Atlante immersivo, 17 ottobre 2026
 
-La cornice e i pannelli del gioco usano ora cielo azzurro, crema, corallo, giallo e lilla, con testi blu scuro e caratteri arrotondati più grandi. La precedente UI verde scuro è sostituita su esplorazione, dialoghi, diario, impostazioni, Pokédex e battaglia. Il colore distingue i comandi ma è sempre accompagnato da etichette; focus e stati disabilitati restano riconoscibili senza affidarsi al colore. I token HTML sono centralizzati in `src/ui-theme.css`.
+Il prototipo in `layout-prototype.html` è il riferimento approvato dall’utente. L’app usa la mappa a tutto schermo, senza cornici gialle, bordi da console o margini celesti. Il marchio V con stella e gradiente menta/cielo/lilla accompagna una tipografia di sistema. Le superfici sovrapposte sono blu profondo, con gradienti e trasparenze leggere, testo chiaro e bordi sottili. Token condivisi in `src/ui-theme.css`.
 
-Questa correzione riguarda l'interfaccia: la natura delle mappe resta ricca di vegetazione secondo il concept illustrato. Nessuna nuova specie, ricompensa o regola di salvataggio è introdotta dal tema. Le icone originali del progetto sono ricolorate nei sorgenti SVG e rasterizzate per i formati PWA già registrati.
+Header compatto: marchio, luogo e menu. Diario, Pokédex, impostazioni, backup e aiuto si aprono dal menu; il selettore mappe di sviluppo è raccolto nello stesso pannello. Nessuna frase decorativa fissa sotto la mappa. L’obiettivo si riduce a icona al movimento e resta richiamabile; cambia tappa usando esclusivamente i progressi reali.
+
+**Controlli approvati:** pad azzurro dell’app, con su/giù/sinistra/destra su due righe, a destra; pulsanti circolari A/B/S a sinistra, con colori e rilievo originali. A 320 px il salvataggio si dispone sopra A per mantenere bersagli da 44 px e spazio tra i gruppi. Portrait e landscape sono entrambi obbligatori. Le safe area contengono HUD e input. La camera copre lo schermo anche nelle stanze piccole, segue il giocatore e mantiene collisioni e coordinate indipendenti dallo zoom.
+
+Dialoghi, diario, Pokédex, caricamento e pannelli di battaglia condividono le superfici dell’Atlante. Focus, etichette e forme rendono comprensibili gli stati oltre al colore; le animazioni rispettano la preferenza di movimento ridotto. Le mappe mantengono l’art direction HD pixel art esistente. Questo design non introduce specie, premi o campi di salvataggio.
 
 - **Tile base:** 32×32 pixel (da confermare con giocabilità mobile).
 - **Personaggio:** footprint di collisione ~1 tile; sprite figurativo circa 32×48 o 48×64 a seconda del look.

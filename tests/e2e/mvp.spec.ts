@@ -120,8 +120,8 @@ async function tapConfirm(page: Page) {
 }
 
 async function waitForWorldReady(page: Page) {
-  await expect(page.locator('#game canvas')).toBeVisible();
-  await expect(page.locator('#game-loading')).toBeHidden();
+  await expect(page.locator('#game canvas')).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
   await expect(page.locator('#current-location')).not.toHaveText('');
 }
 
@@ -204,6 +204,8 @@ async function walkToTile(page: Page, direction: 'alto' | 'basso' | 'sinistra' |
       const after = await readCurrentSave(page);
       return `${after?.player.mapId}|${after?.player.spawnPointId}|${after?.player.x},${after?.player.y}`;
     }).not.toBe(`${before.player.mapId}|${before.player.spawnPointId}|${before.player.x},${before.player.y}`);
+    // A tile is saved before a portal's artwork finishes loading. Wait for the actual destination.
+    await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
     if (stopAtMapId && (await readCurrentSave(page))?.player.mapId === stopAtMapId) break;
   }
 }
@@ -583,16 +585,20 @@ test('E2E-01: mobile controls reach Elia, select one starter, and do not offer a
   save = await readCurrentSave(page);
   expect(save.party).toHaveLength(1);
   expect(save.party[0].speciesId).toBe(4);
+  await page.getByRole('button', { name: 'Annulla' }).tap();
+  await expect(page.locator('#dialogue-box')).toBeHidden();
 
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeVisible();
   await expect(page.locator('#pokedex-summary')).toContainText('1 di 20 specie del primo arco registrate');
   await expect(page.locator('#pokedex-list')).toContainText('Charmander');
   await page.getByRole('button', { name: 'Chiudi il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeHidden();
-  await page.keyboard.press('p');
+  await page.keyboard.press('p', { delay: 40 });
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeVisible();
-  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Chiudi il Pokédex' })).toBeFocused();
+  await page.keyboard.press('Escape', { delay: 40 });
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeHidden();
 });
 
@@ -1059,6 +1065,7 @@ test('E2E-07: exported backup restores location, progression, party, storage, an
   await waitForWorldReady(page);
   const before = await readCurrentSave(page);
 
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
   const [download] = await Promise.all([
     page.waitForEvent('download'),
@@ -1073,6 +1080,7 @@ test('E2E-07: exported backup restores location, progression, party, storage, an
 
   await clearSavedSlots(page);
   expect(await readCurrentSave(page)).toBeNull();
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
   page.once('dialog', dialog => dialog.accept());
   const reload = page.waitForEvent('load');
@@ -1107,6 +1115,7 @@ test('E2E-07: exported backup restores location, progression, party, storage, an
 test('E2E-10: music volume and mute preferences persist across reloads', async ({ page }) => {
   await page.goto('/');
   await waitForWorldReady(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
   const volume = page.getByRole('slider', { name: 'Volume della musica' });
   await expect(volume).toBeVisible();
@@ -1123,6 +1132,7 @@ test('E2E-10: music volume and mute preferences persist across reloads', async (
 
   await page.reload();
   await waitForWorldReady(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
   await expect(page.getByRole('button', { name: 'Attiva audio' })).toHaveAttribute('aria-pressed', 'false');
   await expect(page.getByRole('slider', { name: 'Volume della musica' })).toHaveValue('47');
@@ -1131,6 +1141,7 @@ test('E2E-10: music volume and mute preferences persist across reloads', async (
 test('E2E-11: reduced animation quality persists and movement remains available', async ({ page }) => {
   await page.goto('/');
   await waitForWorldReady(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
   const quality = page.getByLabel('Qualità animazioni');
   await quality.selectOption('reduced');
@@ -1138,8 +1149,10 @@ test('E2E-11: reduced animation quality persists and movement remains available'
 
   await page.reload();
   await waitForWorldReady(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
   await expect(page.getByLabel('Qualità animazioni')).toHaveValue('reduced');
+  await page.keyboard.press('Escape', { delay: 40 });
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
   await expect.poll(async () => (await readCurrentSave(page))?.player?.y).toBe(21);
 });
@@ -1153,13 +1166,14 @@ test('DEV: map picker opens every registered map without reading or saving the p
   await page.screenshot({ path: testInfo.outputPath('dev-map-preview-mobile.png') });
   const picker = page.getByRole('combobox', { name: 'Seleziona una mappa da provare' });
   const registeredMaps = (await readdir(new URL('../../content/maps/', import.meta.url))).filter(file => file.endsWith('.map.json'));
-  await expect(picker.locator('option')).toHaveCount(registeredMaps.length + 1);
   await page.keyboard.press('m');
   await expect(page.locator('#toast')).toContainText('Anteprima');
   const saveDatabaseExists = await page.evaluate(async () =>
     (await indexedDB.databases()).some(database => database.name === 'veloria-save'),
   );
   expect(saveDatabaseExists).toBe(false);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await expect(picker.locator('option')).toHaveCount(registeredMaps.length + 1);
   await picker.selectOption('veloria/radicelmo');
   await expect(page).toHaveURL(/previewMap=veloria%2Fradicelmo/);
   await expect(page.locator('#current-location')).toHaveText('RADICELMO');

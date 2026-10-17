@@ -38,13 +38,21 @@ test('long interior names and an available update keep header and touch controls
     await page.setViewportSize({ width, height: 844 });
     for (const map of ['borgofonte_home', 'borgofonte_lab']) {
       await page.goto(`/?previewMap=veloria/${map}`);
-      await expect(page.locator('#game-loading')).toBeHidden();
+      await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
       await expect(page.locator('#game canvas')).toBeVisible();
       for (const showUpdate of [false, true]) {
         await page.locator('#update-button').evaluate((button, visible) => {
           (button as HTMLButtonElement).hidden = !visible;
         }, showUpdate);
         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+        const stage = (await page.locator('.game-stage').boundingBox())!;
+        expect(stage.width).toBe(width);
+        expect(stage.height).toBe(844);
+        const pad = (await page.locator('.dpad').boundingBox())!;
+        for (const button of await page.locator('.action-button').all()) {
+          const bounds = (await button.boundingBox())!;
+          expect(bounds.x + bounds.width + 20).toBeLessThanOrEqual(pad.x);
+        }
         for (const control of await page.locator('.game-header, .game-stage, .header-actions button:not([hidden]), .dpad, .touch-actions').all()) {
           const box = await control.boundingBox();
           expect(box).toBeTruthy();

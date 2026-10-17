@@ -135,3 +135,7 @@ L'engine calcola la transizione; Phaser traduce eventi in animazioni, senza infl
 Preferire versioni compatibili **pinnate al momento dell'implementazione** con lockfile. Phaser 3 ha API ufficiali per tilemap Tiled JSON e scene; il comportamento esatto di Vite e plugin PWA va validato su toolchain effettiva. Non assumere che l'ultima versione major di ogni package sia interoperabile senza test.
 
 Fonti: https://docs.phaser.io/phaser/concepts/loader · https://docs.phaser.io/phaser/concepts/scenes · https://docs.phaser.io/phaser/concepts/input · https://github.com/vite-pwa/vite-plugin-pwa
+
+### Presentazione Atlante approvata, 17 ottobre 2026
+
+`game/ui/ExplorationMenu.ts` gestisce la navigazione DOM e il focus; non legge o muta salvataggi. WorldScene blocca movimento e interazioni durante i pannelli di navigazione. JourneyPanel compatta l’obiettivo sui movimenti validi, mantenendo i dati derivati dal catalogo. `game/rendering/world-camera.ts` calcola uno zoom che copre il viewport per ogni mappa, senza condizioni su ID specifici, ed è richiamato a caricamento, transizione e resize. La shell occupa 100dvh e usa safe area per gli overlay.

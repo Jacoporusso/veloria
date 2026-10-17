@@ -16,3 +16,9 @@
 ## v0.1 — 09/10/2026
 
 - Stabilita visione di progetto PWA Phaser e vertical slice.
+
+## 17/10/2026 — Atlante immersivo approvato
+
+- Integrato il prototipo approvato: mappa a tutto schermo, menu compatto, obiettivo richiudibile, dialoghi e pannelli blu con gradienti.
+- Ripristinati esattamente aspetto e griglia del pad originale; azioni A/B/S a sinistra e movimento a destra.
+- Camera adattiva a stanze, mappe ampie e rotazione del dispositivo; PWA shell v33.

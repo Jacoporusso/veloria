@@ -47,7 +47,9 @@ export class JourneyPanel {
     const meter = element('span', 'journey-meter');
     meter.setAttribute('aria-hidden', 'true');
     meter.append(this.meter);
-    this.trigger.append(top, this.heading, this.objective, meter);
+    const symbol = element('span', 'journey-symbol', '✦');
+    symbol.setAttribute('aria-hidden', 'true');
+    this.trigger.append(symbol, top, this.heading, this.objective, meter);
     this.trigger.addEventListener('click', () => this.open());
     this.overlay.hidden = true;
     this.overlay.addEventListener('click', event => { if (event.target === this.overlay) this.close(); });
@@ -80,6 +82,7 @@ export class JourneyPanel {
   update(save: GameSave): void {
     this.save = save;
     const progress = selectJourneyProgress(save);
+    if (this.heading.textContent !== progress.title) this.trigger.classList.remove('is-compact');
     this.heading.textContent = progress.title;
     this.objective.textContent = progress.objective;
     this.count.textContent = `${progress.completed}/${progress.total}`;
@@ -116,6 +119,8 @@ export class JourneyPanel {
     this.root.remove();
   }
 
+  compact(): void { this.trigger.classList.add('is-compact'); }
+
   private open(): void {
     if (!this.save) return;
     this.focusBeforeOpen = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
@@ -125,10 +130,11 @@ export class JourneyPanel {
     this.closeButton.focus();
   }
 
-  private close(): void {
+  close(): void {
     this.overlay.hidden = true;
     this.trigger.setAttribute('aria-expanded', 'false');
-    this.focusBeforeOpen?.focus();
+    if (this.focusBeforeOpen?.closest('.exploration-menu')) document.querySelector<HTMLElement>('#menu-button')?.focus();
+    else this.focusBeforeOpen?.focus();
   }
 
   private renderJournal(): void {

@@ -28,17 +28,17 @@ type SelectableButton = { row: number; column: number; callback: () => void; pai
 
 const COLORS = {
   sky: 0xdff3ff,
-  panel: 0xfffdf5,
-  panelRaised: 0xe3f3ff,
-  line: 0xa9c5dd,
-  paper: '#234565',
-  muted: '#506984',
-  gold: '#72521b',
+  panel: 0x1c3b50,
+  panelRaised: 0xd4e6f0,
+  line: 0x63859b,
+  paper: '#f1f9fc',
+  muted: '#bdd3df',
+  gold: '#ffe5a0',
   ink: 0x234565,
-  coral: 0xf47c69,
-  blue: 0x55b9e9,
+  coral: 0xffb6a4,
+  blue: 0xbce8ff,
   yellow: 0xffd263,
-  violet: 0xb0a0e5,
+  violet: 0xd9c9ff,
   orange: 0xffbd7b,
   green: 0x64b986,
   red: 0xe36a61,
@@ -438,7 +438,7 @@ export class BattleScene extends Phaser.Scene {
     const visibleLabel = enabled ? label : this.mode === 'menu' ? `${label}\n— non disponibile` : `× ${label}`;
     const text = this.add.text(x + width / 2, y + height / 2, visibleLabel, {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: this.mode === 'menu' || this.mode === 'message' ? '13px' : '12px',
-      fontStyle: 'bold', color: enabled ? COLORS.paper : '#606c80',
+      fontStyle: 'bold', color: enabled ? '#20344f' : '#606c80',
       align: 'center', lineSpacing: 1, wordWrap: { width: width - 28 },
     }).setOrigin(0.5);
     this.ui.add([background, text]);

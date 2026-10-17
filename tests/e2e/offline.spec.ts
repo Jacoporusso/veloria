@@ -209,10 +209,9 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   await page.goto('/');
   await expect(page.locator('#game canvas')).toBeVisible();
 
-  // The initial navigation registers the SW. Activation claims and reloads the
-  // page through the app's controllerchange handler; wait for that controlled
-  // document instead of starting a competing Playwright reload.
-  await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
+  // First installation claims this document without an unnecessary reload.
+  // WaitForFunction also survives navigation if an existing worker is updated.
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   await expect(page.locator('#game canvas')).toBeVisible();
   await expect(page.locator('#game-loading')).toBeHidden();
 

@@ -1,28 +1,413 @@
-.journey-panel{position:absolute;inset:0;z-index:3;pointer-events:none;color:var(--ink);font-family:var(--font-ui)}
-.journey-panel [hidden]{display:none!important}
-.journey-trigger{pointer-events:auto;position:absolute;left:14px;bottom:48px;width:min(310px,calc(100% - 28px));padding:12px 14px;border:3px solid white;border-left:7px solid var(--sun);border-radius:18px;background:var(--cream);box-shadow:0 5px 0 #3d607028,0 8px 22px #23456521;color:inherit;text-align:left;transition:transform .15s}
-.journey-trigger:hover{transform:translateY(-2px)}.journey-trigger:active{transform:translateY(2px)}
-.journey-trigger:focus-visible,.journey-close:focus-visible,.journey-reward-dismiss:focus-visible,.journey-contents:focus-visible{outline:3px solid #285eab;outline-offset:3px}
-.journey-top{display:flex;align-items:center;gap:8px}.journey-eyebrow{display:block;color:#795212;font:800 10px var(--font-ui)}
-.journey-count{padding:2px 6px;border-radius:8px;background:#fff0b9;font:800 10px var(--font-ui);color:#694b15}.journey-book{margin-left:auto;font-size:11px;font-weight:800;color:#346791}
-.journey-heading{display:block;margin-top:6px;font-size:16px;font-weight:900}.journey-objective{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.4}
-.journey-meter{display:block;height:6px;margin-top:9px;border-radius:8px;background:#e2eaf1;overflow:hidden}.journey-meter-fill{display:block;height:100%;background:linear-gradient(90deg,#6bbbe8,#ad9de5);transition:width .5s ease;border-radius:inherit}
-.journey-overlay{pointer-events:auto;position:absolute;inset:0;background:#23456578;display:flex;align-items:center;justify-content:center;padding:22px}
-.journey-dialog{width:min(540px,100%);max-height:100%;display:flex;flex-direction:column;border:3px solid white;border-radius:24px;background:var(--cream);box-shadow:0 15px 60px #2345654d;overflow:hidden}
-.journey-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 21px;border-bottom:2px solid #f2dfab;background:#fff0bd}.journey-title{font:900 27px var(--font-ui);margin:0;color:var(--ink)}
-.journey-close{border:2px solid white;border-radius:12px;background:#ffe0d5;color:#713e35;font:800 12px var(--font-ui);min-height:44px;padding:0 12px}
-.journey-contents{overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:18px 21px 24px}.journey-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.journey-stat{display:grid;gap:4px;padding:12px 6px;text-align:center;border:2px solid #cde5f2;border-radius:16px;background:#e9f6ff}.journey-stat:nth-child(2){background:#f0eaff;border-color:#e0d5f2}.journey-stat:nth-child(3){background:#fff2c9;border-color:#f0dfab}
-.journey-stat strong{font:900 28px var(--font-ui);color:var(--ink)}.journey-stat span{font-size:11px;font-weight:700;color:var(--muted)}
-.journey-next{margin-top:18px;padding:15px;border:2px solid #f4d997;background:#fff5d9;border-radius:16px}.journey-next h3{margin:7px 0;font-size:18px;font-weight:800}.journey-next p{margin:0;color:#54677a;font-size:14px;line-height:1.5}
-.journey-section-title{font:900 13px var(--font-ui);color:#5b5183;margin:24px 0 12px}.journey-milestones{margin:0;padding:0;list-style:none}
-.journey-milestone{display:flex;gap:10px;align-items:center;min-height:44px;padding:8px 0;border-bottom:1px solid #e0e8ee;font-size:13px;color:#617286}.journey-step-mark{display:grid;place-items:center;border-radius:50%;background:#eef2f6;color:#60748a;font-size:15px;width:24px;height:24px;text-align:center;flex-shrink:0}
-.journey-milestone.complete{color:#35624b}.journey-milestone.complete .journey-step-mark{background:#dcefdc;color:#35624b}.journey-milestone.current{color:#794d14;font-weight:800}.journey-milestone.current .journey-step-mark{background:var(--sun);color:#6b4818}
-.journey-step-state{margin-left:auto;font-size:9px;font-weight:800;white-space:nowrap}.journey-quest{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 8px;margin-bottom:9px;padding:13px;border:1px solid #d6dcec;border-radius:14px;background:#f4f3ff}.journey-quest strong{font-size:14px;line-height:1.4;font-weight:800}.journey-quest-state{font-size:10px;line-height:1.8;color:#5c5189;white-space:nowrap}.journey-quest p{grid-column:1/-1;margin:3px 0 0;color:#586a7c;font-size:12px;line-height:1.5}.journey-quest.complete{border-color:#badabd;background:#edf7e9}
-.journey-reward{pointer-events:auto;position:absolute;top:50px;left:50%;transform:translateX(-50%);width:min(360px,calc(100% - 28px));padding:18px 34px 17px 20px;border:4px solid white;border-top:7px solid var(--sun);border-radius:21px;background:#fff5d8;box-shadow:0 12px 35px #23456540;animation:journey-arrive .3s ease-out}
-.journey-reward-title{display:block;margin:8px 0 5px;font:900 22px var(--font-ui);color:var(--ink);line-height:1.25}.journey-reward-items{display:block;color:#68511c;font-size:14px;font-weight:700;line-height:1.5}.journey-reward-dismiss{position:absolute;top:4px;right:4px;border:0;border-radius:10px;background:#ffe3a5;color:#754d1b;font-size:24px;width:36px;height:36px}
-body.battle-active .journey-panel,.has-dialogue .journey-trigger{display:none}.has-dialogue .journey-reward{top:15px}.game-stage:has(.journey-overlay:not([hidden])) .dev-map-picker{visibility:hidden}
-@keyframes journey-arrive{from{opacity:0;transform:translate(-50%,-12px)}to{opacity:1;transform:translate(-50%,0)}}
-@media(max-width:700px){.journey-trigger{left:8px;bottom:44px;width:min(280px,calc(100% - 16px));padding:8px 10px;border-radius:15px;border-left-width:6px}.journey-heading{font-size:14px;margin-top:4px}.journey-objective{font-size:11px;line-height:1.35}.journey-meter{margin-top:6px;height:5px}.journey-eyebrow{font-size:9px}.journey-book{font-size:10px}.journey-overlay{padding:8px}.journey-dialog{border-radius:18px}.journey-dialog-header{padding:12px}.journey-title{font-size:23px}.journey-contents{padding:13px 12px 18px}.journey-reward{top:45px}.journey-reward-title{font-size:20px}.journey-next p{font-size:13px}}
-@media(max-height:480px){.journey-trigger{bottom:36px;padding:6px 10px;width:250px}.journey-objective{display:none}.journey-heading{font-size:12px;margin-top:3px}.journey-meter{margin-top:5px}.journey-overlay{padding:6px}.journey-dialog-header{padding:6px 12px}.journey-title{font-size:20px}.journey-reward{top:10px;padding:12px 34px 12px 16px}}
-@media(prefers-reduced-motion:reduce){.journey-trigger,.journey-meter-fill{transition:none}.journey-trigger:hover,.journey-trigger:active{transform:none}.journey-reward{animation:none}}
+.journey-panel {
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  color:var(--paper);
+  font-family:var(--font-ui)
+}
+
+.journey-panel:has(.journey-overlay:not([hidden])) {
+  z-index:12
+}
+
+.journey-panel [hidden] {
+  display:none!important
+}
+
+.journey-trigger {
+  pointer-events:auto;
+  position:absolute;
+  top:max(88px,calc(env(safe-area-inset-top) + 70px));
+  left:max(24px,env(safe-area-inset-left));
+  max-width:min(300px,calc(100% - 48px));
+  padding:11px 14px 11px 55px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(130deg,#163e50d9,#1d3446c9);
+  box-shadow:0 5px 25px #102b3030,inset 0 1px 0 #ffffff12;
+  backdrop-filter:blur(18px);
+  color:inherit;
+  text-align:left;
+  transition:padding .2s,border-radius .2s
+}
+
+.journey-symbol {
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  border-radius:11px;
+  background:linear-gradient(145deg,#9aeede36,#8ba7f428);
+  color:#aff5e9;
+  font-size:17px
+}
+
+.journey-top {
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+
+.journey-eyebrow {
+  display:block;
+  font-size:9px;
+  font-weight:750;
+  letter-spacing:.06em;
+  color:#bfdbdf
+}
+
+.journey-count,.journey-book,.journey-trigger .journey-objective,.journey-trigger .journey-meter {
+  display:none
+}
+
+.journey-heading {
+  display:block;
+  margin-top:4px;
+  font-size:12px;
+  line-height:1.35;
+  font-weight:650
+}
+
+.journey-trigger.is-compact {
+  width:48px;
+  min-height:48px;
+  padding:8px;
+  border-radius:16px
+}
+
+.journey-trigger.is-compact .journey-symbol {
+  left:8px
+}
+
+.journey-trigger.is-compact>span:not(.journey-symbol) {
+  display:none
+}
+
+.journey-trigger:hover {
+  border-color:#b4f1ed7a
+}
+
+.journey-overlay {
+  pointer-events:auto;
+  position:absolute;
+  inset:0;
+  background:#10253366;
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))
+}
+
+.journey-dialog {
+  width:min(540px,100%);
+  max-height:100%;
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--surface);
+  box-shadow:var(--panel-shadow);
+  overflow:hidden
+}
+
+.journey-dialog-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:18px 21px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(110deg,#53c7d41a,#b2a4fa22)
+}
+
+.journey-title {
+  font-size:27px;
+  letter-spacing:-.03em;
+  margin:0;
+  font-weight:700
+}
+
+.journey-close {
+  min-height:44px;
+  padding:0 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#b1e4f015;
+  color:var(--paper);
+  font-size:12px
+}
+
+.journey-contents {
+  overflow:auto;
+  overscroll-behavior:contain;
+  touch-action:pan-y;
+  padding:18px 21px 24px
+}
+
+.journey-summary {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px
+}
+
+.journey-stat {
+  display:grid;
+  gap:5px;
+  padding:12px 6px;
+  text-align:center;
+  border:1px solid #aee9ec29;
+  border-radius:16px;
+  background:linear-gradient(140deg,#a5eff51c,#c6b1ff0c)
+}
+
+.journey-stat strong {
+  font-size:28px;
+  font-weight:750;
+  color:#dcf7f5
+}
+
+.journey-stat span {
+  font-size:11px;
+  color:var(--muted)
+}
+
+.journey-next {
+  margin-top:18px;
+  padding:15px;
+  border:1px solid #c6b1ff38;
+  background:linear-gradient(125deg,#b1dded0f,#c6b1ff1a);
+  border-radius:16px
+}
+
+.journey-next h3 {
+  margin:7px 0;
+  font-size:18px;
+  font-weight:650
+}
+
+.journey-next p {
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5
+}
+
+.journey-section-title {
+  font-size:13px;
+  color:#c6daf3;
+  margin:24px 0 12px
+}
+
+.journey-milestones {
+  margin:0;
+  padding:0;
+  list-style:none
+}
+
+.journey-milestone {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  min-height:44px;
+  padding:8px 0;
+  border-bottom:1px solid #e0f5ff14;
+  font-size:13px;
+  color:var(--muted)
+}
+
+.journey-step-mark {
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#d8f1ff0f;
+  color:#bdd3df;
+  font-size:15px
+}
+
+.journey-milestone.complete {
+  color:#afffe3
+}
+
+.journey-milestone.complete .journey-step-mark {
+  background:#afffe31a;
+  color:#afffe3
+}
+
+.journey-milestone.current {
+  color:#fff;
+  font-weight:700
+}
+
+.journey-milestone.current .journey-step-mark {
+  background:#c6b1ff33;
+  color:#dfd6ff
+}
+
+.journey-step-state {
+  margin-left:auto;
+  font-size:9px;
+  font-weight:650;
+  white-space:nowrap
+}
+
+.journey-quest {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:5px 8px;
+  margin-bottom:9px;
+  padding:13px;
+  border:1px solid #d6dcec22;
+  border-radius:14px;
+  background:#c6b1ff0c
+}
+
+.journey-quest strong {
+  font-size:14px;
+  line-height:1.4;
+  font-weight:650
+}
+
+.journey-quest-state {
+  font-size:10px;
+  line-height:1.8;
+  color:#d0c5f4;
+  white-space:nowrap
+}
+
+.journey-quest p {
+  grid-column:1/-1;
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5
+}
+
+.journey-quest.complete {
+  border-color:#afffe333;
+  background:#afffe30a
+}
+
+.journey-reward {
+  pointer-events:auto;
+  position:absolute;
+  top:140px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(360px,calc(100% - 32px));
+  padding:18px 38px 17px 20px;
+  border:1px solid #afffe355;
+  border-radius:21px;
+  background:linear-gradient(135deg,#18495af5,#333c60f5);
+  box-shadow:var(--panel-shadow);
+  animation:journey-arrive .25s ease-out
+}
+
+.journey-reward-title {
+  display:block;
+  margin:8px 0 5px;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:700
+}
+
+.journey-reward-items {
+  display:block;
+  color:#c4f4e5;
+  font-size:14px;
+  line-height:1.5
+}
+
+.journey-reward-dismiss {
+  position:absolute;
+  top:4px;
+  right:4px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:10px;
+  background:transparent;
+  color:var(--paper);
+  font-size:24px
+}
+
+body.battle-active .journey-panel,.has-dialogue .journey-trigger {
+  display:none
+}
+
+.has-dialogue .journey-reward {
+  top:15px
+}
+
+@keyframes journey-arrive {
+  from {
+    opacity:0;
+    transform:translate(-50%,-8px)
+  }
+  to {
+    opacity:1;
+    transform:translate(-50%,0)
+  }
+}
+
+@media(max-width:600px) {
+  .journey-trigger {
+    top:max(74px,calc(env(safe-area-inset-top) + 62px));
+    left:max(16px,env(safe-area-inset-left));
+    padding-block:10px
+  }
+  .journey-heading {
+    font-size:11px
+  }
+  .journey-eyebrow {
+    font-size:8px
+  }
+  .journey-dialog-header {
+    padding:12px
+  }
+  .journey-title {
+    font-size:23px
+  }
+  .journey-contents {
+    padding:13px 12px 18px
+  }
+  .journey-next p {
+    font-size:13px
+  }
+}
+
+@media(orientation:landscape) and (max-height:520px) {
+  .journey-trigger {
+    top:62px;
+    left:max(18px,env(safe-area-inset-left));
+    padding-block:8px
+  }
+  .journey-trigger .journey-top {
+    display:none
+  }
+  .journey-heading {
+    margin:0;
+    font-size:11px
+  }
+  .journey-trigger.is-compact {
+    min-height:46px
+  }
+  .journey-dialog-header {
+    padding:8px 12px
+  }
+  .journey-title {
+    font-size:20px
+  }
+  .journey-reward {
+    top:110px;
+    padding:12px 38px 12px 16px
+  }
+}

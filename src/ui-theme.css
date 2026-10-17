@@ -1,19 +1,21 @@
 :root {
-  color-scheme: light;
-  --font-ui: 'Trebuchet MS', Verdana, sans-serif;
-  --ink: #234565;
-  --muted: #526b82;
-  --cream: #fffdf5;
-  --sky: #55b9e9;
-  --sky-soft: #e2f4ff;
-  --sun: #ffd263;
-  --coral: #f47c69;
-  --lavender: #b0a0e5;
-  --leaf: #64b986;
-  --line: #c7dfeb;
-  --paper: var(--ink);
-  --gold: #805112;
-  --night: var(--ink);
-  --green: var(--sky-soft);
-  --panel-shadow: 0 8px 0 #3985af18, 0 14px 30px #345b7c18;
+  color-scheme:dark;
+  --font-ui:system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-controls:'Trebuchet MS',Verdana,sans-serif;
+  --ink:#20344f;
+  --muted:#bdd3df;
+  --cream:#fff6de;
+  --sky:#79cfff;
+  --sky-soft:#294d63;
+  --sun:#ffc857;
+  --coral:#ffb6a4;
+  --lavender:#c6b1ff;
+  --leaf:#afffe3;
+  --line:#d1f8ff38;
+  --paper:#f1f9fc;
+  --gold:#ffe5a0;
+  --night:#153d50;
+  --green:#254e59;
+  --surface:linear-gradient(130deg,#163e50ed,#263751f5);
+  --panel-shadow:0 18px 50px #0d23385c,inset 0 1px 0 #ffffff12
 }
