@@ -330,3 +330,7 @@ Per architettura, epiche, backlog, contratti e criteri di completamento si veda 
 - Phaser API e Tilemap: https://docs.phaser.io/api-documentation/3.90.0/namespace/tilemaps
 - Vite PWA: https://github.com/vite-pwa/vite-plugin-pwa
 - WebKit, storage e installazione app: https://webkit.org/blog/14403/updates-to-storage-policy/
+
+### Decisione esplicita dell’utente — 17/10/2026
+
+Per il prototipo privato l’utente ha richiesto gli artwork dei quattro starter distribuiti tramite PokéAPI. Questa eccezione sostituisce per quei quattro file il precedente vincolo sui soli artwork originali/autorizzati: fonti e checksum in assets/pokeapi-starter-artwork-v1.json e registro asset. I diritti delle immagini restano a The Pokémon Company; la decisione di prototipo non dichiara diritti per una diffusione pubblica.

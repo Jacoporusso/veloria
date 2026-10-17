@@ -3,6 +3,7 @@
 Run: python tools/validate_examples.py
 """
 import json
+import hashlib
 import re
 from collections import deque
 from math import ceil
@@ -188,6 +189,15 @@ shop_files = sorted(SHOPS.glob("*.shop.json"))
 shops = [json.loads(file.read_text(encoding="utf-8")) for file in shop_files]
 shop_registry = {shop["id"]: shop for shop in shops}
 asset_rows, registered_asset_paths = validate_asset_register(ASSET_REGISTER, ROOT, PUBLIC)
+starter_art = json.loads((ROOT / "assets" / "pokeapi-starter-artwork-v1.json").read_text(encoding="utf-8"))
+check({entry["speciesId"] for entry in starter_art["artworks"]} == {1, 4, 7, 25}, "Starter artwork IDs are incomplete")
+for entry in starter_art["artworks"]:
+    expected_path = f"assets/creatures/pokeapi-starter-{entry['speciesId']}-v1.png"
+    check(entry["path"] == expected_path, "Unexpected starter artwork path")
+    content = (PUBLIC / expected_path).read_bytes()
+    check(hashlib.sha256(content).hexdigest() == entry["sha256"], f"Starter artwork checksum mismatch: {expected_path}")
+    check(expected_path in (PUBLIC / "sw.js").read_text(encoding="utf-8"), f"Starter artwork missing from offline cache: {expected_path}")
+
 dependency_rows = validate_dependency_register(ROOT / "package-lock.json", ROOT / "assets" / "DEPENDENCY_LICENSES.csv")
 asset_registry = {asset["asset_id"]: asset for asset in asset_rows}
 for entry in evolution_entries:

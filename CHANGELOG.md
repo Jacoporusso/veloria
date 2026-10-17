@@ -50,3 +50,9 @@
 - Scontro d’emergenza per entrambe le squadre: nessun PP aggiunto, contraccolpo e gestione del doppio KO.
 - Corretti i cambi infiniti tra riserve senza PP e il ripristino errato di sonno/congelamento dopo il recupero.
 - Ruleset prototipo v4; contenuti 0.3.22 e cache PWA v37.
+
+## 17/10/2026 — Starter visibili e uscita verso R01
+
+- Quattro artwork PokéAPI locali su richiesta dell’utente per il prototipo privato, con fonti e checksum registrati.
+- Indicazioni dopo la scelta e soglia nord del villaggio corrette; test reale fino al Sentiero dell’Alba.
+- Contenuti 0.3.23, cache PWA v38.

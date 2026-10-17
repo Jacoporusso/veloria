@@ -24,6 +24,15 @@ async function walk(page: Page, mapFile: string, targetX: number, targetY: numbe
       for (let x = Math.floor(object.x / 32); x < Math.ceil((object.x + object.width) / 32); x++) blocked.add(x + ',' + y);
     }
   }
+  for (const object of map.layers.find((layer: any) => layer.name === 'triggers').objects) {
+    const props = Object.fromEntries((object.properties ?? []).map((prop: any) => [prop.name, prop.value]));
+    if (props.kind !== 'map-exit') continue;
+    for (let y = Math.floor(object.y / 32); y < Math.ceil((object.y + object.height) / 32); y++) {
+      for (let x = Math.floor(object.x / 32); x < Math.ceil((object.x + object.width) / 32); x++) {
+        if (x !== targetX || y !== targetY) blocked.add(x + ',' + y);
+      }
+    }
+  }
   const current = (await saved(page)).player;
   const queue: Array<{ x: number; y: number; path: string[] }> = [{ x: current.x, y: current.y, path: [] }];
   const seen = new Set<string>([current.x + ',' + current.y]);
@@ -70,7 +79,15 @@ test('a named trainer starts the story, chooses one starter and resumes the same
   await expect(page.locator('#interaction-prompt')).toContainText('Elia');
   await page.locator('#interaction-prompt').tap();
   for(let step=0;step<8&&!await page.locator('#starter-choices').isVisible();step++)await page.getByRole('button',{name:'Conferma e interagisci'}).tap();
-  for(const name of ['Pikachu','Charmander','Squirtle','Bulbasaur'])await expect(page.getByRole('button',{name,exact:true})).toBeVisible();
+  for(const name of ['Pikachu','Charmander','Squirtle','Bulbasaur']) {
+    const button = page.getByRole('button',{name,exact:true});
+    await expect(button).toBeVisible();
+    expect(await button.locator('.creature-portrait').evaluate(async element => {
+      const url = getComputedStyle(element).backgroundImage.slice(5, -2);
+      const image = new Image(); image.src = url; await image.decode();
+      return image.naturalWidth > 0 && !element.classList.contains('creature-portrait-pending');
+    })).toBe(true);
+  }
   await page.screenshot({path:testInfo.outputPath('starter-selection.png')});
   await page.getByRole('button',{name:'Bulbasaur',exact:true}).tap();
   await expect.poll(async()=>(await saved(page)).party?.[0]?.speciesId).toBe(1);
@@ -85,6 +102,19 @@ test('a named trainer starts the story, chooses one starter and resumes the same
   expect((await saved(page)).player.name).toBe('Aurora');
   expect((await saved(page)).party).toHaveLength(1);
   expect((await saved(page)).saveId).toBe(saveId);
+  await page.getByRole('button',{name:'Vai in alto'}).tap(); // Face Elia after reloading.
+  await page.getByRole('button',{name:'Conferma e interagisci'}).tap();
+  for (let step=0; step<10 && await page.locator('#dialogue-box').isVisible(); step++) {
+    await page.getByRole('button',{name:'Conferma e interagisci'}).tap();
+  }
+  await expect.poll(async () => (await saved(page)).flags).toContain('q_research_sample_received');
+  await walk(page,'borgofonte_lab.tmj',11,14);
+  await expect(page.locator('#current-location')).toHaveText('BORGOFONTE');
+  // Follow the visible street directly north on x23, beside the former one-tile trigger.
+  await walk(page,'bg_borgofonte.tmj',23,7);
+  await expect(page.locator('#current-location')).toHaveText("SENTIERO DELL'ALBA");
+  expect((await saved(page)).party).toHaveLength(1);
+  await page.screenshot({ path: testInfo.outputPath('first-route-after-starter.png') });
 });
 
 

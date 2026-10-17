@@ -10,12 +10,34 @@
     {
       "mapId": "veloria/borgofonte",
       "destinationMapId": "veloria/borgofonte_lab",
+      "missingFlags": [
+        "q_research_sample_received"
+      ],
       "label": "LABORATORIO · ENTRA DA SUD"
     },
     {
       "mapId": "veloria/borgofonte_lab",
       "npcId": "prof_elia",
+      "missingFlags": [
+        "q_research_sample_received"
+      ],
       "label": "ELIA · PARLA CON A"
+    },
+    {
+      "mapId": "veloria/borgofonte_lab",
+      "destinationMapId": "veloria/borgofonte",
+      "requiresFlags": [
+        "q_research_sample_received"
+      ],
+      "label": "↓ USCITA · TORNA IN PAESE"
+    },
+    {
+      "mapId": "veloria/borgofonte",
+      "destinationMapId": "veloria/r01_sentiero_alba",
+      "requiresFlags": [
+        "q_research_sample_received"
+      ],
+      "label": "↑ SENTIERO DELL’ALBA"
     }
   ]
 }

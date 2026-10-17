@@ -99,7 +99,7 @@ S5 -> S6
 - Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
 - P0 successivo: una partita senza preparazione artificiale da nome a Medaglia Aurora, con training, catture, cura, missione Ada e sigilli; correggere eventuali blocchi e bilanciamento.
 - Combattimento: Growl, Tail Whip e Defense Curl ora applicano effetti temporanei alle statistiche (ruleset prototipo v2, limiti e reset). Restano playtest di bilanciamento e ampliamento delle meccaniche; non equivale a battaglia definitiva.
-- P0 grafica: dodici specie senza illustrazione, inclusi gli starter. La scelta è utilizzabile con etichette e tipi, ma i segnaposto non soddisfano il gate artistico finale.
+- P0 grafica: otto specie restano senza illustrazione. I quattro starter hanno ora artwork PokéAPI locali su richiesta esplicita dell’utente per il prototipo privato; il gate artistico generale non è ancora soddisfatto.
 - Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.
 
 ### Audit tecnico progressione — 17/10/2026
@@ -108,3 +108,9 @@ S5 -> S6
 - Bilanciamento da provare: i due allenatori opzionali di R01 assegnano 158 XP complessivi allo starter se vince tutti gli scontri; dal livello 5 arriva al 6 con 67 XP residui. Mira ha Sentret lv8 e Rattata lv10. Questo indica una necessità di playtest, non dimostra impossibilità né autorizza un cap nascosto.
 - Risolto nel prototipo v3: catalogo runtime con matrice 17×17 locale, rapporti Gen II–V, immunità al danno e doppi tipi verificati. Restano regole di status e calibrazione.
 - Risolto nel prototipo v3: aiProfileId governa politiche pure di attacco/preparazione; ranking, PP, utilità degli stadi e replay coperti da test. Restano strumenti e cambi tattici. Il prototipo v4 offre una mossa di emergenza senza PP e impedisce i cicli tra riserve esauste.
+
+### Correzione percorso iniziale e immagini — 17/10/2026
+
+- Starter illustrati: artwork PokéAPI locali richiesti esplicitamente dall’utente; restano otto specie senza illustrazione.
+- Uscita nord Borgofonte estesa da una a tre caselle sul vialetto, mantenendo il gate dello starter e lo spawn di ritorno fuori dalla soglia.
+- Guida per flag: Elia resta indicata dopo la scelta finché non consegna le letture; poi uscita in basso dal laboratorio e passaggio nord del paese. I dialoghi distinguono le due mappe.

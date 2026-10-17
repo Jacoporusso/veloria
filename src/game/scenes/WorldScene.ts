@@ -1,3 +1,4 @@
+import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { createUniqueId, saveGame, type GameSave } from '../../persistence/save-store';
@@ -73,6 +74,7 @@ export class WorldScene extends Phaser.Scene {
   private pendingQuestCelebrations: string[] = [];
   private promptTargetId = '';
   private openingGuidance?: Phaser.GameObjects.Text;
+  private openingGuidanceKey = '';
   private completionActive = false;
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
@@ -175,7 +177,9 @@ export class WorldScene extends Phaser.Scene {
     const prompt = document.querySelector<HTMLButtonElement>('#interaction-prompt');
     if (!prompt) return;
     const blocked = this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
-    this.openingGuidance?.setVisible(!blocked && !this.save.flags.includes('q_starter_selected'));
+    const guidanceKey = this.map.metadata.id + '|' + this.save.flags.join('|');
+    if (!this.mapTransitionLoading && guidanceKey !== this.openingGuidanceKey) this.drawOpeningGuidance();
+    this.openingGuidance?.setVisible(!blocked);
     const adjacent = adjacentGridPoint(this.playerTile, this.facing);
     const target = !blocked && this.interactableAtTile(adjacent.x, adjacent.y);
     prompt.hidden = !target;
@@ -219,9 +223,10 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private drawOpeningGuidance(): void {
+    this.openingGuidance?.destroy();
     this.openingGuidance = undefined;
-    if (this.save.flags.includes('q_starter_selected')) return;
-    const guidance = opening.guidance.find(target => target.mapId === this.map.metadata.id);
+    this.openingGuidanceKey = this.map.metadata.id + '|' + this.save.flags.join('|');
+    const guidance = selectOpeningGuidance(this.map.metadata.id, this.save.flags, opening.guidance);
     if (!guidance) return;
     const target = guidance.destinationMapId
       ? this.renderedMap.triggers.find(trigger => trigger.destinationMapId === guidance.destinationMapId)
@@ -829,7 +834,7 @@ export class WorldScene extends Phaser.Scene {
         this.save = selected;
         this.starterChoices.hidden=true;
         document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
-        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Parlami ancora prima di uscire: ho una missione da affidare a te e al tuo compagno.']);
+        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Parlami ancora con A per ricevere la missione. Poi esci dalla porta in basso: il sentiero a nord si trova fuori, nel paese.']);
         this.persistProgress(true);
       });
       return button;

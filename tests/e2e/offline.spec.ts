@@ -334,6 +334,15 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
     await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   }
   await expect(page.locator('#starter-choices')).toBeVisible();
+  for (const name of ['Pikachu', 'Charmander', 'Squirtle', 'Bulbasaur']) {
+    const portrait = page.getByRole('button', { name, exact: true }).locator('.creature-portrait');
+    expect(await portrait.evaluate(async element => {
+      const image = new Image();
+      image.src = getComputedStyle(element).backgroundImage.slice(5, -2);
+      await image.decode();
+      return image.naturalWidth > 0 && !element.classList.contains('creature-portrait-pending');
+    })).toBe(true);
+  }
   await page.getByRole('button', { name: 'Charmander', exact: true }).click();
   await expect.poll(async () => (await readSave(page))?.party?.length).toBe(1);
   for (let step = 0; step < 4; step += 1) await page.getByRole('button', { name: 'Conferma e interagisci' }).click();

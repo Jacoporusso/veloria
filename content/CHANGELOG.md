@@ -88,3 +88,7 @@
 ## 0.3.22 — 17/10/2026
 
 - Regole di emergenza per esaurimento PP, parametri versionati nel ruleset prototipo v4. Nessun nuovo slot o campo persistente.
+
+## 0.3.23 — 17/10/2026
+
+- Guida iniziale condizionata dai flag, testo esplicito sulle uscite e soglia nord di Borgofonte estesa sul vialetto. Artwork starter locali richiesti dall’utente per il prototipo privato.

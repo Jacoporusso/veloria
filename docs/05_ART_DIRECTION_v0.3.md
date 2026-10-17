@@ -86,3 +86,7 @@ L'illustrazione regionale è un **concept del progetto**; non dimostra licenza p
 - Prompt esatti in `assets/prompts/character-modernization-v1.md`, modalità ImageGen integrata. Asset di prototipo privato con revisione visiva e dei diritti ancora da svolgere; questa integrazione non approva una nuova direzione artistica né l’intero gioco.
 
 Prima **un quadrato giocabile di Borgofonte con placeholder coerenti**, poi avatar/animazioni, collisioni, erba e vegetazione alta, Brumalta, UI combattimento. Gli screenshot di concept servono come guida visiva, non come asset di gioco da ritagliare in modo casuale.
+
+### Artwork starter del prototipo — 17/10/2026
+
+Su decisione esplicita dell’utente, i quattro starter usano artwork PokéAPI locali, senza elaborazioni, nella scelta, nei ritratti e in battaglia. Rimangono distinti dagli atlanti HD pixel art già generati: soluzione del prototipo privato, non nuova direzione artistica generale. Fonte e diritti nel registro asset e assets/pokeapi-starter-artwork-v1.json.

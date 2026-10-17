@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import starterArtwork from '../../../assets/pokeapi-starter-artwork-v1.json';
 import { publicAssetUrl } from '../../core/assets/index.ts';
 
 /** Stable species IDs map to atlas cells; no art lookup depends on a translated name. */
@@ -9,15 +10,19 @@ export const CREATURE_ART_GROUPS = [
   [14, 15, 167, 179],
   [43, 60, 69, 194],
 ] as const;
+const starterArt = new Map(starterArtwork.artworks.map(art => [art.speciesId, art]));
+
 // Only accepted generation outputs enter the runtime. Missing art is explicit in the UI.
 const AVAILABLE_GROUPS = new Set([2, 3]);
 
 export function creatureArtKey(speciesId: number): string | undefined {
+  if (starterArt.has(speciesId)) return 'pokeapi-starter-' + speciesId + '-v1';
   const group = CREATURE_ART_GROUPS.findIndex(ids => (ids as readonly number[]).includes(speciesId));
   return !AVAILABLE_GROUPS.has(group) ? undefined : `veloria-creatures-${group + 1}-v1`;
 }
 
 export function preloadCreatureArt(scene: Phaser.Scene): void {
+  for (const art of starterArt.values()) scene.load.image(creatureArtKey(art.speciesId)!, publicAssetUrl(art.path, import.meta.env.BASE_URL));
   CREATURE_ART_GROUPS.forEach((_, index) => {
     if (!AVAILABLE_GROUPS.has(index)) return;
     const key = `veloria-creatures-${index + 1}-v1`;
@@ -30,7 +35,13 @@ export function createCreaturePortrait(speciesId: number): HTMLElement {
   portrait.className = 'creature-portrait';
   portrait.setAttribute('aria-hidden', 'true');
   const group = CREATURE_ART_GROUPS.findIndex(ids => (ids as readonly number[]).includes(speciesId));
-  if (AVAILABLE_GROUPS.has(group)) {
+  const singleArt = starterArt.get(speciesId);
+  if (singleArt) {
+    portrait.style.backgroundImage = 'url("' + publicAssetUrl(singleArt.path, import.meta.env.BASE_URL) + '")';
+    portrait.style.backgroundSize = 'contain';
+    portrait.style.backgroundPosition = 'center';
+    portrait.style.backgroundRepeat = 'no-repeat';
+  } else if (AVAILABLE_GROUPS.has(group)) {
     const index = (CREATURE_ART_GROUPS[group] as readonly number[]).indexOf(speciesId);
     portrait.style.backgroundImage = `url("${publicAssetUrl(`assets/creatures/veloria-creatures-${group + 1}-v1.png`, import.meta.env.BASE_URL)}")`;
     portrait.style.backgroundPosition = `${(index % 2) * 100}% ${Math.floor(index / 2) * 100}%`;
@@ -46,6 +57,7 @@ export function createCreaturePortrait(speciesId: number): HTMLElement {
 export function createCreatureImage(scene: Phaser.Scene, speciesId: number, x: number, y: number): Phaser.GameObjects.Image | undefined {
   const key = creatureArtKey(speciesId);
   if (!key || !scene.textures.exists(key)) return undefined;
+  if (starterArt.has(speciesId)) return scene.add.image(x, y, key);
   const texture = scene.textures.get(key);
   const source = texture.getSourceImage() as HTMLImageElement;
   const group = CREATURE_ART_GROUPS.find(ids => (ids as readonly number[]).includes(speciesId))!;
