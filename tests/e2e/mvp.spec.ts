@@ -125,6 +125,14 @@ async function waitForWorldReady(page: Page) {
   await expect(page.locator('#current-location')).not.toHaveText('');
 }
 
+async function continueAfterChapterSummary(page: Page) {
+  const button = page.getByRole('button', { name: 'Continua a esplorare' });
+  await expect(button).toBeVisible();
+  await button.click();
+  await expect(button).toBeHidden();
+  await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('prologue_complete_seen');
+}
+
 async function reachStarterChoice(page: Page) {
   await page.goto('/');
   await waitForWorldReady(page);
@@ -640,17 +648,11 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
   for (let step = 0; step < 4; step += 1) await tapConfirm(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
 
-  // Leave the lab before receiving the readings and check the actual northern story gate.
-  await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 14, 'veloria/borgofonte');
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 7);
-  await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ mapId: 'veloria/borgofonte', x: 22, y: 7 });
-  await expect(page.locator('#toast')).toContainText('Elia ti aspetta');
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 20, 30, 'veloria/borgofonte_lab');
+  // Elia supplies the readings after the starter; the northern exit requires the starter itself.
   await completeResearchReadings(page);
 
   // The helper returns to the village approach at (20,22); follow the north path.
-  await walkToTile(page, 'alto', 15);
-  await walkToTile(page, 'destra', 2);
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => {
     const save = await readCurrentSave(page);
     return `${save?.player.mapId}|${save?.player.spawnPointId}|${save?.player.x},${save?.player.y}`;
@@ -999,6 +1001,7 @@ test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo seed quest 
   await seedRadicelmoScenario(page, true);
   await page.reload();
   await waitForWorldReady(page);
+  await continueAfterChapterSummary(page);
   await page.getByRole('button', { name: 'Vai a destra' }).tap();
   await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({
     mapId: 'veloria/r03_terrazze_muschio', spawnPointId: 'from_brumalta', x: 1, y: 17,
@@ -1066,6 +1069,7 @@ test('E2E-07: exported backup restores location, progression, party, storage, an
   await seedBackupRoundtripScenario(page);
   await page.reload();
   await waitForWorldReady(page);
+  await continueAfterChapterSummary(page);
   const before = await readCurrentSave(page);
 
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
