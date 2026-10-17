@@ -92,3 +92,8 @@
 ## 0.3.23 — 17/10/2026
 
 - Guida iniziale condizionata dai flag, testo esplicito sulle uscite e soglia nord di Borgofonte estesa sul vialetto. Artwork starter locali richiesti dall’utente per il prototipo privato.
+
+## 0.3.24 — 17/10/2026
+
+- Tre mosse elementali e learnset curato al livello 6 per i quattro starter.
+- Mira: Sentret lv7/Rattata lv8; profili IA v2 con una preparazione difensiva per la prima palestra.

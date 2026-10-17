@@ -134,6 +134,10 @@ for entry in evolution_entries:
 move_registry = json.loads(MOVE_FILE.read_text(encoding="utf-8"))["moves"]
 for move_id, move in move_registry.items():
     check(move.get("id") == move_id, f"Move key mismatch: {move_id}")
+    check(type(move.get("maxPp")) is int and move["maxPp"] > 0, f"Invalid maximum PP in {move_id}")
+    check(type(move.get("power")) is int and move["power"] >= 0, f"Invalid move power in {move_id}")
+    check(type(move.get("accuracy")) in (int, float) and 0 <= move["accuracy"] <= 100, f"Invalid move accuracy in {move_id}")
+    check(move.get("category") in {"physical", "special", "status"}, f"Invalid move category in {move_id}")
     effects = move.get("statChanges", [])
     check(isinstance(effects, list), f"Invalid statChanges in {move_id}")
     for effect in effects:
@@ -163,6 +167,15 @@ source_hashes = source.get("sha256", {}) if isinstance(source, dict) else {}
 for hash_name in ("efficacy", "historicalEfficacy", "types"):
     check(isinstance(source_hashes.get(hash_name), str) and re.fullmatch(r"[0-9a-f]{64}", source_hashes[hash_name]),
           f"Missing or malformed type chart source SHA-256: {hash_name}")
+learning = json.loads((ROOT / "content" / "battle" / "level-up-moves.v1.json").read_text(encoding="utf-8"))
+check(learning.get("version") == 1 and learning.get("status") == "prototype", "Invalid level-up move registry")
+for species_id, entries in learning["species"].items():
+    check(species_id in species_registry, f"Unknown learning species: {species_id}")
+    check(len(entries) == len({entry["moveId"] for entry in entries}), f"Duplicate level-up move: {species_id}")
+    check(len(entries) + len(species_registry[species_id]["defaultMoveIds"]) <= 4, f"MVP learnset exceeds four slots: {species_id}")
+    for entry in entries:
+        check(type(entry["level"]) is int and 2 <= entry["level"] <= 100, f"Invalid learning level: {species_id}")
+        check(entry["moveId"] in move_registry, f"Unknown level-up move: {entry['moveId']}")
 item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
 trainer_files = sorted(TRAINERS.glob("*.trainer.json"))
 trainers = [json.loads(file.read_text(encoding="utf-8")) for file in trainer_files]
@@ -170,7 +183,7 @@ trainer_registry = {trainer["id"]: trainer for trainer in trainers}
 opponent_policies_data = json.loads(OPPONENT_POLICIES_FILE.read_text(encoding="utf-8"))
 opponent_profiles = opponent_policies_data.get("profiles", {})
 required_opponent_profiles = {"wild", "route_young", "route_cautious", "gym_beginner"}
-check(opponent_policies_data.get("version") == 1 and opponent_policies_data.get("status") == "prototype",
+check(opponent_policies_data.get("version") == 2 and opponent_policies_data.get("status") == "prototype",
       "Opponent policies must remain explicitly versioned and provisional")
 check(isinstance(opponent_profiles, dict) and required_opponent_profiles <= set(opponent_profiles),
       "Opponent policy registry is missing a required profile")

@@ -3,7 +3,7 @@ import { battleSpecies } from '../battle/catalog.ts';
 import '../../prologue-completion.css';
 
 /** Show the prologue milestone without changing or persisting the supplied save. */
-export function showPrologueCompletion(save: GameSave): Promise<void> {
+export function showPrologueCompletion(save: GameSave, activationKey?: string): Promise<void> {
   return new Promise(resolve => {
     const returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const overlay = document.createElement('div');
@@ -13,6 +13,7 @@ export function showPrologueCompletion(save: GameSave): Promise<void> {
     const dialog = document.createElement('section');
     dialog.className = 'prologue-completion__panel';
     dialog.setAttribute('role', 'dialog');
+    dialog.tabIndex = -1;
     dialog.setAttribute('aria-modal', 'true');
     dialog.setAttribute('aria-labelledby', 'prologue-completion-title');
     dialog.setAttribute('aria-describedby', 'prologue-completion-story');
@@ -116,15 +117,24 @@ export function showPrologueCompletion(save: GameSave): Promise<void> {
     document.body.append(overlay);
 
     let settled = false;
+    let awaitingRelease = activationKey === 'Enter' || activationKey === ' ';
     const close = () => {
       if (settled) return;
       settled = true;
       document.removeEventListener('keydown', onKeyDown, true);
+      document.removeEventListener('keyup', onKeyUp, true);
       overlay.remove();
       if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
       resolve();
     };
+    const onKeyUp = (event: KeyboardEvent) => {
+      if (!awaitingRelease || event.key !== activationKey) return;
+      awaitingRelease = false;
+      event.preventDefault();
+      requestAnimationFrame(() => { if (!settled) continueButton.focus({ preventScroll: true }); });
+    };
     const onKeyDown = (event: KeyboardEvent) => {
+      if (awaitingRelease && event.key === activationKey) { event.preventDefault(); event.stopPropagation(); return; }
       if (event.key === 'Escape') {
         event.preventDefault();
         close();
@@ -134,8 +144,12 @@ export function showPrologueCompletion(save: GameSave): Promise<void> {
       event.preventDefault();
       continueButton.focus({ preventScroll: true });
     };
-    continueButton.addEventListener('click', close);
+    continueButton.addEventListener('click', event => {
+      if (awaitingRelease && event.detail === 0) { event.preventDefault(); return; }
+      close();
+    });
     document.addEventListener('keydown', onKeyDown, true);
-    continueButton.focus({ preventScroll: true });
+    document.addEventListener('keyup', onKeyUp, true);
+    (awaitingRelease ? dialog : continueButton).focus({ preventScroll: true });
   });
 }

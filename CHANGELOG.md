@@ -56,3 +56,13 @@
 - Quattro artwork PokéAPI locali su richiesta dell’utente per il prototipo privato, con fonti e checksum registrati.
 - Indicazioni dopo la scelta e soglia nord del villaggio corrette; test reale fino al Sentiero dell’Alba.
 - Contenuti 0.3.23, cache PWA v38.
+
+## 17/10/2026 — Progressione e playtest naturale
+
+- Apprendimento al livello 6 dei quattro starter, con eventi UI e persistenza negli slot esistenti.
+- Prima calibrazione di Mira basata su partite senza preparazione artificiale.
+- Playtest lungo separato dalla CI, con rapporto di battaglie/progressi e verifica del salvataggio finale.
+- Ruleset prototipo v5; contenuti 0.3.24 e cache PWA v39.
+
+- Cattura raggiungibile da tastiera anche con opzioni adiacenti disabilitate; riepilogo capitolo protetto dal tasto ancora premuto.
+- Prologo completato tramite controlli reali con tutti e quattro gli starter, cattura e salvataggio/ripresa verificati.

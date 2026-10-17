@@ -97,7 +97,7 @@ S5 -> S6
 
 - Implementati e verificati: titolo/continua, nome allenatore, introduzione persistente, accesso al laboratorio, selezione unica dei quattro starter, blocco uscita senza starter, riepilogo dopo Mira.
 - Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
-- P0 successivo: una partita senza preparazione artificiale da nome a Medaglia Aurora, con training, catture, cura, missione Ada e sigilli; correggere eventuali blocchi e bilanciamento.
+- Flusso naturale verificato da nome a Medaglia Aurora con i quattro starter, cattura, cura, missione Ada e sigilli. Restano QA manuale, prove ripetute di bilanciamento e ampliamento dei contenuti.
 - Combattimento: Growl, Tail Whip e Defense Curl ora applicano effetti temporanei alle statistiche (ruleset prototipo v2, limiti e reset). Restano playtest di bilanciamento e ampliamento delle meccaniche; non equivale a battaglia definitiva.
 - P0 grafica: otto specie restano senza illustrazione. I quattro starter hanno ora artwork PokéAPI locali su richiesta esplicita dell’utente per il prototipo privato; il gate artistico generale non è ancora soddisfatto.
 - Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.
@@ -105,7 +105,7 @@ S5 -> S6
 ### Audit tecnico progressione — 17/10/2026
 
 - Gate verificati nei dati correnti: starter → letture di Elia → sensore nel Bosco → rapporto ad Ada → Brumalta → sigilli sud/centro/nord → Mira → Medaglia Aurora. I trigger fisici verso R02 e città richiedono Ada anche dove la metadata di connessione non specifica il requisito.
-- Bilanciamento da provare: i due allenatori opzionali di R01 assegnano 158 XP complessivi allo starter se vince tutti gli scontri; dal livello 5 arriva al 6 con 67 XP residui. Mira ha Sentret lv8 e Rattata lv10. Questo indica una necessità di playtest, non dimostra impossibilità né autorizza un cap nascosto.
+- Bilanciamento da provare: i due allenatori opzionali di R01 assegnano 158 XP complessivi allo starter se vince tutti gli scontri; dal livello 5 arriva al 6 con 67 XP residui. Prima della calibrazione Mira aveva Sentret lv8 e Rattata lv10. Questo indica una necessità di playtest, non dimostra impossibilità né autorizza un cap nascosto.
 - Risolto nel prototipo v3: catalogo runtime con matrice 17×17 locale, rapporti Gen II–V, immunità al danno e doppi tipi verificati. Restano regole di status e calibrazione.
 - Risolto nel prototipo v3: aiProfileId governa politiche pure di attacco/preparazione; ranking, PP, utilità degli stadi e replay coperti da test. Restano strumenti e cambi tattici. Il prototipo v4 offre una mossa di emergenza senza PP e impedisce i cicli tra riserve esauste.
 
@@ -114,3 +114,12 @@ S5 -> S6
 - Starter illustrati: artwork PokéAPI locali richiesti esplicitamente dall’utente; restano otto specie senza illustrazione.
 - Uscita nord Borgofonte estesa da una a tre caselle sul vialetto, mantenendo il gate dello starter e lo spawn di ritorno fuori dalla soglia.
 - Guida per flag: Elia resta indicata dopo la scelta finché non consegna le letture; poi uscita in basso dal laboratorio e passaggio nord del paese. I dialoghi distinguono le due mappe.
+
+### Evidenze del playtest naturale — 17/10/2026
+
+- Scenari CI riallineati: i tre fallimenti residui della run 39028733856 ora passano localmente.
+- Partita naturale iniziale: nome → Charmander → Sera → Timo → Pidgey catturato → sensore/Ada → Brumalta → Centro → sigilli. Arrivo con Charmander lv6 e Pidgey lv4; sconfitta da Mira, due Pozioni consumate. Nessun seed, livello o flag preparato dal test.
+- La seconda prova ha confermato la sconfitta e mostrato che gli starter non imparavano mosse di tipo: implementato learnset al livello 6 nel prototipo v5.
+- Taratura corrente: Mira lv7/lv8 e un solo aumento difensivo. Partite naturali completate con tutti e quattro gli starter, cattura e salvataggio/ripresa inclusi; non equivalgono alla validazione statistica del bilanciamento o al test su telefono reale.
+- La prova con Bulbasaur ha rilevato Cattura irraggiungibile da tastiera quando Borsa e Squadra erano disabilitate: navigazione delle griglie sparse corretta con selettore puro e regressioni. Il riepilogo finale ora attende il rilascio del tasto che chiude la battaglia, evitando la chiusura involontaria.
+- Restano sostituzione volontaria delle quattro mosse, learnset ampliati, QA manuale e tutte le altre estensioni del gioco.

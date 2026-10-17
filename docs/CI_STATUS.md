@@ -33,3 +33,11 @@ La run `39021590968` ha fallito la prova offline con `Execution context was dest
 ## Riallineamento scenari al nuovo avvio — 17 ottobre 2026
 
 La run 39028733856 ha concluso 24 test browser con successo e tre fallimenti. E2E-02 assumeva un blocco sulle letture di Elia, mentre il requisito dell’uscita è lo starter; E2E-12 ed E2E-07 non chiudevano il nuovo riepilogo del capitolo nelle loro partite preparate. Le prove ora seguono i prerequisiti effettivi e chiudono il riepilogo con il pulsante del giocatore, verificandone la persistenza. Esecuzione locale mirata: 3/3 passati. Il nuovo risultato remoto va verificato separatamente.
+
+## Diagnosi della run 39031159986
+
+Quattro scenari online e quello offline falliti; non è una pipeline verde. E2E-03 ed E2E-04 mantenevano il vecchio avvicinamento alla soglia nord: dopo l’ampliamento il secondo passo a destra avveniva già in R01, falsando le coordinate e la successiva traversata. Ora usano la destinazione geometrica con arresto al cambio mappa. E2E-09 ha lo stesso budget dei percorsi iniziali completi. I lunghi test di progressione e offline usano prefers-reduced-motion; le prove dedicate agli effetti mantengono le animazioni complete. Gli altri errori erano scadenze durante la traversata o la battaglia: la verifica remota resta necessaria.
+
+Verifica locale successiva: 7/7 regressioni browser passate (Cattura da tastiera, Enter/Spazio sul riepilogo, Pozione, HP/PP/XP, box e medaglia). Il risultato della nuova run GitHub va verificato separatamente.
+
+Anche il percorso PWA offline è passato localmente (1/1, rete disattivata, immagini starter, incontri, cura e Medaglia Aurora). Build, 116 test dominio, 16 persistenza, 20 test Python e validatore dei contenuti passati. Resta la verifica su smartphone fisico.

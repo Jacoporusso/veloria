@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "note": "Curated first-chapter learnset: one move at level 6 for each starter; not a historical-generation claim.",
+  "species": {
+    "1": [
+      {
+        "level": 6,
+        "moveId": "vine-whip"
+      }
+    ],
+    "4": [
+      {
+        "level": 6,
+        "moveId": "ember"
+      }
+    ],
+    "7": [
+      {
+        "level": 6,
+        "moveId": "water-gun"
+      }
+    ],
+    "25": [
+      {
+        "level": 6,
+        "moveId": "quick-attack"
+      }
+    ]
+  }
+}

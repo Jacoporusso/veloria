@@ -443,6 +443,8 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
   if (index < 0) return state;
   const recipient = team.creatures[index];
   events.push({ type: 'experienceGained', side, creatureId: recipient.instanceId, amount: defeated.experienceYield, sourceCreatureId: defeated.instanceId });
+  let moves = recipient.moves;
+  const attempted = new Set(moves.map(slot => slot.moveId));
   let level = recipient.level;
   let experience = recipient.experience + defeated.experienceYield;
   const curve = recipient.growthCurveId ? rules.experienceCurves[recipient.growthCurveId] : undefined;
@@ -452,13 +454,23 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     experience -= required;
     const previousLevel = level++;
     events.push({ type: 'levelUp', side, creatureId: recipient.instanceId, previousLevel, level });
+    for (const learning of rules.levelUpMoves[recipient.speciesId] ?? []) {
+      if (learning.level > level || attempted.has(learning.moveId)) continue;
+      attempted.add(learning.moveId);
+      if (moves.length >= rules.maxMoves) {
+        events.push({ type: 'moveLearningSkipped', side, creatureId: recipient.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });
+      } else {
+        moves = [...moves, { moveId: learning.moveId, pp: learning.maxPp }];
+        events.push({ type: 'moveLearned', side, creatureId: recipient.instanceId, moveId: learning.moveId });
+      }
+    }
   }
   const stats = recipient.baseStats && level !== recipient.level
     ? calculateStats(recipient.baseStats, level)
     : recipient.stats;
   const maxHpIncrease = stats.maxHp - recipient.stats.maxHp;
   const hp = recipient.hp === 0 ? 0 : Math.min(stats.maxHp, recipient.hp + Math.max(0, maxHpIncrease));
-  let evolved: BattleCreature = { ...recipient, level, experience, stats, hp };
+  let evolved: BattleCreature = { ...recipient, level, experience, stats, hp, moves };
   const seenSpecies = new Set<number>([evolved.speciesId]);
   while (true) {
     const rule = rules.evolutions[evolved.speciesId]?.find(candidate => evolved.level >= candidate.minimumLevel && !seenSpecies.has(candidate.target.speciesId));

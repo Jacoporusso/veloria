@@ -1,8 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "notes": [
-    "Deterministic turn cadence; no random draws or knowledge of the pending player command. Setup never replaces a damaging move beyond the configured stage threshold."
+    "Deterministic turn cadence; no random draws or knowledge of the pending player command. Setup never replaces a damaging move beyond the configured stage threshold.",
+    "First gym balance pass: one defense setup stage, Sentret level 7 and Rattata level 8 after the natural prologue loss with starter level 6 and one level-4 capture."
   ],
   "profiles": {
     "wild": {
@@ -26,7 +27,7 @@
     "gym_beginner": {
       "id": "gym_beginner",
       "statusEveryTurns": 3,
-      "maxSetupStage": 2,
+      "maxSetupStage": 1,
       "damageSelection": "best"
     }
   }

@@ -91,3 +91,11 @@ Sonno, paralisi e congelamento continuano a condizionare la possibilità di agir
 L'avversario senza PP cambia soltanto se ha una riserva cosciente con mosse disponibili. Se tutte le riserve sono esauste, usa l'emergenza senza rimbalzare fra cambi inutili. Eventi `recoilApplied` governano messaggio, HP e animazione.
 
 Dopo un pareggio con tutta la squadra KO si applica lo stesso soccorso del prototipo usato dopo una sconfitta: cura completa, nessuna medaglia o ricompensa allenatore, ritorno all’esplorazione.
+
+## 12. Prime mosse apprese e calibrazione — prototipo v5
+
+Il learnset locale content/battle/level-up-moves.v1.json assegna al livello 6 Frustata a Bulbasaur, Braciere a Charmander, Pistolacqua a Squirtle e Attacco Rapido a Pikachu. Sono scelte curate per il primo capitolo, non un learnset storico canonico. I PP massimi provengono dal catalogo mosse; potenza e categoria restano scelte esplicite di prototipo.
+
+Il core applica l’apprendimento quando i punti esperienza producono un livello. Le mosse già note mantengono i PP e non vengono duplicate. Gli slot liberi ricevono la nuova mossa e un evento moveLearned; con quattro mosse lo stato viene conservato e moveLearningSkipped informa il giocatore. L’interfaccia di sostituzione rimane fuori da questo incremento; i learnset MVP validati non superano quattro mosse. Vecchi salvataggi sopra la soglia possono recuperare la mossa al prossimo aumento di livello.
+
+Due partite naturali con Charmander hanno evidenziato l’assenza delle mosse apprese e una prima palestra eccessiva per una squadra arrivata senza grinding. Configurazione di prova: Sentret lv7 e Rattata lv8, un solo stadio di preparazione difensiva nel profilo gym_beginner. La validazione della taratura va riportata con gli esiti effettivi del playtest, non inferita dal solo cambiamento dei dati.

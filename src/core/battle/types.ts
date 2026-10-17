@@ -128,6 +128,8 @@ export type BattleEvent =
   | { readonly type: 'statusTick'; readonly side: BattleSide; readonly creatureId: string; readonly status: MajorStatus; readonly damage?: number; readonly recovered?: boolean }
   | { readonly type: 'creatureFainted'; readonly side: BattleSide; readonly creatureId: string }
   | { readonly type: 'experienceGained'; readonly side: BattleSide; readonly creatureId: string; readonly amount: number; readonly sourceCreatureId: string }
+  | { readonly type: 'moveLearned'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string }
+  | { readonly type: 'moveLearningSkipped'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string; readonly reason: 'fullMoveSlots' }
   | { readonly type: 'levelUp'; readonly side: BattleSide; readonly creatureId: string; readonly previousLevel: number; readonly level: number }
   | { readonly type: 'creatureEvolved'; readonly side: BattleSide; readonly creatureId: string; readonly fromSpeciesId: number; readonly fromName: string; readonly toSpeciesId: number; readonly toName: string; readonly level: number }
   | { readonly type: 'creatureSwitched'; readonly side: BattleSide; readonly fromId: string; readonly toId: string }

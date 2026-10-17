@@ -1,14 +1,28 @@
 {
   "id": "veloria/trainer_mira_gym01",
   "name": "Mira",
-  "version": 1,
+  "version": 2,
   "aiProfileId": "gym_beginner",
   "battleOnceFlag": "trainer_gym01_mira_defeated",
   "defeatQuestEvent": "battle/trainer_mira/defeated",
   "rewardMoney": 500,
   "victoryMessage": "Hai vinto contro Mira. Ricevi 500 ₿ e la Medaglia Aurora.",
   "team": [
-    { "speciesId": 161, "level": 8, "moveIds": ["tackle", "defense-curl"] },
-    { "speciesId": 19, "level": 10, "moveIds": ["tackle", "quick-attack"] }
+    {
+      "speciesId": 161,
+      "level": 7,
+      "moveIds": [
+        "tackle",
+        "defense-curl"
+      ]
+    },
+    {
+      "speciesId": 19,
+      "level": 8,
+      "moveIds": [
+        "tackle",
+        "quick-attack"
+      ]
+    }
   ]
 }

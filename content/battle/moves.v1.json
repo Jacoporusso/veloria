@@ -1,9 +1,10 @@
 {
-  "version": 2,
+  "version": 3,
   "status": "prototype",
   "notes": [
     "Power, accuracy, priority, PP, and physical/special categories are prototype choices because the battle rules document leaves move-level balance open.",
-    "Prototype-v2: stages range from -6 to +6, modify derived battle stats, and reset on switching, capture and new battles. Accuracy/evasion and critical-hit stage bypass are outside this prototype."
+    "Prototype-v2: stages range from -6 to +6, modify derived battle stats, and reset on switching, capture and new battles. Accuracy/evasion and critical-hit stage bypass are outside this prototype.",
+    "The three starter elemental moves are explicit Veloria prototype balance choices; not a canonical historical learnset."
   ],
   "moves": {
     "thunder-shock": {
@@ -120,6 +121,36 @@
       "maxPp": 35,
       "inflictedStatus": "poison",
       "statusChance": 30
+    },
+    "ember": {
+      "id": "ember",
+      "name": "Braciere",
+      "type": "fire",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 25
+    },
+    "water-gun": {
+      "id": "water-gun",
+      "name": "Pistolacqua",
+      "type": "water",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 25
+    },
+    "vine-whip": {
+      "id": "vine-whip",
+      "name": "Frustata",
+      "type": "grass",
+      "category": "physical",
+      "power": 45,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 25
     }
   }
 }

@@ -2,6 +2,9 @@ import { expect, test } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 
+// Keep the offline journey independent of decorative animation throughput on CI.
+test.use({ reducedMotion: 'reduce' });
+
 async function getMvpResourcePaths(): Promise<string[]> {
   const mapsDirectory = new URL('../../content/maps/', import.meta.url);
   const files = await readdir(mapsDirectory);

@@ -116,6 +116,6 @@ test('versioned move values form a usable, stable catalog without a global chart
   const catalog = moves as Record<string, MoveDefinition>;
   assert.equal(catalog['quick-attack'].priority, 1);
   assert.equal(catalog['thunder-shock'].inflictedStatus, 'paralysis');
-  assert.equal(Object.keys(catalog).length, 9);
+  assert.equal(Object.keys(catalog).length, 12);
   assert.equal('typeChart' in movesData, false);
 });

@@ -58,6 +58,7 @@ export interface BattleRules {
   readonly items: Readonly<Record<string, BattleItemRule>>;
   readonly captureItems: Readonly<Record<string, CaptureItemRule>>;
   readonly experienceCurves: Readonly<Record<string, ExperienceCurve>>;
+  readonly levelUpMoves: Readonly<Record<number, readonly { readonly level: number; readonly moveId: string; readonly maxPp: number }[]>>;
   readonly evolutions: Readonly<Record<number, readonly EvolutionRule[]>>;
 }
 
@@ -68,7 +69,7 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v4',
+  id: 'veloria-battle-prototype-v5',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,
@@ -89,6 +90,7 @@ export const prototypeBattleRules: BattleRules = {
   items: {},
   captureItems: {},
   experienceCurves: { veloria_medium_fast_v1: { exponent: 3, multiplier: 1 } },
+  levelUpMoves: {},
   evolutions: {},
 };
 

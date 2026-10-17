@@ -149,3 +149,7 @@ Il prologo usa opening.v1.json per dialogo e indicazioni sulle soglie/NPC delle 
 ### IA e matrice tipi, prototipo v3
 
 BattleScene delega la selezione avversaria a una funzione pura, con policy risolta dal registro tramite aiProfileId in WorldScene. Il catalogo inietta nel ruleset una matrice locale completa 17×17; dati e profili sono validati alla build. La scena continua a ricevere comandi ed eventi, senza formule o accesso di rete. Nessuna modifica a GameSave.
+
+### Apprendimento locale delle mosse
+
+Il registro level-up-moves è validato contro specie e catalogo, poi normalizzato dal catalogo runtime nel ruleset con PP massimi. Il reducer XP emette moveLearned/moveLearningSkipped; BattleScene presenta gli eventi senza assegnare mosse. La persistenza usa gli slot già esistenti del save, senza nuovi campi o migrazione.

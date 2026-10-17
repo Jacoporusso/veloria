@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner';
+type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner' | 'sparse-capture';
 
 async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string[]> {
   const errors: string[] = [];
@@ -61,6 +61,7 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
           arenaTextureKey: 'qa-forest',
           opponentPolicy: kind === 'gym-beginner' ? getOpponentPolicy('gym_beginner') : getOpponentPolicy('wild'),
           reducedAnimations: true,
+          ...(kind === 'sparse-capture' ? { inventory: { 'poke-ball': 1 } } : {}),
           onComplete: () => undefined,
         });
       }
@@ -151,6 +152,20 @@ test('gym beginner policy uses Defense Curl on turn zero, then Tackle on turn on
       .filter((event: any) => event.type === 'moveUsed' && event.side === 'opponent')
       .map((event: any) => event.moveId);
     return scene.state.turn === 2 && opponentMoves.join(',') === 'defense-curl,tackle';
+  })).toBe(true);
+  expect(errors).toEqual([]);
+});
+
+test('keyboard reaches capture with bag and party disabled', async ({ page }) => {
+  const errors = await mountBattle(page, 'sparse-capture');
+  await page.keyboard.press('ArrowDown', { delay: 40 });
+  await page.keyboard.press('ArrowRight', { delay: 40 });
+  await page.keyboard.press('Enter', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('captures');
+  await page.keyboard.press('Enter', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+    return scene.eventLog.some((event: any) => event.type === 'captureAttempted') && scene.remainingInventory['poke-ball'] === 0;
   })).toBe(true);
   expect(errors).toEqual([]);
 });

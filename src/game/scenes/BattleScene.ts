@@ -1,3 +1,4 @@
+import { navigateGrid } from '../input/grid-navigation.ts';
 import { chooseOpponentCommand, type OpponentPolicy } from '../../core/battle/opponent-policy.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
@@ -16,7 +17,7 @@ export interface BattleSceneInit {
   readonly rules: BattleRules;
   /** Events remain the source of truth for save/inventory updates in the owning application. */
   readonly onComplete: (state: BattleState, events: readonly BattleEvent[]) => void;
-  readonly onDismiss?: () => void;
+  readonly onDismiss?: (event?: KeyboardEvent) => void;
   /** Optional game-level UUID source for newly captured creatures. */
   readonly createInstanceId?: () => string;
   /** If provided, consumables with a zero count are hidden from the battle bag. */
@@ -128,9 +129,9 @@ export class BattleScene extends Phaser.Scene {
     this.render();
   }
 
-  private confirm(): void {
+  private confirm(event?: KeyboardEvent): void {
     if (this.mode === 'message') {
-      this.advanceMessage();
+      this.advanceMessage(event);
       return;
     }
     if (this.selectableButtons.length) {
@@ -469,21 +470,8 @@ export class BattleScene extends Phaser.Scene {
 
   private navigate(rowDelta: number, columnDelta: number): void {
     if (this.mode === 'message' || this.selectableButtons.length < 2) return;
-    const current = this.selectableButtons[this.selectionIndex];
-    if (!current) return;
-    const alongRow = rowDelta !== 0;
-    const sameLane = this.selectableButtons
-      .map((button, index) => ({ button, index }))
-      .filter(({ button }) => alongRow ? button.column === current.column : button.row === current.row);
-    const delta = alongRow ? rowDelta : columnDelta;
-    const coordinate = (button: SelectableButton) => alongRow ? button.row : button.column;
-    const candidates = sameLane.filter(({ button }) => (coordinate(button) - coordinate(current)) * delta > 0);
-    const next = candidates.sort((a, b) => Math.abs(coordinate(a.button) - coordinate(current)) - Math.abs(coordinate(b.button) - coordinate(current)))[0]
-      ?? sameLane.filter(({ button }) => button !== current).sort((a, b) => (coordinate(b.button) - coordinate(a.button)) * delta)[0];
-    if (next) {
-      this.selectionIndex = next.index;
-      this.updateSelectionStyle();
-    }
+    this.selectionIndex = navigateGrid(this.selectableButtons, this.selectionIndex, rowDelta, columnDelta);
+    this.updateSelectionStyle();
   }
 
   private updateSelectionStyle(): void {
@@ -565,7 +553,7 @@ export class BattleScene extends Phaser.Scene {
     return chooseOpponentCommand(this.state, this.moveCatalog, this.rules, this.opponentPolicy);
   }
 
-  private advanceMessage(): void {
+  private advanceMessage(event?: KeyboardEvent): void {
     if (this.pendingMessages.length > 1) {
       this.pendingMessages.shift();
       this.render();
@@ -574,7 +562,7 @@ export class BattleScene extends Phaser.Scene {
     this.pendingMessages = [];
     if (this.state.outcome.kind !== 'ongoing') {
       if (!this.terminalShown) this.showTerminalMessage();
-      else this.onDismiss?.();
+      else this.onDismiss?.(event);
       return;
     }
     this.mode = this.playerForcedToSwitch ? 'party' : 'menu';
@@ -702,6 +690,8 @@ export class BattleScene extends Phaser.Scene {
         return event.recovered ? 'La creatura si è ripresa.' : null;
       case 'creatureFainted': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} non può più continuare.`;
       case 'experienceGained': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ottiene ${event.amount} punti esperienza.`;
+      case 'moveLearned': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ha imparato ${this.moveCatalog[event.moveId]?.name ?? event.moveId}!`;
+      case 'moveLearningSkipped': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ha già quattro mosse: ${this.moveCatalog[event.moveId]?.name ?? event.moveId} non è stata appresa.`;
       case 'levelUp': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} sale al livello ${event.level}!`;
       case 'statStageChanged':
         return formatStatStageChanged(event.stat, event.change, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');

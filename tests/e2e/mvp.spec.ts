@@ -2,6 +2,9 @@ import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 
+// Long progression journeys exercise reduced motion; dedicated effect tests cover full animation.
+test.use({ reducedMotion: 'reduce' });
+
 async function readSaveSlot(page: Page, slot: 'main' | 'backup-previous' = 'main') {
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
@@ -683,12 +686,12 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
 });
 
 test('E2E-09: the R01 first-aid pickup grants one potion and stays collected after reload', async ({ page }) => {
+  test.setTimeout(120_000);
   await chooseCharmander(page);
   for (let step = 0; step < 4; step += 1) await tapConfirm(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
-  await walkToTile(page, 'alto', 15);
-  await walkToTile(page, 'destra', 2);
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
   await walkToTile(page, 'destra', 14);
 
@@ -721,8 +724,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   for (let step = 0; step < 4; step += 1) await tapConfirm(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
-  await walkToTile(page, 'alto', 15);
-  await walkToTile(page, 'destra', 2);
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
 
   // Walk to the tile just outside the northwest grass zone, then seed one 8% roll for a day-band Pidgey.
@@ -796,8 +798,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await completeResearchReadings(page);
 
   // Enter Bosco via R01 while keeping to the encounter-free south edge of the route.
-  await walkToTile(page, 'alto', 15);
-  await walkToTile(page, 'destra', 2);
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
   await walkToTile(page, 'destra', 28);
   await walkToTile(page, 'alto', 2);

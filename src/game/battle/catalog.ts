@@ -1,3 +1,4 @@
+import levelUpData from '../../../content/battle/level-up-moves.v1.json';
 import speciesData from '../../../content/battle/species.v1.json';
 import moveData from '../../../content/battle/moves.v1.json';
 import type { EncounterTable } from '../../core/encounters/select-encounter.ts';
@@ -53,6 +54,11 @@ export const veloriaBattleRules = {
   id: prototypeBattleRules.id,
   typeChart: battleTypeChart,
   experienceCurves: growthCurves,
+  levelUpMoves: Object.fromEntries(Object.entries(levelUpData.species).map(([id, entries]) => [id, entries.map(entry => {
+    const move = battleMoves[entry.moveId];
+    if (!move) throw new Error('Unknown level-up move: ' + entry.moveId);
+    return { ...entry, maxPp: move.maxPp };
+  })])),
   evolutions: evolutionRules,
   items: Object.fromEntries(Object.values(itemCatalog).filter(item => item.battle).map(item => [item.id, item.battle!])),
   captureItems: Object.fromEntries(Object.values(itemCatalog).filter(item => item.capture).map(item => [item.id, item.capture!])),

@@ -190,7 +190,7 @@ export class WorldScene extends Phaser.Scene {
     }
   }
 
-  private async presentPrologueCompletion(): Promise<void> {
+  private async presentPrologueCompletion(activationKey?: string): Promise<void> {
     if (this.completionActive || this.save.flags.includes('prologue_complete_seen')) return;
     this.completionActive = true;
     this.heldDirection = null;
@@ -199,7 +199,7 @@ export class WorldScene extends Phaser.Scene {
     if (shell) shell.inert = true;
     this.scene.pause('world');
     try {
-      await showPrologueCompletion(this.save);
+      await showPrologueCompletion(this.save, activationKey);
       this.save.flags = [...new Set([...this.save.flags, 'prologue_complete_seen'])];
       this.persistProgress();
     } finally {
@@ -717,7 +717,7 @@ export class WorldScene extends Phaser.Scene {
           }
           this.persistProgress();
         },
-        onDismiss: () => {
+        onDismiss: (event?: KeyboardEvent) => {
           this.scene.stop('battle');
           this.scene.resume('world');
           this.battleActive = false;
@@ -727,7 +727,7 @@ export class WorldScene extends Phaser.Scene {
           this.pendingQuestCelebrations = [];
           this.persistProgress();
           this.showToast(dismissMessage);
-          if (!hadAuroraBadge && this.save.flags.includes('badge_aurora_awarded') && !this.previewMode) void this.presentPrologueCompletion();
+          if (!hadAuroraBadge && this.save.flags.includes('badge_aurora_awarded') && !this.previewMode) void this.presentPrologueCompletion(event?.key);
         },
       });
       this.scene.pause('world');
