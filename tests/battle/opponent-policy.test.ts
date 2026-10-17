@@ -158,3 +158,11 @@ test('wild battles cycle among available damaging moves and replay selection wit
   assert.deepEqual(wildState, before);
   assert.equal(wildState.rngState, before.rngState);
 });
+
+
+test('exhausted opponents use an emergency move rather than cycling between exhausted reserves', () => {
+  const spent = { moves: [{ moveId: tackle.id, pp: 0 }] };
+  const state = battle({ opponentTeam: [creature('opponent-1', spent), creature('opponent-2', spent)] });
+  assert.deepEqual(choose(state), { kind: 'struggle' });
+  assert.deepEqual(choose({ ...state, opponent: { ...state.opponent, activeIndex: 1 } }), { kind: 'struggle' });
+});

@@ -1,3 +1,4 @@
+import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from './emergency-move.ts';
 import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat } from './stat-stages.ts';
 import { effectivenessFor, type BattleRules } from './rules.ts';
 import { calculateStats } from './create-creature.ts';
@@ -43,6 +44,10 @@ export function createBattleState(args: {
   if (!args.battleId.trim()) throw new Error('battleId must be a stable, non-empty ID');
   validateTeam(args.playerTeam, args.rules, 'player');
   validateTeam(args.opponentTeam, args.rules, 'opponent');
+  const emergency = args.rules.emergencyMove;
+  if (!Number.isFinite(emergency.power) || emergency.power <= 0 || !Number.isFinite(emergency.recoilFraction) || emergency.recoilFraction <= 0 || emergency.recoilFraction > 1) {
+    throw new Error('Invalid emergency move rules');
+  }
   const playerIds = new Set([...args.playerTeam, ...(args.playerStorage ?? [])].map(creature => creature.instanceId));
   if (playerIds.size !== args.playerTeam.length + (args.playerStorage?.length ?? 0)) throw new Error('Player creature IDs must be unique across party and storage');
   return {
@@ -117,7 +122,9 @@ function validateCommand(state: BattleState, side: BattleSide, command: BattleCo
     return null;
   }
   if (current.hp <= 0) return reject(state, side, 'activeCreatureMustSwitch');
-  if (command.kind === 'useMove') {
+  if (command.kind === 'struggle') {
+    if (hasUsableBattleMove(current, catalog)) return reject(state, side, 'emergencyUnavailable');
+  } else if (command.kind === 'useMove') {
     const slot = current.moves[command.moveSlot];
     if (!slot || !catalog[slot.moveId]) return reject(state, side, 'invalidMove');
   } else if (command.kind === 'useItem') {
@@ -142,7 +149,7 @@ function commandPriority(state: BattleState, side: BattleSide, command: BattleCo
     const moveId = active(state, side).moves[command.moveSlot]?.moveId;
     return moveId ? catalog[moveId]?.priority ?? 0 : 0;
   }
-  return command.kind === 'attemptFlee' ? 7 : 6;
+  return command.kind === 'struggle' ? 0 : command.kind === 'attemptFlee' ? 7 : 6;
 }
 
 /** Resolve one complete turn without mutating the input snapshot or any caller-owned data. */
@@ -285,21 +292,28 @@ function canAct(state: BattleState, side: BattleSide, cursor: RandomCursor, rule
   return { state, canAct: true };
 }
 
-function applyMove(state: BattleState, side: BattleSide, command: Extract<BattleCommand, { kind: 'useMove' }>, catalog: MoveCatalog, rules: BattleRules, cursor: RandomCursor, events: BattleEvent[]): BattleState {
-  const user = active(state, side);
+function applyMove(state: BattleState, side: BattleSide, command: Extract<BattleCommand, { kind: 'useMove' | 'struggle' }>, catalog: MoveCatalog, rules: BattleRules, cursor: RandomCursor, events: BattleEvent[]): BattleState {
+  let user = active(state, side);
   if (user.hp <= 0) return state;
+  const emergency = command.kind === 'struggle';
+  const moveId = emergency ? EMERGENCY_MOVE_ID : user.moves[command.moveSlot].moveId;
   const actionPermission = canAct(state, side, cursor, rules, events);
   state = actionPermission.state;
   if (!actionPermission.canAct) {
-    events.push({ type: 'moveFailed', side, moveId: user.moves[command.moveSlot].moveId, reason: 'blockedByStatus' });
+    events.push({ type: 'moveFailed', side, moveId, reason: 'blockedByStatus' });
     return state;
   }
-  const slot = user.moves[command.moveSlot];
-  if (slot.pp <= 0) {
+  // Preserve status recovery performed by canAct instead of restoring the old snapshot.
+  user = active(state, side);
+  const slot = command.kind === 'useMove' ? user.moves[command.moveSlot] : undefined;
+  if (slot && slot.pp <= 0) {
     events.push({ type: 'moveFailed', side, moveId: slot.moveId, reason: 'noPp' });
     return state;
   }
-  const move = catalog[slot.moveId];
+  const move: MoveDefinition = emergency ? {
+    id: EMERGENCY_MOVE_ID, name: EMERGENCY_MOVE_NAME, type: 'normal', category: 'physical',
+    power: rules.emergencyMove.power, accuracy: 100, priority: 0, maxPp: 0,
+  } : catalog[slot!.moveId];
   if (!Number.isFinite(move.accuracy) || move.accuracy < 0 || move.accuracy > 100 || !Number.isFinite(move.power) || move.power < 0) {
     throw new Error(`Invalid move data: ${move.id}`);
   }
@@ -309,7 +323,7 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
       throw new Error('Invalid stat change for move: ' + move.id);
     }
   }
-  const spentPp = { ...user, moves: user.moves.map((item, i) => i === command.moveSlot ? { ...item, pp: Math.max(0, item.pp - 1) } : item) };
+  const spentPp = { ...user, moves: user.moves.map((item, i) => command.kind === 'useMove' && i === command.moveSlot ? { ...item, pp: Math.max(0, item.pp - 1) } : item) };
   state = setCreature(state, side, sideState(state, side).activeIndex, spentPp);
   const targetSide = otherSide(side);
   const target = active(state, targetSide);
@@ -329,10 +343,10 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     const burnFactor = move.category === 'physical' && user.status?.status === 'burn' ? 0.5 : 1;
     const attack = Math.max(1, Math.floor(effectiveStat(user, attackStat) * burnFactor));
     const defense = effectiveStat(target, defenseStat);
-    const effectiveness = effectivenessFor(target.types, move.type, rules.typeChart);
+    const effectiveness = emergency ? 1 : effectivenessFor(target.types, move.type, rules.typeChart);
     const critical = random(cursor) < rules.criticalChance;
     const variance = rules.minimumDamageVariance + random(cursor) * (rules.maximumDamageVariance - rules.minimumDamageVariance);
-    const stab = user.types.includes(move.type) ? 1.5 : 1;
+    const stab = !emergency && user.types.includes(move.type) ? 1.5 : 1;
     const base = Math.floor((((2 * user.level / 5 + 2) * move.power * attack / defense) / 50) + 2);
     const amount = effectiveness === 0 ? 0 : Math.max(1, Math.floor(base * (critical ? rules.criticalMultiplier : 1) * effectiveness * stab * variance));
     const hp = Math.max(0, target.hp - amount);
@@ -340,8 +354,18 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     events.push({ type: 'damageApplied', sourceSide: side, targetSide, moveId: move.id, amount: target.hp - hp, effectiveness, critical });
     if (hp === 0) {
       events.push({ type: 'creatureFainted', side: targetSide, creatureId: target.instanceId });
-      state = awardExperience(state, side, user.instanceId, target, rules, events);
+      if (!emergency) state = awardExperience(state, side, user.instanceId, target, rules, events);
     }
+  }
+
+  if (emergency) {
+    const latestUser = active(state, side);
+    const recoil = Math.max(1, Math.ceil(latestUser.stats.maxHp * rules.emergencyMove.recoilFraction));
+    const hp = Math.max(0, latestUser.hp - recoil);
+    state = setCreature(state, side, sideState(state, side).activeIndex, { ...latestUser, hp });
+    events.push({ type: 'recoilApplied', side, creatureId: user.instanceId, moveId: move.id, amount: latestUser.hp - hp });
+    if (hp === 0) events.push({ type: 'creatureFainted', side, creatureId: user.instanceId });
+    else if (active(state, targetSide).hp === 0) state = awardExperience(state, side, user.instanceId, target, rules, events);
   }
 
   for (const effect of move.statChanges ?? []) {

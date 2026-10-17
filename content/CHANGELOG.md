@@ -84,3 +84,7 @@
 ## 0.3.21 — 17/10/2026
 
 - Matrice tipi Gen II–V completa, sorgenti/hash registrati; profili IA versionati e collegati agli allenatori.
+
+## 0.3.22 — 17/10/2026
+
+- Regole di emergenza per esaurimento PP, parametri versionati nel ruleset prototipo v4. Nessun nuovo slot o campo persistente.

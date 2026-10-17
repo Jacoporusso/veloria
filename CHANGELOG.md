@@ -44,3 +44,9 @@
 - IA pura collegata ai profili allenatore: efficacie, mosse di preparazione utili e rotazione dei selvatici.
 - Contenuti 0.3.21, cache PWA v36; nessuna modifica allo schema save.
 - CI: i nuovi commit attendono la verifica in corso invece di cancellarla; resta in coda la revisione più recente.
+
+## 17/10/2026 — Battaglie senza PP
+
+- Scontro d’emergenza per entrambe le squadre: nessun PP aggiunto, contraccolpo e gestione del doppio KO.
+- Corretti i cambi infiniti tra riserve senza PP e il ripristino errato di sonno/congelamento dopo il recupero.
+- Ruleset prototipo v4; contenuti 0.3.22 e cache PWA v37.

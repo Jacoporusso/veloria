@@ -1,3 +1,4 @@
+import { hasUsableBattleMove } from './emergency-move.ts';
 import { effectivenessFor, type BattleRules } from './rules.ts';
 import { effectiveStat } from './stat-stages.ts';
 import type { MoveCatalog } from './engine.ts';
@@ -58,7 +59,10 @@ export function chooseOpponentCommand(state: BattleState, catalog: MoveCatalog, 
     const statusImmune = move.inflictedStatus && target.types.some(type => rules.statusImmunities[type]?.includes(move.inflictedStatus!));
     return [{ index, move, attack: attackUtility(user, target, move, rules), setup: statusImmune ? 0 : setup }];
   });
-  if (!options.length) return replacement >= 0 ? { kind: 'switch', partyIndex: replacement } : { kind: 'useMove', moveSlot: 0 };
+  if (!options.length) {
+    const withPp = state.opponent.creatures.findIndex((creature, index) => index !== state.opponent.activeIndex && creature.hp > 0 && hasUsableBattleMove(creature, catalog));
+    return withPp >= 0 ? { kind: 'switch', partyIndex: withPp } : { kind: 'struggle' };
+  }
   const attacks = options.filter(option => option.attack > 0).sort((a, b) => b.attack - a.attack || b.move.priority - a.move.priority || a.index - b.index);
   const setup = options.filter(option => option.move.category === 'status' && option.setup > 0).sort((a, b) => b.setup - a.setup || a.index - b.index);
   const useSetup = policy.statusEveryTurns > 0 && state.turn % policy.statusEveryTurns === 0;

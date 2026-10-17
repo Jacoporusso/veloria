@@ -2,6 +2,7 @@ import { chooseOpponentCommand, type OpponentPolicy } from '../../core/battle/op
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { resolveBattleTurn, type BattleCommands, type MoveCatalog } from '../../core/battle/engine.ts';
+import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from '../../core/battle/emergency-move.ts';
 import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState } from '../../core/battle/types.ts';
 import { formatBattleMoveLabel } from '../battle/format-move-label.ts';
@@ -351,6 +352,14 @@ export class BattleScene extends Phaser.Scene {
 
   private drawMoveChoices(x: number, y: number, width: number): void {
     const creature = this.activeCreature('player');
+    if (!hasUsableBattleMove(creature, this.moveCatalog)) {
+      this.drawGridButtons(x, y, width, [{
+        label: `${EMERGENCY_MOVE_NAME.toUpperCase()}\nSenza PP · causa contraccolpo`,
+        enabled: true,
+        callback: () => this.act({ kind: 'struggle' }),
+      }], 1, 2);
+      return;
+    }
     const options = creature.moves.map((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
       return {
@@ -389,7 +398,7 @@ export class BattleScene extends Phaser.Scene {
 
   private drawGridButtons(x: number, y: number, width: number, options: Array<{ label: string; enabled: boolean; callback: () => void }>, columns: number, maxRows: number): void {
     const gap = 7;
-    if (this.scale.height < 520 && this.scale.width > 600) {
+    if (options.length > 1 && this.scale.height < 520 && this.scale.width > 600) {
       columns = Math.max(3, Math.ceil(options.length / 2));
       maxRows = 2;
     }
@@ -585,13 +594,14 @@ export class BattleScene extends Phaser.Scene {
 
   private applyVisualEvent(event: BattleEvent): void {
     if (event.type === 'creatureSwitched') this.visualActiveIds.set(event.side, event.toId);
-    const changeHp = (side: BattleSide, delta: number): void => {
-      const creature = this.displayedCreature(side);
+    const changeHp = (side: BattleSide, delta: number, creatureId?: string): void => {
+      const creature = (creatureId ? this.creatureById(side, creatureId) : undefined) ?? this.displayedCreature(side);
       const current = this.visualHp.get(creature.instanceId) ?? creature.hp;
       this.hpTweenFrom.set(creature.instanceId, current);
       this.visualHp.set(creature.instanceId, Phaser.Math.Clamp(current + delta, 0, creature.stats.maxHp));
     };
     if (event.type === 'damageApplied') changeHp(event.targetSide, -event.amount);
+    if (event.type === 'recoilApplied') changeHp(event.side, -event.amount, event.creatureId);
     if (event.type === 'statusTick' && event.damage) changeHp(event.side, -event.damage);
     if (event.type === 'itemUsed' && event.healed) {
       const creature = this.creatureById(event.side, event.targetId);
@@ -612,7 +622,7 @@ export class BattleScene extends Phaser.Scene {
       const target = this.actors[event.side === 'player' ? 'opponent' : 'player'];
       const move = this.moveCatalog[event.moveId];
       if (actor && target && !this.reducedAnimations) {
-        if (move?.category === 'physical') {
+        if (move?.category === 'physical' || event.moveId === EMERGENCY_MOVE_ID) {
           this.tweens.add({ targets: actor, x: actor.x + (target.x - actor.x) * 0.14, duration: 125, yoyo: true, ease: 'Cubic.easeOut' });
         } else {
           const orb = this.add.circle(actor.x, actor.y, 10, this.typeColor(move?.type), 0.9);
@@ -626,6 +636,9 @@ export class BattleScene extends Phaser.Scene {
         this.floatingFeedback(actor, event.effectiveness === 0 ? 'IMMUNE' : `−${event.amount}${event.critical ? '  CRITICO' : ''}`, event.effectiveness > 1 ? '#ffd88e' : '#fff4e6');
         if (!this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.2, duration: 85, yoyo: true, repeat: 2 });
       }
+    } else if (event.type === 'recoilApplied') {
+      const actor = this.actors[event.side];
+      if (actor) this.floatingFeedback(actor, `−${event.amount} HP`, '#ffb6a4');
     } else if (event.type === 'statusTick' && event.damage) {
       const actor = this.actors[event.side];
       if (actor) this.floatingFeedback(actor, `−${event.damage}`, '#e7a9e3');
@@ -670,8 +683,11 @@ export class BattleScene extends Phaser.Scene {
       case 'moveUsed': {
         const creature = this.creatureById(event.side, event.creatureId);
         const move = this.moveCatalog[event.moveId];
-        return `${creature?.name ?? 'La creatura'} usa ${move?.name ?? event.moveId}.`;
+        const moveName = event.moveId === EMERGENCY_MOVE_ID ? EMERGENCY_MOVE_NAME : move?.name ?? event.moveId;
+        return `${creature?.name ?? 'La creatura'} usa ${moveName}.`;
       }
+      case 'recoilApplied':
+        return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.amount} danni da contraccolpo.`;
       case 'moveMissed': return 'L’attacco manca il bersaglio.';
       case 'moveFailed': return event.reason === 'noPp' ? 'Non restano PP per questa mossa.' : event.reason === 'blockedByStatus' ? 'Lo stato impedisce di agire.' : 'Non c’è un bersaglio disponibile.';
       case 'damageApplied':

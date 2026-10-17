@@ -15,3 +15,5 @@ export type {
 
 export { chooseOpponentCommand } from './opponent-policy.ts';
 export type { OpponentPolicy } from './opponent-policy.ts';
+
+export { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from './emergency-move.ts';

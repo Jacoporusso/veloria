@@ -105,6 +105,7 @@ export interface BattleState {
 }
 
 export type BattleCommand =
+  | { readonly kind: 'struggle' }
   | { readonly kind: 'useMove'; readonly moveSlot: number }
   | { readonly kind: 'switch'; readonly partyIndex: number }
   | { readonly kind: 'useItem'; readonly itemId: string; readonly targetIndex: number }
@@ -112,13 +113,14 @@ export type BattleCommand =
   | { readonly kind: 'attemptFlee' };
 
 export type BattleEvent =
-  | { readonly type: 'commandRejected'; readonly side: BattleSide; readonly reason: 'invalidMove' | 'noPp' | 'invalidSwitch' | 'invalidItem' | 'invalidTarget' | 'fleeForbidden' | 'captureForbidden' | 'invalidCaptureItem' | 'invalidCaptureId' | 'noCaptureTarget' | 'activeCreatureMustSwitch' }
+  | { readonly type: 'commandRejected'; readonly side: BattleSide; readonly reason: 'emergencyUnavailable' | 'invalidMove' | 'noPp' | 'invalidSwitch' | 'invalidItem' | 'invalidTarget' | 'fleeForbidden' | 'captureForbidden' | 'invalidCaptureItem' | 'invalidCaptureId' | 'noCaptureTarget' | 'activeCreatureMustSwitch' }
   | { readonly type: 'turnStarted'; readonly turn: number }
   | { readonly type: 'actionOrder'; readonly sides: readonly BattleSide[] }
   | { readonly type: 'moveUsed'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string }
   | { readonly type: 'moveMissed'; readonly side: BattleSide; readonly moveId: string }
   | { readonly type: 'moveFailed'; readonly side: BattleSide; readonly moveId: string; readonly reason: 'noPp' | 'blockedByStatus' | 'noTarget' }
   | { readonly type: 'damageApplied'; readonly sourceSide: BattleSide; readonly targetSide: BattleSide; readonly moveId: string; readonly amount: number; readonly effectiveness: number; readonly critical: boolean }
+  | { readonly type: 'recoilApplied'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string; readonly amount: number }
   | { readonly type: 'statStageChanged'; readonly side: BattleSide; readonly creatureId: string; readonly stat: BattleStat; readonly change: number; readonly stage: number }
   | { readonly type: 'statStageLimited'; readonly side: BattleSide; readonly creatureId: string; readonly stat: BattleStat; readonly stage: number }
   | { readonly type: 'statusApplied'; readonly side: BattleSide; readonly creatureId: string; readonly status: MajorStatus; readonly turns?: number }

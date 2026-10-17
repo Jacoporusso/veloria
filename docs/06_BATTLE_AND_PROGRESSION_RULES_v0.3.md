@@ -79,3 +79,15 @@ Questa scelta versiona il prototipo coerentemente con i 17 tipi previsti. Restan
 La scelta avversaria è pura in `core/battle/opponent-policy.ts`; i profili sono in `content/battle/opponent-policies.v1.json`. Allenatori collegati tramite aiProfileId; selvatici tramite profilo wild. Il ranking degli attacchi considera potenza, precisione, statistiche effettive, STAB, efficacia e scottatura: è una funzione di utilità, non una previsione esatta dei danni. Gli effetti di preparazione sono scelti solo se utili, con cadenza per turno e soglia di stadio configurabili. Un avversario con sole mosse speciali non induce un inutile aumento di Difesa fisica.
 
 Le politiche best scelgono il miglior attacco stimato; cycle alterna gli attacchi utilizzabili e non immuni. Le riserve entrano dopo KO o esaurimento PP dell'attivo. Il selettore non modifica lo stato, non consuma RNG e non riceve il comando scelto dal giocatore. Non usa ancora strumenti né cambi tattici; il caso senza PP in tutta la squadra richiede ancora una mossa di emergenza prima di considerare completa la gestione delle battaglie lunghe.
+
+## 11. Esaurimento PP e contraccolpo — prototipo v4, 17/10/2026
+
+Quando l'attivo non ha alcuna mossa conosciuta con PP disponibili, LOTTA offre Scontro d’emergenza. Il comando semantico `struggle` viene rifiutato se esiste ancora una mossa utilizzabile. Non occupa uno slot, non ripristina PP e non viene aggiunto al catalogo delle mosse apprese o al salvataggio. Funziona anche con una lista mosse vuota.
+
+Scelta esplicita del ruleset `veloria-battle-prototype-v4`: potenza 50, priorità 0, precisione 100, attacco fisico con stadi/scottatura applicati; rapporto di tipo neutro e nessuno STAB. Contraccolpo dopo il colpo: ceil(maxHp/4), minimo 1 e HP mai sotto zero. Il contraccolpo avviene anche se il bersaglio va KO; entrambi KO senza riserve produce pareggio, senza XP al vincitore già esausto. I parametri sono nel ruleset e non costituiscono una promessa di emulazione canonica.
+
+Sonno, paralisi e congelamento continuano a condizionare la possibilità di agire: un'azione impedita non causa contraccolpo. Il recupero di sonno/congelamento viene mantenuto nel nuovo snapshot, evitando il ripristino dello status precedente dopo il consumo PP.
+
+L'avversario senza PP cambia soltanto se ha una riserva cosciente con mosse disponibili. Se tutte le riserve sono esauste, usa l'emergenza senza rimbalzare fra cambi inutili. Eventi `recoilApplied` governano messaggio, HP e animazione.
+
+Dopo un pareggio con tutta la squadra KO si applica lo stesso soccorso del prototipo usato dopo una sconfitta: cura completa, nessuna medaglia o ricompensa allenatore, ritorno all’esplorazione.

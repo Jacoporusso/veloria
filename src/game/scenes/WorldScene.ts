@@ -703,11 +703,11 @@ export class WorldScene extends Phaser.Scene {
             dismissMessage = 'La nuova creatura è stata aggiunta alla squadra.';
           } else if (finalState.outcome.kind === 'fled') {
             dismissMessage = 'Sei riuscito a fuggire.';
-          } else if (finalState.outcome.kind === 'won' && finalState.outcome.winner === 'opponent') {
+          } else if (finalState.outcome.kind === 'draw' || finalState.outcome.kind === 'won' && finalState.outcome.winner === 'opponent') {
             if (this.save.party.every(creature => creature.hp === 0)) {
               // The MVP docs do not define a blackout penalty; heal fully to prevent a softlock.
               this.save = healParty(this.save, battleMoves);
-              dismissMessage = 'La squadra è stata soccorsa e curata dopo la sconfitta.';
+              dismissMessage = 'La squadra è stata soccorsa e curata dopo lo scontro.';
             } else dismissMessage = 'La squadra non può continuare. Riprendi fiato e prova ancora.';
           }
           this.persistProgress();

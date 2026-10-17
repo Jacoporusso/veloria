@@ -109,3 +109,7 @@ Specie di lancio aggiuntive del vertical slice: Rattata, Pidgey, Sentret, Hootho
 - Portrait e landscape entrambi richiesti; pad originale a destra e A/B/S a sinistra, secondo approvazione utente del 17/10. Il precedente posizionamento a sinistra descritto nella bozza è superato.
 
 La giocabilità completa senza dati di scenario artificiali resta un gate separato: i test di sistemi e le prove che preparano scenari mirati non sostituiscono il playtest di progressione naturale fino a Mira.
+
+### Scontri prolungati, prototipo v4
+
+A PP esauriti LOTTA resta utilizzabile tramite Scontro d’emergenza, con avviso del contraccolpo; gli slot salvati non cambiano. Doppio KO gestito come pareggio, con soccorso se tutta la squadra è esausta. Il flusso non sostituisce la verifica del bilanciamento naturale fino a Mira.

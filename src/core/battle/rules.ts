@@ -42,6 +42,7 @@ export interface BattleRules {
   readonly maxMoves: number;
   readonly maxLevel: number;
   readonly typeChart: TypeChart;
+  readonly emergencyMove: { readonly power: number; readonly recoilFraction: number };
   readonly criticalChance: number;
   readonly criticalMultiplier: number;
   readonly minimumDamageVariance: number;
@@ -67,11 +68,12 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v3',
+  id: 'veloria-battle-prototype-v4',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,
   typeChart: {},
+  emergencyMove: { power: 50, recoilFraction: 1 / 4 },
   criticalChance: 1 / 24,
   criticalMultiplier: 1.5,
   minimumDamageVariance: 0.85,
