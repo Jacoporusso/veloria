@@ -31,3 +31,9 @@
 - Contenuti 0.3.19, cache PWA v34; i vecchi salvataggi restano compatibili.
 
 - Salvataggio iniziale con errore visibile e riprova; ritorno al titolo solo dopo scrittura riuscita, con test browser di memoria esaurita.
+
+## 17/10/2026 — Effetti delle mosse di stato
+
+- Ruleset prototipo v2: Growl, Tail Whip e Defense Curl modificano le statistiche durante la battaglia.
+- Effetti definiti nei dati, limiti e reset al cambio/cattura; nessuna modifica allo schema dei salvataggi.
+- Contenuti 0.3.20 e cache PWA v35.

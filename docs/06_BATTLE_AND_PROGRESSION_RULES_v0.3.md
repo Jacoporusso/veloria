@@ -59,3 +59,13 @@ Quattro starter lv5; palestra di Mira tipo Normale. Evitare che un solo starter 
 ## 8. Ottimizzazione del lavoro
 
 Prima implementare un battle core testabile con due creature fittizie originali e tre mosse base; poi importare dati Pokémon; soltanto dopo aggiungere UI/belle animazioni e asset definitivi. Questo riduce il rischio di bug non riconducibili alla grafica.
+
+## 9. Prototipo stadi delle statistiche — 17/10/2026
+
+Ruleset tecnico `veloria-battle-prototype-v2`: Growl riduce l'Attacco avversario di uno stadio, Tail Whip riduce la Difesa avversaria di uno, Defense Curl aumenta la propria Difesa di uno. Gli effetti sono dati in `statChanges`, senza confronti con il nome della mossa nel motore.
+
+Cinque statistiche supportate: Attacco, Difesa, Attacco speciale, Difesa speciale e Velocità. Limiti -6/+6; moltiplicatore (2+n)/2 per n positivo o nullo, 2/(2-n) per n negativo, valore derivato arrotondato per difetto e minimo 1. Le statistiche base restano immutate. Il rallentamento da paralisi e la penalità fisica da scottatura si applicano dopo lo stadio. L'ordine usa la velocità all'inizio del turno.
+
+Il consumo PP e l'accuratezza precedono gli effetti; al limite si consuma comunque il turno e si emette un messaggio esplicito. Gli stadi si azzerano al cambio (uscente ed entrante), alla cattura e alla creazione di una battaglia. Non entrano nel salvataggio del mondo. Eventi semantici `statStageChanged` e `statStageLimited` guidano i messaggi UI.
+
+Restano fuori da questo prototipo accuratezza/elusione, probabilità secondaria di variazione e regole storiche con cui i critici ignorano determinati stadi. I critici usano attualmente le statistiche modificate e il moltiplicatore del ruleset: scelta esplicita di prototipo, non emulazione canonica.

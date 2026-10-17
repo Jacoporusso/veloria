@@ -9,6 +9,6 @@ export type { BattleItemRule, BattleRules, CaptureItemRule, EvolutionRule, Evolu
 export { experienceToNextLevel } from './progression.ts';
 export type {
   BattleCommand, BattleCreature, BattleEvent, BattleOutcome, BattleSide, BattleState,
-  BattleStats, BattleTransition, MajorStatus, MoveCategory, MoveDefinition, MoveSlot,
+  BattleStat, StatStages, BattleStats, BattleTransition, MajorStatus, MoveCategory, MoveDefinition, MoveSlot,
   StatusEffect,
 } from './types.ts';

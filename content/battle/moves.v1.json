@@ -1,19 +1,125 @@
 {
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "notes": [
     "Power, accuracy, priority, PP, and physical/special categories are prototype choices because the battle rules document leaves move-level balance open.",
-    "Growl, Tail Whip, and Defense Curl are represented as status moves, but this battle engine version does not yet implement stat stages; they currently consume a turn and PP without changing stats."
+    "Prototype-v2: stages range from -6 to +6, modify derived battle stats, and reset on switching, capture and new battles. Accuracy/evasion and critical-hit stage bypass are outside this prototype."
   ],
   "moves": {
-    "thunder-shock": { "id": "thunder-shock", "name": "Thunder Shock", "type": "electric", "category": "special", "power": 40, "accuracy": 100, "priority": 0, "maxPp": 30, "inflictedStatus": "paralysis", "statusChance": 10 },
-    "growl": { "id": "growl", "name": "Growl", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "priority": 0, "maxPp": 40 },
-    "scratch": { "id": "scratch", "name": "Scratch", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "priority": 0, "maxPp": 35 },
-    "tackle": { "id": "tackle", "name": "Tackle", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "priority": 0, "maxPp": 35 },
-    "tail-whip": { "id": "tail-whip", "name": "Tail Whip", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "priority": 0, "maxPp": 30 },
-    "defense-curl": { "id": "defense-curl", "name": "Defense Curl", "type": "normal", "category": "status", "power": 0, "accuracy": 100, "priority": 0, "maxPp": 40 },
-    "quick-attack": { "id": "quick-attack", "name": "Quick Attack", "type": "normal", "category": "physical", "power": 40, "accuracy": 100, "priority": 1, "maxPp": 30 },
-    "gust": { "id": "gust", "name": "Gust", "type": "flying", "category": "special", "power": 40, "accuracy": 100, "priority": 0, "maxPp": 35 },
-    "poison-sting": { "id": "poison-sting", "name": "Poison Sting", "type": "poison", "category": "physical", "power": 15, "accuracy": 100, "priority": 0, "maxPp": 35, "inflictedStatus": "poison", "statusChance": 30 }
+    "thunder-shock": {
+      "id": "thunder-shock",
+      "name": "Thunder Shock",
+      "type": "electric",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 30,
+      "inflictedStatus": "paralysis",
+      "statusChance": 10
+    },
+    "growl": {
+      "id": "growl",
+      "name": "Growl",
+      "type": "normal",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 40,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "attack",
+          "stages": -1
+        }
+      ]
+    },
+    "scratch": {
+      "id": "scratch",
+      "name": "Scratch",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35
+    },
+    "tackle": {
+      "id": "tackle",
+      "name": "Tackle",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35
+    },
+    "tail-whip": {
+      "id": "tail-whip",
+      "name": "Tail Whip",
+      "type": "normal",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 30,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "defense",
+          "stages": -1
+        }
+      ]
+    },
+    "defense-curl": {
+      "id": "defense-curl",
+      "name": "Defense Curl",
+      "type": "normal",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 40,
+      "statChanges": [
+        {
+          "target": "self",
+          "stat": "defense",
+          "stages": 1
+        }
+      ]
+    },
+    "quick-attack": {
+      "id": "quick-attack",
+      "name": "Quick Attack",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 1,
+      "maxPp": 30
+    },
+    "gust": {
+      "id": "gust",
+      "name": "Gust",
+      "type": "flying",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35
+    },
+    "poison-sting": {
+      "id": "poison-sting",
+      "name": "Poison Sting",
+      "type": "poison",
+      "category": "physical",
+      "power": 15,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35,
+      "inflictedStatus": "poison",
+      "statusChance": 30
+    }
   }
 }

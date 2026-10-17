@@ -4,7 +4,7 @@ import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState } from '../../core/battle/types.ts';
 import { formatBattleMoveLabel } from '../battle/format-move-label.ts';
 import { createCreatureImage } from '../battle/creature-art.ts';
-import { battleExperienceProgress, battleRewardSummary, battleTypeLabel } from '../battle/presentation.ts';
+import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
 
 export interface BattleSceneInit {
   /** Prepared snapshot from the game core. Scene code never creates or loads saves. */
@@ -691,6 +691,10 @@ export class BattleScene extends Phaser.Scene {
       case 'creatureFainted': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} non può più continuare.`;
       case 'experienceGained': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ottiene ${event.amount} punti esperienza.`;
       case 'levelUp': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} sale al livello ${event.level}!`;
+      case 'statStageChanged':
+        return formatStatStageChanged(event.stat, event.change, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
+      case 'statStageLimited':
+        return formatStatStageLimited(event.stat, event.stage, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
       case 'creatureEvolved': return `${event.fromName} si è evoluta in ${event.toName}!`;
       case 'creatureSwitched': return `${this.creatureById(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
       case 'itemUsed': return 'Hai usato uno strumento.';

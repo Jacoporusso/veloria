@@ -98,6 +98,13 @@ S5 -> S6
 - Implementati e verificati: titolo/continua, nome allenatore, introduzione persistente, accesso al laboratorio, selezione unica dei quattro starter, blocco uscita senza starter, riepilogo dopo Mira.
 - Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
 - P0 successivo: una partita senza preparazione artificiale da nome a Medaglia Aurora, con training, catture, cura, missione Ada e sigilli; correggere eventuali blocchi e bilanciamento.
-- P0 combattimento: Growl, Tail Whip e Defense Curl consumano PP ma non applicano ancora variazioni alle statistiche; introdurre gli effetti prima di considerare la battaglia rifinita.
+- Combattimento: Growl, Tail Whip e Defense Curl ora applicano effetti temporanei alle statistiche (ruleset prototipo v2, limiti e reset). Restano playtest di bilanciamento e ampliamento delle meccaniche; non equivale a battaglia definitiva.
 - P0 grafica: dodici specie senza illustrazione, inclusi gli starter. La scelta è utilizzabile con etichette e tipi, ma i segnaposto non soddisfano il gate artistico finale.
 - Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.
+
+### Audit tecnico progressione — 17/10/2026
+
+- Gate verificati nei dati correnti: starter → letture di Elia → sensore nel Bosco → rapporto ad Ada → Brumalta → sigilli sud/centro/nord → Mira → Medaglia Aurora. I trigger fisici verso R02 e città richiedono Ada anche dove la metadata di connessione non specifica il requisito.
+- Bilanciamento da provare: i due allenatori opzionali di R01 assegnano 158 XP complessivi allo starter se vince tutti gli scontri; dal livello 5 arriva al 6 con 67 XP residui. Mira ha Sentret lv8 e Rattata lv10. Questo indica una necessità di playtest, non dimostra impossibilità né autorizza un cap nascosto.
+- P0: il catalogo runtime eredita ancora una typeChart vuota; introdurre una tabella dei 17 tipi esplicitamente versionata e verificata prima di dichiarare complete le efficacie.
+- P0: i profili IA dichiarati negli allenatori non governano ancora la scelta; BattleScene usa la prima mossa con PP. Introdurre politiche testabili e leggibili senza cambiare lo stato fuori dal core.

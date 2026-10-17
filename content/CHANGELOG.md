@@ -76,3 +76,7 @@
 - Introduzione narrativa versionata con nome allenatore e indicazioni al laboratorio.
 - Requisito della scelta starter dichiarato nel relativo catalogo e applicato all’uscita da Borgofonte.
 - Profilo nome e flag del prologo compatibili con i salvataggi v2 esistenti.
+
+## 0.3.20 — 17/10/2026
+
+- Catalogo mosse versione 2: effetti statChanges per Growl, Tail Whip e Defense Curl; regole prototipo esplicite nel decision log.

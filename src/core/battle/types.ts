@@ -8,6 +8,9 @@ export const BATTLE_TYPES = [
 export type BattleType = typeof BATTLE_TYPES[number];
 export type BattleSide = 'player' | 'opponent';
 export type MoveCategory = 'physical' | 'special' | 'status';
+export type BattleStat = 'attack' | 'defense' | 'specialAttack' | 'specialDefense' | 'speed';
+export type StatStages = Readonly<Partial<Record<BattleStat, number>>>;
+
 export type MajorStatus = 'burn' | 'poison' | 'paralysis' | 'sleep' | 'freeze';
 
 export interface BattleStats {
@@ -44,6 +47,7 @@ export interface MoveDefinition {
   readonly accuracy: number;
   readonly priority: number;
   readonly maxPp: number;
+  readonly statChanges?: readonly { readonly target: 'self' | 'opponent'; readonly stat: BattleStat; readonly stages: number }[];
   readonly inflictedStatus?: MajorStatus;
   readonly statusChance?: number;
 }
@@ -67,6 +71,8 @@ export interface BattleCreature {
   readonly stats: BattleStats;
   readonly hp: number;
   readonly experience: number;
+  /** Temporary stages: never persisted to a world save. */
+  readonly statStages?: StatStages;
   readonly status?: StatusEffect;
   readonly experienceYield: number;
   readonly moves: readonly MoveSlot[];
@@ -113,6 +119,8 @@ export type BattleEvent =
   | { readonly type: 'moveMissed'; readonly side: BattleSide; readonly moveId: string }
   | { readonly type: 'moveFailed'; readonly side: BattleSide; readonly moveId: string; readonly reason: 'noPp' | 'blockedByStatus' | 'noTarget' }
   | { readonly type: 'damageApplied'; readonly sourceSide: BattleSide; readonly targetSide: BattleSide; readonly moveId: string; readonly amount: number; readonly effectiveness: number; readonly critical: boolean }
+  | { readonly type: 'statStageChanged'; readonly side: BattleSide; readonly creatureId: string; readonly stat: BattleStat; readonly change: number; readonly stage: number }
+  | { readonly type: 'statStageLimited'; readonly side: BattleSide; readonly creatureId: string; readonly stat: BattleStat; readonly stage: number }
   | { readonly type: 'statusApplied'; readonly side: BattleSide; readonly creatureId: string; readonly status: MajorStatus; readonly turns?: number }
   | { readonly type: 'statusPrevented'; readonly side: BattleSide; readonly status: MajorStatus; readonly reason: 'immune' | 'alreadyAfflicted' }
   | { readonly type: 'statusTick'; readonly side: BattleSide; readonly creatureId: string; readonly status: MajorStatus; readonly damage?: number; readonly recovered?: boolean }

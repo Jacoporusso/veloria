@@ -8,6 +8,24 @@ const TYPE_NAMES: Readonly<Record<BattleType, string>> = {
   psychic: 'PSICO', bug: 'COLEOTTERO', rock: 'ROCCIA', ghost: 'SPETTRO', dragon: 'DRAGO', dark: 'BUIO', steel: 'ACCIAIO',
 };
 
+const STAT_STAGE_NAMES = {
+  attack: 'l’Attacco',
+  defense: 'la Difesa',
+  specialAttack: 'l’Attacco speciale',
+  specialDefense: 'la Difesa speciale',
+  speed: 'la Velocità',
+} as const;
+
+export type StatStageName = keyof typeof STAT_STAGE_NAMES;
+
+export function formatStatStageChanged(stat: StatStageName, change: number, creatureName: string): string {
+  return `${STAT_STAGE_NAMES[stat]} di ${creatureName} ${change > 0 ? 'sale' : 'scende'}.`;
+}
+
+export function formatStatStageLimited(stat: StatStageName, stage: number, creatureName: string): string {
+  return `${STAT_STAGE_NAMES[stat]} di ${creatureName} è già al ${stage > 0 ? 'massimo' : 'minimo'}.`;
+}
+
 export function battleTypeLabel(type: BattleType): string { return TYPE_NAMES[type]; }
 
 /** The core stores XP toward the next level, rather than lifetime XP. */

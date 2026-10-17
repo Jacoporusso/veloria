@@ -1,3 +1,4 @@
+import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat } from './stat-stages.ts';
 import { effectivenessFor, type BattleRules } from './rules.ts';
 import { calculateStats } from './create-creature.ts';
 import { experienceToNextLevel } from './progression.ts';
@@ -50,9 +51,9 @@ export function createBattleState(args: {
     battleType: args.battleType,
     turn: 0,
     rngState: normalizeSeed(args.seed),
-    player: { creatures: args.playerTeam.map(cloneCreature), activeIndex: firstAvailable(args.playerTeam) },
-    opponent: { creatures: args.opponentTeam.map(cloneCreature), activeIndex: firstAvailable(args.opponentTeam) },
-    playerStorage: (args.playerStorage ?? []).map(cloneCreature),
+    player: { creatures: args.playerTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined })), activeIndex: firstAvailable(args.playerTeam) },
+    opponent: { creatures: args.opponentTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined })), activeIndex: firstAvailable(args.opponentTeam) },
+    playerStorage: (args.playerStorage ?? []).map(creature => ({ ...cloneCreature(creature), statStages: undefined })),
     outcome: { kind: 'ongoing' },
   };
 }
@@ -86,7 +87,7 @@ function validateMajorStatus(status: StatusEffect | undefined, instanceId: strin
 }
 
 function cloneCreature(creature: BattleCreature): BattleCreature {
-  return { ...creature, types: [...creature.types], baseStats: creature.baseStats ? { ...creature.baseStats } : undefined, stats: { ...creature.stats }, moves: creature.moves.map(move => ({ ...move })), status: creature.status ? { ...creature.status } : undefined };
+  return { ...creature, types: [...creature.types], baseStats: creature.baseStats ? { ...creature.baseStats } : undefined, stats: { ...creature.stats }, statStages: creature.statStages ? { ...creature.statStages } : undefined, moves: creature.moves.map(move => ({ ...move })), status: creature.status ? { ...creature.status } : undefined };
 }
 
 function firstAvailable(team: readonly BattleCreature[]): number {
@@ -217,7 +218,7 @@ function applyCapture(
   }
 
   const destination = state.player.creatures.length < rules.maxPartySize ? 'party' : 'storage';
-  const captured: BattleCreature = { ...cloneCreature(target), instanceId: command.captureInstanceId };
+  const captured: BattleCreature = { ...cloneCreature(target), instanceId: command.captureInstanceId, statStages: undefined };
   const capturedState = destination === 'party'
     ? { ...state, player: { ...state.player, creatures: [...state.player.creatures, captured] } }
     : { ...state, playerStorage: [...state.playerStorage, captured] };
@@ -226,7 +227,7 @@ function applyCapture(
 }
 
 function effectiveSpeed(creature: BattleCreature): number {
-  const speed = creature.status?.status === 'paralysis' ? Math.floor(creature.stats.speed / 2) : creature.stats.speed;
+  const speed = creature.status?.status === 'paralysis' ? Math.floor(effectiveStat(creature, 'speed') / 2) : effectiveStat(creature, 'speed');
   return Math.max(1, speed);
 }
 
@@ -234,7 +235,11 @@ function applySwitch(state: BattleState, side: BattleSide, command: Extract<Batt
   const oldCreature = active(state, side);
   const newCreature = sideState(state, side).creatures[command.partyIndex];
   events.push({ type: 'creatureSwitched', side, fromId: oldCreature.instanceId, toId: newCreature.instanceId });
-  return { ...state, [side]: { ...sideState(state, side), activeIndex: command.partyIndex } };
+  return { ...state, [side]: { ...sideState(state, side), activeIndex: command.partyIndex,
+    creatures: sideState(state, side).creatures.map((creature, index) =>
+      index === sideState(state, side).activeIndex || index === command.partyIndex
+        ? { ...creature, statStages: undefined } : creature),
+  } };
 }
 
 function applyItem(state: BattleState, side: BattleSide, command: Extract<BattleCommand, { kind: 'useItem' }>, rules: BattleRules, events: BattleEvent[]): BattleState {
@@ -298,6 +303,12 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
   if (!Number.isFinite(move.accuracy) || move.accuracy < 0 || move.accuracy > 100 || !Number.isFinite(move.power) || move.power < 0) {
     throw new Error(`Invalid move data: ${move.id}`);
   }
+  for (const effect of move.statChanges ?? []) {
+    if (!BATTLE_STATS.includes(effect.stat) || !['self', 'opponent'].includes(effect.target) ||
+        !Number.isInteger(effect.stages) || effect.stages === 0 || Math.abs(effect.stages) > MAX_STAT_STAGE) {
+      throw new Error('Invalid stat change for move: ' + move.id);
+    }
+  }
   const spentPp = { ...user, moves: user.moves.map((item, i) => i === command.moveSlot ? { ...item, pp: Math.max(0, item.pp - 1) } : item) };
   state = setCreature(state, side, sideState(state, side).activeIndex, spentPp);
   const targetSide = otherSide(side);
@@ -316,8 +327,8 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     const attackStat = move.category === 'physical' ? 'attack' : 'specialAttack';
     const defenseStat = move.category === 'physical' ? 'defense' : 'specialDefense';
     const burnFactor = move.category === 'physical' && user.status?.status === 'burn' ? 0.5 : 1;
-    const attack = Math.max(1, Math.floor(user.stats[attackStat] * burnFactor));
-    const defense = Math.max(1, target.stats[defenseStat]);
+    const attack = Math.max(1, Math.floor(effectiveStat(user, attackStat) * burnFactor));
+    const defense = effectiveStat(target, defenseStat);
     const effectiveness = effectivenessFor(target.types, move.type, rules.typeChart);
     const critical = random(cursor) < rules.criticalChance;
     const variance = rules.minimumDamageVariance + random(cursor) * (rules.maximumDamageVariance - rules.minimumDamageVariance);
@@ -330,6 +341,22 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     if (hp === 0) {
       events.push({ type: 'creatureFainted', side: targetSide, creatureId: target.instanceId });
       state = awardExperience(state, side, user.instanceId, target, rules, events);
+    }
+  }
+
+  for (const effect of move.statChanges ?? []) {
+    const affectedSide = effect.target === 'self' ? side : targetSide;
+    const affected = active(state, affectedSide);
+    if (affected.hp <= 0) continue;
+    const previous = affected.statStages?.[effect.stat] ?? 0;
+    const stage = Math.max(MIN_STAT_STAGE, Math.min(MAX_STAT_STAGE, previous + effect.stages));
+    if (stage === previous) {
+      events.push({ type: 'statStageLimited', side: affectedSide, creatureId: affected.instanceId, stat: effect.stat, stage });
+    } else {
+      state = setCreature(state, affectedSide, sideState(state, affectedSide).activeIndex, {
+        ...affected, statStages: { ...affected.statStages, [effect.stat]: stage },
+      });
+      events.push({ type: 'statStageChanged', side: affectedSide, creatureId: affected.instanceId, stat: effect.stat, change: stage - previous, stage });
     }
   }
 

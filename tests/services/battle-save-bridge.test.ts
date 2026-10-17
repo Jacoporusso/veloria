@@ -29,13 +29,15 @@ test('battle results round-trip HP, PP, experience, status and a captured storag
     playerTeam: [player], opponentTeam: [opponent], playerStorage: [captured],
   });
   const injured = {
-    ...battle.player.creatures[0], hp: 7, experience: 52,
+    ...battle.player.creatures[0], hp: 7, experience: 52, statStages: { attack: -2, defense: 3 },
     moves: [{ moveId: 'thunder-shock', pp: 17 }], status: { status: 'sleep' as const, turnsRemaining: 2 },
   };
   const finalBattle = { ...battle, player: { ...battle.player, creatures: [injured] }, rngState: 789 };
   const result = mergeBattlePlayerState(save, finalBattle);
 
   assert.equal(result.party[0].hp, 7);
+  assert.equal(Object.hasOwn(result.party[0], 'statStages'), false);
+  assert.equal(createBattleCreatureFromSave(result.party[0], { species, moves }).statStages, undefined);
   assert.equal(result.party[0].experience, 52);
   assert.deepEqual(result.party[0].moves, [{ id: 'thunder-shock', pp: 17 }]);
   assert.deepEqual(result.party[0].status, { status: 'sleep', turnsRemaining: 2 });

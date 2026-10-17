@@ -129,6 +129,16 @@ for entry in evolution_entries:
     evolution_sources.add(source)
     evolution_edges.setdefault(source, []).append(target)
 move_registry = json.loads(MOVE_FILE.read_text(encoding="utf-8"))["moves"]
+for move_id, move in move_registry.items():
+    check(move.get("id") == move_id, f"Move key mismatch: {move_id}")
+    effects = move.get("statChanges", [])
+    check(isinstance(effects, list), f"Invalid statChanges in {move_id}")
+    for effect in effects:
+        check(isinstance(effect, dict), f"Invalid stat change in {move_id}")
+        check(effect.get("target") in {"self", "opponent"}, f"Invalid stat target in {move_id}")
+        check(effect.get("stat") in {"attack", "defense", "specialAttack", "specialDefense", "speed"}, f"Invalid stat in {move_id}")
+        change = effect.get("stages")
+        check(type(change) is int and -6 <= change <= 6 and change != 0, f"Invalid stage change in {move_id}")
 item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
 trainer_files = sorted(TRAINERS.glob("*.trainer.json"))
 trainers = [json.loads(file.read_text(encoding="utf-8")) for file in trainer_files]

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { battleExperienceProgress, battleRewardSummary } from '../../src/game/battle/presentation.ts';
+import { battleExperienceProgress, battleRewardSummary, formatStatStageChanged, formatStatStageLimited } from '../../src/game/battle/presentation.ts';
 import { prototypeBattleRules } from '../../src/core/battle/rules.ts';
 import type { BattleCreature, BattleEvent } from '../../src/core/battle/types.ts';
 
@@ -20,4 +20,17 @@ test('reward summary aggregates only actual player XP, levels and captures', () 
   ];
   assert.deepEqual(battleRewardSummary(events), ['+90 XP', '+1 LIVELLO', '1 NUOVA CATTURA']);
   assert.deepEqual(battleRewardSummary([]), []);
+});
+
+test('stat stage presentation uses Italian stat names and change direction', () => {
+  assert.equal(formatStatStageChanged('attack', 1, 'Mareep'), 'l’Attacco di Mareep sale.');
+  assert.equal(formatStatStageChanged('defense', -1, 'Mareep'), 'la Difesa di Mareep scende.');
+  assert.equal(formatStatStageChanged('specialAttack', 1, 'Mareep'), 'l’Attacco speciale di Mareep sale.');
+  assert.equal(formatStatStageChanged('specialDefense', -1, 'Mareep'), 'la Difesa speciale di Mareep scende.');
+  assert.equal(formatStatStageChanged('speed', 1, 'Mareep'), 'la Velocità di Mareep sale.');
+});
+
+test('stat stage limit presentation distinguishes maximum from minimum', () => {
+  assert.equal(formatStatStageLimited('attack', 6, 'Mareep'), 'l’Attacco di Mareep è già al massimo.');
+  assert.equal(formatStatStageLimited('speed', -6, 'Mareep'), 'la Velocità di Mareep è già al minimo.');
 });
