@@ -22,6 +22,9 @@ import { moveCreatureToStorage, withdrawCreatureFromStorage } from '../../core/s
 import { buildPokedexEntries } from '../../core/party/pokedex.ts';
 import { purchaseShopItem } from '../../core/services/shop.ts';
 import { itemCatalog, shopCatalog } from '../battle/catalog.ts';
+import { preloadCreatureArt, createCreaturePortrait } from '../battle/creature-art.ts';
+import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
+import { JourneyPanel } from '../journey/JourneyPanel.ts';
 
 type Direction = CardinalDirection;
 const TILE = 32;
@@ -59,7 +62,10 @@ export class WorldScene extends Phaser.Scene {
   private dialogueBox!: HTMLElement;
   private keys!: Record<string, Phaser.Input.Keyboard.Key>;
   private occupied = new Set<string>();
-  private playerSprite!: Phaser.GameObjects.Image;
+  private playerSprite!: Phaser.GameObjects.Sprite;
+  private traveler!: TravelerAnimation;
+  private journey?: JourneyPanel;
+  private pendingQuestCelebrations: string[] = [];
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
   private battleSceneReady: Promise<void> | null = null;
@@ -85,9 +91,8 @@ export class WorldScene extends Phaser.Scene {
 
   preload() {
     const assetUrl = (path: string) => publicAssetUrl(path, import.meta.env.BASE_URL);
-    for (const direction of ['down', 'up', 'left', 'right']) {
-      this.load.image(`veloria-traveler-${direction}`, assetUrl(`assets/sprites/veloria-traveler-${direction}.png`));
-    }
+    this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.png'));
+    preloadCreatureArt(this);
     const maps = listMaps();
     let initialMap: RegisteredMap;
     try { initialMap = getMap(this.save.player.mapId); }
@@ -118,6 +123,12 @@ export class WorldScene extends Phaser.Scene {
     this.cameras.main.setDeadzone(100, 60);
     this.dialogueBox=document.querySelector<HTMLElement>('#dialogue-box')!;
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
+    const stage = document.querySelector<HTMLElement>('.game-stage');
+    if (stage) {
+      this.journey = new JourneyPanel(stage);
+      this.journey.update(this.save);
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.journey?.destroy());
+    }
     this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,M,P') as Record<string, Phaser.Input.Keyboard.Key>;
     this.input.keyboard!.on('keydown-E', () => this.advanceOrInteract());
     this.input.keyboard!.on('keydown-SPACE', () => this.advanceOrInteract());
@@ -238,7 +249,7 @@ export class WorldScene extends Phaser.Scene {
       const count = document.createElement('span');
       count.className = 'pokedex-count';
       count.textContent = entry.partyCount ? `SQUADRA ×${entry.partyCount}` : `BOX ×${entry.storageCount}`;
-      item.append(number, name, count);
+      item.append(createCreaturePortrait(entry.speciesId), number, name, count);
       return item;
     }));
     if (registered.length === 0) {
@@ -273,13 +284,14 @@ export class WorldScene extends Phaser.Scene {
   private makePlayer() {
     const player = this.add.container(0, 0).setSize(25, 40);
     const shadow = this.add.ellipse(0, 20, 24, 8, 0x24382e, .38);
-    this.playerSprite = this.add.image(0, 0, 'veloria-traveler-down');
+    this.traveler = new TravelerAnimation(this);
+    this.playerSprite = this.traveler.sprite;
     player.add([shadow, this.playerSprite]);
     return player;
   }
 
   private drawFace() {
-    this.playerSprite?.setTexture(`veloria-traveler-${this.facing}`);
+    this.traveler?.face(this.facing);
   }
 
   private bindTouchControls() {
@@ -323,7 +335,7 @@ export class WorldScene extends Phaser.Scene {
       animationQuality.addEventListener('change', () => {
         this.reducedAnimations = animationQuality.value === 'reduced';
         this.tweens.killTweensOf(this.playerSprite);
-        this.playerSprite.setY(0);
+        this.playerSprite.setY(-8);
         this.refreshMapVisuals();
         try { localStorage.setItem('veloria-animation-quality', animationQuality.value); } catch { /* Preference stays active for this session. */ }
       });
@@ -335,11 +347,12 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector<HTMLInputElement>('#save-file')?.addEventListener('change',event=>void this.importBackup(event.currentTarget as HTMLInputElement));
   }
 
-  update() {
+  update(time: number) {
+    this.traveler?.update(time);
     // The UI can be replaced during a Vite hot reload while Phaser keeps its
     // scene alive for a frame. Treat a missing starter panel as closed instead
     // of letting one stale DOM reference stop the whole world loop.
-    if(this.battleActive||this.mapTransitionLoading||this.dialogueLines.length||this.starterChoices?.hidden===false||this.pokedexOpen)return;
+    if(this.battleActive||this.mapTransitionLoading||this.dialogueLines.length||this.starterChoices?.hidden===false||this.pokedexOpen||this.journey?.isOpen)return;
     if(this.moving)return;
     if(this.heldDirection){this.tryMove(this.heldDirection);return;}
     if(this.keys.W.isDown||this.keys.UP.isDown)this.tryMove('up');
@@ -349,18 +362,15 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private tryMove(direction:Direction) {
-    if(this.battleActive||this.mapTransitionLoading)return;
+    if(this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
     if(this.moving){this.queuedDirection=direction;return;}
     const destination=tryGridMove(this.playerTile,direction,this.renderedMap.width,this.renderedMap.height,this.occupied);
     this.facing=direction;this.drawFace();
     if(!destination.moved)return;
     const {x,y}=destination.position;
     this.moving=true;this.playerTile={x,y};
-    if (!this.reducedAnimations) {
-      this.tweens.add({ targets: this.playerSprite, y: -2, duration: 66, yoyo: true, ease: 'Sine.easeInOut' });
-    }
-    this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Sine.easeInOut',onUpdate:()=>this.player.setDepth(this.player.y+20),onComplete:()=>{
-      this.playerSprite.setY(0);
+    this.traveler.step(direction, this.time.now, this.reducedAnimations);
+    this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Linear',onUpdate:()=>this.player.setDepth(this.player.y+20),onComplete:()=>{
       this.moving=false;this.save.player.x=x;this.save.player.y=y;
       this.persistProgress();
       const centerX=x*TILE+TILE/2,centerY=y*TILE+TILE/2;
@@ -576,6 +586,7 @@ export class WorldScene extends Phaser.Scene {
         inventory: this.save.inventory,
         createInstanceId: createUniqueId,
         arenaTextureKey: this.map.metadata.battleBackgroundKey,
+        reducedAnimations: this.reducedAnimations,
         onComplete: (finalState: BattleState, events: readonly BattleEvent[]) => {
           this.save = mergeBattlePlayerState(this.save, finalState);
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
@@ -605,6 +616,8 @@ export class WorldScene extends Phaser.Scene {
           this.battleActive = false;
           this.onMusicThemeChange(this.map.metadata.musicId);
           document.body.classList.remove('battle-active');
+          this.journey?.celebrate(this.pendingQuestCelebrations);
+          this.pendingQuestCelebrations = [];
           this.persistProgress();
           this.showToast(dismissMessage);
         },
@@ -631,7 +644,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private advanceOrInteract() {
-    if (this.battleActive || this.mapTransitionLoading) return;
+    if (this.battleActive || this.mapTransitionLoading || this.journey?.isOpen || this.pokedexOpen) return;
     if(this.dialogueLines.length){
       if (this.typingTimer !== undefined) { this.revealDialogueLine(); return; }
       if(this.dialogueIndex<this.dialogueLines.length-1){this.dialogueIndex++;this.updateDialoguePage();}
@@ -698,7 +711,8 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=true;
     this.starterChoices.replaceChildren(...starters.map(starter=>{
       const button=document.createElement('button');
-      button.className='starter-choice';button.type='button';button.textContent=starter.name;
+      button.className='starter-choice';button.type='button';
+      button.append(createCreaturePortrait(starter.speciesId), document.createTextNode(starter.name));
       button.addEventListener('click',()=>{
         const selected = selectStarter(this.save, starter.speciesId, createUniqueId());
         if (!selected) return;
@@ -814,6 +828,8 @@ export class WorldScene extends Phaser.Scene {
   private applyQuestEvent(trigger: string): boolean {
     const result = applyQuestEvent(this.save, trigger, questCatalog);
     this.save = result.save;
+    if (this.battleActive) this.pendingQuestCelebrations.push(...result.completedQuestIds);
+    else this.journey?.celebrate(result.completedQuestIds);
     if (result.progressed) this.persistProgress();
     return result.progressed;
   }
@@ -847,6 +863,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private persistProgress(showToast=false) {
+    this.journey?.update(this.save);
     if (this.previewMode) {
       if (showToast) this.showToast('Anteprima: i progressi non vengono salvati.');
       return;

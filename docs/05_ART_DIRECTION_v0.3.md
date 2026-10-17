@@ -67,4 +67,12 @@ L'illustrazione regionale è un **concept del progetto**; non dimostra licenza p
 
 ## 6. Asset production priority
 
+### Aggiornamento implementato 17 ottobre 2026
+
+- Il protagonista usa un atlas originale a sedici frame: quattro direzioni e quattro fasi di camminata, con movimento visivo continuo e collisioni sempre su griglia. Le animazioni ridotte mantengono una posa leggibile.
+- Creature illustrate e UI sono separate dai dati e dal motore: `game/battle/creature-art.ts` associa ID stabili a celle di atlante. Otto specie sono coperte (Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Spinarak, Mareep); dodici restano senza illustrazione, compresi gli starter. Le tavole mancanti sono state rifiutate dal generatore, quindi non costituiscono una consegna completata.
+- La presentazione della battaglia consuma gli eventi già risolti: affondo/proiettile, impatto con danno numerico, HP, cure, cattura, KO, XP e livello. Saltare il testo interrompe solo gli effetti. I comandi touch sono ingranditi e i layout distinguono portrait compatto e landscape.
+- Diario e HUD mostrano flag e ricompense del catalogo esistente; non inventano premi, progressi o nuovi campi di salvataggio.
+- Prompt esatti in `assets/prompts/character-modernization-v1.md`, modalità ImageGen integrata. Asset di prototipo privato con revisione visiva e dei diritti ancora da svolgere; questa integrazione non approva una nuova direzione artistica né l’intero gioco.
+
 Prima **un quadrato giocabile di Borgofonte con placeholder coerenti**, poi avatar/animazioni, collisioni, erba e vegetazione alta, Brumalta, UI combattimento. Gli screenshot di concept servono come guida visiva, non come asset di gioco da ritagliare in modo casuale.

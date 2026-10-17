@@ -183,18 +183,18 @@ async function tapBattleCanvas(page: import('@playwright/test').Page, xRatio: nu
 async function advanceBattleMessages(page: import('@playwright/test').Page) {
   for (let tap = 0; tap < 14; tap += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
-    await tapBattleCanvas(page, 0.5, 58);
+    await tapBattleCanvas(page, 0.5, 132);
     await page.waitForTimeout(90);
   }
 }
 
 async function captureWildOffline(page: import('@playwright/test').Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
-  await tapBattleCanvas(page, 0.75, 52);
-  await tapBattleCanvas(page, 0.25, 83);
+  await tapBattleCanvas(page, 0.75, 93);
+  await tapBattleCanvas(page, 0.25, 144);
   for (let tap = 0; tap < 14; tap += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
-    await tapBattleCanvas(page, 0.5, 58);
+    await tapBattleCanvas(page, 0.5, 132);
     await page.waitForTimeout(90);
   }
 }
@@ -448,8 +448,8 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   for (let turn = 0; turn < 10; turn += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 83);
-    await tapBattleCanvas(page, 0.25, 75);
+    await tapBattleCanvas(page, 0.25, 144);
+    await tapBattleCanvas(page, 0.25, 140);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);

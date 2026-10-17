@@ -46,6 +46,8 @@ Il repository e il vertical slice sono già avviati. Per aggiungere zone e siste
 
 ## Stato dell'implementazione
 
+**Aggiornamento visivo 0.3.17:** protagonista con camminata a 16 frame, diario con obiettivi/ricompense reali e battaglia con feedback degli eventi, HP animati e XP. Otto specie hanno nuove illustrazioni; le altre dodici, inclusi gli starter, sono ancora da completare perché le relative tavole sono state rifiutate dal generatore. Le immagini disponibili e i prompt sono registrati in `assets/prompts/character-modernization-v1.md`. Il bilanciamento e alcune mosse di stato restano prototipali; l’ammodernamento non è dichiarato concluso.
+
 Il percorso giocabile va dalla scelta dello starter alla Medaglia Aurora; dopo la vittoria su Mira si apre anche il tratto aggiuntivo Brumalta → Terrazze del Muschio (R03) → Radicelmo, con la missione dell'archivio dei semi. Il percorso comprende incontri giorno/notte, battaglie e cattura, missione di Ada, cure e negozio a Brumalta, sigilli sequenziali della Palestra, box party, IndexedDB e backup JSON. Le decisioni di progressione e bilanciamento non ancora fissate restano prototipali. La QA su dispositivi fisici e la revisione finale degli asset restano gate manuali.
 
 ## Convenzioni

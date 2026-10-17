@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v29';
+const CACHE = 'veloria-shell-v30';
 const SHELL = [
   './',
   './index.html',
@@ -26,6 +26,9 @@ const SHELL = [
   './assets/sprites/veloria-bosco-ancient-tree-v1.png',
   './assets/sprites/veloria-bosco-pond-v1.png',
   './assets/battle/veloria-battle-forest-v1.png',
+  './assets/creatures/veloria-creatures-3-v1.png',
+  './assets/creatures/veloria-creatures-4-v1.png',
+  './assets/sprites/veloria-traveler-walk-v2.png',
   './assets/sprites/veloria-traveler-down.png',
   './assets/sprites/veloria-traveler-up.png',
   './assets/sprites/veloria-traveler-left.png',

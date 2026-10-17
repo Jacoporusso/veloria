@@ -1,3 +1,11 @@
+## veloria-content-0.3.17
+
+- Added a four-direction, sixteen-frame traveler walk atlas and continuous tile interpolation; collision, interaction and save coordinates stay unchanged.
+- Added a journey HUD and accessible journal with nine milestones derived from existing flags, real quest rewards, collection and badges. Completion cards are deferred until battle dismissal when necessary.
+- Replaced geometric battle creatures with illustrated atlas entries for Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Spinarak and Mareep. Other twelve species, including the four starters, still need authorized illustrations: image generation rejected those sheets, and unavailable art stays explicit rather than loading broken URLs.
+- Added event-driven attack, damage, healing, capture, KO and level feedback; HP transitions, real XP progress and a battle reward summary. Enlarged touch commands and provided compact portrait and landscape layouts. Battle resolution and balance remain unchanged.
+- Registered three generated assets and precached them in shell v30. Exact prompts and generation coverage are recorded in `assets/prompts/character-modernization-v1.md`; no save migration.
+
 ## veloria-content-0.3.16
 
 - Added original bedroom and laboratory interiors in Borgofonte, with reciprocal doors, furniture collisions, research hotspots, and a resting service in the bedroom.

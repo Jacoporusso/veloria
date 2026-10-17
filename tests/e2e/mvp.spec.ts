@@ -553,7 +553,7 @@ async function advanceBattleMessages(page: Page) {
   for (let tap = 0; tap < 14; tap += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
     // The battle message button is centered; this coordinate falls between command columns when a menu is open.
-    await tapBattleCanvas(page, 0.5, 58);
+    await tapBattleCanvas(page, 0.5, 132);
     await page.waitForTimeout(90);
   }
 }
@@ -561,8 +561,8 @@ async function advanceBattleMessages(page: Page) {
 async function captureWildWithTouch(page: Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   // CATTURA is row two, column two; the first capture item is the top-left choice.
-  await tapBattleCanvas(page, 0.75, 52);
-  await tapBattleCanvas(page, 0.25, 83);
+  await tapBattleCanvas(page, 0.75, 93);
+  await tapBattleCanvas(page, 0.25, 144);
   await advanceBattleMessages(page);
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
 }
@@ -720,7 +720,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   let before = await readCurrentSave(page);
   expect(before.player).toMatchObject({ mapId: 'veloria/r01_sentiero_alba', x: 7, y: 6 });
   await seedPidgeyBattle(page);
-  await page.reload();
+  await page.reload({ waitUntil: 'domcontentloaded' });
   await waitForWorldReady(page);
   await walkToTile(page, 'destra', 1);
   await expect(page.locator('body')).toHaveClass(/battle-active/);
@@ -740,15 +740,15 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   const canvas = page.locator('#game canvas');
 
   // LOTTA (first menu cell), then Growl (second move cell).
-  await tapBattleCanvas(page, 0.25, 83);
-  await tapBattleCanvas(page, 0.75, 75);
+  await tapBattleCanvas(page, 0.25, 144);
+  await tapBattleCanvas(page, 0.75, 140);
   await advanceBattleMessages(page);
 
   // Scratch is the first move cell. Repeat until the battle closes; centered message taps are harmless on menus.
   for (let turn = 0; turn < 6; turn += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 83);
-    await tapBattleCanvas(page, 0.25, 75);
+    await tapBattleCanvas(page, 0.25, 144);
+    await tapBattleCanvas(page, 0.25, 140);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
@@ -765,7 +765,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   expect(defeated.moves.find((move: any) => move.id === 'growl').pp).toBe(0);
   expect(defeated.moves.find((move: any) => move.id === 'scratch').pp).toBeLessThan(initialCreature.moves.find((move: any) => move.id === 'scratch').pp);
 
-  await page.reload();
+  await page.reload({ waitUntil: 'domcontentloaded' });
   await waitForWorldReady(page);
   const restored = await readCurrentSave(page);
   expect(restored.party[0]).toMatchObject({
@@ -931,8 +931,8 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
 
   for (let turn = 0; turn < 10; turn += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 83);
-    await tapBattleCanvas(page, 0.25, 75);
+    await tapBattleCanvas(page, 0.25, 144);
+    await tapBattleCanvas(page, 0.25, 140);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);

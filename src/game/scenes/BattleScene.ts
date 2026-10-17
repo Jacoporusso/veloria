@@ -3,6 +3,8 @@ import { resolveBattleTurn, type BattleCommands, type MoveCatalog } from '../../
 import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState } from '../../core/battle/types.ts';
 import { formatBattleMoveLabel } from '../battle/format-move-label.ts';
+import { createCreatureImage } from '../battle/creature-art.ts';
+import { battleExperienceProgress, battleRewardSummary, battleTypeLabel } from '../battle/presentation.ts';
 
 export interface BattleSceneInit {
   /** Prepared snapshot from the game core. Scene code never creates or loads saves. */
@@ -18,6 +20,7 @@ export interface BattleSceneInit {
   readonly inventory?: Readonly<Record<string, number>>;
   /** Optional image texture declared by the current MapDefinition. */
   readonly arenaTextureKey?: string;
+  readonly reducedAnimations?: boolean;
 }
 
 type ViewMode = 'menu' | 'moves' | 'party' | 'items' | 'captures' | 'message';
@@ -47,7 +50,13 @@ export class BattleScene extends Phaser.Scene {
   private arenaTextureKey?: string;
   private ui!: Phaser.GameObjects.Container;
   private mode: ViewMode = 'menu';
-  private pendingMessages: string[] = [];
+  private pendingMessages: Array<{ text: string; event?: BattleEvent }> = [];
+  private presentedEvent?: BattleEvent;
+  private reducedAnimations = false;
+  private actors: Partial<Record<BattleSide, Phaser.GameObjects.Container>> = {};
+  private visualHp = new Map<string, number>();
+  private hpTweenFrom = new Map<string, number>();
+  private visualActiveIds = new Map<BattleSide, string>();
   private eventLog: BattleEvent[] = [];
   private remainingInventory?: Record<string, number>;
   private completionReported = false;
@@ -59,6 +68,7 @@ export class BattleScene extends Phaser.Scene {
   private readonly handleScaleResize = (): void => this.render();
   private readonly removeScaleResizeListener = (): void => {
     this.scale.off('resize', this.handleScaleResize);
+    this.ui?.list.forEach(child => this.tweens.killTweensOf(child));
   };
 
   constructor() {
@@ -73,6 +83,7 @@ export class BattleScene extends Phaser.Scene {
     this.onDismiss = data.onDismiss;
     this.createInstanceId = data.createInstanceId;
     this.arenaTextureKey = data.arenaTextureKey;
+    this.reducedAnimations = data.reducedAnimations ?? globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
     this.remainingInventory = data.inventory ? { ...data.inventory } : undefined;
     this.mode = 'menu';
     this.pendingMessages = [];
@@ -81,6 +92,9 @@ export class BattleScene extends Phaser.Scene {
     this.terminalShown = false;
     this.captureCounter = 0;
     this.playerForcedToSwitch = false;
+    this.presentedEvent = undefined;
+    this.visualHp.clear();
+    this.visualActiveIds.clear();
   }
 
   create(): void {
@@ -124,19 +138,49 @@ export class BattleScene extends Phaser.Scene {
 
   private render(): void {
     if (!this.ui || !this.state) return;
+    // Cancel presentation tweens before replacing their targets (including on resize).
+    this.ui.list.forEach(child => this.tweens.killTweensOf(child));
     this.ui.removeAll(true);
+    this.actors = {};
+    const event = this.mode === 'message' ? this.pendingMessages[0]?.event : undefined;
+    const newEvent = event && event !== this.presentedEvent ? event : undefined;
+    this.hpTweenFrom.clear();
+    if (newEvent) {
+      this.presentedEvent = newEvent;
+      this.applyVisualEvent(newEvent);
+    }
     this.selectableButtons = [];
     this.selectionIndex = 0;
     const width = this.scale.width;
     const height = this.scale.height;
     this.drawArena(width, height);
-    this.drawCreatureInfo(this.activeCreature('opponent'), 'opponent', 18, 18, width - 36, 66);
-    this.drawCreatureInfo(this.activeCreature('player'), 'player', width * 0.36, height * 0.40, width * 0.61 - 18, 72);
-    this.drawCreaturePlaceholder(this.activeCreature('opponent'), width * 0.75, height * 0.28, 0.94, false);
-    this.drawCreaturePlaceholder(this.activeCreature('player'), width * 0.24, height * 0.59, 1.08, true);
-    this.drawPartyPips(width, height);
+    const fieldHeight = Math.max(180, height - this.commandHeight() - 115);
+    const landscape = height < 520 && width > 600;
+    const compact = !landscape && height < 700;
+    if (landscape) {
+      // Put cards beside the stage: a portrait stack cannot fit a short phone screen.
+      const size = Math.min(118, fieldHeight * 0.62);
+      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', width * 0.72, 16, width * 0.28 - 14, 79);
+      this.drawCreatureInfo(this.displayedCreature('player'), 'player', 14, 16, width * 0.28 - 14, 92);
+      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.61, fieldHeight * 0.56, size);
+      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.39, fieldHeight * 0.61, size);
+    } else if (compact) {
+      const size = Math.min(128, width * 0.30);
+      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', 14, 12, width - 28, 70);
+      this.drawCreatureInfo(this.displayedCreature('player'), 'player', width * 0.35, fieldHeight - 92, width * 0.65 - 14, 92);
+      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.73, 90 + size / 2, size);
+      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.175, fieldHeight - 44, Math.min(112, width * 0.30));
+    } else {
+      const opponentCardWidth = width > 600 ? width * 0.47 : width - 28;
+      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', 14, 16, opponentCardWidth, 79);
+      this.drawCreatureInfo(this.displayedCreature('player'), 'player', width * 0.35, fieldHeight * 0.54, width * 0.65 - 14, 92);
+      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.73, Math.max(145, fieldHeight * 0.35), Math.min(150, width * 0.38));
+      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.23, fieldHeight * 0.78, Math.min(170, width * 0.42));
+    }
+    if (!compact) this.drawPartyPips(width, height);
     this.drawMessagePanel(width, height);
     this.drawCommandPanel(width, height);
+    if (newEvent) this.animateEvent(newEvent);
   }
 
   private drawArena(width: number, height: number): void {
@@ -165,59 +209,68 @@ export class BattleScene extends Phaser.Scene {
 
   private drawCreatureInfo(creature: BattleCreature, side: BattleSide, x: number, y: number, width: number, height: number): void {
     this.panel(x, y, width, height, COLORS.panel, COLORS.line, 0.94);
-    const name = this.add.text(x + 12, y + 9, `${creature.name}  Lv.${creature.level}`, {
-      fontFamily: 'DM Mono, monospace', fontSize: '11px', color: COLORS.paper,
+    const name = this.add.text(x + 12, y + 9, creature.name, {
+      fontFamily: 'Georgia, serif', fontSize: '18px', color: COLORS.paper,
     });
     this.ui.add(name);
-    const hpLabel = this.add.text(x + 12, y + 30, 'HP', { fontFamily: 'DM Mono, monospace', fontSize: '8px', color: COLORS.gold });
+    this.label(x + width - 12, y + 13, `LV ${creature.level}`, COLORS.gold, 9).setOrigin(1, 0);
+    const hpLabel = this.add.text(x + 12, y + 34, 'HP', { fontFamily: 'DM Mono, monospace', fontSize: '9px', color: COLORS.gold });
     this.ui.add(hpLabel);
     const barX = x + 35;
-    const barY = y + 31;
+    const barY = y + 36;
     const barWidth = Math.max(42, width - 92);
     this.rect(barX, barY, barWidth, 7, 0x08140f);
-    const ratio = Phaser.Math.Clamp(creature.hp / creature.stats.maxHp, 0, 1);
+    const hp = this.visualHp.get(creature.instanceId) ?? creature.hp;
+    const ratio = Phaser.Math.Clamp(hp / creature.stats.maxHp, 0, 1);
     const hpColor = ratio > 0.5 ? COLORS.green : ratio > 0.2 ? 0xcbb76b : COLORS.red;
-    if (ratio > 0) this.rect(barX, barY, Math.max(2, barWidth * ratio), 7, hpColor);
-    const hpText = this.add.text(x + width - 12, y + 29, `${creature.hp}/${creature.stats.maxHp}`, {
-      fontFamily: 'DM Mono, monospace', fontSize: '8px', color: COLORS.paper,
+    const fill = this.add.rectangle(barX, barY, barWidth, 7, hpColor).setOrigin(0, 0).setScale(ratio, 1);
+    this.ui.add(fill);
+    const previousHp = this.hpTweenFrom.get(creature.instanceId);
+    if (previousHp !== undefined && !this.reducedAnimations) {
+      fill.scaleX = Phaser.Math.Clamp(previousHp / creature.stats.maxHp, 0, 1);
+      this.tweens.add({ targets: fill, scaleX: ratio, duration: 420, ease: 'Cubic.easeOut' });
+    }
+    const hpText = this.add.text(x + width - 12, y + 34, `${hp}/${creature.stats.maxHp}`, {
+      fontFamily: 'DM Mono, monospace', fontSize: '9px', color: COLORS.paper,
     }).setOrigin(1, 0);
     this.ui.add(hpText);
     if (creature.status) {
-      this.label(x + 12, y + height - 16, this.statusName(creature.status.status).toUpperCase(), '#c66f5d', 7);
+      this.label(x + 12, y + 53, this.statusName(creature.status.status).toUpperCase(), '#ffad8c', 8);
     } else {
-      this.label(x + 12, y + height - 16, side === 'opponent' ? 'INCONTRO SELVATICO' : 'LA TUA SQUADRA', COLORS.muted, 7);
+      this.label(x + 12, y + 53, creature.types.map(battleTypeLabel).join(' · '), COLORS.muted, 8);
+    }
+    if (side === 'player') {
+      const progress = battleExperienceProgress(creature, this.rules);
+      if (progress) {
+        this.rect(x + 12, y + 71, width - 24, 3, 0x091812);
+        if (progress.ratio > 0) this.rect(x + 12, y + 71, (width - 24) * progress.ratio, 3, 0x87c4df);
+        this.label(x + 12, y + 78, progress.label, '#a9d5e6', 8);
+      }
     }
   }
 
-  private drawCreaturePlaceholder(creature: BattleCreature, x: number, y: number, scale: number, isPlayer: boolean): void {
-    const accent = this.typeColor(creature.types[0]);
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x07110d, 0.30);
-    graphics.fillEllipse(x, y + 33 * scale, 82 * scale, 18 * scale);
-    graphics.fillStyle(accent, 0.22);
-    graphics.fillEllipse(x, y + 9 * scale, 78 * scale, 68 * scale);
-    graphics.fillStyle(accent, 0.96);
-    graphics.fillEllipse(x, y, 51 * scale, 46 * scale);
-    graphics.fillStyle(0xe8dfc6, 0.88);
-    graphics.fillEllipse(x + (isPlayer ? 9 : -9) * scale, y - 6 * scale, 10 * scale, 11 * scale);
-    graphics.fillStyle(0x22352b, 1);
-    graphics.fillCircle(x + (isPlayer ? 10 : -10) * scale, y - 6 * scale, 2 * scale);
-    graphics.fillStyle(accent, 0.9);
-    graphics.fillRoundedRect(x - 22 * scale, y + 11 * scale, 44 * scale, 27 * scale, 10 * scale);
-    graphics.fillStyle(0xd8c992, 0.9);
-    graphics.fillEllipse(x, y + 15 * scale, 19 * scale, 10 * scale);
-    this.ui.add(graphics);
-    const creatureName = this.add.text(x, y + 52 * scale, creature.name, {
-      fontFamily: 'DM Mono, monospace', fontSize: '8px', color: COLORS.paper,
-      stroke: '#111d19', strokeThickness: 3,
-    }).setOrigin(0.5, 0);
-    this.ui.add(creatureName);
+  private drawCreature(creature: BattleCreature, side: BattleSide, x: number, y: number, size: number): void {
+    const shadow = this.add.ellipse(x, y + size * 0.40, size * 0.67, 13, 0x081a12, 0.37);
+    const actor = this.add.container(x, y);
+    const image = createCreatureImage(this, creature.speciesId, 0, 0);
+    if (image) {
+      const scale = size / Math.max(image.width, image.height);
+      image.setScale(scale).setFlipX(side === 'player');
+      actor.add(image);
+    } else {
+      // Unknown content stays explicit rather than impersonating a different species.
+      actor.add(this.add.text(0, 0, creature.name, { fontFamily: 'Georgia, serif', fontSize: '18px', color: COLORS.paper }).setOrigin(0.5));
+    }
+    if ((this.visualHp.get(creature.instanceId) ?? creature.hp) === 0) actor.setAlpha(0.3);
+    this.ui.add([shadow, actor]);
+    this.actors[side] = actor;
+    if (!this.reducedAnimations) this.tweens.add({ targets: actor, y: y - 3, duration: side === 'player' ? 1300 : 1500, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
   }
 
   private drawPartyPips(width: number, height: number): void {
     const ownParty = this.state.player.creatures;
     const opponentParty = this.state.opponent.creatures;
-    const y = height - 198;
+    const y = height - this.commandHeight() - 111;
     this.label(24, y, 'SQUADRA', COLORS.muted, 7);
     ownParty.forEach((creature, index) => this.pip(91 + index * 15, y + 4, creature.hp > 0, index === this.state.player.activeIndex));
     if (this.state.battleType === 'trainer') {
@@ -228,16 +281,16 @@ export class BattleScene extends Phaser.Scene {
 
   private drawMessagePanel(width: number, height: number): void {
     const x = 14;
-    const y = height - 174;
+    const y = height - this.commandHeight() - 92;
     const panelWidth = width - 28;
     this.panel(x, y, panelWidth, 82, 0x18271f, 0x91835c, 0.96);
     const message = this.mode === 'message'
-      ? this.pendingMessages[0] ?? this.outcomeMessage()
+      ? this.pendingMessages[0]?.text ?? this.outcomeMessage()
       : this.mode === 'party' && this.playerForcedToSwitch
         ? 'Scegli chi mandare in campo.'
         : 'Cosa vuoi fare?';
     const text = this.add.text(x + 14, y + 13, message, {
-      fontFamily: 'Playfair Display, Georgia, serif', fontSize: '14px', color: COLORS.paper,
+      fontFamily: 'Playfair Display, Georgia, serif', fontSize: '16px', color: COLORS.paper,
       wordWrap: { width: panelWidth - 28 }, lineSpacing: 3,
     });
     this.ui.add(text);
@@ -251,11 +304,11 @@ export class BattleScene extends Phaser.Scene {
 
   private drawCommandPanel(width: number, height: number): void {
     const x = 14;
-    const y = height - 95;
+    const y = height - this.commandHeight();
     const panelWidth = width - 28;
-    this.panel(x, y, panelWidth, 95, 0x18271f, 0x91835c, 0.98);
+    this.panel(x, y, panelWidth, this.commandHeight(), 0x18271f, 0x91835c, 0.98);
     if (this.mode === 'message') {
-      this.button(x, y, panelWidth, 73, 'CONTINUA', () => this.advanceMessage(), COLORS.panelRaised, true, 0, 0);
+      this.button(x + 8, y + 8, panelWidth - 16, 52, this.terminalShown ? 'TORNA AL VIAGGIO' : 'CONTINUA', () => this.advanceMessage(), COLORS.panelRaised, true, 0, 0);
       return;
     }
     if (this.mode === 'menu') {
@@ -292,7 +345,7 @@ export class BattleScene extends Phaser.Scene {
       const move = this.moveCatalog[slot.moveId];
       return {
         label: move
-          ? formatBattleMoveLabel(move.name, move.type, slot.pp, move.maxPp)
+          ? `${formatBattleMoveLabel(move.name, move.type, slot.pp, move.maxPp)}\n${move.power > 0 ? `POT ${move.power}` : 'STATO'} · PREC ${move.accuracy}%`
           : `${slot.moveId}\nPP ${slot.pp}/${slot.pp}`,
         enabled: slot.pp > 0,
         callback: () => this.act({ kind: 'useMove', moveSlot: index }),
@@ -326,9 +379,13 @@ export class BattleScene extends Phaser.Scene {
 
   private drawGridButtons(x: number, y: number, width: number, options: Array<{ label: string; enabled: boolean; callback: () => void }>, columns: number, maxRows: number): void {
     const gap = 7;
+    if (this.scale.height < 520 && this.scale.width > 600) {
+      columns = Math.max(3, Math.ceil(options.length / 2));
+      maxRows = 2;
+    }
     const buttonWidth = (width - gap * (columns - 1)) / columns;
-    const buttonAreaHeight = 86;
-    const buttonHeight = Math.min(43, (buttonAreaHeight - gap * (maxRows - 1)) / maxRows);
+    const buttonAreaHeight = this.commandHeight() - 20;
+    const buttonHeight = Math.min(52, (buttonAreaHeight - gap * (maxRows - 1)) / maxRows);
     options.slice(0, columns * maxRows).forEach((option, index) => {
       const column = index % columns;
       const row = Math.floor(index / columns);
@@ -337,7 +394,7 @@ export class BattleScene extends Phaser.Scene {
       this.button(bx, by, buttonWidth, buttonHeight, option.label, option.callback, option.enabled ? COLORS.panelRaised : 0x1a241f, option.enabled, row, column);
     });
     if (this.mode !== 'menu' && !this.playerForcedToSwitch) {
-      const back = this.label(x + width - 4, y + 88, 'B · INDIETRO', COLORS.muted, 7).setOrigin(1, 0);
+      const back = this.label(x + width - 4, y + this.commandHeight() - 14, 'B · INDIETRO', COLORS.muted, 8).setOrigin(1, 0);
       back.setInteractive({ useHandCursor: true }).on('pointerdown', this.back, this);
     }
   }
@@ -354,7 +411,7 @@ export class BattleScene extends Phaser.Scene {
       });
     }
     const text = this.add.text(x + width / 2, y + height / 2, label, {
-      fontFamily: 'DM Mono, monospace', fontSize: '8px', color: enabled ? COLORS.paper : '#788477',
+      fontFamily: 'DM Mono, monospace', fontSize: '11px', color: enabled ? COLORS.paper : '#788477',
       align: 'center', lineSpacing: 2, wordWrap: { width: width - 12 },
     }).setOrigin(0.5);
     this.ui.add([background, text]);
@@ -363,6 +420,10 @@ export class BattleScene extends Phaser.Scene {
 
   private activateSelected(): void {
     this.selectableButtons[this.selectionIndex]?.callback();
+  }
+
+  private commandHeight(): number {
+    return this.scale.height < 520 && this.scale.width > 600 ? 112 : 166;
   }
 
   private navigate(rowDelta: number, columnDelta: number): void {
@@ -429,6 +490,11 @@ export class BattleScene extends Phaser.Scene {
   private act(playerCommand: BattleCommand): void {
     if (this.state.outcome.kind !== 'ongoing') return;
     const opponentCommand = this.chooseOpponentCommand();
+    this.visualHp = new Map([...this.state.player.creatures, ...this.state.opponent.creatures].map(creature => [creature.instanceId, creature.hp]));
+    this.visualActiveIds = new Map<BattleSide, string>([
+      ['player', this.activeCreature('player').instanceId],
+      ['opponent', this.activeCreature('opponent').instanceId],
+    ]);
     const transition = resolveBattleTurn(
       this.state,
       { player: playerCommand, opponent: opponentCommand } satisfies BattleCommands,
@@ -439,8 +505,11 @@ export class BattleScene extends Phaser.Scene {
     this.eventLog.push(...transition.events);
     this.consumeInventoryForEvents(transition.events);
     this.playerForcedToSwitch = this.state.outcome.kind === 'ongoing' && this.activeCreature('player').hp <= 0;
-    this.pendingMessages = transition.events.map(event => this.describeEvent(event)).filter((message): message is string => Boolean(message));
-    if (!this.pendingMessages.length) this.pendingMessages = ['Nessuna azione ha avuto effetto.'];
+    this.pendingMessages = transition.events.flatMap(event => {
+      const text = this.describeEvent(event);
+      return text ? [{ text, event }] : [];
+    });
+    if (!this.pendingMessages.length) this.pendingMessages = [{ text: 'Nessuna azione ha avuto effetto.' }];
     this.mode = 'message';
     if (this.state.outcome.kind !== 'ongoing' && !this.completionReported) {
       this.completionReported = true;
@@ -475,15 +544,98 @@ export class BattleScene extends Phaser.Scene {
       return;
     }
     this.mode = this.playerForcedToSwitch ? 'party' : 'menu';
+    this.visualHp.clear();
+    this.visualActiveIds.clear();
     this.render();
   }
 
   private showTerminalMessage(): void {
     const terminal = this.outcomeMessage();
-    this.pendingMessages = [terminal];
+    const rewards = battleRewardSummary(this.eventLog);
+    this.pendingMessages = [{ text: `${terminal}${rewards.length ? `\n${rewards.join('   ·   ')}` : ''}` }];
     this.mode = 'message';
     this.terminalShown = true;
     this.render();
+  }
+
+  private applyVisualEvent(event: BattleEvent): void {
+    if (event.type === 'creatureSwitched') this.visualActiveIds.set(event.side, event.toId);
+    const changeHp = (side: BattleSide, delta: number): void => {
+      const creature = this.displayedCreature(side);
+      const current = this.visualHp.get(creature.instanceId) ?? creature.hp;
+      this.hpTweenFrom.set(creature.instanceId, current);
+      this.visualHp.set(creature.instanceId, Phaser.Math.Clamp(current + delta, 0, creature.stats.maxHp));
+    };
+    if (event.type === 'damageApplied') changeHp(event.targetSide, -event.amount);
+    if (event.type === 'statusTick' && event.damage) changeHp(event.side, -event.damage);
+    if (event.type === 'itemUsed' && event.healed) {
+      const creature = this.creatureById(event.side, event.targetId);
+      if (creature) {
+        const previousHp = this.visualHp.get(creature.instanceId) ?? creature.hp;
+        this.hpTweenFrom.set(creature.instanceId, previousHp);
+        this.visualHp.set(creature.instanceId, Math.min(creature.stats.maxHp, previousHp + event.healed));
+      }
+    }
+    // Level-ups may increase max HP; the terminal panel must match the resolved snapshot.
+    if (event.type === 'battleEnded') { this.visualHp.clear(); this.visualActiveIds.clear(); }
+  }
+
+  /** Effects consume resolved semantic events. Skipping text only cancels visuals. */
+  private animateEvent(event: BattleEvent): void {
+    if (event.type === 'moveUsed') {
+      const actor = this.actors[event.side];
+      const target = this.actors[event.side === 'player' ? 'opponent' : 'player'];
+      const move = this.moveCatalog[event.moveId];
+      if (actor && target && !this.reducedAnimations) {
+        if (move?.category === 'physical') {
+          this.tweens.add({ targets: actor, x: actor.x + (target.x - actor.x) * 0.14, duration: 125, yoyo: true, ease: 'Cubic.easeOut' });
+        } else {
+          const orb = this.add.circle(actor.x, actor.y, 10, this.typeColor(move?.type), 0.9);
+          this.ui.add(orb);
+          this.tweens.add({ targets: orb, x: target.x, y: target.y, scale: 0.4, duration: 350, ease: 'Cubic.easeIn', onComplete: () => orb.destroy() });
+        }
+      }
+    } else if (event.type === 'damageApplied') {
+      const actor = this.actors[event.targetSide];
+      if (actor) {
+        this.floatingFeedback(actor, event.effectiveness === 0 ? 'IMMUNE' : `−${event.amount}${event.critical ? '  CRITICO' : ''}`, event.effectiveness > 1 ? '#ffd88e' : '#fff4e6');
+        if (!this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.2, duration: 85, yoyo: true, repeat: 2 });
+      }
+    } else if (event.type === 'statusTick' && event.damage) {
+      const actor = this.actors[event.side];
+      if (actor) this.floatingFeedback(actor, `−${event.damage}`, '#e7a9e3');
+    } else if (event.type === 'levelUp') {
+      const actor = this.actors[event.side];
+      if (actor) this.floatingFeedback(actor, `LIVELLO ${event.level}!`, '#c6edaf');
+    } else if (event.type === 'experienceGained') {
+      const actor = this.actors[event.side];
+      if (actor) this.floatingFeedback(actor, `+${event.amount} XP`, '#b2e2f1');
+    } else if (event.type === 'itemUsed' && event.healed) {
+      const actor = this.actors[event.side];
+      if (actor) this.floatingFeedback(actor, `+${event.healed} HP`, '#b6efc0');
+    } else if (event.type === 'captureAttempted') {
+      const target = this.actors.opponent;
+      const source = this.actors.player;
+      if (target && source && !this.reducedAnimations) {
+        const sphere = this.add.circle(source.x, source.y - 12, 12, 0xf3e8c9).setStrokeStyle(4, 0xc78760);
+        this.ui.add(sphere);
+        this.tweens.add({ targets: sphere, x: target.x, y: target.y, angle: 540, duration: 480, ease: 'Quad.easeOut' });
+      }
+    } else if (event.type === 'creatureCaptured') {
+      if (this.actors.opponent) this.floatingFeedback(this.actors.opponent, 'CATTURATO!', '#f4db9b');
+    } else if (event.type === 'creatureFainted') {
+      const actor = this.actors[event.side];
+      if (actor && !this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.15, y: actor.y + 12, duration: 280 });
+    }
+  }
+
+  private floatingFeedback(actor: Phaser.GameObjects.Container, text: string, color: string): void {
+    const feedback = this.add.text(actor.x, actor.y - 52, text, {
+      fontFamily: 'DM Mono, monospace', fontSize: '17px', fontStyle: 'bold', color,
+      stroke: '#14271e', strokeThickness: 5,
+    }).setOrigin(0.5);
+    this.ui.add(feedback);
+    if (!this.reducedAnimations) this.tweens.add({ targets: feedback, y: feedback.y - 18, duration: 750, ease: 'Cubic.easeOut' });
   }
 
   private describeEvent(event: BattleEvent): string | null {
@@ -529,6 +681,11 @@ export class BattleScene extends Phaser.Scene {
     if (outcome.kind === 'draw') return 'Lo scontro termina in parità.';
     if (outcome.kind === 'won') return outcome.winner === 'player' ? 'Hai vinto lo scontro.' : 'La tua squadra non può più continuare.';
     return 'Lo scontro continua.';
+  }
+
+  private displayedCreature(side: BattleSide): BattleCreature {
+    const id = this.visualActiveIds.get(side);
+    return (id ? this.creatureById(side, id) : undefined) ?? this.activeCreature(side);
   }
 
   private activeCreature(side: BattleSide): BattleCreature {
