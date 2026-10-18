@@ -2,7 +2,7 @@
 
 Authoritative source: https://pokeapi.co/docs/v2 . Selected version group: `heartgold-soulsilver`.
 
-The JSON responses here are cached build inputs, not runtime network requests. `manifest.json` records the public endpoint and SHA-256 of every response used by the importer. `source-learnsets.json` retains the complete level-up lists for the 20 supported species, including moves whose mechanics are not implemented yet.
+The JSON responses here are cached build inputs, not runtime network requests. `manifest.json` records the public endpoint and SHA-256 of every response used by the importer. `source-learnsets.json` retains the complete level-up lists for the registered species, including moves whose mechanics are not implemented yet.
 
 Run `python tools/import_pokeapi_battle.py --fetch` to download missing resources and generate the catalog. Run `python tools/import_pokeapi_battle.py --check` offline to detect source or generated-data drift. The main content validator runs that check automatically.
 
@@ -24,3 +24,7 @@ Urban imports use `artworkGroup: urban` in the species import configuration. `py
 ### Evoluzioni dei sentieri — 0.3.72
 
 La configurazione `species-imports.v1.json` dichiara altri sei import (17,20,162,164,180,195), ereditando soltanto la curva XP provvisoria dai rispettivi precursori. I parametri storici, learnset e condizioni evolutive restano dati della fonte. Eseguire in ordine gli importatori species, battle, evolution_art, evolutions; `--fetch` è necessario soltanto per risposte/artwork assenti. `--check` verifica poi tutti i manifest e hash senza rete. Gli artwork evolutivi sono WebP lossless dai PNG conservati; il gruppo conta ora nove immagini, separato dalle due urbane. Il runtime non chiama PokéAPI.
+
+### Ferraluce catalog preparation — 0.3.78
+
+Imports 82/208/227 use the urban artwork group and inherited prototype XP curve only; parameters and learnsets come from HGSS sources. Rock Throw joins the supported ordinary physical attacks. These imports do not create trainer teams or encounter tables. Reference evolution locations accept only level-up triggers, reject unexplained extra conditions, and use the source Italian name or English fallback. Location conditions never enable runtime evolutions.

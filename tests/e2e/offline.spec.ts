@@ -685,6 +685,23 @@ test('the cached Anello Magnetico reading, Ferraluce report and healing work off
 });
 
 
+test('Ferraluce candidate artwork decodes on its first request offline', async ({ page, context }) => {
+  const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-urban-artwork-v1.json', import.meta.url), 'utf8'));
+  const artwork = manifest.artworks.filter((entry: { speciesId: number }) => [82, 208, 227].includes(entry.speciesId));
+  expect(artwork).toHaveLength(3);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const failedRequests: string[] = [];
+  page.on('requestfailed', request => failedRequests.push(request.url()));
+  await context.setOffline(true);
+  const decoded = await page.evaluate(async paths => Promise.all(paths.map(async path => {
+    const image = new Image(); image.src = new URL(path, location.href).href;
+    await image.decode(); return image.naturalWidth > 0 && image.naturalHeight > 0;
+  })), artwork.map((entry: { path: string }) => entry.path));
+  expect(decoded).toEqual([true, true, true]);
+  expect(failedRequests).toEqual([]);
+});
+
 test('illustrated atlas opens for the first time offline from the production cache', async ({ page, context }) => {
   await page.goto('/');
   await enterGame(page);

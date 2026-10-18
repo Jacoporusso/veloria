@@ -512,6 +512,64 @@
         "level": 24,
         "moveId": "amnesia"
       }
+    ],
+    "82": [
+      {
+        "level": 6,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 11,
+        "moveId": "supersonic"
+      },
+      {
+        "level": 14,
+        "moveId": "sonic-boom"
+      },
+      {
+        "level": 17,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 22,
+        "moveId": "spark"
+      },
+      {
+        "level": 34,
+        "moveId": "screech"
+      }
+    ],
+    "208": [
+      {
+        "level": 6,
+        "moveId": "screech"
+      },
+      {
+        "level": 9,
+        "moveId": "rock-throw"
+      },
+      {
+        "level": 25,
+        "moveId": "slam"
+      }
+    ],
+    "227": [
+      {
+        "level": 6,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 12,
+        "moveId": "agility"
+      },
+      {
+        "level": 17,
+        "moveId": "fury-attack"
+      },
+      {
+        "level": 31,
+        "moveId": "metal-sound"
+      }
     ]
   }
 }

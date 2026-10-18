@@ -121,6 +121,11 @@
       "path": "content/sources/pokeapi/move-quick-attack.json",
       "sha256": "08e1eaa2915032bc52b1fdc656c509a6148ef35a38f1fbe0c517be14862536d7"
     },
+    "move/rock-throw": {
+      "url": "https://pokeapi.co/api/v2/move/rock-throw/",
+      "path": "content/sources/pokeapi/move-rock-throw.json",
+      "sha256": "9ad1cc3a9e05bb647369402a974341c490bd8288f102fc162ec8ededcae95850"
+    },
     "move/sand-attack": {
       "url": "https://pokeapi.co/api/v2/move/sand-attack/",
       "path": "content/sources/pokeapi/move-sand-attack.json",
@@ -331,6 +336,16 @@
       "path": "content/sources/pokeapi/pokemon-20.json",
       "sha256": "8b1c56cd6b47020f7df7ac8f20daa1307f8386f69f03ea5f86894d1a055255cb"
     },
+    "pokemon/208": {
+      "url": "https://pokeapi.co/api/v2/pokemon/208/",
+      "path": "content/sources/pokeapi/pokemon-208.json",
+      "sha256": "1c963ff372985051409be5963e81f79bc221ad098c52cc45cc78902454cd572f"
+    },
+    "pokemon/227": {
+      "url": "https://pokeapi.co/api/v2/pokemon/227/",
+      "path": "content/sources/pokeapi/pokemon-227.json",
+      "sha256": "5ec39735d99c89786c4d6bd78df585288d07b2a1d53cb53999203d2ab4d16127"
+    },
     "pokemon/25": {
       "url": "https://pokeapi.co/api/v2/pokemon/25/",
       "path": "content/sources/pokeapi/pokemon-25.json",
@@ -375,6 +390,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/81/",
       "path": "content/sources/pokeapi/pokemon-81.json",
       "sha256": "be89b14a5a658647a70c9f53f246657a254d9b7cbeefcb7a998a7777fc64f704"
+    },
+    "pokemon/82": {
+      "url": "https://pokeapi.co/api/v2/pokemon/82/",
+      "path": "content/sources/pokeapi/pokemon-82.json",
+      "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
     },
     "version-group/black-white": {
       "url": "https://pokeapi.co/api/v2/version-group/black-white/",

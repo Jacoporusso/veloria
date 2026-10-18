@@ -1,3 +1,11 @@
+## Preparazione locale 0.3.78 — catalogo Ferraluce
+
+- 34 specie / 45 mosse: import ufficiali HGSS di Magneton, Steelix e Skarmory, Sassata e tre artwork locali lossless; nessuna Palestra 4 o nuova tabella incontri abilitata.
+- Validazione offline di fonti/manifest/checksum, 134 asset e contenuti superata. TypeScript e build produzione superati; dominio/persistenza 293 test, Python 35 test, prova Squadra/Pokédex e prova primo caricamento artwork senza rete superati. Log locali `.tmp/ferraluce-catalog-*`.
+- Il primo comando npm della prova offline ha ignorato il filtro e avviato cinque casi: fermato soltanto quel processo, senza attribuire un esito alla suite interrotta. Run mirato successivo tramite CLI Playwright: un caso, passato in 15,1 secondi con build.
+- Riferimento evolutivo Magneton con condizione di luogo, senza soglia numerica inventata né attivazione runtime. PokéAPI non fornisce il nome italiano di Mt. Coronet, conservato in inglese.
+- La versione pubblica verificata resta 0.3.77. Il run Verify `39159924891` su quella versione era ancora attivo all’ultimo controllo; nessun esito completo verde dichiarato.
+
 ## Aggiornamento 0.3.77 — monorotaia e diagnostica CI
 
 - Petalora: percorso completo irrigazione, Dalia, banner Corolla con rotazione e medagliere superato localmente in 1,3 minuti, senza modifiche al test. Il precedente errore Linux non è riprodotto; causa ancora da accertare. Log `.tmp/gym02-current.txt`.
@@ -6,7 +14,7 @@
 - Quattro prove browser superate (due trasporto, avvio con starter, icone servizi); due prove produzione offline superate (atlante e tre viaggi con ricarica). Log locali `.tmp/monorail-release-e2e.txt` e `.tmp/monorail-release-offline.txt`.
 - Dominio/persistenza: 293 test; Python: 35 test con directory temporanea nel workspace; build e validazione contenuti superate. Nessuna prova su telefono fisico, nessun playtest naturale completo con tutti gli starter.
 - La pipeline Verify `39157639261` sul commit precedente `1952caa` è fallita in tutti e quattro i job. Overflow dei dettagli mosse a 320px; timeout di battaglia/navigazione, elemento Dalia rimosso durante lo scroll; shard 2 interrotto al limite di 16 minuti; percorso offline tre medaglie interrotto dopo 12 minuti attendendo il canvas. I due altri casi offline sono passati. Non tutti i timeout hanno una causa dimostrata.
-- Corretto localmente l'adattamento dei dettagli mosse ai font di ripiego: tre prove presentation portrait/landscape superate. Verifica Linux e riparazione dei restanti test ancora aperte. Deploy Pages precedente riuscito, ma non prova la salute della suite Verify. Versione 0.3.77 preparata per integrazione; esito della nuova pipeline e deploy ancora da acquisire.
+- Corretto localmente l'adattamento dei dettagli mosse ai font di ripiego: tre prove presentation portrait/landscape superate. Verifica Linux e riparazione dei restanti test ancora aperte. Deploy Pages precedente riuscito, ma non prova la salute della suite Verify. Commit `6f689c4` pubblicato su main. Deploy Pages `39159924927` riuscito; prova Chrome sull’URL pubblico: HTTP 200, avvio nuova partita, atlante decodificato, cache v98, reload offline ed errori runtime assenti (log `.tmp/pages-smoke-v98.txt`). Verify `39159924891` ancora in esecuzione: esito completo da acquisire.
 
 ## Aggiornamento 18/10/2026 — pubblicazione Pages e riparazione CI
 

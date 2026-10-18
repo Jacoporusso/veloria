@@ -53,23 +53,34 @@ def main(argv=None):
                     continue
                 if detail.get('evolved_pokemon_form') and detail['evolved_pokemon_form']['name'] != target['name']:
                     continue
-                # Current catalog only needs simple levels and evolution stones.
+                # Reference-only location evolutions do not enable runtime rules.
                 # Fail closed if upstream introduces a condition we cannot explain.
                 extra = {key: value for key, value in detail.items()
-                         if key not in {'trigger', 'min_level', 'item', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
+                         if key not in {'trigger', 'min_level', 'item', 'location', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
                          and value is not None and value is not False and value != '' and value != []}
                 if extra:
                     raise ValueError(f'Unsupported evolution conditions for {species_id}: {extra}')
                 trigger = detail['trigger']['name']
                 item_name = None
+                location_name = None
+                if detail.get('location'):
+                    if trigger != 'level-up':
+                        raise ValueError(f'Unsupported location trigger for {species_id}: {detail}')
+                    location = load('location', key_of(detail['location']))
+                    location_names = {name['language']['name']: name['name'] for name in location['names']}
+                    location_name = location_names.get('it') or location_names.get('en')
+                    if not location_name:
+                        raise ValueError(f'Missing Italian/English location name for {species_id}')
                 if trigger == 'use-item' and detail['item']:
                     item = load('item', key_of(detail['item']))
                     item_name = next(name['name'] for name in item['names'] if name['language']['name'] == 'it')
-                elif trigger != 'level-up' or not detail['min_level']:
+                elif trigger != 'level-up' or not (detail['min_level'] or location_name):
                     raise ValueError(f'Unsupported evolution trigger for {species_id}: {detail}')
                 entry = {'targetSpeciesId': target_id,
                          'targetName': next(name['name'] for name in target['names'] if name['language']['name'] == 'it'),
                          'trigger': trigger, 'minimumLevel': detail['min_level'], 'itemName': item_name}
+                if location_name:
+                    entry['locationName'] = location_name
                 if entry not in evolutions:
                     evolutions.append(entry)
         entries[str(species_id)] = {'evolutions': evolutions}

@@ -626,6 +626,16 @@
           "stages": -2
         }
       ]
+    },
+    "rock-throw": {
+      "id": "rock-throw",
+      "name": "Sassata",
+      "type": "rock",
+      "category": "physical",
+      "power": 50,
+      "accuracy": 90,
+      "priority": 0,
+      "maxPp": 15
     }
   }
 }

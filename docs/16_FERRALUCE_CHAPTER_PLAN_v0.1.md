@@ -45,7 +45,7 @@ La consegna minima di questo capitolo comprende:
 4. **Gating di R07 e della Centrale:** dopo P4, `badge_acciaio_awarded` (ID da confermare con il catalogo delle medaglie) costituirà il prerequisito della prosecuzione verso R07 quando quella mappa sarà implementata. Questa consegna può predisporre segnaletica o un punto d'accesso visibile, ma **non implementa né rende attraversabile R07, la Centrale Risonante o D03**. Il dungeon e la quest che lo accompagna sono il capitolo successivo.
 5. **Limite cittadino dichiarato:** il primo distretto è una fetta di Ferraluce. Non soddisfa da solo il requisito della città completa del world design. Restano espansioni future di quartieri, passerelle, servizi e collegamenti urbani; registrarle nel backlog, non marcarle come completate.
 
-**Ancora assenti:** le mappe/metadata R06 e Ferraluce, la mappa e la quest di P4, il puzzle magnetico, capopalestra e team, encounter table, missioni, dialoghi, nuovi flag, emblema, asset e relativi manifest. Le fonti di questo piano non approvano una squadra, un roster o una lista di mosse.
+**Stato aggiornato:** R06 e il primo distretto di Ferraluce sono implementati (vedi §9). Restano assenti la mappa e la quest di P4, il puzzle magnetico, capopalestra e team, encounter table, missioni, dialoghi, nuovi flag, emblema, asset e relativi manifest. Le fonti di questo piano non approvano una squadra, un roster o una lista di mosse.
 
 ## 5. Dati di specie, mosse e asset
 
@@ -122,3 +122,11 @@ Il record API di Ferrartigli descrive un attacco al Pokémon scelto ma anche un 
 ### Trasporto regionale dopo P3
 
 La monorotaia è implementata nel prototipo tra Brumalta, Petalora, Vetracielo e Ferraluce già visitate, dopo la Medaglia Circuito. Terminali e arrivi sono dichiarativi; il viaggio è gratuito e mantiene risorse e progressione. Contratto, verifiche e limiti in `17_MONORAIL_v0.1.md`. Le future fermate e gli altri trasporti regionali restano da implementare; le console della palestra mantengono la loro funzione di puzzle.
+
+### Preparazione del catalogo — 0.3.78 locale
+
+Magneton (82), Steelix (208) e Skarmory (227) sono ora importati dai file PokéAPI locali nei manifest riproducibili species/battle/evolutions, con artwork ufficiali lossless e precache. L'anteprima sopra resta la fotografia preparatoria; i manifest generati costituiscono ora le fonti runtime. P4 e i nuovi incontri non sono ancora collegati.
+
+Sassata è aggiunta al sottoinsieme supportato: attacco fisico Roccia, potenza 50, precisione 90, 15 PP nei dati HGSS. È legale per Steelix dal livello 9. Restano esplicitamente escluse le altre mosse con meccaniche non implementate; nessuna mossa sostitutiva è inventata. Il catalogo riporta tutte le omissioni nei learnset sorgenti.
+
+Magneton ha anche un riferimento a Magnezone tramite aumento di livello presso Mt. Coronet, luogo della serie originale. Il nome italiano non è presente nella risposta API, quindi si conserva l'inglese. Il riferimento non aggiunge questo luogo a Veloria né abilita l'evoluzione. L'evoluzione Magnemite → Magneton a livello 30 resta soltanto documentata, non aggiunta alle regole giocabili in questa preparazione.

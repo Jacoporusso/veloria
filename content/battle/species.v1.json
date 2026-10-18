@@ -1409,6 +1409,159 @@
           "moveId": "amnesia"
         }
       ]
+    },
+    "82": {
+      "speciesId": 82,
+      "name": "Magneton",
+      "types": [
+        "electric",
+        "steel"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 60,
+        "defense": 95,
+        "specialAttack": 120,
+        "specialDefense": 70,
+        "speed": 70
+      },
+      "experienceYield": 163,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "metal-sound",
+        "tackle",
+        "thunder-shock",
+        "supersonic"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "metal-sound"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 1,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 6,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 11,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 14,
+          "moveId": "sonic-boom"
+        },
+        {
+          "level": 17,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 22,
+          "moveId": "spark"
+        },
+        {
+          "level": 34,
+          "moveId": "screech"
+        }
+      ]
+    },
+    "208": {
+      "speciesId": 208,
+      "name": "Steelix",
+      "types": [
+        "steel",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 85,
+        "defense": 200,
+        "specialAttack": 55,
+        "specialDefense": 65,
+        "speed": 30
+      },
+      "experienceYield": 179,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "harden"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "harden"
+        },
+        {
+          "level": 6,
+          "moveId": "screech"
+        },
+        {
+          "level": 9,
+          "moveId": "rock-throw"
+        },
+        {
+          "level": 25,
+          "moveId": "slam"
+        }
+      ]
+    },
+    "227": {
+      "speciesId": 227,
+      "name": "Skarmory",
+      "types": [
+        "steel",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 140,
+        "specialAttack": 40,
+        "specialDefense": 70,
+        "speed": 70
+      },
+      "experienceYield": 163,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "peck"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "peck"
+        },
+        {
+          "level": 6,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 12,
+          "moveId": "agility"
+        },
+        {
+          "level": 17,
+          "moveId": "fury-attack"
+        },
+        {
+          "level": 31,
+          "moveId": "metal-sound"
+        }
+      ]
     }
   },
   "moveSource": {

@@ -10,7 +10,7 @@ import { createCreaturePortrait } from '../battle/creature-art.ts';
 import evolutionData from '../../../content/battle/evolution-reference.v1.json';
 
 const evolutionReference: Readonly<Record<string, { evolutions: readonly {
-  targetSpeciesId: number; targetName: string; trigger: string; minimumLevel: number | null; itemName: string | null;
+  targetSpeciesId: number; targetName: string; trigger: string; minimumLevel: number | null; itemName: string | null; locationName?: string;
 }[] }>> = evolutionData.species;
 
 function node<K extends keyof HTMLElementTagNameMap>(tag: K, text = '', className = ''): HTMLElementTagNameMap[K] {
@@ -67,7 +67,9 @@ export class PokemonPanel {
     if (!reference) evolutionSection.append(node('p', 'Informazioni evolutive non ancora disponibili.'));
     else if (!reference.evolutions.length) evolutionSection.append(node('p', 'Non ha ulteriori evoluzioni in HeartGold/SoulSilver.'));
     for (const evolution of reference?.evolutions ?? []) {
-      const requirement = evolution.trigger === 'level-up' ? `Dal livello ${evolution.minimumLevel}` : `Usa ${evolution.itemName} · non dipende dal livello`;
+      const requirement = evolution.locationName
+        ? `Aumenta di livello presso ${evolution.locationName}${evolution.minimumLevel ? `, dal livello ${evolution.minimumLevel}` : ''}. Luogo della serie originale.`
+        : evolution.trigger === 'level-up' ? `Dal livello ${evolution.minimumLevel}` : `Usa ${evolution.itemName} · non dipende dal livello`;
       evolutionSection.append(node('strong', `${species.name} → ${evolution.targetName}`), node('p', requirement, 'pokemon-evolution-requirement'));
       const available = (veloriaBattleRules.evolutions[speciesId] ?? []).some(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
       evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));

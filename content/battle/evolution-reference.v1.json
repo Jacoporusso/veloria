@@ -211,6 +211,18 @@
         }
       ]
     },
+    "82": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 462,
+          "targetName": "Magnezone",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Mt. Coronet"
+        }
+      ]
+    },
     "100": {
       "evolutions": [
         {
@@ -295,6 +307,12 @@
       ]
     },
     "195": {
+      "evolutions": []
+    },
+    "208": {
+      "evolutions": []
+    },
+    "227": {
       "evolutions": []
     }
   }

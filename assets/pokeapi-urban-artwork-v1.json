@@ -22,6 +22,33 @@
       "sourcePath": "assets/sources/pokeapi/urban/100.png",
       "sourceSha256": "1e56de55241bdef6e6cdaa54a6ded9a92ef053b9bbf3c2ab501e0543d0a64826",
       "sha256": "8740fe2cb93315f8ec147c6ebd6e12714c23c955abfd98da822ef00ec240eee5"
+    },
+    {
+      "speciesId": 82,
+      "name": "Magneton",
+      "path": "assets/creatures/pokeapi-urban-82-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "sourcePath": "assets/sources/pokeapi/urban/82.png",
+      "sourceSha256": "1e68484d42c004af31708f225587d89e99644673ac2306dcd68517208021fe81",
+      "sha256": "79c60c75767142f92a3d205e1f2045ea37f9a45275f76d2d6e1bb2b3e2593774"
+    },
+    {
+      "speciesId": 208,
+      "name": "Steelix",
+      "path": "assets/creatures/pokeapi-urban-208-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
+      "sourcePath": "assets/sources/pokeapi/urban/208.png",
+      "sourceSha256": "cd82cb87b4ad5034501f0dc871b791bc6fa12cb2fe93e7637aaae95b2c8a6623",
+      "sha256": "590641b57b20cd4f1d42c47d84ac5ecd513c2619b0a4480c76b67cdcd0d51219"
+    },
+    {
+      "speciesId": 227,
+      "name": "Skarmory",
+      "path": "assets/creatures/pokeapi-urban-227-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/227.png",
+      "sourcePath": "assets/sources/pokeapi/urban/227.png",
+      "sourceSha256": "3c9de3ea5ba321721e92c67f65864a8ace88787de11dd881206e7cb424763636",
+      "sha256": "569c8b9c30cc0e5b37dccd73eeb102f1129c74546d08e753898c08213e68a934"
     }
   ]
 }

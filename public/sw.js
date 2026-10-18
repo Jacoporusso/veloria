@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v98';
+const CACHE = 'veloria-shell-v99';
 const SHELL = [
   './assets/ui/veloria-region-atlas-v1.webp',
   './assets/tilesets/veloria-industrial-floor-v1.webp',
@@ -16,6 +16,9 @@ const SHELL = [
   './assets/sprites/veloria-gym03-rooftop-v1.webp',
   './assets/creatures/pokeapi-urban-81-v1.webp',
   './assets/creatures/pokeapi-urban-100-v1.webp',
+  './assets/creatures/pokeapi-urban-82-v1.webp',
+  './assets/creatures/pokeapi-urban-208-v1.webp',
+  './assets/creatures/pokeapi-urban-227-v1.webp',
   './tilemaps/r05_viadotto_ciliegi.tmj',
   './tilemaps/vetracielo.tmj',
   './assets/sprites/veloria-monorail-station-v1.webp',

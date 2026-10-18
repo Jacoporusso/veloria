@@ -1977,6 +1977,272 @@
         "moveId": "muddy-water",
         "order": null
       }
+    ],
+    "82": [
+      {
+        "level": 1,
+        "moveId": "tri-attack",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "metal-sound",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "thunder-shock",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "supersonic",
+        "order": 5
+      },
+      {
+        "level": 6,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "sonic-boom",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "spark",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "lock-on",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "magnet-bomb",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "mirror-shot",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 60,
+        "moveId": "zap-cannon",
+        "order": null
+      }
+    ],
+    "208": [
+      {
+        "level": 1,
+        "moveId": "thunder-fang",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "ice-fang",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "fire-fang",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 5
+      },
+      {
+        "level": 1,
+        "moveId": "harden",
+        "order": 6
+      },
+      {
+        "level": 1,
+        "moveId": "bind",
+        "order": 7
+      },
+      {
+        "level": 6,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "rock-throw",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "rock-tomb",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "sandstorm",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "dragon-breath",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "curse",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "iron-tail",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "227": [
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "peck",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "swift",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "fury-attack",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "feint",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "spikes",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "metal-sound",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "steel-wing",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "night-slash",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -3117,6 +3383,172 @@
       {
         "level": 53,
         "moveId": "muddy-water",
+        "order": null
+      }
+    ],
+    "82": [
+      {
+        "level": 1,
+        "moveId": "tri-attack",
+        "order": 1
+      },
+      {
+        "level": 27,
+        "moveId": "lock-on",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "magnet-bomb",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "mirror-shot",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 60,
+        "moveId": "zap-cannon",
+        "order": null
+      }
+    ],
+    "208": [
+      {
+        "level": 1,
+        "moveId": "thunder-fang",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "ice-fang",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "fire-fang",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "bind",
+        "order": 7
+      },
+      {
+        "level": 14,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "rock-tomb",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "sandstorm",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "dragon-breath",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "curse",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "iron-tail",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "227": [
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 1
+      },
+      {
+        "level": 9,
+        "moveId": "swift",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "feint",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "spikes",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "steel-wing",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "night-slash",
         "order": null
       }
     ]

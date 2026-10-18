@@ -1,3 +1,10 @@
+## veloria-content-0.3.78 — 18/10/2026
+
+- Preparazione del catalogo di Ferraluce: Magneton, Steelix e Skarmory con parametri e learnset HGSS importati; 34 specie e 45 mosse. Sassata usa i dati ufficiali e il normale danno fisico già supportato. Nessun nuovo incontro o capopalestra è abilitato da questo import.
+- Tre artwork ufficiali locali lossless, PNG conservati, provenienza/hash registrati; precache PWA v99.
+- Riferimenti evolutivi con luogo speciale: Magneton mostra la condizione di aumento di livello presso Mt. Coronet, nome inglese fornito dalla fonte in assenza di italiano. Il luogo non appartiene a Veloria e l'evoluzione non è attivata nel prototipo. Nessuna soglia inventata.
+- Catalogo e TypeScript validati; prova Squadra/Pokédex superata per nuovi artwork e condizioni evolutive. Stato delle verifiche e pubblicazione in `docs/CI_STATUS.md`.
+
 ## veloria-content-0.3.77 — 18/10/2026
 
 - Monorotaia attiva dopo Circuito tra Brumalta, Petalora, Vetracielo e Ferraluce già visitate; tariffa gratuita prototipale, terminali illustrati e dati dichiarativi validati. Indicazioni di Aster e Lea aggiornate.
