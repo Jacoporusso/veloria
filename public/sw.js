@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v96';
+const CACHE = 'veloria-shell-v97';
 const SHELL = [
   './assets/ui/veloria-region-atlas-v1.webp',
   './assets/tilesets/veloria-industrial-floor-v1.webp',

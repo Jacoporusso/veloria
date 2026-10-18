@@ -481,6 +481,29 @@ body.battle-active .game-stage:after,body.battle-active .toast,body.battle-activ
 }
 
 @media(max-width:350px) {
+  .brand {
+    flex:1 1 0;
+    min-width:0;
+    gap:5px;
+    font-size:14px;
+    letter-spacing:.04em
+  }
+  .brand-mark {
+    flex:none;
+    width:22px
+  }
+  .brand>span {
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+  }
+  .brand small {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:6px;
+    letter-spacing:0
+  }
   .location {
     display:none
   }

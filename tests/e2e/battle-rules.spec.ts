@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json' };
 
 type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner' | 'sparse-capture' | 'evolution' | 'move-learning' | 'leech-seed' | 'forced-player-switch' | 'forced-opponent-switch';
 
@@ -446,7 +447,7 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
       scene.state = original;
       return result;
     });
-    expect(catalogLayouts).toHaveLength(38);
+    expect(catalogLayouts.map(item => item.id).sort()).toEqual(Object.keys(moveRegistry.moves).sort());
     expect(catalogLayouts.filter(item => item.overflow.length || item.overlapsClose)).toEqual([]);
     expect(errors).toEqual([]);
   });

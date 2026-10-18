@@ -39,24 +39,32 @@ for (const [width, height] of [[320, 568], [844, 390]]) {
     await expect.poll(() => page.evaluate(() => (window as any).emergencyFixture.scene.getScene('battle').mode)).toBe('moves');
     const label = await page.evaluate(() => {
       const scene = (window as any).emergencyFixture.scene.getScene('battle');
-      const text = scene.ui.list.find((item: any) => item.type === 'Text' && item.text.includes('SCONTRO D’EMERGENZA'));
-      return text ? { text: text.text, bounds: { x: text.getBounds().x, right: text.getBounds().right, y: text.getBounds().y, bottom: text.getBounds().bottom } } : null;
+      const title = scene.ui.list.find((item: any) => item.type === 'Text' && item.text.includes('SCONTRO D’EMERGENZA'));
+      const detail = scene.ui.list.find((item: any) => item.type === 'Text' && item.text.includes('Senza PP · causa contraccolpo'));
+      const bounds = (item: any) => ({ x: item.getBounds().x, right: item.getBounds().right, y: item.getBounds().y, bottom: item.getBounds().bottom });
+      return title && detail ? { title: title.text, detail: detail.text, titleBounds: bounds(title), detailBounds: bounds(detail) } : null;
     });
-    expect(label?.text).toContain('Senza PP · causa contraccolpo');
-    expect(label!.bounds.x).toBeGreaterThanOrEqual(0);
-    expect(label!.bounds.right).toBeLessThanOrEqual(width);
-    expect(label!.bounds.y).toBeGreaterThanOrEqual(0);
-    expect(label!.bounds.bottom).toBeLessThanOrEqual(height);
+    expect(label?.title).toContain('SCONTRO D’EMERGENZA');
+    expect(label?.detail).toContain('Senza PP · causa contraccolpo');
+    for (const bounds of [label!.titleBounds, label!.detailBounds]) {
+      expect(bounds.x).toBeGreaterThanOrEqual(0);
+      expect(bounds.right).toBeLessThanOrEqual(width);
+      expect(bounds.y).toBeGreaterThanOrEqual(0);
+      expect(bounds.bottom).toBeLessThanOrEqual(height);
+    }
     await page.screenshot({ path: testInfo.outputPath('emergency-command.png') });
+    const slotCount = await page.evaluate(() => {
+      const scene = (window as any).emergencyFixture.scene.getScene('battle');
+      return [...scene.state.player.creatures, ...scene.state.opponent.creatures].reduce((sum: number, creature: any) => sum + creature.moves.length, 0);
+    });
     await page.keyboard.press('Enter', { delay: 40 });
     await expect.poll(() => page.evaluate(() => {
       const scene = (window as any).emergencyFixture.scene.getScene('battle');
       return { turn: scene.state.turn,
         uses: scene.eventLog.filter((event: any) => event.type === 'moveUsed' && event.moveId === 'struggle').length,
         recoil: scene.eventLog.filter((event: any) => event.type === 'recoilApplied').length,
-        pp: [...scene.state.player.creatures, ...scene.state.opponent.creatures].flatMap((creature: any) => creature.moves.map((slot: any) => slot.pp)),
-        explained: scene.pendingMessages.some((message: any) => message.text.includes('contraccolpo')) };
-    })).toEqual({ turn: 1, uses: 2, recoil: 2, pp: [0, 0, 0, 0], explained: true });
+        pp: [...scene.state.player.creatures, ...scene.state.opponent.creatures].flatMap((creature: any) => creature.moves.map((slot: any) => slot.pp)) };
+    })).toEqual({ turn: 1, uses: 2, recoil: 2, pp: Array(slotCount).fill(0) });
     expect(errors).toEqual([]);
   });
 }

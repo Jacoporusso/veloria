@@ -52,6 +52,11 @@ test('long interior names and an available update keep header and touch controls
         expect(stage.width).toBe(width);
         expect(stage.height).toBe(844);
         const pad = (await page.locator('.dpad').boundingBox())!;
+        const brand = (await page.locator('.brand').boundingBox())!;
+        const headerActions = (await page.locator('.header-actions').boundingBox())!;
+        expect(brand.x + brand.width + 8).toBeLessThanOrEqual(headerActions.x);
+        await expect(page.locator('.wallet-trigger')).toBeVisible();
+        await expect(page.locator('#menu-button')).toBeVisible();
         for (const button of await page.locator('.action-button').all()) {
           const bounds = (await button.boundingBox())!;
           expect(bounds.x + bounds.width + 20).toBeLessThanOrEqual(pad.x);

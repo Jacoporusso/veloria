@@ -1,3 +1,10 @@
+## veloria-content-0.3.76 — 18/10/2026
+
+- Header corretto a 320 px con saldo, menu e aggiornamento visibili e senza sovrapposizione; il marchio si adatta allo spazio residuo. Cache PWA v97.
+- Pipeline browser distribuita in tre shard a un worker ciascuno, con prova offline su runner separato: evita la contesa tra rendering ad alta densità e processi rimasti dopo il timeout della suite precedente.
+- Prove UI riallineate alla guida DOM, ai dettagli mosse separati, alla griglia landscape e al catalogo dati attuale; restano verifiche di azioni, effetti, persistenza e limiti dello schermo.
+- GitHub Pages pubblico con manifest build non nascosto, necessario al precache su hosting statico. Avvio, atlante e ricarica offline della versione v96 già verificati sul sito pubblico; gli esiti della nuova pipeline restano da acquisire.
+
 ## veloria-content-0.3.75 — 18/10/2026
 
 - Atlante regionale illustrato originale, generato con ImageGen integrato sul riferimento artistico del progetto. Paesaggio continuo, collegamenti morbidi solo per i tratti esistenti e nome visibile per il luogo selezionato; rimossa la precedente rappresentazione geometrica.

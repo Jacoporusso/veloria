@@ -407,14 +407,12 @@ function findPidgeySeed() {
 function findPidgeyCaptureSeed() {
   for (let seed = 1; seed < 1_000_000; seed += 1) {
     const encounterRoll = nextRandom(seed);
-    if (encounterRoll / 0x1_0000_0000 >= 0.08) continue;
+    if (encounterRoll / 0x1_0000_0000 >= 0.18) continue;
     const speciesRoll = nextRandom(encounterRoll);
     // Pidgey is the first day-band entry in the woodland table (20 of 100 weight).
     if (1 + Math.floor(speciesRoll / 0x1_0000_0000 * 100) > 20) continue;
     const levelRoll = nextRandom(speciesRoll);
-    const firstTurnRoll = nextRandom(levelRoll);
-    const secondTurnRoll = nextRandom(firstTurnRoll);
-    const captureRoll = nextRandom(secondTurnRoll);
+    const captureRoll = nextRandom(levelRoll);
     if (captureRoll / 0x1_0000_0000 < 0.25) return seed;
   }
   throw new Error('No deterministic Pidgey capture seed found.');
@@ -577,6 +575,35 @@ async function advanceBattleMessages(page: Page, stopAtCelebration = false) {
   }
 }
 
+async function battleStatus(page: Page): Promise<{ mode: string; terminalShown: boolean }> {
+  return page.evaluate(() => {
+    const game = (window as any).__mvpGame;
+    if (!game?.scene.isActive('battle')) return { mode: 'inactive', terminalShown: false };
+    const scene = game.scene.getScene('battle');
+    return { mode: scene.mode, terminalShown: scene.terminalShown };
+  });
+}
+
+async function battleMode(page: Page): Promise<string> { return (await battleStatus(page)).mode; }
+
+async function advanceBattleToMenu(page: Page) {
+  for (let step = 0; step < 60; step += 1) {
+    if (await page.locator('.battle-celebration').isVisible()) return;
+    const { mode, terminalShown } = await battleStatus(page);
+    if (terminalShown) {
+      await expect(page.locator('.battle-celebration')).toBeVisible({ timeout: 15_000 });
+      return;
+    }
+    if (mode === 'menu' || mode === 'inactive') return;
+    if (mode === 'message') {
+      await tapBattleCanvas(page, 0.5, 132);
+      await page.waitForTimeout(90);
+    } else if (mode === 'learning' || mode === 'moves') await page.keyboard.press('Enter', { delay: 40 });
+    else await page.waitForTimeout(40);
+  }
+  throw new Error(`Battle did not return to its command menu; current mode is ${await battleMode(page)}.`);
+}
+
 async function captureWildWithTouch(page: Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   // CATTURA is row two, column two; the first capture item is the top-left choice.
@@ -608,7 +635,8 @@ test('E2E-01: mobile controls reach Elia, select one starter, and do not offer a
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeVisible();
-  await expect(page.locator('#pokedex-summary')).toContainText('1 viste · 1 catturate · 23 specie');
+  const speciesCatalog = JSON.parse(await readFile(new URL('../../content/battle/species.v1.json', import.meta.url), 'utf8')).species;
+  await expect(page.locator('#pokedex-summary')).toContainText(`1 viste · 1 catturate · ${Object.keys(speciesCatalog).length} specie`);
   await expect(page.locator('#pokedex-list')).toContainText('Charmander');
   await page.getByRole('button', { name: 'Chiudi il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeHidden();
@@ -770,6 +798,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
     await tapBattleCanvas(page, 0.25, 140);
     await advanceBattleMessages(page);
   }
+  await advanceBattleMessages(page);
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
 
   await expect.poll(async () => {
@@ -809,6 +838,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await walkToTile(page, 'destra', 28);
   await walkToTile(page, 'alto', 2);
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/d01_bosco_veli');
+  await walkToMapTile(page, 'd01_bosco_veli.tmj', 1, 8);
 
   // Capture five real woodland Pidgey with the five starting balls, filling the six-slot party.
   for (let captured = 0; captured < 5; captured += 1) {
@@ -825,6 +855,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   expect(save.party.slice(1).every((creature: any) => creature.speciesId === 16)).toBe(true);
   expect(save.inventory['poke-ball']).toBe(0);
 
+  await walkToTile(page, 'basso', 2);
   await completeAdaForestQuest(page);
   await setSaveRngState(page, findNoEncounterSeed());
   await page.reload();
@@ -856,8 +887,9 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/d01_bosco_veli');
   await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ spawnPointId: 'to_r02', x: 29, y: 10 });
   await walkToTile(page, 'sinistra', 23);
+  await walkToTile(page, 'alto', 2);
   save = await readCurrentSave(page);
-  expect(save.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 6, y: 10 });
+  expect(save.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 6, y: 8 });
   await setSaveRngState(page, findPidgeyCaptureSeed());
   await page.reload();
   await waitForWorldReady(page);
@@ -870,6 +902,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   expect((await readCurrentSave(page)).inventory['poke-ball']).toBe(0);
 
   // Enter Brumalta's storage service and verify the stored wild instance is listed for withdrawal.
+  await walkToTile(page, 'basso', 2);
   await walkToTile(page, 'destra', 24);
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r02_viale_fronde');
   await walkToTile(page, 'destra', 26);
@@ -914,6 +947,10 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
 
 test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her dialogue', async ({ page }, testInfo) => {
   test.setTimeout(120_000);
+  await page.route('**/src/main.ts*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });
+  });
   await chooseCharmander(page);
   await seedGymBadgeScenario(page);
   await page.reload();
@@ -949,12 +986,15 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
   await page.getByRole('button', { name: 'SFIDA', exact: true }).click();
   await expect(page.locator('body')).toHaveClass(/battle-active/);
 
-  for (let turn = 0; turn < 10; turn += 1) {
-    if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 144);
-    await tapBattleCanvas(page, 0.25, 140);
-    await advanceBattleMessages(page, true);
+  await advanceBattleToMenu(page);
+  for (let turn = 0; turn < 20; turn += 1) {
     if (await page.locator('.battle-celebration').isVisible()) break;
+    await expect.poll(() => battleMode(page)).toBe('menu');
+    await page.keyboard.press('Enter', { delay: 40 });
+    await expect.poll(() => battleMode(page)).toBe('moves');
+    await page.keyboard.press('Enter', { delay: 40 }); // Scratch, the first move slot.
+    await expect.poll(() => battleMode(page)).toBe('message');
+    await advanceBattleToMenu(page);
   }
   const celebration = page.getByRole('dialog', { name: 'Medaglia Aurora conquistata!' });
   await expect(celebration).toBeVisible();
@@ -998,9 +1038,9 @@ test('R02: the Viale vista loads Brumalta and its sign explains the route ahead'
   await waitForWorldReady(page);
 
   await expect(page.locator('#current-location')).toHaveText('VIALE DELLE FRONDE');
-  await walkToTile(page, 'destra', 19);
+  await walkToMapTile(page, 'r02_viale_fronde.tmj', 20, 8);
   await page.screenshot({ path: testInfo.outputPath('r02-brumalta-vista.png') });
-  await walkToTile(page, 'alto', 1);
+  await page.getByRole('button', { name: 'Vai in alto' }).tap();
   await tapConfirm(page);
   await expect(page.locator('#toast')).toContainText(/Brumalta.*città-parco/);
   await expect(page.locator('#toast')).toContainText('felci');

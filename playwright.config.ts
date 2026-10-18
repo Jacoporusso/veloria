@@ -14,7 +14,9 @@ const existingServerUrl = process.env.VELORIA_E2E_BASE_URL;
 export default defineConfig({
   testDir: './tests/e2e',
   testIgnore: ['**/offline.spec.ts'],
-  fullyParallel: false,
+  // CI shards individual isolated cases, including the long MVP file. Each
+  // runner still uses one worker so high-density canvases do not compete.
+  fullyParallel: Boolean(process.env.CI),
   reporter: 'list',
   timeout: 60_000,
   expect: { timeout: 8_000 },

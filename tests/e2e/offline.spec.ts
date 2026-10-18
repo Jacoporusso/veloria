@@ -213,8 +213,9 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
 }
 
 test('E2E-06: the cached adventure reaches three badges offline', async ({ page, context }, testInfo) => {
-  // The complete offline journey exceeded four minutes on the hosted Linux runner.
-  test.setTimeout(480_000);
+  // Hosted software rendering reaches the second gym near eight minutes.
+  // Keep each interaction bounded while allowing the complete three-badge route.
+  test.setTimeout(process.env.CI ? 720_000 : 480_000);
   const runtimeErrors: string[] = [];
   page.on('pageerror', error => runtimeErrors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') runtimeErrors.push(message.text()); });

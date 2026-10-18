@@ -16,7 +16,11 @@ concurrency:
 
 jobs:
   verify:
-    name: Build, content, and browser tests
+    name: Browser shard ${{ matrix.shard }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -56,21 +60,43 @@ jobs:
 
       - name: Run browser end-to-end tests
         timeout-minutes: 16
-        run: npm run test:e2e
-
-      - name: Run offline PWA end-to-end test
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        timeout-minutes: 9
-        run: npm run test:e2e:offline
+        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/3
 
       - name: Preserve browser screenshots and traces
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: browser-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          name: browser-diagnostics-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             test-results/
             test-results-e2e-offline/
             playwright-report/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  offline:
+    name: Offline adventure
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Test complete cached adventure
+        timeout-minutes: 15
+        run: npm run test:e2e:offline -- --workers=1
+      - name: Preserve offline diagnostics
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results-e2e-offline/
           if-no-files-found: ignore
           retention-days: 7

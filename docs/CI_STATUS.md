@@ -1,3 +1,14 @@
+## Aggiornamento 18/10/2026 — pubblicazione Pages e riparazione CI
+
+- Repository reso pubblico e sito pubblicato: https://jacoporusso.github.io/veloria/. Deploy `39146964926` completato con successo sul commit `e28496d`.
+- Prova Chrome contro l’URL pubblico: HTTP 200, nuova partita, atlante con immagine decodificata, cache `veloria-shell-v96`, reload senza rete ed errori runtime assenti. Il manifest della build è ora `build-manifest.json`: il precedente percorso nascosto `.vite/manifest.json` non veniva pubblicato nell’artifact Pages.
+- La suite completa `Verify` **non era verde**: run `39146964935` fallito con asserzioni UI obsolete, overflow header 320px e timeout. Screenshot/tracce scaricati localmente in `.tmp/ci-39146964935/`; il deploy riuscito non viene usato come prova della suite completa.
+- Header adattivo corretto a 320px, controlli sempre visibili; 2 prove layout locali superate. Sei prove battaglia/journal e una prova sensore→Ada riallineate al rendering attuale e superate. I dettagli mosse confrontano l’intero insieme degli ID del catalogo, anziché il vecchio numero fisso 38; due prove dedicate superate, comprese tutte le 44 descrizioni.
+- Nuova configurazione proposta: tre shard browser, un worker ciascuno, offline su runner separato. La lunga prova delle tre medaglie conserva tutte le interazioni/assert e un timeout globale CI di 12 minuti (8 in locale), dopo che il runner precedente raggiungeva P2 vicino al limite di 8 minuti. Nessun incontro del gioco è stato disabilitato per accelerare i test.
+- Ulteriori prove locali superate: tutti i 12 casi `battle-rules` (10 nello stesso run e 2 sul controllo del catalogo corretto), percorso Vetracielo (2 minuti), Gym02/Gym03 (2,7 minuti), R04 (1,9 minuti), E2E-01, E2E-03, E2E-04 (ultimo run completo 2,5 minuti), E2E-05 (1,3 minuti) e R02. I casi cattura usano ora le vere aree con foglie e i varchi Tiled; Mira attende gli stati reali della battaglia e conserva il banner visibile per le asserzioni. Non sono state alterate le probabilità del gioco o le squadre runtime.
+- `npm test`: 287/287; TypeScript/build e validatore completi superati. Lo sharding elenca 33 + 33 + 32 casi browser; i tre casi offline restano nel job dedicato. Le verifiche locali descritte non equivalgono ancora a un esito positivo della nuova pipeline GitHub.
+- Contenuti 0.3.76 / cache v97 per l’header aggiornato. Esito della nuova configurazione GitHub ancora da acquisire; nessuna dichiarazione di CI completa o QA fisico superati.
+
 ## Aggiornamento 18/10/2026 — Anello Magnetico e Ferraluce 0.3.73
 
 - 281 test dominio/persistenza (265 + 16), 24 test Python, TypeScript e validatore superati. Stato: 18 mappe runtime, 17 missioni, sette allenatori, cinque botteghe, 31 specie / 44 mosse, 126 asset registrati.

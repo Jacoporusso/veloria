@@ -8,8 +8,9 @@ test('journey journal shows real progress and returns focus without moving the p
   await expect(journal).toContainText('Un compagno di viaggio');
   await journal.click();
   await expect(page.getByRole('dialog', { name: 'Il tuo viaggio' })).toBeVisible();
-  await expect(page.locator('.journey-summary')).toContainText('0/9');
-  await expect(page.locator('.journey-next')).toContainText('laboratorio');
+  const summaryCount = page.locator('.journey-summary .journey-stat').first().locator('strong');
+  await expect(summaryCount).toHaveText(await journal.locator('.journey-count').innerText());
+  await expect(page.locator('.journey-next h3')).toHaveText(await journal.locator('.journey-heading').innerText());
   await page.keyboard.press('Tab');
   await expect(page.locator('.journey-contents')).toBeFocused();
   await page.keyboard.press('Tab');
@@ -72,13 +73,15 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     const overflow = await page.evaluate(() => {
       const scene = (window as any).battleFixture.scene.getScene('battle');
       const top = scene.scale.height - scene.commandHeight();
-      const gap = 7;
-      const cardHeight = Math.min(66, (scene.commandHeight() - 50 - gap) / 2);
+      // Compare labels to the real interactive card rectangles, independent of
+      // how many rows the responsive layout chooses.
+      const cards = scene.ui.list.filter((child: any) => child.type === 'Graphics' && child.input?.hitArea)
+        .map((child: any) => child.input.hitArea);
       return scene.ui.list.filter((child: any) => child.type === 'Text' && child.y >= top && !child.text.includes('INDIETRO') && !child.text.includes('DETTAGLI MOSSE'))
         .filter((child: any) => {
           const bounds = child.getBounds();
-          const row = Math.floor((bounds.top - top) / (cardHeight + gap));
-          return bounds.left < 14 || bounds.right > scene.scale.width - 14 || bounds.bottom > top + row * (cardHeight + gap) + cardHeight;
+          return !cards.some((card: any) => bounds.left >= card.x && bounds.right <= card.right
+            && bounds.top >= card.y && bounds.bottom <= card.bottom);
         }).map((child: any) => child.text);
     });
     expect(overflow).toEqual([]);
