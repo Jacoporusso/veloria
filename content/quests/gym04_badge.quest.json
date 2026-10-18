@@ -1,0 +1,19 @@
+{
+  "id": "veloria/q_gym04_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Acciaio",
+  "steps": [
+    {
+      "id": "complete",
+      "trigger": "battle/trainer_rhea/defeated",
+      "setFlag": "badge_acciaio_awarded",
+      "requiresFlags": [
+        "q_ferraluce_report",
+        "gym04_magnetic_aligned"
+      ],
+      "addBadge": "badge_acciaio"
+    }
+  ],
+  "completionFlag": "badge_acciaio_awarded",
+  "reward": {}
+}

@@ -6,6 +6,8 @@ import { getTerrainTileFlip } from './terrain-tiling';
 import { renderElevatedRail } from './elevated-rail';
 import { renderRailConsole } from './rail-console';
 import { renderTransitTerminal } from './TransitTerminal';
+import { getSignalRouter } from '../maps/signal-router-registry';
+import { renderSignalRouter } from './signal-router';
 
 const TILE = 32;
 type RenderedMap = {
@@ -135,7 +137,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
       };
       if (layerName !== 'decorations') interactables.push(item);
       const activatedFlag = propString(properties, 'activatedFlag');
-      renderObject(scene, container, item, imageKeys, imageAtlases, !activatedFlag || collectedFlags.includes(activatedFlag));
+      renderObject(scene, container, item, imageKeys, imageAtlases, !activatedFlag || collectedFlags.includes(activatedFlag), collectedFlags);
       const completedFlag = propString(properties, 'completedFlag');
       if (completedFlag && collectedFlags.includes(completedFlag)) {
         attach(container, scene.add.text(item.x + item.width / 2, item.y - 38, '✓', {
@@ -181,9 +183,20 @@ function collectCollision(tilemap: Phaser.Tilemaps.Tilemap, width: number, heigh
   return occupied;
 }
 
-function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean): void {
+function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    case 'signal-router':
+      renderSignalRouter(scene, container, getSignalRouter(String(item.properties.routerId)), flags);
+      break;
+    case 'lift-pad': {
+      const pad = attach(container, scene.add.graphics().setDepth(-2));
+      pad.fillStyle(0x547c91, .3).fillRoundedRect(x, y, item.width, item.height, 10);
+      pad.lineStyle(2, 0xb0f4e7, .95).strokeRoundedRect(x + 3, y + 3, item.width - 6, item.height - 6, 8);
+      attach(container, scene.add.text(x + item.width / 2, y + item.height / 2, '↑ P4', {fontFamily:'system-ui, sans-serif',fontSize:'11px',color:'#21495a',backgroundColor:'#d8f6f2',resolution:4}).setOrigin(.5).setDepth(-1));
+      break;
+    }
+    case 'signal-router-switch': break; // The shared circuit decoration draws its controls.
     case 'paved-walkway': {
       // Continuous path strips avoid a repeated paving texture. Tiled owns collision.
       const paving = attach(container, scene.add.graphics().setDepth(-6));

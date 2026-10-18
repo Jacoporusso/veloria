@@ -7,6 +7,7 @@ import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json
 import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/world-navigation';
 import { prepareMonorailTraveler, stationArrival, travelResources } from './helpers/monorail';
 import { readBrowserSave } from './helpers/world-navigation';
+import magneticRouter from '../../content/puzzles/gym04_magnetic.v1.json' with { type: 'json' };
 
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
@@ -684,6 +685,36 @@ test('the cached Anello Magnetico reading, Ferraluce report and healing work off
   expect(failedRequests).toEqual([]);
 });
 
+
+test('Ferraluce magnetic gym opens and retains its circuit with networking disabled', async ({ page, context }) => {
+  test.setTimeout(120_000);
+  await prepareMonorailTraveler(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.flags.push('q_ferraluce_report');
+  save.player = { ...save.player, mapId: 'veloria/ferraluce', spawnPointId: 'from_gym04', x: 34, y: 19 };
+  await seedBrowserSave(page, save);
+  const failedRequests: string[] = [];
+  page.on('requestfailed', request => failedRequests.push(request.url()));
+  await context.setOffline(true);
+  await page.reload(); await enterGame(page);
+  await walkDirection(page, 'up');
+  await expect(page.locator('#current-location')).toHaveText('PALESTRA DI FERRALUCE');
+  for (const id of ['second', 'field', 'first']) {
+    const node = magneticRouter.nodes.find(node => node.id === id)!;
+    await walkTo(page, 'gym04_ferraluce.tmj', node.x, node.y + 2);
+    await walkDirection(page, 'up');
+    await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
+    await page.getByRole('button', { name: 'RUOTA', exact: true }).click();
+    await page.getByRole('button', { name: 'Annulla', exact: true }).click();
+  }
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain(magneticRouter.solvedFlag);
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain(magneticRouter.solvedFlag);
+  await walkTo(page, 'gym04_ferraluce.tmj', 15, 23);
+  await expect(page.locator('#current-location')).toContainText('FERRALUCE');
+  expect(failedRequests).toEqual([]);
+});
 
 test('Ferraluce candidate artwork decodes on its first request offline', async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-urban-artwork-v1.json', import.meta.url), 'utf8'));

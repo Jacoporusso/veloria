@@ -78,6 +78,12 @@
       "x": 24,
       "y": 22,
       "facing": "up"
+    },
+    {
+      "id": "from_gym04",
+      "x": 34,
+      "y": 19,
+      "facing": "down"
     }
   ],
   "connections": [
@@ -86,6 +92,14 @@
       "viaSpawnId": "from_r06",
       "targetSpawnId": "from_ferraluce",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym04_ferraluce",
+      "viaSpawnId": "from_gym04",
+      "targetSpawnId": "from_city",
+      "requiresFlags": [
+        "q_ferraluce_report"
+      ]
     }
   ],
   "encounterTableIds": [],

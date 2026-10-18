@@ -607,7 +607,7 @@
       {
         "lines": [
           "Il rapporto è registrato. Le misure confermano una variazione condivisa lungo la rete, senza indicarne ancora la causa.",
-          "Puoi curare la squadra e rifornirti nel distretto. La Palestra non è ancora visitabile. Il Condotto e la Centrale Risonante verranno dopo quella prova."
+          "Puoi curare la squadra e rifornirti nel distretto. La Palestra di Rhea è raggiungibile dalla pedana P4 a est della piazza, poco a nord del cartello. Il Condotto e la Centrale Risonante verranno dopo quella prova."
         ]
       }
     ]
@@ -622,8 +622,8 @@
   "ferraluce_gym_sign": {
     "speaker": "Segnaletica del distretto",
     "lines": [
-      "Palestra di Ferraluce · Acciaio.",
-      "La Palestra non è ancora visitabile in questa versione. La prossima prova sarà dedicata a difesa e scelta delle mosse; poi si proseguirà verso la Centrale Risonante."
+      "Palestra di Ferraluce · Acciaio · Capopalestra Rhea.",
+      "Dopo aver riferito a Ivo, sali sulla pedana P4 poco a nord di questo cartello. L’ascensore conduce all’Officina Magnetica. Cure a ovest, bottega al centro-est. R07 e la Centrale sono ancora in preparazione."
     ]
   },
   "ferraluce_care": {
@@ -636,6 +636,32 @@
     "speaker": "Mercante di Ferraluce",
     "lines": [
       "Pozioni, Antidoti e Poké Ball per esplorare l’Anello Magnetico."
+    ]
+  },
+  "rhea_gym": {
+    "speaker": "Rhea",
+    "stages": [
+      {
+        "whenFlagMissing": "gym04_magnetic_aligned",
+        "lines": [
+          "Benvenuto nell’Officina Magnetica! Rhea, piacere. Porta il segnale dalla Sorgente al Ricevitore: puoi regolare i comandi in qualunque ordine.",
+          "Primo nastro a est, secondo a nord, campo a ovest. Premi A e scegli RUOTA. Le linee si accendono soltanto dove passa l’energia."
+        ]
+      },
+      {
+        "whenFlagMissing": "trainer_gym04_rhea_defeated",
+        "lines": [
+          "Il circuito è stabile. Ora prova a leggere le difese dei miei Pokémon Acciaio.",
+          "Magnemite usa Elettro, Skarmory vola e Steelix ha grande Difesa. Le mosse speciali possono aiutarti. Sull’Anello trovi Wooper: è immune a Elettro e impara Colpodifango. Non serve possedere una specie precisa per entrare."
+        ]
+      },
+      {
+        "whenFlagPresent": "badge_acciaio_awarded",
+        "lines": [
+          "Hai dimostrato che una buona strategia sa cambiare direzione. La Medaglia Acciaio è tua.",
+          "Le letture della rete vanno confrontate con quelle della Centrale Risonante. Il Condotto e la Centrale sono ancora in preparazione: puoi tornare sulle altre rotte con la monorotaia."
+        ]
+      }
     ]
   }
 }

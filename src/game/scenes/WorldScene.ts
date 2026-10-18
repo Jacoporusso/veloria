@@ -2,6 +2,8 @@ import { decorateServiceOption, type ServiceOptionIconKind } from '../ui/Service
 import { RegionMapPanel } from '../ui/RegionMapPanel';
 import { recordAreaVisited } from '../../core/world/region-atlas';
 import { monorailDestinations, monorailNetwork, monorailUnlocked, planMonorailTrip } from '../../core/world/monorail.ts';
+import { rotateSignalRouter, signalRouterState, traceSignalRouter } from '../../core/world/signal-router.ts';
+import { getSignalRouter } from '../maps/signal-router-registry';
 import { trainerChallengePrompt } from '../battle/trainer-challenge.ts';
 import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
@@ -521,6 +523,10 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop?.kind === 'signal-router-switch') {
+      this.showSignalRouterMenu(String(prop.properties.routerId), String(prop.properties.nodeId));
+      return;
+    }
     if (prop && serviceId === 'monorail') {
       this.showMonorailMenu(String(prop.properties.stationId));
       return;
@@ -965,6 +971,31 @@ export class WorldScene extends Phaser.Scene {
     options.push({ label: 'CHIUDI', icon: 'close', action: () => undefined });
     this.afterDialogue = null;
     this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
+  }
+
+  private showSignalRouterMenu(routerId: string, nodeId: string): void {
+    const router = getSignalRouter(routerId);
+    const node = router.nodes.find(candidate => candidate.id === nodeId);
+    if (!node) return;
+    this.afterDialogue = null;
+    if (this.save.flags.includes(router.solvedFlag)) {
+      this.showDialogue(node.label, ['Il circuito è stabile: il segnale ha raggiunto il ricevitore. Puoi affrontare il capopalestra.']);
+      return;
+    }
+    const current = signalRouterState(router, node, this.save.flags);
+    const trace = traceSignalRouter(router, this.save.flags);
+    const last = router.nodes.find(candidate => candidate.id === trace.nodeIds.at(-1))!;
+    this.showServiceOptions(node.label, `Direzione: ${current.label}. Il segnale arriva a ${last.label}. Segui le linee sul pavimento fino al ricevitore.`, [
+      { label: 'RUOTA', icon: 'rotate', action: () => {
+        const result = rotateSignalRouter(router, nodeId, this.save.flags);
+        this.save = { ...this.save, flags: result.flags };
+        if (result.trace.outcome === 'connected') this.applyQuestEvent(router.solvedEvent);
+        void this.persistProgress();
+        this.refreshMapVisuals();
+        this.showSignalRouterMenu(routerId, nodeId);
+      } },
+      { label: 'CHIUDI', icon: 'close', action: () => undefined },
+    ]);
   }
 
   private showMonorailMenu(originStationId: string): void {

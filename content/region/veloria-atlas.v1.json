@@ -187,13 +187,14 @@
       "x": 710,
       "y": 265,
       "mapIds": [
-        "veloria/ferraluce"
+        "veloria/ferraluce",
+        "veloria/gym04_ferraluce"
       ],
       "visitedFlags": [
         "q_ferraluce_visited",
         "q_ferraluce_report"
       ],
-      "description": "Piazza dell’Energia, cure e rifornimenti. La quarta palestra è in preparazione."
+      "description": "Piazza dell’Energia, cure, rifornimenti e Officina Magnetica della quarta palestra."
     },
     {
       "id": "centrale",

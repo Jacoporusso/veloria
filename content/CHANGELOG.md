@@ -1,3 +1,11 @@
+## veloria-content-0.3.79 — 18/10/2026
+
+- Palestra 4 di Ferraluce: ascensore dalla piazza dopo il rapporto a Ivo, Officina Magnetica illustrata originale, ingresso/uscita dichiarativi e ritorno sempre aperto. 19 mappe, 19 quest e otto allenatori.
+- Puzzle di orientamento: segnale da Sorgente a Ricevitore, tre comandi regolabili in qualunque ordine, frecce e collegamenti alimentati visibili, orientamenti persistenti. Motore puro e catalogo separati; validazione incrociata con Tiled, collisioni ed evento quest.
+- Rhea con Magnemite 20, Skarmory 21 e Steelix 22, mosse HGSS legali ai livelli. Medaglia Acciaio originale a magnete, premio unico 1.100 monete e feedback strategico. Diario, dialoghi e atlante aggiornati. Nessun requisito di possedere una specie specifica.
+- Due prove browser complete superate per puzzle/ricarica e sfida/medaglia/premio unico; produzione offline superata per ingresso, puzzle, reload e ritorno. 296 test dominio/persistenza, 40 Python, TypeScript e validazione contenuti superati. Cache PWA v100.
+- La prova battaglia usa una squadra preparata: bilanciamento naturale con tutti gli starter e QA su telefono fisico ancora aperti. R07, Centrale, città completa, P5–P8 e Lega restano assenti. La pipeline GitHub precedente conserva fallimenti: esiti in `docs/CI_STATUS.md`.
+
 ## veloria-content-0.3.78 — 18/10/2026
 
 - Preparazione del catalogo di Ferraluce: Magneton, Steelix e Skarmory con parametri e learnset HGSS importati; 34 specie e 45 mosse. Sassata usa i dati ufficiali e il normale danno fisico già supportato. Nessun nuovo incontro o capopalestra è abilitato da questo import.

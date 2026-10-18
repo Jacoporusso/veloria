@@ -13,6 +13,7 @@ export function createBadgeEmblem(badgeId = 'badge_aurora'): HTMLElement {
   svg.setAttribute('viewBox', '0 0 120 120');
   const corolla = badgeCatalog[badgeId]?.emblem === 'corolla';
   const circuit = badgeCatalog[badgeId]?.emblem === 'circuit';
+  const magnet = badgeCatalog[badgeId]?.emblem === 'magnet';
   const shapes: Array<[string, Record<string, string>]> = [
     ['path', { d: 'M60 5 107 32 107 88 60 115 13 88 13 32Z', fill: '#203b59', stroke: '#aeece3', 'stroke-width': '3' }],
     ['path', { d: 'M60 17 96 38 96 81 60 102 24 81 24 38Z', fill: corolla ? '#4f7370' : '#56799c', stroke: corolla ? '#ffcbdc' : '#c6b1ff', 'stroke-width': '2' }],
@@ -27,6 +28,11 @@ export function createBadgeEmblem(badgeId = 'badge_aurora'): HTMLElement {
     ['circle',{cx:'38',cy:'82',r:'5',fill:'#c6b1ff'}],
     ['circle',{cx:'82',cy:'82',r:'5',fill:'#afffe3'}],
     ['path',{d:'M65 42 48 65H60L55 84 76 57H63Z',fill:'#fff0ac',stroke:'#fff7dc','stroke-width':'1.5'}],
+  ); else if (magnet) shapes.push(
+    ['path', {d:'M34 32H49V65A11 11 0 0 0 71 65V32H86V65A26 26 0 0 1 34 65Z',fill:'#d8e9ef',stroke:'#f4fcff','stroke-width':'2'}],
+    ['path', {d:'M34 32H49V47H34Z',fill:'#79cfff'}],
+    ['path', {d:'M71 32H86V47H71Z',fill:'#c6b1ff'}],
+    ['path', {d:'M52 32Q60 22 68 32M53 43Q60 35 67 43',fill:'none',stroke:'#afffe3','stroke-width':'3','stroke-linecap':'round'}],
   ); else shapes.push(
     ['path', { d: 'M35 76 60 29 85 76 60 64Z', fill: '#afffe3' }],
     ['path', { d: 'M60 29 85 76 60 64Z', fill: '#c6b1ff' }],

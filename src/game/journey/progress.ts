@@ -1,6 +1,7 @@
 import mira from '../../../content/trainers/gym01_mira.trainer.json' with { type: 'json' };
 import dalia from '../../../content/trainers/gym02_dalia.trainer.json' with { type: 'json' };
 import aster from '../../../content/trainers/gym03_aster.trainer.json' with { type: 'json' };
+import rhea from '../../../content/trainers/gym04_rhea.trainer.json' with { type: 'json' };
 import badgeContent from '../../../content/badges/badges.v1.json' with { type: 'json' };
 import { trainerPreparation } from '../battle/trainer-challenge.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
@@ -36,7 +37,9 @@ export const journeyMilestones = [
   { flag: 'badge_circuito_awarded', trainer: aster, title: 'La Medaglia Circuito', objective: 'Affronta Aster sulla terrazza di Vetracielo. Terra è immune alle mosse Elettro; Sonicboom invece infligge danno fisso.' },
   { flag: 'q_r06_measurement', title: 'Il segnale dell’Anello', objective: 'Con la Medaglia Circuito esci a est di Vetracielo. Sull’Anello Magnetico esamina il misuratore vicino al sentiero centrale: avvicinati e premi A.' },
   { flag: 'q_ferraluce_visited', title: 'Acciaio, vetro e giardini', objective: 'Dal misuratore prosegui a est sull’Anello Magnetico fino al primo distretto di Ferraluce.' },
-  { flag: 'q_ferraluce_report', title: 'Un segnale da capire', objective: 'Porta le letture a Ivo, al centro della piazza di Ferraluce. Cure gratuite a sinistra e rifornimenti a destra; la prossima palestra è ancora in preparazione.' },
+  { flag: 'q_ferraluce_report', title: 'Un segnale da capire', objective: 'Porta le letture a Ivo, al centro della piazza di Ferraluce. Cure gratuite a sinistra e rifornimenti a destra.' },
+  { flag: 'gym04_magnetic_aligned', title: 'Il circuito magnetico', objective: 'Dopo il rapporto a Ivo sali sulla pedana P4 a est della piazza, poco a nord del cartello. Nella palestra orienta il primo nastro a est, il secondo a nord e il campo a ovest: segui il segnale fino al ricevitore.' },
+  { flag: 'badge_acciaio_awarded', trainer: rhea, title: 'La Medaglia Acciaio', objective: 'Affronta Rhea al centro-nord dell’Officina Magnetica. Prepara mosse speciali e risposte diverse: Steelix è immune a Elettro, Skarmory a Terra. Wooper si incontra sull’Anello Magnetico.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

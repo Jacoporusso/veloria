@@ -13,6 +13,7 @@ from asset_register_validation import validate_asset_register
 from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
 from transit_validation import validate_transit
+from signal_router_validation import validate_signal_routers
 from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -257,7 +258,7 @@ badge_data = json.loads((ROOT / "content/badges/badges.v1.json").read_text(encod
 check(badge_data.get("version") == 1 and bool(badge_data.get("badges")), "Invalid badge catalog")
 badge_registry = badge_data["badges"]
 for badge_id, badge in badge_registry.items():
-    check(badge.get("emblem") in {"aurora", "corolla", "circuit"}, f"Unknown badge emblem: {badge_id}")
+    check(badge.get("emblem") in {"aurora", "corolla", "circuit", "magnet"}, f"Unknown badge emblem: {badge_id}")
     check(all(isinstance(badge.get(field), str) and badge[field].strip() for field in ("name", "leader", "location", "description")), f"Incomplete badge: {badge_id}")
 quests = [json.loads(file.read_text(encoding="utf-8")) for file in quest_files]
 quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]}
@@ -570,6 +571,7 @@ for metadata in runtime_by_id.values():
               f"Map exit is unreachable from spawn {connection['viaSpawnId']} in {metadata['id']}: {trigger.get('name')}")
 
 validate_transit(ROOT, runtime_by_id, quest_flags)
+validate_signal_routers(ROOT, runtime_by_id, quests)
 
 enc = read("r01_tall_grass.encounter.json")
 check(enc["mapId"] in by_id, "Encounter table refers to unknown map")

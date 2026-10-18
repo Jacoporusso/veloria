@@ -1,0 +1,27 @@
+{
+  "id": "gym04magnetic",
+  "sourceNodeId": "source",
+  "goalNodeId": "goal",
+  "solvedFlag": "gym04_magnetic_aligned",
+  "solvedEvent": "gym04/magnetic/aligned",
+  "nodes": [
+    { "id": "source", "label": "Sorgente", "x": 6, "y": 15, "initialStateId": "east", "states": [
+      { "id": "east", "label": "Verso il primo nastro", "direction": "right", "nextNodeId": "first" }
+    ] },
+    { "id": "first", "label": "Primo nastro", "x": 10, "y": 15, "initialStateId": "west", "states": [
+      { "id": "west", "label": "Ovest", "direction": "left", "nextNodeId": null },
+      { "id": "east", "label": "Est", "direction": "right", "nextNodeId": "second" }
+    ] },
+    { "id": "second", "label": "Secondo nastro", "x": 20, "y": 15, "initialStateId": "south", "states": [
+      { "id": "south", "label": "Sud", "direction": "down", "nextNodeId": null },
+      { "id": "north", "label": "Nord", "direction": "up", "nextNodeId": "field" }
+    ] },
+    { "id": "field", "label": "Campo magnetico", "x": 20, "y": 8, "initialStateId": "east", "states": [
+      { "id": "east", "label": "Est", "direction": "right", "nextNodeId": null },
+      { "id": "west", "label": "Ovest", "direction": "left", "nextNodeId": "goal" }
+    ] },
+    { "id": "goal", "label": "Ricevitore", "x": 10, "y": 8, "initialStateId": "ready", "states": [
+      { "id": "ready", "label": "Ricezione", "direction": "up", "nextNodeId": null }
+    ] }
+  ]
+}

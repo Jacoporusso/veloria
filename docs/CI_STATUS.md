@@ -1,3 +1,12 @@
+## Verifiche locali 0.3.79 — Palestra 4
+
+- Due E2E passati: ascensore/rapporto, tre comandi in ordine diverso, reload intermedio, portrait/landscape e ritorno (45,2 s); Rhea bloccata prima del circuito, vittoria, banner, 1.100 monete una sola volta e quattro medaglie dopo reload (33,8 s). Log `.tmp/gym04-puzzle-verified.txt` e `.tmp/gym04-battle-verified.txt`. Screenshot portrait della palestra ispezionato.
+- Produzione offline passata: ingresso, soluzione del circuito in altro ordine, reload e ritorno in città, senza richieste fallite (29 s; 41,3 s con build). Log `.tmp/gym04-offline.txt`.
+- Dominio/persistenza 280 + 16 passati; Python 40 passati con directory temporanea del workspace; TypeScript, build e validatore contenuti passati. 19 mappe, 19 quest, otto allenatori, 136 asset registrati. Log `.tmp/gym04-domain-final.txt`, `.tmp/gym04-python-final.txt`, `.tmp/gym04-validation-final.txt`.
+- Primo test puzzle: fixture incompleto dei flag precedenti, corretto usando le tappe reali del diario. Primo test sfida: lettura della scena prima del caricamento differito, corretto aspettando lo stato disponibile. Non sono stati rimossi gate o interazioni.
+- Squadra di integrazione preparata (Quagsire 35): non certifica bilanciamento naturale. QA fisico, percorso completo con tutti gli starter e collisioni visive ai bordi restano da verificare. R07/Centrale, città completa e resto dell'avventura rimangono aperti.
+- Commit/publicazione 0.3.79 in preparazione. Verify precedente `39159924891` su 0.3.77 concluso con tutti e quattro i job falliti; correzione Vetracielo verificata localmente, altri timeout ancora da risolvere. Il deploy precedente e le prove locali non vengono dichiarati come suite GitHub verde.
+
 ## Diagnostica Linux 0.3.77 — shard 3
 
 - Job `117770885882`, run `39159924891`: 32 prove passate e una fallita (Vetracielo). Le tre prove layout battaglia, incluso 320×568, passano: la correzione dei dettagli mosse è confermata su Linux.
@@ -10,7 +19,7 @@
 - Validazione offline di fonti/manifest/checksum, 134 asset e contenuti superata. TypeScript e build produzione superati; dominio/persistenza 293 test, Python 35 test, prova Squadra/Pokédex e prova primo caricamento artwork senza rete superati. Log locali `.tmp/ferraluce-catalog-*`.
 - Il primo comando npm della prova offline ha ignorato il filtro e avviato cinque casi: fermato soltanto quel processo, senza attribuire un esito alla suite interrotta. Run mirato successivo tramite CLI Playwright: un caso, passato in 15,1 secondi con build.
 - Riferimento evolutivo Magneton con condizione di luogo, senza soglia numerica inventata né attivazione runtime. PokéAPI non fornisce il nome italiano di Mt. Coronet, conservato in inglese.
-- La versione pubblica verificata resta 0.3.77. Il run Verify `39159924891` su quella versione era ancora attivo all’ultimo controllo; nessun esito completo verde dichiarato.
+- La versione pubblica verificata resta 0.3.77. Il run Verify `39159924891` su quella versione è poi terminato con quattro job falliti; nessun esito completo verde dichiarato.
 
 ## Aggiornamento 0.3.77 — monorotaia e diagnostica CI
 
@@ -402,3 +411,9 @@ La 0.3.27 include quattro frame botanici, otto istanze Tiled non collidenti e va
 - Build TypeScript/Vite e `npm test` passati; validatori mappe, schema, asset e licenze terminati con codice 0. Playwright elenca 42 test in 15 file.
 - Verifica browser LAN: Terrazze del Muschio e Radicelmo si avviano; Rami e Leda sono renderizzati e la console della nuova sessione è pulita.
 - E2E mirati non eseguiti: il server gestito da Playwright non apre la porta 5183 né produce output entro il timeout; cache PWA `veloria-shell-v57`.
+
+## Diagnosi conclusiva del run 39159924891 (0.3.77)
+
+- Shard 2: monorail si ferma sul testo ancora parziale «Conquista la Med» dopo 8 s; E2E-03 esaurisce 120 s controllando scala canvas/CSS; E2E-04 esaurisce 240 s aspettando movimento nel Bosco a (8,10); E2E-05 esaurisce 120 s durante tap direzionale. Anche il job raggiunge il limite complessivo, ma i singoli timeout non vanno descritti soltanto come timeout globale.
+- Offline E2E-06 esaurisce 720 s nell'avvicinamento alla prima console di Gym03, aspettando un cambio di posizione dopo tap. Gli altri tre casi offline, compresa la monorotaia, passano. Non è un errore di avvio del canvas in questa run.
+- Log e artefatti letti dal sotto-agente in `.tmp/ci-39159924891-shard2/`; nessuna modifica ai test o al runtime da parte dell'agente. Il testo lento e i timeout di movimento richiedono diagnosi ulteriore; non si dichiarano risolti con P4.

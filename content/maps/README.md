@@ -71,3 +71,9 @@ Run `python tools/validate_examples.py` and `npm run build` after adding a map. 
 ## Elevated rail decoration
 
 `kind: elevated-rail` in the `decorations` layer draws a horizontal ivory/cyan guideway using the authored rectangle. It is cosmetic, with no train transport logic. Author its restricted movement footprint independently in `collision`; scenery and navigation must not infer each other. Vetracielo combines this with a registered transparent `scenery-image` station, keeping the services and interactions as separate reachable Tiled objects.
+
+## Signal circuits
+
+A `signal-router` decoration references a catalog ID from `content/puzzles/*.v1.json`. Add one `signal-router-switch` interaction per adjustable node, with `routerId` and `nodeId`, at the catalog tile coordinates; give every node a separate one-tile collision footprint. The circuit renderer draws shared lines and orientation controls. Fixed source/receiver nodes have no rotating interaction. Content validation checks endpoints, directed edges, arrow alignment, a reachable goal, quest event/flag and Tiled controls. The core stores orientations in exclusive per-node flags and delegates completion rewards to the quest engine. Do not add city-specific conditionals to scenes.
+
+A `lift-pad` decoration marks a walkable elevator footprint. Its map-exit trigger and flag gate remain in `triggers`; the decoration never teleports or blocks the player itself.

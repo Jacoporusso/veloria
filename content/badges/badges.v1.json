@@ -21,6 +21,13 @@
       "location": "Palestra di Vetracielo",
       "description": "Tre linee e una scintilla ricordano l’importanza di leggere i tipi, il ritmo e le possibilità di ogni compagno.",
       "emblem": "circuit"
+    },
+    "badge_acciaio": {
+      "name": "Medaglia Acciaio",
+      "leader": "Rhea",
+      "location": "Palestra di Ferraluce",
+      "description": "Due poli uniscono precisione e flessibilità: ogni difesa ha una risposta.",
+      "emblem": "magnet"
     }
   }
 }

@@ -12511,9 +12511,9 @@
               "value": 0
             },
             {
-              "name": "message",
+              "name": "dialogueId",
               "type": "string",
-              "value": "Palestra 4 · Acciaio. La palestra non è ancora disponibile; questo primo distretto non include il suo ingresso. R07 e la Centrale Risonante restano chiusi."
+              "value": "ferraluce_gym_sign"
             }
           ]
         },
@@ -12639,6 +12639,43 @@
               "name": "destinationSpawnId",
               "type": "string",
               "value": "from_ferraluce"
+            }
+          ]
+        },
+        {
+          "id": 537,
+          "name": "Ascensore per la Palestra",
+          "x": 1088,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/gym04_ferraluce"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_city"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "q_ferraluce_report"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Prima porta a Ivo le letture dell’Anello Magnetico. Poi potrai salire alla Palestra di Rhea."
             }
           ]
         }
@@ -12982,6 +13019,23 @@
               "value": 1
             }
           ]
+        },
+        {
+          "id": 536,
+          "name": "Ascensore Palestra",
+          "x": 1088,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "lift-pad"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -12992,7 +13046,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 536,
+  "nextobjectid": 538,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

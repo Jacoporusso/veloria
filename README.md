@@ -1,10 +1,12 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Data:** 18 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, tre Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
+**Data:** 18 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, quattro Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. Il percorso attuale va da Borgofonte fino alla Piazza dell’Energia di Ferraluce passando per l’Anello Magnetico, attraverso Brumalta, Radicelmo, Petalora e Vetracielo: 18 mappe, tre medaglie, 34 specie e 45 mosse da fonti locali. Il bilanciamento e alcune regole restano prototipali; le città complete, la Palestra di Ferraluce e le quattro successive, i dungeon avanzati e la Lega non sono disponibili. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. Il percorso attuale va da Borgofonte fino alla Piazza dell’Energia di Ferraluce passando per l’Anello Magnetico, attraverso Brumalta, Radicelmo, Petalora e Vetracielo: 19 mappe, quattro medaglie, 34 specie e 45 mosse da fonti locali. Il bilanciamento e alcune regole restano prototipali; le città complete, le quattro Palestre successive, i dungeon avanzati e la Lega non sono disponibili. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
 Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le quattro città già visitate: Brumalta, Petalora, Vetracielo e Ferraluce. Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
+
+La Palestra di Ferraluce si raggiunge dopo il rapporto a Ivo, dalla pedana P4 a est della piazza. Circuito magnetico, Rhea e Medaglia Acciaio: [contratto e limiti](docs/18_FERRALUCE_GYM_v0.1.md). Versione 0.3.79 in integrazione; verifica di pubblicazione in `docs/CI_STATUS.md`.
 
 ## Decisioni confermate
 
@@ -16,7 +18,7 @@ Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente 
 - **MVP:** Borgofonte → Sentiero dell'Alba → Bosco dei Veli → Brumalta, primo leader **Mira (Normale)**, circa 30–45 minuti di gioco progettati.
 - **Tecnologia:** TypeScript, Phaser, Vite/PWA, mappe Tiled, IndexedDB, JSON locali generati/importati da PokéAPI.
 - **Espandibilità:** mappe, Pokémon, missioni e regole versionati. La compatibilità con vecchi salvataggi del prototipo non è richiesta. Nuove generazioni comporteranno anche implementazione e QA di eventuali nuove meccaniche.
-- **Target:** uso privato, non distribuito. Ciò **non elimina** i vincoli di proprietà intellettuale.
+- **Distribuzione del prototipo:** repository pubblico e GitHub Pages, su richiesta del proprietario. Provenienza e diritti degli asset restano documentati nel registro.
 
 ## Contenuto del pacchetto
 

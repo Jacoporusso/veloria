@@ -45,6 +45,7 @@ test('gym objective previews real opponent levels and preparation without adding
 
 test('post-medal journey directions name the existing terraces, seed pickup, and Leda archive', () => {
   const flags = ['q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved', 'badge_corolla_awarded', 'q_vetracielo_visited', 'q_vetracielo_orientation', 'gym03_line_gardens_active', 'gym03_line_glass_active', 'gym03_lines_connected', 'badge_circuito_awarded', 'q_r06_measurement', 'q_ferraluce_visited', 'q_ferraluce_report'];
+  flags.push('gym04_magnetic_aligned', 'badge_acciaio_awarded');
   const towardSeed = selectJourneyProgress({ flags, party: [], storage: [], badges: ['badge_aurora'] });
   assert.equal(towardSeed.title, 'Un seme dal passato');
   assert.match(towardSeed.objective, /est.*Terrazze del Muschio.*Seme custodito/i);

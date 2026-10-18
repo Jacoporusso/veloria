@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_rhea_gym04",
+  "name": "Rhea",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym04_rhea_defeated",
+  "defeatQuestEvent": "battle/trainer_rhea/defeated",
+  "rewardMoney": 1100,
+  "victoryMessage": "Hai vinto contro Rhea. Ricevi 1100 ₿ e la Medaglia Acciaio.",
+  "victoryFeedback": "La Medaglia Acciaio è tua! Una Difesa alta non protegge allo stesso modo dagli attacchi speciali. Acqua e Fuoco possono aiutare contro Acciaio; Elettro funziona bene contro Skarmory, ma Steelix è immune. Hai trovato un percorso per la tua squadra. Conserviamo le rilevazioni: il prossimo confronto sarà alla Centrale Risonante, ancora in preparazione.",
+  "team": [
+    {
+      "speciesId": 81,
+      "level": 20,
+      "moveIds": [
+        "thunder-shock",
+        "thunder-wave",
+        "metal-sound",
+        "sonic-boom"
+      ]
+    },
+    {
+      "speciesId": 227,
+      "level": 21,
+      "moveIds": [
+        "peck",
+        "agility",
+        "fury-attack",
+        "sand-attack"
+      ]
+    },
+    {
+      "speciesId": 208,
+      "level": 22,
+      "moveIds": [
+        "tackle",
+        "rock-throw",
+        "harden",
+        "screech"
+      ]
+    }
+  ]
+}

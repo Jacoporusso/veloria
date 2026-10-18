@@ -4,7 +4,7 @@
 - Original modern illustrated environment for Veloria, not third-party artwork.
 - PNG retained; runtime derivative lossless RGBA WebP.
 - Visual inspection: clear central floor, silver/ivory/cyan architecture, lilac coils, south entrance. Collisions and puzzle controls must be authored separately.
-- Status: prepared asset; not yet connected to a playable P4 map. Perspective/collision alignment still needs runtime QA.
+- Status: connected locally to the P4 map. Portrait screenshot inspected; physical-device and edge-collision visual QA remain open.
 
 ## Final prompt
 

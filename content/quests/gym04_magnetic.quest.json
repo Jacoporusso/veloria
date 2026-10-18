@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_gym04_magnetic",
+  "version": 1,
+  "displayName": "Il circuito magnetico",
+  "steps": [
+    {
+      "id": "complete",
+      "trigger": "gym04/magnetic/aligned",
+      "setFlag": "gym04_magnetic_aligned",
+      "requiresFlags": [
+        "q_ferraluce_report"
+      ]
+    }
+  ],
+  "completionFlag": "gym04_magnetic_aligned",
+  "reward": {}
+}

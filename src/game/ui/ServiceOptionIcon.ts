@@ -8,7 +8,8 @@ export type ServiceOptionIconKind =
   | 'shop'
   | 'close'
   | 'challenge'
-  | 'transit';
+  | 'transit'
+  | 'rotate';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -28,7 +29,9 @@ export function decorateServiceOption(button: HTMLButtonElement, kind: ServiceOp
   const path = (d: string, className = 'line') => add('path', { d, class: className });
   const circle = (cx: number, cy: number, r: number, className = 'line') => add('circle', { cx: `${cx}`, cy: `${cy}`, r: `${r}`, class: className });
 
-  if (kind === 'potion') {
+  if (kind === 'rotate') {
+    path('M30 15a12 12 0 1 0 1 10M30 6v10H20', 'line');
+  } else if (kind === 'potion') {
     path('M15 5h10M17 5v8l-7 8v11h20V21l-7-8V5', 'line');
     path('M12 25h16v7H12z', 'fill');
     path('M20 26v5m-2.5-2.5h5', 'white');

@@ -1,7 +1,7 @@
 # Piano del capitolo di Ferraluce
 
 **Versione:** 0.1 — piano di contenuto implementabile  
-**Stato:** R06 e primo arrivo a Ferraluce implementati nei contenuti 0.3.73; Palestra 4, R07 e Centrale ancora assenti. Esiti delle verifiche in CI_STATUS.md.  
+**Stato:** R06 e primo arrivo a Ferraluce implementati nei contenuti 0.3.73; Palestra 4 implementata localmente in 0.3.79, R07 e Centrale ancora assenti. Esiti delle verifiche in CI_STATUS.md.
 **Ambito:** prosecuzione dopo la Medaglia Circuito, con R06, primo distretto di Ferraluce e Palestra 4 Acciaio. R07 e la Centrale Risonante diventano accessibili soltanto dopo P4.
 
 ## 1. Scopo e stato delle decisioni
@@ -130,3 +130,7 @@ Magneton (82), Steelix (208) e Skarmory (227) sono ora importati dai file PokéA
 Sassata è aggiunta al sottoinsieme supportato: attacco fisico Roccia, potenza 50, precisione 90, 15 PP nei dati HGSS. È legale per Steelix dal livello 9. Restano esplicitamente escluse le altre mosse con meccaniche non implementate; nessuna mossa sostitutiva è inventata. Il catalogo riporta tutte le omissioni nei learnset sorgenti.
 
 Magneton ha anche un riferimento a Magnezone tramite aumento di livello presso Mt. Coronet, luogo della serie originale. Il nome italiano non è presente nella risposta API, quindi si conserva l'inglese. Il riferimento non aggiunge questo luogo a Veloria né abilita l'evoluzione. L'evoluzione Magnemite → Magneton a livello 30 resta soltanto documentata, non aggiunta alle regole giocabili in questa preparazione.
+
+## 10. Officina Magnetica — 0.3.79 locale
+
+La Palestra 4 è ora collegata tramite ascensore a est della piazza dopo il rapporto a Ivo: puzzle di orientamento persistente, Rhea, Medaglia Acciaio, banner e premio unico. Dettagli, dati, geometria, strategia e limiti nel documento `18_FERRALUCE_GYM_v0.1.md`. Le precedenti sezioni di proposta e la fotografia 0.3.73 descrivono lo stato precedente; non costituiscono più l'inventario corrente della palestra. Restano aperti R07/Centrale, città completa, bilanciamento naturale con tutti gli starter e verifica su hardware fisico.
