@@ -1,3 +1,9 @@
+## Diagnostica Linux 0.3.77 — shard 3
+
+- Job `117770885882`, run `39159924891`: 32 prove passate e una fallita (Vetracielo). Le tre prove layout battaglia, incluso 320×568, passano: la correzione dei dettagli mosse è confermata su Linux.
+- Snapshot Vetracielo: giocatore già tornato sul viadotto, saldo 740, ricompensa Oren assegnata. Il test attendeva ancora il menu battaglia. L'Invio introdotto per saltare messaggi poteva arrivare dopo la comparsa del banner e chiuderlo. Correzione locale: messaggi automatici senza Invio, scelta esplicita «Tieni le mosse» soltanto nella fase stabile di apprendimento, riconoscimento del terminale anche nell'attesa iniziale del turno.
+- Nuova prova locale passata in 2,1 minuti (log `.tmp/vetracielo-receipt.txt`). Shard 1 concluso con 31 passati e tre timeout in Ferraluce/Gym02/Gym03, da diagnosticare; gli altri job del run non hanno ancora un esito completo acquisito. Artefatti in `.tmp/ci-v77-shard3/`.
+
 ## Preparazione locale 0.3.78 — catalogo Ferraluce
 
 - 34 specie / 45 mosse: import ufficiali HGSS di Magneton, Steelix e Skarmory, Sassata e tre artwork locali lossless; nessuna Palestra 4 o nuova tabella incontri abilitata.

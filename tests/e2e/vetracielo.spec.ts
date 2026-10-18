@@ -60,20 +60,20 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
     if (await page.locator('.battle-celebration').isVisible()) break;
     await expect.poll(() => page.evaluate(() => {
       const scene = (window as any).__vetracieloGame.scene.keys.battle;
-      return Boolean(scene?.sys.isActive() && scene.ui?.list.length && scene.mode === 'menu');
+      return Boolean(scene?.sys.isActive() && scene.ui?.list.length && (scene.terminalShown || scene.mode === 'menu'));
     })).toBe(true);
+    if (await page.evaluate(() => (window as any).__vetracieloGame.scene.keys.battle.terminalShown)) break;
     await tapBattleLabel('LOTTA'); await tapBattleLabel('Frustata');
     await expect.poll(async () => {
       const state = await page.evaluate(() => {
-      const scene = (window as any).__vetracieloGame.scene.keys.battle;
+        const scene = (window as any).__vetracieloGame.scene.keys.battle;
         return { terminal: scene.terminalShown, mode: scene.mode };
       });
       if (state.terminal || state.mode === 'menu') return true;
-      // A level-up can ask for a move replacement between opponents. Answer
-      // through the normal controls instead of waiting forever for the menu.
-      if (state.mode === 'learning' || state.mode === 'message') {
-        await page.keyboard.press('Enter', { delay: 40 });
-      }
+      // Automatic messages can finish between observing their mode and pressing
+      // Enter, which would dismiss the victory receipt. Only answer learning:
+      // it stays open until an explicit choice and preserves the tested moves.
+      if (state.mode === 'learning') await tapBattleLabel('Tieni le mosse');
       return false;
     }, { timeout: 15_000 }).toBe(true);
   }
