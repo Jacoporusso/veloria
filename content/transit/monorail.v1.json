@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "veloria/monorail",
+  "name": "Monorotaia di Veloria",
+  "requiredFlags": [
+    "badge_circuito_awarded"
+  ],
+  "stations": [
+    {
+      "id": "brumalta",
+      "name": "Brumalta",
+      "mapId": "veloria/brumalta",
+      "spawnPointId": "metro_arrival"
+    },
+    {
+      "id": "petalora",
+      "name": "Petalora",
+      "mapId": "veloria/petalora",
+      "spawnPointId": "metro_arrival"
+    },
+    {
+      "id": "vetracielo",
+      "name": "Vetracielo",
+      "mapId": "veloria/vetracielo",
+      "spawnPointId": "metro_arrival"
+    },
+    {
+      "id": "ferraluce",
+      "name": "Ferraluce",
+      "mapId": "veloria/ferraluce",
+      "spawnPointId": "metro_arrival"
+    }
+  ]
+}

@@ -448,6 +448,13 @@
         ]
       },
       {
+        "whenFlagPresent": "badge_circuito_awarded",
+        "lines": [
+          "Il terminale della monorotaia è poco più a sud-est di me: cerca il simbolo del treno. Con Circuito puoi tornare gratis nelle città già visitate.",
+          "Per continuare la ricerca esci a est: l’Anello Magnetico porta a Ferraluce. Le strade a piedi restano aperte."
+        ]
+      },
+      {
         "lines": [
           "Puoi curare la squadra al terminale a sinistra, rifornirti a destra o esplorare il parco a nord-ovest.",
           "Per tornare a Petalora esci a ovest e ripercorri il Viadotto dei Ciliegi. La scalinata della stazione conduce alla Palestra di Aster. Gli altri quartieri non sono ancora accessibili."
@@ -548,7 +555,8 @@
         "whenFlagPresent": "badge_circuito_awarded",
         "lines": [
           "La Medaglia Circuito ha aperto il varco orientale. Oltre la piazza, l’Anello Magnetico conduce a Ferraluce.",
-          "Sulla linea si registrano variazioni inattese. Il gruppo di ricerca di Ferraluce vuole confrontare le letture prima di trarre conclusioni."
+          "Sulla linea si registrano variazioni inattese. Il gruppo di ricerca di Ferraluce vuole confrontare le letture prima di trarre conclusioni.",
+          "La monorotaia è attiva: fuori dalla stazione trovi il terminale con il simbolo del treno. Ti porta gratis nelle città già visitate."
         ]
       }
     ]

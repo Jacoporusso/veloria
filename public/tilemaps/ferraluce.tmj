@@ -12316,6 +12316,23 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 535,
+          "name": "monorail-terminal-ferraluce",
+          "x": 768,
+          "y": 672,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -12529,6 +12546,38 @@
               "name": "message",
               "type": "string",
               "value": "Ferraluce · Piazza dell’Energia. Il Centro offre cure gratuite e deposito; i rifornimenti sono a est. La Sala delle Dinamo è un landmark. L’Anello Magnetico riporta a Vetracielo. Questa è la prima fetta del distretto."
+            }
+          ]
+        },
+        {
+          "id": 534,
+          "name": "Monorotaia di Ferraluce",
+          "x": 768,
+          "y": 672,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "transit-terminal"
+            },
+            {
+              "name": "serviceId",
+              "type": "string",
+              "value": "monorail"
+            },
+            {
+              "name": "stationId",
+              "type": "string",
+              "value": "ferraluce"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Monorotaia di Veloria · Ferraluce. Il servizio si attiva con la Medaglia Circuito e collega le città già visitate."
             }
           ]
         }
@@ -12943,7 +12992,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 534,
+  "nextobjectid": 536,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

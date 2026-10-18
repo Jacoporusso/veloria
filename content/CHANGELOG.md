@@ -1,3 +1,10 @@
+## veloria-content-0.3.77 — 18/10/2026
+
+- Monorotaia attiva dopo Circuito tra Brumalta, Petalora, Vetracielo e Ferraluce già visitate; tariffa gratuita prototipale, terminali illustrati e dati dichiarativi validati. Indicazioni di Aster e Lea aggiornate.
+- Annullamento e tastiera dei menu servizi corretti; arrivo orientato verso il terminale anche dopo ricaricamento. Un caricamento fallito conserva il punto di partenza e permette di riprovare.
+- Verificati quattro casi browser di servizi/avvio/trasporto e due casi offline, oltre a 293 test dominio/persistenza e 35 test Python. Cache PWA v98. Stato di pipeline e pubblicazione in `docs/CI_STATUS.md`.
+- Dettagli delle mosse adattati alle misure del font di ripiego senza spezzare categoria e PP in una terza riga; tre prove layout locali superate. La pipeline Linux precedente conserva errori di integrazione da risolvere.
+
 ## veloria-content-0.3.76 — 18/10/2026
 
 - Header corretto a 320 px con saldo, menu e aggiornamento visibili e senza sovrapposizione; il marchio si adatta allo spazio residuo. Cache PWA v97.

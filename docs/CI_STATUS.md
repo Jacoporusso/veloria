@@ -1,3 +1,13 @@
+## Aggiornamento 0.3.77 — monorotaia e diagnostica CI
+
+- Petalora: percorso completo irrigazione, Dalia, banner Corolla con rotazione e medagliere superato localmente in 1,3 minuti, senza modifiche al test. Il precedente errore Linux non è riprodotto; causa ancora da accertare. Log `.tmp/gym02-current.txt`.
+- Percorso Vetracielo completo superato in 2 minuti dopo aggiornamento dell’attesa battaglia: gestisce esplicitamente messaggi e apprendimento mosse tramite comandi normali. Premio unico di Oren, servizi e persistenza verificati; log `.tmp/vetracielo-current.txt`. È evidenza locale, non una nuova esecuzione Linux.
+
+- Quattro prove browser superate (due trasporto, avvio con starter, icone servizi); due prove produzione offline superate (atlante e tre viaggi con ricarica). Log locali `.tmp/monorail-release-e2e.txt` e `.tmp/monorail-release-offline.txt`.
+- Dominio/persistenza: 293 test; Python: 35 test con directory temporanea nel workspace; build e validazione contenuti superate. Nessuna prova su telefono fisico, nessun playtest naturale completo con tutti gli starter.
+- La pipeline Verify `39157639261` sul commit precedente `1952caa` è fallita in tutti e quattro i job. Overflow dei dettagli mosse a 320px; timeout di battaglia/navigazione, elemento Dalia rimosso durante lo scroll; shard 2 interrotto al limite di 16 minuti; percorso offline tre medaglie interrotto dopo 12 minuti attendendo il canvas. I due altri casi offline sono passati. Non tutti i timeout hanno una causa dimostrata.
+- Corretto localmente l'adattamento dei dettagli mosse ai font di ripiego: tre prove presentation portrait/landscape superate. Verifica Linux e riparazione dei restanti test ancora aperte. Deploy Pages precedente riuscito, ma non prova la salute della suite Verify. Versione 0.3.77 preparata per integrazione; esito della nuova pipeline e deploy ancora da acquisire.
+
 ## Aggiornamento 18/10/2026 — pubblicazione Pages e riparazione CI
 
 - Repository reso pubblico e sito pubblicato: https://jacoporusso.github.io/veloria/. Deploy `39146964926` completato con successo sul commit `e28496d`.

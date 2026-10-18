@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/trainer_aster/defeated",
   "rewardMoney": 850,
   "victoryMessage": "Hai vinto contro Aster. Ricevi 850 ₿ e la Medaglia Circuito.",
-  "victoryFeedback": "La Medaglia Circuito è tua! Hai letto la rete come una squadra: Terra è immune a Elettro, Tuononda può rallentare, Ferrostrido abbassa la Difesa Speciale. Sonicboom infligge 20 HP fissi: il tipo da solo non risolve ogni situazione.",
+  "victoryFeedback": "La Medaglia Circuito è tua! Hai letto la rete come una squadra: Terra è immune a Elettro, Tuononda può rallentare, Ferrostrido abbassa la Difesa Speciale. Sonicboom infligge 20 HP fissi: il tipo da solo non risolve ogni situazione. Hai anche attivato la monorotaia: cerca il terminale con il simbolo del treno nella piazza.",
   "team": [
     {
       "speciesId": 100,

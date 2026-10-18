@@ -5,6 +5,7 @@ import { ensureSeamlessTilesetTexture } from './seamless-tileset';
 import { getTerrainTileFlip } from './terrain-tiling';
 import { renderElevatedRail } from './elevated-rail';
 import { renderRailConsole } from './rail-console';
+import { renderTransitTerminal } from './TransitTerminal';
 
 const TILE = 32;
 type RenderedMap = {
@@ -194,6 +195,9 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
     }
     case 'rail-console':
       renderRailConsole(scene, container, item, active);
+      break;
+    case 'transit-terminal':
+      renderTransitTerminal(scene, container, item);
       break;
     case 'elevated-rail':
       renderElevatedRail(scene, container, item);

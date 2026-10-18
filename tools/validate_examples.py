@@ -12,6 +12,7 @@ from map_render_validation import validate_map_render_assets
 from asset_register_validation import validate_asset_register
 from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
+from transit_validation import validate_transit
 from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -442,7 +443,7 @@ for file in runtime_maps:
                       f"Pickup collectedFlag does not match its quest event in {metadata['id']}: {obj.get('name')}")
                 quest_interaction_objects.append((properties["questEvent"], obj))
             if properties.get("serviceId"):
-                check(properties["serviceId"] in {"pokemon_center", "rest_point"}, f"Unknown map service in {metadata['id']}: {properties['serviceId']}")
+                check(properties["serviceId"] in {"pokemon_center", "rest_point", "monorail"}, f"Unknown map service in {metadata['id']}: {properties['serviceId']}")
             if properties.get("shopId"):
                 check(properties["shopId"] in shop_registry, f"Unknown shop in {metadata['id']}: {properties['shopId']}")
             if properties.get("questEvent"):
@@ -567,6 +568,8 @@ for metadata in runtime_by_id.values():
                     pending.append(point)
         check(bool(targets & visited),
               f"Map exit is unreachable from spawn {connection['viaSpawnId']} in {metadata['id']}: {trigger.get('name')}")
+
+validate_transit(ROOT, runtime_by_id, quest_flags)
 
 enc = read("r01_tall_grass.encounter.json")
 check(enc["mapId"] in by_id, "Encounter table refers to unknown map")

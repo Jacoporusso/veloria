@@ -63,10 +63,19 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
       return Boolean(scene?.sys.isActive() && scene.ui?.list.length && scene.mode === 'menu');
     })).toBe(true);
     await tapBattleLabel('LOTTA'); await tapBattleLabel('Frustata');
-    await expect.poll(() => page.evaluate(() => {
+    await expect.poll(async () => {
+      const state = await page.evaluate(() => {
       const scene = (window as any).__vetracieloGame.scene.keys.battle;
-      return scene.terminalShown || scene.mode === 'menu';
-    }), { timeout: 15_000 }).toBe(true);
+        return { terminal: scene.terminalShown, mode: scene.mode };
+      });
+      if (state.terminal || state.mode === 'menu') return true;
+      // A level-up can ask for a move replacement between opponents. Answer
+      // through the normal controls instead of waiting forever for the menu.
+      if (state.mode === 'learning' || state.mode === 'message') {
+        await page.keyboard.press('Enter', { delay: 40 });
+      }
+      return false;
+    }, { timeout: 15_000 }).toBe(true);
   }
   const victory = page.locator('.battle-celebration');
   await expect(victory).toBeVisible(); await expect(victory).toContainText('240');

@@ -1,6 +1,7 @@
 import { decorateServiceOption, type ServiceOptionIconKind } from '../ui/ServiceOptionIcon';
 import { RegionMapPanel } from '../ui/RegionMapPanel';
 import { recordAreaVisited } from '../../core/world/region-atlas';
+import { monorailDestinations, monorailNetwork, monorailUnlocked, planMonorailTrip } from '../../core/world/monorail.ts';
 import { trainerChallengePrompt } from '../battle/trainer-challenge.ts';
 import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
@@ -133,13 +134,15 @@ export class WorldScene extends Phaser.Scene {
       this.openingGuidance?.destroy();
       this.openingGuidance = undefined;
     });
+    const spawn = getSpawn(this.map, this.save.player.spawnPointId);
     if (!isGridTileOpen(this.playerTile, this.renderedMap.width, this.renderedMap.height, this.occupied)) {
-      const spawn = getSpawn(this.map, this.save.player.spawnPointId);
       this.playerTile = { x: spawn.x, y: spawn.y };
       this.save.player.x = spawn.x; this.save.player.y = spawn.y;
     }
+    if (this.playerTile.x === spawn.x && this.playerTile.y === spawn.y) this.facing = spawn.facing;
 
     this.player = this.makePlayer();
+    this.drawFace();
     this.mapLayer.add(this.player);
     this.player.setPosition(this.playerTile.x * TILE + TILE / 2, this.playerTile.y * TILE + TILE / 2).setDepth(this.player.y + 20);
     this.fitWorldCamera();
@@ -211,7 +214,7 @@ export class WorldScene extends Phaser.Scene {
     const target = !blocked && (this.interactableAtTile(adjacent.x, adjacent.y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y));
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
-      const verb = target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
+      const verb = target.properties.serviceId === 'monorail' ? 'Usa' : target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
       prompt.textContent = 'A · ' + verb + ' ' + target.name;
       this.promptTargetId = target.id;
     }
@@ -518,6 +521,10 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop && serviceId === 'monorail') {
+      this.showMonorailMenu(String(prop.properties.stationId));
+      return;
+    }
     if (serviceId === 'pokemon_center' || serviceId === 'rest_point') {
       this.showHealingMenu(prop?.name ?? 'Punto di riposo', serviceId === 'pokemon_center');
       return;
@@ -849,12 +856,16 @@ export class WorldScene extends Phaser.Scene {
 
   private closeDialogue() {
     this.stopTyping();
+    this.starterChoices.hidden = true;
+    this.starterChoices.onkeydown = null;
+    this.starterChoices.onkeyup = null;
     this.dialogueLines=[];this.dialogueIndex=0;this.dialogueBox.hidden=true;
     document.querySelector('.game-stage')?.classList.remove('has-dialogue');
     const next=this.afterDialogue;this.afterDialogue=null;next?.();
   }
 
   private showStarterChoices() {
+    this.starterChoices.setAttribute('aria-label', 'Scegli il tuo compagno iniziale');
     const box=this.dialogueBox;
     box.hidden=false;
     document.querySelector('.game-stage')?.classList.add('has-dialogue');
@@ -956,9 +967,32 @@ export class WorldScene extends Phaser.Scene {
     this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
   }
 
+  private showMonorailMenu(originStationId: string): void {
+    const origin = monorailNetwork.stations.find(station => station.id === originStationId);
+    if (!origin || origin.mapId !== this.map.metadata.id) { this.showToast('Questa stazione non è disponibile.'); return; }
+    this.afterDialogue = null;
+    if (!monorailUnlocked(this.save.flags)) {
+      this.showDialogue(monorailNetwork.name, ['Conquista la Medaglia Circuito a Vetracielo per attivare la monorotaia. Potrai tornare nelle città che hai già visitato.']);
+      return;
+    }
+    const destinations = monorailDestinations(this.save, originStationId);
+    this.showServiceOptions(monorailNetwork.name,
+      destinations.length ? `Partenza da ${origin.name}. Viaggio gratuito verso le città già visitate. Dove andiamo?` : 'Visita altre città a piedi: le loro stazioni appariranno qui. Il viaggio è gratuito.',
+      [...destinations.map(station => ({ label: station.name, icon: 'transit' as const, action: () => {
+        if (this.mapTransitionLoading || this.battleActive) return;
+        const trip = planMonorailTrip(this.save, originStationId, station.id);
+        if (!trip.ok) { this.showToast('Questa destinazione non è disponibile. Riapri la stazione.'); return; }
+        const destination = getMap(trip.destination.mapId);
+        const spawn = getSpawn(destination, trip.destination.spawnPointId);
+        this.mapTransitionLoading = true;
+        void this.transitionToMap(destination, spawn);
+      } })), { label: 'NON PARTIRE', icon: 'close', action: () => undefined }]);
+  }
+
   private showServiceOptions(speaker: string, prompt: string, options: Array<{ label: string; icon?: ServiceOptionIconKind; action: () => void }>) {
     this.showDialogue(speaker, [prompt]);
     this.revealDialogueLine();
+    this.starterChoices.setAttribute('aria-label', `Opzioni di ${speaker}`);
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden = true;
     this.starterChoices.replaceChildren(...options.map(option => {
       const button = document.createElement('button');
@@ -974,6 +1008,26 @@ export class WorldScene extends Phaser.Scene {
       return button;
     }));
     this.starterChoices.hidden = false;
+    // Native button activation must not also advance the world dialogue.
+    this.starterChoices.onkeydown = event => {
+      event.stopPropagation();
+      if (event.key === 'Escape' || event.key.toLowerCase() === 'b') { event.preventDefault(); this.closeDialogue(); return; }
+      const buttons = [...this.starterChoices.querySelectorAll<HTMLButtonElement>('button')];
+      if (event.key === 'Tab' && event.shiftKey && document.activeElement === buttons[0]) { event.preventDefault(); buttons.at(-1)?.focus(); }
+      else if (event.key === 'Tab' && !event.shiftKey && document.activeElement === buttons.at(-1)) { event.preventDefault(); buttons[0]?.focus(); }
+    };
+    const focusFirst = () => this.starterChoices.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true });
+    if (this.keys.SPACE.isDown) {
+      this.starterChoices.tabIndex = -1;
+      this.starterChoices.focus({ preventScroll: true });
+      this.starterChoices.onkeyup = event => {
+        if (event.key !== ' ') return;
+        event.preventDefault(); this.starterChoices.onkeyup = null;
+        // Phaser ignores a default-prevented keyup; release its matching key too.
+        this.keys.SPACE.reset();
+        if (!this.starterChoices.hidden) focusFirst();
+      };
+    } else focusFirst();
   }
 
   private showTrainerChallenge(trainer: (typeof trainerCatalog)[string]) {

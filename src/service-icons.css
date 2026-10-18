@@ -31,3 +31,8 @@
 }
 
 .service-option__icon .ball-white { fill: #fff; stroke: #19354a; stroke-width: 2.4; }
+.service-option__icon .transit-body { fill: #e4f5ec; stroke: #79cdbd; stroke-width: 2; stroke-linejoin: round; }
+.service-option__icon .transit-window { fill: #283f58; stroke: #283f58; stroke-width: 1; stroke-linejoin: round; }
+.service-option__icon .transit-rail { fill: none; stroke: #a5e9db; stroke-width: 2; stroke-linecap: round; }
+.service-option__icon .transit-wheel { fill: #a49aec; stroke: #f2f0ff; stroke-width: 1.2; }
+.service-option__icon .transit-track { fill: none; stroke: #c5d9e5; stroke-width: 2; stroke-linecap: round; }

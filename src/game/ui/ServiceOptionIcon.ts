@@ -7,7 +7,8 @@ export type ServiceOptionIconKind =
   | 'storage'
   | 'shop'
   | 'close'
-  | 'challenge';
+  | 'challenge'
+  | 'transit';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -57,6 +58,13 @@ export function decorateServiceOption(button: HTMLButtonElement, kind: ServiceOp
   } else if (kind === 'close') {
     circle(20, 20, 15, 'fill');
     path('M14 14l12 12m0-12L14 26', 'white');
+  } else if (kind === 'transit') {
+    path('M7 24V12a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4v12H7z', 'transit-body');
+    path('M10 12h16v8H10z', 'transit-window');
+    path('M7 23h22', 'transit-rail');
+    circle(12, 25, 2.2, 'transit-wheel');
+    circle(24, 25, 2.2, 'transit-wheel');
+    path('M13 29h14', 'transit-track');
   } else {
     path('M20 5l4 9 10 1-7.5 6.5 2.5 10L20 26l-9 5 2.5-10L6 15l10-1z', 'gold');
     path('M20 11v8l6 3', 'white');

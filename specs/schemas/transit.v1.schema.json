@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Veloria transit network v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "id", "name", "requiredFlags", "stations"],
+  "properties": {
+    "version": { "const": 1 },
+    "id": { "const": "veloria/monorail" },
+    "name": { "type": "string", "minLength": 1 },
+    "requiredFlags": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "stations": {
+      "type": "array", "minItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "name", "mapId", "spawnPointId"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]*$" },
+          "name": { "type": "string", "minLength": 1 },
+          "mapId": { "type": "string", "pattern": "^veloria/[a-z0-9_]+$" },
+          "spawnPointId": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -695,7 +695,11 @@ export class BattleScene extends Phaser.Scene {
         fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '11px',
         color: enabled ? '#d6e9f5' : '#99afbf', align: 'center', lineSpacing: 1,
       }).setOrigin(0.5, 0);
-      if (detail.width > width - 28) detail.setWordWrapWidth(width - 28);
+      // Keep the authored category/PP lines together even with wider fallback fonts.
+      // Wrapping the category adds a third line that escapes compact move cards.
+      for (let size = 10; size >= 9 && (detail.width > width - 16 || detail.height > height - (compact ? 23 : 35)); size--) {
+        detail.setFontSize(size);
+      }
       this.ui.add([background, name, detail]);
       this.updateSelectionStyle();
       return;

@@ -4734,6 +4734,23 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 102,
+          "name": "monorail-terminal-vetracielo",
+          "x": 768,
+          "y": 672,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -5121,6 +5138,38 @@
               "value": "Stazione Giardino · entra dalla scalinata per raggiungere la terrazza della Palestra di Aster. Attiva Giardini, Vetro e Cielo in questo ordine. I binari restano riservati ai treni."
             }
           ]
+        },
+        {
+          "id": 101,
+          "name": "Monorotaia di Vetracielo",
+          "x": 768,
+          "y": 672,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "transit-terminal"
+            },
+            {
+              "name": "serviceId",
+              "type": "string",
+              "value": "monorail"
+            },
+            {
+              "name": "stationId",
+              "type": "string",
+              "value": "vetracielo"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Monorotaia di Veloria · Vetracielo. Il servizio si attiva con la Medaglia Circuito e collega le città già visitate."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -5490,7 +5539,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 101,
+  "nextobjectid": 103,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

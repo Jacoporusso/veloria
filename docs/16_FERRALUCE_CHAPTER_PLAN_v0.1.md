@@ -119,6 +119,6 @@ Restano aperti P4/puzzle magnetico/leader/emblema, dungeon e città completa, QA
 Il record API di Ferrartigli descrive un attacco al Pokémon scelto ma anche un possibile aumento dell’Attacco dell’utilizzatore: il destinatario dell’effetto secondario va distinto dal destinatario del danno nell’adattatore. La sola proprietà `target` della mossa non basta per assegnare quel bonus; nessun effetto viene attivato in questo aggiornamento.
 
 
-### Requisito regionale ancora aperto
+### Trasporto regionale dopo P3
 
-Il world design (doc02, decisioni confermate) prevede trasporto rapido in monorotaia dopo P3. Le tre console della palestra e gli elementi di binario attuali sono scenografia/progressione del puzzle, non una rete di viaggio rapido. Il requisito della metro resta quindi aperto e va integrato con accessi dichiarativi alle città già visitate; la presente estensione a R06 non lo sostituisce.
+La monorotaia è implementata nel prototipo tra Brumalta, Petalora, Vetracielo e Ferraluce già visitate, dopo la Medaglia Circuito. Terminali e arrivi sono dichiarativi; il viaggio è gratuito e mantiene risorse e progressione. Contratto, verifiche e limiti in `17_MONORAIL_v0.1.md`. Le future fermate e gli altri trasporti regionali restano da implementare; le console della palestra mantengono la loro funzione di puzzle.

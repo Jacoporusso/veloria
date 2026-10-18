@@ -70,6 +70,12 @@
       "x": 34,
       "y": 12,
       "facing": "left"
+    },
+    {
+      "id": "metro_arrival",
+      "x": 21,
+      "y": 11,
+      "facing": "up"
     }
   ],
   "connections": [

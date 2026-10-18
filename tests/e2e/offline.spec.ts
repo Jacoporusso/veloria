@@ -5,6 +5,8 @@ import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
 import speciesRegistry from '../../content/battle/species.v1.json' with { type: 'json' };
 import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json' };
 import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/world-navigation';
+import { prepareMonorailTraveler, stationArrival, travelResources } from './helpers/monorail';
+import { readBrowserSave } from './helpers/world-navigation';
 
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
@@ -706,4 +708,27 @@ test('illustrated atlas opens for the first time offline from the production cac
   await expect(atlas.locator('.region-map-details h3')).toHaveText('Ferraluce');
   await atlas.getByRole('button', { name: 'Chiudi ×' }).click();
   await expect(atlas).toBeHidden();
+});
+
+
+test('the monorail reaches visited cities and resumes at the terminal with networking disabled', async ({ page, context }) => {
+  test.setTimeout(90_000);
+  await prepareMonorailTraveler(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const before = travelResources(await readBrowserSave(page));
+  await context.setOffline(true);
+  const failures: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url()));
+  for (const id of ['brumalta', 'ferraluce', 'vetracielo']) {
+    await page.getByRole('button', { name: 'Conferma e interagisci' }).tap();
+    const { station, spawn } = await stationArrival(id);
+    await page.getByRole('button', { name: station.name, exact: true }).tap();
+    await expect.poll(async () => (await readBrowserSave(page)).player).toMatchObject({ mapId: station.mapId, spawnPointId: spawn.id, x: spawn.x, y: spawn.y });
+    await expect(page.locator('#game-loading')).toBeHidden();
+    expect(travelResources(await readBrowserSave(page))).toEqual(before);
+    await page.reload(); await enterGame(page);
+    expect((await readBrowserSave(page)).player).toMatchObject({ mapId: station.mapId, spawnPointId: spawn.id, x: spawn.x, y: spawn.y });
+    expect(travelResources(await readBrowserSave(page))).toEqual(before);
+  }
+  expect(failures).toEqual([]);
 });

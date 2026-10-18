@@ -5771,6 +5771,23 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 185,
+          "name": "monorail-terminal-petalora",
+          "x": 768,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -6209,6 +6226,38 @@
               "value": "Petalora · cure a sinistra e bottega a destra. A nord la palestra di Dalia; dopo la Medaglia Corolla, esci dal viale a est per il Viadotto dei Ciliegi e Vetracielo."
             }
           ]
+        },
+        {
+          "id": 184,
+          "name": "Monorotaia di Petalora",
+          "x": 768,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "transit-terminal"
+            },
+            {
+              "name": "serviceId",
+              "type": "string",
+              "value": "monorail"
+            },
+            {
+              "name": "stationId",
+              "type": "string",
+              "value": "petalora"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Monorotaia di Veloria · Petalora. Il servizio si attiva con la Medaglia Circuito e collega le città già visitate."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -6614,7 +6663,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 184,
+  "nextobjectid": 186,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",
