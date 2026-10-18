@@ -15,7 +15,7 @@ async function getMvpResourcePaths(): Promise<string[]> {
   const mapsDirectory = new URL('../../content/maps/', import.meta.url);
   const files = await readdir(mapsDirectory);
   const mapFiles = files.filter(file => file.endsWith('.map.json')).sort();
-  const resources = new Set(['index.html', '.vite/manifest.json', 'assets/ui/veloria-region-atlas-v1.webp']);
+  const resources = new Set(['index.html', 'build-manifest.json', 'assets/ui/veloria-region-atlas-v1.webp']);
   for (const file of ['pokeapi-starter-artwork-v1.json', 'pokeapi-route-artwork-v1.json', 'pokeapi-evolution-artwork-v1.json', 'pokeapi-urban-artwork-v1.json']) {
     const artwork = JSON.parse(await readFile(new URL(`../../assets/${file}`, import.meta.url), 'utf8'));
     for (const entry of artwork.artworks) resources.add(entry.path);
@@ -31,7 +31,7 @@ async function getMvpResourcePaths(): Promise<string[]> {
     resources.add(map.tiledAsset);
     for (const asset of map.renderAssets) resources.add(asset.path);
   }
-  const buildManifest = JSON.parse(await readFile(new URL('../../dist/.vite/manifest.json', import.meta.url), 'utf8')) as Record<string, {
+  const buildManifest = JSON.parse(await readFile(new URL('../../dist/build-manifest.json', import.meta.url), 'utf8')) as Record<string, {
     file?: string;
     css?: string[];
     assets?: string[];

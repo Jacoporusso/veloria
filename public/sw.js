@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v95';
+const CACHE = 'veloria-shell-v96';
 const SHELL = [
   './assets/ui/veloria-region-atlas-v1.webp',
   './assets/tilesets/veloria-industrial-floor-v1.webp',
@@ -28,7 +28,7 @@ const SHELL = [
   './assets/creatures/pokeapi-evolution-8-v1.webp',
   './',
   './index.html',
-  './.vite/manifest.json',
+  './build-manifest.json',
   './manifest.webmanifest',
   './favicon.svg',
   './icons/veloria-192.svg',
@@ -103,7 +103,7 @@ self.addEventListener('install', (event) => {
       .map((url) => url.href);
     const assets = new Set([...SHELL.map((path) => new URL(path, self.registration.scope).href), ...localAssets]);
     await cache.addAll([...assets]);
-    const buildManifestResponse = await cache.match(new URL('./.vite/manifest.json', self.registration.scope));
+    const buildManifestResponse = await cache.match(new URL('./build-manifest.json', self.registration.scope));
     if (!buildManifestResponse?.ok) throw new Error('The production build manifest is unavailable.');
     const buildManifest = await buildManifestResponse.json();
     const buildAssets = new Set();
