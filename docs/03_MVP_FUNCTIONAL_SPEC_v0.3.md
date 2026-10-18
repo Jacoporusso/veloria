@@ -59,7 +59,7 @@ Eventi: idempotenti e scritti su save versionato; un evento ripetuto non crea ri
 | Squirtle | 7 | 5 | Scelta iniziale |
 | Bulbasaur | 1 | 5 | Scelta iniziale |
 
-Specie di lancio aggiuntive del vertical slice: Rattata, Pidgey, Sentret, Hoothoot, Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Bellsprout, Oddish, Spinarak, Mareep, Wooper, Poliwag. La lista è **design target**, non una tabella completa di spawn. Quando si attivano evoluzioni di specie presenti, i loro target devono essere caricati con grafica appropriata; l'import automatico non basta a renderli pronti alla pubblicazione.
+Specie di lancio aggiuntive del vertical slice: Rattata, Pidgey, Sentret, Hoothoot, Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Bellsprout, Oddish, Spinarak, Mareep, Wooper, Poliwag. La lista è **design target**, non una tabella completa di spawn. Nel prototipo le linee Caterpie → Metapod → Butterfree e Weedle → Kakuna → Beedrill sono attive alle soglie di livello 7 e 10. Tutte le sei specie sono nel registro e hanno artwork runtime; frequenza e soglie restano da validare con playtest.
 
 ## 4. Flusso UX e controlli
 

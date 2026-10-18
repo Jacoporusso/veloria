@@ -1,3 +1,223 @@
+## Aggiornamento 18/10/2026 — Anello Magnetico e Ferraluce 0.3.73
+
+- 281 test dominio/persistenza (265 + 16), 24 test Python, TypeScript e validatore superati. Stato: 18 mappe runtime, 17 missioni, sette allenatori, cinque botteghe, 31 specie / 44 mosse, 126 asset registrati.
+- Prova touch integrata superata in 2,6 minuti: gate Circuito, arrivo senza lettura, ritorno al sensore, checkpoint/reload, rapporto unico, cure, acquisto e ritorno a Vetracielo. Una successiva prova del renderer copre le ultime rifiniture grafiche e i due orientamenti (11,6 secondi). Screenshot in `test-results-ferraluce-v73-complete/` e `test-results-ferraluce-art-v73/`, ispezionati visivamente.
+- Durante lo sviluppo corretti un riferimento di spawn, un prerequisito quest mancante, un varco con coordinate in pixel anziché tile e testi danneggiati da una lettura locale con codifica implicita. I test ora verificano anche geometria dei varchi e obbligatorietà di `requiresFlags`; tutte le letture negli interventi finali usano UTF-8 esplicito.
+- Il primo tentativo touch passava negli habitat facoltativi e si fermava in battaglia: il pianificatore del test ora può evitare quelle zone. Non sono stati disabilitati gli incontri nel gioco né alterati i pesi per far passare la prova.
+- Build TypeScript/Vite e due scenari di produzione offline superati (6,3 minuti complessivi): percorso fino a Circuito (5,5 minuti), poi lettura sull’Anello, rapporto a Ivo, cure e reload a Ferraluce (36,8 secondi). Il nuovo scenario usa un salvataggio preparato ed è una prova di integrazione, non una partita naturale. Nessuna richiesta fallita. Nessun QA su telefono fisico o pipeline GitHub verificata in questa sessione.
+- Otto record PokéAPI preparatori per P4 conservati con hash verificati in un manifest separato; nessuna specie/mossa attivata da quelle fonti. Palestra 4, Centrale, città completa e seguito dell’avventura ancora mancanti.
+
+## Aggiornamento 18/10/2026 — evoluzioni dei sentieri 0.3.72
+
+- 273 test dominio/persistenza (257 + 16), TypeScript e validatore superati. Catalogo 31 specie / 44 mosse, 122 asset registrati, 11 import parametrici e nove artwork evolutivi verificati offline.
+- 12 prove browser superate: nove evoluzioni reali con evento unico, nuova immagine, IndexedDB/reload e dettaglio Squadra; catalogo completo a DPR 1/2/3 in portrait e landscape. Screenshot in `test-results-route-evolutions-v72/`; dettaglio Flaaffy controllato visivamente.
+- Scenario produzione offline superato in 5,7 minuti: precache di tutti gli artwork dichiarati, percorso fino alle tre medaglie e persistenza dopo reload. La prova usa creature preparate per le battaglie e non certifica il bilanciamento naturale. Build TypeScript/Vite della stessa versione superata. Nessuna prova su smartphone fisico né pipeline GitHub in questa sessione. Curve XP e timing evolutivo restano prototipali, come documentato nelle regole.
+- Piano del prossimo capitolo in `16_FERRALUCE_CHAPTER_PLAN_v0.1.md`; R06/Ferraluce/P4 non sono ancora runtime. I risultati Playwright locali con nomi dedicati sono ora esclusi da Git, conservando i file sul disco.
+
+## Aggiornamento 18/10/2026 — nitidezza battaglia 0.3.71
+
+- TypeScript e cinque prove browser dedicate superati: catalogo completo, portrait/landscape a DPR 1/2/3, Sonicboom e Tuononda. Screenshot in `test-results-battle-sharpness-v71/`, controllata visivamente la schermata mosse landscape. Nessuna prova su telefono fisico.
+- Testi risoluzione 4, nessuna scala frazionaria per i nomi mosse; cinque artwork locali rigenerati lossless. Cache v90.
+
+## Aggiornamento 18/10/2026 — terza palestra 0.3.70
+
+- 261 test dominio/persistenza, 24 test Python, validatore e build superati. Quattro prove browser palestra/catalogo e due prove effetti mosse superate.
+- Scenario produzione offline completato (5,7 minuti): tre medaglie, puzzle Aster, ricompense e persistenza dopo reload. Il test attende esplicitamente il checkpoint prima dei reload delle console. Questo risultato precede la rifinitura 0.3.71; non è stato ripetuto per quest’ultima.
+- 16 mappe, 25 specie, 44 mosse. Il percorso tecnico usa Pokémon preparati, non certifica il bilanciamento naturale di tutti gli starter. Cinque Palestre e Lega ancora mancanti; pipeline GitHub non verificata in questa sessione.
+
+## Aggiornamento 18/10/2026 — messaggi e fonti Vetracielo 0.3.69
+
+- Corretto il messaggio delle cure sopra la ricompensa missione, rilevato nello screenshot offline 0.3.68. Ora viene posizionato sotto il premio e ricalcolato alla rotazione; su superfici troppo corte sostituisce il premio precedente. Prova browser dedicata portrait/landscape e build finale TypeScript/Vite superate; scenario offline completo non ripetuto per questa rifinitura di layout.
+- Acquisite 12 risposte ufficiali PokéAPI per Magnemite, Voltorb e mosse candidate, con manifest separato e SHA-256 verificati. Sono fonti preparatorie, non contenuto runtime. Rimangono 23 specie e 38 mosse giocabili. Cache PWA v88; contenuti delle nuove mappe e prova completa offline verificati nella versione 0.3.68 sotto.
+
+## Aggiornamento 18/10/2026 — R05 e prima piazza di Vetracielo 0.3.68
+
+- Nuove mappe collegate al varco est di Petalora dopo Corolla; quattro habitat sul viadotto e uno nel parco, Oren opzionale, Lea con premio unico, cure/deposito e rifornimenti. Stazione Giardino originale ImageGen, PNG + WebP q88 con alpha registrati. Nessuna nuova specie/mossa o logica per città in WorldScene; Palestra 3 e metropoli completa ancora assenti.
+- 241 test dominio/persistenza superati (225 + 16). Nuovi controlli BFS da ogni spawn verso tutte le uscite evitando habitat, riferimenti reciproci, collisioni stazione/binari, servizi raggiungibili, mosse ufficiali HGSS di Oren, arrivo e orientamento idempotente, priorità diario dopo Corolla. Validatore verde: 15 mappe runtime, 12 missioni, 6 allenatori, 4 botteghe, 104 asset registrati e 70 dipendenze.
+- Scenario browser DPR3 passato (2 minuti): gate chiuso senza Corolla, apertura, sfida Oren con Ivysaur 20 preparato, 240 monete, arrivo e dialogo Lea, due Pozioni, cure, acquisto al prezzo effettivo del catalogo, orientamento persistente senza doppio premio dopo reload e ritorno a Petalora. Screenshot portrait/landscape ispezionati. Primo tentativo fermato dall’aspettativa di prezzo errata del test (300 invece dei 200 del catalogo); il runtime era corretto.
+- Ripetizione dello scenario browser con dialogo a Oren dopo vittoria e reload superata (2,1 minuti): nessuna seconda sfida o ricompensa. Prova di produzione senza rete superata (4,8 minuti di scenario, 5,1 incluso avvio): prologo → Aurora → Petalora → Corolla → R05 → Lea → cure in Vetracielo → reload con orientamento e due Pozioni persistenti. Nessuna richiesta fallita. Screenshot offline ispezionato. Squadra tecnica Charmeleon 30 nel test offline: non dimostra il bilanciamento naturale.
+- 24 test Python superati usando una directory temporanea sotto `.tmp`: il primo tentativo con Temp di sandbox Windows aveva fallito per accesso negato. Build di produzione TypeScript/Vite e diff-check superati; resta avviso chunk Phaser. Nessun test su telefono fisico o pipeline GitHub. La città completa, la Palestra 3, la rifinitura dei binari e il bilanciamento naturale restano da realizzare/verificare.
+
+## Aggiornamento 18/10/2026 — indicazioni e feedback missione 0.3.67
+
+- Indicazioni mondo DOM alla densità nativa, proiezione della camera e posizionamento che evita HUD/controlli/protagonista. Ricompense missione compatte e nessun toast generico duplicato. Piano documentato per R05/Vetracielo; nessuna nuova area giocabile in questa versione.
+- 232 test dominio/persistenza superati (216 + 16), inclusi quattro casi di posizionamento. Cinque scenari browser finali superati: tre uscite del primo capitolo e Dalia in portrait/landscape a DPR 1/3, apertura menu e bersaglio fuori schermo. Screenshot ispezionato dopo la protezione del protagonista.
+- Scenario completo Palestra 2 superato (1,3 minuti) con nuove asserzioni su ricompensa compatta, diario e assenza del toast duplicato, prima dell’ultima rifinitura della sola proiezione. I primi test visivi hanno trovato un errore di spread DOMRect, un margine frazionario e un caso di uscita vicino al pad: corretti e verificati nuovamente.
+- Build TypeScript/Vite e diff-check superati; cache PWA v86. Restano avviso chunk Phaser, QA su smartphone fisico e rifinitura artistica dei canali. Scenario offline completo non ripetuto per questa modifica UI; ultimo esito di produzione offline: 0.3.65.
+
+## Aggiornamento 18/10/2026 — nitidezza battaglia 0.3.66
+
+- Densità nativa fino a 3× su telefono, budget framebuffer 4K per display grandi, artwork non ingranditi oltre i pixel sorgente e dettagli mosse a 11px. Landscape con fino a quattro mosse su una riga più alta.
+- Due test del budget/densità e nove scenari browser superati: battaglia con Pidgey, catalogo di 23 specie, rotazione mondo e touch a DPR 1/2/3, oltre a props/terreno. I tre scenari battaglia ripetuti e superati dopo la rifinitura dell’altezza dei pulsanti. Build TypeScript/Vite e diff-check superati; resta l’avviso sulle dimensioni del chunk Phaser. Screenshot landscape 3× ispezionato. Nessuna prova su telefono fisico; gli artwork mantengono il limite delle sorgenti esistenti.
+
+## Aggiornamento 17/10/2026 — seconda palestra 0.3.65
+
+- Palestra di Petalora collegata alla città, quattro stazioni d’irrigazione, canali/fiori condizionali e sfida Dalia Erba. Medaglia Corolla e 650 monete una sola volta, emblemi distinti nel banner e nel medagliere.
+- 226 test dominio/persistenza superati (210 + 16), compresi quattro nuovi controlli di quest, gate, visuali e BFS. Validatore contenuti: 13 mappe runtime, 10 missioni, 5 allenatori e 3 botteghe; 102 asset registrati invariati. Build TypeScript/Vite superata, incluso il build di produzione usato dalla prova offline.
+- Scenario mobile DPR 2 superato (1,3 minuti): azioni fuori ordine, blocco Dalia, ripresa dopo sorgente, sei fioriture, vittoria, premio, menu con due emblemi dopo caricamento e niente seconda ricompensa. Ripetuto con feedback e medagliere in landscape: superato, screenshot ispezionati. Primo tentativo della fixture anticipava il preload della battaglia; il test ora attende scena attiva e UI realmente costruita.
+- Scenario di produzione offline esteso al puzzle, Dalia e medagliere superato (3,9 minuti), dal prologo fino a due medaglie senza richieste fallite. Squadre preparate: Charmeleon 16/30; non sono prove del bilanciamento naturale. Nessuna verifica su telefono fisico o pipeline GitHub. Restano avviso chunk Phaser, rifiniture dei canali e possibile sovrapposizione delle etichette alte con l’HUD.
+
+## Aggiornamento 17/10/2026 — salita e primo quartiere di Petalora 0.3.64
+
+- R04 e Petalora collegati a Radicelmo, gate Aurora senza requisito vivaio, quattro habitat e Nila opzionale. Cure/deposito e bottega funzionanti. Ciliegio originale con PNG/WebP e prompt registrati; 102 voci asset. Palestra 2 e città completa restano da realizzare.
+- 222 test dominio/persistenza superati (206 + 16), con BFS delle nuove mappe e priorità fra obiettivi principali e facoltativi. Validatore: 12 mappe runtime, 8 missioni, 4 allenatori, 3 botteghe; mosse di Nila conformi al learnset HGSS disponibile.
+- Tre prove browser dedicate superate: percorso reale con gate, andata/ritorno, arrivo persistente, cure, acquisto, vittoria su Nila e premio unico dopo ripresa; grafica a DPR 2 in portrait/landscape con petali animati e ridotti. Screenshot ispezionati. Squadra preparata Charmeleon 16: integrazione verificata, bilanciamento naturale non dimostrato.
+- La prima esecuzione del percorso è stata interrotta dal reload HMR durante una modifica del renderer; ripetuta a fonti ferme e superata (1,9 minuti). Nella prima selezione era incluso anche lo scenario esistente degli interni di Borgofonte, passato.
+- Prova di produzione offline estesa superata (3 minuti): prologo, incontri, cure, Aurora, gate R04, arrivo a Petalora, cure e ripresa senza rete; nessuna richiesta fallita. Partenza del tratto nuovo preparata a Radicelmo, senza assegnare il flag d’arrivo. Build e diff-check superati; resta l’avviso chunk Phaser. Nessuna prova su smartphone fisico o pipeline GitHub.
+
+## Aggiornamento 17/10/2026 — nitidezza battaglia 0.3.63
+
+- Canvas HiDPI fino a 2×, layout CSS preservato, testi battaglia a risoluzione 2×. Artwork individuali renderizzati con i pixel disponibili, senza nuove immagini. Nessuna modifica all’animazione della Sfera.
+- Dieci casi browser distinti superati: tre prove battaglia WebGL alle densità 1/2/3 (23 specie caricate, artwork in campo senza sovraingrandimento, testo 2×, portrait/landscape e touch LOTTA), tre prove del mondo alle stesse densità (rotazione, zoom coerente, movimento touch), quattro prove cattura/vittoria a DPR 2 (animazione, box, fallimento, feedback/premio e callback singoli). Il primo tentativo ha individuato un registro di densità separato fra moduli della fixture: rimosso, il layout legge ora direttamente lo zoom effettivo di Phaser.
+- Screenshot WebGL portrait e landscape ispezionati. Build TypeScript/Vite, validatore contenuti e diff-check superati; resta l’avviso chunk Phaser. Nessuna nuova prova su smartphone fisico, offline o pipeline GitHub; dominio di battaglia e salvataggi non modificati.
+
+## Aggiornamento 17/10/2026 — vivaio di Radicelmo 0.3.62
+
+- Missione «Un archivio che cresce» dopo l’archivio: acqua, luce, osservazione e rapporto a Leda. Stato persistente, indicazioni sul prossimo oggetto, dialoghi per azioni premature e ricompensa unica. Riutilizzo dell’atlante illustrato; nessun nuovo asset esterno. L’interno D02, R04 e Petalora restano da implementare.
+- 213 test dominio/persistenza superati (197 + 16), compresi cinque nuovi controlli della quest. Build TypeScript/Vite, validatore di sette missioni runtime e diff-check superati; resta l’avviso chunk Phaser.
+- E2E-12 esteso superato in 1,2 minuti: gate della medaglia, raccolta/consegna, avvio del vivaio, azioni fuori ordine, ripresa dopo l’acqua, germoglio, ricompensa e seconda ripresa senza duplicazioni. Corretti due errori del test: orientamento dopo il caricamento e attesa della conclusione del movimento prima di A.
+- Rotazione portrait → landscape → portrait superata separatamente; screenshot renderizzati ispezionati. Il primo screenshot landscape era preso nel fotogramma transitorio del resize; la verifica dedicata attende dimensioni e postrender effettivi. Nessuna nuova prova offline, su smartphone fisico o pipeline GitHub.
+
+## Aggiornamento 17/10/2026 — prime evoluzioni starter 0.3.61
+
+- Bulbasaur, Charmander e Squirtle evolvono al livello 16. Catalogo a 23 specie, parametri e artwork PokéAPI locali con manifest e checksum; learnset HGSS supportati, curva XP del prototipo invariata. Forme finali e Pietratuono restano da implementare.
+- 208 test dominio/persistenza e due test Python sui parametri storici superati. Nove scenari browser distinti verificano evoluzioni, conservazione di identità/HP/PP, salvataggio IndexedDB, schede e artwork.
+- Percorso di produzione offline fino alla medaglia Aurora superato (2,3 minuti), inclusa decodifica dei tre nuovi artwork senza rete. Aggiornato il percorso del test alle attuali zone di felci e ai banner di vittoria; il primo tentativo usava un sentiero senza incontri.
+- Build, validatore contenuti e diff-check superati. Nessuna nuova verifica su smartphone fisico o pipeline GitHub. Resta l’avviso chunk Phaser.
+
+## Aggiornamento 17/10/2026 — feedback e medagliere 0.3.60
+
+- Animazione Sfera e ricevuta della cattura (immagine, tipo, livello, HP, mosse, squadra/box); fallimento senza banner di successo. Vittoria allenatore con monete realmente assegnate e feedback. Mira con emblema Aurora e medagliere persistente, condiviso con il riepilogo del capitolo.
+- 202 test dominio/persistenza superati. 20 scenari browser combattimento/zaino superati, più E2E-05 su Mira e il caso medagliere vuoto (22 scenari distinti). Ripetuti i quattro casi dei nuovi banner dopo il layout finale: portrait, landscape con dati affiancati, pulsante sempre visibile e animazioni ridotte. Screenshot ispezionati.
+- Rilevata e corretta una doppia notifica di chiusura durante il click sul banner: la chiusura della scena è ora notificata una sola volta, come il completamento. La suite verifica callback singole, cattura nel box, mancata cattura, feedback, premio e persistenza della medaglia dopo il caricamento.
+- Build TypeScript/Vite, validatore contenuti e diff-check superati. Catalogo medaglie e feedback verificati; nessuna nuova prova su smartphone fisico o pipeline GitHub. Resta l’avviso chunk Phaser.
+
+## Aggiornamento 17/10/2026 — evoluzioni nelle schede 0.3.59
+
+- Informazioni evolutive PokéAPI locali per tutte le 20 specie; import riproducibile e checksum verificati offline, con confronto delle quattro soglie runtime già implementate. Nessuna nuova evoluzione abilitata dal solo riferimento.
+- Cinque scenari browser superati: Squadra/Pokédex a 390×844, 320×568 e 844×390; livello 16 degli starter, livello 7 di Caterpie, Pietratuono per Pikachu, forme finali e distinzione disponibilità. Sezione spostata prima delle affinità, non in fondo ai learnset.
+- Build TypeScript/Vite e validatore contenuti superati. Nessuna verifica aggiuntiva su telefono fisico o pipeline GitHub.
+
+## Aggiornamento 17/10/2026 — continuazione Radicelmo 0.3.58
+
+- Corretto il seme che aggiornava solo il flag senza entrare nello zaino. Contratto generico `grantItems`/`consumeItems`, consegna atomica e ricompensa unica; tutte le missioni runtime ora passano anche lo schema JSON.
+- 202 test superati (186 dominio/servizi, 16 persistenza); 6 test Python dello schema. Validatore contenuti e build TypeScript/Vite superati, con il consueto avviso chunk Phaser.
+- E2E-12 esteso superato: medaglia richiesta, raccolta nello zaino, caricamento, consegna e ricompensa, seconda ripresa e nuova interazione senza duplicazione. Il primo tentativo è stato interrotto da un aggiornamento Vite durante la prova; ripetuto dopo le modifiche e passato.
+- Partita nuova Charmander fino a Mira e poi Radicelmo, 6,7 minuti: nessuna iniezione di progressi, oggetto consegnato, ricompensa e ripresa verificati, zero errori JavaScript. Report nel resoconto del playtest.
+- Tre verifiche browser degli indicatori dopo la medaglia superate. Individuato e corretto il testo tagliato dall’uscita est di Brumalta: testo a capo e posizione limitata ai confini della mappa. Nessuna prova su telefono fisico o pipeline GitHub; seconda palestra e campagna completa restano da implementare.
+
+## Aggiornamento 17/10/2026 — strategia e Pokédex 0.3.57
+
+- Descrizioni condivise delle 38 mosse dagli effetti runtime; consultazione in lotta senza azioni/PP/turni. Verificate tutte le descrizioni a 320×568 e 844×390, anche con PP esauriti, e ingresso avversario senza rivelare riserve.
+- Squadra e Pokédex separati, schede con statistiche, affinità e learnset supportato. Specie viste ma non catturate consultabili; flag di incontro persistenti senza migrazioni. Test di servizio per proprietà/distinzione visto-catturato e deduplicazione.
+- 196 test superati (180 dominio/servizi, 16 persistenza). Browser: 24 scenari complessivi fra zaino, combattimento, schede e presentazione. La prima esecuzione aggregata ha segnalato 2 controlli di presentazione: adattato il controllo per il nuovo comando separato dalle carte e corretto un reale overflow a 320 px; la suite presentazione ripetuta passa 4/4. Gli altri 20 scenari erano passati, inclusa scansione delle 38 descrizioni.
+- Build TypeScript/Vite e validatore contenuti superati. Screenshot ispezionati in portrait/landscape. Resta l’avviso chunk Phaser; non verificati telefono fisico o pipeline GitHub. Catalogo e campagna rimangono parziali.
+
+## Aggiornamento 17/10/2026 — zaino e monete 0.3.56
+
+- Contatore monete e zaino collegati alla partita corrente; accesso diretto e dal menu. Nessuna modifica al formato salvataggi e nessuna migrazione.
+- Quattro test browser superati: layout 390×844, 320×568 e 844×390, contenuti reali, apertura/chiusura e focus dal menu, aggiornamento saldo/quantità e zaino vuoto. Screenshot portrait/landscape ispezionati; il contenuto scorre in landscape.
+- Build TypeScript/Vite, validatore contenuti e diff-check superati. Resta l’avviso chunk Phaser; nessuna nuova prova su telefono fisico o pipeline GitHub.
+
+## Aggiornamento 17/10/2026 — contenuti 0.3.55 / ruleset v7
+
+- 192 test superati: 176 dominio/servizi e 16 persistenza. Superati anche 13 scenari browser combattimento/presentazione, build TypeScript/Vite e validatore dei contenuti. Resta l’avviso sulla dimensione del chunk Phaser.
+- Corrette le sostituzioni obbligate dopo KO, le immunità agli stati e la chiusura dell’apprendimento. Le mosse mostrano una stima dei danni calcolata dalla stessa formula del motore.
+- Playtest naturali completati fino alla prima medaglia, riepilogo e salvataggio/titolo/continua: Charmander, Bulbasaur e Pikachu su 0.3.54; Squirtle su 0.3.55 con scelta basata sulle stime visibili. Allenamento reale fino al livello 8, catture, Centro e acquisti; nessuna assegnazione di XP o flag dal test. Nessun errore JavaScript osservato. Dettagli e tentativi precedenti nel resoconto del playtest.
+- Nessuna compatibilità o migrazione dei vecchi salvataggi richiesta. Non verificati smartphone fisico, campagna completa o pipeline GitHub. I risultati sottostanti sono storici e riferiti alle rispettive versioni.
+
+## Aggiornamento 17/10/2026 — verifica browser combattimento 0.3.51
+
+- Riprodotto nel browser IAB un incontro spontaneo nel Bosco: carte con testo fuori dai bordi; corrette con tre righe e titolo separato.
+- Corretto un blocco reale di `finishMoveLearning`: dopo sostituzione/rifiuto il vecchio stato learning rimaneva attivo senza scelta pendente. Il test ora completa sostituzione, rifiuto successivo e callback finale unica.
+- 11 scenari browser superati sul server locale 5174 fuori sandbox: efficacia, immunità, dettaglio mosse/risoluzione automatica, AI Mira, evoluzione, apprendimento, cattura, Parassiseme e layout 390×844 / 320×568 / 844×390. Barre HP Parassiseme verificate attraverso i testi effettivamente renderizzati.
+- Test dominio/persistenza: 178 superati. Build TypeScript/Vite, validatore contenuti e diff-check superati. Non è un playtest su smartphone fisico né una verifica dell’intera avventura.
+
+## Aggiornamento 17/10/2026 — Parassiseme 0.3.50
+
+- Catalogo locale 38 mosse: Parassiseme ufficiale al livello 7 per Bulbasaur, sorgente API e checksum registrati.
+- 7 regressioni specifiche: drenaggio e replay, immunità/duplicazione, cambio bersaglio, cambio utilizzatore, limiti HP e KO/XP, cattura/nuova battaglia, scelta AI.
+- `npm test`: 162 test dominio/servizi + 16 persistenza superati; validatore contenuti e build TypeScript/Vite superati. Nessun nuovo playtest browser o telefono.
+
+## Aggiornamento 17/10/2026 — precisione/elusione 0.3.49
+
+- Catalogo PokéAPI locale: 37 mosse; aggiunte Turbosabbia, Muro di Fumo e Profumino con livelli ufficiali.
+- Verificati moltiplicatori separati, bypass precisione nulla, riduzione precisione nella risoluzione reale, replay deterministico, consumo PP e reset al cambio.
+- `npm test`: 155 test dominio/servizi + 16 persistenza superati; build TypeScript/Vite e validatore contenuti superati. Nessun nuovo playtest browser/mobile. Resta l’avviso dimensione chunk Phaser.
+
+## Aggiornamento 17/10/2026 — catalogo mosse 0.3.48
+
+- Import PokéAPI locale esteso a 34 mosse, con snapshot e checksum; 132 apprendimenti sorgente restano fuori dal runtime.
+- Verificati valori storici HGSS di Sanguisuga, livelli reali delle nuove mosse e ordine delle tre polveri di Butterfree al livello 12.
+- `npm test`: 151 test dominio/servizi + 16 persistenza superati. `npm run build` e validatore contenuti superati. Nessun nuovo playtest browser o telefono in questa iterazione.
+
+## Aggiornamento 17/10/2026 — habitat e compatibilità deposito
+
+- Contenuti 0.3.47, cache PWA v66: aggiunti habitat R02 e controllo copertura per ogni percorso Rxx.
+- Test di raggiungibilità dei terreni calpestabili negli habitat R01/R02/R03.
+
+# Mosse e apprendimenti PokéAPI HGSS — contenuti 0.3.46
+
+- Catalogo e livelli generati da snapshot PokéAPI con URL/checksum; il validatore principale esegue il controllo di riproducibilità offline. Nessuna taratura manuale dei dati delle mosse.
+- Nuove creature, starter e allenatori rispettano i learnset supportati al livello. Il report conserva anche gli apprendimenti non implementati. I vecchi ID delle mosse salvate restano compatibili; PP sopra il massimo ufficiale vengono limitati in battaglia.
+- Verificati assorbimento, effetti statistici probabilistici, attacchi multipli, confusione, durata sonno importata e apprendimento all'evoluzione. Le altre meccaniche del simulatore restano prototipi dove documentato.
+- Build, suite di dominio/persistenza e validatore contenuti verificati localmente. L'E2E browser e il playtest di bilanciamento con le nuove regole non sono dimostrati da questi test.
+
+# Ritmo e leggibilità della battaglia — verifiche locali
+
+- I messaggi delle azioni avanzano automaticamente dopo la selezione, il tasto A li può saltare da tastiera, la chiusura dell'esito e le scelte sulle mosse apprese richiedono conferma.
+- Le schede indicano tipo, categoria, potenza, precisione e PP; l'accento cromatico segue il tipo. I messaggi tattici mostrano efficacia e HP persi. La documentazione del ruleset precisa che l'efficacia non predice i danni esatti.
+- `npm run build` e `npm test` passano (132 test di dominio/battaglia, 16 di persistenza). `git diff --check` non segnala errori.
+- Aggiunto E2E per leggibilità delle schede e avanzamento automatico. L'esecuzione Playwright locale è stata avviata; le prove browser precedenti in questa sessione ricevono `ERR_NETWORK_ACCESS_DENIED` sul loopback.
+
+# Ruoli del catalogo mosse — prototipo v4
+
+- Le mosse supportate dal core hanno ruoli esposti sulle schede compatte: status e probabilità, priorità, o stadi modificati.
+- Tackle/Scratch non sono più identiche; Braciere può scottare e Pistolacqua è l'attacco iniziale più potente. Il catalogo passa alla versione 4 e la cache PWA alla v60.
+- `npm run build`, `npm test`, il validatore contenuti e `git diff --check` passano. Aggiunte asserzioni E2E per status e mosse di supporto; il runner Playwright non riesce a navigare al server locale (`ERR_NETWORK_ACCESS_DENIED` su 127.0.0.1:5174), quindi questa verifica resta da eseguire su un runner con accesso al loopback.
+- La scena world è visibile dal browser locale in portrait; il collaudo touch su telefono reale resta da fare.
+
+# Varietà delle mosse iniziali e incontri del Bosco — contenuti 0.3.44
+
+- Tackle passa da 15 a 6 specie MVP; Millebave aggiunge una scelta di supporto con riduzione Velocità già gestita dal core.
+- I due trigger del sottobosco salgono all'18% per passo. La tabella mantiene fasce orarie: 5 specie mattino, 7 giorno, 4 notte.
+- Verificare nel playtest se la frequenza e l'accuratezza dei nuovi moveset selvatici sono adatte al primo capitolo.
+
+# Habitat visibili nel Bosco — contenuti 0.3.45
+
+- Zone d'incontro spostate dal sentiero al terreno forestale e segnate con felci dell'atlante illustrato esistente. Il cartello d'ingresso indica dove cercare e la variazione con l'orario.
+- Test di raggiungibilità: ogni casella delle due zone è accessibile dall'ingresso e fuori dalle tile di sentiero e acqua. Passano i test mirati incontri/registro asset e il validatore contenuti.
+- Anteprima portrait nel browser locale verificata: il gruppo occidentale è visibile sull'erba e il sentiero resta libero. Il collaudo su telefono reale resta da fare.
+
+# Sostituzione mosse apprese — verifiche locali
+
+- Quando un livello insegna una mossa con quattro slot occupati, la battaglia ora mostra un prompt navigabile da touch e tastiera. Si può sostituire uno slot o tenere il moveset; le scelte multiple vengono presentate in sequenza.
+- Il core aggiorna solo lo slot scelto, assegna i PP massimi e non consuma un turno. Il callback che persiste lo scontro terminale attende la risoluzione di tutte le scelte; nessun nuovo campo save o migrazione.
+- `npm run build` riuscita; `npm test`: 132 test di battaglia/dominio e 16 di persistenza passati. Validatore runtime: 94 asset, 70 dipendenze e tutti i contenuti validi; 21 test Python passati.
+- E2E aggiunto per sostituzione, rifiuto e callback ritardato dopo un esito terminale. L’esecuzione browser resta non verificata qui: il runner isolato riceve `ERR_NETWORK_ACCESS_DENIED` sulla porta LAN; il test aggiunto è presente nella suite.
+
+# Asset runtime WebP e caricamento artwork differito 0.3.42 — verifiche locali
+
+- Convertite 39 immagini runtime e lo sfondo della schermata iniziale: 33.964.916 byte PNG diventano 6.024.628 byte WebP (82% in meno); i PNG sorgente restano nel repository e nel registro asset.
+- MapDefinition, sorgenti immagine Tiled, manifest artwork PokéAPI e precache PWA ora puntano ai derivati WebP. Il checksum nel manifest è quello dei byte runtime.
+- WorldScene non carica più il catalogo grafico Pokémon durante l’avvio. BattleScene carica la squadra, l’avversario e le specie nelle linee evolutive configurate.
+- Borgofonte scende da 12,8 MB a 2,5 MB di asset mappa; il Bosco da 13,6 MB a 2,2 MB. Verifica nel browser LAN portrait: scena caricata, immagini renderizzate e console senza errori.
+- Build Vite/TypeScript riuscita il 17/10: il bundle contiene lo sfondo WebP da 735 KB invece del PNG da 4,1 MB. Resta l’avviso sul chunk Phaser da 1,48 MB. `npm test` passa con 129 test dominio e 16 test persistenza.
+- Validatore contenuti passa con 94 asset, 70 dipendenze inventariate e tutti i pack runtime validati. I 21 test Python passano usando il runtime Python incluso e `TEMP`/`TMP` in workspace; il launcher Windows predefinito non è avviabile in questo profilo.
+- Verifica visiva del server LAN su `127.0.0.1:5174`, in portrait: Bosco caricato, HUD e comandi touch presenti, console senza errori o avvisi. È una verifica browser manuale, non sostituisce il test su telefono reale.
+- Tentativo Playwright su server LAN: tutti i 43 casi falliscono alla navigazione iniziale per `net::ERR_NETWORK_ACCESS_DENIED` verso `127.0.0.1:5174`; le scene non vengono caricate e i test non valutano il gameplay. L’E2E offline resta da eseguire.
+- `gh` è installato, ma il token `GITHUB_TOKEN` e l’account locale risultano non validi; la lista delle pipeline remote non è verificabile da questa sessione.
+- Cache PWA aggiornata a `veloria-shell-v59`. Tutti i WebP registrati vengono decodificati e verificati.
+
+# Evoluzioni del primo capitolo 0.3.41 — verifiche locali
+
+- Attivate le due linee Caterpie/Weedle nel contenuto versione 0.3.41. Le soglie 7 e 10 permettono le prime evoluzioni durante gli incontri del Bosco; target, statistiche e artwork sono presenti nel registro MVP.
+- La scena di battaglia presenta la nuova specie, il messaggio d’evoluzione e un breve effetto di luce. L’ID stabile, esperienza, mosse e stato restano associati alla creatura salvata.
+- `npm test` passato: 126 test dominio e 16 test persistenza. La prova di progressione usa i registri specie e mosse effettivi e verifica Caterpie → Metapod e Weedle → Kakuna a livello 7.
+- Build Vite/TypeScript riuscita (resta l’avviso noto sul chunk Phaser da 1,48 MB); `npm test` passato con 128 test dominio e 16 test persistenza; `tools/validate_examples.py` passa su 54 asset, dipendenze e contenuti runtime; `git diff --check` senza errori.
+- Aggiunto un E2E che usa la scena reale per controllare messaggio, specie e frame sprite di Metapod; Playwright elenca 43 test in 15 file. Il browser del runner riceve `ERR_NETWORK_ACCESS_DENIED` anche quando Vite è pronto su `127.0.0.1:5183`, quindi l’E2E non è stato eseguito.
+- Verifica manuale in una scheda pulita del browser LAN: il Bosco termina il caricamento e mostra la mappa, Ada e il sensore; nessun errore console rilevato. Cache PWA aggiornata a `veloria-shell-v58`.
+
 # Controllare GitHub Actions
 
 GitHub CLI (`gh`) e' gia' installata sul PC. Il repository e' privato: serve un account con accesso.
@@ -49,3 +269,101 @@ Anche il percorso PWA offline è passato localmente (1/1, rete disattivata, imma
 La run precedente 39033589562 ha superato la suite online ma è scaduta nel percorso offline a 240 secondi, durante la consegna delle rilevazioni nel bosco. Il percorso lungo conserva tutte le asserzioni; budget del test portato a 8 minuti, step a 9 e job a 30 per ottenere un esito completo sul runner Linux. Questo adeguamento non è una conferma di pipeline verde o di prestazioni su smartphone.
 
 Prova offline locale finale con gli asset 0.3.25: passata 1/1 in 1,9 minuti (build inclusa nel comando, 2 minuti complessivi). Gli atlas nuovi sono dichiarati e precacheati. Verifica su telefono fisico e nuova run remota restano separate.
+
+
+## Atlante illustrato Borgofonte 0.3.26 — verifiche locali
+
+Build TypeScript/Vite riuscita. Validatore contenuti: 46 asset registrati, 78 dipendenze con inventario licenze, 10 mappe runtime validate. Prova browser dedicata 1/1: quattro frame Tiled, dimensioni delle facciate, caricamento e cambio portrait/landscape verificati senza errori JavaScript. Screenshot in test-results-e2e-borgofonte-art.
+
+
+## Iterazione illustrata 0.3.27 — verifiche locali
+
+- Validatore contenuti: 47 asset registrati, 78 dipendenze con inventario licenze, 10 mappe runtime validate.
+- E2E online mirato: 2/2 passati su Borgofonte e Bosco; quattro frame edificio e otto frame botanici, coordinate decorative su celle libere, rotazione portrait/landscape e assenza di errori console.
+- E2E-06 offline: 1/1 passato in circa 1,9 minuti. Il test controlla le risorse di tutte le mappe dichiarate nella cache prima di disconnettere la rete, poi completa starter, percorso, incontro, cura e Medaglia Aurora senza rete.
+- La build di produzione passa; Vite segnala il chunk JavaScript Phaser oltre 500 kB. La prova Three.js è stata rimossa seguendo la scelta di proseguire con il 2D illustrato.
+
+
+La 0.3.27 include quattro frame botanici, otto istanze Tiled non collidenti e variazione stabile delle tile HD. Browser E2E controlla frame, dimensioni, celle libere e portrait/landscape; la suite offline verifica il nuovo asset insieme a quelli del pack MVP.
+
+
+## Iterazione illustrata 0.3.28 — verifiche locali
+
+- Validatore contenuti: 48 asset registrati, 70 dipendenze con inventario licenze, 10 mappe runtime validate.
+- Suite di test di dominio e persistenza (`npm run test`): passata.
+- E2E online mirato: 3/3 passati su facciate Borgofonte, props del Sentiero e props del Bosco.
+- E2E-06 offline: 1/1 passato in 1,9 minuti; PWA e flusso di partita completati senza rete con gli asset dei pack dichiarati.
+- Build TypeScript/Vite riuscita. Resta l’avviso preesistente per il chunk JavaScript Phaser oltre 500 kB.
+
+## Iterazione illustrata 0.3.29 — verifiche locali
+
+- Build TypeScript/Vite riuscita; test di dominio e persistenza: 117 + 16 passati.
+- Validatore contenuti: 49 asset registrati, 70 dipendenze con inventario licenze, 10 mappe runtime validate.
+- E2E online mirato: 3/3 passati su facciate Borgofonte e props del Sentiero e del Bosco.
+- E2E-06 offline: 1/1 passato in circa 2 minuti con terreno v3 e nuovi atlanti dichiarati in cache.
+- La pagina live sulla rete locale apre Bosco dei Veli e mostra i comandi touch. GitHub Actions non verificabile in questa sessione: `gh` è installato, ma le credenziali GitHub salvate restituiscono HTTP 401. La pipeline remota resta da verificare dopo il rinnovo dell'accesso.
+- Vite continua a segnalare il chunk Phaser oltre 500 kB. La prova visiva del terreno su telefono resta necessaria: il rendering è corretto, ma il motivo del sottobosco è ancora fitto.
+
+## Terreno Bosco e compositing tile 0.3.31 — verifiche locali
+
+- Build TypeScript/Vite riuscita; test di dominio e persistenza: 122 + 16 passati.
+- Validatore contenuti: 51 asset registrati, 70 dipendenze con inventario licenze, 10 mappe runtime validate.
+- E2E mobile a 390×844: 3/3 passati su facciate Borgofonte, props del Sentiero e Bosco; il test controlla la presenza dell'atlante v5 e della superficie terrain composta, senza errori console.
+- Screenshot Playwright del Bosco revisionato: il sottosuolo a grandi campiture è leggibile e non mostra fessure fra tile dopo il compositing alla risoluzione mappa.
+- E2E-06 offline: 1/1 passato in 2 minuti con l’atlante v5 precaricato.
+- La modifica al rendering non tocca collisioni, coordinate o dati Tiled. Vite segnala ancora il chunk Phaser oltre 500 kB. GitHub Actions non è stata verificata: le credenziali `gh` disponibili risultano non valide (HTTP 401).
+
+## Uniformità visiva mappe iniziali 0.3.32 — verifiche locali
+
+- Build TypeScript/Vite riuscita; test di dominio e persistenza: 122 + 16 passati.
+- Validatore contenuti: 51 asset registrati, 70 dipendenze con inventario licenze, 10 mappe runtime validate.
+- E2E mobile a 390×844: 3/3 passati. Borgofonte, Sentiero dell’Alba e Bosco dei Veli dichiarano e caricano la stessa texture v5 seamless; facciate e props mantengono i frame Tiled attesi.
+- E2E-06 offline: 1/1 passato in 2 minuti con la nuova cache `veloria-shell-v49`; la partita completa fino alla Medaglia Aurora resta giocabile senza rete.
+- Vite mantiene l’avviso sul chunk Phaser oltre 500 kB. GitHub Actions resta non verificabile perché le credenziali `gh` salvate restituiscono HTTP 401.
+
+## Avvio differito del motore 0.3.33 — verifiche locali
+
+- `npm run build`: passata. L’entry JavaScript iniziale è 16,94 kB (6,09 kB gzip); Phaser (1,48 MB, 340 kB gzip) e WorldScene sono moduli caricati dopo la scelta della sessione.
+- `npm test`: 122 test dominio e 16 test persistenza passati. Validatore contenuti: 51 asset registrati, 70 dipendenze inventariate e tutti i contenuti runtime validati.
+- La cache PWA passa a `veloria-shell-v50`. Il service worker legge tutte le entry del manifest Vite e precarica anche i chunk dinamici; i test offline precedenti a questa modifica restano evidenza del flusso PWA generale, non una nuova run dopo la divisione dei chunk.
+- Verifica browser manuale sulla schermata iniziale: titolo, Continua/Nuova partita e schermata di gioco disponibili, nessun errore console. Nuovo E2E `lazy-engine-load.spec.ts` verifica che Phaser e WorldScene non vengano richiesti prima dell’avvio e che il canvas compaia poi.
+- La suite Playwright locale non ha prodotto un esito E2E: il runner è rimasto in attesa del proprio server; con Vite avviato manualmente, un nuovo tentativo ha provato a lanciare un secondo server sulla stessa porta (`Port 5183 is already in use`). Il nuovo E2E resta da eseguire con il web server gestito dal runner. GitHub Actions resta non verificabile per credenziali `gh` HTTP 401.
+
+## Variazione del terreno per coordinata 0.3.34 — verifiche locali
+
+- Build TypeScript/Vite riuscita; `npm test` passato con 122 test dominio e 16 persistenza. Validatore: 51 asset, 70 dipendenze inventariate e contenuti runtime validati.
+- I test mirati di seamless tileset e variazione per coordinata passano 5/5. Il browser LAN mostra il Bosco aggiornato, senza errori console; le mappe Tiled, collisioni e passaggi restano invariati.
+- Cache PWA aggiornata a `veloria-shell-v51`. La suite offline dopo questa variazione e il caricamento differito resta da eseguire.
+- I config Playwright avviano direttamente Vite tramite Node e accettano `VELORIA_E2E_BASE_URL` per riusare un server già attivo. Il test contro il server LAN esce con `ERR_NETWORK_ACCESS_DENIED` dal browser Playwright sandbox; il server LAN resta accessibile nel browser normale. L’avvio del server gestito dal runner non raggiunge lo stato ready in questo ambiente. GitHub Actions rimane non verificabile per credenziali `gh` HTTP 401.
+
+## Terreno illustrato per le rotte forestali 0.3.35 — verifiche locali
+
+- Build TypeScript/Vite riuscita; `npm test`: 122 test dominio e 16 test persistenza passati. I validatori di asset, licenze, rendering mappa e schema JSON terminano tutti con codice 0; `git diff --check` non segnala errori.
+- Viale delle Fronde, Terrazze del Muschio e Radicelmo dichiarano l'atlante v5 e usano GID 7 per il terreno base, come il Bosco dei Veli. Geometria, oggetti, collisioni, uscite e incontri non sono stati ridisegnati.
+- Verifica manuale nel browser LAN: Viale delle Fronde carica il sottobosco illustrato e la strada, senza errori console. Il ricaricamento ha eliminato la vista sabbiosa precedente, servita dalla pagina rimasta aperta prima dell'aggiornamento. E2E dedicato presente per tutte e tre le mappe, ma non eseguito qui: Playwright sandbox non raggiunge il server LAN (`ERR_NETWORK_ACCESS_DENIED`) e il server gestito dal runner non diventa pronto.
+- Cache PWA aggiornata a `veloria-shell-v52`. Vite segnala ancora il chunk Phaser oltre 500 kB. GitHub Actions resta non verificabile per credenziali `gh` con risposta HTTP 401.
+
+## Variazione cromatica continua del sottobosco 0.3.36 — verifiche locali
+
+- Il renderer mantiene il compositing statico unico e varia gradualmente la tinta delle celle con prato ombreggiato. Un test di dominio controlla determinismo, gamma cromatica, transizioni spaziali e isolamento dagli altri materiali.
+- Build TypeScript/Vite riuscita; `npm test`: 123 test dominio e 16 test persistenza passati. Validatori asset, licenze, rendering e schema terminati con codice 0; `git diff --check` senza errori.
+- E2E verifica caricamento del terreno v5 su Viale, Terrazze e Radicelmo. Il file è elencato da Playwright, ma il test browser non è stato eseguito in questa sessione; il runner locale resta limitato dall'accesso LAN negato al browser sandbox.
+- Cache PWA aggiornata a `veloria-shell-v53`. La qualità visiva richiede ancora una verifica su schermo portrait dopo il refresh della pagina in esecuzione.
+## Fondo forestale privo di percorsi 0.3.38 — verifiche locali
+
+- Build TypeScript/Vite riuscita; `npm test` passato con 122 test dominio e 16 test persistenza.
+- Validatori contenuti, schema, asset e licenze terminati con codice 0.
+- Sostituito l'underlay dei quattro ambienti forestali con una base di solo terreno, senza strada incorporata; percorsi e collisioni restano governati da Tiled.
+- Uniformati a `3×2` i metadati dell'atlante NPC condiviso che causavano il conflitto nel registro asset e impedivano l'avvio.
+- Verifica visiva live su Viale delle Fronde: la pagina completa il caricamento, mostra il fondo senza strada incorporata e mantiene la strada Tiled; la console della sessione pulita non registra errori o avvisi. Cache PWA aggiornata a `veloria-shell-v55`.
+## Dettagli del Bosco senza campiture rettangolari 0.3.39 — verifiche locali
+
+- Tolte 91 tile GID 10 da `terrain_detail` nel Bosco. La verifica portrait mostra fondo uniforme, sentiero conservato e nessun rettangolo scuro; coordinate, collisioni e passaggi non cambiano.
+- La mappa resta caricabile sulla PWA LAN. Cache PWA aggiornata a `veloria-shell-v56`.
+- E2E mirati non eseguiti: il server gestito da Playwright non apre la porta 5183 né produce output entro il timeout; il controllo in browser LAN è completato manualmente e la lista dei 42 test viene caricata correttamente.
+## NPC Rami e Leda e avvio delle mappe esterne 0.3.40 — verifiche locali
+
+- Aggiunti sprite autonomi e dati `sprite` mancanti per Guida Rami e Custode Leda; il validatore ora rileva gli NPC senza asset o con frame fuori intervallo.
+- Build TypeScript/Vite e `npm test` passati; validatori mappe, schema, asset e licenze terminati con codice 0. Playwright elenca 42 test in 15 file.
+- Verifica browser LAN: Terrazze del Muschio e Radicelmo si avviano; Rami e Leda sono renderizzati e la console della nuova sessione è pulita.
+- E2E mirati non eseguiti: il server gestito da Playwright non apre la porta 5183 né produce output entro il timeout; cache PWA `veloria-shell-v57`.

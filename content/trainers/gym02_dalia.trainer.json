@@ -1,0 +1,30 @@
+{
+  "id": "veloria/trainer_dalia_gym02",
+  "name": "Dalia",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym02_dalia_defeated",
+  "defeatQuestEvent": "battle/trainer_dalia/defeated",
+  "rewardMoney": 650,
+  "victoryMessage": "Hai vinto contro Dalia. Ricevi 650 ₿ e la Medaglia Corolla.",
+  "victoryFeedback": "Ti affido la Medaglia Corolla! Fuoco e Volante aiutano contro i miei Pokémon Erba. Sonnifero può addormentare e Acido può abbassare la Difesa Speciale: conoscere gli effetti conta quanto scegliere il tipo.",
+  "team": [
+    {
+      "speciesId": 43,
+      "level": 12,
+      "moveIds": [
+        "absorb",
+        "sweet-scent",
+        "acid"
+      ]
+    },
+    {
+      "speciesId": 69,
+      "level": 13,
+      "moveIds": [
+        "vine-whip",
+        "sleep-powder"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "veloria/trainer_r04_nila",
+  "name": "Nila",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r04_nila_defeated",
+  "defeatQuestEvent": "battle/trainer_r04_nila/defeated",
+  "rewardMoney": 180,
+  "victoryMessage": "Nila sorride. Ricevi 180 ₿.",
+  "victoryFeedback": "Le fioriture seguono il sentiero fino a Petalora. Ci vediamo lassù!",
+  "team": [
+    {
+      "speciesId": 16,
+      "level": 9,
+      "moveIds": [
+        "sand-attack",
+        "gust"
+      ]
+    },
+    {
+      "speciesId": 179,
+      "level": 10,
+      "moveIds": [
+        "growl",
+        "thunder-shock"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from './emergency-move.ts';
-import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat } from './stat-stages.ts';
+import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat, effectiveMoveAccuracy } from './stat-stages.ts';
 import { effectivenessFor, type BattleRules } from './rules.ts';
+import { calculateHitDamage } from './damage.ts';
 import { calculateStats } from './create-creature.ts';
 import { experienceToNextLevel } from './progression.ts';
 import type {
@@ -56,9 +57,9 @@ export function createBattleState(args: {
     battleType: args.battleType,
     turn: 0,
     rngState: normalizeSeed(args.seed),
-    player: { creatures: args.playerTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined })), activeIndex: firstAvailable(args.playerTeam) },
-    opponent: { creatures: args.opponentTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined })), activeIndex: firstAvailable(args.opponentTeam) },
-    playerStorage: (args.playerStorage ?? []).map(creature => ({ ...cloneCreature(creature), statStages: undefined })),
+    player: { creatures: args.playerTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })), activeIndex: firstAvailable(args.playerTeam) },
+    opponent: { creatures: args.opponentTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })), activeIndex: firstAvailable(args.opponentTeam) },
+    playerStorage: (args.playerStorage ?? []).map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })),
     outcome: { kind: 'ongoing' },
   };
 }
@@ -92,7 +93,7 @@ function validateMajorStatus(status: StatusEffect | undefined, instanceId: strin
 }
 
 function cloneCreature(creature: BattleCreature): BattleCreature {
-  return { ...creature, types: [...creature.types], baseStats: creature.baseStats ? { ...creature.baseStats } : undefined, stats: { ...creature.stats }, statStages: creature.statStages ? { ...creature.statStages } : undefined, moves: creature.moves.map(move => ({ ...move })), status: creature.status ? { ...creature.status } : undefined };
+  return { ...creature, types: [...creature.types], baseStats: creature.baseStats ? { ...creature.baseStats } : undefined, stats: { ...creature.stats }, leechSeed: creature.leechSeed ? { ...creature.leechSeed } : undefined, statStages: creature.statStages ? { ...creature.statStages } : undefined, moves: creature.moves.map(move => ({ ...move })), status: creature.status ? { ...creature.status } : undefined };
 }
 
 function firstAvailable(team: readonly BattleCreature[]): number {
@@ -161,6 +162,21 @@ export function resolveBattleTurn(
 ): BattleTransition {
   if (input.rulesetId !== rules.id) throw new Error(`Battle ruleset mismatch: ${input.rulesetId} != ${rules.id}`);
   if (input.outcome.kind !== 'ongoing') return { state: input, events: [] };
+  const replacements = (['player', 'opponent'] as const).filter(side => active(input, side).hp <= 0);
+  if (replacements.length) {
+    // Replacing a fainted creature is a separate phase, not another attack turn.
+    for (const side of replacements) {
+      const invalid = validateCommand(input, side, commands[side], catalog, rules);
+      if (invalid) return invalid;
+    }
+    const events: BattleEvent[] = [];
+    let state = input;
+    for (const side of replacements) {
+      const command = commands[side];
+      if (command.kind === 'switch') state = applySwitch(state, side, command, events);
+    }
+    return { state, events };
+  }
   for (const side of ['player', 'opponent'] as const) {
     const invalid = validateCommand(input, side, commands[side], catalog, rules);
     if (invalid) return invalid;
@@ -197,6 +213,12 @@ export function resolveBattleTurn(
   }
 
   // Residual effects from both active creatures resolve after both chosen actions.
+  const residualSides = [...sides].sort((a, b) => effectiveSpeed(active(state, b)) - effectiveSpeed(active(state, a)));
+  for (const side of residualSides) {
+    if (state.outcome.kind !== 'ongoing') break;
+    state = applyLeechSeed(state, side, rules, events);
+    state = checkForWinner(state, events);
+  }
   for (const side of ['player', 'opponent'] as const) {
     if (state.outcome.kind !== 'ongoing') break;
     state = applyResidual(state, side, rules, events);
@@ -225,7 +247,7 @@ function applyCapture(
   }
 
   const destination = state.player.creatures.length < rules.maxPartySize ? 'party' : 'storage';
-  const captured: BattleCreature = { ...cloneCreature(target), instanceId: command.captureInstanceId, statStages: undefined };
+  const captured: BattleCreature = { ...cloneCreature(target), instanceId: command.captureInstanceId, statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined };
   const capturedState = destination === 'party'
     ? { ...state, player: { ...state.player, creatures: [...state.player.creatures, captured] } }
     : { ...state, playerStorage: [...state.playerStorage, captured] };
@@ -245,7 +267,7 @@ function applySwitch(state: BattleState, side: BattleSide, command: Extract<Batt
   return { ...state, [side]: { ...sideState(state, side), activeIndex: command.partyIndex,
     creatures: sideState(state, side).creatures.map((creature, index) =>
       index === sideState(state, side).activeIndex || index === command.partyIndex
-        ? { ...creature, statStages: undefined } : creature),
+        ? { ...creature, statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined } : creature),
   } };
 }
 
@@ -305,6 +327,25 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
   }
   // Preserve status recovery performed by canAct instead of restoring the old snapshot.
   user = active(state, side);
+  if ((user.confusionTurnsRemaining ?? 0) > 0) {
+    const turnsRemaining = user.confusionTurnsRemaining! - 1;
+    state = setCreature(state, side, sideState(state, side).activeIndex, { ...user, confusionTurnsRemaining: turnsRemaining || undefined });
+    events.push({ type: 'confusionTick', side, creatureId: user.instanceId, turnsRemaining });
+    if (turnsRemaining > 0 && random(cursor) < 0.5) {
+      const latest = active(state, side);
+      const attack = Math.max(1, Math.floor(effectiveStat(latest, 'attack') * (latest.status?.status === 'burn' ? 0.5 : 1)));
+      const defense = effectiveStat(latest, 'defense');
+      const base = Math.floor((((2 * latest.level / 5 + 2) * 40 * attack / defense) / 50) + 2);
+      const variance = rules.minimumDamageVariance + random(cursor) * (rules.maximumDamageVariance - rules.minimumDamageVariance);
+      const amount = Math.max(1, Math.floor(base * variance));
+      const hp = Math.max(0, latest.hp - amount);
+      state = setCreature(state, side, sideState(state, side).activeIndex, { ...latest, hp });
+      events.push({ type: 'confusionSelfHit', side, creatureId: latest.instanceId, amount: latest.hp - hp });
+      if (hp === 0) events.push({ type: 'creatureFainted', side, creatureId: latest.instanceId });
+      return state;
+    }
+    user = active(state, side);
+  }
   const slot = command.kind === 'useMove' ? user.moves[command.moveSlot] : undefined;
   if (slot && slot.pp <= 0) {
     events.push({ type: 'moveFailed', side, moveId: slot.moveId, reason: 'noPp' });
@@ -314,7 +355,17 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     id: EMERGENCY_MOVE_ID, name: EMERGENCY_MOVE_NAME, type: 'normal', category: 'physical',
     power: rules.emergencyMove.power, accuracy: 100, priority: 0, maxPp: 0,
   } : catalog[slot!.moveId];
-  if (!Number.isFinite(move.accuracy) || move.accuracy < 0 || move.accuracy > 100 || !Number.isFinite(move.power) || move.power < 0) {
+  if (!Number.isFinite(move.accuracy) || move.accuracy < 0 || move.accuracy > 100 || !Number.isFinite(move.power) || move.power < 0 ||
+      (move.fixedDamage !== undefined && (!Number.isInteger(move.fixedDamage) || move.fixedDamage <= 0 || move.category === 'status')) ||
+      (move.drainPercent !== undefined && (move.drainPercent < 0 || move.drainPercent > 100)) ||
+      (move.leechSeedFraction !== undefined && (!Number.isFinite(move.leechSeedFraction) || move.leechSeedFraction <= 0 || move.leechSeedFraction > 1)) ||
+      ((move.minStatusTurns !== undefined || move.maxStatusTurns !== undefined) &&
+        (!Number.isInteger(move.minStatusTurns) || !Number.isInteger(move.maxStatusTurns) || move.minStatusTurns! < 1 || move.maxStatusTurns! < move.minStatusTurns!)) ||
+      (move.statChangeChance !== undefined && (move.statChangeChance < 0 || move.statChangeChance > 100)) ||
+      (move.inflictedConfusionChance !== undefined && (move.inflictedConfusionChance < 0 || move.inflictedConfusionChance > 100)) ||
+      ((move.minConfusionTurns !== undefined || move.maxConfusionTurns !== undefined) &&
+        (!Number.isInteger(move.minConfusionTurns) || !Number.isInteger(move.maxConfusionTurns) || move.minConfusionTurns! < 1 || move.maxConfusionTurns! < move.minConfusionTurns!)) ||
+      (move.minHits !== undefined && (!Number.isInteger(move.minHits) || move.minHits < 1 || !Number.isInteger(move.maxHits) || move.maxHits! < move.minHits))) {
     throw new Error(`Invalid move data: ${move.id}`);
   }
   for (const effect of move.statChanges ?? []) {
@@ -327,34 +378,67 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
   state = setCreature(state, side, sideState(state, side).activeIndex, spentPp);
   const targetSide = otherSide(side);
   const target = active(state, targetSide);
+  const dealsDamage = move.category !== 'status' && (move.power > 0 || move.fixedDamage !== undefined);
+  let damagingMoveConnected = !dealsDamage;
   events.push({ type: 'moveUsed', side, creatureId: user.instanceId, moveId: move.id });
   if (target.hp <= 0) {
     events.push({ type: 'moveFailed', side, moveId: move.id, reason: 'noTarget' });
     return state;
   }
-  if (random(cursor) * 100 >= move.accuracy) {
+  if (!move.alwaysHits && random(cursor) * 100 >= (emergency ? 100 : effectiveMoveAccuracy(user, target, move))) {
     events.push({ type: 'moveMissed', side, moveId: move.id });
     return state;
   }
+  if (move.category === 'status' && move.statusAffectedByTypeImmunity && move.inflictedStatus &&
+      effectivenessFor(target.types, move.type, rules.typeChart) === 0) {
+    events.push({ type: 'statusPrevented', side: targetSide, status: move.inflictedStatus, reason: 'immune' });
+    return state;
+  }
 
-  if (move.category !== 'status' && move.power > 0) {
-    const attackStat = move.category === 'physical' ? 'attack' : 'specialAttack';
-    const defenseStat = move.category === 'physical' ? 'defense' : 'specialDefense';
-    const burnFactor = move.category === 'physical' && user.status?.status === 'burn' ? 0.5 : 1;
-    const attack = Math.max(1, Math.floor(effectiveStat(user, attackStat) * burnFactor));
-    const defense = effectiveStat(target, defenseStat);
-    const effectiveness = emergency ? 1 : effectivenessFor(target.types, move.type, rules.typeChart);
-    const critical = random(cursor) < rules.criticalChance;
-    const variance = rules.minimumDamageVariance + random(cursor) * (rules.maximumDamageVariance - rules.minimumDamageVariance);
-    const stab = !emergency && user.types.includes(move.type) ? 1.5 : 1;
-    const base = Math.floor((((2 * user.level / 5 + 2) * move.power * attack / defense) / 50) + 2);
-    const amount = effectiveness === 0 ? 0 : Math.max(1, Math.floor(base * (critical ? rules.criticalMultiplier : 1) * effectiveness * stab * variance));
-    const hp = Math.max(0, target.hp - amount);
-    state = setCreature(state, targetSide, sideState(state, targetSide).activeIndex, { ...target, hp });
-    events.push({ type: 'damageApplied', sourceSide: side, targetSide, moveId: move.id, amount: target.hp - hp, effectiveness, critical });
-    if (hp === 0) {
-      events.push({ type: 'creatureFainted', side: targetSide, creatureId: target.instanceId });
-      if (!emergency) state = awardExperience(state, side, user.instanceId, target, rules, events);
+  if (move.leechSeedFraction) {
+    if (target.types.includes('grass') || target.leechSeed) {
+      events.push({ type: 'leechSeedPrevented', side: targetSide, creatureId: target.instanceId, reason: target.types.includes('grass') ? 'immune' : 'alreadySeeded' });
+    } else {
+      state = setCreature(state, targetSide, sideState(state, targetSide).activeIndex, {
+        ...target, leechSeed: { sourceSide: side, fraction: move.leechSeedFraction, moveId: move.id },
+      });
+      events.push({ type: 'leechSeedApplied', side: targetSide, creatureId: target.instanceId });
+    }
+  }
+
+  if (dealsDamage) {
+    let hitCount = 1;
+    if (move.minHits !== undefined) {
+      if (move.minHits === 2 && move.maxHits === 5) {
+        const roll = integerBetween(cursor, 1, 8);
+        hitCount = roll <= 3 ? 2 : roll <= 6 ? 3 : roll === 7 ? 4 : 5;
+      } else hitCount = move.minHits === move.maxHits ? move.minHits : integerBetween(cursor, move.minHits, move.maxHits ?? move.minHits);
+    }
+    let dealt = 0;
+    for (let hit = 0; hit < hitCount && active(state, targetSide).hp > 0; hit++) {
+      const currentTarget = active(state, targetSide);
+      const critical = move.fixedDamage === undefined && random(cursor) < rules.criticalChance;
+      const variance = move.fixedDamage === undefined
+        ? rules.minimumDamageVariance + random(cursor) * (rules.maximumDamageVariance - rules.minimumDamageVariance) : 1;
+      const { amount, effectiveness } = calculateHitDamage(user, currentTarget, move, rules, { critical, variance, emergency });
+      const hp = Math.max(0, currentTarget.hp - amount);
+      state = setCreature(state, targetSide, sideState(state, targetSide).activeIndex, { ...currentTarget, hp });
+      const actual = currentTarget.hp - hp;
+      dealt += actual;
+      if (actual > 0) damagingMoveConnected = true;
+      events.push({ type: 'damageApplied', sourceSide: side, targetSide, moveId: move.id, amount: actual, effectiveness, critical });
+      if (hp === 0) {
+        events.push({ type: 'creatureFainted', side: targetSide, creatureId: currentTarget.instanceId });
+        if (!emergency) state = awardExperience(state, side, user.instanceId, currentTarget, rules, events);
+      }
+    }
+    if (!emergency && move.drainPercent && dealt > 0) {
+      const latestUser = active(state, side);
+      const healed = Math.min(latestUser.stats.maxHp - latestUser.hp, Math.max(1, Math.floor(dealt * move.drainPercent / 100)));
+      if (healed > 0) {
+        state = setCreature(state, side, sideState(state, side).activeIndex, { ...latestUser, hp: latestUser.hp + healed });
+        events.push({ type: 'healingApplied', side, creatureId: latestUser.instanceId, moveId: move.id, amount: healed });
+      }
     }
   }
 
@@ -369,6 +453,7 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
   }
 
   for (const effect of move.statChanges ?? []) {
+    if (!damagingMoveConnected || ((move.statChangeChance ?? 100) < 100 && random(cursor) * 100 >= (move.statChangeChance ?? 100))) continue;
     const affectedSide = effect.target === 'self' ? side : targetSide;
     const affected = active(state, affectedSide);
     if (affected.hp <= 0) continue;
@@ -386,13 +471,23 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
 
   const chance = move.statusChance ?? (move.category === 'status' && move.inflictedStatus ? 100 : 0);
   const latestTarget = active(state, targetSide);
-  if (move.inflictedStatus && latestTarget.hp > 0 && random(cursor) * 100 < chance) {
-    state = applyStatus(state, targetSide, latestTarget, move.inflictedStatus, cursor, rules, events);
+  if (move.inflictedStatus && damagingMoveConnected && latestTarget.hp > 0 && random(cursor) * 100 < chance) {
+    state = applyStatus(state, targetSide, latestTarget, move.inflictedStatus, cursor, rules, events,
+      move.minStatusTurns === undefined ? undefined : [move.minStatusTurns, move.maxStatusTurns!]);
+  }
+  if (move.inflictedConfusionChance !== undefined && damagingMoveConnected && active(state, targetSide).hp > 0 && random(cursor) * 100 < move.inflictedConfusionChance) {
+    const confused = active(state, targetSide);
+    if ((confused.confusionTurnsRemaining ?? 0) > 0) events.push({ type: 'confusionPrevented', side: targetSide, creatureId: confused.instanceId });
+    else {
+      const turns = integerBetween(cursor, move.minConfusionTurns ?? 2, move.maxConfusionTurns ?? 5);
+      state = setCreature(state, targetSide, sideState(state, targetSide).activeIndex, { ...confused, confusionTurnsRemaining: turns });
+      events.push({ type: 'confusionApplied', side: targetSide, creatureId: confused.instanceId, turns });
+    }
   }
   return state;
 }
 
-function applyStatus(state: BattleState, side: BattleSide, target: BattleCreature, status: MajorStatus, cursor: RandomCursor, rules: BattleRules, events: BattleEvent[]): BattleState {
+function applyStatus(state: BattleState, side: BattleSide, target: BattleCreature, status: MajorStatus, cursor: RandomCursor, rules: BattleRules, events: BattleEvent[], durationOverride?: readonly [number, number]): BattleState {
   if (target.status) {
     events.push({ type: 'statusPrevented', side, status, reason: 'alreadyAfflicted' });
     return state;
@@ -401,11 +496,32 @@ function applyStatus(state: BattleState, side: BattleSide, target: BattleCreatur
     events.push({ type: 'statusPrevented', side, status, reason: 'immune' });
     return state;
   }
-  const duration = status === 'sleep' ? rules.sleepTurns : status === 'freeze' ? rules.freezeTurns : undefined;
+  const duration = durationOverride ?? (status === 'sleep' ? rules.sleepTurns : status === 'freeze' ? rules.freezeTurns : undefined);
   const turnsRemaining = duration ? integerBetween(cursor, duration[0], duration[1]) : undefined;
   const applied: StatusEffect = { status, turnsRemaining };
   state = setCreature(state, side, sideState(state, side).activeIndex, { ...target, status: applied });
   events.push({ type: 'statusApplied', side, creatureId: target.instanceId, status, turns: turnsRemaining });
+  return state;
+}
+
+function applyLeechSeed(state: BattleState, side: BattleSide, rules: BattleRules, events: BattleEvent[]): BattleState {
+  const target = active(state, side);
+  const seed = target.leechSeed;
+  if (!seed || target.hp <= 0) return state;
+  const recipient = active(state, seed.sourceSide);
+  if (recipient.hp <= 0) return state;
+  const damage = Math.min(target.hp, Math.max(1, Math.floor(target.stats.maxHp * seed.fraction)));
+  state = setCreature(state, side, sideState(state, side).activeIndex, { ...target, hp: target.hp - damage });
+  events.push({ type: 'leechSeedTick', side, creatureId: target.instanceId, damage });
+  const healed = Math.min(recipient.stats.maxHp - recipient.hp, damage);
+  if (healed > 0) {
+    state = setCreature(state, seed.sourceSide, sideState(state, seed.sourceSide).activeIndex, { ...recipient, hp: recipient.hp + healed });
+    events.push({ type: 'healingApplied', side: seed.sourceSide, creatureId: recipient.instanceId, moveId: seed.moveId, amount: healed });
+  }
+  if (target.hp === damage) {
+    events.push({ type: 'creatureFainted', side, creatureId: target.instanceId });
+    state = awardExperience(state, seed.sourceSide, recipient.instanceId, target, rules, events);
+  }
   return state;
 }
 
@@ -492,6 +608,17 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     };
     seenSpecies.add(target.speciesId);
     events.push({ type: 'creatureEvolved', side, creatureId: evolved.instanceId, fromSpeciesId: previous.speciesId, fromName: previous.name, toSpeciesId: target.speciesId, toName: target.name, level: evolved.level });
+    for (const learning of rules.levelUpMoves[target.speciesId] ?? []) {
+      if (learning.level > evolved.level || attempted.has(learning.moveId)) continue;
+      attempted.add(learning.moveId);
+      if (moves.length >= rules.maxMoves) {
+        events.push({ type: 'moveLearningSkipped', side, creatureId: evolved.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });
+      } else {
+        moves = [...moves, { moveId: learning.moveId, pp: learning.maxPp }];
+        evolved = { ...evolved, moves };
+        events.push({ type: 'moveLearned', side, creatureId: evolved.instanceId, moveId: learning.moveId });
+      }
+    }
   }
   return setCreature(state, side, index, evolved);
 }

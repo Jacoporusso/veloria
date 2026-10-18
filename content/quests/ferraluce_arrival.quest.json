@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_ferraluce_arrival",
+  "version": 1,
+  "displayName": "Il primo distretto di Ferraluce",
+  "steps": [
+    {
+      "id": "arrival",
+      "trigger": "area/veloria/ferraluce/enter",
+      "setFlag": "q_ferraluce_visited",
+      "requiresFlags": [
+        "badge_circuito_awarded"
+      ]
+    }
+  ],
+  "completionFlag": "q_ferraluce_visited",
+  "reward": {}
+}

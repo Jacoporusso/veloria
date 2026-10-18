@@ -12,6 +12,7 @@ export class ExplorationMenu {
       if (!button) return;
       this.close(false);
       if (button.id === 'journey-button') { this.toggle.focus(); document.querySelector<HTMLButtonElement>('.journey-trigger')?.click(); }
+      if (button.id === 'bag-button') { this.toggle.focus(); document.querySelector<HTMLButtonElement>('.wallet-trigger')?.click(); }
     }, options);
     document.addEventListener('pointerdown', event => {
       if (!this.panel.hidden && !this.panel.contains(event.target as Node) && !this.toggle.contains(event.target as Node)) this.close(false);

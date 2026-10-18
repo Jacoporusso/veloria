@@ -36,12 +36,14 @@
     "ancient-seed": {
       "id": "ancient-seed",
       "name": "Seme ancestrale",
+      "description": "Seme recuperato sulle Terrazze del Muschio. Consegnalo alla custode Leda, presso la serra di Radicelmo.",
       "price": 0,
       "maxStack": 1
     },
     "archive-note": {
       "id": "archive-note",
       "name": "Scheda dell’Archivio",
+      "description": "La scheda del seme affidato alla serra di Radicelmo. Conserva la memoria della tua ricerca con Leda.",
       "price": 0,
       "maxStack": 1
     }

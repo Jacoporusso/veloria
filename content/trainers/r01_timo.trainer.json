@@ -7,8 +7,23 @@
   "defeatQuestEvent": "battle/trainer_route01_timo/defeated",
   "rewardMoney": 150,
   "victoryMessage": "Timo ti stringe la mano. Ricevi 150 ₿.",
+  "victoryFeedback": "Bella sfida! La prossima volta proverò una strategia diversa. Ci vediamo sul sentiero!",
   "team": [
-    { "speciesId": 161, "level": 4, "moveIds": ["tackle", "defense-curl"] },
-    { "speciesId": 19, "level": 4, "moveIds": ["tackle", "quick-attack"] }
+    {
+      "speciesId": 161,
+      "level": 4,
+      "moveIds": [
+        "scratch",
+        "defense-curl"
+      ]
+    },
+    {
+      "speciesId": 19,
+      "level": 4,
+      "moveIds": [
+        "tackle",
+        "quick-attack"
+      ]
+    }
   ]
 }

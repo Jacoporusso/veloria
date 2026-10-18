@@ -8,13 +8,15 @@
 **Tecnologie previste:** TypeScript, Phaser, Vite, Tiled, IndexedDB  
 **Distribuzione:** esclusivamente personale, senza pubblicazione né monetizzazione
 
+**Aggiornamento direzione visiva — 17/10/2026:** la direzione approvata è 2D illustrato moderno con profondità pittorica morbida, definita in `docs/05_ART_DIRECTION_v0.3.md`. Questo aggiornamento prevale sui riferimenti HD pixel art presenti nella baseline iniziale del GDD.
+
 > **Nota su proprietà intellettuale.** Il progetto utilizza, come obiettivo privato, Pokémon delle generazioni 1 e 2. Nomi, creature, artwork, musiche e marchi Pokémon appartengono ai rispettivi titolari. L'uso personale non attribuisce una licenza di riproduzione; PokéAPI non concede diritti sui contenuti. Non incorporare ROM, asset estratti dai giochi o risorse di terzi prive di permesso. Produrre mappe, storia, interfacce e audio originali/licenziati. Per una futura pubblicazione serviranno un'analisi dei diritti e verosimilmente creature e marchio originali.
 
 ---
 
 ## 1. Visione
 
-Creare un RPG di cattura e allenamento di creature con il **ritmo esplorativo di Pokémon Oro/Argento**, ma con una **regione inedita** e una presentazione **HD pixel art contemporanea**, ispirata per densità ambientale, palette, illuminazione e fluidità a *Sea of Stars*, senza replicarne gli asset.
+Creare un RPG di cattura e allenamento di creature con il **ritmo esplorativo di Pokémon Oro/Argento**, ma con una **regione inedita** e una presentazione **2D illustrata moderna**, ispirata per densità ambientale, palette, illuminazione e fluidità a *Sea of Stars*, senza replicarne gli asset.
 
 ### 1.1 Promessa al giocatore
 
@@ -213,7 +215,7 @@ L'utente deve poter interrompere dopo un incontro senza perdere progressi rileva
 
 ### 7.1 Visual identity
 
-**HD pixel art 2D** con asset originali/licenziati:
+**Illustrazione 2D moderna** con asset originali/licenziati:
 
 - Proporzioni leggibili, silhouette nette, palette calde per Borgofonte e fredde per Bosco dei Veli.
 - Tiles di base 32×32, dettagli extra sovrapposti; parallax leggero, luci morbide, acqua e fogliame animati.
@@ -287,7 +289,7 @@ Questi elementi non devono diventare dipendenze tecniche per completare il verti
 ### Confermate
 
 - PWA con Phaser + TypeScript.
-- Mondo nuovo (Veloria), stile HD pixel art, esplorazione 2D.
+- Mondo nuovo (Veloria), stile 2D illustrato moderno, esplorazione ortogonale.
 - Prima e seconda generazione, 251 specie nella visione completa.
 - Starter: Pikachu, Charmander, Squirtle, Bulbasaur.
 - Single-player e uso personale.

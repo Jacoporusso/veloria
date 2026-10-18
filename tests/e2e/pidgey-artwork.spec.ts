@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+for (const deviceScaleFactor of [1, 2, 3]) test.describe(`display density ${deviceScaleFactor}`, () => {
+test.use({deviceScaleFactor});
 test('Pidgey and the complete creature catalog render in portrait and landscape battles', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const errors: string[] = [];
@@ -26,7 +28,7 @@ test('Pidgey and the complete creature catalog render in portrait and landscape 
       constructor() { super('artwork-fixture'); }
       preload() {
         preloadCreatureArt(this);
-        this.load.image('qa-forest', '/assets/battle/veloria-battle-forest-v1.png');
+        this.load.image('qa-forest', '/assets/battle/veloria-battle-forest-v1.webp');
       }
       create() {
         (window as any).artworkCatalogResults = Object.keys(battleSpecies).map(id => {
@@ -38,16 +40,17 @@ test('Pidgey and the complete creature catalog render in portrait and landscape 
         this.scene.start('battle', { state, moveCatalog: battleMoves, rules: veloriaBattleRules, arenaTextureKey: 'qa-forest', reducedAnimations: true, inventory: { potion: 2, 'poke-ball': 3 }, onComplete: () => undefined });
       }
     }
-    (window as any).artworkFixture = new Phaser.Game({ type: Phaser.CANVAS, parent: 'artwork-fixture', audio: { noAudio: true }, scale: { mode: Phaser.Scale.RESIZE, width: '100%', height: '100%' }, scene: [Fixture, BattleScene] });
-    observeGameSize((window as any).artworkFixture, document.querySelector<HTMLElement>('#artwork-fixture')!);
+    (window as any).artworkFixture = new Phaser.Game({ type: Phaser.AUTO, parent: 'artwork-fixture', audio: { noAudio: true }, pixelArt: false, antialias: true, scale: { mode: Phaser.Scale.NONE, width: '100%', height: '100%' }, scene: [Fixture, BattleScene] });
+    observeGameSize((window as any).artworkFixture, document.querySelector<HTMLElement>('#artwork-fixture')!, true);
   });
   await expect.poll(() => page.evaluate(() => Boolean((window as any).artworkFixture?.scene.isActive('battle')))).toBe(true);
   const coverage = await page.evaluate(() => (window as any).artworkCatalogResults as Array<{ speciesId: number; rendered: boolean; width: number; height: number }>);
-  expect(coverage).toHaveLength(20);
+  expect(coverage).toHaveLength(31);
   expect(coverage.filter(entry => !entry.rendered || entry.width <= 0 || entry.height <= 0)).toEqual([]);
   for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.setViewportSize({ width, height });
-    await expect.poll(() => page.evaluate(() => ({ width: (window as any).artworkFixture.scale.width, height: (window as any).artworkFixture.scale.height }))).toEqual({ width, height });
+    const density = Math.min(3, deviceScaleFactor);
+    await expect.poll(() => page.evaluate(() => ({ width: (window as any).artworkFixture.scale.width, height: (window as any).artworkFixture.scale.height }))).toEqual({ width: width * density, height: height * density });
     await expect.poll(() => page.evaluate(() => {
       const scene = (window as any).artworkFixture.scene.getScene('battle');
       return ['player', 'opponent'].map(side => {
@@ -59,7 +62,34 @@ test('Pidgey and the complete creature catalog render in portrait and landscape 
       { key: 'pokeapi-starter-4-v1', visible: true, width: true, height: true },
       { key: 'pokeapi-route-16-v1', visible: true, width: true, height: true },
     ]);
+    const rendering = await page.evaluate(() => {
+      const game = (window as any).artworkFixture;
+      const scene = game.scene.getScene('battle');
+      const texts = scene.ui.list.filter((item: any) => item.type === 'Text');
+      const artworkHasEnoughPixels = ['player', 'opponent'].every(side => {
+        const image = scene.actors[side].list.find((item: any) => item.type === 'Image');
+        return image.frame.cutWidth >= image.displayWidth * scene.ui.scaleX && image.frame.cutHeight >= image.displayHeight * scene.ui.scaleY;
+      });
+      return {canvasWidth: game.canvas.width, cssWidth: game.canvas.getBoundingClientRect().width, uiScale: scene.ui.scaleX, artworkHasEnoughPixels, textResolutions: texts.map((item: any) => item.style.resolution)};
+    });
+    expect(rendering.canvasWidth).toBe(width * density);
+    expect(rendering.cssWidth).toBe(width);
+    expect(rendering.uiScale).toBe(density);
+    expect(rendering.artworkHasEnoughPixels).toBe(true);
+    expect(rendering.textResolutions.length).toBeGreaterThan(5);
+    expect(rendering.textResolutions.every((resolution: number) => resolution >= 2)).toBe(true);
     await page.screenshot({ path: testInfo.outputPath('pidgey-battle-' + width + 'x' + height + '.png') });
   }
+  // A physical touch still hits the intended command after backing-canvas scaling.
+  const target = await page.evaluate(() => {
+    const game = (window as any).artworkFixture;
+    const scene = game.scene.getScene('battle');
+    const label = scene.ui.list.find((item: any) => item.type === 'Text' && item.text === 'LOTTA');
+    return {x: label.x, y: label.y};
+  });
+  await page.touchscreen.tap(target.x, target.y);
+  await expect.poll(() => page.evaluate(() => (window as any).artworkFixture.scene.getScene('battle').mode)).toBe('moves');
+  await page.screenshot({path: testInfo.outputPath('move-labels-hidpi.png')});
   expect(errors).toEqual([]);
+});
 });

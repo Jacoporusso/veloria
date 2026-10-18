@@ -1,0 +1,55 @@
+{
+  "id": "veloria/q_radicelmo_greenhouse",
+  "version": 1,
+  "displayName": "Un archivio che cresce",
+  "steps": [
+    {
+      "id": "begin",
+      "trigger": "interaction/radicelmo/greenhouse/begin",
+      "setFlag": "q_radicelmo_greenhouse_started",
+      "requiresFlags": [
+        "q_radicelmo_seed_archived"
+      ]
+    },
+    {
+      "id": "water",
+      "trigger": "interaction/radicelmo/greenhouse/water",
+      "setFlag": "q_radicelmo_greenhouse_watered",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_started"
+      ]
+    },
+    {
+      "id": "light",
+      "trigger": "interaction/radicelmo/greenhouse/light",
+      "setFlag": "q_radicelmo_greenhouse_lit",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_watered"
+      ]
+    },
+    {
+      "id": "observe",
+      "trigger": "interaction/radicelmo/greenhouse/observe",
+      "setFlag": "q_radicelmo_seed_sprouted",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_lit"
+      ]
+    },
+    {
+      "id": "report",
+      "trigger": "interaction/radicelmo/greenhouse/report",
+      "setFlag": "q_radicelmo_greenhouse_complete",
+      "requiresFlags": [
+        "q_radicelmo_seed_sprouted"
+      ]
+    }
+  ],
+  "completionFlag": "q_radicelmo_greenhouse_complete",
+  "reward": {
+    "money": 180,
+    "items": {
+      "potion": 2,
+      "antidote": 1
+    }
+  }
+}

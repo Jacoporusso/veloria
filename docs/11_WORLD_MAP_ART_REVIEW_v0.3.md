@@ -21,7 +21,7 @@ La mappa presenta l'identità della regione e rispetta i riferimenti visivi dich
 1. Creare layer concettuali separati: acqua, coste, rilievi, biomi, insediamenti, routes, fast travel, punti d'interesse.
 2. Stabilire coordinate **logiche** per i nodi (non pixels cartografici) e griglia di world design.
 3. Disegnare una versione annotata con R01–R16, D01–D06 e le otto Palestre; correggere sovrapposizioni.
-4. Per l'MVP costruire tilemap ortogonali reali in Tiled con layer collision/interact/spawn; asset HD pixel art ottimizzati per iPhone.
+4. Per l'MVP costruire tilemap ortogonali reali in Tiled con layer collision/interact/spawn; usare la direzione approvata di illustrazione 2D moderna, ottimizzata per telefono.
 5. Separare la world map nel menu (illustrazione) dalle mappe di gioco esplorabili.
 
 ## 4. Design della transizione MVP

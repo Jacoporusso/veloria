@@ -1,0 +1,148 @@
+{
+  "id": "veloria/r04_salita_petali",
+  "version": 2,
+  "displayName": "Salita dei Petali",
+  "biomeId": "cherry_hills",
+  "tiledAsset": "tilemaps/r04_salita_petali.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-forest-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 6
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-cherry-tree-v1",
+      "path": "assets/sprites/veloria-cherry-tree-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-plants-v1",
+      "path": "assets/sprites/veloria-borgofonte-plants-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_radicelmo",
+      "x": 18,
+      "y": 28,
+      "facing": "up"
+    },
+    {
+      "id": "from_petalora",
+      "x": 30,
+      "y": 1,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/radicelmo",
+      "viaSpawnId": "from_radicelmo",
+      "targetSpawnId": "from_r04",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/petalora",
+      "viaSpawnId": "from_petalora",
+      "targetSpawnId": "from_r04",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ]
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r04_petal_ascent"
+  ],
+  "npcRefs": [
+    "nila_r04"
+  ],
+  "scriptRefs": [],
+  "musicId": "ambient_forest",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 6,
+      "triggerIds": [
+        "Prato dei Petali",
+        "Felci del Torrente",
+        "Giardino Alto",
+        "Fioritura del Ponte"
+      ],
+      "colors": [
+        "#b3c982",
+        "#dfbaaa"
+      ]
+    },
+    {
+      "kind": "water-shimmer",
+      "count": 12,
+      "area": {
+        "x": 480,
+        "y": 0,
+        "width": 96,
+        "height": 416
+      },
+      "colors": [
+        "#f5e4dc",
+        "#c8e9ee"
+      ]
+    },
+    {
+      "kind": "petals",
+      "count": 18,
+      "area": {
+        "x": 64,
+        "y": 64,
+        "width": 960,
+        "height": 672
+      },
+      "colors": [
+        "#ffbdcb",
+        "#ffe3da",
+        "#f596b2"
+      ]
+    }
+  ]
+}

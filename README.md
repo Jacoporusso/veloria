@@ -1,19 +1,19 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Data:** 17 ottobre 2026 · **Stato:** vertical slice giocabile in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
+**Data:** 18 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, tre Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione di progetto e l'implementazione progressiva del vertical slice. Il codice attuale include mappe Tiled giocabili per Borgofonte, Sentiero dell'Alba, Bosco dei Veli, Brumalta e la prima Palestra; il catalogo e il bilanciamento delle creature restano dati prototipo. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. Il percorso attuale va da Borgofonte fino alla Piazza dell’Energia di Ferraluce passando per l’Anello Magnetico, attraverso Brumalta, Radicelmo, Petalora e Vetracielo: 18 mappe, tre medaglie, 31 specie e 44 mosse da fonti locali. Il bilanciamento e alcune regole restano prototipali; le città complete, la Palestra di Ferraluce e le quattro successive, i dungeon avanzati e la Lega non sono disponibili. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
 ## Decisioni confermate
 
 - **Regione:** Veloria, originale; ambientazione mista **natura e tecnologia**.
-- **Visual:** HD pixel art, ricca di vegetazione, illuminazione atmosferica e dettagli; qualità aspirazionale simile ai JRPG moderni come *Sea of Stars*, con asset originali.
+- **Visual:** 2D illustrato moderno, ambienti pittorici, vegetazione stratificata e UI immersiva con gradienti; portrait e landscape. Questa direzione confermata dall’utente sostituisce il precedente obiettivo di pixel art.
 - **Pokédex obiettivo:** prime due generazioni, **251 specie** (#001–#251). Il catalogo è un obiettivo dati, non 251 sprite già inclusi.
 - **Starter:** Pikachu, Charmander, Squirtle, Bulbasaur (livello 5).
 - **Struttura:** otto Palestre, 16 percorsi principali, biomi diversi, Lega e post-game futuro.
 - **MVP:** Borgofonte → Sentiero dell'Alba → Bosco dei Veli → Brumalta, primo leader **Mira (Normale)**, circa 30–45 minuti di gioco progettati.
 - **Tecnologia:** TypeScript, Phaser, Vite/PWA, mappe Tiled, IndexedDB, JSON locali generati/importati da PokéAPI.
-- **Espandibilità:** mappe, Pokémon, missioni e regole versionati; salvataggi migrabili. Nuove generazioni comporteranno anche implementazione e QA di eventuali nuove meccaniche.
+- **Espandibilità:** mappe, Pokémon, missioni e regole versionati. La compatibilità con vecchi salvataggi del prototipo non è richiesta. Nuove generazioni comporteranno anche implementazione e QA di eventuali nuove meccaniche.
 - **Target:** uso privato, non distribuito. Ciò **non elimina** i vincoli di proprietà intellettuale.
 
 ## Contenuto del pacchetto
@@ -30,6 +30,7 @@ Questo archivio contiene la documentazione di progetto e l'implementazione progr
 | `docs/08_ROADMAP_BACKLOG_v0.3.md` | Epiche, storie, dipendenze, priorità e Definition of Done |
 | `docs/09_AI_DEVELOPMENT_PLAYBOOK_v0.3.md` | Avvio operativo con Codex/Claude, agenti e prompt/command |
 | `docs/10_LICENSES_AND_REFERENCES_v0.3.md` | Note legali, licenze asset e fonti tecniche |
+| `docs/16_FERRALUCE_CHAPTER_PLAN_v0.1.md` | Piano del prossimo capitolo R06/Ferraluce/P4, ancora da implementare |
 | `docs/11_WORLD_MAP_ART_REVIEW_v0.3.md` | Cosa mostra la mappa, differenza fra concept e livello giocabile |
 | `assets/concept/Veloria_World_Map_Concept_v0.1.png` | **Mappa illustrata approvata come direzione visiva** |
 | `assets/ASSET_REGISTER.csv` | Provenienza, licenza e permesso per ogni media pubblicato |
@@ -45,6 +46,9 @@ Questo archivio contiene la documentazione di progetto e l'implementazione progr
 Il repository e il vertical slice sono già avviati. Per aggiungere zone e sistemi, seguire i contratti in `docs/04_...` e `docs/07_...`: creare metadata `MapDefinition` v2 e mappa Tiled separati, registrare gli asset, aggiornare il manifest e il changelog contenuti, poi verificare schema, connessioni, collisioni, cache offline e salvataggi. Le regole ancora provvisorie restano esplicite in `docs/06_...`; non promuovere contenuti o bilanciamento a definitivi senza review.
 
 ## Stato dell'implementazione
+
+**Aggiornamento 0.3.75:** menu → Mappa apre l’atlante illustrato della regione, con posizione corrente, visite persistenti e luoghi futuri dichiarati in preparazione. La mappa si scorre e ingrandisce in portrait/landscape; la selezione di un luogo mostra informazioni senza spostare il giocatore. Illustrazione originale locale, inclusa nella cache offline v94. Comandi battaglia, cure e mercato accompagnati da icone. Camera corretta per densità dello schermo, rotazione e ripresa della PWA; prove standalone simulate a DPR 3/4 superate, test fisico sul telefono ancora necessario.
+
 
 **Atlante immersivo approvato:** mappa a tutto schermo in portrait e landscape, marchio con gradiente menta/cielo/lilla, pannelli blu e menu compatto. Il pad originale è a destra; A/B/S a sinistra. L’obiettivo si riduce a icona durante il movimento. Token condivisi in `src/ui-theme.css`, riferimento visivo in `layout-prototype.html`. Per controllare GitHub Actions: `powershell -File tools/check_github.ps1 -UseStoredLogin`; dettagli in `docs/CI_STATUS.md`.
 
@@ -78,3 +82,9 @@ La workflow [Verify](.github/workflows/verify.yml) esegue su ogni pull request e
 ## Playtest naturale del prologo
 
 `npx playwright test --config=playwright.playtest.config.ts` avvia una nuova partita isolata con nome, starter, allenatori, incontro/cattura, missione di Ada, cura e sfida a Mira. Usa controlli DOM/touch/tastiera e un handle di sola osservazione per leggere la scena; non prepara seed, squadra, livelli o flag. I risultati e gli errori restano in `test-results-natural-prologue`. La variabile di ambiente PLAYTEST_STARTER seleziona Charmander (predefinito), Bulbasaur, Squirtle o Pikachu. Il playtest lungo è separato dalla suite CI e non sostituisce la QA manuale o le prove con tutti e quattro gli starter.
+
+## Sito pubblico e pubblicazione
+
+Gioca su https://jacoporusso.github.io/veloria/ (HTTPS, installabile come PWA).
+Repository: https://github.com/Jacoporusso/veloria.
+La workflow `Deploy GitHub Pages` pubblica automaticamente `main` dopo test del dominio, validazione contenuti e build con base `/veloria/`. La workflow `Verify` mantiene le verifiche complete browser e offline. I salvataggi sono locali al browser e all’origine: quelli del sito LAN non passano automaticamente al sito pubblico; usare esportazione/importazione del backup JSON.

@@ -1,12 +1,13 @@
 {
   "id": "veloria/q_radicelmo_seed_archive",
-  "version": 1,
+  "version": 2,
   "displayName": "L'archivio dei semi",
   "steps": [
     {
       "id": "recover_ancient_seed",
       "trigger": "pickup/r03/ancient_seed",
       "setFlag": "q_radicelmo_seed_found",
+      "grantItems": { "ancient-seed": 1 },
       "requiresFlags": [
         "badge_aurora_awarded"
       ]
@@ -15,6 +16,7 @@
       "id": "restore_seed_record",
       "trigger": "interaction/radicelmo/archive-report",
       "setFlag": "q_radicelmo_seed_archived",
+      "consumeItems": { "ancient-seed": 1 },
       "requiresFlags": [
         "q_radicelmo_seed_found"
       ]

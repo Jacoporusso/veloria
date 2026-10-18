@@ -1,0 +1,153 @@
+{
+  "id": "veloria/petalora",
+  "version": 2,
+  "displayName": "Petalora",
+  "biomeId": "cherry_town",
+  "tiledAsset": "tilemaps/petalora.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-forest-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 6
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-cherry-tree-v1",
+      "path": "assets/sprites/veloria-cherry-tree-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-plants-v1",
+      "path": "assets/sprites/veloria-borgofonte-plants-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-buildings-v1",
+      "path": "assets/sprites/veloria-borgofonte-buildings-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npc-rami-v1",
+      "path": "assets/sprites/veloria-npc-rami-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r04",
+      "x": 18,
+      "y": 26,
+      "facing": "up"
+    },
+    {
+      "id": "from_gym02",
+      "x": 18,
+      "y": 1,
+      "facing": "down"
+    },
+    {
+      "id": "from_r05",
+      "x": 36,
+      "y": 12,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r04_salita_petali",
+      "viaSpawnId": "from_r04",
+      "targetSpawnId": "from_petalora",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym02_petalora",
+      "viaSpawnId": "from_gym02",
+      "targetSpawnId": "from_city",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ]
+    },
+    {
+      "toMapId": "veloria/r05_viadotto_ciliegi",
+      "viaSpawnId": "from_r05",
+      "targetSpawnId": "from_petalora",
+      "requiresFlags": [
+        "badge_corolla_awarded"
+      ]
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "petalora_ivo"
+  ],
+  "scriptRefs": [
+    "quest/petalora_arrival"
+  ],
+  "musicId": "ambient_forest",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "water-shimmer",
+      "count": 14,
+      "area": {
+        "x": 32,
+        "y": 544,
+        "width": 480,
+        "height": 64
+      },
+      "colors": [
+        "#f5e4dc",
+        "#c8e9ee"
+      ]
+    },
+    {
+      "kind": "petals",
+      "count": 18,
+      "area": {
+        "x": 64,
+        "y": 64,
+        "width": 960,
+        "height": 672
+      },
+      "colors": [
+        "#ffbdcb",
+        "#ffe3da",
+        "#f596b2"
+      ]
+    }
+  ]
+}

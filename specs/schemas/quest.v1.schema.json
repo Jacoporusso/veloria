@@ -31,7 +31,8 @@
         "required": [
           "id",
           "trigger",
-          "setFlag"
+          "setFlag",
+          "requiresFlags"
         ],
         "additionalProperties": false,
         "properties": {
@@ -47,11 +48,29 @@
             "type": "string",
             "minLength": 1
           },
+          "addBadge": {
+            "type": "string",
+            "minLength": 1
+          },
           "requiresFlags": {
             "type": "array",
             "items": {
               "type": "string",
               "minLength": 1
+            }
+          },
+          "grantItems": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "consumeItems": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 1
             }
           }
         }

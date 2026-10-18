@@ -1,3 +1,4 @@
+import { effectiveMoveAccuracy } from '../../src/core/battle/stat-stages.ts';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
@@ -212,4 +213,46 @@ test('capturing a stat-staged creature adds it with zeroed stages', () => {
   const newMember = captured.state.player.creatures[1];
   assert.equal(newMember.instanceId, 'captured-1');
   assert.equal(newMember.statStages, undefined);
+});
+
+test('Gen IV accuracy and evasion use separate stage multipliers, with guaranteed moves bypassing both', () => {
+  const user = creature('player-1', tackle, { statStages: { accuracy: -6 } });
+  const target = creature('opponent-1', noop, { statStages: { evasion: 6 } });
+  assert.ok(Math.abs(effectiveMoveAccuracy(user, target, tackle) - 100 / 9) < 1e-10);
+  assert.equal(effectiveMoveAccuracy({ ...user, statStages: { accuracy: -1 } }, { ...target, statStages: undefined }, tackle), 75);
+  assert.equal(effectiveMoveAccuracy({ ...user, statStages: { accuracy: 6 } }, target, tackle), 100);
+  assert.equal(effectiveMoveAccuracy(user, target, { ...tackle, alwaysHits: true }), 100);
+});
+
+test('sourced Sand Attack changes accuracy, spends PP and resets on switching', () => {
+  const sand = contentMoves['sand-attack'];
+  const catalog = { ...moves, [sand.id]: sand };
+  const state = battle({ playerTeam: [creature('player-1', sand)], opponentTeam: [creature('opponent-1'), creature('opponent-2')] });
+  const first = resolveBattleTurn(state, { player: { kind: 'useMove', moveSlot: 0 }, opponent: { kind: 'useMove', moveSlot: 0 } }, catalog, exactRules);
+  assert.equal(first.state.opponent.creatures[0].statStages?.accuracy, -1);
+  assert.equal(first.state.player.creatures[0].moves[0].pp, sand.maxPp - 1);
+  assert.ok(first.events.some(event => event.type === 'statStageChanged' && event.stat === 'accuracy' && event.change === -1));
+  const switched = resolveBattleTurn(first.state, { player: { kind: 'useMove', moveSlot: 0 }, opponent: { kind: 'switch', partyIndex: 1 } }, catalog, exactRules);
+  assert.equal(switched.state.opponent.creatures[0].statStages, undefined);
+  assert.equal(switched.state.opponent.creatures[1].statStages?.accuracy, -1);
+  assert.equal(state.opponent.creatures[0].statStages, undefined);
+});
+
+test('accuracy reductions cause deterministic misses in actual turn resolution', () => {
+  let misses = 0;
+  for (let seed = 1; seed <= 32; seed++) {
+    const initial = battle({ seed, playerTeam: [creature('player-1', tackle)] });
+    const state = { ...initial, player: { ...initial.player, creatures: [{ ...initial.player.creatures[0], statStages: { accuracy: -6 } }] } };
+    const commands = { player: { kind: 'useMove', moveSlot: 0 } as const, opponent: { kind: 'useMove', moveSlot: 0 } as const };
+    const result = resolveBattleTurn(state, commands, moves, exactRules);
+    assert.deepEqual(resolveBattleTurn(state, commands, moves, exactRules), result);
+    if (result.events.some(event => event.type === 'moveMissed' && event.side === 'player')) misses++;
+    const normal = resolveBattleTurn(initial, commands, moves, exactRules);
+    assert.equal(normal.events.some(event => event.type === 'moveMissed' && event.side === 'player'), false);
+  }
+  assert.ok(misses > 0 && misses < 32);
+});
+
+test('sourced Sweet Scent uses the historical one-stage evasion decrease', () => {
+  assert.deepEqual(contentMoves['sweet-scent'].statChanges, [{ target: 'opponent', stat: 'evasion', stages: -1 }]);
 });

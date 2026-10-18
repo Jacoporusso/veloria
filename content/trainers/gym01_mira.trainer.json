@@ -7,12 +7,13 @@
   "defeatQuestEvent": "battle/trainer_mira/defeated",
   "rewardMoney": 500,
   "victoryMessage": "Hai vinto contro Mira. Ricevi 500 ₿ e la Medaglia Aurora.",
+  "victoryFeedback": "Hai superato i sigilli e trovato il tuo ritmo insieme ai tuoi compagni. Ti affido la Medaglia Aurora: che la sua luce ti accompagni sulle Terrazze del Muschio e fino a Radicelmo!",
   "team": [
     {
       "speciesId": 161,
       "level": 7,
       "moveIds": [
-        "tackle",
+        "scratch",
         "defense-curl"
       ]
     },

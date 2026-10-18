@@ -1,5 +1,5 @@
 import { defineConfig } from '@playwright/test';
-import baseConfig from './playwright.config';
+import baseConfig, { viteCommand } from './playwright.config';
 
 export default defineConfig({
   ...baseConfig,
@@ -10,7 +10,7 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:5184',
   },
   webServer: {
-    command: 'npm run build && npm run preview -- --host 127.0.0.1 --port 5184 --strictPort',
+    command: `npm run build && ${viteCommand} preview --host 127.0.0.1 --port 5184 --strictPort`,
     url: 'http://127.0.0.1:5184/',
     reuseExistingServer: false,
     timeout: 60_000,

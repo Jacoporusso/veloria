@@ -1,3 +1,7 @@
+import { decorateServiceOption, type ServiceOptionIconKind } from '../ui/ServiceOptionIcon';
+import { RegionMapPanel } from '../ui/RegionMapPanel';
+import { recordAreaVisited } from '../../core/world/region-atlas';
+import { trainerChallengePrompt } from '../battle/trainer-challenge.ts';
 import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
@@ -21,13 +25,17 @@ import { battleMoves, battleSpecies, encounterCatalog, trainerCatalog, veloriaBa
 import { createTrainerBattle, createWildBattle, mergeBattlePlayerState } from '../battle/create-battle-state.ts';
 import { healParty } from '../../core/services/healing.ts';
 import { moveCreatureToStorage, withdrawCreatureFromStorage } from '../../core/services/party-storage.ts';
-import { buildPokedexEntries } from '../../core/party/pokedex.ts';
+import { recordSpeciesSeen } from '../../core/party/pokedex.ts';
+import { PokemonPanel } from '../ui/PokemonPanel.ts';
 import { purchaseShopItem } from '../../core/services/shop.ts';
 import { itemCatalog, shopCatalog } from '../battle/catalog.ts';
-import { preloadCreatureArt, createCreaturePortrait } from '../battle/creature-art.ts';
+import { createCreaturePortrait } from '../battle/creature-art.ts';
 import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
 import { JourneyPanel } from '../journey/JourneyPanel.ts';
+import { WorldGuidance } from '../ui/WorldGuidance.ts';
 import { worldCameraZoom } from '../rendering/world-camera.ts';
+import { worldFollowDeadzone } from '../rendering/camera-follow.ts';
+import { gameViewport } from '../rendering/game-size.ts';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import { showPrologueCompletion } from '../ui/PrologueCompletion';
 import opening from '../../../content/dialogue/opening.v1.json';
@@ -73,7 +81,7 @@ export class WorldScene extends Phaser.Scene {
   private journey?: JourneyPanel;
   private pendingQuestCelebrations: string[] = [];
   private promptTargetId = '';
-  private openingGuidance?: Phaser.GameObjects.Text;
+  private openingGuidance?: WorldGuidance;
   private openingGuidanceKey = '';
   private completionActive = false;
   private toastTimer?: ReturnType<typeof setTimeout>;
@@ -85,6 +93,7 @@ export class WorldScene extends Phaser.Scene {
   private typingText = '';
   private typingCharacters: string[] = [];
   private typingIndex = 0;
+  private regionMap?: RegionMapPanel;
   private pokedexOpen = false;
   private pokedexReturnFocus?: HTMLElement;
   private readonly onMusicThemeChange: (themeId: string) => void;
@@ -101,8 +110,7 @@ export class WorldScene extends Phaser.Scene {
 
   preload() {
     const assetUrl = (path: string) => publicAssetUrl(path, import.meta.env.BASE_URL);
-    this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.png'));
-    preloadCreatureArt(this);
+    this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.webp'));
     const maps = listMaps();
     let initialMap: RegisteredMap;
     try { initialMap = getMap(this.save.player.mapId); }
@@ -119,6 +127,12 @@ export class WorldScene extends Phaser.Scene {
     this.reducedAnimations = this.getAnimationQuality() === 'reduced';
     this.playerTile = { x: this.save.player.x, y: this.save.player.y };
     this.drawWorld();
+    this.game.events.on(Phaser.Core.Events.POST_RENDER, this.renderGuidance, this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.game.events.off(Phaser.Core.Events.POST_RENDER, this.renderGuidance, this);
+      this.openingGuidance?.destroy();
+      this.openingGuidance = undefined;
+    });
     if (!isGridTileOpen(this.playerTile, this.renderedMap.width, this.renderedMap.height, this.occupied)) {
       const spawn = getSpawn(this.map, this.save.player.spawnPointId);
       this.playerTile = { x: spawn.x, y: spawn.y };
@@ -128,8 +142,6 @@ export class WorldScene extends Phaser.Scene {
     this.player = this.makePlayer();
     this.mapLayer.add(this.player);
     this.player.setPosition(this.playerTile.x * TILE + TILE / 2, this.playerTile.y * TILE + TILE / 2).setDepth(this.player.y + 20);
-    this.cameras.main.startFollow(this.player, true, .12, .12);
-    this.cameras.main.setDeadzone(100, 60);
     this.fitWorldCamera();
     this.dialogueBox=document.querySelector<HTMLElement>('#dialogue-box')!;
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
@@ -144,9 +156,18 @@ export class WorldScene extends Phaser.Scene {
     this.input.keyboard!.on('keydown-SPACE', () => this.advanceOrInteract());
     this.input.keyboard!.on('keydown-M', () => this.persistProgress(true));
     this.input.keyboard!.on('keydown-P', () => this.openPokedex(document.querySelector<HTMLElement>('#pokedex-button')!));
+    this.regionMap = new RegionMapPanel();
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.regionMap?.destroy());
+    this.save.flags = recordAreaVisited(this.save.flags, this.map.metadata.id);
     this.bindTouchControls();
     this.scale.on('resize', this.fitWorldCamera, this);
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.scale.off('resize', this.fitWorldCamera, this));
+    this.events.on(Phaser.Scenes.Events.RESUME, this.fitWorldCamera, this);
+    this.game.events.on(Phaser.Core.Events.RESUME, this.fitWorldCamera, this);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.scale.off('resize', this.fitWorldCamera, this);
+      this.events.off(Phaser.Scenes.Events.RESUME, this.fitWorldCamera, this);
+      this.game.events.off(Phaser.Core.Events.RESUME, this.fitWorldCamera, this);
+    });
     window.setTimeout(() => { const loading = document.querySelector<HTMLElement>('#game-loading'); if (loading) loading.hidden = true; }, 120);
     if (!this.previewMode && this.save.flags.includes('intro_started') && !this.save.flags.includes('intro_completed')) {
       this.afterDialogue = () => {
@@ -165,12 +186,18 @@ export class WorldScene extends Phaser.Scene {
   private fitWorldCamera(): void {
     const width = this.renderedMap.width * TILE, height = this.renderedMap.height * TILE;
     this.cameras.main.setBounds(0, 0, width, height);
-    this.cameras.main.setZoom(worldCameraZoom(this.scale, { width, height }));
+    const viewport = gameViewport(this.game);
+    const logicalZoom = worldCameraZoom(viewport, { width, height });
+    const deadzone = worldFollowDeadzone(viewport, logicalZoom);
+    this.cameras.main.setZoom(logicalZoom * viewport.density);
+    this.cameras.main.startFollow(this.player, true, .12, .12);
+    this.cameras.main.setDeadzone(deadzone.width, deadzone.height);
     this.cameras.main.centerOn(this.player.x, this.player.y);
+    this.positionToast();
   }
 
   private get navigationOpen(): boolean {
-    return this.completionActive || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
+    return this.completionActive || Boolean(this.regionMap?.isOpen) || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
   }
 
   private updateInteractionPrompt(): void {
@@ -179,7 +206,7 @@ export class WorldScene extends Phaser.Scene {
     const blocked = this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
     const guidanceKey = this.map.metadata.id + '|' + this.save.flags.join('|');
     if (!this.mapTransitionLoading && guidanceKey !== this.openingGuidanceKey) this.drawOpeningGuidance();
-    this.openingGuidance?.setVisible(!blocked);
+
     const adjacent = adjacentGridPoint(this.playerTile, this.facing);
     const target = !blocked && (this.interactableAtTile(adjacent.x, adjacent.y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y));
     prompt.hidden = !target;
@@ -188,6 +215,13 @@ export class WorldScene extends Phaser.Scene {
       prompt.textContent = 'A · ' + verb + ' ' + target.name;
       this.promptTargetId = target.id;
     }
+  }
+
+  private renderGuidance(): void {
+    const visible = this.sys.isActive() && !this.navigationOpen && !this.moving && !this.battleActive &&
+      !this.mapTransitionLoading && !this.dialogueLines.length && this.starterChoices?.hidden !== false &&
+      !this.pokedexOpen && !this.journey?.isOpen;
+    this.openingGuidance?.render(this.cameras.main, this.game.canvas, visible, this.player ? [this.player.getBounds()] : []);
   }
 
   private async presentPrologueCompletion(activationKey?: string): Promise<void> {
@@ -223,8 +257,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private drawOpeningGuidance(): void {
-    this.openingGuidance?.destroy();
-    this.openingGuidance = undefined;
+    this.openingGuidance?.clear();
     this.openingGuidanceKey = this.map.metadata.id + '|' + this.save.flags.join('|');
     const guidance = selectOpeningGuidance(this.map.metadata.id, this.save.flags, opening.guidance);
     if (!guidance) return;
@@ -232,16 +265,30 @@ export class WorldScene extends Phaser.Scene {
       ? this.renderedMap.triggers.find(trigger => trigger.destinationMapId === guidance.destinationMapId)
       : this.renderedMap.interactables.find(item => item.properties.npcId === guidance.npcId || item.properties.dialogueId === guidance.npcId || item.id === guidance.npcId);
     if (!target) return;
-    const marker = this.add.text(target.x + target.width / 2, target.y - 48, guidance.label, {
-      fontFamily: 'system-ui, sans-serif', fontSize: '10px', color: '#d3fff0', backgroundColor: '#163e50',
-      padding: { x: 8, y: 6 },
-    }).setOrigin(.5, 1).setDepth(100000);
-    this.mapLayer.add(marker);
-    this.openingGuidance = marker;
+    const stage = document.querySelector<HTMLElement>('.game-stage');
+    if (!stage) return;
+    if (!this.openingGuidance) this.openingGuidance = new WorldGuidance(stage);
+    this.openingGuidance.setTarget(guidance.label, { x: target.x, y: target.y, width: target.width, height: target.height });
   }
 
   private renderAmbientEffects() {
     for (const effect of this.map.metadata.ambientEffects ?? []) {
+      if (effect.kind === 'petals') {
+        for (const point of createAmbientEffectPoints(this.map.metadata.id, effect)) {
+          const petal = this.add.ellipse(point.x, point.y, 5, 2.6, Number.parseInt(point.color.slice(1), 16), .7)
+            .setAngle(point.phase * 180).setDepth(90000).setName('ambient-petal');
+          this.mapLayer.add(petal);
+          if (this.reducedAnimations) continue;
+          this.ambientTweenTargets.push(petal);
+          this.tweens.add({ targets: petal,
+            x: {from: point.x, to: Math.min(effect.area.x + effect.area.width, point.x + 32)},
+            y: {from: point.y, to: Math.min(effect.area.y + effect.area.height, point.y + 64)},
+            alpha: {from: .7, to: 0}, angle: point.phase * 180 + 80,
+            duration: 3800 + point.phase * 2200, delay: point.phase * 2000, repeat: -1,
+          });
+        }
+        continue;
+      }
       if (effect.kind === 'fireflies') {
         for (const point of createAmbientEffectPoints(this.map.metadata.id, effect)) {
           const color = Number.parseInt(point.color.slice(1), 16);
@@ -284,13 +331,10 @@ export class WorldScene extends Phaser.Scene {
         const tuft = this.add.container(point.x, point.y).setDepth(point.y + 10).setScale(point.scale);
         const blades = this.add.graphics();
         blades.fillStyle(Number.parseInt(point.color.slice(1), 16), .92);
-        blades.fillRect(-5, -3, 2, 3);
-        blades.fillRect(-3, -5, 2, 5);
-        blades.fillRect(-1, -7, 2, 7);
-        blades.fillRect(1, -5, 2, 5);
-        blades.fillStyle(0xb7ca7a, .9);
-        blades.fillRect(-2, -6, 1, 3);
-        blades.fillRect(2, -4, 1, 2);
+        blades.fillEllipse(-3, -4, 5, 9);
+        blades.fillEllipse(3, -4, 5, 9);
+        blades.fillEllipse(0, -7, 4, 13);
+        blades.lineStyle(.7, 0xe0e8b5, .65).lineBetween(0, 0, 0, -11);
         tuft.add(blades);
         this.mapLayer.add(tuft);
         const tween = getGrassSwayTween(point, this.reducedAnimations);
@@ -315,36 +359,10 @@ export class WorldScene extends Phaser.Scene {
     this.ambientTweenTargets = [];
     this.mapLayer.destroy(true);
   }
-  private openPokedex(returnFocus: HTMLElement) {
+  private openPokedex(returnFocus: HTMLElement, view: 'team' | 'dex' = 'dex') {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
-    const list = document.querySelector<HTMLOListElement>('#pokedex-list');
-    const summary = document.querySelector<HTMLElement>('#pokedex-summary');
-    if (!panel || !list || !summary) return;
-
-    const entries = buildPokedexEntries(battleSpecies, this.save.party, this.save.storage);
-    const registered = entries.filter(entry => entry.registered);
-    summary.textContent = `${registered.length} di ${entries.length} specie del primo arco registrate · ${this.save.party.length}/6 in squadra · ${this.save.storage.length} nel box`;
-    list.replaceChildren(...registered.map(entry => {
-      const item = document.createElement('li');
-      item.className = 'pokedex-entry';
-      const number = document.createElement('span');
-      number.className = 'pokedex-number';
-      number.textContent = `N° ${String(entry.speciesId).padStart(3, '0')}`;
-      const name = document.createElement('span');
-      name.className = 'pokedex-name';
-      name.textContent = entry.name;
-      const count = document.createElement('span');
-      count.className = 'pokedex-count';
-      count.textContent = entry.partyCount ? `SQUADRA ×${entry.partyCount}` : `BOX ×${entry.storageCount}`;
-      item.append(createCreaturePortrait(entry.speciesId), number, name, count);
-      return item;
-    }));
-    if (registered.length === 0) {
-      const empty = document.createElement('li');
-      empty.className = 'pokedex-empty';
-      empty.textContent = 'Scegli il tuo primo compagno per iniziare il registro.';
-      list.append(empty);
-    }
+    if (!panel || this.battleActive || this.journey?.isOpen) return;
+    new PokemonPanel().render(this.save, view);
     panel.hidden = false;
     this.pokedexOpen = true;
     this.pokedexReturnFocus = returnFocus.closest('.exploration-menu') ? document.querySelector<HTMLElement>('#menu-button') ?? returnFocus : returnFocus;
@@ -393,23 +411,33 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector('#interaction-prompt')?.addEventListener('click',()=>this.advanceOrInteract());
     document.querySelector('#title-button')?.addEventListener('click',()=>{ void this.persistProgress(true).then(saved => { if (saved) location.reload(); }); });
     document.querySelector('#action-b')?.addEventListener('click',()=>{
-      if(this.journey?.isOpen)this.journey.close();
+      if(this.regionMap?.isOpen)this.regionMap.close();
+      else if(this.journey?.isOpen)this.journey.close();
       else if(this.pokedexOpen)this.closePokedex();
       else if(this.dialogueLines.length)this.closeDialogue();
       else {const toast=document.querySelector<HTMLElement>('#toast');toast?.classList.remove('visible');clearTimeout(this.toastTimer);}
     });
     document.querySelector('#action-save')?.addEventListener('click',()=>this.persistProgress(true));
     document.querySelector('#help-button')?.addEventListener('click',()=>this.showToast('WASD o frecce per muoverti · E o Spazio per parlare · P o ◈ per il Pokédex. Su telefono usa i comandi in basso.'));
+    document.querySelector('#region-map-button')?.addEventListener('click', () => {
+      if (this.battleActive || this.dialogueLines.length || this.mapTransitionLoading) return;
+      this.heldDirection = null; this.queuedDirection = null;
+      document.querySelectorAll('.dpad-key.pressed').forEach(button => button.classList.remove('pressed'));
+      document.querySelector<HTMLButtonElement>('#menu-button')?.focus({ preventScroll: true });
+      this.regionMap?.open(this.save);
+    });
     document.querySelector('#pokedex-button')?.addEventListener('click', event => this.openPokedex(event.currentTarget as HTMLElement));
+    document.querySelector('#team-button')?.addEventListener('click', event => this.openPokedex(event.currentTarget as HTMLElement, 'team'));
     document.querySelector('#pokedex-close')?.addEventListener('click', () => this.closePokedex());
     document.querySelector('#pokedex-panel')?.addEventListener('keydown', event => {
       const keyboardEvent = event as KeyboardEvent;
-      if (keyboardEvent.key === 'Escape') { this.closePokedex(); return; }
+      keyboardEvent.stopPropagation();
+      if (keyboardEvent.key === 'Escape') { keyboardEvent.preventDefault(); this.closePokedex(); return; }
       if (keyboardEvent.key !== 'Tab') return;
-      const closeButton = document.querySelector<HTMLButtonElement>('#pokedex-close');
-      if (!closeButton) return;
-      keyboardEvent.preventDefault();
-      closeButton.focus();
+      const controls = [...document.querySelectorAll<HTMLButtonElement>('#pokedex-panel button')];
+      const first = controls[0], last = controls.at(-1);
+      if (keyboardEvent.shiftKey && document.activeElement === first) { keyboardEvent.preventDefault(); last?.focus(); }
+      else if (!keyboardEvent.shiftKey && document.activeElement === last) { keyboardEvent.preventDefault(); first?.focus(); }
     });
     const settingsMenu = document.querySelector<HTMLElement>('#settings-menu');
     document.querySelector('#settings-button')?.addEventListener('click',()=>{if(settingsMenu){settingsMenu.hidden=!settingsMenu.hidden;if(!settingsMenu.hidden)settingsMenu.querySelector<HTMLElement>('select, button')?.focus();}});
@@ -508,8 +536,9 @@ export class WorldScene extends Phaser.Scene {
       return;
     }
     const questEvent = prop?.properties.questEvent;
-    if (prop?.kind !== 'npc' && typeof questEvent === 'string') this.applyQuestEvent(questEvent);
-    if (prop?.kind === 'npc') {
+    const hasDialogue = prop?.kind === 'npc' || typeof prop?.properties.dialogueId === 'string';
+    if (!hasDialogue && typeof questEvent === 'string') this.applyQuestEvent(questEvent);
+    if (prop && hasDialogue) {
       const dialogueId = String(prop.properties.dialogueId ?? prop.properties.npcId ?? prop.id);
       const dialogue = getNpcDialogue(dialogueId, {
         starterSelected: this.save.flags.includes('q_starter_selected'),
@@ -525,11 +554,11 @@ export class WorldScene extends Phaser.Scene {
       const battleLocked = Boolean(shouldBattle && battleRequiredFlag && !this.save.flags.includes(battleRequiredFlag));
       if (dialogue.questEvent || dialogue.requiresStarterChoice || shouldBattle) {
         this.afterDialogue = () => {
-          if (dialogue.questEvent) this.applyQuestEvent(dialogue.questEvent);
+          if (dialogue.questEvent && this.applyQuestEvent(dialogue.questEvent)) this.refreshMapVisuals();
           nextAction?.();
           if (dialogue.requiresStarterChoice) this.showStarterChoices();
-          if (dialogue.questEvent) this.showToast('Diario aggiornato.');
-          if (battleLocked) this.showToast('Mira aspetta che tu attivi i tre sigilli del giardino.');
+          if (dialogue.questEvent && !this.journey?.hasReward) this.showToast('Diario aggiornato.');
+          if (battleLocked) this.showToast(String(prop.properties.battleLockedMessage ?? `${trainer?.name ?? 'La guida'} aspetta che tu completi la prova della palestra.`));
           else if (shouldBattle && trainer) this.showTrainerChallenge(trainer);
         };
       }
@@ -606,7 +635,7 @@ export class WorldScene extends Phaser.Scene {
     this.mapTransitionLoading = false;
     if (loading) loading.hidden = true;
     this.persistProgress();
-    if (destination.metadata.id === 'veloria/brumalta') this.applyQuestEvent('area/veloria/brumalta/enter');
+    this.applyQuestEvent(`area/${destination.metadata.id}/enter`);
     this.showToast(destination.metadata.displayName);
   }
 
@@ -626,9 +655,11 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private releaseMapRenderAssets(from: RegisteredMap, to: RegisteredMap) {
-    const keep = new Set(resolveMapRenderAssets([to.metadata]).map(asset => asset.key));
-    for (const asset of resolveMapRenderAssets([from.metadata])) {
-      if (!keep.has(asset.key) && this.textures.exists(asset.key)) this.textures.remove(asset.key);
+    const textureKeys = (map: RegisteredMap) => resolveMapRenderAssets([map.metadata]).flatMap(asset =>
+      asset.kind === 'tileset' ? [asset.key, `${asset.key}-seamless`] : [asset.key]);
+    const keep = new Set(textureKeys(to));
+    for (const key of textureKeys(from)) {
+      if (!keep.has(key) && this.textures.exists(key)) this.textures.remove(key);
     }
   }
 
@@ -681,6 +712,8 @@ export class WorldScene extends Phaser.Scene {
     this.battleActive = true;
     this.onMusicThemeChange(this.map.metadata.id === 'veloria/gym01_brumalta' ? 'battle_gym' : trainer ? 'battle_trainer' : 'battle_wild');
     let dismissMessage = 'Lo scontro è terminato.';
+    let earnedMoney = 0;
+    let earnedBadgeId: string | undefined;
     const hadAuroraBadge = this.save.flags.includes('badge_aurora_awarded');
     void this.ensureBattleScene().then(() => {
       document.body.classList.add('battle-active');
@@ -694,7 +727,15 @@ export class WorldScene extends Phaser.Scene {
         createInstanceId: createUniqueId,
         arenaTextureKey: this.map.metadata.battleBackgroundKey,
         reducedAnimations: this.reducedAnimations,
+        victoryPresentation: trainer ? () => ({ trainerName: trainer.name, rewardMoney: earnedMoney, badgeId: earnedBadgeId, feedback: trainer.victoryFeedback ?? trainer.victoryMessage }) : undefined,
+        onSpeciesSeen: (speciesId: number) => {
+          if (!battleSpecies[speciesId] || this.save.flags.includes(`pokedex_seen_${speciesId}`)) return;
+          this.save.flags = recordSpeciesSeen(this.save.flags, speciesId);
+          void this.persistProgress();
+        },
         onComplete: (finalState: BattleState, events: readonly BattleEvent[]) => {
+          const previousMoney = this.save.player.money;
+          const previousBadges = new Set(this.save.badges);
           this.save = mergeBattlePlayerState(this.save, finalState);
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
           if (finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player') {
@@ -702,6 +743,8 @@ export class WorldScene extends Phaser.Scene {
               this.save.player.money += trainer.rewardMoney;
               this.save = { ...this.save, flags: [...this.save.flags, trainer.battleOnceFlag] };
               this.applyQuestEvent(trainer.defeatQuestEvent);
+              earnedMoney = this.save.player.money - previousMoney;
+              earnedBadgeId = this.save.badges.find(id => !previousBadges.has(id));
               dismissMessage = trainer.victoryMessage;
             } else dismissMessage = 'Hai vinto lo scontro.';
           } else if (finalState.outcome.kind === 'captured') {
@@ -845,13 +888,13 @@ export class WorldScene extends Phaser.Scene {
   private showHealingMenu(name: string, includeStorage: boolean) {
     this.afterDialogue = null;
     this.showServiceOptions(name, 'La squadra recupererà tutti gli HP, i PP e gli stati alterati.', [
-      { label: 'RIPOSA', action: () => {
+      { label: 'RIPOSA', icon: 'rest', action: () => {
         this.save = healParty(this.save, battleMoves);
         this.persistProgress();
         this.showToast('La squadra è in piena forma.');
       } },
-      ...(includeStorage ? [{ label: 'DEPOSITO', action: () => this.showStorageMenu(name) }] : []),
-      { label: 'DOPO', action: () => undefined },
+      ...(includeStorage ? [{ label: 'DEPOSITO', icon: 'storage' as const, action: () => this.showStorageMenu(name) }] : []),
+      { label: 'DOPO', icon: 'close', action: () => undefined },
     ]);
   }
 
@@ -859,6 +902,7 @@ export class WorldScene extends Phaser.Scene {
     const speciesName = (speciesId: number) => battleSpecies[String(speciesId)]?.name ?? `Specie ${speciesId}`;
     const options = [
       ...this.save.party.map(creature => ({
+        icon: 'storage' as const,
         label: `BOX · ${speciesName(creature.speciesId)} Lv.${creature.level}`,
         action: () => {
           const result = moveCreatureToStorage(this.save, creature.instanceId);
@@ -870,6 +914,7 @@ export class WorldScene extends Phaser.Scene {
         },
       })),
       ...this.save.storage.map(creature => ({
+        icon: 'storage' as const,
         label: `RITIRA · ${speciesName(creature.speciesId)}${typeof creature.level === 'number' ? ` Lv.${creature.level}` : ''}`,
         action: () => {
           const result = withdrawCreatureFromStorage(this.save, creature.instanceId);
@@ -880,7 +925,7 @@ export class WorldScene extends Phaser.Scene {
           } else this.showToast(result.reason === 'partyFull' ? 'La squadra è già al completo.' : 'Questo Pokémon non può essere ritirato.');
         },
       })),
-      { label: 'INDIETRO', action: () => this.showHealingMenu(name, true) },
+      { label: 'INDIETRO', icon: 'close' as const, action: () => this.showHealingMenu(name, true) },
     ];
     this.afterDialogue = null;
     this.showServiceOptions(name, `Squadra: ${this.save.party.length}/6 · Box: ${this.save.storage.length}. Scegli un Pokémon.`, options);
@@ -892,7 +937,7 @@ export class WorldScene extends Phaser.Scene {
     const options = shop.items.flatMap(itemId => {
       const item = itemCatalog[itemId];
       if (!item) return [];
-      return [{ label: `${item.name} · ${item.price} ₿  (${this.save.inventory[itemId] ?? 0})`, action: () => {
+      return [{ icon: ({ potion: 'potion', antidote: 'antidote', 'poke-ball': 'pokeball' } as Record<string, ServiceOptionIconKind>)[itemId] ?? 'shop', label: `${item.name} · ${item.price} ₿  (${this.save.inventory[itemId] ?? 0})`, action: () => {
         const result = purchaseShopItem(this.save, shop, itemId, itemCatalog);
         if (result.ok) {
           this.save = result.save;
@@ -906,19 +951,21 @@ export class WorldScene extends Phaser.Scene {
         }
       } }];
     });
-    options.push({ label: 'CHIUDI', action: () => undefined });
+    options.push({ label: 'CHIUDI', icon: 'close', action: () => undefined });
     this.afterDialogue = null;
     this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
   }
 
-  private showServiceOptions(speaker: string, prompt: string, options: Array<{ label: string; action: () => void }>) {
+  private showServiceOptions(speaker: string, prompt: string, options: Array<{ label: string; icon?: ServiceOptionIconKind; action: () => void }>) {
     this.showDialogue(speaker, [prompt]);
+    this.revealDialogueLine();
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden = true;
     this.starterChoices.replaceChildren(...options.map(option => {
       const button = document.createElement('button');
       button.className = 'starter-choice';
       button.type = 'button';
       button.textContent = option.label;
+      if (option.icon) decorateServiceOption(button, option.icon);
       button.addEventListener('click', () => {
         this.starterChoices.hidden = true;
         this.closeDialogue();
@@ -930,9 +977,9 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private showTrainerChallenge(trainer: (typeof trainerCatalog)[string]) {
-    this.showServiceOptions(trainer.name, `Vuoi affrontare ${trainer.name}?`, [
-      { label: 'SFIDA', action: () => this.startTrainerBattle(trainer) },
-      { label: 'NON ORA', action: () => this.showToast('La sfida ti aspetta quando sarai pronto.') },
+    this.showServiceOptions(trainer.name, trainerChallengePrompt(trainer, this.save.party, this.save.inventory), [
+      { label: 'SFIDA', icon: 'challenge', action: () => this.startTrainerBattle(trainer) },
+      { label: 'NON ORA', icon: 'close', action: () => this.showToast('La sfida ti aspetta quando sarai pronto.') },
     ]);
   }
 
@@ -978,6 +1025,10 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private persistProgress(showToast=false): Promise<boolean> {
+    this.save.flags = recordAreaVisited(this.save.flags, this.save.player.mapId);
+    for (const creature of [...this.save.party, ...this.save.storage]) {
+      if (battleSpecies[creature.speciesId] && !this.save.flags.includes(`pokedex_seen_${creature.speciesId}`)) this.save.flags = recordSpeciesSeen(this.save.flags, creature.speciesId);
+    }
     this.journey?.update(this.save);
     if (this.previewMode) {
       if (showToast) this.showToast('Anteprima: i progressi non vengono salvati.');
@@ -995,7 +1046,21 @@ export class WorldScene extends Phaser.Scene {
 
   private showToast(message:string) {
     const toast=document.querySelector<HTMLElement>('#toast');if(!toast)return;
-    toast.textContent=message;toast.classList.add('visible');clearTimeout(this.toastTimer);this.toastTimer=setTimeout(()=>toast.classList.remove('visible'),2600);
+    toast.textContent=message;toast.classList.add('visible');this.positionToast();clearTimeout(this.toastTimer);this.toastTimer=setTimeout(()=>toast.classList.remove('visible'),2600);
+  }
+
+  private positionToast(): void {
+    const toast = document.querySelector<HTMLElement>('#toast');
+    if (!toast) return;
+    toast.style.top = '';
+    const reward = document.querySelector<HTMLElement>('.journey-reward:not([hidden])');
+    if (!reward || !toast.classList.contains('visible')) return;
+    const stage = document.querySelector<HTMLElement>('.game-stage')!.getBoundingClientRect();
+    const notification = toast.getBoundingClientRect(), celebration = reward.getBoundingClientRect();
+    const top = celebration.bottom - stage.top + 10;
+    if (top + notification.height <= stage.height - 8) toast.style.top = `${Math.ceil(top)}px`;
+    // On extremely short screens, the new action feedback supersedes the older celebration.
+    else this.journey?.dismissReward();
   }
 }
 

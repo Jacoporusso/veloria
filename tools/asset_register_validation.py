@@ -64,6 +64,11 @@ def validate_asset_register(register_path: Path, repository_root: Path, public_r
         asset_paths.add(asset_path)
         if not asset_path.is_file():
             raise AssertionError(f"Registered asset file is missing: {path_value}")
+        if asset_path.suffix.lower() == ".webp":
+            with asset_path.open("rb") as media:
+                signature = media.read(12)
+            if len(signature) < 12 or signature[:4] != b"RIFF" or signature[8:12] != b"WEBP":
+                raise AssertionError(f"Registered WebP file has an invalid header: {path_value}")
 
     unregistered = sorted(
         path for path in public_root.rglob("*")

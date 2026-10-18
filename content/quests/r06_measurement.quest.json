@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r06_measurement",
+  "version": 1,
+  "displayName": "Una misura fuori scala",
+  "steps": [
+    {
+      "id": "read_sensor",
+      "trigger": "r06/sensor/read",
+      "setFlag": "q_r06_measurement",
+      "requiresFlags": ["badge_circuito_awarded"]
+    }
+  ],
+  "completionFlag": "q_r06_measurement",
+  "reward": {}
+}

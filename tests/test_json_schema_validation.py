@@ -11,6 +11,7 @@ from json_schema_validation import validate_json_schema
 
 MAP_V2_SCHEMA = json.loads((ROOT / "specs" / "schemas" / "map.v2.schema.json").read_text(encoding="utf-8"))
 MAP_V1_SCHEMA = json.loads((ROOT / "specs" / "schemas" / "map.v1.schema.json").read_text(encoding="utf-8"))
+QUEST_SCHEMA = json.loads((ROOT / "specs" / "schemas" / "quest.v1.schema.json").read_text(encoding="utf-8"))
 
 
 def valid_map():
@@ -34,6 +35,24 @@ def valid_map():
 
 
 class JsonSchemaValidationTests(unittest.TestCase):
+    def test_runtime_quests_and_item_delivery_contract(self):
+        for path in (ROOT / "content" / "quests").glob("*.quest.json"):
+            validate_json_schema(json.loads(path.read_text(encoding="utf-8")), QUEST_SCHEMA, path.name)
+        quest = json.loads((ROOT / "content" / "quests" / "radicelmo_seed_archive.quest.json").read_text(encoding="utf-8"))
+        missing_requirements = copy.deepcopy(quest)
+        del missing_requirements["steps"][0]["requiresFlags"]
+        with self.assertRaisesRegex(AssertionError, "missing required property 'requiresFlags'"):
+            validate_json_schema(missing_requirements, QUEST_SCHEMA, "missing quest requirements")
+        for quantity in (0, -1, 0.5, True):
+            invalid = copy.deepcopy(quest)
+            invalid["steps"][1]["consumeItems"]["ancient-seed"] = quantity
+            with self.assertRaises(AssertionError):
+                validate_json_schema(invalid, QUEST_SCHEMA, "invalid delivery")
+        invalid = copy.deepcopy(quest)
+        invalid["steps"][0]["grantItem"] = {"ancient-seed": 1}
+        with self.assertRaisesRegex(AssertionError, "additional property 'grantItem'"):
+            validate_json_schema(invalid, QUEST_SCHEMA, "misspelled grant")
+
     def test_accepts_a_valid_map_definition_v2(self):
         validate_json_schema(valid_map(), MAP_V2_SCHEMA, "fixture")
 

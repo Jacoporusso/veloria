@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "badges": {
+    "badge_aurora": {
+      "name": "Medaglia Aurora",
+      "leader": "Mira",
+      "location": "Palestra di Brumalta",
+      "description": "Una luce che celebra la calma, la preparazione e il legame con i tuoi compagni.",
+      "emblem": "aurora"
+    },
+    "badge_corolla": {
+      "name": "Medaglia Corolla",
+      "leader": "Dalia",
+      "location": "Palestra di Petalora",
+      "description": "Cinque petali custodiscono il ricordo dell’acqua ritrovata e di una squadra capace di adattarsi.",
+      "emblem": "corolla"
+    },
+    "badge_circuito": {
+      "name": "Medaglia Circuito",
+      "leader": "Aster",
+      "location": "Palestra di Vetracielo",
+      "description": "Tre linee e una scintilla ricordano l’importanza di leggere i tipi, il ritmo e le possibilità di ogni compagno.",
+      "emblem": "circuit"
+    }
+  }
+}

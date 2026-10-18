@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r05_cherry_viaduct",
+  "mapId": "veloria/r05_viadotto_ciliegi",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 16,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 25,
+        "weight": 20,
+        "minLevel": 12,
+        "maxLevel": 14
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 16,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 25,
+        "weight": 20,
+        "minLevel": 12,
+        "maxLevel": 14
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 163,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 167,
+        "weight": 20,
+        "minLevel": 11,
+        "maxLevel": 13
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 11,
+        "maxLevel": 13
+      }
+    ]
+  }
+}

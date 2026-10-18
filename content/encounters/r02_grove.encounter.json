@@ -1,0 +1,69 @@
+{
+  "id": "veloria/r02_grove",
+  "mapId": "veloria/r02_viale_fronde",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 16,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 161,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 69,
+        "weight": 30,
+        "minLevel": 4,
+        "maxLevel": 6
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 16,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 179,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 161,
+        "weight": 30,
+        "minLevel": 4,
+        "maxLevel": 6
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 163,
+        "weight": 40,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 167,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 19,
+        "weight": 25,
+        "minLevel": 4,
+        "maxLevel": 6
+      }
+    ]
+  }
+}

@@ -12,11 +12,17 @@ export type MapInteractable = {
   properties: Record<string, unknown>;
 };
 export type MapRenderAsset =
-  | { kind: 'image'; key: string; path: string }
+  | { kind: 'image'; key: string; path: string; atlas?: { columns: number; rows: number } }
   | { kind: 'tileset'; key: string; path: string; tiledName: string; tileWidth: number; tileHeight: number };
+export type MapTerrainBase = { assetKey: string; tilesetName: string; tileIndex: number };
 export type MapAmbientArea = { x: number; y: number; width: number; height: number };
 export type MapAmbientEffect = {
   kind: 'fireflies';
+  count: number;
+  area: MapAmbientArea;
+  colors: string[];
+} | {
+  kind: 'petals';
   count: number;
   area: MapAmbientArea;
   colors: string[];
@@ -39,6 +45,7 @@ export type MapMetadata = {
   tiledAsset: string;
   battleBackgroundKey?: string;
   renderAssets: MapRenderAsset[];
+  terrainBase?: MapTerrainBase;
   ambientEffects?: MapAmbientEffect[];
   spawns: MapSpawn[];
   connections: MapConnection[];

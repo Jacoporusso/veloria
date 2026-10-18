@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { applyQuestEvent, type QuestDefinition } from '../../src/core/quests/apply-quest-event.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
+import seedQuest from '../../content/quests/radicelmo_seed_archive.quest.json' with { type: 'json' };
 
 const quest: QuestDefinition = {
   id: 'veloria/test-badge', completionFlag: 'badge_aurora_awarded',
@@ -33,6 +34,51 @@ test('quest does not advance before prerequisites are met', () => {
   const result = applyQuestEvent({ ...save, flags: [] }, 'battle/trainer_mira/defeated', [quest]);
   assert.equal(result.progressed, false);
   assert.deepEqual(result.save.badges, []);
+});
+
+test('Radicelmo pickup grants its real item, delivery consumes it and rewards only once after reload', () => {
+  const initial = { ...save, flags: ['badge_aurora_awarded'], inventory: { potion: 1 } };
+  const snapshot = structuredClone(initial);
+  const pickup = applyQuestEvent(initial, 'pickup/r03/ancient_seed', [seedQuest]);
+  assert.equal(pickup.save.inventory['ancient-seed'], 1);
+  assert.equal(pickup.save.inventory.potion, 1);
+  assert.equal(pickup.save.player.money, 0);
+  assert.deepEqual(pickup.completedQuestIds, []);
+  const duplicatePickup = applyQuestEvent(pickup.save, 'pickup/r03/ancient_seed', [seedQuest]);
+  assert.equal(duplicatePickup.progressed, false);
+  assert.equal(duplicatePickup.save.inventory['ancient-seed'], 1);
+  const delivered = applyQuestEvent(structuredClone(pickup.save), 'interaction/radicelmo/archive-report', [seedQuest]);
+  assert.equal(delivered.save.inventory['ancient-seed'], undefined);
+  assert.equal(delivered.save.inventory['archive-note'], 1);
+  assert.equal(delivered.save.inventory.potion, 3);
+  assert.equal(delivered.save.player.money, 120);
+  assert.deepEqual(delivered.completedQuestIds, [seedQuest.id]);
+  assert.deepEqual(applyQuestEvent(structuredClone(delivered.save), 'interaction/radicelmo/archive-report', [seedQuest]).save, delivered.save);
+  assert.deepEqual(initial, snapshot);
+});
+
+test('delivery missing one of several required items changes neither progress nor inventory', () => {
+  const delivery: QuestDefinition = { id: 'delivery', completionFlag: 'delivered', steps: [{
+    trigger: 'deliver', setFlag: 'delivered', requiresFlags: [], consumeItems: { potion: 2, antidote: 1 }, grantItems: { 'archive-note': 1 },
+  }], reward: { money: 100 } };
+  const initial = { ...save, inventory: { potion: 2 } };
+  const missing = applyQuestEvent(initial, 'deliver', [delivery]);
+  assert.equal(missing.progressed, false);
+  assert.equal(missing.save, initial);
+  assert.deepEqual(missing.completedQuestIds, []);
+  const ready = { ...initial, inventory: { potion: 3, antidote: 1 } };
+  const completed = applyQuestEvent(ready, 'deliver', [delivery]);
+  assert.deepEqual(completed.save.inventory, { potion: 1, 'archive-note': 1 });
+  assert.equal(completed.save.player.money, 100);
+  assert.deepEqual(ready.inventory, { potion: 3, antidote: 1 });
+});
+
+test('Radicelmo cannot archive a seed that is not in the bag, even if the pickup flag is set', () => {
+  const initial = { ...save, flags: ['badge_aurora_awarded', 'q_radicelmo_seed_found'] };
+  const result = applyQuestEvent(initial, 'interaction/radicelmo/archive-report', [seedQuest]);
+  assert.equal(result.progressed, false);
+  assert.equal(result.save, initial);
+  assert.equal(result.save.player.money, 0);
 });
 
 test('gym resonance seals require the three garden passages in order before the Mira gate opens', () => {

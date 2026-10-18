@@ -4,7 +4,7 @@
 
 **Client-only first:** PWA offline con Vite + TypeScript + **Phaser 3** come renderer/world scene; **IndexedDB** per i salvataggi; editor **Tiled** per tilemap JSON. PokéAPI è una sorgente **di build/import**, non una dipendenza runtime. Phaser scene/rendering non deve contenere formule, regole di cattura o gestione dello stato del salvataggio.
 
-**Rendering:** pixel-art ortogonale, scalabile e adattiva. Partire con texture base 32×32 px per tile, da validare su schermo reale. Camera con pixel snapping se appropriato; no blur se si usa zoom intero. La mappa illustrata di Veloria è un artwork di concept e **non può essere caricata come collision tilemap**.
+**Rendering:** 2D illustrato moderno, ortogonale, scalabile e adattivo. La griglia logica Tiled resta a 32×32 px; le sorgenti pittoriche possono avere risoluzione superiore. Camera e campionamento devono restare morbidi e privi di fessure anche con zoom frazionario su mobile. La mappa illustrata di Veloria è un artwork di concept e **non può essere caricata come collision tilemap**.
 
 ## 2. Diagramma logico
 
@@ -152,8 +152,77 @@ BattleScene delega la selezione avversaria a una funzione pura, con policy risol
 
 ### Apprendimento locale delle mosse
 
-Il registro level-up-moves è validato contro specie e catalogo, poi normalizzato dal catalogo runtime nel ruleset con PP massimi. Il reducer XP emette moveLearned/moveLearningSkipped; BattleScene presenta gli eventi senza assegnare mosse. La persistenza usa gli slot già esistenti del save, senza nuovi campi o migrazione.
+Il registro level-up-moves è validato contro specie e catalogo, poi normalizzato dal catalogo runtime nel ruleset con PP massimi. Il reducer XP emette moveLearned/moveLearningSkipped. Se il moveset è pieno, BattleScene sospende la presentazione e offre sostituzione o rifiuto; `core/battle/move-learning.ts` applica la scelta come transizione pura, senza consumare un turno. Il callback di completamento e la persistenza aspettano che la coda delle scelte sia risolta, anche dopo un KO terminale. Gli slot e i PP del save esistenti bastano: nessun campo o migrazione nuova.
 
 ### Terreno HD e NPC illustrati
 
 Il renderer imposta le dimensioni sorgente delle sole tile layer usando il tileset, poi scala ground/terrain_detail a 32 unità per casella. Oggetti, trigger, collisioni, spawn e salvataggi rimangono in coordinate mondo32 px. Le mappe mantengono Tiled e renderAssets versionati; nessun cambiamento al save. Gli NPC dichiarano sprite e spriteFrame; i frame vengono ricavati dalle dimensioni effettive dell’atlante. Nuove mappe con NPC devono dichiarare l’immagine in renderAssets e il relativo frame.
+
+### Asset raster runtime
+
+Le immagini runtime di mappa, battaglia e schermata iniziale sono servite in WebP con trasparenza quando necessaria. I PNG originali restano registrati in `ASSET_REGISTER.csv`; le copie WebP hanno righe di registro proprie e sono quelle referenziate dai metadata e dal precache PWA. Gli artwork PokéAPI conservano URL di origine e checksum del file runtime nel relativo manifesto. La WorldScene precarica gli asset della mappa e il personaggio; BattleScene carica solo le specie in campo e le evoluzioni configurate della squadra, senza ritardare l’ingresso nel mondo con tutto il catalogo artistico.
+
+
+### Sostituzioni obbligate — ruleset v7
+
+`resolveBattleTurn` riconosce gli attivi KO prima della fase di comandi ordinaria. Valida e applica soltanto le sostituzioni richieste, restituisce eventi `creatureSwitched` e conserva turno, RNG, HP e PP: non esegue attacchi o effetti residui. I comandi della parte che non deve sostituire vengono ignorati in questa fase. I cambi volontari rimangono azioni del turno.
+
+La scena di battaglia apre la scelta del giocatore quando necessaria. Quando solo l’avversario deve sostituire, avvia automaticamente la fase dopo i messaggi di KO; l’interfaccia esistente a due comandi passa un segnaposto del giocatore che il dominio non esegue. Se entrambi devono sostituire, le due scelte sono risolte insieme. Le regressioni verificano sia il contratto puro sia HP/PP/turno nella scena reale.
+
+### Consultazione strategica — contenuti 0.3.57
+
+`PokemonPanel` è un adattatore HTML in sola lettura per Squadra e Pokédex: legge cataloghi, squadra e registro degli incontri; tipi e affinità usano la matrice del motore. Le statistiche al livello derivano dalla stessa funzione `calculateStats`; gli HP massimi del compagno provengono dalla partita. Le descrizioni condivise in `game/battle/move-description.ts` leggono i campi di `MoveDefinition` e sono riusate dalla consultazione in battaglia, senza dedurre effetti dai nomi delle mosse.
+
+`BattleScene.onSpeciesSeen` segnala soltanto l’avversario realmente mostrato, inizialmente e dopo un ingresso; il precaricamento delle riserve non registra incontri. `WorldScene` persiste i flag `pokedex_seen_<id>` e registra anche le specie possedute, mantenendo lo storico durante la progressione. La vista pura `buildPokedexEntries` distingue visto e posseduto. Non sono aggiunte migrazioni o ricostruzioni retroattive degli incontri.
+
+### Feedback dei risultati — contenuti 0.3.60
+
+`BattleCelebration` è una ricevuta HTML degli eventi risolti, in sola lettura. La cattura usa l’istanza realmente aggiunta a squadra o box; il riepilogo mostra i dati di quella creatura. La presentazione della vittoria riceve da `WorldScene.victoryPresentation` il denaro e l’eventuale nuova medaglia effettivamente assegnati da `onComplete`, insieme a `victoryFeedback` del contenuto allenatore. La scena protegge sia il completamento sia la notifica di chiusura da duplicazioni.
+
+Il componente si chiude con touch o tastiera, gestisce focus e scorrimento e viene distrutto allo shutdown della scena. Le animazioni della Sfera e del banner non cambiano RNG, probabilità o inventario. Il medagliere legge esclusivamente `save.badges`; il catalogo `content/badges/badges.v1.json` e `BadgeEmblem` condividono identità e disegno della medaglia nelle diverse schermate.
+
+### Interazioni ambientali a stadi — contenuti 0.3.62
+
+Un oggetto Tiled può dichiarare `dialogueId` per usare gli stessi dialoghi a stadi degli NPC. La scena risolve lo stadio prima dell’interazione e applica l’eventuale `questEvent` alla chiusura del dialogo; i prerequisiti e le ricompense rimangono responsabilità di `applyQuestEvent`. Un dialogo associato all’oggetto ha precedenza sull’eventuale evento diretto. Dopo un avanzamento la scena rigenera le visuali della mappa mantenendo posizione e personaggio.
+
+La proprietà opzionale `completedFlag` mostra una spunta di stato, derivata dal save e valida anche dopo una ripresa. Il validatore verifica riferimenti a dialoghi e flag. Il vivaio di Radicelmo usa questo contratto per acqua → luce → osservazione → rapporto a Leda, senza aggiungere condizioni specifiche per questa mappa alla scena o al motore quest.
+
+### Canvas e testi HiDPI — contenuti 0.3.63
+
+Il bootstrap usa `Scale.NONE` e `observeGameSize(..., true)`: il backing canvas ha dimensioni CSS × densità, con densità limitata a 2; lo zoom del ScaleManager è il reciproco della densità. `gameViewport` ricava da quello zoom le dimensioni logiche. Si usa lo stato di Phaser, senza un registro di densità separato che possa divergere durante HMR o import di fixture.
+
+Il mondo moltiplica zoom e deadzone per la densità. La battaglia dispone gli elementi nelle dimensioni logiche e scala il contenitore UI; Phaser conserva le trasformazioni delle aree touch. La factory privata dei testi della battaglia imposta anche `TextStyle.resolution` a 2: ingrandire il solo framebuffer lascerebbe i glifi rasterizzati alla vecchia definizione. Gli artwork conservano dimensioni sorgente e filtro lineare. Il terreno statico resta composto alla risoluzione della griglia; questo intervento migliora canvas, testi di battaglia e immagini individuali, senza rigenerare gli atlanti o il terreno.
+
+### Espansione geografica e obiettivi facoltativi — contenuti 0.3.64
+
+Ogni transizione completata emette `area/<mapId>/enter` nel motore quest. Il contratto sostituisce il caso specifico per Brumalta e permette di registrare l’arrivo a Petalora nei contenuti, senza nuove condizioni per città nel controller. Le missioni prive di un evento corrispondente non vengono modificate.
+
+I milestone di presentazione possono dichiarare `optional: true`: la selezione dell’obiettivo preferisce la prima tappa principale incompleta, poi quella facoltativa. `currentFlag` allinea il titolo compatto e la riga evidenziata nel diario. Il flag facoltativo non concede progressi e non modifica i prerequisiti delle mappe o delle quest.
+
+Il profilo ambientale `petals` usa conteggio, palette e area del contratto mappe v2. La distribuzione è deterministica e cosmetica; la scena gestisce animazione e riduzione del movimento, mantenendo i target nel ciclo di distruzione della mappa. Gli alberi vengono adattati all’ingombro massimo 96×112 mantenendo il rapporto della sorgente.
+
+### Visuali condizionali e medaglie multiple — contenuti 0.3.65
+
+Gli oggetti Tiled possono dichiarare `visibleWhenFlag` (visuale/interazione presente solo dopo il flag) e `activatedFlag` (stato del canale d’irrigazione). Il renderer riceve i flag in sola lettura. Non aggiorna collisioni o quest: le basi solide restano nel layer collision e il flusso quest continua a usare i dialoghi a stadi. I riferimenti ai flag sono validati anche per gli oggetti decorativi.
+
+`battleRequiredFlag` blocca le sfide; `battleLockedMessage` permette a ogni contenuto di spiegare il prerequisito, con fallback generico. Il motore di battaglia rimane indipendente da città e puzzle.
+
+`createBadgeEmblem(badgeId)` risolve la variante grafica dal catalogo condiviso. Banner e medagliere passano l’ID effettivamente assegnato; il riepilogo del primo capitolo conserva Aurora come default. Il validatore rifiuta emblemi non implementati. Le ricompense del diario leggono i nomi dal catalogo, evitando nuove condizioni per ogni medaglia.
+
+### Indicazioni mondo leggibili — contenuti 0.3.67
+
+`WorldGuidance` presenta le etichette selezionate dai contenuti come testo DOM, proiettato in coordinate CSS dalla camera non ruotata dopo `postrender`. `placeGuidance` è una funzione pura: cerca uno spazio vicino al bersaglio visibile ed evita header, diario, notifiche, controlli e protagonista. Se non trova spazio, nasconde l’etichetta; il diario rimane accessibile. Il componente non modifica collisioni, target o flag. La scena lo pulisce allo shutdown e ne sospende la visibilità durante dialoghi, movimento, menu e battaglie. Le dimensioni DOMRect vengono lette esplicitamente, senza spread di proprietà ereditate.
+
+### Viadotto e prima piazza di Vetracielo — contenuti 0.3.68
+
+R05 e Vetracielo riusano scoperta delle mappe v2, collegamenti, incontri, servizi e quest per evento di arrivo. L’orientamento di Lea usa dialogo a stadi e motore quest idempotente; nessuna logica di città è aggiunta a WorldScene. `elevated-rail` rende soltanto il binario orizzontale cosmetico tramite geometrie condivise: le aree riservate e la base della stazione sono definite nel layer collision. La stazione usa `scenery-image` con asset trasparente registrato, mantenendo i terminali cure/bottega come interazioni autonome raggiungibili.
+
+
+### Estensioni 0.3.70–0.3.71
+
+`fixedDamage` e `statusAffectedByTypeImmunity` sono dati del catalogo condivisi da motore, AI e descrizioni/previsioni. Le console `rail-console` usano `activatedFlag` e prerequisiti dichiarativi, senza rami per città in WorldScene. L’artwork urbano ha manifest/importatore indipendente e verifica offline. I testi battaglia usano risoluzione 4 e font interi per evitare un secondo ricampionamento dei titoli; gli importatori evoluzioni/urbani conservano PNG sorgente e generano WebP lossless.
+
+
+### Primo arrivo a Ferraluce — 0.3.73
+
+R06 e Ferraluce usano il registro mappe automatico e quest dichiarative: nessun ramo per città o formula nuova in WorldScene. `paved-walkway` disegna strisce continue nel renderer con profondità fissa sotto gli elementi di scenario; resta solo presentazione, mentre Tiled definisce la collisione. `terrainBase` riusa il contratto esistente per il nuovo suolo chiaro. Lo schema quest richiede `requiresFlags` per riflettere il tipo TypeScript e impedire passi non validi prima del runtime. Il pianificatore dei soli test touch può evitare gli habitat facoltativi, senza cambiare il gioco o i tassi di incontro.

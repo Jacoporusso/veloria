@@ -7,6 +7,7 @@ export type {
 export { effectivenessFor, prototypeBattleRules } from './rules.ts';
 export type { BattleItemRule, BattleRules, CaptureItemRule, EvolutionRule, EvolutionTarget, ExperienceCurve, TypeChart } from './rules.ts';
 export { experienceToNextLevel } from './progression.ts';
+export { replaceLearnedMove } from './move-learning.ts';
 export type {
   BattleCommand, BattleCreature, BattleEvent, BattleOutcome, BattleSide, BattleState,
   BattleStat, StatStages, BattleStats, BattleTransition, MajorStatus, MoveCategory, MoveDefinition, MoveSlot,

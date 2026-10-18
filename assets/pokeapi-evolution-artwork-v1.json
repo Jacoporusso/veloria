@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-17",
+  "scope": "Private prototype; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 2,
+      "name": "Ivysaur",
+      "path": "assets/creatures/pokeapi-evolution-2-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/2.png",
+      "sourceSha256": "82013427ae4ef328117f7deccee219e3ff4865dd5768719493628c55392b7ea5",
+      "sha256": "637fb5e5c305f625b73eb0612ba0c30b24dd01b4e4141b4e8c9b4c3d4860038f"
+    },
+    {
+      "speciesId": 5,
+      "name": "Charmeleon",
+      "path": "assets/creatures/pokeapi-evolution-5-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/5.png",
+      "sourceSha256": "6de10f11330f19b507343b06e17b1cc9d650f86de2a0eb962c24b07d19f5be6c",
+      "sha256": "3120555a2d310314736edac9df0269c18065fc1dd09c511d5894233f3f6e49c7"
+    },
+    {
+      "speciesId": 8,
+      "name": "Wartortle",
+      "path": "assets/creatures/pokeapi-evolution-8-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/8.png",
+      "sourceSha256": "5fc6739ca9f7c5c0eaf0a55761239ab5ebb4982575b9a6f1f29dd3286c430f52",
+      "sha256": "cb2ea68ba631956d91622a394b847f26d2803ef414d5dea3b2f9651a13a6c6c9"
+    },
+    {
+      "speciesId": 17,
+      "name": "Pidgeotto",
+      "path": "assets/creatures/pokeapi-evolution-17-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/17.png",
+      "sourceSha256": "85d27fddfceb90c48d18f6b833a7769446bb369edeeab7fae2308247c3f9ed2a",
+      "sha256": "89b996246a9668120d97148ba4562d2ff036a53f248638478e4ff3bab9edb985"
+    },
+    {
+      "speciesId": 20,
+      "name": "Raticate",
+      "path": "assets/creatures/pokeapi-evolution-20-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/20.png",
+      "sourceSha256": "d352b859c791d1da10bd5413929e465fb26f44291680b5597aaa1f851e6ad496",
+      "sha256": "9c4e200d5b2c7b75c034a2a045ca0e0c62f3a6d5983287f9ae4407d20fa32d7a"
+    },
+    {
+      "speciesId": 162,
+      "name": "Furret",
+      "path": "assets/creatures/pokeapi-evolution-162-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/162.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/162.png",
+      "sourceSha256": "999ec6f2a902e12ecdb25c2c21a8ede2ecf31cd5da3f23333c6641e78e502604",
+      "sha256": "851bceb3c74b9000ae3f681b688f2b2f02dede9d0753a72e5c535fd2319b1544"
+    },
+    {
+      "speciesId": 164,
+      "name": "Noctowl",
+      "path": "assets/creatures/pokeapi-evolution-164-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/164.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/164.png",
+      "sourceSha256": "8f886322cd6bc428635fd840eb97255c8e4499e75d65758f95a00310484160ad",
+      "sha256": "d71ab253e22b1ac233dfe87beaeb247a5450aa3356b08e7667dae98a61d06e66"
+    },
+    {
+      "speciesId": 180,
+      "name": "Flaaffy",
+      "path": "assets/creatures/pokeapi-evolution-180-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/180.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/180.png",
+      "sourceSha256": "39572f2fc6c173503ae7dbad84f21175670182e6b6836878f56a328811233948",
+      "sha256": "fc9a85df27d637341394617ac1e64e3a92ccdf267c6d7c1fc72d5ad8df8aea7d"
+    },
+    {
+      "speciesId": 195,
+      "name": "Quagsire",
+      "path": "assets/creatures/pokeapi-evolution-195-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/195.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/195.png",
+      "sourceSha256": "20433eb75bbed9a1d113ae24ba2b60b5ed5241026ae61cbc75ceaaaf448e76f6",
+      "sha256": "62c0327cbbae77ef1b415052ef7e4ce3952318aa85153f7f757a1319f00ce6ce"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "status": "preview-not-runtime",
+  "retrievedAt": "2026-10-18",
+  "versionGroup": "heartgold-soulsilver",
+  "note": "Raw PokéAPI responses for planning future Vetracielo content only. This manifest is separate from the runtime source manifests and does not enable species or moves in the game.",
+  "resources": {
+    "pokemon/81": {
+      "url": "https://pokeapi.co/api/v2/pokemon/81/",
+      "path": "content/sources/pokeapi/pokemon-81.json",
+      "sha256": "be89b14a5a658647a70c9f53f246657a254d9b7cbeefcb7a998a7777fc64f704"
+    },
+    "pokemon-species/81": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/81/",
+      "path": "content/sources/pokeapi/pokemon-species-81.json",
+      "sha256": "0e3c7e1fc56debb184744a217b883b6e7532bd614444fbe463acaa4831015ef7"
+    },
+    "pokemon/100": {
+      "url": "https://pokeapi.co/api/v2/pokemon/100/",
+      "path": "content/sources/pokeapi/pokemon-100.json",
+      "sha256": "ca9e0a6a8c3485936c7cd371187986ad4ea9a6aaaf956b4e0e7c90c3242f7b93"
+    },
+    "pokemon-species/100": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/100/",
+      "path": "content/sources/pokeapi/pokemon-species-100.json",
+      "sha256": "afb6412876ec11135611fd559b9e7481bb191eb3e66116e7040377f17f060e16"
+    },
+    "move/metal-sound": {
+      "url": "https://pokeapi.co/api/v2/move/metal-sound/",
+      "path": "content/sources/pokeapi/move-metal-sound.json",
+      "sha256": "d62c604fd1a02e16a891747d1252b9d52ff555113c8bcaf2847e831213abd699"
+    },
+    "move/supersonic": {
+      "url": "https://pokeapi.co/api/v2/move/supersonic/",
+      "path": "content/sources/pokeapi/move-supersonic.json",
+      "sha256": "e6c0225e95d59d61bc52589c4655f53433b38f95b140ed1033c98abd14e26261"
+    },
+    "move/sonic-boom": {
+      "url": "https://pokeapi.co/api/v2/move/sonic-boom/",
+      "path": "content/sources/pokeapi/move-sonic-boom.json",
+      "sha256": "35bf2b01aa7d4b72575f824b1bf5bbae93621bb9e814d45f5a684c8b250802ff"
+    },
+    "move/thunder-wave": {
+      "url": "https://pokeapi.co/api/v2/move/thunder-wave/",
+      "path": "content/sources/pokeapi/move-thunder-wave.json",
+      "sha256": "3970b549c3385395d707688310726d24cc3b62047401d5b3391c8edeb17e4bb5"
+    },
+    "move/charge": {
+      "url": "https://pokeapi.co/api/v2/move/charge/",
+      "path": "content/sources/pokeapi/move-charge.json",
+      "sha256": "09c6b21b90075963149a975a3979b70a948863bc03748b92fab615b5d6f5ed76"
+    },
+    "move/spark": {
+      "url": "https://pokeapi.co/api/v2/move/spark/",
+      "path": "content/sources/pokeapi/move-spark.json",
+      "sha256": "ca7aa2761c960554d7b4d7c2aa0942e3f2d217a39933c65ff6c0166b90c090d7"
+    },
+    "move/rollout": {
+      "url": "https://pokeapi.co/api/v2/move/rollout/",
+      "path": "content/sources/pokeapi/move-rollout.json",
+      "sha256": "e08dc228f3916cee741523ccd29f15828900371e5e2fc55d53e45c3ec5a7ad93"
+    },
+    "move/screech": {
+      "url": "https://pokeapi.co/api/v2/move/screech/",
+      "path": "content/sources/pokeapi/move-screech.json",
+      "sha256": "5f8664f739dc045665ab9a439951e10686e767b48f653390fb3675f30ad75f6f"
+    }
+  }
+}

@@ -7,7 +7,7 @@ export type WaterShimmerTween = { x: { from: number; to: number }; alpha: { from
 
 /** Stable per-map cosmetic placement keeps the scene art consistent across reloads. */
 export function createAmbientEffectPoints(mapId: string, effect: MapAmbientEffect): AmbientEffectPoint[] {
-  if (effect.kind !== 'fireflies') throw new Error('Ambient effect is not a firefly profile.');
+  if (effect.kind !== 'fireflies' && effect.kind !== 'petals') throw new Error('Ambient effect is not a floating particle profile.');
   const random = createRandom(`${mapId}:${effect.kind}`);
 
   return Array.from({ length: effect.count }, () => ({

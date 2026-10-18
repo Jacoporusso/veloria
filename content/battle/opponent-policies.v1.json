@@ -1,9 +1,10 @@
 {
-  "version": 2,
+  "version": 3,
   "status": "prototype",
   "notes": [
     "Deterministic turn cadence; no random draws or knowledge of the pending player command. Setup never replaces a damaging move beyond the configured stage threshold.",
-    "First gym balance pass: one defense setup stage, Sentret level 7 and Rattata level 8 after the natural prologue loss with starter level 6 and one level-4 capture."
+    "First gym balance pass: one defense setup stage, Sentret level 7 and Rattata level 8 after the natural prologue loss with starter level 6 and one level-4 capture.",
+    "Introductory gym uses each support move at most once per battle (spent PP), so lowering Defense is not followed by repeated Defense Curl. Other profiles keep their existing stage-based policy."
   ],
   "profiles": {
     "wild": {
@@ -28,7 +29,8 @@
       "id": "gym_beginner",
       "statusEveryTurns": 3,
       "maxSetupStage": 1,
-      "damageSelection": "best"
+      "damageSelection": "best",
+      "maxStatusUsesPerMove": 1
     }
   }
 }

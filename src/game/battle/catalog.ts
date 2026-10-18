@@ -24,7 +24,7 @@ export const encounterCatalog: Readonly<Record<string, EncounterTable>> = Object
 })).reduce((catalog, table) => ({ ...catalog, [table.id]: table }), {});
 
 type ItemDefinition = {
-  id: string; name: string; price: number; maxStack: number;
+  id: string; name: string; price: number; maxStack: number; description?: string;
   battle?: { healHp?: number; cures?: readonly ('burn' | 'poison' | 'paralysis' | 'sleep' | 'freeze')[] };
   capture?: { baseChance: number; missingHpBonus?: number; statusBonus?: number };
 };

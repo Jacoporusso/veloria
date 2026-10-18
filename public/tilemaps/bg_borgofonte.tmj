@@ -3789,6 +3789,246 @@
       "y": 0
     },
     {
+      "id": 9,
+      "name": "decorations",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 74,
+          "name": "west-garden-01",
+          "class": "plant",
+          "x": 96,
+          "y": 480,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 75,
+          "name": "west-garden-02",
+          "class": "plant",
+          "x": 256,
+          "y": 512,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "southwest-garden-01",
+          "class": "plant",
+          "x": 128,
+          "y": 864,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 77,
+          "name": "southwest-garden-02",
+          "class": "plant",
+          "x": 320,
+          "y": 832,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "id": 78,
+          "name": "east-garden-01",
+          "class": "plant",
+          "x": 1120,
+          "y": 480,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": 79,
+          "name": "east-garden-02",
+          "class": "plant",
+          "x": 1152,
+          "y": 608,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 80,
+          "name": "southeast-garden-01",
+          "class": "plant",
+          "x": 832,
+          "y": 896,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 81,
+          "name": "southeast-garden-02",
+          "class": "plant",
+          "x": 1184,
+          "y": 896,
+          "width": 56,
+          "height": 48,
+          "rotation": 0,
+          "visible": true,
+          "opacity": 1,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
@@ -4046,6 +4286,16 @@
               "name": "message",
               "type": "string",
               "value": "Casa di Borgofonte. Entra dalla porta al centro della facciata; il letto permette alla squadra di riposare."
+            },
+            {
+              "name": "houseSprite",
+              "type": "string",
+              "value": "veloria-borgofonte-buildings-v1"
+            },
+            {
+              "name": "houseFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -4074,6 +4324,16 @@
               "name": "message",
               "type": "string",
               "value": "Presto troverai qui tutto ciò che serve per il viaggio."
+            },
+            {
+              "name": "houseSprite",
+              "type": "string",
+              "value": "veloria-borgofonte-buildings-v1"
+            },
+            {
+              "name": "houseFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },
@@ -4102,6 +4362,16 @@
               "name": "message",
               "type": "string",
               "value": "Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud della facciata."
+            },
+            {
+              "name": "houseSprite",
+              "type": "string",
+              "value": "veloria-borgofonte-buildings-v1"
+            },
+            {
+              "name": "houseFrame",
+              "type": "int",
+              "value": 2
             }
           ]
         },
@@ -4130,6 +4400,16 @@
               "name": "message",
               "type": "string",
               "value": "Una luce calda brilla dietro le finestre dell’Officina."
+            },
+            {
+              "name": "houseSprite",
+              "type": "string",
+              "value": "veloria-borgofonte-buildings-v1"
+            },
+            {
+              "name": "houseFrame",
+              "type": "int",
+              "value": 3
             }
           ]
         },
@@ -4176,6 +4456,16 @@
               "name": "message",
               "type": "string",
               "value": "Sentiero dell’Alba · L’avventura ti aspetta."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -4199,6 +4489,16 @@
               "name": "message",
               "type": "string",
               "value": "Piazza del Mulino · L’avventura ti aspetta."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         }
@@ -4395,7 +4695,7 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-ground-hd-v2.png",
+      "image": "../assets/tilesets/veloria-ground-hd-v5.webp",
       "imageheight": 1024,
       "imagewidth": 1536,
       "margin": 1,

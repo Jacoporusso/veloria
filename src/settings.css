@@ -145,6 +145,30 @@
   list-style:none
 }
 
+.pokemon-select { width:100%; color:inherit; font-family:inherit; text-align:left; cursor:pointer }
+.pokemon-select:hover,.pokemon-select:focus-visible { border-color:#afffe3; background:#9aeede20 }
+.pokemon-detail { min-width:0; font-size:13px; line-height:1.55 }
+.pokemon-detail h3 { margin:20px 0 9px; font-size:16px }
+.pokemon-back { min-height:44px; border:1px solid var(--line); border-radius:12px; padding:8px 12px; background:#b3ddff15; color:var(--paper); font:inherit }
+.pokemon-hero { display:grid; justify-items:center; padding:18px; border-radius:20px; background:linear-gradient(130deg,#74d7cb24,#ada2ff25); margin:12px 0 }
+.pokemon-hero .creature-portrait { width:140px; height:140px }
+.pokemon-hero h3 { margin:8px 0 0; font-size:24px }
+.pokemon-hero p { margin:4px 0; color:#b8efe7; font-size:12px }
+.pokemon-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0 }
+.pokemon-stats div { background:#b3ddff0c; border:1px solid var(--line); border-radius:12px; padding:9px 4px; text-align:center }
+.pokemon-stats dt { color:var(--muted); font-size:10px }
+.pokemon-stats dd { margin:3px 0 0; font-size:20px; font-weight:750; color:#b8efe7 }
+.pokemon-note { color:var(--muted); font-size:12px; line-height:1.6 }
+.pokemon-evolution { padding:14px; border:1px solid #a8eada55; border-radius:16px; background:linear-gradient(125deg,#72cebd20,#ae9ce929); margin:14px 0 }
+.pokemon-evolution h3 { margin:0 0 10px }
+.pokemon-evolution strong { display:block; color:#c5f6eb; font-size:15px }
+.pokemon-evolution p { margin:6px 0; line-height:1.5 }
+.pokemon-evolution-requirement { font-weight:750; color:#fff0bc }
+.pokemon-affinity { margin:6px 0; padding:9px 12px; border-radius:12px; background:#b3ddff0c; overflow-wrap:anywhere }
+.pokemon-move { padding:12px; border:1px solid var(--line); border-radius:14px; background:linear-gradient(130deg,#86dacf12,#ac9fe517); margin:9px 0 }
+.pokemon-move h4 { margin:0 0 6px; font-size:14px; color:#c5f6eb }
+.pokemon-move p { font-size:12px; margin:5px 0; line-height:1.6; white-space:pre-line }
+
 .pokedex-entry {
   display:grid;
   grid-template-columns:54px minmax(0,1fr) auto;

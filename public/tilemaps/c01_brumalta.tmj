@@ -3735,6 +3735,16 @@
               "name": "message",
               "type": "string",
               "value": "Brumalta · città-parco. Centro Pokémon a ovest, Palestra a est."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -3758,6 +3768,16 @@
               "name": "message",
               "type": "string",
               "value": "Giardini pubblici · i passaggi in pietra collegano il quartiere alla Palestra."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         }
@@ -3936,7 +3956,7 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-brumalta-ground-v1.png",
+      "image": "../assets/tilesets/veloria-brumalta-ground-v1.webp",
       "imageheight": 64,
       "imagewidth": 192,
       "margin": 0,

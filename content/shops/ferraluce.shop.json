@@ -1,0 +1,10 @@
+{
+  "id": "veloria/ferraluce_shop",
+  "version": 1,
+  "displayName": "Rifornimenti di Ferraluce",
+  "items": [
+    "potion",
+    "antidote",
+    "poke-ball"
+  ]
+}

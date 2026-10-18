@@ -7,7 +7,14 @@
   "defeatQuestEvent": "battle/trainer_route01_sera/defeated",
   "rewardMoney": 100,
   "victoryMessage": "Sera ti fa i complimenti. Ricevi 100 ₿.",
+  "victoryFeedback": "Hai osservato bene il mio Pokémon. Ogni incontro insegna qualcosa: continua a scoprire cosa sanno fare i tuoi compagni!",
   "team": [
-    { "speciesId": 16, "level": 3, "moveIds": ["tackle", "gust"] }
+    {
+      "speciesId": 16,
+      "level": 3,
+      "moveIds": [
+        "tackle"
+      ]
+    }
   ]
 }

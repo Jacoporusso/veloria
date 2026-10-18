@@ -1,0 +1,36 @@
+.battle-celebration {
+  position:fixed; inset:0; z-index:40; display:grid; place-items:center;
+  padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  background:radial-gradient(ellipse at 50% 32%,#6398ac66,#0f2639bb); backdrop-filter:blur(9px);
+  color:var(--paper,#f2f7fc); font-family:var(--font-ui,system-ui); pointer-events:auto;
+}
+.battle-celebration-card { width:min(480px,100%); max-height:100%; display:flex; flex-direction:column; overflow:hidden; text-align:center; padding:24px; border:1px solid #b4eceb55; border-radius:28px; background:linear-gradient(140deg,#1b4d5fee,#343c65f5); box-shadow:0 24px 100px #07192877; animation:battle-reward-in .36s ease-out }
+.battle-celebration-content { min-height:0; overflow:auto; overscroll-behavior:contain; touch-action:pan-y }
+.battle-celebration-kicker { color:#afffe3; letter-spacing:.14em; font-size:10px; font-weight:800; margin:0 0 12px }
+.battle-celebration-card h2 { font-size:clamp(23px,5vw,32px); line-height:1.15; margin:12px 0 }
+.battle-celebration-card .creature-portrait { display:block; width:150px; height:150px; margin:auto; filter:drop-shadow(0 10px 24px #9aeee83b) }
+.badge-emblem { display:block; width:120px; height:120px; margin:12px auto; filter:drop-shadow(0 0 25px #9beed177) }
+.badge-emblem svg { width:100%; height:100% }
+.battle-victory-star { display:block; font-size:92px; line-height:1.2; color:#afffe3; text-shadow:0 0 40px #aeece366 }
+.battle-celebration-subtitle,.battle-celebration-destination { font-size:13px; line-height:1.5; margin:8px 0; color:#d1e8ee }
+.battle-capture-moves { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:16px 0; text-align:left }
+.battle-capture-moves h3 { grid-column:1/-1; font-size:13px; margin:0 }
+.battle-capture-moves span { padding:9px; border:1px solid #b4eceb25; border-radius:12px; font-size:11px; background:#a8dfed0c }
+.battle-celebration-rewards { border-radius:14px; padding:12px; color:#fff0bc; font-size:14px; font-weight:800; background:linear-gradient(120deg,#aeece31a,#c6b1ff1a) }
+.battle-trainer-feedback { margin:16px 0; padding:14px; border-radius:16px; border-left:3px solid #afffe3; background:#aeece30d; text-align:left; font-size:13px; line-height:1.5 }
+.battle-trainer-feedback strong { color:#afffe3 }.battle-trainer-feedback p { margin:6px 0 0 }
+.battle-celebration-continue { flex-shrink:0; width:100%; min-height:48px; margin-top:10px; border:1px solid #c5f8e5; border-radius:15px; background:linear-gradient(110deg,#afffe3,#9fceff); color:#18384b; font:800 14px var(--font-ui,system-ui) }
+.battle-celebration-continue:focus-visible { outline:3px solid #fff0bc; outline-offset:3px }
+.battle-celebration.is-reduced .battle-celebration-card { animation:none }
+@keyframes battle-reward-in { from { opacity:0; transform:translateY(14px) scale(.96) } to { opacity:1; transform:none } }
+@media(prefers-reduced-motion:reduce) { .battle-celebration-card { animation:none } }
+@media(max-height:480px) and (orientation:landscape) {
+  .battle-celebration-card { width:min(720px,100%); padding:16px 24px }
+  .battle-celebration-content { display:grid; grid-template-columns:116px minmax(0,1fr); gap:4px 18px; align-content:start }
+  .battle-celebration-content > * { grid-column:2; margin-block:4px }
+  .battle-celebration-content > .battle-celebration-kicker { grid-column:1/-1 }
+  .battle-celebration-card .creature-portrait,.battle-celebration-card .badge-emblem,.battle-celebration-content > .battle-victory-star { grid-column:1; grid-row:2/span 6; align-self:center; width:110px; height:110px }
+  .battle-celebration-card h2 { font-size:24px }
+  .battle-capture-moves { gap:5px }.battle-capture-moves span { padding:7px }
+  .battle-victory-star { font-size:72px }
+}

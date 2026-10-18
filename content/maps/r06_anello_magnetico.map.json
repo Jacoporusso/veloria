@@ -1,0 +1,122 @@
+{
+  "id": "veloria/r06_anello_magnetico",
+  "version": 2,
+  "displayName": "Anello Magnetico",
+  "biomeId": "magnetic_route",
+  "tiledAsset": "tilemaps/r06_anello_magnetico.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-plants-v1",
+      "path": "assets/sprites/veloria-borgofonte-plants-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npc-rami-v1",
+      "path": "assets/sprites/veloria-npc-rami-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-industrial-floor-v1",
+      "path": "assets/tilesets/veloria-industrial-floor-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_vetracielo",
+      "x": 1,
+      "y": 15,
+      "facing": "right"
+    },
+    {
+      "id": "from_ferraluce",
+      "x": 38,
+      "y": 25,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/vetracielo",
+      "viaSpawnId": "from_vetracielo",
+      "targetSpawnId": "from_r06",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/ferraluce",
+      "viaSpawnId": "from_ferraluce",
+      "targetSpawnId": "from_r06",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r06_magnetic_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [
+    "quest/r06_measurement"
+  ],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 6,
+      "triggerIds": [
+        "Habitat Nordovest · muschio magnetico",
+        "Habitat Nordest · felci di rame",
+        "Habitat Sudovest · erbe d’induzione",
+        "Habitat Sudest · felci risonanti"
+      ],
+      "colors": [
+        "#aabf95",
+        "#c5d5b0"
+      ]
+    }
+  ],
+  "terrainBase": {
+    "assetKey": "veloria-industrial-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 1
+  }
+}

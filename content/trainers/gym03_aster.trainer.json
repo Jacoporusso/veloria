@@ -1,0 +1,32 @@
+{
+  "id": "veloria/trainer_aster_gym03",
+  "name": "Aster",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym03_aster_defeated",
+  "defeatQuestEvent": "battle/trainer_aster/defeated",
+  "rewardMoney": 850,
+  "victoryMessage": "Hai vinto contro Aster. Ricevi 850 ₿ e la Medaglia Circuito.",
+  "victoryFeedback": "La Medaglia Circuito è tua! Hai letto la rete come una squadra: Terra è immune a Elettro, Tuononda può rallentare, Ferrostrido abbassa la Difesa Speciale. Sonicboom infligge 20 HP fissi: il tipo da solo non risolve ogni situazione.",
+  "team": [
+    {
+      "speciesId": 100,
+      "level": 16,
+      "moveIds": [
+        "spark",
+        "sonic-boom",
+        "tackle"
+      ]
+    },
+    {
+      "speciesId": 81,
+      "level": 17,
+      "moveIds": [
+        "thunder-shock",
+        "thunder-wave",
+        "metal-sound",
+        "tackle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "status": "preview-not-runtime",
+  "retrievedAt": "2026-10-18",
+  "versionGroup": "heartgold-soulsilver",
+  "note": "Candidate data for planning Ferraluce P4 only. Does not approve a team or enable species or moves. Metal Claw self-target secondary effects require semantic review before support.",
+  "resources": {
+    "pokemon/82": {
+      "url": "https://pokeapi.co/api/v2/pokemon/82/",
+      "path": "content/sources/pokeapi/pokemon-82.json",
+      "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
+    },
+    "pokemon-species/82": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/82/",
+      "path": "content/sources/pokeapi/pokemon-species-82.json",
+      "sha256": "05b0643d52f347e0e24fde889a9436707731564e491ce9758ad1f2d9ebd6b8fd"
+    },
+    "pokemon/208": {
+      "url": "https://pokeapi.co/api/v2/pokemon/208/",
+      "path": "content/sources/pokeapi/pokemon-208.json",
+      "sha256": "1c963ff372985051409be5963e81f79bc221ad098c52cc45cc78902454cd572f"
+    },
+    "pokemon-species/208": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/208/",
+      "path": "content/sources/pokeapi/pokemon-species-208.json",
+      "sha256": "e4f72421f9a3b400fb60463180d842d19a20daf0d9c784648e37f42b8e050c7c"
+    },
+    "pokemon/227": {
+      "url": "https://pokeapi.co/api/v2/pokemon/227/",
+      "path": "content/sources/pokeapi/pokemon-227.json",
+      "sha256": "5ec39735d99c89786c4d6bd78df585288d07b2a1d53cb53999203d2ab4d16127"
+    },
+    "pokemon-species/227": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/227/",
+      "path": "content/sources/pokeapi/pokemon-species-227.json",
+      "sha256": "1433cd7bd1080cf68bc7cc526b9a346c08611dd993c5dac19c3e11d3a3f9f4df"
+    },
+    "move/metal-claw": {
+      "url": "https://pokeapi.co/api/v2/move/metal-claw/",
+      "path": "content/sources/pokeapi/move-metal-claw.json",
+      "sha256": "fbc9ffd1a7671c282f8c3bda6f156f31cdc30df979b40adfef724bbea3733d17"
+    },
+    "move/rock-throw": {
+      "url": "https://pokeapi.co/api/v2/move/rock-throw/",
+      "path": "content/sources/pokeapi/move-rock-throw.json",
+      "sha256": "9ad1cc3a9e05bb647369402a974341c490bd8288f102fc162ec8ededcae95850"
+    }
+  }
+}

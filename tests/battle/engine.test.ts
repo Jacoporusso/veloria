@@ -210,3 +210,65 @@ test('capture chance comes from the active ruleset and reflects missing HP and s
   const attempt = result.events.find(event => event.type === 'captureAttempted');
   assert.equal(attempt?.type === 'captureAttempted' ? attempt.chance : -1, 0.5);
 });
+
+test('default battle rules block Gen IV type-based status immunities, including dual types', () => {
+  for (const [types, status] of [[['grass', 'poison'], 'poison'], [['steel'], 'poison'], [['fire'], 'burn'], [['ice'], 'freeze']] as const) {
+    const pulse: MoveDefinition = { ...poisonMist, inflictedStatus: status };
+    const source = creature('player-01', { moves: [{ moveId: pulse.id, pp: 5 }] });
+    const target = creature('opponent-01', { types });
+    const state = createBattleState({ battleId: 'type-status-immunity', battleType: 'wild', seed: 8, rules: prototypeBattleRules, playerTeam: [source], opponentTeam: [target] });
+    const result = resolveBattleTurn(state, { player: { kind: 'useMove', moveSlot: 0 }, opponent: { kind: 'useMove', moveSlot: 0 } }, { ...moves, [pulse.id]: pulse }, prototypeBattleRules);
+    assert.equal(result.state.opponent.creatures[0].status, undefined);
+    assert.ok(result.events.some(event => event.type === 'statusPrevented' && event.reason === 'immune' && event.status === status));
+  }
+});
+
+test('Gen IV does not give Electric paralysis immunity or Grass powder immunity', () => {
+  for (const [types, status] of [[['electric'], 'paralysis'], [['grass'], 'sleep']] as const) {
+    const pulse: MoveDefinition = { ...poisonMist, inflictedStatus: status };
+    const state = createBattleState({ battleId: 'historical-status-rules', battleType: 'wild', seed: 8, rules: prototypeBattleRules,
+      playerTeam: [creature('player-01', { moves: [{ moveId: pulse.id, pp: 5 }] })], opponentTeam: [creature('opponent-01', { types })] });
+    const result = resolveBattleTurn(state, { player: { kind: 'useMove', moveSlot: 0 }, opponent: { kind: 'useMove', moveSlot: 0 } }, { ...moves, [pulse.id]: pulse }, prototypeBattleRules);
+    assert.ok(result.events.some(event => event.type === 'statusApplied' && event.side === 'opponent' && event.status === status));
+  }
+});
+
+test('forced replacement is free: no attack, PP expenditure, residual damage, RNG or turn advance', () => {
+  const initial = createBattleState({ battleId: 'forced-player-switch', battleType: 'trainer', seed: 8, rules: prototypeBattleRules,
+    playerTeam: [creature('player-01'), creature('player-02', { status: { status: 'poison' } })], opponentTeam: [creature('opponent-01')] });
+  const state = { ...initial, turn: 4, player: { ...initial.player, creatures: [{ ...initial.player.creatures[0], hp: 0 }, initial.player.creatures[1]] } };
+  const before = structuredClone(state);
+  const result = resolveBattleTurn(state, { player: { kind: 'switch', partyIndex: 1 }, opponent: { kind: 'useMove', moveSlot: 99 } }, moves, prototypeBattleRules);
+  assert.equal(result.state.turn, 4);
+  assert.equal(result.state.rngState, state.rngState);
+  assert.equal(result.state.player.activeIndex, 1);
+  assert.equal(result.state.player.creatures[1].hp, 100);
+  assert.deepEqual(result.state.opponent, state.opponent);
+  assert.deepEqual(result.events.map(event => event.type), ['creatureSwitched']);
+  assert.deepEqual(state, before);
+  const invalid = resolveBattleTurn(state, { player: { kind: 'switch', partyIndex: 0 }, opponent: { kind: 'useMove', moveSlot: 0 } }, moves, prototypeBattleRules);
+  assert.equal(invalid.events[0].type, 'commandRejected');
+  assert.deepEqual(invalid.state, state);
+});
+
+test('simultaneous forced replacements resolve together without consuming a turn', () => {
+  const initial = createBattleState({ battleId: 'forced-both-switch', battleType: 'trainer', seed: 8, rules: prototypeBattleRules,
+    playerTeam: [creature('player-01'), creature('player-02')], opponentTeam: [creature('opponent-01'), creature('opponent-02')] });
+  const state = { ...initial, player: { ...initial.player, creatures: [{ ...initial.player.creatures[0], hp: 0 }, initial.player.creatures[1]] },
+    opponent: { ...initial.opponent, creatures: [{ ...initial.opponent.creatures[0], hp: 0 }, initial.opponent.creatures[1]] } };
+  const result = resolveBattleTurn(state, { player: { kind: 'switch', partyIndex: 1 }, opponent: { kind: 'switch', partyIndex: 1 } }, moves, prototypeBattleRules);
+  assert.equal(result.state.turn, state.turn);
+  assert.equal(result.state.rngState, state.rngState);
+  assert.equal(result.state.player.activeIndex, 1);
+  assert.equal(result.state.opponent.activeIndex, 1);
+  assert.deepEqual(result.events.map(event => event.type), ['creatureSwitched', 'creatureSwitched']);
+});
+
+test('voluntary switching still spends the turn and permits the opponent attack', () => {
+  const state = createBattleState({ battleId: 'voluntary-switch', battleType: 'trainer', seed: 8, rules: prototypeBattleRules,
+    playerTeam: [creature('player-01'), creature('player-02')], opponentTeam: [creature('opponent-01')] });
+  const result = resolveBattleTurn(state, { player: { kind: 'switch', partyIndex: 1 }, opponent: { kind: 'useMove', moveSlot: 0 } }, moves, prototypeBattleRules);
+  assert.equal(result.state.turn, state.turn + 1);
+  assert.ok(result.state.player.creatures[1].hp < 100);
+  assert.equal(result.state.opponent.creatures[0].moves[0].pp, 9);
+});

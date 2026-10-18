@@ -1,0 +1,15 @@
+.world-guidance {
+  position: absolute;
+  z-index: 3;
+  max-width: min(230px, calc(100% - 32px));
+  padding: 8px 12px;
+  border: 1px solid #afffe34d;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #183e50f5, #20364ff5);
+  box-shadow: 0 4px 16px #071a2b40;
+  color: #e4fff6;
+  font: 700 12px/1.4 system-ui, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
+.world-guidance[hidden], body.battle-active .world-guidance, .has-dialogue .world-guidance { display: none; }

@@ -1,0 +1,27 @@
+{
+  "id": "veloria/r04_petal_ascent",
+  "mapId": "veloria/r04_salita_petali",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      { "speciesId": 43, "weight": 30, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 69, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 16, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 179, "weight": 20, "minLevel": 9, "maxLevel": 11 }
+    ],
+    "day": [
+      { "speciesId": 16, "weight": 30, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 43, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 69, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 179, "weight": 20, "minLevel": 9, "maxLevel": 11 }
+    ],
+    "night": [
+      { "speciesId": 163, "weight": 30, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 167, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 43, "weight": 25, "minLevel": 8, "maxLevel": 10 },
+      { "speciesId": 179, "weight": 20, "minLevel": 9, "maxLevel": 11 }
+    ]
+  }
+}

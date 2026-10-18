@@ -4,39 +4,63 @@
   "displayName": "Radicelmo",
   "biomeId": "forest_village",
   "tiledAsset": "tilemaps/radicelmo.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-forest-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 6
+  },
   "renderAssets": [
     {
       "kind": "tileset",
-      "key": "veloria-forest-ground",
-      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
       "tiledName": "veloria_terrain",
-      "tileWidth": 32,
-      "tileHeight": 32
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
     },
     {
       "kind": "image",
       "key": "veloria-battle-forest-v1",
-      "path": "assets/battle/veloria-battle-forest-v1.png"
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
     },
     {
       "kind": "image",
       "key": "veloria-bosco-ancient-tree-v1",
-      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.webp"
     },
     {
       "kind": "image",
       "key": "radicelmo-community",
-      "path": "assets/sprites/radicelmo-community-v1.png"
+      "path": "assets/sprites/radicelmo-community-v1.webp"
     },
     {
       "kind": "image",
       "key": "radicelmo-herbalist",
-      "path": "assets/sprites/radicelmo-herbalist-v1.png"
+      "path": "assets/sprites/radicelmo-herbalist-v1.webp"
     },
     {
       "kind": "image",
       "key": "radicelmo-greenhouse",
-      "path": "assets/sprites/radicelmo-greenhouse-v1.png"
+      "path": "assets/sprites/radicelmo-greenhouse-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npc-leda-v1",
+      "path": "assets/sprites/veloria-npc-leda-v1.webp"
     }
   ],
   "spawns": [
@@ -45,6 +69,12 @@
       "x": 1,
       "y": 14,
       "facing": "right"
+    },
+    {
+      "id": "from_r04",
+      "x": 18,
+      "y": 1,
+      "facing": "down"
     }
   ],
   "connections": [
@@ -53,6 +83,14 @@
       "viaSpawnId": "from_r03",
       "targetSpawnId": "from_radicelmo",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r04_salita_petali",
+      "viaSpawnId": "from_r04",
+      "targetSpawnId": "from_radicelmo",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ]
     }
   ],
   "encounterTableIds": [],
@@ -60,7 +98,8 @@
     "radicelmo_keeper"
   ],
   "scriptRefs": [
-    "quest/radicelmo_seed_archive"
+    "quest/radicelmo_seed_archive",
+    "quest/radicelmo_greenhouse"
   ],
   "musicId": "ambient_brumalta",
   "battleBackgroundKey": "veloria-battle-forest-v1",

@@ -13,6 +13,10 @@
         {
           "id": "growl",
           "pp": 40
+        },
+        {
+          "id": "tail-whip",
+          "pp": 30
         }
       ]
     },
@@ -62,5 +66,11 @@
       ]
     }
   ],
-  "selectionFlag": "q_starter_selected"
+  "selectionFlag": "q_starter_selected",
+  "moveSource": {
+    "provider": "PokeAPI",
+    "versionGroup": "heartgold-soulsilver",
+    "language": "it",
+    "manifest": "content/sources/pokeapi/manifest.json"
+  }
 }

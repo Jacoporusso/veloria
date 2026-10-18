@@ -1,0 +1,33 @@
+.starter-choice.service-option {
+  display: grid;
+  min-height: 68px;
+  grid-template-columns: 38px minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 9px;
+  text-align: left;
+}
+
+.service-option__icon {
+  width: 38px;
+  height: 38px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 2px #071a2b66);
+}
+
+.service-option__icon .line { fill: none; stroke: #d7f5ff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.service-option__icon .white { fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.service-option__icon .fill { fill: #45b8a3; stroke: #d7f5ff; stroke-width: 2.2; stroke-linejoin: round; }
+.service-option__icon .top { fill: #e8c768; stroke: #fff2bd; stroke-width: 2; stroke-linejoin: round; }
+.service-option__icon .red { fill: #ef6f6b; stroke: #fff; stroke-width: 2.2; stroke-linejoin: round; }
+.service-option__icon .dark { fill: none; stroke: #19354a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.service-option__icon .sparkle { fill: none; stroke: #fff2a8; stroke-width: 2.2; stroke-linecap: round; }
+.service-option__icon .gold { fill: #f2cb68; stroke: #fff2bd; stroke-width: 1.8; stroke-linejoin: round; }
+
+@media (max-width: 380px) {
+  .starter-choice.service-option { grid-template-columns: 32px minmax(0, 1fr); gap: 6px; padding-inline: 6px; }
+  .service-option__icon { width: 32px; height: 32px; }
+}
+
+.service-option__icon .ball-white { fill: #fff; stroke: #19354a; stroke-width: 2.4; }

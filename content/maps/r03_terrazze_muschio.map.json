@@ -4,24 +4,48 @@
   "displayName": "Terrazze del Muschio",
   "biomeId": "forest_terraces",
   "tiledAsset": "tilemaps/r03_terrazze_muschio.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-forest-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 6
+  },
   "renderAssets": [
     {
       "kind": "tileset",
-      "key": "veloria-forest-ground",
-      "path": "assets/tilesets/veloria-forest-ground-v1.png",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
       "tiledName": "veloria_terrain",
-      "tileWidth": 32,
-      "tileHeight": 32
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
     },
     {
       "kind": "image",
       "key": "veloria-battle-forest-v1",
-      "path": "assets/battle/veloria-battle-forest-v1.png"
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
     },
     {
       "kind": "image",
       "key": "veloria-bosco-ancient-tree-v1",
-      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.png"
+      "path": "assets/sprites/veloria-bosco-ancient-tree-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npc-rami-v1",
+      "path": "assets/sprites/veloria-npc-rami-v1.webp"
     }
   ],
   "spawns": [

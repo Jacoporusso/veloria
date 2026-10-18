@@ -1,0 +1,21 @@
+{
+  "id": "veloria/q_vetracielo_orientation",
+  "version": 1,
+  "displayName": "Una rete di meraviglie",
+  "steps": [
+    {
+      "id": "orientation",
+      "trigger": "vetracielo/lea/orientation",
+      "setFlag": "q_vetracielo_orientation",
+      "requiresFlags": [
+        "q_vetracielo_visited"
+      ]
+    }
+  ],
+  "completionFlag": "q_vetracielo_orientation",
+  "reward": {
+    "items": {
+      "potion": 2
+    }
+  }
+}

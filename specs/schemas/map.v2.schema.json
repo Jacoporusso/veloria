@@ -42,6 +42,16 @@
       "type": "string",
       "minLength": 1
     },
+    "terrainBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetKey", "tilesetName", "tileIndex"],
+      "properties": {
+        "assetKey": { "type": "string", "minLength": 1 },
+        "tilesetName": { "type": "string", "minLength": 1 },
+        "tileIndex": { "type": "integer", "minimum": 0 }
+      }
+    },
     "renderAssets": {
       "type": "array",
       "minItems": 1,
@@ -54,7 +64,16 @@
             "properties": {
               "kind": { "const": "image" },
               "key": { "type": "string", "minLength": 1 },
-              "path": { "type": "string", "pattern": "^assets/(?!.*\\.\\.)[^?]+$" }
+              "path": { "type": "string", "pattern": "^assets/(?!.*\\.\\.)[^?]+$" },
+              "atlas": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["columns", "rows"],
+                "properties": {
+                  "columns": { "type": "integer", "minimum": 1 },
+                  "rows": { "type": "integer", "minimum": 1 }
+                }
+              }
             }
           },
           {
@@ -82,7 +101,7 @@
             "additionalProperties": false,
             "required": ["kind", "count", "area", "colors"],
             "properties": {
-              "kind": { "const": "fireflies" },
+              "kind": { "enum": ["fireflies", "petals"] },
               "count": { "type": "integer", "minimum": 1, "maximum": 64 },
               "area": {
                 "type": "object",

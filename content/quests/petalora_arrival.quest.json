@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_petalora_arrival",
+  "version": 1,
+  "displayName": "Tra i ciliegi di Petalora",
+  "steps": [
+    {
+      "id": "arrive",
+      "trigger": "area/veloria/petalora/enter",
+      "setFlag": "q_petalora_visited",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ]
+    }
+  ],
+  "completionFlag": "q_petalora_visited",
+  "reward": {}
+}

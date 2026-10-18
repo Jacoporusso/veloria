@@ -29,7 +29,7 @@
 
 .start-screen__backdrop {
   z-index: -2;
-  background: #183544 url('../assets/concept/Veloria_World_Map_Concept_v0.1.png') center 48% / cover no-repeat;
+  background: #183544 url('../assets/concept/Veloria_World_Map_Concept_v0.1.webp') center 48% / cover no-repeat;
   transform: scale(1.015);
   animation: start-screen-arrive 1.3s ease-out both;
 }

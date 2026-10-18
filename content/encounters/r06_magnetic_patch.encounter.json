@@ -1,0 +1,27 @@
+{
+  "id": "veloria/r06_magnetic_patch",
+  "mapId": "veloria/r06_anello_magnetico",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {"speciesId": 81, "weight": 30, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 100, "weight": 25, "minLevel": 15, "maxLevel": 18},
+      {"speciesId": 179, "weight": 25, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 194, "weight": 20, "minLevel": 16, "maxLevel": 18}
+    ],
+    "day": [
+      {"speciesId": 81, "weight": 30, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 100, "weight": 25, "minLevel": 15, "maxLevel": 18},
+      {"speciesId": 179, "weight": 25, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 194, "weight": 20, "minLevel": 16, "maxLevel": 18}
+    ],
+    "night": [
+      {"speciesId": 81, "weight": 25, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 100, "weight": 30, "minLevel": 15, "maxLevel": 18},
+      {"speciesId": 179, "weight": 15, "minLevel": 15, "maxLevel": 17},
+      {"speciesId": 194, "weight": 30, "minLevel": 16, "maxLevel": 18}
+    ]
+  }
+}

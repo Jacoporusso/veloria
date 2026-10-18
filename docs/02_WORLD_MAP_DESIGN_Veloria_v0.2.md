@@ -4,7 +4,7 @@
 **Data:** 9 ottobre 2026  
 **Stato:** Bozza di game design, nomi e collocazioni modificabili  
 **Piattaforma:** PWA Phaser + TypeScript  
-**Visione:** RPG 2D HD pixel art, esplorazione classica, 251 Pokémon Gen 1–2, quattro starter (Pikachu, Charmander, Squirtle, Bulbasaur).
+**Visione corrente:** RPG di esplorazione ortogonale **2D illustrato moderno**, con profondità pittorica morbida; 251 Pokémon Gen 1–2 e quattro starter. La precedente proposta HD pixel art è superata dalla direzione approvata in `docs/05_ART_DIRECTION_v0.3.md`.
 
 ## 1. Visione della regione
 
@@ -176,10 +176,9 @@ La progressione si basa su **flag** ed eventi, non su controlli hardcoded del ti
 
 **Punto legale:** le denominazioni e i personaggi Pokémon sono proprietà dei rispettivi titolari. Il progetto rimane un prototipo privato; l'uso privato non equivale a licenza e una futura distribuzione richiederebbe diritti appropriati oppure creature/asset originali.
 
-## 11. Decisioni da confermare nella prossima revisione
+## 11. Questioni aperte nella prossima revisione
 
 1. **Forma della penisola:** compatta (brevi collegamenti) o ampia (più esplorazione).
-2. **Direzione visuale:** HD pixel art con personaggi proporzionati in stile RPG classico, non realismo 3D.
-3. **Ruolo dei trasporti:** metro come fast travel dopo P3; funivia dopo P7.
-4. **Finale narrativo:** ripristino della Risonanza senza distruzione della rete.
-5. **MVP successivo (Opzione B):** layout Tiled di Borgofonte, R01, Bosco dei Veli, R02, Brumalta e Palestra 1; NPC, incontri, trigger e vertical slice.
+2. **Ruolo dei trasporti:** metro come fast travel dopo P3; funivia dopo P7.
+3. **Finale narrativo:** ripristino della Risonanza senza distruzione della rete.
+4. **Vertical slice:** il primo capitolo è giocabile; restano QA su smartphone, armonizzazione visiva e sviluppo dei contenuti futuri indicati nel backlog.

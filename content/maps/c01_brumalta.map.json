@@ -8,7 +8,7 @@
     {
       "kind": "tileset",
       "key": "veloria-brumalta-ground",
-      "path": "assets/tilesets/veloria-brumalta-ground-v1.png",
+      "path": "assets/tilesets/veloria-brumalta-ground-v1.webp",
       "tiledName": "veloria_terrain",
       "tileWidth": 32,
       "tileHeight": 32
@@ -16,27 +16,40 @@
     {
       "kind": "image",
       "key": "borgofonte-house",
-      "path": "assets/sprites/borgofonte-house-01.png"
+      "path": "assets/sprites/borgofonte-house-01.webp"
     },
     {
       "kind": "image",
       "key": "veloria-canopy-v2",
-      "path": "assets/sprites/veloria-canopy-v2.png"
+      "path": "assets/sprites/veloria-canopy-v2.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     },
     {
       "kind": "image",
       "key": "brumalta-center",
-      "path": "assets/sprites/brumalta-center-v1.png"
+      "path": "assets/sprites/brumalta-center-v1.webp"
     },
     {
       "kind": "image",
       "key": "brumalta-shop",
-      "path": "assets/sprites/brumalta-shop-v1.png"
+      "path": "assets/sprites/brumalta-shop-v1.webp"
     },
     {
       "kind": "image",
       "key": "brumalta-gym",
-      "path": "assets/sprites/brumalta-gym-v1.png"
+      "path": "assets/sprites/brumalta-gym-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

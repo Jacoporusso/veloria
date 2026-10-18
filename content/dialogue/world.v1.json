@@ -107,13 +107,13 @@
         "whenFlagMissing": "trainer_gym01_mira_defeated",
         "lines": [
           "Benvenuta alla Palestra di Brumalta. La Medaglia Aurora premia chi sa scegliere la mossa giusta al momento giusto.",
-          "Quando sarai pronta, affronta la mia prova sul campo."
+          "Non conta solo la potenza: Colpocoda abbassa la Difesa, Ruggito riduce l’Attacco. Scegli la mossa di supporto adatta e porta qualche Pozione per la prova."
         ]
       },
       {
         "lines": [
           "Hai conquistato la Medaglia Aurora. Porta con te la calma con cui hai affrontato la prova.",
-          "Il prossimo sentiero ti aspetta oltre il Bosco dei Veli."
+          "La medaglia apre il sentiero a est di Brumalta, verso le Terrazze del Muschio e il villaggio di Radicelmo."
         ]
       }
     ]
@@ -121,8 +121,8 @@
   "r03_path_guide": {
     "speaker": "Rami",
     "lines": [
-      "Le Terrazze del Muschio salgono a gradoni naturali: segui i lastroni chiari.",
-      "Fra felci e pietre crescono erbe rare. Il villaggio di Radicelmo è poco più a est."
+      "Segui i lastroni chiari che salgono tra felci e gradoni di pietra: il seme custodito è sulle terrazze, poco più avanti.",
+      "Dopo averlo raccolto, prosegui fino al sentiero a est per Radicelmo. La custode Leda può registrarlo nell'archivio della serra."
     ]
   },
   "radicelmo_keeper": {
@@ -131,24 +131,503 @@
       {
         "whenFlagMissing": "q_radicelmo_seed_found",
         "lines": [
-          "Custodisco l'archivio ecologico della serra. Un seme ancestrale è caduto sulle terrazze.",
-          "Se lo trovi, riportalo qui: potremo catalogarlo senza sottrarlo al bosco."
+          "Custodisco l'archivio ecologico della serra. Un seme ancestrale è caduto sulle Terrazze del Muschio.",
+          "Raccoglilo sulle terrazze e portamelo: registreremo la sua provenienza e lo affideremo alla serra."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_seed_archived",
         "questEvent": "interaction/radicelmo/archive-report",
         "lines": [
-          "Hai ritrovato il seme. Registriamo la sua provenienza e lasciamo l'originale al suo posto.",
+          "Hai riportato il seme dalle terrazze. Registriamo la sua provenienza e lo affidiamo alla serra.",
           "Per ringraziarti, conserva questa scheda viva dell'archivio e qualche rimedio per il viaggio."
         ]
       },
       {
+        "whenFlagMissing": "q_radicelmo_greenhouse_started",
         "lines": [
-          "La scheda del seme resta nel tuo taccuino; l'originale continua a crescere sulle terrazze.",
-          "La serra è un archivio vivente, non una collezione."
+          "Il seme è registrato. Ora aiutami a risvegliarlo nel vivaio, qui a sud della serra.",
+          "Prima attiva il regolatore dell’acqua a sinistra, poi il misuratore di luce a destra. Infine osserva il seme nel vaso centrale e torna da me."
+        ],
+        "questEvent": "interaction/radicelmo/greenhouse/begin"
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_seed_sprouted",
+        "lines": [
+          "Il vivaio è nel giardino a sud della serra: acqua a sinistra, luce a destra, seme al centro.",
+          "L’acqua prepara il terreno; solo dopo regola la luce. Il diario ti indica il prossimo passo."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_complete",
+        "lines": [
+          "La prima foglia! Le Vene Luminose reagiscono alla crescita, non soltanto alle nostre macchine.",
+          "Grazie per la ricerca: ricevi 180 monete, due Pozioni e un Antidoto. Ora puoi proseguire: l’uscita a nord di Radicelmo porta alla Salita dei Petali, poi a Petalora."
+        ],
+        "questEvent": "interaction/radicelmo/greenhouse/report"
+      },
+      {
+        "lines": [
+          "Il germoglio resta nel vivaio: da un seme abbiamo ricostruito un piccolo frammento della memoria di Veloria.",
+          "L’uscita a nord di Radicelmo porta alla Salita dei Petali: segui i ponti fino a Petalora."
         ]
       }
+    ]
+  },
+  "radicelmo_water": {
+    "speaker": "Regolatore dell’acqua",
+    "stages": [
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_started",
+        "lines": [
+          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_watered",
+        "lines": [
+          "Apri la valvola: un filo d’acqua raggiunge il vaso centrale.",
+          "Terreno umido, senza ristagni. Ora usa il misuratore di luce a destra del vivaio."
+        ],
+        "questEvent": "interaction/radicelmo/greenhouse/water"
+      },
+      {
+        "lines": [
+          "L’irrigazione è già regolata. Aggiungere altra acqua sommergerebbe il seme."
+        ]
+      }
+    ]
+  },
+  "radicelmo_light": {
+    "speaker": "Misuratore di luce",
+    "stages": [
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_started",
+        "lines": [
+          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_watered",
+        "lines": [
+          "Il terreno è ancora asciutto. Attiva prima il regolatore dell’acqua a sinistra del vivaio."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_lit",
+        "lines": [
+          "Inclini il riflettore verso il vaso: una luce morbida attraversa il vetro.",
+          "Il misuratore si stabilizza. Ora osserva il seme nel vaso centrale."
+        ],
+        "questEvent": "interaction/radicelmo/greenhouse/light"
+      },
+      {
+        "lines": [
+          "La luce è stabile. Il riflettore resta rivolto verso il seme."
+        ]
+      }
+    ]
+  },
+  "radicelmo_seed": {
+    "speaker": "Vaso del seme ancestrale",
+    "stages": [
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_started",
+        "lines": [
+          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_watered",
+        "lines": [
+          "Il seme riposa nel vaso. Il terreno è secco: attiva il regolatore dell’acqua a sinistra."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_greenhouse_lit",
+        "lines": [
+          "Il terreno è umido, ma il seme resta in ombra. Regola il misuratore di luce a destra."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_radicelmo_seed_sprouted",
+        "lines": [
+          "Il guscio si apre e una fogliolina cattura la luce. Un bagliore percorre le sue venature!",
+          "Torna da Leda, davanti alla serra, per registrare questa scoperta."
+        ],
+        "questEvent": "interaction/radicelmo/greenhouse/observe"
+      },
+      {
+        "lines": [
+          "La prima foglia è aperta. Il seme è diventato parte dell’archivio vivente di Radicelmo."
+        ]
+      }
+    ]
+  },
+  "nila_r04": {
+    "speaker": "Nila",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r04_nila_defeated",
+        "lines": [
+          "Il mio Pidgey segue le correnti fra i ciliegi; Mareep illumina i ponti quando arriva la sera.",
+          "Ti va una sfida? Controlla i tipi: il mio secondo compagno può sorprendere chi si affida soltanto al Volo."
+        ]
+      },
+      {
+        "lines": [
+          "Ben giocato! Prosegui lungo il sentiero chiaro: Petalora è a nord, oltre il secondo ponte.",
+          "Lassù puoi curare la squadra gratuitamente. Le foglie ai lati della salita ospitano altri Pokémon."
+        ]
+      }
+    ]
+  },
+  "petalora_ivo": {
+    "speaker": "Custode Ivo",
+    "lines": [
+      "Benvenuto a Petalora! Qui i ciliegi crescono grazie ai canali che portano l’acqua fra le terrazze.",
+      "Alla tua sinistra trovi le cure gratuite, alla tua destra la bottega. Il viale verso nord conduce alla palestra di Dalia: fai arrivare l’acqua alle terrazze per affrontarla.",
+      "Dopo la Medaglia Corolla puoi uscire a est della piazza: il Viadotto dei Ciliegi conduce alla prima piazza di Vetracielo."
+    ]
+  },
+  "gym02_source": {
+    "speaker": "Sorgente del giardino",
+    "stages": [
+      {
+        "whenFlagMissing": "q_petalora_visited",
+        "lines": [
+          "Visita prima Petalora e conquista la fiducia dei custodi."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym02_water_source_open",
+        "questEvent": "gym02/irrigation/source",
+        "lines": [
+          "Apri la sorgente: il primo canale si riempie d’acqua.",
+          "Raggiungi il regolatore ovest, più in alto a sinistra, e devia il flusso."
+        ]
+      },
+      {
+        "lines": [
+          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+        ]
+      }
+    ]
+  },
+  "gym02_west": {
+    "speaker": "Deviazione ovest",
+    "stages": [
+      {
+        "whenFlagMissing": "gym02_water_source_open",
+        "lines": [
+          "Il canale è asciutto. Apri prima la sorgente in basso a sinistra."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym02_water_west_open",
+        "questEvent": "gym02/irrigation/west",
+        "lines": [
+          "L’acqua sale al primo gradone e gira verso il centro del giardino.",
+          "Ora raggiungi il regolatore est, sulla terrazza a destra."
+        ]
+      },
+      {
+        "lines": [
+          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+        ]
+      }
+    ]
+  },
+  "gym02_east": {
+    "speaker": "Deviazione est",
+    "stages": [
+      {
+        "whenFlagMissing": "gym02_water_west_open",
+        "lines": [
+          "Manca il flusso dal lato ovest. Regola prima la deviazione a sinistra."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym02_water_east_open",
+        "questEvent": "gym02/irrigation/east",
+        "lines": [
+          "Il canale si riempie e l’acqua raggiunge la terrazza superiore.",
+          "Osserva la Terrazza dei Ciliegi al centro, davanti a Dalia."
+        ]
+      },
+      {
+        "lines": [
+          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+        ]
+      }
+    ]
+  },
+  "gym02_bloom": {
+    "speaker": "Terrazza dei Ciliegi",
+    "stages": [
+      {
+        "whenFlagMissing": "gym02_water_east_open",
+        "lines": [
+          "Le radici aspettano l’acqua. Apri la sorgente, poi regola ovest ed est."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym02_irrigation_solved",
+        "questEvent": "gym02/irrigation/bloom",
+        "lines": [
+          "I fiori si aprono mentre l’acqua raggiunge le radici. Il giardino è tornato a respirare!",
+          "Dalia ti aspetta poco più a nord. Cura la squadra prima della sfida."
+        ]
+      },
+      {
+        "lines": [
+          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+        ]
+      }
+    ]
+  },
+  "dalia_gym": {
+    "speaker": "Dalia",
+    "stages": [
+      {
+        "whenFlagMissing": "gym02_irrigation_solved",
+        "lines": [
+          "Benvenuto nel mio giardino. La forza dell’Erba comincia dall’acqua e dalla pazienza.",
+          "Apri la sorgente in basso a sinistra; poi devia l’acqua a ovest e a est e controlla la terrazza centrale. Quando i fiori si apriranno, potremo sfidarci."
+        ]
+      },
+      {
+        "whenFlagMissing": "trainer_gym02_dalia_defeated",
+        "lines": [
+          "Hai riportato l’acqua fra i ciliegi. Ora vediamo come ti prendi cura della tua squadra.",
+          "I miei Pokémon Erba usano anche Veleno e sonno: porta una copertura di tipi e controlla gli stati, non soltanto gli HP."
+        ]
+      },
+      {
+        "lines": [
+          "La Medaglia Corolla ricorda che ogni compagno cresce in modo diverso. Hai saputo scegliere e prendertene cura.",
+          "La Medaglia Corolla apre l’uscita est di Petalora. Segui il Viadotto dei Ciliegi fino a Vetracielo: nella Piazza della Monorotaia trovi cure e rifornimenti."
+        ]
+      }
+    ]
+  },
+  "oren_r05": {
+    "speaker": "Oren",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r05_oren_defeated",
+        "lines": [
+          "Da qui vedo i treni di Vetracielo attraversare i ciliegi. Pikachu è veloce, Wooper legge il terreno.",
+          "Vuoi provare la tua squadra? Controlla i tipi dei miei due compagni e gli effetti delle tue mosse."
+        ]
+      },
+      {
+        "lines": [
+          "Continua a nord e poi verso est, sul ponte: Vetracielo ti aspetta. Nella piazza trovi cure gratuite.",
+          "Nelle foglie del viadotto puoi incontrare anche Wooper. Il tipo Terra è immune alle mosse Elettro."
+        ]
+      }
+    ]
+  },
+  "vetracielo_lea": {
+    "speaker": "Lea",
+    "stages": [
+      {
+        "whenFlagMissing": "q_vetracielo_visited",
+        "lines": [
+          "Benvenuto nella Piazza della Monorotaia. Il viadotto collega questa piazza a Petalora."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_vetracielo_orientation",
+        "questEvent": "vetracielo/lea/orientation",
+        "lines": [
+          "Benvenuto a Vetracielo! Qui i giardini continuano sui tetti e la monorotaia collega i quartieri. Questa è la nostra prima piazza aperta.",
+          "A sinistra trovi il punto cure e il deposito, a destra i rifornimenti. Ti lascio due Pozioni per il viaggio.",
+          "La prossima prova riguarda Elettro e Velocità. Studia anche le immunità: Wooper, di tipo Terra, non viene colpito dalle mosse Elettro. Entra nella stazione per la Palestra di Aster: collega le tre linee Giardini, Vetro e Cielo. Gli altri quartieri restano da esplorare in futuro."
+        ]
+      },
+      {
+        "lines": [
+          "Puoi curare la squadra al terminale a sinistra, rifornirti a destra o esplorare il parco a nord-ovest.",
+          "Per tornare a Petalora esci a ovest e ripercorri il Viadotto dei Ciliegi. La scalinata della stazione conduce alla Palestra di Aster. Gli altri quartieri non sono ancora accessibili."
+        ]
+      }
+    ]
+  },
+  "gym03_gardens": {
+    "speaker": "Linea Giardini",
+    "stages": [
+      {
+        "whenFlagMissing": "q_vetracielo_orientation",
+        "lines": [
+          "Lea ti aspetta nella piazza della stazione prima della prova."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym03_line_gardens_active",
+        "questEvent": "gym03/line/gardens",
+        "lines": [
+          "La linea Giardini riceve energia. Prima si collegano i quartieri verdi.",
+          "Raggiungi la console 2 Vetro sul lato destro, più in alto."
+        ]
+      },
+      {
+        "lines": [
+          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+        ]
+      }
+    ]
+  },
+  "gym03_glass": {
+    "speaker": "Linea Vetro",
+    "stages": [
+      {
+        "whenFlagMissing": "gym03_line_gardens_active",
+        "lines": [
+          "La rete aspetta il primo segnale. Attiva 1 Giardini, in basso a sinistra."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym03_line_glass_active",
+        "questEvent": "gym03/line/glass",
+        "lines": [
+          "La linea Vetro si collega ai giardini. La rete può salire verso i tetti.",
+          "Ora attiva la console 3 Cielo al centro, poco sotto Aster."
+        ]
+      },
+      {
+        "lines": [
+          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+        ]
+      }
+    ]
+  },
+  "gym03_sky": {
+    "speaker": "Linea Cielo",
+    "stages": [
+      {
+        "whenFlagMissing": "gym03_line_glass_active",
+        "lines": [
+          "Manca il collegamento Vetro. Attiva prima 1 Giardini e poi 2 Vetro a destra."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym03_lines_connected",
+        "questEvent": "gym03/line/sky",
+        "lines": [
+          "Le tre linee sono collegate! Ogni console mostra il segno di spunta.",
+          "Aster ti aspetta poco più a nord. Cura la squadra prima della sfida: Voltorb 16 e Magnemite 17 uniscono velocità, stati e danni diversi."
+        ]
+      },
+      {
+        "lines": [
+          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+        ]
+      }
+    ]
+  },
+  "aster_gym": {
+    "speaker": "Aster",
+    "stages": [
+      {
+        "whenFlagMissing": "gym03_lines_connected",
+        "lines": [
+          "Benvenuto sulla terrazza! Una rete funziona quando ogni collegamento arriva al momento giusto.",
+          "Attiva 1 Giardini a sinistra, poi 2 Vetro a destra, infine 3 Cielo al centro. Le indicazioni e i numeri ti guidano."
+        ]
+      },
+      {
+        "whenFlagMissing": "trainer_gym03_aster_defeated",
+        "lines": [
+          "Hai collegato i giardini al cielo. Ora vediamo come coordini i tuoi Pokémon.",
+          "Voltorb è rapido; Magnemite può paralizzare e abbassare la Difesa Speciale. Terra risponde a Elettro, ma prepara anche cure e mosse diverse."
+        ]
+      },
+      {
+        "whenFlagPresent": "badge_circuito_awarded",
+        "lines": [
+          "La Medaglia Circuito ha aperto il varco orientale. Oltre la piazza, l’Anello Magnetico conduce a Ferraluce.",
+          "Sulla linea si registrano variazioni inattese. Il gruppo di ricerca di Ferraluce vuole confrontare le letture prima di trarre conclusioni."
+        ]
+      }
+    ]
+  },
+  "r06_sensor": {
+    "speaker": "Misuratore di campo",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_circuito_awarded",
+        "lines": [
+          "Il misuratore è in modalità di attesa. La linea richiede l’autorizzazione della Medaglia Circuito."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_r06_measurement",
+        "questEvent": "r06/sensor/read",
+        "lines": [
+          "La lancetta oscilla in brevi impulsi, poi si stabilizza. Il valore resta fuori dall’intervallo previsto.",
+          "La struttura è integra e le letture non indicano un guasto semplice. Porta il dato a Ivo, a Ferraluce, e confrontalo con le osservazioni locali."
+        ]
+      },
+      {
+        "lines": [
+          "Il misuratore conserva la lettura già registrata. Gli impulsi sono irregolari, ma non mostrano da soli la causa della variazione."
+        ]
+      }
+    ]
+  },
+  "ferraluce_ivo": {
+    "speaker": "Ivo",
+    "stages": [
+      {
+        "whenFlagMissing": "q_r06_measurement",
+        "lines": [
+          "Benvenuto nella Piazza dell’Energia di Ferraluce. Qui il vetro e l’acciaio convivono con impianti che recuperano e distribuiscono energia.",
+          "Per confrontare ciò che osserviamo in città con la linea, torna al misuratore dell’Anello Magnetico, a ovest, e leggi i dati."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_ferraluce_report",
+        "whenFlagPresent": "q_r06_measurement",
+        "questEvent": "ferraluce/ivo/report",
+        "lines": [
+          "Hai portato le letture. Anche qui abbiamo notato oscillazioni, ma non basta per attribuirle a una persona o a un impianto. Confrontiamo i registri e segnaliamo la discrepanza al gruppo di ricerca.",
+          "Grazie per aver contribuito: tieni due Pozioni e un Antidoto per il viaggio. La Palestra di Ferraluce aprirà nella prossima tappa dell’avventura. Il Condotto e la Centrale Risonante verranno dopo quella prova."
+        ]
+      },
+      {
+        "lines": [
+          "Il rapporto è registrato. Le misure confermano una variazione condivisa lungo la rete, senza indicarne ancora la causa.",
+          "Puoi curare la squadra e rifornirti nel distretto. La Palestra non è ancora visitabile. Il Condotto e la Centrale Risonante verranno dopo quella prova."
+        ]
+      }
+    ]
+  },
+  "r06_sign": {
+    "speaker": "Segnaletica dell’Anello Magnetico",
+    "lines": [
+      "Anello Magnetico · Vetracielo — Ferraluce.",
+      "Le oscillazioni della rete vengono osservate in più punti. Segnalare una variazione aiuta a confrontare i dati, ma non ne identifica da sola l’origine."
+    ]
+  },
+  "ferraluce_gym_sign": {
+    "speaker": "Segnaletica del distretto",
+    "lines": [
+      "Palestra di Ferraluce · Acciaio.",
+      "La Palestra non è ancora visitabile in questa versione. La prossima prova sarà dedicata a difesa e scelta delle mosse; poi si proseguirà verso la Centrale Risonante."
+    ]
+  },
+  "ferraluce_care": {
+    "speaker": "Addetta del Centro",
+    "lines": [
+      "Cure gratuite e deposito dei Pokémon. Ripristiniamo HP, PP e stati della tua squadra."
+    ]
+  },
+  "ferraluce_shop": {
+    "speaker": "Mercante di Ferraluce",
+    "lines": [
+      "Pozioni, Antidoti e Poké Ball per esplorare l’Anello Magnetico."
     ]
   }
 }

@@ -1,8 +1,12 @@
 # Veloria — Diritti, provenienza e riferimenti (v0.3)
 
+## Aggiornamento 18/10/2026 — richiesta di pubblicazione
+
+Su richiesta esplicita del proprietario il repository e il prototipo sono pubblicati tramite GitHub Pages. Questo cambia la precedente destinazione privata, senza attribuire nuove licenze agli artwork di terzi: provenienza e titolarità restano quelle riportate nel registro degli asset. Il progetto non è un prodotto Pokémon ufficiale.
+
 ## 1. Uso personale ≠ licenza
 
-Il progetto è destinato a uso strettamente privato su smartphone, senza distribuzione. Questo **non** significa che contenuti come specie, artwork, nomi, loghi, audio, ROM e mappe Pokémon siano automaticamente liberi da riprodurre, né che la documentazione di PokéAPI conceda diritti di riuso di tutti gli asset citati. Per una possibile pubblicazione futura occorrerà una revisione legale specifica oppure la sostituzione con contenuti originali o autorizzati.
+Il progetto era inizialmente destinato a uso strettamente privato su smartphone, senza distribuzione. Questo **non** significa che contenuti come specie, artwork, nomi, loghi, audio, ROM e mappe Pokémon siano automaticamente liberi da riprodurre, né che la documentazione di PokéAPI conceda diritti di riuso di tutti gli asset citati. Per una possibile pubblicazione futura occorrerà una revisione legale specifica oppure la sostituzione con contenuti originali o autorizzati.
 
 ## 2. Policy di produzione
 

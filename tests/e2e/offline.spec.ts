@@ -1,15 +1,25 @@
 import { expect, test } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
+import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
+import speciesRegistry from '../../content/battle/species.v1.json' with { type: 'json' };
+import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json' };
+import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/world-navigation';
 
 // Keep the offline journey independent of decorative animation throughput on CI.
+const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
+
 test.use({ reducedMotion: 'reduce' });
 
 async function getMvpResourcePaths(): Promise<string[]> {
   const mapsDirectory = new URL('../../content/maps/', import.meta.url);
   const files = await readdir(mapsDirectory);
   const mapFiles = files.filter(file => file.endsWith('.map.json')).sort();
-  const resources = new Set(['index.html', '.vite/manifest.json']);
+  const resources = new Set(['index.html', '.vite/manifest.json', 'assets/ui/veloria-region-atlas-v1.webp']);
+  for (const file of ['pokeapi-starter-artwork-v1.json', 'pokeapi-route-artwork-v1.json', 'pokeapi-evolution-artwork-v1.json', 'pokeapi-urban-artwork-v1.json']) {
+    const artwork = JSON.parse(await readFile(new URL(`../../assets/${file}`, import.meta.url), 'utf8'));
+    for (const entry of artwork.artworks) resources.add(entry.path);
+  }
   for (const direction of ['down', 'up', 'left', 'right']) {
     resources.add(`assets/sprites/veloria-traveler-${direction}.png`);
   }
@@ -140,7 +150,10 @@ async function seedOfflineHealing(page: import('@playwright/test').Page) {
 }
 
 async function seedOfflineGymBattleParty(page: import('@playwright/test').Page) {
-  await page.evaluate(() => new Promise<void>((resolve, reject) => {
+  const species = JSON.parse(await readFile(new URL('../../content/battle/species.v1.json', import.meta.url), 'utf8')).species;
+  const moves = JSON.parse(await readFile(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
+  const prepared = createBattleCreature({ species, moves, speciesId: 5, level: 30, instanceId: 'offline-fixture', moveIds: ['scratch', 'growl', 'ember', 'smokescreen'] });
+  await page.evaluate(creature => new Promise<void>((resolve, reject) => {
     const request = indexedDB.open('veloria-save', 1);
     request.onerror = () => reject(request.error);
     request.onsuccess = () => {
@@ -153,16 +166,12 @@ async function seedOfflineGymBattleParty(page: import('@playwright/test').Page) 
         const save = value.result;
         save.party[0] = {
           ...save.party[0],
-          level: 30,
+          speciesId: creature.speciesId,
+          level: creature.level,
           experience: 0,
-          hp: 999,
-          maxHp: 999,
-          moves: [
-            { id: 'scratch', pp: 35 },
-            { id: 'quick-attack', pp: 30 },
-            { id: 'tackle', pp: 35 },
-            { id: 'growl', pp: 40 },
-          ],
+          hp: creature.hp,
+          maxHp: creature.stats.maxHp,
+          moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })),
         };
         store.put(save, 'main');
         store.delete('checksum:main');
@@ -170,7 +179,7 @@ async function seedOfflineGymBattleParty(page: import('@playwright/test').Page) 
       transaction.oncomplete = () => { database.close(); resolve(); };
       transaction.onerror = () => reject(transaction.error);
     };
-  }));
+  }), prepared);
 }
 
 async function tapBattleCanvas(page: import('@playwright/test').Page, xRatio: number, bottomOffset: number) {
@@ -187,6 +196,10 @@ async function tapBattleCanvas(page: import('@playwright/test').Page, xRatio: nu
 async function advanceBattleMessages(page: import('@playwright/test').Page) {
   for (let tap = 0; tap < 14; tap += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
+    if (await page.locator('.battle-celebration').isVisible()) {
+      await page.getByRole('button', { name: 'Continua', exact: true }).click();
+      return;
+    }
     await tapBattleCanvas(page, 0.5, 132);
     await page.waitForTimeout(90);
   }
@@ -196,14 +209,10 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   await tapBattleCanvas(page, 0.75, 93);
   await tapBattleCanvas(page, 0.25, 144);
-  for (let tap = 0; tap < 14; tap += 1) {
-    if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
-    await tapBattleCanvas(page, 0.5, 132);
-    await page.waitForTimeout(90);
-  }
+  await advanceBattleMessages(page);
 }
 
-test('E2E-06 desktop portion: the cached starter, route, encounter, healing and Aurora Badge work offline', async ({ page, context }, testInfo) => {
+test('E2E-06: the cached adventure reaches three badges offline', async ({ page, context }, testInfo) => {
   // The complete offline journey exceeded four minutes on the hosted Linux runner.
   test.setTimeout(480_000);
   const runtimeErrors: string[] = [];
@@ -251,6 +260,12 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
 
   // Disable all browser networking for the actual offline assertions.
   await context.setOffline(true);
+  expect(await page.evaluate(async () => Promise.all([2, 5, 8].map(async id => {
+    const image = new Image();
+    image.src = new URL(`assets/creatures/pokeapi-evolution-${id}-v1.webp`, location.href).href;
+    await image.decode();
+    return image.naturalWidth > 0;
+  })))).toEqual([true, true, true]);
 
   const failedRequests: string[] = [];
   page.on('requestfailed', request => failedRequests.push(`${request.method()} ${request.url()}: ${request.failure()?.errorText ?? 'failed'}`));
@@ -371,10 +386,12 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   const finalSave = await readSave(page);
   expect(finalSave.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 1, y: 10 });
   expect(finalSave.flags).toContain('item_r01_potion_collected');
+  // Encounters belong to the visible fern patches, not to the central path.
+  await walkToMapTile('d01_bosco_veli.tmj', 2, 9);
   await seedOfflineCapture(page, findPidgeyCaptureSeed());
   await page.reload();
   await enterGame(page);
-  await page.getByRole('button', { name: 'Vai a destra' }).tap();
+  await page.getByRole('button', { name: 'Vai in alto' }).tap();
   try {
     await captureWildOffline(page);
   } catch (error) {
@@ -388,15 +405,19 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
 
   // Finish Ada's quest offline, then follow the forest-city connection without encounters.
   const tapConfirm = () => page.getByRole('button', { name: 'Conferma e interagisci' }).click();
-  await walk('destra', 10);
+  await walk('basso', 3);
+  await walkToMapTile('d01_bosco_veli.tmj', 13, 12);
+  await walk('alto', 1);
   await tapConfirm();
   await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
   for (let step = 0; step < 4; step += 1) await tapConfirm();
   await expect(page.locator('#dialogue-box')).toBeHidden();
-  await walk('destra', 4);
+  await walkToMapTile('d01_bosco_veli.tmj', 17, 12);
+  await walk('alto', 1);
   await tapConfirm();
   await expect.poll(async () => (await readSave(page))?.flags).toContain('q_forest_signal_found');
-  await walk('sinistra', 2);
+  await walkToMapTile('d01_bosco_veli.tmj', 13, 12);
+  await walk('alto', 1);
   await tapConfirm();
   await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
   for (let step = 0; step < 4; step += 1) await tapConfirm();
@@ -406,7 +427,7 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   await seedOfflineCapture(page, findNoEncounterSeed(60));
   await page.reload();
   await enterGame(page);
-  await walk('destra', 15, 'veloria/r02_viale_fronde');
+  await walkToMapTile('d01_bosco_veli.tmj', 29, 10);
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/r02_viale_fronde');
   await walk('destra', 26, 'veloria/brumalta');
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/brumalta');
@@ -475,6 +496,213 @@ test('E2E-06 desktop portion: the cached starter, route, encounter, healing and 
   await expect(page.locator('#current-location')).toHaveText('PALESTRA DI BRUMALTA');
   expect((await readSave(page)).badges.filter((badge: string) => badge === 'badge_aurora')).toHaveLength(1);
 
+  // The next region is part of the installed pack, including map transitions and services.
+  // Prepare only the starting location; the existing badge must open the authored gate.
+  await page.evaluate(() => new Promise<void>((resolve, reject) => {
+    const request=indexedDB.open('veloria-save',1);
+    request.onerror=()=>reject(request.error);
+    request.onsuccess=()=>{
+      const db=request.result, tx=db.transaction('saves','readwrite'), store=tx.objectStore('saves');
+      const get=store.get('main');
+      get.onsuccess=()=>{
+        const save=get.result;
+        save.player={...save.player,mapId:'veloria/radicelmo',spawnPointId:'from_r04',x:18,y:2};
+        save.party[0].hp=1;
+        store.put(save,'main');store.delete('checksum:main');
+      };
+      tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);
+    };
+  }));
+  await page.reload(); await enterGame(page);
+  await walkToMapTile('radicelmo.tmj',18,0);
+  await expect(page.locator('#current-location')).toHaveText('SALITA DEI PETALI');
+  for(const [x,y]of [[18,23],[7,23],[7,14],[30,14]])await walkToMapTile('r04_salita_petali.tmj',x,y);
+  await walkToMapTile('r04_salita_petali.tmj',30,0);
+  await expect(page.locator('#current-location')).toHaveText('PETALORA');
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('q_petalora_visited');
+  await walkToMapTile('petalora.tmj',10,9);
+  await walk('alto',1); await tapConfirm();
+  await page.getByRole('button',{name:'RIPOSA',exact:true}).click();
+  await expect.poll(async()=>(await readSave(page)).party.every((c:any)=>c.hp===c.maxHp)).toBe(true);
+  await page.screenshot({path:testInfo.outputPath('petalora-offline.png')});
+  await page.reload(); await enterGame(page);
+  await expect(page.locator('#current-location')).toHaveText('PETALORA');
+  expect((await readSave(page)).flags).toContain('q_petalora_visited');
+
+  await walkToMapTile('petalora.tmj',18,0);
+  await expect(page.locator('#current-location')).toHaveText('PALESTRA DI PETALORA');
+  const examineGymStation=async(x:number,y:number)=>{
+    await walkToMapTile('gym02_petalora.tmj',x,y+2);
+    await walk('alto',1);await tapConfirm();
+    await expect(page.locator('#dialogue-box')).toBeVisible();
+    for(let tap=0;tap<8&&await page.locator('#dialogue-box').isVisible();tap++)await tapConfirm();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+  };
+  await examineGymStation(5,21);
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('gym02_water_source_open');
+  await page.reload();await enterGame(page);
+  expect((await readSave(page)).flags).toContain('gym02_water_source_open');
+  await examineGymStation(6,15);
+  await examineGymStation(20,10);
+  await examineGymStation(13,6);
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('gym02_irrigation_solved');
+  await walkToMapTile('gym02_petalora.tmj',13,5);
+  await walk('alto',1);await tapConfirm();
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Dalia');
+  for(let tap=0;tap<8&&!(await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible());tap++)await tapConfirm();
+  await page.getByRole('button',{name:'SFIDA',exact:true}).click();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for(let turn=0;turn<10;turn++) {
+    if(!(await page.locator('body').evaluate(el=>el.classList.contains('battle-active'))))break;
+    await tapBattleCanvas(page,.25,144);
+    await tapBattleCanvas(page,.25,140);
+    await advanceBattleMessages(page);
+  }
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+  await expect.poll(async()=>(await readSave(page)).badges).toContain('badge_corolla');
+  await page.reload();await enterGame(page);
+  await page.getByRole('button',{name:'Apri menu di gioco'}).click();
+  await page.getByRole('button',{name:'Apri le medaglie'}).click();
+  const medals=page.getByRole('dialog',{name:'Le tue medaglie'});
+  await expect(medals).toContainText('Medaglia Corolla');
+  await expect(medals.locator('[data-badge-id="badge_corolla"] svg')).toBeVisible();
+  await page.screenshot({path:testInfo.outputPath('corolla-offline.png')});
+
+  await page.keyboard.press('Escape');
+  await walkToMapTile('gym02_petalora.tmj',13,25);
+  await expect(page.locator('#current-location')).toHaveText('PETALORA');
+  await walkToMapTile('petalora.tmj',37,12);
+  await expect(page.locator('#current-location')).toHaveText('VIADOTTO DEI CILIEGI');
+  for (const [x,y] of [[15,18],[15,6],[44,6],[45,6]]) await walkToMapTile('r05_viadotto_ciliegi.tmj',x,y);
+  await expect(page.locator('#current-location')).toHaveText('VETRACIELO · PIAZZA DELLA MONOROTAIA');
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('q_vetracielo_visited');
+  const potionsBeforeLea=(await readSave(page)).inventory.potion??0;
+  await walkToMapTile('vetracielo.tmj',22,20);await walk('alto',1);await tapConfirm();
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Lea');
+  for(let tap=0;tap<12&&await page.locator('#dialogue-box').isVisible();tap++)await tapConfirm();
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('q_vetracielo_orientation');
+  expect((await readSave(page)).inventory.potion).toBe(potionsBeforeLea+2);
+  await walkToMapTile('vetracielo.tmj',15,22);await walk('alto',1);await tapConfirm();
+  await page.getByRole('button',{name:'RIPOSA',exact:true}).click();
+  await expect.poll(async()=>(await readSave(page)).party.every((c:any)=>c.hp===c.maxHp)).toBe(true);
+  await page.screenshot({path:testInfo.outputPath('vetracielo-offline.png')});
+  await page.reload();await enterGame(page);
+  await expect(page.locator('#current-location')).toHaveText('VETRACIELO · PIAZZA DELLA MONOROTAIA');
+  expect((await readSave(page)).flags).toContain('q_vetracielo_orientation');
+  expect((await readSave(page)).inventory.potion).toBe(potionsBeforeLea+2);
+
+  await walkToMapTile('vetracielo.tmj',20,16);
+  await expect(page.locator('#current-location')).toHaveText('PALESTRA DI VETRACIELO');
+  const inspectRailConsole=async(x:number,y:number)=>{
+    await walkToMapTile('gym03_vetracielo.tmj',x,y+2);await walk('alto',1);await tapConfirm();
+    await expect(page.locator('#dialogue-box')).toBeVisible();
+    for(let tap=0;tap<10&&await page.locator('#dialogue-box').isVisible();tap++)await tapConfirm();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+  };
+  await inspectRailConsole(7,23);
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('gym03_line_gardens_active');
+  await page.reload();await enterGame(page);
+  expect((await readSave(page)).flags).toContain('gym03_line_gardens_active');
+  await inspectRailConsole(23,19);await inspectRailConsole(15,15);
+  await expect.poll(async()=>(await readSave(page)).flags).toContain('gym03_lines_connected');
+  await walkToMapTile('gym03_vetracielo.tmj',15,12);await walk('alto',1);await tapConfirm();
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Aster');
+  for(let tap=0;tap<10&&!(await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible());tap++)await tapConfirm();
+  await page.getByRole('button',{name:'SFIDA',exact:true}).click();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for(let turn=0;turn<10;turn++) {
+    if(!(await page.locator('body').evaluate(el=>el.classList.contains('battle-active'))))break;
+    await tapBattleCanvas(page,.25,144);
+    // The prepared Charmeleon's third slot is Ember: use its Fire coverage against Steel.
+    await tapBattleCanvas(page,.25,80);
+    await advanceBattleMessages(page);
+  }
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+  await expect.poll(async()=>(await readSave(page)).badges).toContain('badge_circuito');
+  await page.reload();await enterGame(page);
+  await page.getByRole('button',{name:'Apri menu di gioco'}).click();
+  await page.getByRole('button',{name:'Apri le medaglie'}).click();
+  const circuitMedals=page.getByRole('dialog',{name:'Le tue medaglie'});
+  await expect(circuitMedals.locator('.badge-case-card')).toHaveCount(3);
+  await circuitMedals.locator('[data-badge-id="badge_circuito"]').scrollIntoViewIfNeeded();
+  await page.screenshot({path:testInfo.outputPath('circuito-offline.png')});
+
   expect((await readSave(page)).flags).toContain('q_ada_helped');
   expect(failedRequests).toEqual([]);
+});
+
+test('the cached Anello Magnetico reading, Ferraluce report and healing work offline', async ({ page, context }, info) => {
+  test.setTimeout(180_000);
+  const errors: string[] = [], failedRequests: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller));
+  const resources = await getMvpResourcePaths();
+  await page.evaluate(async paths => {
+    for (const path of paths) {
+      const response = await caches.match(new URL(path, location.href).href);
+      if (!response?.ok) throw new Error(`Missing cached chapter asset: ${path}`);
+    }
+  }, resources);
+  const save = await readSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any, speciesId: 195, level: 20, instanceId: 'offline-ferraluce', moveIds: ['water-gun', 'mud-shot'] });
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'prologue_complete_seen', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved', 'badge_corolla_awarded', 'q_vetracielo_visited', 'q_vetracielo_orientation', 'gym03_line_gardens_active', 'gym03_line_glass_active', 'gym03_lines_connected', 'badge_circuito_awarded'])];
+  save.badges = ['badge_aurora', 'badge_corolla', 'badge_circuito'];
+  save.player = { ...save.player, mapId: 'veloria/r06_anello_magnetico', spawnPointId: 'from_vetracielo', x: 18, y: 17 };
+  save.party = [{ instanceId: creature.instanceId, speciesId: creature.speciesId, level: 20, experience: 0, hp: 3, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  const potions = save.inventory.potion ?? 0;
+  await seedBrowserSave(page, save);
+  page.on('requestfailed', request => failedRequests.push(request.url()));
+  await context.setOffline(true);
+  await page.reload(); await enterGame(page);
+  await expect(page.locator('#current-location')).toHaveText('ANELLO MAGNETICO');
+  async function dismiss() {
+    for (let tap = 0; tap < 12 && await page.locator('#dialogue-box').isVisible(); tap++)
+      await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+  }
+  await walkDirection(page, 'up');
+  await page.getByRole('button', { name: 'Conferma e interagisci' }).click(); await dismiss();
+  await expect.poll(async () => (await readSave(page)).flags).toContain('q_r06_measurement');
+  await walkTo(page, 'r06_anello_magnetico.tmj', 39, 25);
+  await expect(page.locator('#current-location')).toContainText('FERRALUCE');
+  await walkTo(page, 'ferraluce.tmj', 20, 22); await walkDirection(page, 'up');
+  await page.getByRole('button', { name: 'Conferma e interagisci' }).click(); await dismiss();
+  await expect.poll(async () => (await readSave(page)).flags).toContain('q_ferraluce_report');
+  expect((await readSave(page)).inventory.potion).toBe(potions + 2);
+  await walkTo(page, 'ferraluce.tmj', 9, 23); await walkDirection(page, 'up');
+  await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
+  await page.getByRole('button', { name: 'RIPOSA', exact: true }).click();
+  await expect.poll(async () => (await readSave(page)).party[0].hp).toBe(creature.stats.maxHp);
+  await page.reload(); await enterGame(page);
+  expect((await readSave(page)).flags).toContain('q_ferraluce_report');
+  await page.screenshot({ path: info.outputPath('ferraluce-offline.png') });
+  expect(errors).toEqual([]);
+  expect(failedRequests).toEqual([]);
+});
+
+
+test('illustrated atlas opens for the first time offline from the production cache', async ({ page, context }) => {
+  await page.goto('/');
+  await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  // Never open the panel online: its image must come from install-time precache.
+  await context.setOffline(true);
+  await page.reload();
+  await enterGame(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri la mappa di Veloria' }).click();
+  const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
+  await expect(atlas).toBeVisible();
+  await expect(atlas.locator('.region-map-location')).toContainText('Borgofonte');
+  expect(await page.evaluate(async () => {
+    const image = new Image();
+    image.src = '/assets/ui/veloria-region-atlas-v1.webp';
+    await image.decode();
+    return image.naturalWidth > 1000;
+  })).toBe(true);
+  await atlas.locator('.region-map-select').selectOption('ferraluce');
+  await expect(atlas.locator('.region-map-details h3')).toHaveText('Ferraluce');
+  await atlas.getByRole('button', { name: 'Chiudi ×' }).click();
+  await expect(atlas).toBeHidden();
 });

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
+import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
 
 // Long progression journeys exercise reduced motion; dedicated effect tests cover full animation.
 test.use({ reducedMotion: 'reduce' });
@@ -562,9 +563,14 @@ async function tapBattleCanvas(page: Page, xRatio: number, bottomOffset: number)
   await page.touchscreen.tap(box.x + box.width * xRatio, box.y + box.height - bottomOffset);
 }
 
-async function advanceBattleMessages(page: Page) {
+async function advanceBattleMessages(page: Page, stopAtCelebration = false) {
   for (let tap = 0; tap < 14; tap += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) return;
+    if (await page.locator('.battle-celebration').isVisible()) {
+      if (stopAtCelebration) return;
+      await page.getByRole('button', { name: 'Continua', exact: true }).click();
+      return;
+    }
     // The battle message button is centered; this coordinate falls between command columns when a menu is open.
     await tapBattleCanvas(page, 0.5, 132);
     await page.waitForTimeout(90);
@@ -602,7 +608,7 @@ test('E2E-01: mobile controls reach Elia, select one starter, and do not offer a
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeVisible();
-  await expect(page.locator('#pokedex-summary')).toContainText('1 di 20 specie del primo arco registrate');
+  await expect(page.locator('#pokedex-summary')).toContainText('1 viste · 1 catturate · 23 specie');
   await expect(page.locator('#pokedex-list')).toContainText('Charmander');
   await page.getByRole('button', { name: 'Chiudi il Pokédex' }).click();
   await expect(page.getByRole('dialog', { name: 'Pokédex' })).toBeHidden();
@@ -906,7 +912,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   expect(occurrences).toHaveLength(1);
 });
 
-test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her dialogue', async ({ page }) => {
+test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her dialogue', async ({ page }, testInfo) => {
   test.setTimeout(120_000);
   await chooseCharmander(page);
   await seedGymBadgeScenario(page);
@@ -930,6 +936,8 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
     await tapConfirm(page);
   }
   await expect(page.getByRole('button', { name: 'NON ORA', exact: true })).toBeVisible();
+  await expect(page.locator('#dialogue-text')).toContainText('2 Pokémon di livello 7–8');
+  await page.screenshot({ path: testInfo.outputPath('mira-preparation.png') });
   await page.getByRole('button', { name: 'NON ORA', exact: true }).click();
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
   expect((await readCurrentSave(page)).flags).not.toContain('trainer_gym01_mira_defeated');
@@ -945,8 +953,16 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
     await tapBattleCanvas(page, 0.25, 144);
     await tapBattleCanvas(page, 0.25, 140);
-    await advanceBattleMessages(page);
+    await advanceBattleMessages(page, true);
+    if (await page.locator('.battle-celebration').isVisible()) break;
   }
+  const celebration = page.getByRole('dialog', { name: 'Medaglia Aurora conquistata!' });
+  await expect(celebration).toBeVisible();
+  await expect(celebration).toContainText('+500 monete');
+  await expect(celebration).toContainText('Ti affido la Medaglia Aurora');
+  await expect(celebration.locator('.badge-emblem svg')).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('mira-medal-celebration.png') });
+  await celebration.getByRole('button', { name: 'Continua', exact: true }).click();
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
   await expect.poll(async () => (await readCurrentSave(page))?.badges?.filter((badge: string) => badge === 'badge_aurora').length).toBe(1);
   let save = await readCurrentSave(page);
@@ -959,6 +975,11 @@ test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her 
 
   await page.reload();
   await waitForWorldReady(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri le medaglie' }).click();
+  await expect(page.getByRole('dialog', { name: 'Le tue medaglie' })).toContainText('Medaglia Aurora');
+  await expect(page.locator('.badge-case-card .badge-emblem svg')).toBeVisible();
+  await page.keyboard.press('Escape');
   save = await readCurrentSave(page);
   expect(save.badges.filter((badge: string) => badge === 'badge_aurora')).toHaveLength(1);
   expect(save.flags).toContain('trainer_gym01_mira_defeated');
@@ -981,11 +1002,105 @@ test('R02: the Viale vista loads Brumalta and its sign explains the route ahead'
   await page.screenshot({ path: testInfo.outputPath('r02-brumalta-vista.png') });
   await walkToTile(page, 'alto', 1);
   await tapConfirm(page);
-  await expect(page.locator('#toast')).toContainText('Brumalta — città-parco');
+  await expect(page.locator('#toast')).toContainText(/Brumalta.*città-parco/);
+  await expect(page.locator('#toast')).toContainText('felci');
 });
 
-test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo seed quest persists', async ({ page }) => {
-  test.setTimeout(120_000);
+test('R04: the petal ascent reaches Petalora, services work, and Nila rewards only once', async ({page}, testInfo) => {
+  test.setTimeout(240_000);
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await chooseCharmander(page);
+  const species = JSON.parse(await readFile(new URL('../../content/battle/species.v1.json', import.meta.url), 'utf8')).species;
+  const moves = JSON.parse(await readFile(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
+  // Prepared party checks route integration and reward persistence, not natural battle balance.
+  const prepared = createBattleCreature({species, moves, speciesId: 5, level: 16, instanceId: 'petalora-party', moveIds: ['ember', 'scratch', 'growl', 'smokescreen']});
+  async function seed(hasBadge: boolean) {
+    await page.evaluate(({creature, hasBadge}) => new Promise<void>((resolve, reject) => {
+      const request = indexedDB.open('veloria-save', 1);
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const db = request.result, tx = db.transaction('saves', 'readwrite'), store = tx.objectStore('saves');
+        const get = store.get('main');
+        get.onsuccess = () => {
+          const save = get.result;
+          save.player = {...save.player, mapId: 'veloria/radicelmo', spawnPointId: 'from_r04', x: 18, y: 2, money: 500};
+          save.flags = [...new Set([...save.flags, 'q_research_sample_received','q_forest_signal_found','q_ada_helped','q_brumalta_visited','gym01_puzzle_solved','prologue_complete_seen', ...(hasBadge ? ['badge_aurora_awarded'] : [])])];
+          save.badges = hasBadge ? ['badge_aurora'] : [];
+          save.party = [{instanceId: creature.instanceId, speciesId: creature.speciesId, level: creature.level, experience: 0, hp: 1, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({id: slot.moveId, pp: slot.pp}))}];
+          store.put(save, 'main'); store.delete('checksum:main');
+        };
+        tx.oncomplete = () => {db.close(); resolve();};
+        tx.onerror = () => reject(tx.error);
+      };
+    }), {creature: prepared, hasBadge});
+    await page.reload(); await waitForWorldReady(page);
+  }
+  await seed(false);
+  await walkToTile(page, 'alto', 2);
+  expect((await readCurrentSave(page)).player.mapId).toBe('veloria/radicelmo');
+  await expect(page.locator('#toast')).toContainText('Medaglia Aurora');
+  await seed(true);
+  await walkToMapTile(page, 'radicelmo.tmj', 18, 0, 'veloria/r04_salita_petali');
+  await expect(page.locator('#current-location')).toHaveText('SALITA DEI PETALI');
+  expect((await readCurrentSave(page)).flags).not.toContain('q_radicelmo_greenhouse_complete');
+  for (const [x,y] of [[18,23],[7,23],[7,14],[30,14]]) await walkToMapTile(page, 'r04_salita_petali.tmj', x,y);
+  await page.screenshot({path: testInfo.outputPath('petal-ascent.png')});
+  await walkToMapTile(page, 'r04_salita_petali.tmj', 30, 0, 'veloria/petalora');
+  await expect(page.locator('#current-location')).toHaveText('PETALORA');
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('q_petalora_visited');
+  await page.reload(); await waitForWorldReady(page);
+  expect((await readCurrentSave(page)).flags).toContain('q_petalora_visited');
+  await walkToMapTile(page, 'petalora.tmj', 10, 9);
+  await walkToTile(page, 'alto', 1);
+  await tapConfirm(page);
+  await page.getByRole('button', {name:'RIPOSA', exact:true}).click();
+  await expect.poll(async () => (await readCurrentSave(page)).party.every((c:any)=>c.hp===c.maxHp)).toBe(true);
+  const beforeShop = await readCurrentSave(page);
+  await walkToMapTile(page, 'petalora.tmj', 27, 9);
+  await walkToTile(page, 'alto', 1);
+  await tapConfirm(page);
+  await page.getByRole('button', {name:/^Pozione · 200/}).click();
+  await expect.poll(async () => (await readCurrentSave(page)).player.money).toBe(beforeShop.player.money - 200);
+  expect((await readCurrentSave(page)).inventory.potion).toBe((beforeShop.inventory.potion ?? 0) + 1);
+  await page.screenshot({path: testInfo.outputPath('petalora-services.png')});
+  await walkToMapTile(page, 'petalora.tmj', 18, 27, 'veloria/r04_salita_petali');
+  await expect(page.locator('#current-location')).toHaveText('SALITA DEI PETALI');
+  await walkToMapTile(page, 'r04_salita_petali.tmj', 30,14);
+  await walkToMapTile(page, 'r04_salita_petali.tmj', 10,14);
+  await walkToTile(page, 'basso', 1);
+  await tapConfirm(page);
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Nila');
+  for(let tap=0;tap<8 && !(await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible());tap++) await tapConfirm(page);
+  const moneyBefore = (await readCurrentSave(page)).player.money;
+  await page.getByRole('button',{name:'SFIDA',exact:true}).click();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for(let turn=0;turn<12;turn++) {
+    if(await page.locator('.battle-celebration').isVisible())break;
+    await tapBattleCanvas(page,.25,144);
+    await tapBattleCanvas(page,.25,140);
+    await advanceBattleMessages(page,true);
+  }
+  const banner=page.locator('.battle-celebration');
+  await expect(banner).toBeVisible();
+  await expect(banner).toContainText('Nila');
+  await expect(banner).toContainText('+180 monete');
+  await banner.getByRole('button',{name:'Continua',exact:true}).click();
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('trainer_r04_nila_defeated');
+  expect((await readCurrentSave(page)).player.money).toBe(moneyBefore+180);
+  await page.reload(); await waitForWorldReady(page);
+  await walkToMapTile(page,'r04_salita_petali.tmj',10,14);
+  await walkToTile(page,'basso',1);
+  await tapConfirm(page);
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Nila');
+  for(let tap=0;tap<8 && await page.locator('#dialogue-box').isVisible();tap++)await tapConfirm(page);
+  await expect(page.getByRole('button',{name:'SFIDA',exact:true})).toBeHidden();
+  expect((await readCurrentSave(page)).player.money).toBe(moneyBefore+180);
+  expect(errors).toEqual([]);
+});
+
+test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo archive and greenhouse persist', async ({ page }, testInfo) => {
+  test.setTimeout(180_000);
   await chooseCharmander(page);
 
   // The visible Brumalta road remains closed until the persistent badge flag is awarded.
@@ -1012,12 +1127,20 @@ test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo seed quest 
   await page.getByRole('button', { name: 'Vai in alto' }).tap();
   await tapConfirm(page);
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_radicelmo_seed_found');
+  await expect.poll(async () => (await readCurrentSave(page))?.inventory['ancient-seed']).toBe(1);
+  await page.getByRole('button', { name: /^Apri zaino e dotazioni:/ }).click();
+  await expect(page.getByRole('dialog', { name: 'Zaino e dotazioni' })).toContainText('Seme ancestrale');
+  await page.keyboard.press('Escape');
+  await page.reload();
+  await waitForWorldReady(page);
+  expect((await readCurrentSave(page)).inventory['ancient-seed']).toBe(1);
 
   await walkToMapTile(page, 'r03_terrazze_muschio.tmj', 31, 6, 'veloria/radicelmo');
   await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({
     mapId: 'veloria/radicelmo', spawnPointId: 'from_r03', x: 1, y: 14,
   });
   const potionsBeforeReport = (await readCurrentSave(page)).inventory.potion ?? 0;
+  const moneyBeforeReport = (await readCurrentSave(page)).player.money;
 
   await walkToMapTile(page, 'radicelmo.tmj', 25, 13);
   await page.getByRole('button', { name: 'Vai in alto' }).tap();
@@ -1028,8 +1151,77 @@ test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo seed quest 
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_radicelmo_seed_archived');
   const completed = await readCurrentSave(page);
   expect(completed.inventory['archive-note']).toBe(1);
+  expect(completed.inventory['ancient-seed'] ?? 0).toBe(0);
+  expect(completed.player.money).toBe(moneyBeforeReport + 120);
   expect(completed.inventory.potion).toBe(potionsBeforeReport + 2);
   expect(completed.player.mapId).toBe('veloria/radicelmo');
+  await page.getByRole('button', { name: /^Apri zaino e dotazioni:/ }).click();
+  const bag = page.getByRole('dialog', { name: 'Zaino e dotazioni' });
+  await expect(bag).toContainText('Scheda dell’Archivio');
+  await expect(bag).not.toContainText('Seme ancestrale');
+  await page.keyboard.press('Escape');
+  await page.reload();
+  await waitForWorldReady(page);
+  await walkToMapTile(page, 'radicelmo.tmj', 25, 13);
+  await page.getByRole('button', { name: 'Vai in alto' }).tap();
+  await tapConfirm(page);
+  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await expect(page.locator('#dialogue-box')).toBeHidden();
+  const repeated = await readCurrentSave(page);
+  expect(repeated.player.money).toBe(completed.player.money);
+  expect(repeated.inventory).toEqual(completed.inventory);
+  expect(repeated.flags).toContain('q_radicelmo_seed_archived');
+  expect(repeated.flags).toContain('q_radicelmo_greenhouse_started');
+
+  async function examine(x: number, speaker: string) {
+    await walkToMapTile(page, 'radicelmo.tmj', x, 18);
+    await walkToTile(page, 'alto', 1);
+    await tapConfirm(page);
+    await expect(page.locator('#dialogue-box')).toBeVisible();
+    await expect(page.locator('#dialogue-speaker')).toHaveText(speaker);
+    for (let tap = 0; tap < 8 && await page.locator('#dialogue-box').isVisible(); tap++) await tapConfirm(page);
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+  }
+  // Wrong-order interactions explain the actual missing prerequisite and grant nothing.
+  await examine(28, 'Misuratore di luce');
+  expect((await readCurrentSave(page)).flags).not.toContain('q_radicelmo_greenhouse_lit');
+  await examine(25, 'Vaso del seme ancestrale');
+  expect((await readCurrentSave(page)).flags).not.toContain('q_radicelmo_seed_sprouted');
+  await examine(22, 'Regolatore dell’acqua');
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('q_radicelmo_greenhouse_watered');
+  await page.reload();
+  await waitForWorldReady(page);
+  expect((await readCurrentSave(page)).flags).toContain('q_radicelmo_greenhouse_watered');
+  await examine(28, 'Misuratore di luce');
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('q_radicelmo_greenhouse_lit');
+  await examine(25, 'Vaso del seme ancestrale');
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('q_radicelmo_seed_sprouted');
+  expect((await readCurrentSave(page)).player.money).toBe(completed.player.money);
+  await page.screenshot({path: testInfo.outputPath('greenhouse-portrait.png')});
+  await page.setViewportSize({width: 844, height: 390});
+  await page.evaluate(async () => {
+    for (let frame = 0; frame < 6; frame++) await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+  });
+  await page.screenshot({path: testInfo.outputPath('greenhouse-landscape.png')});
+  await page.setViewportSize({width: 390, height: 844});
+  await walkToMapTile(page, 'radicelmo.tmj', 25, 13);
+  await page.getByRole('button', {name: 'Vai in alto'}).tap();
+  await tapConfirm(page);
+  await expect(page.locator('#dialogue-speaker')).toHaveText('Custode Leda');
+  for (let tap = 0; tap < 8 && await page.locator('#dialogue-box').isVisible(); tap++) await tapConfirm(page);
+  await expect.poll(async () => (await readCurrentSave(page)).flags).toContain('q_radicelmo_greenhouse_complete');
+  const greenhouse = await readCurrentSave(page);
+  expect(greenhouse.player.money).toBe(completed.player.money + 180);
+  expect(greenhouse.inventory.potion).toBe(completed.inventory.potion + 2);
+  expect(greenhouse.inventory.antidote ?? 0).toBe((completed.inventory.antidote ?? 0) + 1);
+  await page.reload();
+  await waitForWorldReady(page);
+  await walkToMapTile(page, 'radicelmo.tmj', 25, 13);
+  await page.getByRole('button', {name: 'Vai in alto'}).tap();
+  await tapConfirm(page);
+  for (let tap = 0; tap < 8 && await page.locator('#dialogue-box').isVisible(); tap++) await tapConfirm(page);
+  expect((await readCurrentSave(page)).inventory).toEqual(greenhouse.inventory);
+  expect((await readCurrentSave(page)).player.money).toBe(greenhouse.player.money);
 });
 
 test('E2E-08: opening a v1 save migrates it without losing badges, party, box, or the original backup', async ({ page }) => {

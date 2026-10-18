@@ -2524,6 +2524,16 @@
               "name": "message",
               "type": "string",
               "value": "Palestra di Brumalta · segui i varchi nei sentieri per raggiungere Mira."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -2547,6 +2557,16 @@
               "name": "message",
               "type": "string",
               "value": "Una fioriera profumata delimita il percorso della sfida."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },
@@ -2570,6 +2590,16 @@
               "name": "message",
               "type": "string",
               "value": "Le aiuole indicano i passaggi del campo."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },

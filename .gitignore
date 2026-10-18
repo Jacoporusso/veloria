@@ -1,6 +1,7 @@
 node_modules/
 dist/
 coverage/
+.tmp/
 .vite/
 *.tsbuildinfo
 *.log
@@ -28,3 +29,6 @@ Desktop.ini
 
 # Natural progression playtest artifacts
 test-results-natural-prologue/
+
+# Local Playwright output directories (screenshots remain on disk)
+test-results-*/

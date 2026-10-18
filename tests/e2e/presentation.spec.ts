@@ -48,7 +48,7 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
       constructor() { super('fixture'); }
       preload() {
         preloadCreatureArt(this);
-        this.load.image('qa-forest', '/assets/battle/veloria-battle-forest-v1.png');
+        this.load.image('qa-forest', '/assets/battle/veloria-battle-forest-v1.webp');
       }
       create() {
         this.scene.start('battle', { state, moveCatalog: battleMoves, rules: veloriaBattleRules, arenaTextureKey: 'qa-forest', inventory: { potion: 2, 'poke-ball': 3 }, onComplete: () => undefined });
@@ -66,7 +66,33 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     expect(actors).toEqual([true, true]);
     await page.screenshot({ path: testInfo.outputPath(`battle-${width}x${height}.png`) });
   }
-  if (width !== 390) { expect(errors).toEqual([]); return; }
+  if (width !== 390) {
+    await page.keyboard.press('Enter', { delay: 40 });
+    await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
+    const overflow = await page.evaluate(() => {
+      const scene = (window as any).battleFixture.scene.getScene('battle');
+      const top = scene.scale.height - scene.commandHeight();
+      const gap = 7;
+      const cardHeight = Math.min(66, (scene.commandHeight() - 50 - gap) / 2);
+      return scene.ui.list.filter((child: any) => child.type === 'Text' && child.y >= top && !child.text.includes('INDIETRO') && !child.text.includes('DETTAGLI MOSSE'))
+        .filter((child: any) => {
+          const bounds = child.getBounds();
+          const row = Math.floor((bounds.top - top) / (cardHeight + gap));
+          return bounds.left < 14 || bounds.right > scene.scale.width - 14 || bounds.bottom > top + row * (cardHeight + gap) + cardHeight;
+        }).map((child: any) => child.text);
+    });
+    expect(overflow).toEqual([]);
+    const footer = await page.evaluate(() => {
+      const scene = (window as any).battleFixture.scene.getScene('battle');
+      const text = scene.ui.list.find((child: any) => child.type === 'Text' && child.text.includes('DETTAGLI MOSSE'));
+      const bounds = text.getBounds();
+      return { inside: bounds.left >= 14 && bounds.right <= innerWidth - 14 && bounds.bottom <= innerHeight, belowCards: bounds.top >= innerHeight - 47 };
+    });
+    expect(footer).toEqual({ inside: true, belowCards: true });
+    await page.screenshot({ path: testInfo.outputPath(`battle-moves-${width}x${height}.png`) });
+    expect(errors).toEqual([]);
+    return;
+  }
   await page.keyboard.press('ArrowDown', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);
   await page.keyboard.press('Enter', { delay: 40 });

@@ -17,13 +17,15 @@ test('creates all four level-5 starters with deterministic prototype stats and f
   const starters = [1, 4, 7, 25].map(speciesId => createBattleCreature({ species, moves, speciesId, level: 5, instanceId: `starter-${speciesId}` }));
   assert.deepEqual(starters.map(creature => creature.name), ['Bulbasaur', 'Charmander', 'Squirtle', 'Pikachu']);
   assert.deepEqual(starters.map(creature => creature.stats.maxHp), [19, 18, 19, 18]);
-  assert.deepEqual(starters[3].moves, [{ moveId: 'thunder-shock', pp: 30 }, { moveId: 'growl', pp: 40 }]);
+  assert.deepEqual(starters.map(creature => creature.moves.map(slot => slot.moveId)), [
+    ['tackle', 'growl'], ['scratch', 'growl'], ['tackle', 'tail-whip'], ['thunder-shock', 'growl', 'tail-whip'],
+  ]);
   assert.deepEqual(starters[0].types, ['grass', 'poison']);
 });
 
-test('all 20 registered species have valid default battle data', () => {
+test('all 31 registered species including urban species and starter evolutions have valid default battle data', () => {
   const entries = Object.values(species);
-  assert.equal(entries.length, 20);
+  assert.equal(entries.length, 31);
   for (const entry of entries) {
     const creature = createBattleCreature({
       species,
@@ -35,6 +37,20 @@ test('all 20 registered species have valid default battle data', () => {
     assert.equal(creature.speciesId, entry.speciesId);
     assert.ok(creature.moves.length > 0);
     assert.ok(creature.stats.maxHp > 0);
+  }
+});
+
+test('creation uses only canonical moves available at the requested level', () => {
+  const pidgey3 = createBattleCreature({ species, moves, speciesId: 16, level: 3, instanceId: 'pidgey-3' });
+  const pidgey9 = createBattleCreature({ species, moves, speciesId: 16, level: 9, instanceId: 'pidgey-9' });
+  const mareep5 = createBattleCreature({ species, moves, speciesId: 179, level: 5, instanceId: 'mareep-5' });
+  assert.deepEqual(pidgey3.moves.map(slot => slot.moveId), ['tackle']);
+  assert.deepEqual(pidgey9.moves.map(slot => slot.moveId), ['tackle', 'sand-attack', 'gust']);
+  assert.deepEqual(mareep5.moves.map(slot => slot.moveId), ['tackle', 'growl']);
+  for (const creature of [pidgey3, pidgey9, mareep5]) {
+    const legal = new Set((species[String(creature.speciesId)] as typeof species[string] & {officialLearnset: {level:number;moveId:string}[]}).officialLearnset
+      .filter(entry => entry.level <= creature.level).map(entry => entry.moveId));
+    assert.ok(creature.moves.every(slot => legal.has(slot.moveId)));
   }
 });
 
@@ -50,8 +66,11 @@ test('night encounter species resolve through the battle registry', () => {
   assert.deepEqual(night.map(entry => species[String(entry.speciesId)].name), ['Hoothoot', 'Spinarak', 'Rattata']);
   const hoothoot = createBattleCreature({ species, moves, speciesId: 163, level: 3, instanceId: 'wild-hoothoot' });
   const spinarak = createBattleCreature({ species, moves, speciesId: 167, level: 2, instanceId: 'wild-spinarak' });
-  assert.deepEqual(hoothoot.moves.map(move => move.moveId), ['tackle', 'gust']);
-  assert.deepEqual(spinarak.moves.map(move => move.moveId), ['poison-sting', 'tackle']);
+  for (const creature of [hoothoot, spinarak]) {
+    const legal = new Set((species[String(creature.speciesId)] as typeof species[string] & {officialLearnset: {level:number;moveId:string}[]}).officialLearnset
+      .filter(entry => entry.level <= creature.level).map(entry => entry.moveId));
+    assert.ok(creature.moves.every(slot => legal.has(slot.moveId)));
+  }
 });
 
 test('rehydrates a save without changing current HP, experience, or PP', () => {
@@ -114,8 +133,42 @@ test('rejects bad IDs, levels, unknown moves, and invalid save PP', () => {
 
 test('versioned move values form a usable, stable catalog without a global chart', () => {
   const catalog = moves as Record<string, MoveDefinition>;
+  assert.equal(movesData.version, 10);
   assert.equal(catalog['quick-attack'].priority, 1);
   assert.equal(catalog['thunder-shock'].inflictedStatus, 'paralysis');
-  assert.equal(Object.keys(catalog).length, 12);
+  assert.deepEqual(catalog['string-shot'].statChanges, [{ target: 'opponent', stat: 'speed', stages: -1 }]);
+  assert.equal(catalog['tackle'].power, 35);
+  assert.equal(catalog.scratch.power, 40);
+  assert.notEqual(catalog.tackle.power, catalog.scratch.power);
+  assert.deepEqual([catalog.ember.inflictedStatus, catalog.ember.statusChance], ['burn', 10]);
+  assert.equal(catalog['water-gun'].power, 40);
+  assert.equal(catalog['vine-whip'].power, 35);
+  assert.notEqual(catalog.ember.power, catalog['vine-whip'].power);
+  assert.equal(catalog.tackle.accuracy, 95);
+  assert.equal(Object.keys(catalog).length, 44);
   assert.equal('typeChart' in movesData, false);
+});
+
+test('legacy PP above the sourced maximum is clamped without replacing saved moves', () => {
+  const saved: CreatureSave = {
+    instanceId: 'legacy-vine-whip', speciesId: 1, level: 9, experience: 8, hp: 19, maxHp: 24,
+    moves: [{ id: 'vine-whip', pp: 25 }],
+  };
+  const creature = createBattleCreatureFromSave(saved, { species, moves });
+  assert.deepEqual(creature.moves, [{ moveId: 'vine-whip', pp: 15 }]);
+  assert.equal(creature.hp, 19);
+  assert.equal(creature.experience, 8);
+  assert.equal(saved.moves[0].pp, 25);
+});
+
+test('expanded sourced moves preserve HGSS values and real learning boundaries', () => {
+  assert.deepEqual([moves['leech-life'].power, moves['leech-life'].maxPp, moves['leech-life'].drainPercent], [20, 15, 50]);
+  assert.deepEqual([moves['mud-shot'].power, moves['mud-shot'].statChangeChance], [55, 100]);
+  assert.deepEqual(moves['mud-shot'].statChanges, [{ target: 'opponent', stat: 'speed', stages: -1 }]);
+  for (const [id, moveId, level] of [[167, 'leech-life', 12], [194, 'mud-shot', 9], [161, 'fury-swipes', 13], [60, 'double-slap', 15], [12, 'stun-spore', 12], [16, 'sand-attack', 5], [4, 'smokescreen', 10], [43, 'sweet-scent', 5], [1, 'leech-seed', 7]] as const) {
+    const before = createBattleCreature({ species, moves, speciesId: id, level: level - 1, instanceId: `before-${id}` });
+    const after = createBattleCreature({ species, moves, speciesId: id, level, instanceId: `after-${id}` });
+    assert.equal(before.moves.some(slot => slot.moveId === moveId), false);
+    assert.ok(after.moves.some(slot => slot.moveId === moveId && slot.pp === moves[moveId].maxPp));
+  }
 });

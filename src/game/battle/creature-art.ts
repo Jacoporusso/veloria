@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import starterArtwork from '../../../assets/pokeapi-starter-artwork-v1.json';
 import routeArtwork from '../../../assets/pokeapi-route-artwork-v1.json';
+import evolutionArtwork from '../../../assets/pokeapi-evolution-artwork-v1.json';
+import urbanArtwork from '../../../assets/pokeapi-urban-artwork-v1.json';
 import { publicAssetUrl } from '../../core/assets/index.ts';
 
 /** Stable species IDs map to atlas cells; no art lookup depends on a translated name. */
@@ -11,23 +13,36 @@ export const CREATURE_ART_GROUPS = [
   [14, 15, 167, 179],
   [43, 60, 69, 194],
 ] as const;
-const standaloneArt = new Map([...starterArtwork.artworks, ...routeArtwork.artworks].map(art => [art.speciesId, art]));
+const standaloneArt = new Map([...starterArtwork.artworks, ...routeArtwork.artworks, ...evolutionArtwork.artworks, ...urbanArtwork.artworks].map(art => [art.speciesId, art]));
 
 // Only accepted generation outputs enter the runtime. Missing art is explicit in the UI.
 const AVAILABLE_GROUPS = new Set([2, 3]);
 
 export function creatureArtKey(speciesId: number): string | undefined {
-  if (standaloneArt.has(speciesId)) return standaloneArt.get(speciesId)!.path.split('/').pop()!.replace('.png', '');
+  if (standaloneArt.has(speciesId)) return standaloneArt.get(speciesId)!.path.split('/').pop()!.replace('.webp', '');
   const group = CREATURE_ART_GROUPS.findIndex(ids => (ids as readonly number[]).includes(speciesId));
   return !AVAILABLE_GROUPS.has(group) ? undefined : `veloria-creatures-${group + 1}-v1`;
 }
 
-export function preloadCreatureArt(scene: Phaser.Scene): void {
-  for (const art of standaloneArt.values()) scene.load.image(creatureArtKey(art.speciesId)!, publicAssetUrl(art.path, import.meta.env.BASE_URL));
+export function preloadCreatureArt(scene: Phaser.Scene, speciesIds?: readonly number[]): void {
+  const requestedKeys = speciesIds
+    ? new Set(speciesIds.map(creatureArtKey).filter((key): key is string => Boolean(key)))
+    : undefined;
+  const requestedStandalone = new Set([...standaloneArt.values()]
+    .filter(art => !requestedKeys || requestedKeys.has(creatureArtKey(art.speciesId)!))
+    .map(art => creatureArtKey(art.speciesId)!));
+  for (const art of standaloneArt.values()) {
+    const key = creatureArtKey(art.speciesId)!;
+    if (requestedStandalone.has(key) && !scene.textures.exists(key)) {
+      scene.load.image(key, publicAssetUrl(art.path, import.meta.env.BASE_URL));
+    }
+  }
   CREATURE_ART_GROUPS.forEach((_, index) => {
     if (!AVAILABLE_GROUPS.has(index)) return;
     const key = `veloria-creatures-${index + 1}-v1`;
-    scene.load.image(key, publicAssetUrl(`assets/creatures/${key}.png`, import.meta.env.BASE_URL));
+    if ((!requestedKeys || requestedKeys.has(key)) && !scene.textures.exists(key)) {
+      scene.load.image(key, publicAssetUrl(`assets/creatures/${key}.webp`, import.meta.env.BASE_URL));
+    }
   });
 }
 
@@ -44,7 +59,7 @@ export function createCreaturePortrait(speciesId: number): HTMLElement {
     portrait.style.backgroundRepeat = 'no-repeat';
   } else if (AVAILABLE_GROUPS.has(group)) {
     const index = (CREATURE_ART_GROUPS[group] as readonly number[]).indexOf(speciesId);
-    portrait.style.backgroundImage = `url("${publicAssetUrl(`assets/creatures/veloria-creatures-${group + 1}-v1.png`, import.meta.env.BASE_URL)}")`;
+    portrait.style.backgroundImage = `url("${publicAssetUrl(`assets/creatures/veloria-creatures-${group + 1}-v1.webp`, import.meta.env.BASE_URL)}")`;
     portrait.style.backgroundPosition = `${(index % 2) * 100}% ${Math.floor(index / 2) * 100}%`;
   } else {
     portrait.classList.add('creature-portrait-pending');

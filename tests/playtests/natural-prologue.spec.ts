@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 // The harness exposes only an observation handle. All actions below use DOM/touch/keyboard.
 async function observe(page: Page): Promise<any> {
@@ -11,8 +11,9 @@ async function observe(page: Page): Promise<any> {
     return { mapId: world.map.metadata.id, x: world.playerTile.x, y: world.playerTile.y,
       moving: world.moving, loading: world.mapTransitionLoading, save: world.save,
       battle: battle ? { mode: battle.mode, turn: battle.state.turn, outcome: battle.state.outcome,
-        id: battle.state.battleId, events: battle.eventLog, type: battle.state.battleType, player: battle.state.player, opponent: battle.state.opponent,
-        inventory: battle.remainingInventory, moves: battle.moveCatalog } : null };
+        id: battle.state.battleId, rulesetId: battle.state.rulesetId, events: battle.eventLog, type: battle.state.battleType, player: battle.state.player, opponent: battle.state.opponent,
+        inventory: battle.remainingInventory, moves: battle.moveCatalog,
+        forecasts: Object.fromEntries(battle.state.player.creatures[battle.state.player.activeIndex].moves.map((slot: any) => [slot.moveId, battle.moveForecast(battle.moveCatalog[slot.moveId])])) } : null };
   });
 }
 const directions = [[0,-1,'Vai in alto'],[1,0,'Vai a destra'],[0,1,'Vai in basso'],[-1,0,'Vai a sinistra']] as const;
@@ -20,6 +21,10 @@ const directions = [[0,-1,'Vai in alto'],[1,0,'Vai a destra'],[0,1,'Vai in basso
 test('fresh trainer completes the prologue through real game controls', async ({ page }, testInfo) => {
   const report: any[] = [];
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
+  const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
+  const continueRadicelmo = process.env.PLAYTEST_CONTINUE_RADICELMO === '1';
+  const gym = JSON.parse(await readFile(new URL('../../content/trainers/gym01_mira.trainer.json', import.meta.url), 'utf8'));
+  const preparationLevel = Math.max(...gym.team.map((member: { level: number }) => member.level));
   const observedBattles = new Set<string>();
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -36,7 +41,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
 
   async function record(label: string) {
     const state = await observe(page);
-    const row = { label, mapId: state.mapId, x:state.x,y:state.y,
+    const row = { label, contentVersion: state.save.contentVersion, mapId: state.mapId, x:state.x,y:state.y,
       party: state.save.party, badges: state.save.badges, flags: state.save.flags, inventory:state.save.inventory };
     report.push(row); console.log(label, JSON.stringify(row));
   }
@@ -46,7 +51,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
       if(!battle) return;
       if (battle.outcome.kind !== 'ongoing' && !observedBattles.has(battle.id)) {
         observedBattles.add(battle.id);
-        report.push({ label: 'Battle result', id: battle.id, turn: battle.turn, outcome: battle.outcome, player: battle.player, opponent: battle.opponent, events: battle.events });
+        report.push({ label: 'Battle result', id: battle.id, rulesetId: battle.rulesetId, turn: battle.turn, outcome: battle.outcome, player: battle.player, opponent: battle.opponent, events: battle.events });
       }
       if(battle.mode==='message'||battle.mode==='party') {
         await page.keyboard.press('Enter',{delay:40}); continue;
@@ -54,7 +59,9 @@ test('fresh trainer completes the prologue through real game controls', async ({
       if(battle.mode!=='menu') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
-      if(battle.type==='wild' && state.save.party.length===1 && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
+      const upgradeCompanion = prepareGym && state.mapId === 'veloria/r02_viale_fronde' && target.level >= 5
+        && state.save.party.length < 3 && state.save.party.slice(1).every((member: any) => member.level < 5);
+      if(battle.type==='wild' && (state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await page.keyboard.press('ArrowDown',{delay:40});
         await page.keyboard.press('ArrowRight',{delay:40});
         await page.keyboard.press('Enter',{delay:40});
@@ -63,10 +70,24 @@ test('fresh trainer completes the prologue through real game controls', async ({
         await page.keyboard.press('Enter',{delay:40});
       } else {
         await page.keyboard.press('Enter',{delay:40});
-        // Choose the strongest visible power/type option; no pending opponent command is consulted.
+        // Use visible setup effects once, then damage. Never inspect the pending opponent command.
         const slots = own.moves.map((slot: any, index: number) => ({ index, pp: slot.pp, move: battle.moves[slot.moveId] }));
-        const preferred = slots.filter((slot: any) => slot.pp > 0 && slot.move?.power > 0)
-          .sort((a: any, b: any) => b.move.power * (own.types.includes(b.move.type) ? 1.5 : 1) - a.move.power * (own.types.includes(a.move.type) ? 1.5 : 1))[0];
+        const displayedScore = (slot: any) => {
+          const forecast = battle.forecasts[slot.move.id];
+          return forecast ? (forecast.minimum + forecast.maximum) / 2 * forecast.accuracy / 100 : 0;
+        };
+        const damageOption = slots.filter((slot: any) => slot.pp > 0 && slot.move?.power > 0)
+          .sort((a: any, b: any) => displayedScore(b) - displayedScore(a))[0];
+        const usefulSetup = prepareGym && battle.type === 'trainer' && own.hp > own.stats.maxHp / 2 && target.hp > target.stats.maxHp / 2
+          ? slots.find((slot: any) => slot.pp > 0 && slot.move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass'))
+            ?? slots.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status'
+              && slot.move.statChanges?.some((effect: any) => effect.target === 'opponent' && effect.stat === 'attack' && effect.stages < 0)
+              && (target.statStages?.attack ?? 0) === 0)
+            ?? slots.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status' && damageOption?.move.category === 'physical'
+              && slot.move.statChanges?.some((effect: any) => effect.target === 'opponent' && effect.stat === 'defense' && effect.stages < 0)
+              && (target.statStages?.defense ?? 0) >= 0)
+          : undefined;
+        const preferred = usefulSetup ?? damageOption;
         if (preferred) {
           const enabled = slots.filter((slot: any) => slot.pp > 0);
           const first = enabled[0].index;
@@ -150,6 +171,31 @@ test('fresh trainer completes the prologue through real game controls', async ({
     await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_ada_helped');
     await walk(29,10);await walk(27,9);await record('Brumalta reached naturally');
     await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
+    if (prepareGym && (await observe(page)).save.party[0].level < preparationLevel) {
+      await walk(0,12); // Return to the Viale delle Fronde through the real city exit.
+      await walk(6,7);
+      for (let step=0;step<160&&(await observe(page)).save.party[0].level<preparationLevel;step++) {
+        await walk(6,step%2===0?6:7);
+        if ((await observe(page)).save.party[0].hp === 0) {
+          await walk(27,9);
+          await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
+          await walk(0,12);await walk(6,7);
+        }
+      }
+      expect((await observe(page)).save.party[0].level, 'Preparation uses real wild encounters, not injected XP').toBeGreaterThanOrEqual(preparationLevel);
+      await record('Natural preparation in R02');
+      await walk(27,9);
+      await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
+    }
+    if (prepareGym) {
+      for (let purchase=0;purchase<2;purchase++) {
+        const current = (await observe(page)).save;
+        if ((current.inventory.potion ?? 0) >= 2 || current.player.money < 200) break;
+        await interact(6,19);
+        await page.getByRole('button',{name:/^Pozione ·/}).click();await settle();
+      }
+      await record('Supplies purchased before Mira');
+    }
     await walk(28,7);
     await walk(13,14);await walk(8,10);await walk(18,6);
     await challenge(14,2,'Mira battle completed');
@@ -169,11 +215,39 @@ test('fresh trainer completes the prologue through real game controls', async ({
     expect((await observe(page)).save.party[0].instanceId).toBe(originalId);
     expect((await observe(page)).save.party).toEqual(victoryParty);
     expect((await observe(page)).save.badges).toContain('badge_aurora');
+    if (continueRadicelmo) {
+      await walk(13,19); // Leave the gym through the actual southern doorway.
+      await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
+      await walk(35,12);
+      expect((await observe(page)).mapId).toBe('veloria/r03_terrazze_muschio');
+      await interact(16,10);
+      expect((await observe(page)).save.inventory['ancient-seed']).toBe(1);
+      await record('Ancient seed collected naturally after Mira');
+      await walk(31,6);
+      expect((await observe(page)).mapId).toBe('veloria/radicelmo');
+      const beforeDelivery = (await observe(page)).save;
+      await interact(25,11);
+      const archived = (await observe(page)).save;
+      expect(archived.flags).toContain('q_radicelmo_seed_archived');
+      expect(archived.inventory['ancient-seed'] ?? 0).toBe(0);
+      expect(archived.inventory['archive-note']).toBe(1);
+      expect(archived.inventory.potion).toBe((beforeDelivery.inventory.potion ?? 0) + 2);
+      expect(archived.player.money).toBe(beforeDelivery.player.money + 120);
+      await record('Radicelmo archive completed naturally');
+      await page.screenshot({path:testInfo.outputPath('natural-radicelmo-archive.png')});
+      await page.getByRole('button',{name:'Apri menu di gioco'}).click();
+      await page.getByRole('button',{name:'Salva e torna al titolo'}).click();
+      await page.getByRole('button',{name:'Continua partita'}).click();
+      await expect.poll(async()=>Boolean(await observe(page))).toBe(true);
+      expect((await observe(page)).save.inventory).toEqual(archived.inventory);
+      expect((await observe(page)).save.flags).toContain('q_radicelmo_seed_archived');
+      expect((await observe(page)).mapId).toBe('veloria/radicelmo');
+    }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

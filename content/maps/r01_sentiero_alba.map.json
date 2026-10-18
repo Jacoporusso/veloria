@@ -8,8 +8,8 @@
   "renderAssets": [
     {
       "kind": "tileset",
-      "key": "veloria-ground-hd-v2",
-      "path": "assets/tilesets/veloria-ground-hd-v2.png",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
       "tiledName": "veloria_terrain",
       "tileWidth": 254,
       "tileHeight": 510
@@ -17,17 +17,34 @@
     {
       "kind": "image",
       "key": "veloria-canopy-v2",
-      "path": "assets/sprites/veloria-canopy-v2.png"
+      "path": "assets/sprites/veloria-canopy-v2.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     },
     {
       "kind": "image",
       "key": "veloria-battle-forest-v1",
-      "path": "assets/battle/veloria-battle-forest-v1.png"
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
     },
     {
       "kind": "image",
       "key": "veloria-npcs-v2",
-      "path": "assets/sprites/veloria-npcs-v2.png"
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "ambientEffects": [

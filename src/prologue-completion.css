@@ -56,36 +56,10 @@
   color: #e9f8ff;
 }
 
-.prologue-completion__medal-icon {
-  position: relative;
-  display: block;
+.prologue-completion__medal .badge-emblem {
   width: 70px;
   height: 70px;
-  border: 1px solid #d8fcf18c;
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 28%, #e0fff2, #8ce2cf 30%, #7db9d7 63%, #a8a3ea);
-  box-shadow: 0 0 34px #a5f1dc54, inset 0 2px 8px #ffffff80;
-}
-
-.prologue-completion__medal-icon::before {
-  position: absolute;
-  inset: 17px;
-  border: 1px solid #ffffffaa;
-  border-radius: 50%;
-  background: linear-gradient(140deg, #c0ffe5, #a4d7ff 56%, #d4c5ff);
-  content: '';
-}
-
-.prologue-completion__medal-icon::after {
-  position: absolute;
-  top: 21px;
-  left: 30px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 12px 4px #fff;
-  content: '';
+  margin: 0;
 }
 
 .prologue-completion__medal-label { font-size: 13px; font-weight: 650; letter-spacing: .04em; }
@@ -155,9 +129,7 @@
   .prologue-completion { place-items: start center; }
   .prologue-completion__panel { padding-block: 22px; }
   .prologue-completion__medal { margin-block: 16px 10px; }
-  .prologue-completion__medal-icon { width: 56px; height: 56px; }
-  .prologue-completion__medal-icon::before { inset: 13px; }
-  .prologue-completion__medal-icon::after { top: 16px; left: 24px; }
+  .prologue-completion__medal .badge-emblem { width: 56px; height: 56px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

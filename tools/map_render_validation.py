@@ -72,6 +72,26 @@ def validate_map_render_assets(metadata, tiled, tiled_path: Path, public_dir: Pa
         if tiled_set.get("tilewidth") != asset["tileWidth"] or tiled_set.get("tileheight") != asset["tileHeight"]:
             raise AssertionError(f"Tiled tile size does not match render asset {asset['key']} in {metadata['id']}")
 
+    terrain_base = metadata.get("terrainBase")
+    if terrain_base is not None:
+        if not isinstance(terrain_base, dict):
+            raise AssertionError(f"Malformed terrainBase in {metadata['id']}")
+        asset_key = terrain_base.get("assetKey")
+        tileset_name = terrain_base.get("tilesetName")
+        tile_index = terrain_base.get("tileIndex")
+        if (not isinstance(asset_key, str) or asset_key not in assets_by_key or assets_by_key[asset_key].get("kind") != "image" or
+                not isinstance(tileset_name, str) or tileset_name not in tiled_tilesets or
+                not isinstance(tile_index, int) or tile_index < 0):
+            raise AssertionError(f"terrainBase must reference an image and a local Tiled tile in {metadata['id']}")
+        ground_layer = next((layer for layer in tiled.get("layers", []) if layer.get("name") == "ground"), None)
+        ground_data = ground_layer.get("data") if isinstance(ground_layer, dict) else None
+        if not isinstance(ground_data, list):
+            raise AssertionError(f"terrainBase requires a finite ground layer in {metadata['id']}")
+        expected_gid = tiled_tilesets[tileset_name].get("firstgid", 1) + tile_index
+        ground_gids = {int(gid) & 0x1FFFFFFF for gid in ground_data if gid}
+        if ground_gids - {expected_gid}:
+            raise AssertionError(f"terrainBase cannot replace mixed ground materials in {metadata['id']}: {sorted(ground_gids)}")
+
     for layer in tiled.get("layers", []):
         if layer.get("name") != "decorations":
             continue
@@ -88,4 +108,25 @@ def validate_map_render_assets(metadata, tiled, tiled_path: Path, public_dir: Pa
             if any(not isinstance(obj.get(dimension), (int, float)) or obj[dimension] <= 0
                    for dimension in ("width", "height")):
                 raise AssertionError(f"Scenery image has invalid display bounds in {metadata['id']}: {obj.get('name')}")
+
+    for layer in tiled.get("layers", []):
+        if layer.get("name") != "characters":
+            continue
+        for obj in layer.get("objects", []):
+            raw_properties = obj.get("properties", [])
+            properties = ({item.get("name"): item.get("value") for item in raw_properties}
+                          if isinstance(raw_properties, list) else raw_properties)
+            if not isinstance(properties, dict) or properties.get("kind") != "npc":
+                continue
+            sprite_key = properties.get("sprite")
+            sprite_asset = assets_by_key.get(sprite_key)
+            if not sprite_asset or sprite_asset.get("kind") != "image":
+                raise AssertionError(f"NPC references an undeclared image asset in {metadata['id']}: {obj.get('name')} -> {sprite_key}")
+            frame = properties.get("spriteFrame", 0)
+            atlas = sprite_asset.get("atlas")
+            if atlas is not None and (not isinstance(atlas, dict) or type(atlas.get("columns")) is not int or
+                                      type(atlas.get("rows")) is not int or atlas["columns"] < 1 or atlas["rows"] < 1):
+                raise AssertionError(f"NPC image has malformed atlas metadata in {metadata['id']}: {sprite_key}")
+            if type(frame) is not int or frame < 0 or (atlas is not None and frame >= atlas["columns"] * atlas["rows"]) or (atlas is None and frame != 0):
+                raise AssertionError(f"NPC references an invalid sprite frame in {metadata['id']}: {obj.get('name')} -> {frame}")
     return assets_by_key

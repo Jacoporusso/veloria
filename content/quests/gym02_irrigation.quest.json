@@ -1,0 +1,41 @@
+{
+  "id": "veloria/q_gym02_irrigation",
+  "version": 1,
+  "displayName": "L’acqua tra i ciliegi",
+  "steps": [
+    {
+      "id": "source",
+      "trigger": "gym02/irrigation/source",
+      "setFlag": "gym02_water_source_open",
+      "requiresFlags": [
+        "q_petalora_visited"
+      ]
+    },
+    {
+      "id": "west",
+      "trigger": "gym02/irrigation/west",
+      "setFlag": "gym02_water_west_open",
+      "requiresFlags": [
+        "gym02_water_source_open"
+      ]
+    },
+    {
+      "id": "east",
+      "trigger": "gym02/irrigation/east",
+      "setFlag": "gym02_water_east_open",
+      "requiresFlags": [
+        "gym02_water_west_open"
+      ]
+    },
+    {
+      "id": "bloom",
+      "trigger": "gym02/irrigation/bloom",
+      "setFlag": "gym02_irrigation_solved",
+      "requiresFlags": [
+        "gym02_water_east_open"
+      ]
+    }
+  ],
+  "completionFlag": "gym02_irrigation_solved",
+  "reward": {}
+}

@@ -1,6 +1,6 @@
 import { hasUsableBattleMove } from './emergency-move.ts';
 import { effectivenessFor, type BattleRules } from './rules.ts';
-import { effectiveStat } from './stat-stages.ts';
+import { effectiveStat, effectiveMoveAccuracy } from './stat-stages.ts';
 import type { MoveCatalog } from './engine.ts';
 import type { BattleCommand, BattleCreature, BattleState, MoveDefinition } from './types.ts';
 
@@ -8,6 +8,8 @@ export interface OpponentPolicy {
   readonly id: string;
   readonly statusEveryTurns: number;
   readonly maxSetupStage: number;
+  /** Optional attempt limit per support move, using its spent PP as battle history. */
+  readonly maxStatusUsesPerMove?: number;
   readonly damageSelection: 'best' | 'cycle';
 }
 
@@ -17,13 +19,17 @@ function hasDamageCategory(creature: BattleCreature, catalog: MoveCatalog, categ
 
 /** Ranking utility, not a damage prediction: no RNG, HP changes or player-command inspection. */
 function attackUtility(user: BattleCreature, target: BattleCreature, move: MoveDefinition, rules: BattleRules): number {
+  if (move.category !== 'status' && move.fixedDamage !== undefined) {
+    return effectivenessFor(target.types, move.type, rules.typeChart) === 0 ? 0
+      : move.fixedDamage * effectiveMoveAccuracy(user, target, move) / 100;
+  }
   if (move.category === 'status' || move.power <= 0) return 0;
   const physical = move.category === 'physical';
   const attack = effectiveStat(user, physical ? 'attack' : 'specialAttack');
   const defense = effectiveStat(target, physical ? 'defense' : 'specialDefense');
   const burn = physical && user.status?.status === 'burn' ? 0.5 : 1;
   return move.power * attack / defense * burn * (user.types.includes(move.type) ? 1.5 : 1)
-    * effectivenessFor(target.types, move.type, rules.typeChart) * move.accuracy / 100;
+    * effectivenessFor(target.types, move.type, rules.typeChart) * effectiveMoveAccuracy(user, target, move) / 100;
 }
 
 function setupUtility(user: BattleCreature, target: BattleCreature, move: MoveDefinition, catalog: MoveCatalog, policy: OpponentPolicy): number {
@@ -40,9 +46,10 @@ function setupUtility(user: BattleCreature, target: BattleCreature, move: MoveDe
     const special = effect.stat === 'specialAttack' || effect.stat === 'specialDefense';
     const attacker = effect.stat === 'attack' || effect.stat === 'specialAttack' ? recipient : effect.target === 'self' ? target : user;
     if ((physical || special) && !hasDamageCategory(attacker, catalog, physical ? 'physical' : 'special')) continue;
-    utility += Math.abs(effect.stages) * move.accuracy / 100;
+    utility += Math.abs(effect.stages) * effectiveMoveAccuracy(user, target, move) / 100;
   }
   if (move.inflictedStatus && !target.status && !move.statChanges?.length) utility += (move.statusChance ?? 100) / 100;
+  if (move.leechSeedFraction && !target.leechSeed && !target.types.includes('grass')) utility += effectiveMoveAccuracy(user, target, move) / 100;
   return utility;
 }
 
@@ -55,8 +62,10 @@ export function chooseOpponentCommand(state: BattleState, catalog: MoveCatalog, 
   const options = user.moves.flatMap((slot, index) => {
     const move = catalog[slot.moveId];
     if (slot.pp <= 0 || !move) return [];
-    const setup = setupUtility(user, target, move, catalog, policy);
-    const statusImmune = move.inflictedStatus && target.types.some(type => rules.statusImmunities[type]?.includes(move.inflictedStatus!));
+    const setupAllowed = policy.maxStatusUsesPerMove === undefined || move.maxPp - slot.pp < policy.maxStatusUsesPerMove;
+    const setup = setupAllowed ? setupUtility(user, target, move, catalog, policy) : 0;
+    const statusImmune = (move.inflictedStatus && target.types.some(type => rules.statusImmunities[type]?.includes(move.inflictedStatus!))) ||
+      (move.category === 'status' && move.statusAffectedByTypeImmunity && effectivenessFor(target.types, move.type, rules.typeChart) === 0);
     return [{ index, move, attack: attackUtility(user, target, move, rules), setup: statusImmune ? 0 : setup }];
   });
   if (!options.length) {
@@ -69,6 +78,6 @@ export function chooseOpponentCommand(state: BattleState, catalog: MoveCatalog, 
   let chosen = useSetup && setup.length ? setup[0] : undefined;
   if (!chosen && attacks.length) chosen = policy.damageSelection === 'cycle'
     ? [...attacks].sort((a, b) => a.index - b.index)[state.turn % attacks.length] : attacks[0];
-  chosen ??= setup[0] ?? options[0];
+  chosen ??= setup[0] ?? options.find(option => option.move.category !== 'status') ?? options[0];
   return { kind: 'useMove', moveSlot: chosen.index };
 }

@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_gym03_lines",
+  "version": 1,
+  "displayName": "Le tre linee di Vetracielo",
+  "steps": [
+    {
+      "id": "gardens",
+      "trigger": "gym03/line/gardens",
+      "setFlag": "gym03_line_gardens_active",
+      "requiresFlags": [
+        "q_vetracielo_orientation"
+      ]
+    },
+    {
+      "id": "glass",
+      "trigger": "gym03/line/glass",
+      "setFlag": "gym03_line_glass_active",
+      "requiresFlags": [
+        "gym03_line_gardens_active"
+      ]
+    },
+    {
+      "id": "sky",
+      "trigger": "gym03/line/sky",
+      "setFlag": "gym03_lines_connected",
+      "requiresFlags": [
+        "gym03_line_glass_active"
+      ]
+    }
+  ],
+  "completionFlag": "gym03_lines_connected",
+  "reward": {}
+}

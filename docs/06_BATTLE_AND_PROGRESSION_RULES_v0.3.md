@@ -1,4 +1,8 @@
+> Decisione progetto 17/10/2026: la retrocompatibilità dei salvataggi del prototipo non è richiesta. Non aggiungere recuperi o migrazioni per conservare dati di cataloghi precedenti; i test di gioco usano dati correnti.
+
 # Veloria — Battle engine e progressione (decision log v0.3)
+
+> Regola vigente dal contenuto 0.3.46: dati e apprendimenti delle mosse provengono da PokéAPI, gruppo HeartGold/SoulSilver. Le precedenti tarature manuali sono superate; gli effetti non ancora supportati restano esplicitamente incompleti.
 
 ## 1. Obiettivo
 
@@ -94,8 +98,101 @@ Dopo un pareggio con tutta la squadra KO si applica lo stesso soccorso del proto
 
 ## 12. Prime mosse apprese e calibrazione — prototipo v5
 
-Il learnset locale content/battle/level-up-moves.v1.json assegna al livello 6 Frustata a Bulbasaur, Braciere a Charmander, Pistolacqua a Squirtle e Attacco Rapido a Pikachu. Sono scelte curate per il primo capitolo, non un learnset storico canonico. I PP massimi provengono dal catalogo mosse; potenza e categoria restano scelte esplicite di prototipo.
+Il learnset locale `content/battle/level-up-moves.v1.json` è generato dai dati PokéAPI HeartGold/SoulSilver. Fra le mosse supportate: Bulbasaur apprende Frustata al 9, Charmander Braciere al 7, Squirtle Bolla al 7 e Pistolacqua al 13, Pikachu Attacco Rapido al 13. I livelli 6 uniformi del precedente prototipo sono rimossi.
 
-Il core applica l’apprendimento quando i punti esperienza producono un livello. Le mosse già note mantengono i PP e non vengono duplicate. Gli slot liberi ricevono la nuova mossa e un evento moveLearned; con quattro mosse lo stato viene conservato e moveLearningSkipped informa il giocatore. L’interfaccia di sostituzione rimane fuori da questo incremento; i learnset MVP validati non superano quattro mosse. Vecchi salvataggi sopra la soglia possono recuperare la mossa al prossimo aumento di livello.
+Il core applica l’apprendimento quando i punti esperienza producono un livello. Le mosse già note mantengono i PP e non vengono duplicate. Gli slot liberi ricevono la nuova mossa e un evento moveLearned. Con quattro mosse, `moveLearningSkipped` apre una scelta touch e tastiera: sostituire uno slot (la nuova mossa parte con PP massimi) oppure conservare il moveset. Le transizioni pure `moveReplaced`/`moveLearningDeclined` non consumano turni; se la battaglia termina nello stesso turno, il completamento e il salvataggio attendono tutte le scelte in coda. Nessuna migrazione: vengono riusati gli slot attuali del save. Vecchi salvataggi sopra la soglia possono recuperare la mossa al prossimo aumento di livello.
 
 Due partite naturali con Charmander hanno evidenziato l’assenza delle mosse apprese e una prima palestra eccessiva per una squadra arrivata senza grinding. Configurazione di prova: Sentret lv7 e Rattata lv8, un solo stadio di preparazione difensiva nel profilo gym_beginner. La validazione della taratura va riportata con gli esiti effettivi del playtest, non inferita dal solo cambiamento dei dati.
+
+## 13. Ritmo e feedback dell'interfaccia di battaglia
+
+Dopo la scelta del comando il turno si risolve senza un clic obbligatorio su «Continua»: i messaggi delle azioni avanzano automaticamente, mentre il comando A permette di saltarli. La schermata resta in attesa di conferma per l'esito finale e per le scelte che modificano la squadra (per esempio sostituire una mossa appena appresa). Le schede delle mosse mostrano tipo, categoria, potenza, precisione e PP con etichette esplicite; il vantaggio di tipo e l'esito del colpo sono feedback tattici, non una previsione esatta dei danni, che dipendono anche da statistiche, RNG e altri modificatori. Esperienza, avanzamento livello, evoluzioni e ricompense restano visibili come tappe di progressione.
+
+## 14. Ruoli leggibili delle mosse — prototipo v6, 17/10/2026
+
+La taratura manuale di questa sezione è superata dal catalogo importato: Azione ha potenza 35 e precisione 95, Graffio 40/100, Pistolacqua 40, Frustata 35 con 15 PP. Braciere ha probabilità di scottatura 10%, Tuonoshock paralisi 10%, Velenospina veleno 30%. Non si cambiano i dati per differenziare artificialmente mosse simili.
+
+Le schede touch riportano anche la caratteristica tattica disponibile: status e probabilità, priorità, oppure statistica modificata. I valori di accuratezza e PP restano visibili. Ogni nuova mossa deve avere almeno una scelta riconoscibile rispetto agli attacchi diretti già presenti, usando proprietà dati supportate dal core.
+
+I moveset dei nuovi Pokémon derivano dagli apprendimenti ufficiali supportati al loro livello. Il limite di quattro riguarda le mosse conosciute contemporaneamente, non il numero di apprendimenti nella vita del Pokémon. La UI propone sostituzione o rifiuto quando gli slot sono pieni; non elimina mosse in silenzio.
+
+## 15. Frequenza incontri nel Bosco — prototipo contenuti 0.3.44
+
+Il Bosco ha due aree di sottobosco dichiarate nel livello Tiled. Ogni passo su una casella interna effettua un tiro indipendente con probabilità 18%; un fallimento consuma un passo e aggiorna l'RNG persistito. Il numero di specie dipende dall'ora locale del dispositivo: mattino 5, giorno 7, notte 4 (14 distinte complessive, incluse quattro evoluzioni poco frequenti). Le percentuali e i pesi sono ancora prototipi da calibrare nel playtest; la zona deve essere attraversabile e riconoscibile nella mappa.
+
+
+## 16. Import canonico delle mosse — contenuti 0.3.46
+
+`tools/import_pokeapi_battle.py` genera catalogo e apprendimenti da risposte PokéAPI conservate con URL e SHA-256 in `content/sources/pokeapi/`. `--check` verifica offline che i dati generati siano identici; il validatore principale include questa verifica. Il gruppo HeartGold/SoulSilver evita di mescolare potenze e livelli di generazioni diverse. I nomi italiani provengono dalla stessa fonte.
+
+Il sottoinsieme runtime conta 25 mosse; le liste complete delle 20 specie sono conservate nel report sorgente, che elenca anche le 154 voci di apprendimento con mosse ancora non implementate. Nessun effetto mancante riceve una simulazione sostitutiva. Assorbimento HP, effetti statistici probabilistici, attacchi multipli e confusione sono ora eseguiti dal core e presentati nella UI. I pesi 3/8,3/8,1/8,1/8 degli attacchi 2–5 colpi sono riportati nell’effetto API di Furia. La precisione nulla dell’API è normalizzata con `alwaysHits`, senza mostrare una percentuale inventata.
+
+I vecchi salvataggi mantengono le mosse già registrate, anche se provenienti dal prototipo precedente: non sono automaticamente dichiarati canonici. I nuovi incontri e le nuove squadre allenatore rispettano specie e livello. Abilità, strumenti tenuti e numerose altre meccaniche restano incompleti: l’import verificato dei dati non equivale alla fedeltà integrale dell’intero simulatore.
+
+
+## Precisione ed elusione — catalogo 0.3.49
+
+Le due statistiche sono stadi volatili limitati a −6…+6, rimossi al cambio e non salvati. In Gen IV ogni stadio ha moltiplicatore `(3+s)/3` se positivo o `3/(3−s)` se negativo. La probabilità è precisione base × moltiplicatore precisione attaccante / moltiplicatore elusione bersaglio, limitata al 100%. Gli stadi si applicano separatamente, non sottraendoli prima del calcolo.
+
+Riferimento di implementazione consultato: [Pokémon Showdown, algoritmo Gen IV hitStepAccuracy](https://github.com/smogon/pokemon-showdown/blob/master/data/mods/gen4/scripts.ts). Abilità, strumenti e condizioni di campo non sono ancora emulati. Le mosse API con precisione nulla mantengono il bypass; la mossa di emergenza non subisce questi modificatori.
+
+Turbosabbia, Muro di Fumo e Profumino sono importate dagli snapshot PokéAPI; il testo effetto inglese di Profumino indica il decremento storico di uno stadio, mentre `stat_changes` espone il valore moderno −2. L’importatore verifica questa forma della fonte prima di convertirla.
+
+
+## Parassiseme — catalogo 0.3.50
+
+L’importatore riconosce `meta.ailment=leech-seed` e verifica il testo inglese della risposta API che specifica `1/8` degli HP massimi. L’effetto è volatile, distinto dagli stati principali: può coesistere con veleno o scottatura. Il drenaggio viene risolto prima dei danni residui di questi stati; fra bersagli seminati si segue la velocità effettiva. Se non c’è un alleato attivo vivo che possa ricevere energia, il drenaggio non viene applicato. Il campo conserva il lato che riceve energia, non l’identità dell’utilizzatore iniziale.
+
+Il bersaglio Erba è immune, l’applicazione ripetuta non si somma, il cambio del bersaglio elimina il seme e quello dell’utilizzatore lascia il seme al suo posto. HP sottratti e cura sono limitati ai valori reali disponibili; un KO assegna XP una sola volta. Cattura e nuova battaglia eliminano il campo volatile.
+
+Fonte dati: `content/sources/pokeapi/move-leech-seed.json`. Riferimento di comportamento: [Pokémon Showdown, condizione leechseed](https://github.com/smogon/pokemon-showdown/blob/master/data/moves.ts). Non sono implementati Melma, Rapigiro o Staffetta: non vengono aggiunti al catalogo come se i rispettivi effetti fossero disponibili.
+
+
+## Preparazione della prima Palestra e immunità — 0.3.52/0.3.53
+
+Il riepilogo prima della sfida e il diario derivano numero e livelli degli avversari dal contenuto allenatore. I consigli leggono la squadra e l’inventario senza assegnare progressi o bloccare la sfida: allenamento nelle foglie, compagno, cure gratuite al Centro e scorta di Pozioni. Mira introduce esplicitamente l’effetto di Colpocoda e Ruggito.
+
+Il profilo `gym_beginner` ora dichiara `maxStatusUsesPerMove: 1`: i PP spesi permettono all’AI di riconoscere che la preparazione è già stata tentata. Quando è disponibile un attacco, l’AI non ripropone la mossa di supporto esaurita rispetto a questo limite; se una creatura avesse soltanto mosse di supporto, il fallback resta una mossa legale. Questa è una scelta di difficoltà di Veloria, non una modifica alle mosse ufficiali. Sera, Timo e Pokémon selvatici non ereditano il limite.
+
+Le immunità agli stati di Gen IV sono applicate anche ai doppi tipi: Veleno e Acciaio contro avvelenamento, Fuoco contro scottatura, Ghiaccio contro congelamento. L’immunità Elettro alla paralisi e quella Erba alle polveri delle generazioni successive non vengono introdotte. Riferimenti: [tabella tipi del simulatore Pokémon Showdown](https://github.com/smogon/pokemon-showdown/blob/master/data/typechart.ts) e [override storico Gen V, ereditato da Gen IV](https://github.com/smogon/pokemon-showdown/blob/master/data/mods/gen5/typechart.ts).
+
+Questa correzione non rende l’intero ruleset una riproduzione di HGSS: probabilità/moltiplicatori critici, velocità da paralisi, durate e danni residui conservano ancora semplificazioni prototipali documentate. I dati delle mosse continuano a provenire dagli snapshot PokéAPI.
+
+
+## Cambio dopo KO — ruleset prototipo v7
+
+Un cambio obbligato avviene fra i turni: il nuovo Pokémon non subisce un attacco gratuito, non consuma PP, non attiva veleno/scottatura/Parassiseme e non fa avanzare il PRNG o il contatore. Se anche l’avversario deve sostituire, le due entrate costituiscono la stessa fase. La scena manda automaticamente la riserva dell’allenatore dopo i messaggi di KO; il giocatore sceglie soltanto le proprie riserve. Un cambio volontario resta invece un’azione normale e permette all’avversario di attaccare.
+
+La raccomandazione di allenamento confronta il livello più alto della squadra con quello dell’avversario più forte (Mira: 8). Rimane un consiglio: nessuna barriera di livello né assegnazione automatica di XP.
+
+Riferimento consultato per distinguere sostituzioni obbligate e azioni del turno: [Pokémon Showdown, richieste forceSwitch e azioni instaswitch](https://github.com/smogon/pokemon-showdown/blob/master/sim/battle.ts). Le condizioni di ingresso come abilità, strumenti e trappole non sono ancora implementate nel prototipo.
+
+
+## Previsione dei danni — contenuti 0.3.55
+
+`core/battle/damage.ts` contiene la formula condivisa dal risolutore e dalla previsione UI. La previsione non usa il PRNG: calcola gli estremi della variabilità configurata, senza critici o effetti secondari, tenendo conto di categoria fisica/speciale, statistiche, stadi, scottatura, tipo e affinità. Il numero di colpi limita gli estremi per le mosse multiple; gli HP rimasti limitano il danno effettivo. È una stima condizionata al colpire: la precisione è visualizzata separatamente. Le mosse di supporto non ricevono stime di danno.
+
+Esempio verificato: Squirtle lv8 contro Sentret lv7 con Difesa +1, Bolla produce 5–6 HP mentre Azione 4–5 HP nel ruleset corrente. Potenza 20 di Bolla e 35 di Azione restano i valori ufficiali HGSS importati. L’interfaccia rende questa differenza leggibile invece di suggerire che la potenza da sola equivalga al danno.
+
+## Consultazione delle mosse — contenuti 0.3.57
+
+In selezione mosse, Dettagli mosse / I apre un pannello consultabile senza comandi di battaglia, consumo PP o avanzamento del turno. Include anche slot senza PP. Espone bersaglio degli effetti, aumenti/riduzioni e gradi delle statistiche, probabilità, conseguenze degli stati, drenaggio, colpi multipli e priorità dai dati runtime. B/Escape/Chiudi ritorna alla scelta della mossa. La stessa descrizione è disponibile nelle schede Squadra/Pokédex, insieme al learnset HGSS supportato: gli apprendimenti non ancora implementati non vengono presentati come disponibili.
+
+## Danno fisso e mosse urbane — contenuti 0.3.70
+
+Il sottoinsieme passa a 44 mosse / 25 specie. Ferrostrido, Supersuono, Sonicboom, Tuononda, Scintilla e Stridio sono importati dai record PokéAPI locali. Numeri, nomi, probabilità e livelli HGSS sono riprodotti dall’importer; Tuononda mantiene precisione 100 dalla cronologia pre-Sun/Moon. Lo zero di `meta.ailment_chance` di una mossa di stato come Supersuono indica un effetto principale garantito se il controllo di precisione riesce, non assenza di confusione.
+
+`fixedDamage` descrive Sonicboom: il valore 20 è estratto dal testo inglese della fonte. Un colpo riuscito ignora stadi, statistiche, scottatura, affinità, resistenze, critici e variabilità, ma rispetta le immunità; il danno effettivo è limitato agli HP rimasti. Il motore e la previsione usano lo stesso ramo e l’AI riconosce il danno anche con potenza 0. La UI mostra danno fisso e non promette bonus di tipo.
+
+`statusAffectedByTypeImmunity` è un adattatore di regola selettivo per Tuononda: il bersaglio Terra non viene paralizzato. Non estende l’immunità di tipo a tutte le mosse di stato (ad esempio Ruggito su Spettro o Ferrostrido su Terra). Il testo PokéAPI memorizzato dice soltanto che la mossa paralizza: il controllo selettivo è stato verificato separatamente nel [codice sorgente primario del simulatore Showdown](https://github.com/smogon/pokemon-showdown/blob/master/data/moves.ts), voce thunderwave, `ignoreImmunity: false`, ereditata anche dal modulo Gen IV. Questo riferimento meccanico non sostituisce le risposte PokéAPI per valori e learnset.
+
+Charge e Rollout richiedono ancora meccaniche aggiuntive e restano nel report delle mosse non implementate. Non sono aggiunte come attacchi generici. Restano le altre differenze dichiarate del ruleset prototipale v7, fra cui le regole degli stati e la curva XP; questa consegna non promuove il motore a emulazione HGSS completa.
+
+
+## Evoluzioni dei sentieri — contenuti 0.3.72
+
+Le regole runtime in `content/battle/progression.v1.json` includono ora Pidgey→Pidgeotto al 18, Rattata→Raticate al 20, Sentret→Furret al 15, Hoothoot→Noctowl al 20, Mareep→Flaaffy al 15 e Wooper→Quagsire al 20. Il validatore dell’importer confronta ogni arco con le condizioni ufficiali salvate in `content/battle/evolution-reference.v1.json`, tracciate dal manifest delle fonti.
+
+Le sei forme sono importate nel catalogo con statistiche e tipi riferiti a HGSS e artwork locali lossless. Ereditano la curva XP provvisoria dal modello della forma iniziale, come gli import già presenti: non è una curva ufficiale. Le mosse restano il sottoinsieme supportato, senza introdurre valori sostitutivi per quelle mancanti. Nel motore corrente il controllo evolutivo avviene quando il Pokémon guadagna XP e raggiunge o supera la soglia: una forma già oltre soglia può quindi evolversi al successivo guadagno XP anche senza un ulteriore level-up, comportamento prototipale da rifinire.
+
+Test di soglia e sotto soglia coprono tutte le nove evoluzioni starter/sentieri, conservazione identità/HP/PP e roundtrip del salvataggio. Le prove browser ripetono battaglia, evento unico, illustrazione nuova, IndexedDB/reload e scheda Squadra. Non equivalgono a un playtest di bilanciamento naturale.

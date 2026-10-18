@@ -2003,6 +2003,16 @@
               "name": "message",
               "type": "string",
               "value": "Una roccia coperta di muschio, levigata dalla pioggia."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },
@@ -2026,6 +2036,16 @@
               "name": "message",
               "type": "string",
               "value": "Una roccia coperta di muschio, levigata dalla pioggia."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },
@@ -2049,6 +2069,16 @@
               "name": "message",
               "type": "string",
               "value": "Bosco dei Veli · L’avventura ti aspetta."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -2087,6 +2117,16 @@
               "name": "failureMessage",
               "type": "string",
               "value": "Qui non è rimasto nulla da raccogliere."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
             }
           ]
         }
@@ -2316,7 +2356,7 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-ground-hd-v2.png",
+      "image": "../assets/tilesets/veloria-ground-hd-v5.webp",
       "imageheight": 1024,
       "imagewidth": 1536,
       "margin": 1,

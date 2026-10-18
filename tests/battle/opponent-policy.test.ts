@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import policyData from '../../content/battle/opponent-policies.v1.json' with { type: 'json' };
 import { createBattleState } from '../../src/core/battle/engine.ts';
 import { prototypeBattleRules } from '../../src/core/battle/rules.ts';
 import { chooseOpponentCommand, type OpponentPolicy } from '../../src/core/battle/opponent-policy.ts';
@@ -165,4 +166,17 @@ test('exhausted opponents use an emergency move rather than cycling between exha
   const state = battle({ opponentTeam: [creature('opponent-1', spent), creature('opponent-2', spent)] });
   assert.deepEqual(choose(state), { kind: 'struggle' });
   assert.deepEqual(choose({ ...state, opponent: { ...state.opponent, activeIndex: 1 } }), { kind: 'struggle' });
+});
+
+test('introductory support use cap survives a player undoing the defensive stage', () => {
+  const opponent = creature('opponent-1', { moves: [{ moveId: raiseDefense.id, pp: 10 }, { moveId: tackle.id, pp: 10 }] });
+  const initial = battle({ opponentTeam: [opponent] });
+  const introductory = { ...policy, ...policyData.profiles.gym_beginner } as OpponentPolicy;
+  assert.equal(introductory.maxStatusUsesPerMove, 1);
+  assert.deepEqual(choose(initial, moves, introductory), { kind: 'useMove', moveSlot: 0 });
+  const afterCounter = { ...initial, turn: 3, opponent: { ...initial.opponent, creatures: [{ ...opponent, statStages: { defense: -1 }, moves: [{ moveId: raiseDefense.id, pp: 9 }, { moveId: tackle.id, pp: 10 }] }] } };
+  const before = structuredClone(afterCounter);
+  assert.deepEqual(choose(afterCounter, moves, introductory), { kind: 'useMove', moveSlot: 1 });
+  assert.deepEqual(choose(afterCounter, moves, policy), { kind: 'useMove', moveSlot: 0 });
+  assert.deepEqual(afterCounter, before);
 });

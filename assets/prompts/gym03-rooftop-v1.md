@@ -1,0 +1,11 @@
+# Terrazza delle Linee — Vetracielo
+
+Generated on 2026-10-18 with built-in ImageGen. Architectural style reference: original `public/assets/sprites/veloria-monorail-station-v1.png`. New background, not an edit. Source PNG 1254×1254 retained at `public/assets/sprites/veloria-gym03-rooftop-v1.png`, runtime WebP q88 sibling. Original artwork for Veloria, human art review pending.
+
+## Final prompt
+
+Use case: stylized-concept. Image 1 is an architectural STYLE REFERENCE only, not an edit target. Generate a new original environment for Veloria, modern 2D illustrated exploration game for children. An ivory and cyan glass monorail control garden on a spacious open rooftop plaza, orthographic RPG view at 45 degree downward angle, FRONT at bottom, square composition, no diagonal isometric rotation. Use the reference's hand-painted detailed ivory arches, turquoise glass, greenery, warm lights and modern soft gradients. Layout MUST leave the central 70 percent as a fully empty continuous pale blue-gray tiled floor for actual runtime characters and puzzle devices; do not draw characters, NPCs, buttons, signs, text, UI, machinery or interactive consoles on this floor. Three elegant horizontal monorail guideways extend across the upper background outside the main playable floor, separated by low plants, with a small glass canopy at top center. Tall distant soft blue glass towers behind the parapet establish a garden metropolis. Low perimeter railings left and right; a broad clean entrance walkway centered at bottom; no obstruction in the center floor and bottom doorway. Everything shown from above with coherent scale and inviting bright daylight, large clear shapes, crisp illustration rather than pixel art, no retro console styling, no logos or known franchise imagery. Entire image is the background plate for a 30x26 grid world map, so preserve spacious navigable floor, with only a narrow decorative perimeter and architectural background at top.
+
+## Authoring
+
+The square output is mapped to a 30×30 Tiled map to preserve aspect ratio. Walkable floor x=3–26/y=9–25, lower entrance x=13–17/y=26–29. Collision follows architecture; consoles and Aster are runtime objects, not baked into the illustration. Trains are environmental artwork; line activation is shown by the runtime console displays.

@@ -1,30 +1,516 @@
 {
   "version": 1,
   "status": "prototype",
-  "note": "Curated first-chapter learnset: one move at level 6 for each starter; not a historical-generation claim.",
+  "source": {
+    "provider": "PokeAPI",
+    "versionGroup": "heartgold-soulsilver",
+    "language": "it",
+    "manifest": "content/sources/pokeapi/manifest.json"
+  },
+  "note": "Only implemented moves from the official HGSS level-up learnsets. All original entries, including unimplemented effects, are retained in source-learnsets.json.",
   "species": {
     "1": [
       {
-        "level": 6,
+        "level": 3,
+        "moveId": "growl"
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed"
+      },
+      {
+        "level": 9,
         "moveId": "vine-whip"
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 21,
+        "moveId": "sweet-scent"
       }
     ],
     "4": [
       {
-        "level": 6,
+        "level": 7,
         "moveId": "ember"
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen"
+      },
+      {
+        "level": 19,
+        "moveId": "scary-face"
       }
     ],
     "7": [
       {
-        "level": 6,
+        "level": 4,
+        "moveId": "tail-whip"
+      },
+      {
+        "level": 7,
+        "moveId": "bubble"
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw"
+      },
+      {
+        "level": 13,
         "moveId": "water-gun"
+      }
+    ],
+    "10": [],
+    "11": [
+      {
+        "level": 7,
+        "moveId": "harden"
+      }
+    ],
+    "12": [
+      {
+        "level": 10,
+        "moveId": "confusion"
+      },
+      {
+        "level": 12,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 12,
+        "moveId": "stun-spore"
+      },
+      {
+        "level": 12,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 16,
+        "moveId": "gust"
+      },
+      {
+        "level": 18,
+        "moveId": "supersonic"
+      }
+    ],
+    "13": [],
+    "14": [
+      {
+        "level": 7,
+        "moveId": "harden"
+      }
+    ],
+    "15": [
+      {
+        "level": 10,
+        "moveId": "fury-attack"
+      },
+      {
+        "level": 31,
+        "moveId": "agility"
+      }
+    ],
+    "16": [
+      {
+        "level": 5,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 9,
+        "moveId": "gust"
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 29,
+        "moveId": "agility"
+      }
+    ],
+    "19": [
+      {
+        "level": 4,
+        "moveId": "quick-attack"
       }
     ],
     "25": [
       {
-        "level": 6,
+        "level": 5,
+        "moveId": "tail-whip"
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 13,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 21,
+        "moveId": "slam"
+      },
+      {
+        "level": 34,
+        "moveId": "agility"
+      }
+    ],
+    "43": [
+      {
+        "level": 5,
+        "moveId": "sweet-scent"
+      },
+      {
+        "level": 9,
+        "moveId": "acid"
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 15,
+        "moveId": "stun-spore"
+      },
+      {
+        "level": 17,
+        "moveId": "sleep-powder"
+      }
+    ],
+    "60": [
+      {
+        "level": 5,
+        "moveId": "bubble"
+      },
+      {
+        "level": 8,
+        "moveId": "hypnosis"
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 15,
+        "moveId": "double-slap"
+      },
+      {
+        "level": 28,
+        "moveId": "mud-shot"
+      }
+    ],
+    "69": [
+      {
+        "level": 13,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 15,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 17,
+        "moveId": "stun-spore"
+      },
+      {
+        "level": 23,
+        "moveId": "acid"
+      },
+      {
+        "level": 29,
+        "moveId": "sweet-scent"
+      },
+      {
+        "level": 41,
+        "moveId": "slam"
+      }
+    ],
+    "161": [
+      {
+        "level": 4,
+        "moveId": "defense-curl"
+      },
+      {
+        "level": 7,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 13,
+        "moveId": "fury-swipes"
+      },
+      {
+        "level": 25,
+        "moveId": "slam"
+      },
+      {
+        "level": 36,
+        "moveId": "amnesia"
+      }
+    ],
+    "163": [
+      {
+        "level": 5,
+        "moveId": "hypnosis"
+      },
+      {
+        "level": 9,
+        "moveId": "peck"
+      },
+      {
+        "level": 21,
+        "moveId": "confusion"
+      }
+    ],
+    "167": [
+      {
+        "level": 5,
+        "moveId": "scary-face"
+      },
+      {
+        "level": 8,
+        "moveId": "constrict"
+      },
+      {
+        "level": 12,
+        "moveId": "leech-life"
+      },
+      {
+        "level": 22,
+        "moveId": "fury-swipes"
+      },
+      {
+        "level": 33,
+        "moveId": "agility"
+      }
+    ],
+    "179": [
+      {
+        "level": 5,
+        "moveId": "growl"
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave"
+      }
+    ],
+    "194": [
+      {
+        "level": 9,
+        "moveId": "mud-shot"
+      },
+      {
+        "level": 15,
+        "moveId": "slam"
+      },
+      {
+        "level": 23,
+        "moveId": "amnesia"
+      }
+    ],
+    "2": [
+      {
+        "level": 3,
+        "moveId": "growl"
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed"
+      },
+      {
+        "level": 9,
+        "moveId": "vine-whip"
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 23,
+        "moveId": "sweet-scent"
+      }
+    ],
+    "5": [
+      {
+        "level": 7,
+        "moveId": "ember"
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen"
+      },
+      {
+        "level": 21,
+        "moveId": "scary-face"
+      }
+    ],
+    "8": [
+      {
+        "level": 4,
+        "moveId": "tail-whip"
+      },
+      {
+        "level": 7,
+        "moveId": "bubble"
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw"
+      },
+      {
+        "level": 13,
+        "moveId": "water-gun"
+      }
+    ],
+    "81": [
+      {
+        "level": 6,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 11,
+        "moveId": "supersonic"
+      },
+      {
+        "level": 14,
+        "moveId": "sonic-boom"
+      },
+      {
+        "level": 17,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 22,
+        "moveId": "spark"
+      },
+      {
+        "level": 33,
+        "moveId": "screech"
+      }
+    ],
+    "100": [
+      {
+        "level": 5,
+        "moveId": "tackle"
+      },
+      {
+        "level": 8,
+        "moveId": "sonic-boom"
+      },
+      {
+        "level": 12,
+        "moveId": "spark"
+      },
+      {
+        "level": 19,
+        "moveId": "screech"
+      }
+    ],
+    "17": [
+      {
+        "level": 5,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 9,
+        "moveId": "gust"
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 32,
+        "moveId": "agility"
+      }
+    ],
+    "20": [
+      {
+        "level": 4,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 20,
+        "moveId": "scary-face"
+      }
+    ],
+    "162": [
+      {
+        "level": 4,
+        "moveId": "defense-curl"
+      },
+      {
+        "level": 7,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 13,
+        "moveId": "fury-swipes"
+      },
+      {
+        "level": 28,
+        "moveId": "slam"
+      },
+      {
+        "level": 42,
+        "moveId": "amnesia"
+      }
+    ],
+    "164": [
+      {
+        "level": 5,
+        "moveId": "hypnosis"
+      },
+      {
+        "level": 9,
+        "moveId": "peck"
+      },
+      {
+        "level": 22,
+        "moveId": "confusion"
+      }
+    ],
+    "180": [
+      {
+        "level": 5,
+        "moveId": "growl"
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave"
+      }
+    ],
+    "195": [
+      {
+        "level": 9,
+        "moveId": "mud-shot"
+      },
+      {
+        "level": 15,
+        "moveId": "slam"
+      },
+      {
+        "level": 24,
+        "moveId": "amnesia"
       }
     ]
   }

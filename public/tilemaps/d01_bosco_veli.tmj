@@ -697,16 +697,6 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
-        10,
-        0,
-        0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
@@ -720,70 +710,6 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
-        0,
-        0,
-        0,
-        10,
-        10,
-        10,
-        10,
-        10,
-        0,
-        0,
-        10,
-        10,
-        10,
-        0,
-        0,
-        9,
-        9,
-        9,
-        9,
-        9,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        10,
-        10,
-        10,
-        10,
-        0,
-        0,
-        0,
-        10,
-        10,
-        10,
-        10,
-        10,
-        0,
-        0,
-        10,
-        10,
-        10,
-        0,
-        0,
-        9,
-        9,
-        9,
-        9,
-        9,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        10,
-        10,
-        10,
-        10,
         0,
         0,
         0,
@@ -794,9 +720,23 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         9,
@@ -829,6 +769,11 @@
         0,
         0,
         0,
+        9,
+        9,
+        9,
+        9,
+        9,
         0,
         0,
         0,
@@ -854,6 +799,11 @@
         0,
         0,
         0,
+        9,
+        9,
+        9,
+        9,
+        9,
         0,
         0,
         0,
@@ -863,8 +813,6 @@
         0,
         0,
         0,
-        10,
-        10,
         0,
         0,
         0,
@@ -875,6 +823,58 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         8,
         8,
         8,
@@ -890,11 +890,11 @@
         8,
         8,
         8,
+        0,
+        0,
         0,
         0,
         0,
-        10,
-        10,
         0,
         0,
         8,
@@ -1010,6 +1010,54 @@
         8,
         8,
         8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -1051,11 +1099,6 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
-        10,
         0,
         0,
         0,
@@ -1065,76 +1108,40 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
-        10,
         0,
-        10,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
-        10,
         0,
-        10,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
@@ -1147,17 +1154,10 @@
         0,
         0,
         0,
-        10,
-        10,
-        10,
-        10,
         0,
         0,
         0,
         0,
-        10,
-        10,
-        10,
         0,
         0,
         0,
@@ -2773,6 +2773,286 @@
               "value": -4
             }
           ]
+        },
+        {
+          "id": 79,
+          "name": "habitat-fern-76-0",
+          "class": "plant",
+          "x": 64,
+          "y": 224,
+          "width": 48,
+          "height": 40,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 80,
+          "name": "habitat-fern-76-1",
+          "class": "plant",
+          "x": 134,
+          "y": 227,
+          "width": 48,
+          "height": 40,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 81,
+          "name": "habitat-fern-76-2",
+          "class": "plant",
+          "x": 95,
+          "y": 240,
+          "width": 52,
+          "height": 42,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 82,
+          "name": "habitat-fern-76-3",
+          "class": "plant",
+          "x": 68,
+          "y": 256,
+          "width": 44,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 83,
+          "name": "habitat-fern-76-4",
+          "class": "plant",
+          "x": 144,
+          "y": 256,
+          "width": 44,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 84,
+          "name": "habitat-fern-77-0",
+          "class": "plant",
+          "x": 640,
+          "y": 416,
+          "width": 48,
+          "height": 40,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 85,
+          "name": "habitat-fern-77-1",
+          "class": "plant",
+          "x": 710,
+          "y": 419,
+          "width": 48,
+          "height": 40,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 86,
+          "name": "habitat-fern-77-2",
+          "class": "plant",
+          "x": 671,
+          "y": 432,
+          "width": 52,
+          "height": 42,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 87,
+          "name": "habitat-fern-77-3",
+          "class": "plant",
+          "x": 644,
+          "y": 448,
+          "width": 44,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": 88,
+          "name": "habitat-fern-77-4",
+          "class": "plant",
+          "x": 720,
+          "y": 448,
+          "width": 44,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "plant"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-borgofonte-plants-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -3297,6 +3577,16 @@
               "name": "message",
               "type": "string",
               "value": "Rilevazioni registrate! Torna da Ada, sul sentiero a sinistra, e premi A per consegnarle."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 3
             }
           ]
         },
@@ -3319,7 +3609,17 @@
             {
               "name": "message",
               "type": "string",
-              "value": "Bosco dei Veli · Segui il sentiero tra gli alberi monumentali."
+              "value": "Bosco dei Veli · Cerca i Pokémon fra le felci ai lati del sentiero. Al mattino, di giorno e di notte potresti incontrare specie diverse."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         },
@@ -3343,6 +3643,16 @@
               "name": "message",
               "type": "string",
               "value": "Le radici, coperte di muschio, formano archi sopra il terreno."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
             }
           ]
         },
@@ -3366,6 +3676,16 @@
               "name": "message",
               "type": "string",
               "value": "Il misuratore registra i segnali che attraversano la foresta."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
             }
           ]
         }
@@ -3475,7 +3795,7 @@
           "name": "Sottobosco occidentale",
           "class": "encounter-zone",
           "x": 64,
-          "y": 288,
+          "y": 224,
           "width": 128,
           "height": 64,
           "rotation": 0,
@@ -3494,7 +3814,7 @@
             {
               "name": "encounterChance",
               "type": "float",
-              "value": 0.08
+              "value": 0.18
             }
           ]
         },
@@ -3503,7 +3823,7 @@
           "name": "Sottobosco orientale",
           "class": "encounter-zone",
           "x": 640,
-          "y": 256,
+          "y": 416,
           "width": 128,
           "height": 64,
           "rotation": 0,
@@ -3522,7 +3842,7 @@
             {
               "name": "encounterChance",
               "type": "float",
-              "value": 0.08
+              "value": 0.18
             }
           ]
         }
@@ -3530,7 +3850,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 79,
+  "nextobjectid": 89,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",
@@ -3539,7 +3859,7 @@
     {
       "columns": 6,
       "firstgid": 1,
-      "image": "../assets/tilesets/veloria-ground-hd-v2.png",
+      "image": "../assets/tilesets/veloria-ground-hd-v5.webp",
       "imageheight": 1024,
       "imagewidth": 1536,
       "margin": 1,

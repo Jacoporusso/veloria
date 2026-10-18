@@ -1,0 +1,379 @@
+{
+  "id": "veloria",
+  "width": 900,
+  "height": 650,
+  "areas": [
+    {
+      "id": "borgofonte",
+      "name": "Borgofonte",
+      "kind": "town",
+      "x": 100,
+      "y": 380,
+      "mapIds": [
+        "veloria/borgofonte",
+        "veloria/borgofonte_home",
+        "veloria/borgofonte_lab"
+      ],
+      "visitedFlags": [
+        "q_starter_selected"
+      ],
+      "description": "Il borgo della tua partenza. Casa e laboratorio di Elia."
+    },
+    {
+      "id": "r01",
+      "name": "R01 · Sentiero dell’Alba",
+      "kind": "route",
+      "x": 155,
+      "y": 340,
+      "mapIds": [
+        "veloria/r01_sentiero_alba"
+      ],
+      "visitedFlags": [],
+      "description": "Da Borgofonte al Bosco dei Veli."
+    },
+    {
+      "id": "bosco",
+      "name": "Bosco dei Veli",
+      "kind": "forest",
+      "x": 110,
+      "y": 240,
+      "mapIds": [
+        "veloria/d01_bosco_veli"
+      ],
+      "visitedFlags": [
+        "q_forest_signal_found",
+        "q_ada_helped"
+      ],
+      "description": "Una foresta di radure, Pokémon e segnali da studiare."
+    },
+    {
+      "id": "r02",
+      "name": "R02 · Viale delle Fronde",
+      "kind": "route",
+      "x": 180,
+      "y": 280,
+      "mapIds": [
+        "veloria/r02_viale_fronde"
+      ],
+      "visitedFlags": [],
+      "description": "Il sentiero tra il Bosco dei Veli e Brumalta."
+    },
+    {
+      "id": "brumalta",
+      "name": "Brumalta",
+      "kind": "city",
+      "gym": 1,
+      "x": 255,
+      "y": 305,
+      "mapIds": [
+        "veloria/brumalta",
+        "veloria/gym01_brumalta"
+      ],
+      "visitedFlags": [
+        "q_brumalta_visited",
+        "gym01_puzzle_solved",
+        "badge_aurora_awarded"
+      ],
+      "description": "La città-parco e la Palestra Normale di Mira."
+    },
+    {
+      "id": "r03",
+      "name": "R03 · Terrazze del Muschio",
+      "kind": "route",
+      "x": 275,
+      "y": 230,
+      "mapIds": [
+        "veloria/r03_terrazze_muschio"
+      ],
+      "visitedFlags": [
+        "q_radicelmo_seed_found"
+      ],
+      "description": "Da Brumalta al villaggio-ponte di Radicelmo."
+    },
+    {
+      "id": "radicelmo",
+      "name": "Radicelmo",
+      "kind": "town",
+      "x": 310,
+      "y": 170,
+      "mapIds": [
+        "veloria/radicelmo"
+      ],
+      "visitedFlags": [
+        "q_radicelmo_seed_archived",
+        "q_radicelmo_greenhouse_started"
+      ],
+      "description": "Una serra, un archivio e un vivaio da far crescere."
+    },
+    {
+      "id": "r04",
+      "name": "R04 · Salita dei Petali",
+      "kind": "route",
+      "x": 270,
+      "y": 130,
+      "mapIds": [
+        "veloria/r04_salita_petali"
+      ],
+      "visitedFlags": [],
+      "description": "Due ponti tra Radicelmo e i ciliegi di Petalora."
+    },
+    {
+      "id": "petalora",
+      "name": "Petalora",
+      "kind": "city",
+      "gym": 2,
+      "x": 230,
+      "y": 65,
+      "mapIds": [
+        "veloria/petalora",
+        "veloria/gym02_petalora"
+      ],
+      "visitedFlags": [
+        "q_petalora_visited",
+        "gym02_water_source_open",
+        "badge_corolla_awarded"
+      ],
+      "description": "La città dei ciliegi e la Palestra Erba di Dalia."
+    },
+    {
+      "id": "r05",
+      "name": "R05 · Viadotto dei Ciliegi",
+      "kind": "route",
+      "x": 375,
+      "y": 200,
+      "mapIds": [
+        "veloria/r05_viadotto_ciliegi"
+      ],
+      "visitedFlags": [],
+      "description": "Dalle colline di Petalora alla metropoli di Vetracielo."
+    },
+    {
+      "id": "vetracielo",
+      "name": "Vetracielo",
+      "kind": "city",
+      "gym": 3,
+      "x": 490,
+      "y": 265,
+      "mapIds": [
+        "veloria/vetracielo",
+        "veloria/gym03_vetracielo"
+      ],
+      "visitedFlags": [
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "badge_circuito_awarded"
+      ],
+      "description": "Parchi, monorotaia e la Palestra Elettro di Aster."
+    },
+    {
+      "id": "r06",
+      "name": "R06 · Anello Magnetico",
+      "kind": "route",
+      "x": 605,
+      "y": 280,
+      "mapIds": [
+        "veloria/r06_anello_magnetico"
+      ],
+      "visitedFlags": [
+        "q_r06_measurement"
+      ],
+      "description": "L’anello delle infrastrutture tra Vetracielo e Ferraluce."
+    },
+    {
+      "id": "ferraluce",
+      "name": "Ferraluce",
+      "kind": "city",
+      "gym": 4,
+      "x": 710,
+      "y": 265,
+      "mapIds": [
+        "veloria/ferraluce"
+      ],
+      "visitedFlags": [
+        "q_ferraluce_visited",
+        "q_ferraluce_report"
+      ],
+      "description": "Piazza dell’Energia, cure e rifornimenti. La quarta palestra è in preparazione."
+    },
+    {
+      "id": "centrale",
+      "name": "Centrale Risonante",
+      "kind": "future",
+      "x": 840,
+      "y": 195,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Area prevista oltre Ferraluce; non ancora giocabile."
+    },
+    {
+      "id": "portolume",
+      "name": "Portolume",
+      "kind": "future",
+      "gym": 5,
+      "x": 745,
+      "y": 440,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Una futura città di mare, porto e giardini costieri."
+    },
+    {
+      "id": "delta",
+      "name": "Delta degli Specchi",
+      "kind": "future",
+      "x": 500,
+      "y": 530,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Un futuro intreccio di canali tra costa e lago."
+    },
+    {
+      "id": "acquariva",
+      "name": "Acquariva",
+      "kind": "future",
+      "gym": 6,
+      "x": 275,
+      "y": 470,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Una futura città sul lago e sui pontili."
+    },
+    {
+      "id": "passobrina",
+      "name": "Passobrina",
+      "kind": "future",
+      "x": 420,
+      "y": 100,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Un futuro borgo di preparazione alla montagna."
+    },
+    {
+      "id": "biancavetta",
+      "name": "Biancavetta",
+      "kind": "future",
+      "gym": 7,
+      "x": 540,
+      "y": 65,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Una futura città tra le nevi della dorsale settentrionale."
+    },
+    {
+      "id": "grotte",
+      "name": "Grotte del Cristallo",
+      "kind": "future",
+      "x": 665,
+      "y": 65,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Un futuro passaggio montano verso l’altopiano."
+    },
+    {
+      "id": "concordia",
+      "name": "Concordia",
+      "kind": "future",
+      "gym": 8,
+      "x": 785,
+      "y": 105,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "Una futura città-giardino sull’altopiano nord-orientale."
+    },
+    {
+      "id": "lega",
+      "name": "Lega di Veloria",
+      "kind": "future",
+      "x": 825,
+      "y": 55,
+      "mapIds": [],
+      "visitedFlags": [],
+      "description": "La destinazione sportiva finale prevista per l’avventura."
+    }
+  ],
+  "connections": [
+    [
+      "borgofonte",
+      "r01"
+    ],
+    [
+      "r01",
+      "bosco"
+    ],
+    [
+      "bosco",
+      "r02"
+    ],
+    [
+      "r02",
+      "brumalta"
+    ],
+    [
+      "brumalta",
+      "r03"
+    ],
+    [
+      "r03",
+      "radicelmo"
+    ],
+    [
+      "radicelmo",
+      "r04"
+    ],
+    [
+      "r04",
+      "petalora"
+    ],
+    [
+      "petalora",
+      "r05"
+    ],
+    [
+      "r05",
+      "vetracielo"
+    ],
+    [
+      "vetracielo",
+      "r06"
+    ],
+    [
+      "r06",
+      "ferraluce"
+    ],
+    [
+      "ferraluce",
+      "centrale"
+    ],
+    [
+      "ferraluce",
+      "portolume"
+    ],
+    [
+      "portolume",
+      "delta"
+    ],
+    [
+      "delta",
+      "acquariva"
+    ],
+    [
+      "acquariva",
+      "passobrina"
+    ],
+    [
+      "passobrina",
+      "biancavetta"
+    ],
+    [
+      "biancavetta",
+      "grotte"
+    ],
+    [
+      "grotte",
+      "concordia"
+    ],
+    [
+      "concordia",
+      "lega"
+    ]
+  ]
+}

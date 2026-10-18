@@ -8,30 +8,30 @@
     {
       "speciesId": 1,
       "name": "bulbasaur",
-      "path": "assets/creatures/pokeapi-starter-1-v1.png",
+      "path": "assets/creatures/pokeapi-starter-1-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-      "sha256": "7233d8d8b03b5fa91d835a3069d25769155db93c9ef91b6066e215ed3895e9d8"
+      "sha256": "479de8a3172e650ab724de31890f9beceeae20a6f0ffffa3d9bb398f9b99cd87"
     },
     {
       "speciesId": 4,
       "name": "charmander",
-      "path": "assets/creatures/pokeapi-starter-4-v1.png",
+      "path": "assets/creatures/pokeapi-starter-4-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-      "sha256": "0c8e36e321cbd6578d0b669324edf6cb819f8e510dbac43cee22c4221db80b4d"
+      "sha256": "4313945d26473d014e48b4486fb2d7beca42fd8aedafab0b11a1e0cf77aac358"
     },
     {
       "speciesId": 7,
       "name": "squirtle",
-      "path": "assets/creatures/pokeapi-starter-7-v1.png",
+      "path": "assets/creatures/pokeapi-starter-7-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-      "sha256": "37cda7bf8ad6f4252d539aed3bd989a85c8cb0f8e9d815be12bad08c16f31fe9"
+      "sha256": "c61e785f9c71801045a89248b207ab8a03f4b9e3b1e8f0403aab105b4f00ee39"
     },
     {
       "speciesId": 25,
       "name": "pikachu",
-      "path": "assets/creatures/pokeapi-starter-25-v1.png",
+      "path": "assets/creatures/pokeapi-starter-25-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-      "sha256": "759ceafdb4b8d637dfcfe673cf672bc3c472354a3b2e7e0835d9cdcacd8d195d"
+      "sha256": "57b73f39ebfabb93482c7446735a9826af73eb1de4bbd8e164baae3af5745273"
     }
   ]
 }

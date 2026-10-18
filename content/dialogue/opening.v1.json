@@ -8,6 +8,94 @@
   ],
   "guidance": [
     {
+      "mapId": "veloria/petalora",
+      "destinationMapId": "veloria/r05_viadotto_ciliegi",
+      "requiresFlags": [
+        "badge_corolla_awarded"
+      ],
+      "missingFlags": [
+        "q_vetracielo_visited"
+      ],
+      "label": "→ VETRACIELO · USCITA EST"
+    },
+    {
+      "mapId": "veloria/r05_viadotto_ciliegi",
+      "destinationMapId": "veloria/vetracielo",
+      "requiresFlags": [
+        "badge_corolla_awarded"
+      ],
+      "missingFlags": [
+        "q_vetracielo_visited"
+      ],
+      "label": "→ VETRACIELO · OLTRE IL PONTE"
+    },
+    {
+      "mapId": "veloria/vetracielo",
+      "npcId": "vetracielo_lea",
+      "requiresFlags": [
+        "q_vetracielo_visited"
+      ],
+      "missingFlags": [
+        "q_vetracielo_orientation"
+      ],
+      "label": "LEA · INFORMAZIONI E RIFORNIMENTI · A"
+    },
+    {
+      "mapId": "veloria/petalora",
+      "destinationMapId": "veloria/gym02_petalora",
+      "requiresFlags": [
+        "q_petalora_visited"
+      ],
+      "missingFlags": [
+        "badge_corolla_awarded"
+      ],
+      "label": "↑ PALESTRA DI DALIA · VIALE NORD"
+    },
+    {
+      "mapId": "veloria/brumalta",
+      "destinationMapId": "veloria/r03_terrazze_muschio",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_petalora_visited"
+      ],
+      "label": "→ RADICELMO · USCITA EST"
+    },
+    {
+      "mapId": "veloria/r03_terrazze_muschio",
+      "destinationMapId": "veloria/radicelmo",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_petalora_visited"
+      ],
+      "label": "→ RADICELMO · VERSO PETALORA"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "destinationMapId": "veloria/r04_salita_petali",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_petalora_visited"
+      ],
+      "label": "↑ SALITA DEI PETALI · USCITA NORD"
+    },
+    {
+      "mapId": "veloria/r04_salita_petali",
+      "destinationMapId": "veloria/petalora",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_petalora_visited"
+      ],
+      "label": "↑ PETALORA · SEGUI I PONTI"
+    },
+    {
       "mapId": "veloria/borgofonte",
       "destinationMapId": "veloria/borgofonte_lab",
       "missingFlags": [
@@ -65,6 +153,298 @@
         "q_ada_helped"
       ],
       "label": "→ VIALE DELLE FRONDE"
+    },
+    {
+      "mapId": "veloria/gym01_brumalta",
+      "destinationMapId": "veloria/brumalta",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_archived"
+      ],
+      "label": "↓ USCITA · BRUMALTA, POI A EST"
+    },
+    {
+      "mapId": "veloria/brumalta",
+      "destinationMapId": "veloria/r03_terrazze_muschio",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_archived"
+      ],
+      "label": "→ TERRAZZE DEL MUSCHIO · USCITA EST"
+    },
+    {
+      "mapId": "veloria/r03_terrazze_muschio",
+      "npcId": "Seme custodito",
+      "requiresFlags": [
+        "badge_aurora_awarded"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_found"
+      ],
+      "label": "SEME CUSTODITO · A"
+    },
+    {
+      "mapId": "veloria/r03_terrazze_muschio",
+      "destinationMapId": "veloria/radicelmo",
+      "requiresFlags": [
+        "q_radicelmo_seed_found"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_archived"
+      ],
+      "label": "→ RADICELMO · DA LEDA"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "destinationMapId": "veloria/r03_terrazze_muschio",
+      "missingFlags": [
+        "q_radicelmo_seed_found"
+      ],
+      "label": "← TERRAZZE DEL MUSCHIO · CERCA IL SEME"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_keeper",
+      "requiresFlags": [
+        "q_radicelmo_seed_found"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_archived"
+      ],
+      "label": "LEDA · ARCHIVIO DEI SEMI · A"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_keeper",
+      "requiresFlags": [
+        "q_radicelmo_seed_archived"
+      ],
+      "missingFlags": [
+        "q_radicelmo_greenhouse_started"
+      ],
+      "label": "LEDA · IL VIVAIO · A"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_water",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_started"
+      ],
+      "missingFlags": [
+        "q_radicelmo_greenhouse_watered"
+      ],
+      "label": "1 · ACQUA · A"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_light",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_watered"
+      ],
+      "missingFlags": [
+        "q_radicelmo_greenhouse_lit"
+      ],
+      "label": "2 · LUCE · A"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_seed",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_lit"
+      ],
+      "missingFlags": [
+        "q_radicelmo_seed_sprouted"
+      ],
+      "label": "3 · OSSERVA IL SEME · A"
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_keeper",
+      "requiresFlags": [
+        "q_radicelmo_seed_sprouted"
+      ],
+      "missingFlags": [
+        "q_radicelmo_greenhouse_complete"
+      ],
+      "label": "LEDA · REGISTRA IL GERMOGLIO · A"
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "npcId": "gym02_source",
+      "requiresFlags": [
+        "q_petalora_visited"
+      ],
+      "missingFlags": [
+        "gym02_water_source_open"
+      ],
+      "label": "1 · APRI LA SORGENTE · A"
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "npcId": "gym02_west",
+      "requiresFlags": [
+        "gym02_water_source_open"
+      ],
+      "missingFlags": [
+        "gym02_water_west_open"
+      ],
+      "label": "2 · DEVIA A OVEST · A"
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "npcId": "gym02_east",
+      "requiresFlags": [
+        "gym02_water_west_open"
+      ],
+      "missingFlags": [
+        "gym02_water_east_open"
+      ],
+      "label": "3 · DEVIA A EST · A"
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "npcId": "gym02_bloom",
+      "requiresFlags": [
+        "gym02_water_east_open"
+      ],
+      "missingFlags": [
+        "gym02_irrigation_solved"
+      ],
+      "label": "4 · OSSERVA LA TERRAZZA · A"
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "npcId": "dalia_gym",
+      "requiresFlags": [
+        "gym02_irrigation_solved"
+      ],
+      "missingFlags": [
+        "badge_corolla_awarded"
+      ],
+      "label": "DALIA · SFIDA ERBA · A"
+    },
+    {
+      "mapId": "veloria/vetracielo",
+      "destinationMapId": "veloria/gym03_vetracielo",
+      "requiresFlags": [
+        "q_vetracielo_orientation"
+      ],
+      "missingFlags": [
+        "badge_circuito_awarded"
+      ],
+      "label": "↑ PALESTRA DI ASTER · SCALINATA"
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "npcId": "gym03_gardens",
+      "requiresFlags": [
+        "q_vetracielo_orientation"
+      ],
+      "missingFlags": [
+        "gym03_line_gardens_active"
+      ],
+      "label": "1 · LINEA GIARDINI · A"
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "npcId": "gym03_glass",
+      "requiresFlags": [
+        "gym03_line_gardens_active"
+      ],
+      "missingFlags": [
+        "gym03_line_glass_active"
+      ],
+      "label": "2 · LINEA VETRO · A"
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "npcId": "gym03_sky",
+      "requiresFlags": [
+        "gym03_line_glass_active"
+      ],
+      "missingFlags": [
+        "gym03_lines_connected"
+      ],
+      "label": "3 · LINEA CIELO · A"
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "npcId": "aster_gym",
+      "requiresFlags": [
+        "gym03_lines_connected"
+      ],
+      "missingFlags": [
+        "badge_circuito_awarded"
+      ],
+      "label": "ASTER · SFIDA ELETTRO · A"
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "destinationMapId": "veloria/vetracielo",
+      "requiresFlags": [
+        "badge_circuito_awarded"
+      ],
+      "missingFlags": [],
+      "label": "↓ RITORNO A VETRACIELO"
+    },
+    {
+      "mapId": "veloria/vetracielo",
+      "destinationMapId": "veloria/r06_anello_magnetico",
+      "requiresFlags": [
+        "badge_circuito_awarded"
+      ],
+      "missingFlags": [
+        "q_ferraluce_report"
+      ],
+      "label": "EST · ANELLO MAGNETICO"
+    },
+    {
+      "mapId": "veloria/r06_anello_magnetico",
+      "npcId": "Misuratore dell’Anello",
+      "requiresFlags": [
+        "badge_circuito_awarded"
+      ],
+      "missingFlags": [
+        "q_r06_measurement"
+      ],
+      "label": "MISURA IL SEGNALE · A"
+    },
+    {
+      "mapId": "veloria/r06_anello_magnetico",
+      "destinationMapId": "veloria/ferraluce",
+      "requiresFlags": [
+        "q_r06_measurement"
+      ],
+      "missingFlags": [
+        "q_ferraluce_report"
+      ],
+      "label": "EST · FERRALUCE"
+    },
+    {
+      "mapId": "veloria/ferraluce",
+      "destinationMapId": "veloria/r06_anello_magnetico",
+      "requiresFlags": [
+        "q_ferraluce_visited"
+      ],
+      "missingFlags": [
+        "q_r06_measurement"
+      ],
+      "label": "OVEST · MISURATORE SULL’ANELLO"
+    },
+    {
+      "mapId": "veloria/ferraluce",
+      "npcId": "ferraluce_ivo",
+      "requiresFlags": [
+        "q_r06_measurement"
+      ],
+      "missingFlags": [
+        "q_ferraluce_report"
+      ],
+      "label": "IVO · CONSEGNA LE LETTURE · A"
     }
   ]
 }

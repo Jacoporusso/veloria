@@ -42,7 +42,7 @@ Il rilascio MVP si intende concluso con S6. Le fasi possono essere sovrapposte s
 - **US-D01 (P0):** Save/autosave IndexedDB, checksum, slot backup e versioning.
 - **US-D02 (P0):** Import/export JSON validato e rollback su errori.
 - **US-D03 (P0):** PWA installabile, interamente offline per i pack MVP dichiarati disponibili.
-- **US-D04 (P1):** UI di aggiornamento e compatibilità dei vecchi save.
+- **US-D04 (P1):** UI di aggiornamento. La retrocompatibilità dei salvataggi del prototipo è esclusa per decisione dell’utente (17/10/2026).
 
 ### EPIC E — Art/QA
 
@@ -74,7 +74,7 @@ S5 -> S6
 
 - Build/lint/typecheck/test automatici verdi.
 - Check integrazione mobile, memory/perf e fallback offline pertinente.
-- Save/load e vecchie migration testate se lo stato cambia.
+- Save/load verificati con il formato corrente; nessun gate di retrocompatibilità per il prototipo.
 - Dati e asset registrati; nessun asset protetto aggiunto inconsapevolmente.
 - Human review: verifica UX, contenuti, regressioni e consegna; l'AI aiuta ma **non sostituisce** approvazione e playtest.
 
@@ -97,10 +97,20 @@ S5 -> S6
 
 - Implementati e verificati: titolo/continua, nome allenatore, introduzione persistente, accesso al laboratorio, selezione unica dei quattro starter, blocco uscita senza starter, riepilogo dopo Mira.
 - Verifiche specifiche passate: nome→introduzione→Bulbasaur→reload/continua senza cambiare identità del save; annullamento nuova partita; unicità starter; vittoria su Mira e persistenza del riepilogo; ciclo offline con schermate titolo/continua. Gli scenari di battaglia/progressione preparati dai test non costituiscono un playtest di bilanciamento naturale.
-- Flusso naturale verificato da nome a Medaglia Aurora con i quattro starter, cattura, cura, missione Ada e sigilli. Restano QA manuale, prove ripetute di bilanciamento e ampliamento dei contenuti.
-- Combattimento: Growl, Tail Whip e Defense Curl ora applicano effetti temporanei alle statistiche (ruleset prototipo v2, limiti e reset). Restano playtest di bilanciamento e ampliamento delle meccaniche; non equivale a battaglia definitiva.
-- Grafica corrente: tutte le 20 specie MVP hanno immagini locali (12 PokéAPI e 8 dagli atlanti originali). Sei NPC illustrati, chiome e suoli HD delle aree iniziali integrati nella 0.3.25. Restano armonizzazione di protagonista/edifici e revisione visiva dell’utente.
+- Flusso naturale fino alla prima medaglia e salvataggio/ripresa riuscito con tutti e quattro gli starter su ruleset v7 (contenuti 0.3.54–0.3.55), dopo allenamento reale al livello 8, catture, cure e acquisti. I precedenti tentativi senza preparazione perdevano contro Mira. Esiti, versioni e limiti sono in docs/playtests/2026-10-17-prologue.md. Restano QA su telefono e bilanciamento statistico.
+- Combattimento corrente: ruleset prototipo v7, 38 mosse da catalogo PokéAPI locale, effetti/statistiche temporanee, immunità agli stati, sostituzioni obbligate senza attacco gratuito e stime dei danni condivise con il motore. Restano meccaniche prototipali e ampliamenti; non equivale a simulazione HGSS completa.
+- Grafica corrente: tutte le 23 specie disponibili hanno immagini locali (15 PokéAPI e 8 dagli atlanti originali), comprese Ivysaur, Charmeleon e Wartortle. Sei NPC, oggetti di campo e facciate sono illustrati; sei aree di pianura e foresta condividono il terreno pittorico v5 e il renderer ne elimina le fessure di campionamento. Restano revisione visiva dell’utente, atlante urbano di Brumalta, armonizzazione degli interni e fondali città/battaglia.
+- Evoluzioni degli starter: prime forme evolutive dei tre starter per livello abilitate al 16, con scelte mosse e salvataggio verificati nel browser. Forme finali, Pietratuono e altre evoluzioni del catalogo restano da implementare; la scheda distingue riferimento ufficiale e disponibilità runtime.
 - Avventura completa otto Palestre/Lega: non pronta e senza una data affidabile; prosegue oltre il perimetro del primo capitolo.
+- Continuazione disponibile dopo Mira: Terrazze del Muschio → Radicelmo → archivio dei semi. Su contenuti 0.3.58 corretti nomi, indicazioni e consegna reale dell’oggetto; scenario browser verifica accesso con medaglia, raccolta, zaino, caricamento, consegna e ricompensa unica. Non equivale a una seconda palestra o a un nuovo capitolo completo.
+- Contenuti 0.3.62: dopo l’archivio, Leda avvia la prova del vivaio esterno di Radicelmo. Acqua → luce → osservazione del seme → rapporto, con indicazioni contestuali e ricompensa unica. L’interno della serra D02 e il percorso R04/Petalora restano da realizzare.
+- Contenuti 0.3.64: R04 e primo quartiere di Petalora ora collegati a Radicelmo con gate Aurora. Ciliegi illustrati, quattro habitat, Nila opzionale, cure e bottega; le missioni di Radicelmo sono facoltative anche nel diario. Restano interno D02, architettura esclusiva di Petalora, Palestra 2 e successivi capitoli. Dettagli in `12_PETALORA_FIRST_DISTRICT_v0.1.md`.
+- Contenuti 0.3.65: prima versione della Palestra 2 giocabile, puzzle d’irrigazione e Dalia Erba 12/13, Medaglia Corolla con emblema distinto e premio persistente. Verifiche tecniche nel browser e offline; restano bilanciamento naturale, rifiniture del giardino/etichette HUD e smartphone fisico. Percorso verso Vetracielo e sei Palestre successive/Lega ancora da implementare. Dettagli in `13_PETALORA_GYM_v0.1.md`.
+- Contenuti 0.3.67: indicazioni mondo nitide che evitano HUD e controlli, feedback missione compatto e senza notifiche duplicate. Il piano R05/Vetracielo è in `14_VETRACIELO_CHAPTER_PLAN_v0.1.md`; include topologia verificata, import ufficiali necessari e criteri di accettazione, senza presentare il capitolo come già giocabile.
+- Contenuti 0.3.68: R05 e prima Piazza della Monorotaia di Vetracielo collegate a est di Petalora dopo Corolla. Cinque habitat, Oren, Lea e orientamento con premio unico, cure/deposito e rifornimenti. Stazione illustrata originale integrata e registrata. Rimangono Palestra 3, specie urbane e sistema di linee, skyline/quartieri e tetti, interni e trasporto; il capitolo completo e le successive Palestre/Lega non sono pronti. Esiti e limiti della consegna in `CI_STATUS.md` e piano14 aggiornato.
+- Contenuti 0.3.70: Terrazza delle Linee e Palestra 3 giocabili dopo Lea, con Aster e Medaglia Circuito. Magnemite/Voltorb e sei nuove mosse ufficiali portano il catalogo a 25 specie/44 mosse. Danno fisso, immunità selettiva e informazioni strategiche integrati. Restano playtest naturale, QA fisico e città completa; prossime aree R06/Ferraluce, cinque Palestre e Lega non ancora disponibili. Dettagli in `15_VETRACIELO_GYM_v0.1.md`.
+- Avvio: motore Phaser e scena mondo caricati solo dopo la scelta della partita; bootstrap iniziale ridotto da circa 140 kB a 17 kB. Cache PWA v50 mantiene il precache offline dei chunk dinamici.
+- Terreno: riflessioni deterministiche distribuite per coordinata nelle mappe con tileset seamless, senza il precedente motivo periodico 2×2.
 
 ### Audit tecnico progressione — 17/10/2026
 
@@ -120,6 +130,12 @@ S5 -> S6
 - Scenari CI riallineati: i tre fallimenti residui della run 39028733856 ora passano localmente.
 - Partita naturale iniziale: nome → Charmander → Sera → Timo → Pidgey catturato → sensore/Ada → Brumalta → Centro → sigilli. Arrivo con Charmander lv6 e Pidgey lv4; sconfitta da Mira, due Pozioni consumate. Nessun seed, livello o flag preparato dal test.
 - La seconda prova ha confermato la sconfitta e mostrato che gli starter non imparavano mosse di tipo: implementato learnset al livello 6 nel prototipo v5.
-- Taratura corrente: Mira lv7/lv8 e un solo aumento difensivo. Partite naturali completate con tutti e quattro gli starter, cattura e salvataggio/ripresa inclusi; non equivalgono alla validazione statistica del bilanciamento o al test su telefono reale.
+- Taratura storica prima del catalogo PokéAPI: Mira lv7/lv8 e un solo aumento difensivo. Con il catalogo precedente, partite naturali completate con tutti e quattro gli starter, cattura e salvataggio/ripresa inclusi. Per gli esiti correnti vedere il resoconto sopra; nessuna delle due serie equivale alla validazione statistica del bilanciamento o al test su telefono reale.
 - La prova con Bulbasaur ha rilevato Cattura irraggiungibile da tastiera quando Borsa e Squadra erano disabilitate: navigazione delle griglie sparse corretta con selettore puro e regressioni. Il riepilogo finale ora attende il rilascio del tasto che chiude la battaglia, evitando la chiusura involontaria.
-- Restano sostituzione volontaria delle quattro mosse, learnset ampliati, QA manuale e tutte le altre estensioni del gioco.
+- Sostituzione volontaria delle quattro mosse ora disponibile: sostituzione o rifiuto, scelte in sequenza, callback di completamento dopo le scelte terminali; il save conserva slot e PP senza migrazione. Restano learnset ampliati, QA manuale e tutte le altre estensioni del gioco.
+
+- Contenuti 0.3.72: sei evoluzioni dei sentieri disponibili (Pidgeotto, Raticate, Furret, Noctowl, Flaaffy, Quagsire), catalogo a 31 specie e artwork evolutivi lossless. Restano evoluzioni ulteriori, curve XP ufficiali, altre cinque Palestre e Lega.
+
+- Contenuti 0.3.73: Anello Magnetico e primo distretto di Ferraluce collegati dopo Circuito, misurazione/rapporto, cure/deposito/bottega, quattro habitat e nuove illustrazioni originali. Palestra 4 e Centrale non ancora giocabili; requisiti della città completa, QA fisico e bilanciamento naturale restano aperti nel piano16.
+
+- Requisito regionale aperto da doc02: rete di viaggio rapido dopo P3. I binari e le console della palestra attuali non realizzano il trasporto; implementarlo con destinazioni da dati e flag di visita, mantenendo i percorsi a piedi accessibili.

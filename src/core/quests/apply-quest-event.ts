@@ -1,6 +1,15 @@
 import type { GameSave } from '../../persistence/save-store';
 
-export type QuestStep = { trigger: string; setFlag: string; requiresFlags: readonly string[]; addBadge?: string };
+export type QuestStep = {
+  trigger: string;
+  setFlag: string;
+  requiresFlags: readonly string[];
+  addBadge?: string;
+  /** Applied once with this step, independently from the final quest reward. */
+  grantItems?: Readonly<Record<string, number>>;
+  /** All quantities must already be owned; delivery and progress are atomic. */
+  consumeItems?: Readonly<Record<string, number>>;
+};
 export type QuestDefinition = {
   id: string;
   steps: readonly QuestStep[];
@@ -19,9 +28,18 @@ export function applyQuestEvent(save: GameSave, trigger: string, quests: readonl
     for (const step of quest.steps) {
       if (step.trigger !== trigger || nextSave.flags.includes(step.setFlag)) continue;
       if (!step.requiresFlags.every(flag => nextSave.flags.includes(flag))) continue;
+      if (Object.entries(step.consumeItems ?? {}).some(([itemId, quantity]) => (nextSave.inventory[itemId] ?? 0) < quantity)) continue;
 
       const wasComplete = nextSave.flags.includes(quest.completionFlag);
       nextSave = { ...nextSave, flags: [...nextSave.flags, step.setFlag] };
+      if (step.grantItems || step.consumeItems) {
+        const inventory = { ...nextSave.inventory };
+        for (const [itemId, quantity] of Object.entries(step.consumeItems ?? {})) {
+          inventory[itemId] -= quantity;
+          if (inventory[itemId] === 0) delete inventory[itemId];
+        }
+        nextSave = { ...nextSave, inventory: addItems(inventory, step.grantItems ?? {}) };
+      }
       if (step.addBadge && !nextSave.badges.includes(step.addBadge)) {
         nextSave = { ...nextSave, badges: [...nextSave.badges, step.addBadge] };
       }
@@ -42,7 +60,7 @@ export function applyQuestEvent(save: GameSave, trigger: string, quests: readonl
   return { save: nextSave, progressed, completedQuestIds };
 }
 
-function addItems(inventory: Record<string, number>, rewards: Record<string, number>): Record<string, number> {
+function addItems(inventory: Record<string, number>, rewards: Readonly<Record<string, number>>): Record<string, number> {
   return Object.entries(rewards).reduce((next, [itemId, quantity]) => {
     next[itemId] = (next[itemId] ?? 0) + quantity;
     return next;

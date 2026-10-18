@@ -96,6 +96,17 @@ class AssetRegisterValidationTests(unittest.TestCase):
         self.write_register([{**self.row, "creator": "External artist", "source_url": "https://assets.example/item"}])
         self.assertEqual(len(self.validate()[0]), 1)
 
+    def test_registered_webp_must_have_a_valid_container_signature(self):
+        webp = self.public / "assets" / "map.webp"
+        webp.write_bytes(b"RIFF\x00\x00\x00\x00WEBPtest")
+        row = {**self.row, "asset_id": "map-ground-webp", "filename": "../public/assets/map.webp"}
+        self.write_register([self.row, row])
+        self.assertEqual(len(self.validate()[0]), 2)
+
+        webp.write_bytes(b"not a webp image")
+        with self.assertRaisesRegex(AssertionError, "invalid header"):
+            self.validate()
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,6 +4,7 @@ import type { QuestDefinition } from '../../core/quests/apply-quest-event.ts';
 import { questCatalog } from '../quests/catalog.ts';
 import itemContent from '../../../content/items/items.v1.json';
 import { formatQuestRewards, selectJourneyProgress } from './progress.ts';
+import { badgeCatalog, createBadgeEmblem } from '../ui/BadgeEmblem.ts';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
 const itemNames = Object.fromEntries(Object.entries(itemContent.items).map(([id, item]) => [id, item.name]));
@@ -28,12 +29,17 @@ export class JourneyPanel {
   private readonly contents = element('div', 'journey-contents');
   private readonly reward = element('div', 'journey-reward');
   private readonly closeButton = element('button', 'journey-close', 'Chiudi ×');
+  private readonly wallet = element('button', 'wallet-trigger');
+  private readonly title = element('h2', 'journey-title', 'Il tuo viaggio');
+  private view: 'journal' | 'bag' | 'badges' = 'journal';
+  private readonly menuController = new AbortController();
   private readonly celebrated = new Set<string>();
   private celebrationTimer?: ReturnType<typeof setTimeout>;
   private save?: GameSave;
   private focusBeforeOpen?: HTMLElement;
 
   get isOpen(): boolean { return !this.overlay.hidden; }
+  get hasReward(): boolean { return !this.reward.hidden; }
 
   constructor(stage: HTMLElement) {
     this.contents.tabIndex = 0;
@@ -61,11 +67,10 @@ export class JourneyPanel {
     this.contents.setAttribute('role', 'region');
     this.contents.setAttribute('aria-label', 'Tappe e ricompense del viaggio');
     const header = element('header', 'journey-dialog-header');
-    const title = element('h2', 'journey-title', 'Il tuo viaggio');
-    title.id = 'journey-title';
+    this.title.id = 'journey-title';
     this.closeButton.type = 'button';
     this.closeButton.addEventListener('click', () => this.close());
-    header.append(title, this.closeButton);
+    header.append(this.title, this.closeButton);
     this.dialog.append(header, this.contents);
     this.overlay.append(this.dialog);
     this.reward.hidden = true;
@@ -76,13 +81,22 @@ export class JourneyPanel {
       this.root.addEventListener(event, input => input.stopPropagation());
     }
     stage.append(this.root);
+    this.wallet.type = 'button';
+    this.wallet.title = 'Monete · apri lo zaino';
+    this.wallet.setAttribute('aria-controls', 'journey-journal');
+    this.wallet.setAttribute('aria-expanded', 'false');
+    this.wallet.addEventListener('click', () => this.open('bag'));
+    document.querySelector('#badges-button')?.addEventListener('click', () => this.open('badges'), { signal: this.menuController.signal });
+    document.querySelector('.header-actions')?.prepend(this.wallet);
     document.addEventListener('keydown', this.onKeyDown, true);
   }
 
   update(save: GameSave): void {
     this.save = save;
+    this.wallet.textContent = `◉ ${save.player.money.toLocaleString('it-IT')}`;
+    this.wallet.setAttribute('aria-label', `Apri zaino e dotazioni: ${save.player.money} monete`);
     const progress = selectJourneyProgress(save);
-    if (this.heading.textContent !== progress.title) this.trigger.classList.remove('is-compact');
+    if (this.heading.textContent !== progress.title && !this.hasReward) this.trigger.classList.remove('is-compact');
     this.heading.textContent = progress.title;
     this.objective.textContent = progress.objective;
     this.count.textContent = `${progress.completed}/${progress.total}`;
@@ -109,36 +123,61 @@ export class JourneyPanel {
     dismiss.addEventListener('click', () => { this.reward.hidden = true; });
     this.reward.append(dismiss);
     this.reward.hidden = false;
+    this.compact();
     clearTimeout(this.celebrationTimer);
     this.celebrationTimer = setTimeout(() => { this.reward.hidden = true; }, 6500);
   }
 
   destroy(): void {
+    this.menuController.abort();
     clearTimeout(this.celebrationTimer);
     document.removeEventListener('keydown', this.onKeyDown, true);
     this.root.remove();
+    this.wallet.remove();
   }
 
   compact(): void { this.trigger.classList.add('is-compact'); }
 
-  private open(): void {
+  dismissReward(): void {
+    this.reward.hidden = true;
+    clearTimeout(this.celebrationTimer);
+  }
+
+  private open(view: 'journal' | 'bag' | 'badges' = 'journal'): void {
     if (!this.save) return;
+    this.view = view;
     this.focusBeforeOpen = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
     this.renderJournal();
     this.overlay.hidden = false;
     this.trigger.setAttribute('aria-expanded', 'true');
+    this.wallet.setAttribute('aria-expanded', 'true');
     this.closeButton.focus();
   }
 
   close(): void {
     this.overlay.hidden = true;
     this.trigger.setAttribute('aria-expanded', 'false');
+    this.wallet.setAttribute('aria-expanded', 'false');
     if (this.focusBeforeOpen?.closest('.exploration-menu')) document.querySelector<HTMLElement>('#menu-button')?.focus();
     else this.focusBeforeOpen?.focus();
   }
 
   private renderJournal(): void {
     if (!this.save) return;
+    this.title.textContent = this.view === 'bag' ? 'Zaino e dotazioni' : this.view === 'badges' ? 'Le tue medaglie' : 'Il tuo viaggio';
+    if (this.view === 'bag') { this.renderBag(this.save); return; }
+    if (this.view === 'badges') {
+      this.contents.replaceChildren(element('p', 'pokemon-note', `${this.save.badges.length} medaglie conquistate`));
+      if (!this.save.badges.length) this.contents.append(element('p', '', 'Il tuo medagliere ti aspetta. Supera la prova di Mira nella Palestra di Brumalta per conquistare la Medaglia Aurora.'));
+      for (const id of this.save.badges) {
+        const badge = badgeCatalog[id];
+        if (!badge) continue;
+        const card = element('article', 'badge-case-card');
+        card.append(createBadgeEmblem(id), element('h3', '', badge.name), element('p', 'pokemon-note', `${badge.leader} · ${badge.location}`), element('p', '', badge.description));
+        this.contents.append(card);
+      }
+      return;
+    }
     const progress = selectJourneyProgress(this.save);
     this.contents.replaceChildren();
     const summary = element('div', 'journey-summary');
@@ -150,14 +189,12 @@ export class JourneyPanel {
     const next = element('div', 'journey-next');
     next.append(element('span', 'journey-eyebrow', 'LA PROSSIMA TAPPA'), element('h3', '', progress.title), element('p', '', progress.objective));
     const milestones = element('ol', 'journey-milestones');
-    let activeAssigned = false;
     for (const milestone of progress.milestones) {
-      const active = !milestone.complete && !activeAssigned;
-      if (active) activeAssigned = true;
+      const active = milestone.flag === progress.currentFlag;
       const row = element('li', `journey-milestone${milestone.complete ? ' complete' : active ? ' current' : ''}`);
       row.append(element('span', 'journey-step-mark', milestone.complete ? '✓' : active ? '◆' : '○'), element('span', '', milestone.title));
-      if (milestone.complete) row.append(element('span', 'journey-step-state', 'Fatto'));
-      else if (active) row.append(element('span', 'journey-step-state', 'In corso'));
+      const state = [milestone.optional ? 'Facoltativa' : '', milestone.complete ? 'Fatto' : active ? 'In corso' : ''].filter(Boolean).join(' · ');
+      if (state) row.append(element('span', 'journey-step-state', state));
       milestones.append(row);
     }
     this.contents.append(summary, next, element('h3', 'journey-section-title', 'Le tue tappe'), milestones, element('h3', 'journey-section-title', 'Missioni e ricompense'));
@@ -170,6 +207,31 @@ export class JourneyPanel {
       if (rewards.length) row.append(element('p', '', `${complete ? 'Ricevuto' : 'Ricompensa'}: ${rewards.join(' · ')}`));
       this.contents.append(row);
     }
+  }
+
+  private renderBag(save: GameSave): void {
+    const balance = element('div', 'bag-balance');
+    balance.append(element('span', 'journey-eyebrow', 'LE TUE MONETE'), element('strong', '', `◉ ${save.player.money.toLocaleString('it-IT')}`));
+    const list = element('ul', 'bag-items');
+    list.setAttribute('aria-label', 'Oggetti posseduti');
+    for (const [id, quantity] of Object.entries(save.inventory)) {
+      if (quantity <= 0) continue;
+      const item = itemContent.items[id as keyof typeof itemContent.items];
+      const row = element('li', 'bag-item');
+      const details = element('div', '');
+      let description = 'Oggetto del viaggio';
+      if (item && 'battle' in item) {
+        if ('healHp' in item.battle) description = `Recupera ${item.battle.healHp} HP in lotta`;
+        else if ('cures' in item.battle && item.battle.cures.includes('poison')) description = 'Cura l’avvelenamento in lotta';
+      } else if (item && 'capture' in item) description = 'Per catturare Pokémon selvatici in lotta';
+      if (item && 'description' in item) description = item.description;
+      details.append(element('strong', '', item?.name ?? id), element('p', '', description));
+      row.append(element('span', 'bag-item-icon', item && 'capture' in item ? '◉' : item && 'battle' in item ? '✚' : '✦'), details, element('span', 'bag-quantity', `×${quantity}`));
+      list.append(row);
+    }
+    this.contents.replaceChildren(balance, element('h3', 'journey-section-title', 'Il tuo equipaggiamento'));
+    this.contents.append(list.children.length ? list : element('p', '', 'Lo zaino è vuoto. Troverai oggetti esplorando e nei negozi.'));
+    this.contents.append(element('p', 'bag-hint', 'Durante la lotta scegli Zaino per usare gli strumenti o tentare una cattura.'));
   }
 
   private readonly onKeyDown = (event: KeyboardEvent): void => {

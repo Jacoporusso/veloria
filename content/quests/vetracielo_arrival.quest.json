@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_vetracielo_arrival",
+  "version": 1,
+  "displayName": "La città sopra i giardini",
+  "steps": [
+    {
+      "id": "arrival",
+      "trigger": "area/veloria/vetracielo/enter",
+      "setFlag": "q_vetracielo_visited",
+      "requiresFlags": [
+        "badge_corolla_awarded"
+      ]
+    }
+  ],
+  "completionFlag": "q_vetracielo_visited",
+  "reward": {}
+}

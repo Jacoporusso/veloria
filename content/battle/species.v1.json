@@ -32,7 +32,37 @@
         "tackle",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 3,
+          "moveId": "growl"
+        },
+        {
+          "level": 7,
+          "moveId": "leech-seed"
+        },
+        {
+          "level": 9,
+          "moveId": "vine-whip"
+        },
+        {
+          "level": 13,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 13,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 21,
+          "moveId": "sweet-scent"
+        }
+      ]
     },
     "4": {
       "speciesId": 4,
@@ -53,7 +83,29 @@
         "scratch",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "scratch"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 7,
+          "moveId": "ember"
+        },
+        {
+          "level": 10,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 19,
+          "moveId": "scary-face"
+        }
+      ]
     },
     "7": {
       "speciesId": 7,
@@ -74,7 +126,29 @@
         "tackle",
         "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 4,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 7,
+          "moveId": "bubble"
+        },
+        {
+          "level": 10,
+          "moveId": "withdraw"
+        },
+        {
+          "level": 13,
+          "moveId": "water-gun"
+        }
+      ]
     },
     "10": {
       "speciesId": 10,
@@ -93,9 +167,19 @@
       "experienceYield": 53,
       "defaultMoveIds": [
         "tackle",
-        "growl"
+        "string-shot"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "string-shot"
+        }
+      ]
     },
     "11": {
       "speciesId": 11,
@@ -113,10 +197,19 @@
       },
       "experienceYield": 72,
       "defaultMoveIds": [
-        "tackle",
-        "defense-curl"
+        "harden"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "harden"
+        },
+        {
+          "level": 7,
+          "moveId": "harden"
+        }
+      ]
     },
     "12": {
       "speciesId": 12,
@@ -135,10 +228,39 @@
       },
       "experienceYield": 160,
       "defaultMoveIds": [
-        "gust",
-        "tackle"
+        "confusion"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "confusion"
+        },
+        {
+          "level": 10,
+          "moveId": "confusion"
+        },
+        {
+          "level": 12,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 12,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 12,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 16,
+          "moveId": "gust"
+        },
+        {
+          "level": 18,
+          "moveId": "supersonic"
+        }
+      ]
     },
     "13": {
       "speciesId": 13,
@@ -158,9 +280,19 @@
       "experienceYield": 52,
       "defaultMoveIds": [
         "poison-sting",
-        "tackle"
+        "string-shot"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "poison-sting"
+        },
+        {
+          "level": 1,
+          "moveId": "string-shot"
+        }
+      ]
     },
     "14": {
       "speciesId": 14,
@@ -179,10 +311,19 @@
       },
       "experienceYield": 71,
       "defaultMoveIds": [
-        "poison-sting",
-        "defense-curl"
+        "harden"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "harden"
+        },
+        {
+          "level": 7,
+          "moveId": "harden"
+        }
+      ]
     },
     "15": {
       "speciesId": 15,
@@ -201,10 +342,23 @@
       },
       "experienceYield": 159,
       "defaultMoveIds": [
-        "poison-sting",
-        "quick-attack"
+        "fury-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "fury-attack"
+        },
+        {
+          "level": 10,
+          "moveId": "fury-attack"
+        },
+        {
+          "level": 31,
+          "moveId": "agility"
+        }
+      ]
     },
     "16": {
       "speciesId": 16,
@@ -224,9 +378,31 @@
       "experienceYield": 50,
       "defaultMoveIds": [
         "tackle",
-        "gust"
+        "sand-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 5,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 9,
+          "moveId": "gust"
+        },
+        {
+          "level": 13,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 29,
+          "moveId": "agility"
+        }
+      ]
     },
     "19": {
       "speciesId": 19,
@@ -245,9 +421,24 @@
       "experienceYield": 51,
       "defaultMoveIds": [
         "tackle",
+        "tail-whip",
         "quick-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 4,
+          "moveId": "quick-attack"
+        }
+      ]
     },
     "25": {
       "speciesId": 25,
@@ -266,9 +457,40 @@
       "experienceYield": 82,
       "defaultMoveIds": [
         "thunder-shock",
-        "growl"
+        "growl",
+        "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 5,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 10,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 13,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 21,
+          "moveId": "slam"
+        },
+        {
+          "level": 34,
+          "moveId": "agility"
+        }
+      ]
     },
     "43": {
       "speciesId": 43,
@@ -287,10 +509,36 @@
       },
       "experienceYield": 78,
       "defaultMoveIds": [
-        "tackle",
-        "poison-sting"
+        "absorb",
+        "sweet-scent"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "absorb"
+        },
+        {
+          "level": 5,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 9,
+          "moveId": "acid"
+        },
+        {
+          "level": 13,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 17,
+          "moveId": "sleep-powder"
+        }
+      ]
     },
     "60": {
       "speciesId": 60,
@@ -308,10 +556,31 @@
       },
       "experienceYield": 60,
       "defaultMoveIds": [
-        "tackle",
-        "tail-whip"
+        "bubble"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 5,
+          "moveId": "bubble"
+        },
+        {
+          "level": 8,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 15,
+          "moveId": "double-slap"
+        },
+        {
+          "level": 28,
+          "moveId": "mud-shot"
+        }
+      ]
     },
     "69": {
       "speciesId": 69,
@@ -330,10 +599,39 @@
       },
       "experienceYield": 84,
       "defaultMoveIds": [
-        "tackle",
-        "poison-sting"
+        "vine-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "vine-whip"
+        },
+        {
+          "level": 13,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 17,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 23,
+          "moveId": "acid"
+        },
+        {
+          "level": 29,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 41,
+          "moveId": "slam"
+        }
+      ]
     },
     "161": {
       "speciesId": 161,
@@ -351,10 +649,36 @@
       },
       "experienceYield": 57,
       "defaultMoveIds": [
-        "tackle",
+        "scratch",
         "defense-curl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "scratch"
+        },
+        {
+          "level": 4,
+          "moveId": "defense-curl"
+        },
+        {
+          "level": 7,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 13,
+          "moveId": "fury-swipes"
+        },
+        {
+          "level": 25,
+          "moveId": "slam"
+        },
+        {
+          "level": 36,
+          "moveId": "amnesia"
+        }
+      ]
     },
     "163": {
       "speciesId": 163,
@@ -374,9 +698,32 @@
       "experienceYield": 52,
       "defaultMoveIds": [
         "tackle",
-        "gust"
+        "growl",
+        "hypnosis"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 5,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 9,
+          "moveId": "peck"
+        },
+        {
+          "level": 21,
+          "moveId": "confusion"
+        }
+      ]
     },
     "167": {
       "speciesId": 167,
@@ -396,9 +743,40 @@
       "experienceYield": 50,
       "defaultMoveIds": [
         "poison-sting",
-        "tackle"
+        "string-shot",
+        "scary-face"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "poison-sting"
+        },
+        {
+          "level": 1,
+          "moveId": "string-shot"
+        },
+        {
+          "level": 5,
+          "moveId": "scary-face"
+        },
+        {
+          "level": 8,
+          "moveId": "constrict"
+        },
+        {
+          "level": 12,
+          "moveId": "leech-life"
+        },
+        {
+          "level": 22,
+          "moveId": "fury-swipes"
+        },
+        {
+          "level": 33,
+          "moveId": "agility"
+        }
+      ]
     },
     "179": {
       "speciesId": 179,
@@ -416,10 +794,28 @@
       },
       "experienceYield": 56,
       "defaultMoveIds": [
-        "thunder-shock",
+        "tackle",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 5,
+          "moveId": "growl"
+        },
+        {
+          "level": 10,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 14,
+          "moveId": "thunder-wave"
+        }
+      ]
     },
     "194": {
       "speciesId": 194,
@@ -438,10 +834,588 @@
       },
       "experienceYield": 42,
       "defaultMoveIds": [
-        "tackle",
+        "water-gun",
         "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1"
+      "growthCurveId": "veloria_medium_fast_v1",
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 9,
+          "moveId": "mud-shot"
+        },
+        {
+          "level": 15,
+          "moveId": "slam"
+        },
+        {
+          "level": 23,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "2": {
+      "speciesId": 2,
+      "name": "Ivysaur",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "speed": 60
+      },
+      "experienceYield": 142,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "growl",
+        "leech-seed"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 1,
+          "moveId": "leech-seed"
+        },
+        {
+          "level": 3,
+          "moveId": "growl"
+        },
+        {
+          "level": 7,
+          "moveId": "leech-seed"
+        },
+        {
+          "level": 9,
+          "moveId": "vine-whip"
+        },
+        {
+          "level": 13,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 13,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 23,
+          "moveId": "sweet-scent"
+        }
+      ]
+    },
+    "5": {
+      "speciesId": 5,
+      "name": "Charmeleon",
+      "types": [
+        "fire"
+      ],
+      "baseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "speed": 80
+      },
+      "experienceYield": 142,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "scratch",
+        "growl",
+        "ember"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "scratch"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 1,
+          "moveId": "ember"
+        },
+        {
+          "level": 7,
+          "moveId": "ember"
+        },
+        {
+          "level": 10,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 21,
+          "moveId": "scary-face"
+        }
+      ]
+    },
+    "8": {
+      "speciesId": 8,
+      "name": "Wartortle",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 59,
+        "attack": 63,
+        "defense": 80,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "speed": 58
+      },
+      "experienceYield": 142,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "tail-whip",
+        "bubble"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 4,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 7,
+          "moveId": "bubble"
+        },
+        {
+          "level": 10,
+          "moveId": "withdraw"
+        },
+        {
+          "level": 13,
+          "moveId": "water-gun"
+        }
+      ]
+    },
+    "81": {
+      "speciesId": 81,
+      "name": "Magnemite",
+      "types": [
+        "electric",
+        "steel"
+      ],
+      "baseStats": {
+        "hp": 25,
+        "attack": 35,
+        "defense": 70,
+        "specialAttack": 95,
+        "specialDefense": 55,
+        "speed": 45
+      },
+      "experienceYield": 65,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "metal-sound",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "metal-sound"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 6,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 11,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 14,
+          "moveId": "sonic-boom"
+        },
+        {
+          "level": 17,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 22,
+          "moveId": "spark"
+        },
+        {
+          "level": 33,
+          "moveId": "screech"
+        }
+      ]
+    },
+    "100": {
+      "speciesId": 100,
+      "name": "Voltorb",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "speed": 100
+      },
+      "experienceYield": 66,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 5,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sonic-boom"
+        },
+        {
+          "level": 12,
+          "moveId": "spark"
+        },
+        {
+          "level": 19,
+          "moveId": "screech"
+        }
+      ]
+    },
+    "17": {
+      "speciesId": 17,
+      "name": "Pidgeotto",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 63,
+        "attack": 60,
+        "defense": 55,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 71
+      },
+      "experienceYield": 122,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "sand-attack",
+        "gust"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 1,
+          "moveId": "gust"
+        },
+        {
+          "level": 5,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 9,
+          "moveId": "gust"
+        },
+        {
+          "level": 13,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 32,
+          "moveId": "agility"
+        }
+      ]
+    },
+    "20": {
+      "speciesId": 20,
+      "name": "Raticate",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 81,
+        "defense": 60,
+        "specialAttack": 50,
+        "specialDefense": 70,
+        "speed": 97
+      },
+      "experienceYield": 145,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "tail-whip",
+        "quick-attack"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 4,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 20,
+          "moveId": "scary-face"
+        }
+      ]
+    },
+    "162": {
+      "speciesId": 162,
+      "name": "Furret",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 76,
+        "defense": 64,
+        "specialAttack": 45,
+        "specialDefense": 55,
+        "speed": 90
+      },
+      "experienceYield": 145,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "scratch",
+        "defense-curl",
+        "quick-attack"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "scratch"
+        },
+        {
+          "level": 1,
+          "moveId": "defense-curl"
+        },
+        {
+          "level": 1,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 4,
+          "moveId": "defense-curl"
+        },
+        {
+          "level": 7,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 13,
+          "moveId": "fury-swipes"
+        },
+        {
+          "level": 28,
+          "moveId": "slam"
+        },
+        {
+          "level": 42,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "164": {
+      "speciesId": 164,
+      "name": "Noctowl",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 100,
+        "attack": 50,
+        "defense": 50,
+        "specialAttack": 76,
+        "specialDefense": 96,
+        "speed": 70
+      },
+      "experienceYield": 158,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "growl",
+        "hypnosis"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 1,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 5,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 9,
+          "moveId": "peck"
+        },
+        {
+          "level": 22,
+          "moveId": "confusion"
+        }
+      ]
+    },
+    "180": {
+      "speciesId": 180,
+      "name": "Flaaffy",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 55,
+        "defense": 55,
+        "specialAttack": 80,
+        "specialDefense": 60,
+        "speed": 45
+      },
+      "experienceYield": 128,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "growl",
+        "thunder-shock"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 1,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 5,
+          "moveId": "growl"
+        },
+        {
+          "level": 10,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 14,
+          "moveId": "thunder-wave"
+        }
+      ]
+    },
+    "195": {
+      "speciesId": 195,
+      "name": "Quagsire",
+      "types": [
+        "water",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 95,
+        "attack": 85,
+        "defense": 85,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "speed": 35
+      },
+      "experienceYield": 151,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "water-gun",
+        "tail-whip"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 9,
+          "moveId": "mud-shot"
+        },
+        {
+          "level": 15,
+          "moveId": "slam"
+        },
+        {
+          "level": 24,
+          "moveId": "amnesia"
+        }
+      ]
     }
-  }
+  },
+  "moveSource": {
+    "provider": "PokeAPI",
+    "versionGroup": "heartgold-soulsilver",
+    "language": "it",
+    "manifest": "content/sources/pokeapi/manifest.json"
+  },
+  "movePolicy": "officialLearnset determines new creatures at their actual level; defaultMoveIds is a level-five preview. Prototype save compatibility is not required."
 }

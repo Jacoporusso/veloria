@@ -1,0 +1,20 @@
+{
+  "id": "veloria/q_ferraluce_report",
+  "version": 1,
+  "displayName": "Confrontare le letture",
+  "steps": [
+    {
+      "id": "report_to_ivo",
+      "trigger": "ferraluce/ivo/report",
+      "setFlag": "q_ferraluce_report",
+      "requiresFlags": ["q_ferraluce_visited", "q_r06_measurement"]
+    }
+  ],
+  "completionFlag": "q_ferraluce_report",
+  "reward": {
+    "items": {
+      "potion": 2,
+      "antidote": 1
+    }
+  }
+}

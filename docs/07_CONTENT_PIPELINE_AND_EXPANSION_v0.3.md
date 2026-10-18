@@ -33,6 +33,9 @@ PWA offline
 
 ### Policy tecnica
 
+- Mosse e learnset runtime sono generati da PokéAPI, gruppo `heartgold-soulsilver`, tramite `python tools/import_pokeapi_battle.py --fetch`; `--check` verifica offline la riproducibilità. Risposte, URL e checksum sono in `content/sources/pokeapi/`.
+- Non modificare a mano potenza, precisione, PP, effetti, livelli o compatibilità specie/mossa. Le mosse ancora non implementate sono registrate nel report sorgente e non ricevono effetti sostitutivi.
+
 - Limitare richieste e parallelismo durante l'import; cache locale persistente dei risultati.
 - Import incrementale; determinismo dei JSON prodotti e checksum degli input.
 - Usare la **ID nazionale** come chiave specie; canonical name normalizzato e UI localization separati.
@@ -76,6 +79,14 @@ Questo contratto è MapDefinition v2 (`specs/schemas/map.v2.schema.json`). I met
 5. Registrare gli asset e verificare licenze e mem-budget.
 6. Eseguire `python tools/validate_examples.py`, i test Python, `npm run build` e test spawn, collisioni, save/load e ritorni sulle mappe precedenti.
 7. Aggiornare contentVersion e changelog, includere gli asset runtime nel precache e integrare il pack di zona; definire download/offline per la nuova area.
+
+Per le immagini runtime, il flusso conserva il PNG sorgente e registra separatamente il WebP derivato. Aggiornare il `path` nei metadata e le sorgenti immagine del Tiled JSON, aggiungere il WebP al registro asset e al precache; per i manifest artwork aggiornare hash e path del file runtime senza cambiare l’URL della fonte. La conversione corrente usa WebP q88 e mantiene il canale alfa.
+
+### Oggetti nelle tappe di missione
+
+Una tappa può dichiarare `grantItems` e/o `consumeItems`, mappe da item ID a quantità intera positiva. Il validatore controlla schema, ID nel catalogo e quantità. Il servizio missioni verifica tutti gli oggetti da consegnare prima di modificare inventario o flag; consuma gli oggetti, applica gli eventuali oggetti ricevuti dalla tappa e assegna la ricompensa finale nello stesso risultato immutabile. La ripetizione di una tappa già completata non ripete nessuna operazione.
+
+Il `itemId` del pickup Tiled identifica l’oggetto nella presentazione; non assegna da solo l’oggetto. Per un pickup intermedio usare `grantItems` sulla tappa di raccolta. Esempio: `radicelmo_seed_archive.quest.json` consegna un `ancient-seed` alla raccolta e lo ritira alla catalogazione da Leda; la ricompensa finale è distinta. Il test deve comprendere raccolta, caricamento, consegna e ripetizione senza duplicazioni.
 
 ## 5. Aggiunta Pokémon: procedura
 

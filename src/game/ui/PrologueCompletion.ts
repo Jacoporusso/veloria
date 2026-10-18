@@ -1,6 +1,7 @@
 import type { GameSave } from '../../persistence/save-types.ts';
 import { battleSpecies } from '../battle/catalog.ts';
 import '../../prologue-completion.css';
+import { createBadgeEmblem } from './BadgeEmblem.ts';
 
 /** Show the prologue milestone without changing or persisting the supplied save. */
 export function showPrologueCompletion(save: GameSave, activationKey?: string): Promise<void> {
@@ -42,9 +43,7 @@ export function showPrologueCompletion(save: GameSave, activationKey?: string): 
     const medal = document.createElement('div');
     medal.className = 'prologue-completion__medal';
     medal.setAttribute('aria-label', 'Medaglia Aurora');
-    const medalIcon = document.createElement('span');
-    medalIcon.className = 'prologue-completion__medal-icon';
-    medalIcon.setAttribute('aria-hidden', 'true');
+    const medalIcon = createBadgeEmblem();
     medal.append(medalIcon);
     const medalLabel = document.createElement('span');
     medalLabel.className = 'prologue-completion__medal-label';
@@ -54,7 +53,7 @@ export function showPrologueCompletion(save: GameSave, activationKey?: string): 
     const story = document.createElement('p');
     story.id = 'prologue-completion-story';
     story.className = 'prologue-completion__story';
-    story.textContent = 'Hai concluso il prologo, che accompagna il tuo viaggio fino a Mira. L’avventura completa proseguirà con i prossimi capitoli.';
+    story.textContent = 'Hai concluso il prologo con la Medaglia Aurora. Il sentiero a est di Brumalta è aperto: attraversa le Terrazze del Muschio per raggiungere Radicelmo e scoprire l’archivio della serra.';
 
     const uniqueSpecies = new Set<number>();
     for (const creature of [...save.party, ...save.storage]) {

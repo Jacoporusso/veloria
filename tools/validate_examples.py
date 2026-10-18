@@ -12,6 +12,11 @@ from map_render_validation import validate_map_render_assets
 from asset_register_validation import validate_asset_register
 from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
+from import_pokeapi_battle import main as verify_pokeapi_import
+from import_pokeapi_evolutions import main as verify_evolution_import
+from import_pokeapi_species import main as verify_species_import
+from import_pokeapi_evolution_art import main as verify_evolution_art
+from import_pokeapi_urban_art import main as verify_urban_art
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "content" / "examples"
@@ -32,6 +37,13 @@ ITEMS_FILE = ROOT / "content" / "items" / "items.v1.json"
 SHOPS = ROOT / "content" / "shops"
 ASSET_REGISTER = ROOT / "assets" / "ASSET_REGISTER.csv"
 CONTENT_MANIFEST = ROOT / "content" / "manifest.json"
+
+# Canonical move data must reproduce exactly from the committed API snapshots.
+verify_pokeapi_import(['--check'])
+verify_evolution_import(['--check'])
+verify_species_import(['--check'])
+verify_evolution_art(['--check'])
+verify_urban_art(['--check'])
 
 def read(name):
     return json.loads((EXAMPLES / name).read_text(encoding="utf-8"))
@@ -138,12 +150,15 @@ for move_id, move in move_registry.items():
     check(type(move.get("power")) is int and move["power"] >= 0, f"Invalid move power in {move_id}")
     check(type(move.get("accuracy")) in (int, float) and 0 <= move["accuracy"] <= 100, f"Invalid move accuracy in {move_id}")
     check(move.get("category") in {"physical", "special", "status"}, f"Invalid move category in {move_id}")
+    if "leechSeedFraction" in move:
+        check(type(move["leechSeedFraction"]) in (int, float) and 0 < move["leechSeedFraction"] <= 1,
+              f"Invalid Leech Seed fraction in {move_id}")
     effects = move.get("statChanges", [])
     check(isinstance(effects, list), f"Invalid statChanges in {move_id}")
     for effect in effects:
         check(isinstance(effect, dict), f"Invalid stat change in {move_id}")
         check(effect.get("target") in {"self", "opponent"}, f"Invalid stat target in {move_id}")
-        check(effect.get("stat") in {"attack", "defense", "specialAttack", "specialDefense", "speed"}, f"Invalid stat in {move_id}")
+        check(effect.get("stat") in {"attack", "defense", "specialAttack", "specialDefense", "speed", "accuracy", "evasion"}, f"Invalid stat in {move_id}")
         change = effect.get("stages")
         check(type(change) is int and -6 <= change <= 6 and change != 0, f"Invalid stage change in {move_id}")
 type_chart_data = json.loads(TYPE_CHART_FILE.read_text(encoding="utf-8"))
@@ -171,8 +186,9 @@ learning = json.loads((ROOT / "content" / "battle" / "level-up-moves.v1.json").r
 check(learning.get("version") == 1 and learning.get("status") == "prototype", "Invalid level-up move registry")
 for species_id, entries in learning["species"].items():
     check(species_id in species_registry, f"Unknown learning species: {species_id}")
-    check(len(entries) == len({entry["moveId"] for entry in entries}), f"Duplicate level-up move: {species_id}")
-    check(len(entries) + len(species_registry[species_id]["defaultMoveIds"]) <= 4, f"MVP learnset exceeds four slots: {species_id}")
+    check(len(entries) == len({(entry["level"], entry["moveId"]) for entry in entries}), f"Duplicate level-up entry: {species_id}")
+    # Same-level moves retain the source game's order, verified by the importer.
+    check(entries == sorted(entries, key=lambda entry: entry["level"]), f"Unsorted level-up moves: {species_id}")
     for entry in entries:
         check(type(entry["level"]) is int and 2 <= entry["level"] <= 100, f"Invalid learning level: {species_id}")
         check(entry["moveId"] in move_registry, f"Unknown level-up move: {entry['moveId']}")
@@ -183,7 +199,7 @@ trainer_registry = {trainer["id"]: trainer for trainer in trainers}
 opponent_policies_data = json.loads(OPPONENT_POLICIES_FILE.read_text(encoding="utf-8"))
 opponent_profiles = opponent_policies_data.get("profiles", {})
 required_opponent_profiles = {"wild", "route_young", "route_cautious", "gym_beginner"}
-check(opponent_policies_data.get("version") == 2 and opponent_policies_data.get("status") == "prototype",
+check(opponent_policies_data.get("version") == 3 and opponent_policies_data.get("status") == "prototype",
       "Opponent policies must remain explicitly versioned and provisional")
 check(isinstance(opponent_profiles, dict) and required_opponent_profiles <= set(opponent_profiles),
       "Opponent policy registry is missing a required profile")
@@ -194,6 +210,9 @@ for profile_id, profile in opponent_profiles.items():
     check(type(cadence) is int and 0 <= cadence <= 100, f"Invalid status cadence in opponent profile {profile_id}")
     setup_cap = profile.get("maxSetupStage")
     check(type(setup_cap) is int and 1 <= setup_cap <= 6, f"Invalid setup stage cap in opponent profile {profile_id}")
+    if "maxStatusUsesPerMove" in profile:
+        check(type(profile["maxStatusUsesPerMove"]) is int and 1 <= profile["maxStatusUsesPerMove"] <= 100,
+              f"Invalid support move attempt cap in opponent profile {profile_id}")
     check(profile.get("damageSelection") in {"best", "cycle"}, f"Invalid damage selection in opponent profile {profile_id}")
 for trainer in trainers:
     check(trainer.get("aiProfileId") in opponent_profiles,
@@ -205,11 +224,14 @@ asset_rows, registered_asset_paths = validate_asset_register(ASSET_REGISTER, ROO
 starter_art = json.loads((ROOT / "assets" / "pokeapi-starter-artwork-v1.json").read_text(encoding="utf-8"))
 check({entry["speciesId"] for entry in starter_art["artworks"]} == {1, 4, 7, 25}, "Starter artwork IDs are incomplete")
 for entry in starter_art["artworks"]:
-    expected_path = f"assets/creatures/pokeapi-starter-{entry['speciesId']}-v1.png"
+    expected_path = f"assets/creatures/pokeapi-starter-{entry['speciesId']}-v1.webp"
     check(entry["path"] == expected_path, "Unexpected starter artwork path")
     content = (PUBLIC / expected_path).read_bytes()
     check(hashlib.sha256(content).hexdigest() == entry["sha256"], f"Starter artwork checksum mismatch: {expected_path}")
     check(expected_path in (PUBLIC / "sw.js").read_text(encoding="utf-8"), f"Starter artwork missing from offline cache: {expected_path}")
+evolution_art = json.loads((ROOT / "assets/pokeapi-evolution-artwork-v1.json").read_text(encoding="utf-8"))
+for entry in evolution_art["artworks"]:
+    check(entry["path"] in (PUBLIC / "sw.js").read_text(encoding="utf-8"), f"Evolution artwork missing from offline cache: {entry['path']}")
 
 dependency_rows = validate_dependency_register(ROOT / "package-lock.json", ROOT / "assets" / "DEPENDENCY_LICENSES.csv")
 asset_registry = {asset["asset_id"]: asset for asset in asset_rows}
@@ -230,17 +252,35 @@ def visit_evolution(species_id):
 for species_id in evolution_edges:
     visit_evolution(species_id)
 quest_files = sorted(QUESTS.glob("*.quest.json"))
+badge_data = json.loads((ROOT / "content/badges/badges.v1.json").read_text(encoding="utf-8"))
+check(badge_data.get("version") == 1 and bool(badge_data.get("badges")), "Invalid badge catalog")
+badge_registry = badge_data["badges"]
+for badge_id, badge in badge_registry.items():
+    check(badge.get("emblem") in {"aurora", "corolla", "circuit"}, f"Unknown badge emblem: {badge_id}")
+    check(all(isinstance(badge.get(field), str) and badge[field].strip() for field in ("name", "leader", "location", "description")), f"Incomplete badge: {badge_id}")
 quests = [json.loads(file.read_text(encoding="utf-8")) for file in quest_files]
 quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]}
 quest_flags = {step["setFlag"] for quest in quests for step in quest["steps"]}
 check(starter_data.get("selectionFlag") == "q_starter_selected", "Starter selection flag is missing or unsupported")
 quest_flags.add(starter_data["selectionFlag"])
 check(len({quest["id"] for quest in quests}) == len(quests), "Duplicate quest ID")
+quest_schema = json.loads((SCHEMAS / "quest.v1.schema.json").read_text(encoding="utf-8"))
 for quest in quests:
+    validate_json_schema(quest, quest_schema, f"Runtime quest {quest['id']}")
     step_flags = [step["setFlag"] for step in quest["steps"]]
     check(len(step_flags) == len(set(step_flags)), f"Duplicate quest flags: {quest['id']}")
+    check(quest["completionFlag"] in step_flags, f"Quest completion flag is never set: {quest['id']}")
     for step in quest["steps"]:
         check(step["trigger"], f"Quest step has no trigger: {quest['id']}")
+        if step.get("addBadge"):
+            check(step["addBadge"] in badge_registry, f"Unknown quest badge in {quest['id']}: {step['addBadge']}")
+        for action in ("grantItems", "consumeItems"):
+            if action not in step:
+                continue
+            check(isinstance(step[action], dict) and len(step[action]) > 0, f"Empty or invalid {action} in {quest['id']}")
+            for item_id, quantity in step[action].items():
+                check(item_id in item_registry, f"Unknown {action} item in {quest['id']}: {item_id}")
+                check(type(quantity) is int and quantity > 0, f"Invalid {action} quantity in {quest['id']}: {item_id}")
     check((quest.get("reward", {}).get("money", 0) >= 0), f"Negative quest reward: {quest['id']}")
     for item_id, quantity in quest.get("reward", {}).get("items", {}).items():
         check(item_id in item_registry, f"Unknown quest reward item in {quest['id']}: {item_id}")
@@ -257,10 +297,17 @@ for trainer in trainers:
     check(1 <= len(trainer["team"]) <= 6, f"Invalid trainer team: {trainer['id']}")
     check(trainer["rewardMoney"] >= 0, f"Negative trainer reward: {trainer['id']}")
     check(bool(trainer.get("victoryMessage")), f"Trainer has no localized victory message: {trainer['id']}")
+    if "victoryFeedback" in trainer:
+        check(isinstance(trainer["victoryFeedback"], str) and trainer["victoryFeedback"].strip(), f"Invalid trainer feedback: {trainer['id']}")
     for member in trainer["team"]:
         check(str(member["speciesId"]) in species_registry, f"Unknown trainer species: {trainer['id']}")
         check(1 <= member["level"] <= 100 and 1 <= len(member["moveIds"]) <= 4, f"Invalid trainer creature: {trainer['id']}")
         check(all(move_id in move_registry for move_id in member["moveIds"]), f"Unknown trainer move: {trainer['id']}")
+        species_data = species_registry.get(str(member["speciesId"]), {})
+        legal_moves = {entry["moveId"] for entry in species_data.get("officialLearnset", [])
+                       if entry["level"] <= member["level"]}
+        check(set(member["moveIds"]) <= legal_moves,
+              f"Trainer assigns a move unavailable at that species level: {trainer['id']} species {member['speciesId']} level {member['level']}")
 for item_id, item in item_registry.items():
     check(item["id"] == item_id and item["price"] >= 0 and item["maxStack"] > 0, f"Invalid item definition: {item_id}")
 check(len(shop_registry) == len(shops), "Duplicate shop IDs")
@@ -300,7 +347,7 @@ for file in runtime_maps:
         effect_data = effect if isinstance(effect, dict) else {}
         area = effect_data.get("area", {})
         colors = effect_data.get("colors", [])
-        if effect_data.get("kind") == "fireflies":
+        if effect_data.get("kind") in {"fireflies", "petals"}:
             check(isinstance(effect_data.get("count"), int) and 1 <= effect_data["count"] <= 64,
                   f"Invalid firefly effect in {metadata['id']}")
             check(isinstance(area, dict) and all(isinstance(area.get(key), int) for key in ("x", "y", "width", "height")) and
@@ -371,6 +418,13 @@ for file in runtime_maps:
                 sprite_key = properties.get("houseSprite", "borgofonte-house")
                 check(sprite_key in assets_by_key and assets_by_key[sprite_key]["kind"] == "image",
                       f"House sprite is not declared as a map image asset in {metadata['id']}: {sprite_key}")
+            if properties.get("dialogueId"):
+                check(properties["dialogueId"] in dialogues, f"Unknown dialogue ID in {metadata['id']}: {properties['dialogueId']}")
+            if properties.get("completedFlag"):
+                check(properties["completedFlag"] in quest_flags, f"Unknown completedFlag in {metadata['id']}: {properties['completedFlag']}")
+            for flag_property in ("visibleWhenFlag", "activatedFlag"):
+                if properties.get(flag_property):
+                    check(properties[flag_property] in quest_flags, f"Unknown {flag_property} in {metadata['id']}: {properties[flag_property]}")
             if kind == "npc":
                 check(properties.get("dialogueId") in dialogues, f"Unknown dialogue ID in {metadata['id']}: {properties.get('dialogueId')}")
                 if properties.get("trainerId"):
@@ -380,7 +434,7 @@ for file in runtime_maps:
                     if properties.get("battleRequiredFlag"):
                         check(properties["battleRequiredFlag"] in quest_flags, f"Trainer requires an unregistered quest flag: {properties['trainerId']}")
             elif kind in {"house", "sign", "mill-wheel", "rock", "hotspot"}:
-                check(isinstance(properties.get("message"), str), f"Missing interaction message in {metadata['id']}: {obj.get('name')}")
+                check(isinstance(properties.get("message"), str) or properties.get("dialogueId") in dialogues, f"Missing interaction message or dialogue in {metadata['id']}: {obj.get('name')}")
             if kind == "pickup":
                 check(properties.get("itemId") in item_registry, f"Unknown pickup item in {metadata['id']}: {obj.get('name')}")
                 check(properties.get("questEvent") in quest_triggers, f"Unknown pickup quest event in {metadata['id']}: {obj.get('name')}")
@@ -537,6 +591,19 @@ for encounter_file in runtime_encounters:
             check(str(entry["speciesId"]) in species_registry, f"Encounter species missing from battle registry: {entry['speciesId']}")
             check(1 <= entry["minLevel"] <= entry["maxLevel"] <= 100, "Bad encounter level")
             check(entry["weight"] > 0, "Bad encounter weight")
+            species_data = species_registry.get(str(entry["speciesId"]), {})
+            available_moves = [move for move in species_data.get("officialLearnset", [])
+                               if move["level"] <= entry["minLevel"] and move["moveId"] in move_registry]
+            check(bool(available_moves),
+                  f"Encounter species has no supported learned move by minLevel: {table['id']} species {entry['speciesId']} level {entry['minLevel']}")
+for route_path in runtime_maps:
+    route = json.loads(route_path.read_text(encoding="utf-8"))
+    if re.match(r"veloria/r\d{2}_", route["id"]):
+        route_tiled = json.loads((ROOT / "public" / route["tiledAsset"]).read_text(encoding="utf-8"))
+        route_zones = [obj for layer in route_tiled["layers"] for obj in layer.get("objects", [])
+                       if any(prop["name"] == "kind" and prop["value"] == "encounter-zone" for prop in obj.get("properties", []))]
+        check(route.get("encounterTableIds") and route_zones, f"Route has no Pokemon encounter habitat: {route['id']}")
+
 check(zone_encounter_refs <= runtime_encounter_ids, f"Encounter zone references missing table(s): {sorted(zone_encounter_refs - runtime_encounter_ids)}")
 
 quest = read("quest_prologue.quest.json")
@@ -550,6 +617,11 @@ trainer=read("gym01_mira.trainer.json")
 check(1 <= len(trainer["team"]) <= 6, "Invalid trainer team length")
 for mon in trainer["team"]:
     check(1 <= mon["level"] <= 100 and 1 <= len(mon["moveIds"]) <= 4, "Invalid trainer creature")
+    species_data = species_registry.get(str(mon["speciesId"]), {})
+    legal_moves = {entry["moveId"] for entry in species_data.get("officialLearnset", [])
+                   if entry["level"] <= mon["level"]}
+    check(set(mon["moveIds"]) <= legal_moves,
+          f"Example trainer assigns a move unavailable at that species level: {mon['speciesId']} level {mon['level']}")
 
 save=read("save.v1.example.json")
 check(save["schemaVersion"] == 1, "Wrong save schema")

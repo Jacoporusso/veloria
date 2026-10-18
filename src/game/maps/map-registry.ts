@@ -3,9 +3,9 @@ import { resolveMapRenderAssets } from './map-render-assets';
 
 const legacyV1RenderAssets: MapRenderAsset[] = [
   { kind: 'tileset', key: 'veloria-ground', path: 'assets/tilesets/veloria-ground-v1.png', tiledName: 'veloria_terrain', tileWidth: 32, tileHeight: 32 },
-  { kind: 'image', key: 'borgofonte-house', path: 'assets/sprites/borgofonte-house-01.png' },
-  { kind: 'image', key: 'borgofonte-tree', path: 'assets/sprites/borgofonte-tree-01.png' },
-  { kind: 'image', key: 'veloria-bosco-ancient-tree-v1', path: 'assets/sprites/veloria-bosco-ancient-tree-v1.png' },
+  { kind: 'image', key: 'borgofonte-house', path: 'assets/sprites/borgofonte-house-01.webp' },
+  { kind: 'image', key: 'borgofonte-tree', path: 'assets/sprites/borgofonte-tree-01.webp' },
+  { kind: 'image', key: 'veloria-bosco-ancient-tree-v1', path: 'assets/sprites/veloria-bosco-ancient-tree-v1.webp' },
 ];
 
 function parseMetadata(input: unknown): MapMetadata {
@@ -23,6 +23,17 @@ function parseMetadata(input: unknown): MapMetadata {
   if (metadata.battleBackgroundKey !== undefined &&
       !metadata.renderAssets.some(asset => asset.key === metadata.battleBackgroundKey && asset.kind === 'image')) {
     throw new Error(`MapDefinition ${metadata.id} battleBackgroundKey must reference a declared image asset.`);
+  }
+  if (metadata.terrainBase !== undefined) {
+    const terrainBase = metadata.terrainBase as unknown;
+    if (!terrainBase || typeof terrainBase !== 'object') {
+      throw new Error(`MapDefinition ${metadata.id} terrainBase must reference a declared image and a local tileset index.`);
+    }
+    const { assetKey, tilesetName, tileIndex } = terrainBase as Record<string, unknown>;
+    if (typeof assetKey !== 'string' || typeof tilesetName !== 'string' || !tilesetName || !Number.isInteger(tileIndex) || Number(tileIndex) < 0 ||
+        !metadata.renderAssets.some(asset => asset.key === assetKey && asset.kind === 'image')) {
+      throw new Error(`MapDefinition ${metadata.id} terrainBase must reference a declared image and a local tileset tile.`);
+    }
   }
   const spawnIds = new Set<string>();
   for (const spawn of metadata.spawns) {
@@ -45,7 +56,7 @@ function validateAmbientEffects(mapId: string, effects: unknown): void {
     const colors = effect.colors;
     const validColors = Array.isArray(colors) && colors.length > 0 && colors.every(color => typeof color === 'string' && /^#[\da-f]{6}$/i.test(color));
     const area = effect.area as Record<string, unknown> | undefined;
-    const validFireflies = effect.kind === 'fireflies' && Number.isInteger(effect.count) && Number(effect.count) >= 1 && Number(effect.count) <= 64 &&
+    const validFireflies = (effect.kind === 'fireflies' || effect.kind === 'petals') && Number.isInteger(effect.count) && Number(effect.count) >= 1 && Number(effect.count) <= 64 &&
       !!area && ['x', 'y', 'width', 'height'].every(key => Number.isInteger(area[key])) &&
       Number(area.x) >= 0 && Number(area.y) >= 0 && Number(area.width) > 0 && Number(area.height) > 0;
     const validWaterShimmer = effect.kind === 'water-shimmer' && Number.isInteger(effect.count) && Number(effect.count) >= 1 && Number(effect.count) <= 64 &&

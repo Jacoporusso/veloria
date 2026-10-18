@@ -1,0 +1,3124 @@
+{
+  "source": {
+    "provider": "PokeAPI",
+    "versionGroup": "heartgold-soulsilver",
+    "language": "it",
+    "manifest": "content/sources/pokeapi/manifest.json"
+  },
+  "species": {
+    "1": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": null
+      },
+      {
+        "level": 3,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "vine-whip",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder",
+        "order": 1
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder",
+        "order": 2
+      },
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "sweet-scent",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "seed-bomb",
+        "order": null
+      }
+    ],
+    "4": [
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 7,
+        "moveId": "ember",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "fire-spin",
+        "order": null
+      }
+    ],
+    "7": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": null
+      },
+      {
+        "level": 4,
+        "moveId": "tail-whip",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "bubble",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "10": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "string-shot",
+        "order": 2
+      },
+      {
+        "level": 15,
+        "moveId": "bug-bite",
+        "order": null
+      }
+    ],
+    "11": [
+      {
+        "level": 1,
+        "moveId": "harden",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "harden",
+        "order": null
+      }
+    ],
+    "12": [
+      {
+        "level": 1,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "poison-powder",
+        "order": 1
+      },
+      {
+        "level": 12,
+        "moveId": "stun-spore",
+        "order": 2
+      },
+      {
+        "level": 12,
+        "moveId": "sleep-powder",
+        "order": 3
+      },
+      {
+        "level": 16,
+        "moveId": "gust",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "psybeam",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "silver-wind",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "safeguard",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "captivate",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "bug-buzz",
+        "order": null
+      }
+    ],
+    "13": [
+      {
+        "level": 1,
+        "moveId": "poison-sting",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "string-shot",
+        "order": 2
+      },
+      {
+        "level": 15,
+        "moveId": "bug-bite",
+        "order": null
+      }
+    ],
+    "14": [
+      {
+        "level": 1,
+        "moveId": "harden",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "harden",
+        "order": null
+      }
+    ],
+    "15": [
+      {
+        "level": 1,
+        "moveId": "fury-attack",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "fury-attack",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "twineedle",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "16": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "gust",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "twister",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "feather-dance",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "mirror-move",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "19": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 2
+      },
+      {
+        "level": 4,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "hyper-fang",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "super-fang",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "25": [
+      {
+        "level": 1,
+        "moveId": "thunder-shock",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 5,
+        "moveId": "tail-whip",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "double-team",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "thunderbolt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "feint",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "43": [
+      {
+        "level": 1,
+        "moveId": "absorb",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "sweet-scent",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "acid",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "stun-spore",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "sleep-powder",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "mega-drain",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "natural-gift",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "moonlight",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "giga-drain",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "petal-dance",
+        "order": null
+      }
+    ],
+    "60": [
+      {
+        "level": 1,
+        "moveId": "water-sport",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "bubble",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "hypnosis",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "double-slap",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "body-slam",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "mud-shot",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "belly-drum",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "wake-up-slap",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "mud-bomb",
+        "order": null
+      }
+    ],
+    "69": [
+      {
+        "level": 1,
+        "moveId": "vine-whip",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "poison-powder",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "stun-spore",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "acid",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "knock-off",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "sweet-scent",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "gastro-acid",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "161": [
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 2
+      },
+      {
+        "level": 4,
+        "moveId": "defense-curl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "fury-swipes",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "helping-hand",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "follow-me",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "hyper-voice",
+        "order": null
+      }
+    ],
+    "163": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "hypnosis",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "peck",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "uproar",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "reflect",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "extrasensory",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "dream-eater",
+        "order": null
+      }
+    ],
+    "167": [
+      {
+        "level": 1,
+        "moveId": "poison-sting",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "string-shot",
+        "order": 2
+      },
+      {
+        "level": 5,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "constrict",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "leech-life",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "shadow-sneak",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "fury-swipes",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "spider-web",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "poison-jab",
+        "order": null
+      }
+    ],
+    "179": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "194": [
+      {
+        "level": 1,
+        "moveId": "water-gun",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 2
+      },
+      {
+        "level": 5,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "mud-shot",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "yawn",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "mist",
+        "order": 1
+      },
+      {
+        "level": 43,
+        "moveId": "haze",
+        "order": 2
+      },
+      {
+        "level": 47,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ],
+    "2": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "leech-seed",
+        "order": 3
+      },
+      {
+        "level": 3,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "vine-whip",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder",
+        "order": 1
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder",
+        "order": 2
+      },
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "sweet-scent",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "5": [
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "ember",
+        "order": 3
+      },
+      {
+        "level": 7,
+        "moveId": "ember",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "fire-spin",
+        "order": null
+      }
+    ],
+    "8": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 3
+      },
+      {
+        "level": 4,
+        "moveId": "tail-whip",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "bubble",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "81": [
+      {
+        "level": 1,
+        "moveId": "metal-sound",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "sonic-boom",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "spark",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "lock-on",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "magnet-bomb",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "mirror-shot",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "zap-cannon",
+        "order": null
+      }
+    ],
+    "100": [
+      {
+        "level": 1,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "tackle",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "sonic-boom",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "spark",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "charge-beam",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "swift",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "mirror-coat",
+        "order": null
+      }
+    ],
+    "17": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "sand-attack",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "gust",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "gust",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "twister",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "feather-dance",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "mirror-move",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "20": [
+      {
+        "level": 1,
+        "moveId": "swords-dance",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "quick-attack",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "focus-energy",
+        "order": 5
+      },
+      {
+        "level": 4,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "hyper-fang",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "super-fang",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "162": [
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "defense-curl",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "quick-attack",
+        "order": 4
+      },
+      {
+        "level": 4,
+        "moveId": "defense-curl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "fury-swipes",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "helping-hand",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "follow-me",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "hyper-voice",
+        "order": null
+      }
+    ],
+    "164": [
+      {
+        "level": 1,
+        "moveId": "sky-attack",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "hypnosis",
+        "order": 5
+      },
+      {
+        "level": 5,
+        "moveId": "hypnosis",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "peck",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "uproar",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "reflect",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "extrasensory",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "dream-eater",
+        "order": null
+      }
+    ],
+    "180": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "thunder-shock",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "195": [
+      {
+        "level": 1,
+        "moveId": "water-gun",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "mud-shot",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "yawn",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "mist",
+        "order": 1
+      },
+      {
+        "level": 48,
+        "moveId": "haze",
+        "order": 2
+      },
+      {
+        "level": 53,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ]
+  },
+  "unimplemented": {
+    "1": [
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "seed-bomb",
+        "order": null
+      }
+    ],
+    "4": [
+      {
+        "level": 16,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "fire-spin",
+        "order": null
+      }
+    ],
+    "7": [
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "10": [
+      {
+        "level": 15,
+        "moveId": "bug-bite",
+        "order": null
+      }
+    ],
+    "11": [],
+    "12": [
+      {
+        "level": 22,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "psybeam",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "silver-wind",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "safeguard",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "captivate",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "bug-buzz",
+        "order": null
+      }
+    ],
+    "13": [
+      {
+        "level": 15,
+        "moveId": "bug-bite",
+        "order": null
+      }
+    ],
+    "14": [],
+    "15": [
+      {
+        "level": 13,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "twineedle",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "16": [
+      {
+        "level": 17,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "twister",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "feather-dance",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "mirror-move",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "19": [
+      {
+        "level": 7,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "hyper-fang",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "super-fang",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "25": [
+      {
+        "level": 18,
+        "moveId": "double-team",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "thunderbolt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "feint",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "43": [
+      {
+        "level": 21,
+        "moveId": "mega-drain",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "natural-gift",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "moonlight",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "giga-drain",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "petal-dance",
+        "order": null
+      }
+    ],
+    "60": [
+      {
+        "level": 1,
+        "moveId": "water-sport",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "body-slam",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "belly-drum",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "wake-up-slap",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "mud-bomb",
+        "order": null
+      }
+    ],
+    "69": [
+      {
+        "level": 7,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "knock-off",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "gastro-acid",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "161": [
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 2
+      },
+      {
+        "level": 16,
+        "moveId": "helping-hand",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "follow-me",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "hyper-voice",
+        "order": null
+      }
+    ],
+    "163": [
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 3
+      },
+      {
+        "level": 13,
+        "moveId": "uproar",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "reflect",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "extrasensory",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "dream-eater",
+        "order": null
+      }
+    ],
+    "167": [
+      {
+        "level": 15,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "shadow-sneak",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "spider-web",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "poison-jab",
+        "order": null
+      }
+    ],
+    "179": [
+      {
+        "level": 19,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "194": [
+      {
+        "level": 5,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "yawn",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "mist",
+        "order": 1
+      },
+      {
+        "level": 43,
+        "moveId": "haze",
+        "order": 2
+      },
+      {
+        "level": 47,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ],
+    "2": [
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "5": [
+      {
+        "level": 17,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "fire-spin",
+        "order": null
+      }
+    ],
+    "8": [
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "81": [
+      {
+        "level": 27,
+        "moveId": "lock-on",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "magnet-bomb",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "mirror-shot",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "zap-cannon",
+        "order": null
+      }
+    ],
+    "100": [
+      {
+        "level": 1,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "charge-beam",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "swift",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "magnet-rise",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "gyro-ball",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "mirror-coat",
+        "order": null
+      }
+    ],
+    "17": [
+      {
+        "level": 17,
+        "moveId": "whirlwind",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "twister",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "feather-dance",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "mirror-move",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "20": [
+      {
+        "level": 1,
+        "moveId": "swords-dance",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "focus-energy",
+        "order": 5
+      },
+      {
+        "level": 7,
+        "moveId": "focus-energy",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "pursuit",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "hyper-fang",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "crunch",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "assurance",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "super-fang",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "endeavor",
+        "order": null
+      }
+    ],
+    "162": [
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 2
+      },
+      {
+        "level": 17,
+        "moveId": "helping-hand",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "follow-me",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "sucker-punch",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "hyper-voice",
+        "order": null
+      }
+    ],
+    "164": [
+      {
+        "level": 1,
+        "moveId": "sky-attack",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "foresight",
+        "order": 4
+      },
+      {
+        "level": 13,
+        "moveId": "uproar",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "reflect",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "air-slash",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "extrasensory",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "roost",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "dream-eater",
+        "order": null
+      }
+    ],
+    "180": [
+      {
+        "level": 20,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "195": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "yawn",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "mist",
+        "order": 1
+      },
+      {
+        "level": 48,
+        "moveId": "haze",
+        "order": 2
+      },
+      {
+        "level": 53,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ]
+  }
+}

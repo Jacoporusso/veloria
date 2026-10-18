@@ -1,13 +1,12 @@
 import { observeGameSize } from './game/rendering/game-size.ts';
-import Phaser from 'phaser';
 import './style.css';
 import './mobile-controls.css';
 import './dialogue.css';
 import './settings.css';
+import './service-icons.css';
 import { loadSave, newGameSave, saveGame, type GameSave } from './persistence/save-store';
 import { chooseGameSession } from './game/ui/StartScreen';
 import { personalizeNewGame } from './core/party/trainer-profile';
-import { WorldScene } from './game/scenes/WorldScene';
 import { AudioManager } from './game/audio/audio-manager';
 import { getMap, getSpawn, listMaps } from './game/maps/map-registry';
 import { createUniqueId } from './persistence/save-store';
@@ -105,6 +104,13 @@ if (previewMapId) {
   }
 }
 
+// Keep the title and session selection responsive on mobile while the game
+// engine and world scene are fetched only when a playable session is ready.
+const [{ default: Phaser }, { WorldScene }] = await Promise.all([
+  import('phaser'),
+  import('./game/scenes/WorldScene'),
+]);
+
 if (import.meta.env.DEV) {
   const stage = document.querySelector<HTMLElement>('.game-stage');
   if (stage) {
@@ -141,10 +147,10 @@ const game = new Phaser.Game({
   backgroundColor: '#17251d',
   pixelArt: false,
   antialias: true,
-  scale: { mode: Phaser.Scale.RESIZE, width: '100%', height: '100%' },
+  scale: { mode: Phaser.Scale.NONE, width: '100%', height: '100%' },
   scene: [new WorldScene(save, themeId => audio.setTheme(themeId), Boolean(previewMapId))],
   render: { roundPixels: false, antialias: true },
 });
 
 
-observeGameSize(game, document.querySelector<HTMLElement>('#game')!);
+observeGameSize(game, document.querySelector<HTMLElement>('#game')!, true);

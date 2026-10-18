@@ -1,3 +1,28 @@
+.badge-case-card { text-align:center; border:1px solid var(--line); border-radius:20px; padding:16px; margin-top:12px; background:linear-gradient(130deg,#aeece314,#c6b1ff16); font-size:13px; line-height:1.6 }
+.badge-case-card h3 { margin:10px 0 }
+
+.wallet-trigger {
+  min-height:44px;
+  padding:0 12px;
+  border:1px solid #c6b1ff55;
+  border-radius:15px;
+  background:linear-gradient(125deg,#29758cdd,#635494cc);
+  color:#fff0bc;
+  font:700 13px var(--font-ui);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  box-shadow:inset 0 1px 0 #ffffff20;
+}
+.wallet-trigger:focus-visible { outline:2px solid #afffe3; outline-offset:3px }
+.bag-balance { padding:18px; border-radius:18px; background:linear-gradient(120deg,#447c9a44,#a083cc33); border:1px solid var(--line) }
+.bag-balance strong { display:block; margin-top:8px; font-size:32px; color:#fff0bc; font-variant-numeric:tabular-nums }
+.bag-items { display:grid; gap:10px; list-style:none; padding:0; margin:12px 0 }
+.bag-item { display:flex; align-items:center; gap:12px; padding:14px; border-radius:16px; border:1px solid var(--line); background:linear-gradient(130deg,#8ddfdf14,#c6b1ff12) }
+.bag-item-icon { display:grid; place-items:center; flex:0 0 38px; height:38px; border-radius:13px; background:#a5e4e61c; color:#afffe3; font-size:24px }
+.bag-item p,.bag-hint { color:var(--muted); font-size:12px; line-height:1.5; margin:5px 0 0 }
+.bag-quantity { margin-left:auto; font-size:18px; font-weight:750; color:#d1f8ee; white-space:nowrap }
+@media(max-width:480px) { .wallet-trigger { padding:0 9px; font-size:12px } }
+
 .journey-panel {
   position:absolute;
   inset:0;
@@ -303,7 +328,7 @@
   left:50%;
   transform:translateX(-50%);
   width:min(360px,calc(100% - 32px));
-  padding:18px 38px 17px 20px;
+  padding:12px 44px 12px 16px;
   border:1px solid #afffe355;
   border-radius:21px;
   background:linear-gradient(135deg,#18495af5,#333c60f5);
@@ -313,8 +338,8 @@
 
 .journey-reward-title {
   display:block;
-  margin:8px 0 5px;
-  font-size:22px;
+  margin:5px 0 4px;
+  font-size:16px;
   line-height:1.25;
   font-weight:700
 }
@@ -322,7 +347,7 @@
 .journey-reward-items {
   display:block;
   color:#c4f4e5;
-  font-size:14px;
+  font-size:12px;
   line-height:1.5
 }
 
@@ -341,10 +366,6 @@
 
 body.battle-active .journey-panel,.has-dialogue .journey-trigger {
   display:none
-}
-
-.has-dialogue .journey-reward {
-  top:15px
 }
 
 @keyframes journey-arrive {

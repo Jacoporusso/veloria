@@ -69,7 +69,7 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v5',
+  id: 'veloria-battle-prototype-v7',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,
@@ -85,7 +85,7 @@ export const prototypeBattleRules: BattleRules = {
   freezeThawChance: 0.2,
   burnResidualFraction: 1 / 16,
   poisonResidualFraction: 1 / 8,
-  statusImmunities: {},
+  statusImmunities: { fire: ['burn'], ice: ['freeze'], poison: ['poison'], steel: ['poison'] },
   fleeBaseChance: 0.5,
   items: {},
   captureItems: {},

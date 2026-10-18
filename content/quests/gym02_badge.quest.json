@@ -1,0 +1,19 @@
+{
+  "id": "veloria/q_gym02_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Corolla",
+  "steps": [
+    {
+      "id": "defeat_dalia",
+      "trigger": "battle/trainer_dalia/defeated",
+      "setFlag": "badge_corolla_awarded",
+      "addBadge": "badge_corolla",
+      "requiresFlags": [
+        "q_petalora_visited",
+        "gym02_irrigation_solved"
+      ]
+    }
+  ],
+  "completionFlag": "badge_corolla_awarded",
+  "reward": {}
+}

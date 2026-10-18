@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "source": "PokeAPI",
+  "scope": "Species and evolution methods available through Generation IV",
+  "sourceManifest": "content/sources/pokeapi/evolution-manifest.json",
+  "species": {
+    "1": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 2,
+          "targetName": "Ivysaur",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "2": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 3,
+          "targetName": "Venusaur",
+          "trigger": "level-up",
+          "minimumLevel": 32,
+          "itemName": null
+        }
+      ]
+    },
+    "4": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 5,
+          "targetName": "Charmeleon",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "5": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 6,
+          "targetName": "Charizard",
+          "trigger": "level-up",
+          "minimumLevel": 36,
+          "itemName": null
+        }
+      ]
+    },
+    "7": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 8,
+          "targetName": "Wartortle",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "8": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 9,
+          "targetName": "Blastoise",
+          "trigger": "level-up",
+          "minimumLevel": 36,
+          "itemName": null
+        }
+      ]
+    },
+    "10": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 11,
+          "targetName": "Metapod",
+          "trigger": "level-up",
+          "minimumLevel": 7,
+          "itemName": null
+        }
+      ]
+    },
+    "11": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 12,
+          "targetName": "Butterfree",
+          "trigger": "level-up",
+          "minimumLevel": 10,
+          "itemName": null
+        }
+      ]
+    },
+    "12": {
+      "evolutions": []
+    },
+    "13": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 14,
+          "targetName": "Kakuna",
+          "trigger": "level-up",
+          "minimumLevel": 7,
+          "itemName": null
+        }
+      ]
+    },
+    "14": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 15,
+          "targetName": "Beedrill",
+          "trigger": "level-up",
+          "minimumLevel": 10,
+          "itemName": null
+        }
+      ]
+    },
+    "15": {
+      "evolutions": []
+    },
+    "16": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 17,
+          "targetName": "Pidgeotto",
+          "trigger": "level-up",
+          "minimumLevel": 18,
+          "itemName": null
+        }
+      ]
+    },
+    "17": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 18,
+          "targetName": "Pidgeot",
+          "trigger": "level-up",
+          "minimumLevel": 36,
+          "itemName": null
+        }
+      ]
+    },
+    "19": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 20,
+          "targetName": "Raticate",
+          "trigger": "level-up",
+          "minimumLevel": 20,
+          "itemName": null
+        }
+      ]
+    },
+    "20": {
+      "evolutions": []
+    },
+    "25": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 26,
+          "targetName": "Raichu",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietratuono"
+        }
+      ]
+    },
+    "43": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 44,
+          "targetName": "Gloom",
+          "trigger": "level-up",
+          "minimumLevel": 21,
+          "itemName": null
+        }
+      ]
+    },
+    "60": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 61,
+          "targetName": "Poliwhirl",
+          "trigger": "level-up",
+          "minimumLevel": 25,
+          "itemName": null
+        }
+      ]
+    },
+    "69": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 70,
+          "targetName": "Weepinbell",
+          "trigger": "level-up",
+          "minimumLevel": 21,
+          "itemName": null
+        }
+      ]
+    },
+    "81": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 82,
+          "targetName": "Magneton",
+          "trigger": "level-up",
+          "minimumLevel": 30,
+          "itemName": null
+        }
+      ]
+    },
+    "100": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 101,
+          "targetName": "Electrode",
+          "trigger": "level-up",
+          "minimumLevel": 30,
+          "itemName": null
+        }
+      ]
+    },
+    "161": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 162,
+          "targetName": "Furret",
+          "trigger": "level-up",
+          "minimumLevel": 15,
+          "itemName": null
+        }
+      ]
+    },
+    "162": {
+      "evolutions": []
+    },
+    "163": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 164,
+          "targetName": "Noctowl",
+          "trigger": "level-up",
+          "minimumLevel": 20,
+          "itemName": null
+        }
+      ]
+    },
+    "164": {
+      "evolutions": []
+    },
+    "167": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 168,
+          "targetName": "Ariados",
+          "trigger": "level-up",
+          "minimumLevel": 22,
+          "itemName": null
+        }
+      ]
+    },
+    "179": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 180,
+          "targetName": "Flaaffy",
+          "trigger": "level-up",
+          "minimumLevel": 15,
+          "itemName": null
+        }
+      ]
+    },
+    "180": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 181,
+          "targetName": "Ampharos",
+          "trigger": "level-up",
+          "minimumLevel": 30,
+          "itemName": null
+        }
+      ]
+    },
+    "194": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 195,
+          "targetName": "Quagsire",
+          "trigger": "level-up",
+          "minimumLevel": 20,
+          "itemName": null
+        }
+      ]
+    },
+    "195": {
+      "evolutions": []
+    }
+  }
+}

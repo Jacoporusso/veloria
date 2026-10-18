@@ -1,0 +1,143 @@
+{
+  "id": "veloria/vetracielo",
+  "version": 2,
+  "displayName": "Vetracielo · Piazza della Monorotaia",
+  "biomeId": "garden_metropolis",
+  "tiledAsset": "tilemaps/vetracielo.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-forest-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 6
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-cherry-tree-v1",
+      "path": "assets/sprites/veloria-cherry-tree-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-plants-v1",
+      "path": "assets/sprites/veloria-borgofonte-plants-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npc-rami-v1",
+      "path": "assets/sprites/veloria-npc-rami-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-monorail-station-v1",
+      "path": "assets/sprites/veloria-monorail-station-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r05",
+      "x": 1,
+      "y": 25,
+      "facing": "right"
+    },
+    {
+      "id": "from_gym03",
+      "x": 20,
+      "y": 17,
+      "facing": "down"
+    },
+    {
+      "id": "from_r06",
+      "x": 38,
+      "y": 25,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r05_viadotto_ciliegi",
+      "viaSpawnId": "from_r05",
+      "targetSpawnId": "from_vetracielo",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym03_vetracielo",
+      "viaSpawnId": "from_gym03",
+      "targetSpawnId": "from_city",
+      "requiresFlags": [
+        "q_vetracielo_orientation"
+      ]
+    },
+    {
+      "toMapId": "veloria/r06_anello_magnetico",
+      "viaSpawnId": "from_r06",
+      "targetSpawnId": "from_vetracielo",
+      "requiresFlags": [
+        "badge_circuito_awarded"
+      ]
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/vetracielo_park"
+  ],
+  "npcRefs": [
+    "vetracielo_lea"
+  ],
+  "scriptRefs": [
+    "quest/vetracielo_arrival",
+    "quest/vetracielo_orientation"
+  ],
+  "musicId": "ambient_brumalta",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 6,
+      "triggerIds": [
+        "Foglie del Parco Sospeso"
+      ],
+      "colors": [
+        "#b3c982",
+        "#b8d9c8"
+      ]
+    }
+  ]
+}

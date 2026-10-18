@@ -1,0 +1,19 @@
+{
+  "id": "veloria/q_gym03_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Circuito",
+  "steps": [
+    {
+      "id": "defeat_aster",
+      "trigger": "battle/trainer_aster/defeated",
+      "setFlag": "badge_circuito_awarded",
+      "addBadge": "badge_circuito",
+      "requiresFlags": [
+        "q_vetracielo_orientation",
+        "gym03_lines_connected"
+      ]
+    }
+  ],
+  "completionFlag": "badge_circuito_awarded",
+  "reward": {}
+}

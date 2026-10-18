@@ -1,12 +1,91 @@
 {
   "version": 1,
   "status": "prototype",
-  "note": "Curva temporanea da calibrare con playtest del primo atto; non è una decisione canonica del progetto.",
+  "note": "Curve XP e soglie di evoluzione del vertical slice, da verificare nei playtest del primo atto.",
   "growthCurves": {
     "veloria_medium_fast_v1": {
       "exponent": 3,
       "multiplier": 1
     }
   },
-  "evolutions": []
+  "evolutions": [
+    {
+      "fromSpeciesId": 1,
+      "toSpeciesId": 2,
+      "minimumLevel": 16,
+      "assetId": "pokeapi-evolution-2-v1-webp"
+    },
+    {
+      "fromSpeciesId": 4,
+      "toSpeciesId": 5,
+      "minimumLevel": 16,
+      "assetId": "pokeapi-evolution-5-v1-webp"
+    },
+    {
+      "fromSpeciesId": 7,
+      "toSpeciesId": 8,
+      "minimumLevel": 16,
+      "assetId": "pokeapi-evolution-8-v1-webp"
+    },
+    {
+      "fromSpeciesId": 10,
+      "toSpeciesId": 11,
+      "minimumLevel": 7,
+      "assetId": "veloria-creatures-3-v1"
+    },
+    {
+      "fromSpeciesId": 11,
+      "toSpeciesId": 12,
+      "minimumLevel": 10,
+      "assetId": "veloria-creatures-3-v1"
+    },
+    {
+      "fromSpeciesId": 13,
+      "toSpeciesId": 14,
+      "minimumLevel": 7,
+      "assetId": "veloria-creatures-4-v1"
+    },
+    {
+      "fromSpeciesId": 14,
+      "toSpeciesId": 15,
+      "minimumLevel": 10,
+      "assetId": "veloria-creatures-4-v1"
+    },
+    {
+      "fromSpeciesId": 16,
+      "toSpeciesId": 17,
+      "minimumLevel": 18,
+      "assetId": "pokeapi-evolution-17-v1-webp"
+    },
+    {
+      "fromSpeciesId": 19,
+      "toSpeciesId": 20,
+      "minimumLevel": 20,
+      "assetId": "pokeapi-evolution-20-v1-webp"
+    },
+    {
+      "fromSpeciesId": 161,
+      "toSpeciesId": 162,
+      "minimumLevel": 15,
+      "assetId": "pokeapi-evolution-162-v1-webp"
+    },
+    {
+      "fromSpeciesId": 163,
+      "toSpeciesId": 164,
+      "minimumLevel": 20,
+      "assetId": "pokeapi-evolution-164-v1-webp"
+    },
+    {
+      "fromSpeciesId": 179,
+      "toSpeciesId": 180,
+      "minimumLevel": 15,
+      "assetId": "pokeapi-evolution-180-v1-webp"
+    },
+    {
+      "fromSpeciesId": 194,
+      "toSpeciesId": 195,
+      "minimumLevel": 20,
+      "assetId": "pokeapi-evolution-195-v1-webp"
+    }
+  ]
 }

@@ -8,58 +8,58 @@
     {
       "speciesId": 16,
       "name": "Pidgey",
-      "path": "assets/creatures/pokeapi-route-16-v1.png",
+      "path": "assets/creatures/pokeapi-route-16-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
-      "sha256": "cabe3212d06ce9c59184b84cbf2bcb17396f441d7c857243253502247e637758"
+      "sha256": "967a2f56bcdd6115b9b841242d5dbaa10efca787eeb90df5847424b5084f624b"
     },
     {
       "speciesId": 19,
       "name": "Rattata",
-      "path": "assets/creatures/pokeapi-route-19-v1.png",
+      "path": "assets/creatures/pokeapi-route-19-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
-      "sha256": "6e8702f59cde037612c587c0bad7a38bca3b3560af722c036039d54a16d51d6f"
+      "sha256": "ac2e94c474689c62139a2b0d337988bd3a4afeb2e1f9f46144bf2faa2734b106"
     },
     {
       "speciesId": 161,
       "name": "Sentret",
-      "path": "assets/creatures/pokeapi-route-161-v1.png",
+      "path": "assets/creatures/pokeapi-route-161-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/161.png",
-      "sha256": "a37f05401cceee01d43627139042005410a7e43c47ebea7fe7fd9e8a8d977242"
+      "sha256": "9f952c1bd980db2b3b152cb225e7ea5ca24ff0fd9635a811b6746485c02b7fe7"
     },
     {
       "speciesId": 163,
       "name": "Hoothoot",
-      "path": "assets/creatures/pokeapi-route-163-v1.png",
+      "path": "assets/creatures/pokeapi-route-163-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/163.png",
-      "sha256": "09c3eaf3258b935c05f95843a3fd93863f9631b848239c900de51126020300e2"
+      "sha256": "25e6d83daac5c318ac1bf9ca0672ba9f5f57ba1eabca4b6799843f044901961e"
     },
     {
       "speciesId": 43,
       "name": "Oddish",
-      "path": "assets/creatures/pokeapi-route-43-v1.png",
+      "path": "assets/creatures/pokeapi-route-43-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
-      "sha256": "035edf8e0e79148c86ac89fada5b4b6ccd01f6dcbaf7a73b4f086e83d4502b7b"
+      "sha256": "3aee4aca6e7f632ee87517d90754b72e78e1e201693c8b7768fc1cd59843e23d"
     },
     {
       "speciesId": 60,
       "name": "Poliwag",
-      "path": "assets/creatures/pokeapi-route-60-v1.png",
+      "path": "assets/creatures/pokeapi-route-60-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
-      "sha256": "cdec53c7b6558877cb600b4590206ed81c21dbbb8c7ded56791ff0bbc77d8d3a"
+      "sha256": "f20f9d61d5086e8549531edfb99779996483fdfa3c254f432ed4453ee4539af3"
     },
     {
       "speciesId": 69,
       "name": "Bellsprout",
-      "path": "assets/creatures/pokeapi-route-69-v1.png",
+      "path": "assets/creatures/pokeapi-route-69-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
-      "sha256": "9e1a107b671e88f605f0c263016b993ce71a3b482dd927cc554c0e938b87165c"
+      "sha256": "a93e83bca1022f2534c414dd5a64790fb558cc3f994bd2ffba0e6c69c8053906"
     },
     {
       "speciesId": 194,
       "name": "Wooper",
-      "path": "assets/creatures/pokeapi-route-194-v1.png",
+      "path": "assets/creatures/pokeapi-route-194-v1.webp",
       "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/194.png",
-      "sha256": "25911b07e4a73988baa0ed305559ac63f12bec2a8f538189aa58a3a84c646fc2"
+      "sha256": "c3cc70c73ec1f7363a76064580cfcc1138f0dd051e7b3cd54174725e0bcf80a6"
     }
   ]
 }

@@ -14,6 +14,8 @@ const STAT_STAGE_NAMES = {
   specialAttack: 'l’Attacco speciale',
   specialDefense: 'la Difesa speciale',
   speed: 'la Velocità',
+  accuracy: 'la Precisione',
+  evasion: 'l’Elusione',
 } as const;
 
 export type StatStageName = keyof typeof STAT_STAGE_NAMES;

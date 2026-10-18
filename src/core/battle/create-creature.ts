@@ -8,6 +8,8 @@ export interface SpeciesBattleDefinition {
   readonly baseStats: Omit<BattleStats, 'maxHp'> & { readonly hp: number };
   readonly experienceYield: number;
   readonly defaultMoveIds: readonly string[];
+  /** Supported entries imported from the selected official version-group, never invented levels. */
+  readonly officialLearnset?: readonly { readonly level: number; readonly moveId: string }[];
   readonly growthCurveId?: string;
 }
 
@@ -40,7 +42,13 @@ export function createBattleCreature(options: CreateBattleCreatureOptions): Batt
   const species = speciesRegistry[String(speciesId)];
   if (!species || species.speciesId !== speciesId) throw new Error(`Unknown or mismatched species ID: ${speciesId}.`);
   validateSpecies(species);
-  const moveIds = options.moveIds ?? species.defaultMoveIds;
+  const learned: string[] = [];
+  if (species.officialLearnset) {
+    for (const entry of species.officialLearnset) {
+      if (entry.level <= level && !learned.includes(entry.moveId)) learned.push(entry.moveId);
+    }
+  }
+  const moveIds = options.moveIds ?? (species.officialLearnset ? learned.slice(-4) : species.defaultMoveIds);
   if (moveIds.length < 1 || moveIds.length > 4) throw new Error('A battle creature must have from 1 to 4 moves.');
   if (new Set(moveIds).size !== moveIds.length) throw new Error('Move IDs must be unique for a creature.');
 
@@ -68,7 +76,7 @@ export function createBattleCreature(options: CreateBattleCreatureOptions): Batt
   };
 }
 
-/** Rehydrates a saved creature while keeping its current HP, experience and move PP exactly. */
+/** Rehydrates saved HP/experience/move IDs, capping legacy PP at the sourced maximum. */
 export function createBattleCreatureFromSave(save: CreatureSave, registries: CreatureRegistries): BattleCreature {
   if (!Number.isInteger(save.hp) || !Number.isInteger(save.maxHp) || save.maxHp < 1 || save.hp < 0 || save.hp > save.maxHp) {
     throw new Error(`Saved HP is invalid for creature ${save.instanceId}.`);
@@ -93,7 +101,7 @@ export function createBattleCreatureFromSave(save: CreatureSave, registries: Cre
     experience: save.experience,
     // Keep a legacy save's max HP even if it predates the current prototype stat formula.
     stats: { ...base.stats, maxHp: save.maxHp },
-    moves: save.moves.map(move => ({ moveId: move.id, pp: move.pp })),
+    moves: save.moves.map(move => ({ moveId: move.id, pp: Math.min(move.pp, registries.moves[move.id].maxPp) })),
     status,
   };
 }

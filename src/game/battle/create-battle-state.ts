@@ -12,6 +12,7 @@ export type TrainerBattleDefinition = {
   defeatQuestEvent: string;
   rewardMoney: number;
   victoryMessage: string;
+  victoryFeedback?: string;
   team: Array<{ speciesId: number; level: number; moveIds: string[] }>;
 };
 
@@ -81,7 +82,7 @@ function createStoredCreature(item: StoredCreatureSave, registries: CreatureRegi
     const id = typeof record.id === 'string' ? record.id : typeof record.moveId === 'string' ? record.moveId : undefined;
     if (!id || !registries.moves[id]) return [];
     const pp = Number.isInteger(record.pp) && (record.pp as number) >= 0 ? record.pp as number : registries.moves[id].maxPp;
-    return [{ moveId: id, pp }];
+    return [{ moveId: id, pp: Math.min(pp, registries.moves[id].maxPp) }];
   });
   const maxHp = Number.isInteger(item.maxHp) && (item.maxHp as number) > 0 ? item.maxHp as number : base.stats.maxHp;
   return {
