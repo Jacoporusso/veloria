@@ -4,6 +4,7 @@ import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpers/world-navigation';
+import { readBattleDiagnostics } from './helpers/battle-diagnostics';
 
 // Full journeys keep every interaction at standard density; dedicated world-control
 // and camera/presentation tests cover high-density rendering and orientation.
@@ -66,18 +67,30 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
     })).toBe(true);
     if (await page.evaluate(() => (window as any).__vetracieloGame.scene.keys.battle.terminalShown)) break;
     await tapBattleLabel('LOTTA'); await tapBattleLabel('Frustata');
-    await expect.poll(async () => {
-      const state = await page.evaluate(() => {
-        const scene = (window as any).__vetracieloGame.scene.keys.battle;
-        return { terminal: scene.terminalShown, mode: scene.mode };
+    let lastBattleState: Awaited<ReturnType<typeof readBattleDiagnostics>> | undefined;
+    const battleSamples: Awaited<ReturnType<typeof readBattleDiagnostics>>[] = [];
+    try {
+      await expect.poll(async () => {
+        const state = await readBattleDiagnostics(page, '__vetracieloGame');
+        lastBattleState = state;
+        battleSamples.push(state);
+        if (state.terminal || state.mode === 'menu') return true;
+        // Automatic messages can finish between observing their mode and pressing
+        // Enter, which would dismiss the victory receipt. Only answer learning:
+        // it stays open until an explicit choice and preserves the tested moves.
+        if (state.mode === 'learning') await tapBattleLabel('Tieni le mosse');
+        return false;
+      }, { timeout: 15_000 }).toBe(true);
+    } catch (error) {
+      await info.attach('battle-auto-advance-state', {
+        body: JSON.stringify({
+          last: lastBattleState ?? await readBattleDiagnostics(page, '__vetracieloGame'),
+          samples: battleSamples,
+        }, null, 2),
+        contentType: 'application/json',
       });
-      if (state.terminal || state.mode === 'menu') return true;
-      // Automatic messages can finish between observing their mode and pressing
-      // Enter, which would dismiss the victory receipt. Only answer learning:
-      // it stays open until an explicit choice and preserves the tested moves.
-      if (state.mode === 'learning') await tapBattleLabel('Tieni le mosse');
-      return false;
-    }, { timeout: 15_000 }).toBe(true);
+      throw error;
+    }
   }
   const victory = page.locator('.battle-celebration');
   await expect(victory).toBeVisible(); await expect(victory).toContainText('240');

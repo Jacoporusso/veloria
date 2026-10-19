@@ -1,7 +1,7 @@
 # Piano del capitolo di Ferraluce
 
 **Versione:** 0.1 — piano di contenuto implementabile  
-**Stato:** R06 e primo arrivo a Ferraluce implementati nei contenuti 0.3.73; Palestra 4 implementata localmente in 0.3.79, R07 e Centrale ancora assenti. Esiti delle verifiche in CI_STATUS.md.
+**Stato attuale:** R06 e primo arrivo a Ferraluce implementati in 0.3.73, Palestra 4 in 0.3.79, R07/Centrale in 0.3.82 (documento 19). Tutti pubblicati; esiti e limiti delle verifiche in CI_STATUS.md. Le sezioni di proposta seguenti conservano il perimetro della consegna iniziale, non l'inventario attuale.
 **Ambito:** prosecuzione dopo la Medaglia Circuito, con R06, primo distretto di Ferraluce e Palestra 4 Acciaio. R07 e la Centrale Risonante diventano accessibili soltanto dopo P4.
 
 ## 1. Scopo e stato delle decisioni

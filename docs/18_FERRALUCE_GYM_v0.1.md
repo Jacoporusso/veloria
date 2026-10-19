@@ -2,7 +2,7 @@
 
 ## Ambito implementato localmente
 
-Quarta palestra Acciaio, dopo il rapporto a Ivo (`q_ferraluce_report`). Rhea è un personaggio originale di questa implementazione. La piazza e l'Officina costituiscono una fetta di Ferraluce: R07, Centrale Risonante, quartieri cittadini, quattro Palestre successive e Lega restano da realizzare. Questa consegna non conclude l'avventura.
+Quarta palestra Acciaio, dopo il rapporto a Ivo (`q_ferraluce_report`). Rhea è un personaggio originale di questa implementazione. La piazza e l'Officina costituiscono una fetta di Ferraluce; R07 e Centrale sono stati aggiunti nella consegna 0.3.82 descritta nel documento 19. Quartieri cittadini, quattro Palestre successive e Lega restano da realizzare. Questa consegna non conclude l'avventura.
 
 ## Accesso e mappa
 

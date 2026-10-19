@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
 
 for (const deviceScaleFactor of [1, 2, 3]) test.describe(`display density ${deviceScaleFactor}`, () => {
 test.use({deviceScaleFactor});
@@ -45,7 +46,8 @@ test('Pidgey and the complete creature catalog render in portrait and landscape 
   });
   await expect.poll(() => page.evaluate(() => Boolean((window as any).artworkFixture?.scene.isActive('battle')))).toBe(true);
   const coverage = await page.evaluate(() => (window as any).artworkCatalogResults as Array<{ speciesId: number; rendered: boolean; width: number; height: number }>);
-  expect(coverage).toHaveLength(31);
+  expect(coverage.map(entry => entry.speciesId).sort((a, b) => a - b))
+    .toEqual(Object.keys(speciesData.species).map(Number).sort((a, b) => a - b));
   expect(coverage.filter(entry => !entry.rendered || entry.width <= 0 || entry.height <= 0)).toEqual([]);
   for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.setViewportSize({ width, height });

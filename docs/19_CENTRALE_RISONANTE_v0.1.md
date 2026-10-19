@@ -1,6 +1,6 @@
 # Condotto e Centrale Risonante — contratto di capitolo
 
-**Stato: implementato e verificato localmente nei contenuti 0.3.82; pubblicazione da verificare in `CI_STATUS.md`.**
+**Stato: implementato e pubblicato nei contenuti 0.3.82; indagine completa verificata offline anche su GitHub Pages. Perimetro ed esiti in `CI_STATUS.md`.**
 
 ## Fonti e collocazione
 
