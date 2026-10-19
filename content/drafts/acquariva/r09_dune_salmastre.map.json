@@ -1,0 +1,72 @@
+{
+  "id": "veloria/r09_dune_salmastre",
+  "version": 2,
+  "displayName": "Dune Salmastre",
+  "biomeId": "salt_dunes",
+  "tiledAsset": "tilemaps/r09_dune_salmastre.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r09-dunes-v1",
+      "path": "assets/sprites/veloria-r09-dunes-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_portolume",
+      "x": 19,
+      "y": 1,
+      "facing": "down"
+    },
+    {
+      "id": "from_delta",
+      "x": 38,
+      "y": 17,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/portolume",
+      "viaSpawnId": "from_portolume",
+      "targetSpawnId": "from_r09",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/d04_delta_specchi",
+      "viaSpawnId": "from_delta",
+      "targetSpawnId": "from_r09",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r09_dune_patch",
+    "veloria/r09_lagoon_fishing"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-battle-forest-v1"
+}

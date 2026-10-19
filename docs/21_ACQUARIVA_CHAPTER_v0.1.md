@@ -19,6 +19,10 @@ Configurazione P6 in `content/drafts/acquariva/gym06_reflections.v1.json`: quatt
 
 ## Gate prima della pubblicazione
 
+### R09 preparata
+
+Illustrazione originale conservata con prompt/hash in `assets/prompts/r09-dunes-v1.md`. Bozza mappa e due tabelle in `content/drafts/acquariva/`: due habitat opzionali, pesca con canna e ritorni previsti a Portolume/Delta. Due prove superate su specie/pesi/fasce e raggiungibilità di uscite/pesca evitando entrambi gli habitat. Non è ancora una traversata nel gioco. Il collegamento a Portolume resta chiuso fino all'integrazione del capitolo.
+
 1. Importare e conservare dati/artwork delle specie necessarie a incontri e palestra; ogni mossa deve risultare disponibile alla specie al livello previsto. Non assegnare mosse per analogia di tipo.
 2. Integrare tutte le mappe del percorso e i ritorni, servizi, ricerca, puzzle, allenatore, medaglia, diario e atlante. Aprire l'uscita di Portolume soltanto quando il percorso è verificabile.
 3. Allineare collisioni e pontili alle illustrazioni effettive, non alle sole coordinate richieste nel prompt; impedire il cammino su acqua e vegetazione solida.

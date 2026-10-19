@@ -1,0 +1,75 @@
+{
+  "id": "veloria/r09_dune_patch",
+  "mapId": "veloria/r09_dune_salmastre",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 98,
+        "weight": 35,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 163,
+        "weight": 10,
+        "minLevel": 24,
+        "maxLevel": 27
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 98,
+        "weight": 40,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 179,
+        "weight": 30,
+        "minLevel": 24,
+        "maxLevel": 27
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 98,
+        "weight": 30,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 163,
+        "weight": 40,
+        "minLevel": 24,
+        "maxLevel": 27
+      }
+    ]
+  }
+}
