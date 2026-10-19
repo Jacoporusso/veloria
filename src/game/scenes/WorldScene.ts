@@ -841,9 +841,13 @@ export class WorldScene extends Phaser.Scene {
     let speed: string | null = null;
     try { speed = localStorage.getItem('veloria-text-speed'); } catch { /* Use the accessible default. */ }
     const delay = speed === 'slow' ? 42 : speed === 'fast' ? 8 : 20;
+    const startedAt = performance.now();
     this.typingTimer = window.setInterval(() => {
       if (!this.typingTarget) { this.stopTyping(); return; }
-      this.typingTarget.textContent += this.typingCharacters[this.typingIndex++];
+      // Browser timers can be delayed or coalesced by rendering or background
+      // work. Keep the chosen reading speed tied to elapsed time, not callbacks.
+      this.typingIndex = Math.min(this.typingCharacters.length, Math.max(1, Math.floor((performance.now() - startedAt) / delay)));
+      this.typingTarget.textContent = this.typingCharacters.slice(0, this.typingIndex).join('');
       if (this.typingIndex >= this.typingCharacters.length) this.stopTyping();
     }, delay);
     document.querySelector<HTMLElement>('#dialogue-prompt')!.textContent=this.dialogueIndex<this.dialogueLines.length-1?'A · Continua  ▸':'A · Chiudi  ▸';

@@ -1,3 +1,10 @@
+## Dialoghi 0.3.80 e verifica pubblica P4 — 19/10/2026
+
+- Sul sito pubblico 0.3.79: avvio, atlante decodificato, cache v100 e reload offline superati (`.tmp/pages-smoke-v100.txt`). Seconda prova su GitHub Pages: checkpoint isolato, ascensore, circuito risolto, reload offline nella palestra e ritorno a Ferraluce, senza errori runtime (`.tmp/pages-gym04-public.txt`). Non è una partita naturale completa né QA fisico.
+- Typewriter locale aggiornato al tempo monotono trascorso: il vecchio callback rivelava solo una lettera a ogni tick anche dopo un lungo ritardo. Il nuovo timer recupera la porzione di testo dovuta senza cambiare pagina o ignorare la velocità selezionata.
+- Tre prove passate (26,7 s): browser bloccato 750 ms con ripresa della digitazione, monorotaia quattro città/controlli/tastiera, caricamento fallito e riprova. Log `.tmp/dialogue-timing-fixed.txt`; cache proposta v101. Build TypeScript/Vite superata (`.tmp/dialogue-timing-build.txt`); pubblicazione della correzione in preparazione.
+- Verify 0.3.79 `39162769459`: Offline adventure riuscito; tre browser shard falliti. Shard3 33 passati/1 fallito (Vetracielo attesa post-turno 15 s), shard1 29/4 e shard2 15/4 prima del limite job. Il trace P4 mostra 180 s già consumati da setup e navigazione: il timeout arriva circa 0,5 s dopo l’avvio del locator RUOTA, prima delle verifiche di stabilità/scroll/dispatch. Non prova un pulsante bloccato. Offline confermato 6/6, inclusa P4 (36,5 s) e avventura tre medaglie (7,6 min), totale 9,4 min. Audit in lettura del sotto-agente, trace in `.tmp/ci-p4-39162769459-gym04-trace/`. I limiti dei test lunghi e le cause dei rallentamenti browser restano aperti.
+
 ## Verifiche locali 0.3.79 — Palestra 4
 
 - Due E2E passati: ascensore/rapporto, tre comandi in ordine diverso, reload intermedio, portrait/landscape e ritorno (45,2 s); Rhea bloccata prima del circuito, vittoria, banner, 1.100 monete una sola volta e quattro medaglie dopo reload (33,8 s). Log `.tmp/gym04-puzzle-verified.txt` e `.tmp/gym04-battle-verified.txt`. Screenshot portrait della palestra ispezionato.
@@ -5,7 +12,7 @@
 - Dominio/persistenza 280 + 16 passati; Python 40 passati con directory temporanea del workspace; TypeScript, build e validatore contenuti passati. 19 mappe, 19 quest, otto allenatori, 136 asset registrati. Log `.tmp/gym04-domain-final.txt`, `.tmp/gym04-python-final.txt`, `.tmp/gym04-validation-final.txt`.
 - Primo test puzzle: fixture incompleto dei flag precedenti, corretto usando le tappe reali del diario. Primo test sfida: lettura della scena prima del caricamento differito, corretto aspettando lo stato disponibile. Non sono stati rimossi gate o interazioni.
 - Squadra di integrazione preparata (Quagsire 35): non certifica bilanciamento naturale. QA fisico, percorso completo con tutti gli starter e collisioni visive ai bordi restano da verificare. R07/Centrale, città completa e resto dell'avventura rimangono aperti.
-- Commit/publicazione 0.3.79 in preparazione. Verify precedente `39159924891` su 0.3.77 concluso con tutti e quattro i job falliti; correzione Vetracielo verificata localmente, altri timeout ancora da risolvere. Il deploy precedente e le prove locali non vengono dichiarati come suite GitHub verde.
+- Commit 0.3.79 `41f2ec3` pubblicato; deploy Pages `39162769461` riuscito. Verify precedente `39159924891` su 0.3.77 concluso con tutti e quattro i job falliti; correzione Vetracielo verificata localmente, altri timeout ancora da risolvere. Il deploy precedente e le prove locali non vengono dichiarati come suite GitHub verde.
 
 ## Diagnostica Linux 0.3.77 — shard 3
 

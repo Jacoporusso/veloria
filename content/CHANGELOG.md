@@ -1,3 +1,9 @@
+## veloria-content-0.3.80 — 19/10/2026
+
+- Testo dei dialoghi scandito dal tempo trascorso anziché dal numero di callback: recupera la progressione dopo un task lento del browser, mantenendo velocità lenta/normale/rapida, caratteri Unicode e conferma A della pagina.
+- Nuova prova con blocco reale del browser di 750 ms; passano anche le due prove monorotaia, inclusi annullamento e riprova dopo errore asset. Cache PWA v101.
+- P4 pubblicata nel commit precedente e provata sull'URL GitHub Pages: ascensore, soluzione del circuito, reload offline e ritorno in città senza errori runtime, con checkpoint isolato. La suite Verify precedente conserva errori nei test lunghi; non è dichiarata verde.
+
 ## veloria-content-0.3.79 — 18/10/2026
 
 - Palestra 4 di Ferraluce: ascensore dalla piazza dopo il rapporto a Ivo, Officina Magnetica illustrata originale, ingresso/uscita dichiarativi e ritorno sempre aperto. 19 mappe, 19 quest e otto allenatori.
