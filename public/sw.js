@@ -1,5 +1,18 @@
-const CACHE = 'veloria-shell-v107';
+const CACHE = 'veloria-shell-v108';
 const SHELL = [
+  './tilemaps/r09_dune_salmastre.tmj',
+  './tilemaps/d04_delta_specchi.tmj',
+  './tilemaps/r10_sentiero_canne.tmj',
+  './tilemaps/acquariva.tmj',
+  './tilemaps/gym06_acquariva.tmj',
+  './tilemaps/r11_via_cascate.tmj',
+  './assets/sprites/veloria-r09-dunes-v1.webp',
+  './assets/sprites/veloria-d04-delta-v1.webp',
+  './assets/sprites/veloria-r10-reeds-v1.webp',
+  './assets/sprites/veloria-acquariva-v1.webp',
+  './assets/sprites/veloria-gym06-reflections-v1.webp',
+  './assets/sprites/veloria-r11-cascades-v1.webp',
+
 
   './assets/creatures/pokeapi-lake-79-v1.webp',
   './assets/creatures/pokeapi-lake-80-v1.webp',

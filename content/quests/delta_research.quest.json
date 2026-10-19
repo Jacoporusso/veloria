@@ -1,0 +1,48 @@
+{
+  "id": "veloria/q_delta_research",
+  "version": 1,
+  "displayName": "Tre sguardi sul Delta",
+  "steps": [
+    {
+      "id": "flow",
+      "trigger": "delta/flow/read",
+      "setFlag": "q_delta_flow_read",
+      "requiresFlags": [
+        "badge_marea_awarded"
+      ]
+    },
+    {
+      "id": "reeds",
+      "trigger": "delta/reeds/read",
+      "setFlag": "q_delta_reeds_read",
+      "requiresFlags": [
+        "badge_marea_awarded"
+      ]
+    },
+    {
+      "id": "nursery",
+      "trigger": "delta/nursery/read",
+      "setFlag": "q_delta_nursery_read",
+      "requiresFlags": [
+        "badge_marea_awarded"
+      ]
+    },
+    {
+      "id": "report",
+      "trigger": "delta/biologist/report",
+      "setFlag": "q_delta_report",
+      "requiresFlags": [
+        "q_delta_flow_read",
+        "q_delta_reeds_read",
+        "q_delta_nursery_read"
+      ]
+    }
+  ],
+  "completionFlag": "q_delta_report",
+  "reward": {
+    "money": 350,
+    "items": {
+      "poke-ball": 3
+    }
+  }
+}

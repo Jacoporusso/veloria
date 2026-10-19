@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import quest from '../../content/drafts/acquariva/delta_research.quest.json' with {type:'json'};
+import quest from '../../content/quests/delta_research.quest.json' with {type:'json'};
 import {applyQuestEvent} from '../../src/core/quests/apply-quest-event.ts';
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
 import type {GameSave} from '../../src/persistence/save-types.ts';
@@ -24,7 +24,7 @@ test('Delta observations work in any order, require all three and reward once af
 });
 
 test('Delta boardwalk reaches every observation and both exits without entering water',()=>{
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/d04_delta_specchi.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/d04_delta_specchi.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,40,30,[]);
   blocked.add('13,18'); // The biologist occupies this tile; row 17 provides a bypass.
   const seen=new Set(['1,18']),queue=[[1,18]];

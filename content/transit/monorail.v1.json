@@ -35,6 +35,12 @@
       "name": "Portolume",
       "mapId": "veloria/portolume",
       "spawnPointId": "from_monorail"
+    },
+    {
+      "id": "acquariva",
+      "name": "Acquariva",
+      "mapId": "veloria/acquariva",
+      "spawnPointId": "metro_arrival"
     }
   ]
 }

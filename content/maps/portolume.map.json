@@ -58,6 +58,12 @@
       "x": 7,
       "y": 22,
       "facing": "up"
+    },
+    {
+      "id": "from_r09",
+      "x": 15,
+      "y": 28,
+      "facing": "up"
     }
   ],
   "connections": [
@@ -72,6 +78,14 @@
       "viaSpawnId": "from_gym05",
       "targetSpawnId": "from_portolume",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r09_dune_salmastre",
+      "viaSpawnId": "from_r09",
+      "targetSpawnId": "from_portolume",
+      "requiresFlags": [
+        "badge_marea_awarded"
+      ]
     }
   ],
   "encounterTableIds": [],

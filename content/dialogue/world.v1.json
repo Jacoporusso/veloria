@@ -982,7 +982,194 @@
       },
       {
         "lines": [
-          "La Medaglia Marea ricorda la tua capacità di adattarti. La prossima parte della regione è ancora in preparazione: puoi esplorare, pescare e completare il Pokédex."
+          "La Medaglia Marea ricorda la tua capacità di adattarti. Scendi dalla piazza attraverso il giardino delle fontane: le Dune Salmastre conducono al Delta degli Specchi. Cerca la biologa Iris sul pontile d’ingresso."
+        ]
+      }
+    ]
+  },
+  "r09_sign": {
+    "speaker": "Dune Salmastre",
+    "lines": [
+      "A nord torni a Portolume. Segui il sentiero verso est per il Delta degli Specchi: la biologa Iris raccoglie osservazioni sui canali. I prati laterali ospitano Pokémon; il sentiero principale rimane libero."
+    ]
+  },
+  "r10_sign": {
+    "speaker": "Sentiero delle Canne",
+    "lines": [
+      "Acquariva è a nord-est: segui il pontile a destra, risali e svolta ancora a destra. Per il Delta torna a sud-ovest. La campana del salice identifica il ramo nord-occidentale; il pontile laterale scende al piccolo approdo."
+    ]
+  },
+  "delta_iris": {
+    "speaker": "Iris",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_marea_awarded",
+        "lines": [
+          "Prima completa la prova di Nerea a Portolume. Poi potremo confrontare le osservazioni del porto con quelle del Delta."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_flow_read",
+        "lines": [
+          "Mi aiuti a osservare il Delta? Ci sono tre punti: corrente, canneti e vivaio naturale. Puoi visitarli nell’ordine che preferisci.",
+          "Il misuratore della corrente è sul pontile alto a sinistra. Da qui sali lungo il ramo occidentale; poi cerca anche il pannello dei canneti sul pontile alto a destra e quello del vivaio sul ramo a sud."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_reeds_read",
+        "lines": [
+          "Manca l’osservazione dei canneti: cerca il pannello sul tratto orientale del pontile alto. La corrente da sola non racconta tutto l’ecosistema."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_nursery_read",
+        "lines": [
+          "Manca il vivaio naturale: segui il pontile inferiore verso est, poi il ramo che scende a sud. Leggi il pannello e torna qui."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_report",
+        "questEvent": "delta/biologist/report",
+        "lines": [
+          "Hai osservato corrente, riparo fra le canne e zone dove crescono i piccoli. Conserveremo queste misure: una variazione non dimostra da sola chi o cosa l’abbia causata.",
+          "Ecco 350 monete e tre Sfere per il tuo viaggio. Ora puoi proseguire a est, lungo il Sentiero delle Canne. Ad Acquariva cerca Tessa nell’osservatorio sul lago."
+        ]
+      },
+      {
+        "lines": [
+          "Il rapporto è conservato. L’uscita orientale del pontile alto conduce al Sentiero delle Canne e poi ad Acquariva. A ovest puoi sempre tornare alle Dune e a Portolume."
+        ]
+      }
+    ]
+  },
+  "delta_flow": {
+    "speaker": "Corrente del Delta",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_marea_awarded",
+        "lines": [
+          "Completa prima la prova di Nerea a Portolume."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_flow_read",
+        "questEvent": "delta/flow/read",
+        "lines": [
+          "Annoti direzione e ritmo della corrente in questo punto. Confrontare luoghi e orari diversi aiuta a distinguere un cambiamento duraturo da un’oscillazione.",
+          "Osservazione salvata. Controlla anche canneti e vivaio naturale, poi riferisci a Iris sul pontile d’ingresso."
+        ]
+      },
+      {
+        "lines": [
+          "La corrente è già registrata nel rapporto. Iris aspetta tutte e tre le osservazioni sul pontile d’ingresso."
+        ]
+      }
+    ]
+  },
+  "delta_reeds": {
+    "speaker": "Canneti del Delta",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_marea_awarded",
+        "lines": [
+          "Completa prima la prova di Nerea a Portolume."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_reeds_read",
+        "questEvent": "delta/reeds/read",
+        "lines": [
+          "Fra le canne i Pokémon trovano riparo. Annoti la distribuzione della vegetazione senza calpestare le rive: acqua, piante e animali vanno osservati insieme.",
+          "Osservazione salvata. Controlla anche corrente e vivaio naturale, poi torna da Iris."
+        ]
+      },
+      {
+        "lines": [
+          "I canneti sono già registrati nel rapporto. Per Iris servono anche corrente e vivaio naturale."
+        ]
+      }
+    ]
+  },
+  "delta_nursery": {
+    "speaker": "Vivaio naturale",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_marea_awarded",
+        "lines": [
+          "Completa prima la prova di Nerea a Portolume."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_delta_nursery_read",
+        "questEvent": "delta/nursery/read",
+        "lines": [
+          "L’acqua poco profonda e la vegetazione offrono riparo ai Pokémon più piccoli. Registri le condizioni del luogo mantenendo le distanze.",
+          "Osservazione salvata. Dopo corrente e canneti, torna da Iris sul pontile d’ingresso."
+        ]
+      },
+      {
+        "lines": [
+          "Il vivaio è già registrato. Iris confronterà questa osservazione con quelle della corrente e dei canneti."
+        ]
+      }
+    ]
+  },
+  "acquariva_tessa": {
+    "speaker": "Tessa",
+    "stages": [
+      {
+        "whenFlagMissing": "q_delta_report",
+        "lines": [
+          "Per confrontare il lago con il Delta serve il rapporto completo di Iris. Osserva corrente, canneti e vivaio naturale e riferisci a lei."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_acquariva_report",
+        "questEvent": "acquariva/tessa/report",
+        "lines": [
+          "Benvenuto all’osservatorio! Le osservazioni del Delta ci permettono di fare domande migliori sul lago. Confronteremo misure ripetute, senza saltare alle conclusioni.",
+          "Ecco due Pozioni. Selene ti aspetta nella palestra a nord della piazza: orienta gli specchi per portare la luce al ricevitore, poi affronta la sua squadra Psico."
+        ]
+      },
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": [
+          "Il rapporto è conservato. La palestra di Selene è a nord della piazza. Il Centro Pokémon e il mercato sono nelle case a ovest; qui puoi tornare a consultare l’osservatorio."
+        ]
+      },
+      {
+        "lines": [
+          "Con la Medaglia Riflesso puoi percorrere la Via delle Cascate: segui il giardino a nord-ovest. La strada raggiunge Vetracielo e permette anche il ritorno a piedi."
+        ]
+      }
+    ]
+  },
+  "selene_gym": {
+    "speaker": "Selene",
+    "stages": [
+      {
+        "whenFlagMissing": "q_acquariva_report",
+        "lines": [
+          "Prima confronta con Tessa le osservazioni del Delta. La trovi nell’osservatorio sul lago, a est della piazza."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym06_reflections_aligned",
+        "lines": [
+          "Segui la luce dalla sorgente al ricevitore. Usa i quattro controlli per ruotare gli specchi: il fascio visibile mostra fin dove arriva la luce.",
+          "Puoi correggere ogni orientamento e tornare all’ingresso quando vuoi. Quando il ricevitore si illumina, raggiungimi sulla terrazza superiore."
+        ]
+      },
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": [
+          "Il ricevitore è illuminato. Ora osserva anche mosse, tipi e status: una buona strategia nasce da quello che accade davvero durante la lotta!"
+        ]
+      },
+      {
+        "lines": [
+          "La Medaglia Riflesso premia la tua capacità di osservare e adattarti. La Via delle Cascate è aperta: dall’angolo nord-occidentale di Acquariva raggiungi Vetracielo.",
+          "La tua squadra può tornare qui, riposare al Centro Pokémon e continuare a esplorare il lago."
         ]
       }
     ]

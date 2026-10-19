@@ -1,3 +1,11 @@
+## Integrazione locale Acquariva 0.3.87 — 19/10/2026
+
+- Sei mappe collegate localmente: R09, Delta, R10, Acquariva, palestra Psico e Via delle Cascate. Dialoghi, quest, servizi, monorotaia, atlante, diario, squadra di Selene e Medaglia Riflesso registrati. Cache v108; pubblicazione non ancora eseguita.
+- Validatore superato: 30 mappe, 29 quest, 10 allenatori, 7 negozi e 186 asset registrati. Build, 334 prove di dominio, 16 di persistenza e 49 Python riuscite. Aggiornata la fixture del diario per la prosecuzione dopo P5; conservati nomi e proprietà degli ostacoli cittadini, aprendo soltanto le nuove caselle di accesso.
+- Quattro prove touch passate in esecuzioni mirate: accesso Marea e traversata/ritorno Dune–Delta 39,7s; tre osservazioni in ordine diverso, reload, premi unici, kit, R10 e rapporto ad Acquariva 2,1m; puzzle in ordine diverso con reload, lotta di Selene, cambio dopo KO, banner/emblema, premio 1800 e medaglia persistente 1,6m; accesso Riflesso e andata/ritorno a Vetracielo via cascate 43,2s. Screenshot di osservatorio e palestra esaminati in portrait/landscape. La lotta usa Magneton e Quagsire livello55: prova di integrazione, non bilanciamento naturale. I tentativi con un solo Pokémon sono terminati regolarmente in sconfitta; il test ora gestisce il cambio di riserva e il terminale.
+- Verify 39286112986 su 371f469 è terminata con errore: shard 1/3/5 riusciti; 2/4/6 e offline falliti. I trace di Centrale, Ferraluce, Vetracielo e offline mostrano scadenza del budget mentre il personaggio continuava a muoversi. Ridotte le letture IndexedDB duplicate nei soli helper di test; nessun timeout aumentato. Tre regressioni touch locali riuscite in 6,4 minuti: Centrale 1,9m, Ferraluce 2,5m, Vetracielo 2,0m.
+- Unificate due preparazioni della squadra offline, mantenendo il Centro Pokémon reale, la lotta e i reload che verificano persistenza. E2E-06 sulla nuova build resta da eseguire. Shard4 scaduto nel percorso R04 durante un tap della lotta: da diagnosticare separatamente, non dimostrato risolto dalle ottimizzazioni del movimento.
+
 ## Pubblicazione 0.3.86 e Sentiero delle Canne — 19/10/2026
 
 - Deploy GitHub Pages 39286113121 su 371f469 completato con successo; Verify 39286112986 ancora in esecuzione al controllo. Non si dichiara verde l'intera CI.

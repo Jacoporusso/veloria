@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import trainer from '../../content/drafts/acquariva/gym06_selene.trainer.json' with {type:'json'};
-import puzzle from '../../content/drafts/acquariva/gym06_reflections.quest.json' with {type:'json'};
-import badge from '../../content/drafts/acquariva/gym06_badge.quest.json' with {type:'json'};
-import router from '../../content/drafts/acquariva/gym06_reflections.v1.json' with {type:'json'};
+import trainer from '../../content/trainers/gym06_selene.trainer.json' with {type:'json'};
+import puzzle from '../../content/quests/gym06_reflections.quest.json' with {type:'json'};
+import badge from '../../content/quests/gym06_badge.quest.json' with {type:'json'};
+import router from '../../content/puzzles/gym06_reflections.v1.json' with {type:'json'};
 import learnsets from '../../content/sources/pokeapi/source-learnsets.json' with {type:'json'};
 import moves from '../../content/battle/moves.v1.json' with {type:'json'};
 import {applyQuestEvent} from '../../src/core/quests/apply-quest-event.ts';
@@ -19,7 +19,7 @@ test('Selene uses only supported HGSS moves available at her team levels',()=>{
 });
 
 test('reflection gym controls and leader stay reachable around all solid devices',()=>{
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/gym06_acquariva.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/gym06_acquariva.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,32,24,[]);
   blocked.add('16,2');
   const seen=new Set(['15,22']),queue=[[15,22]];

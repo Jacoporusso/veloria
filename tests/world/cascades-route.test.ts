@@ -1,15 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import encounters from '../../content/drafts/acquariva/r11_cascade_patch.encounter.json' with {type:'json'};
-import metadata from '../../content/drafts/acquariva/r11_via_cascate.map.json' with {type:'json'};
+import encounters from '../../content/encounters/r11_cascade_patch.encounter.json' with {type:'json'};
+import metadata from '../../content/maps/r11_via_cascate.map.json' with {type:'json'};
 import species from '../../content/battle/species.v1.json' with {type:'json'};
 import {validateTable,type EncounterTable} from '../../src/core/encounters/select-encounter.ts';
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
 
 test('Waterfall shortcut connects both returns and overlook without mandatory encounters',()=>{
   validateTable(encounters as EncounterTable,species.species);
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/r11_via_cascate.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/r11_via_cascate.tmj',import.meta.url),'utf8'));
   const objects=(name:string)=>map.layers.find((layer:any)=>layer.name===name).objects;
   const collision=collectMapCollision(objects('collision'),40,30,[]);
   const blocked=new Set(collision);

@@ -1,0 +1,75 @@
+{
+  "id": "veloria/r10_reed_patch",
+  "mapId": "veloria/r10_sentiero_canne",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 177,
+        "weight": 35,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 133,
+        "weight": 10,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 163,
+        "weight": 20,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 96,
+        "weight": 35,
+        "minLevel": 27,
+        "maxLevel": 31
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 177,
+        "weight": 45,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 133,
+        "weight": 10,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 96,
+        "weight": 45,
+        "minLevel": 27,
+        "maxLevel": 31
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 96,
+        "weight": 50,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 163,
+        "weight": 35,
+        "minLevel": 27,
+        "maxLevel": 31
+      },
+      {
+        "speciesId": 177,
+        "weight": 15,
+        "minLevel": 27,
+        "maxLevel": 31
+      }
+    ]
+  }
+}

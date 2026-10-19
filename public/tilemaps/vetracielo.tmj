@@ -3665,11 +3665,623 @@
           ]
         },
         {
-          "id": 2,
+          "id": 179,
           "name": "south",
           "x": 0,
           "y": 928,
-          "width": 1280,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 180,
+          "name": "south",
+          "x": 32,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 181,
+          "name": "south",
+          "x": 64,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 182,
+          "name": "south",
+          "x": 96,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 183,
+          "name": "south",
+          "x": 128,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 184,
+          "name": "south",
+          "x": 160,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 185,
+          "name": "south",
+          "x": 192,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 186,
+          "name": "south",
+          "x": 224,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 187,
+          "name": "south",
+          "x": 256,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 188,
+          "name": "south",
+          "x": 288,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 189,
+          "name": "south",
+          "x": 416,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 190,
+          "name": "south",
+          "x": 448,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 191,
+          "name": "south",
+          "x": 480,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 192,
+          "name": "south",
+          "x": 512,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 193,
+          "name": "south",
+          "x": 544,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 194,
+          "name": "south",
+          "x": 576,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 195,
+          "name": "south",
+          "x": 608,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 196,
+          "name": "south",
+          "x": 640,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 197,
+          "name": "south",
+          "x": 672,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 198,
+          "name": "south",
+          "x": 704,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 199,
+          "name": "south",
+          "x": 736,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 200,
+          "name": "south",
+          "x": 768,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 201,
+          "name": "south",
+          "x": 800,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 202,
+          "name": "south",
+          "x": 832,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 203,
+          "name": "south",
+          "x": 864,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 204,
+          "name": "south",
+          "x": 896,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 205,
+          "name": "south",
+          "x": 928,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 206,
+          "name": "south",
+          "x": 960,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 207,
+          "name": "south",
+          "x": 992,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 208,
+          "name": "south",
+          "x": 1024,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 209,
+          "name": "south",
+          "x": 1056,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 210,
+          "name": "south",
+          "x": 1088,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 211,
+          "name": "south",
+          "x": 1120,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 212,
+          "name": "south",
+          "x": 1152,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 213,
+          "name": "south",
+          "x": 1184,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 214,
+          "name": "south",
+          "x": 1216,
+          "y": 928,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 215,
+          "name": "south",
+          "x": 1248,
+          "y": 928,
+          "width": 32,
           "height": 32,
           "rotation": 0,
           "visible": true,
@@ -5310,6 +5922,43 @@
               "value": "Per entrare nell’Anello Magnetico serve la Medaglia Circuito."
             }
           ]
+        },
+        {
+          "id": 178,
+          "name": "r11_via_cascate",
+          "x": 320,
+          "y": 928,
+          "width": 96,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r11_via_cascate"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_vetracielo"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "badge_riflesso_awarded"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "La Via delle Cascate si apre dopo la Medaglia Riflesso di Acquariva."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -5539,7 +6188,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 103,
+  "nextobjectid": 216,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

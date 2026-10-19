@@ -1,0 +1,132 @@
+{
+  "id": "gym06reflections",
+  "presentation": "reflection",
+  "sourceNodeId": "source",
+  "goalNodeId": "goal",
+  "solvedFlag": "gym06_reflections_aligned",
+  "solvedEvent": "gym06/reflections/aligned",
+  "nodes": [
+    {
+      "id": "source",
+      "label": "Luce del lago",
+      "x": 5,
+      "y": 15,
+      "initialStateId": "east",
+      "states": [
+        {
+          "id": "east",
+          "label": "Verso il primo specchio",
+          "direction": "right",
+          "nextNodeId": "first"
+        }
+      ]
+    },
+    {
+      "id": "first",
+      "label": "Specchio delle canne",
+      "x": 10,
+      "y": 15,
+      "initialStateId": "down",
+      "states": [
+        {
+          "id": "down",
+          "label": "Riflesso verso sud",
+          "mirror": "\\",
+          "direction": "down",
+          "nextNodeId": null
+        },
+        {
+          "id": "up",
+          "label": "Riflesso verso nord",
+          "mirror": "/",
+          "direction": "up",
+          "nextNodeId": "second"
+        }
+      ]
+    },
+    {
+      "id": "second",
+      "label": "Specchio del pontile",
+      "x": 10,
+      "y": 9,
+      "initialStateId": "left",
+      "states": [
+        {
+          "id": "left",
+          "label": "Riflesso verso ovest",
+          "mirror": "\\",
+          "direction": "left",
+          "nextNodeId": null
+        },
+        {
+          "id": "right",
+          "label": "Riflesso verso est",
+          "mirror": "/",
+          "direction": "right",
+          "nextNodeId": "third"
+        }
+      ]
+    },
+    {
+      "id": "third",
+      "label": "Specchio delle ninfee",
+      "x": 21,
+      "y": 9,
+      "initialStateId": "down",
+      "states": [
+        {
+          "id": "down",
+          "label": "Riflesso verso sud",
+          "mirror": "\\",
+          "direction": "down",
+          "nextNodeId": null
+        },
+        {
+          "id": "up",
+          "label": "Riflesso verso nord",
+          "mirror": "/",
+          "direction": "up",
+          "nextNodeId": "fourth"
+        }
+      ]
+    },
+    {
+      "id": "fourth",
+      "label": "Specchio dell’orizzonte",
+      "x": 21,
+      "y": 3,
+      "initialStateId": "right",
+      "states": [
+        {
+          "id": "right",
+          "label": "Riflesso verso est",
+          "mirror": "/",
+          "direction": "right",
+          "nextNodeId": null
+        },
+        {
+          "id": "left",
+          "label": "Riflesso verso ovest",
+          "mirror": "\\",
+          "direction": "left",
+          "nextNodeId": "goal"
+        }
+      ]
+    },
+    {
+      "id": "goal",
+      "label": "Ricevitore",
+      "x": 13,
+      "y": 3,
+      "initialStateId": "ready",
+      "states": [
+        {
+          "id": "ready",
+          "label": "Ricezione",
+          "direction": "left",
+          "nextNodeId": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+## veloria-content-0.3.87 — integrazione locale, 19/10/2026
+
+- Collegati R09, Delta degli Specchi, R10, Acquariva, palestra Psico e Via delle Cascate. Ricerca in tre osservazioni indipendenti, rapporto del lago, kit opzionale, servizi, monorotaia, diario e atlante. Ritorni aperti; accessi cittadini subordinati alle medaglie previste.
+- P6 con quattro specchi orientabili, Selene e Medaglia Riflesso originale. Squadra e mosse verificate sui learnset HGSS conservati localmente; nessuna mossa inventata. Catalogo locale 48 specie e 53 mosse.
+- Sei ambienti originali, fonti PNG e prompt conservati, runtime WebP lossless e cache v108. Build, validatore, 350 prove dominio/persistenza, 49 Python e quattro prove touch del capitolo riusciti. Restano verifiche offline e bilanciamento naturale. Versione non ancora pubblicata; non costituisce completamento della regione.
+
 ## veloria-content-0.3.83 — 19/10/2026
 
 - Basi per Portolume: azione di pesca pura con equipaggiamento, prerequisiti e RNG persistibile; planner di tragitti locali in barca con approdi anche nella stessa mappa e autorizzazioni ricontrollate all'imbarco. I sistemi non sono ancora collegati a postazioni giocabili.

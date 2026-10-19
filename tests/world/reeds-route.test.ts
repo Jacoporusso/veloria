@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import encounters from '../../content/drafts/acquariva/r10_reed_patch.encounter.json' with {type:'json'};
-import quest from '../../content/drafts/acquariva/r10_kit.quest.json' with {type:'json'};
+import encounters from '../../content/encounters/r10_reed_patch.encounter.json' with {type:'json'};
+import quest from '../../content/quests/r10_kit.quest.json' with {type:'json'};
 import species from '../../content/battle/species.v1.json' with {type:'json'};
 import {validateTable,type EncounterTable} from '../../src/core/encounters/select-encounter.ts';
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
@@ -11,7 +11,7 @@ import type {GameSave} from '../../src/persistence/save-types.ts';
 
 test('Reeds main route and landmarks remain reachable while avoiding optional habitats',()=>{
   validateTable(encounters as EncounterTable,species.species);
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/r10_sentiero_canne.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/r10_sentiero_canne.tmj',import.meta.url),'utf8'));
   const objects=(name:string)=>map.layers.find((layer:any)=>layer.name===name).objects;
   const blocked=collectMapCollision(objects('collision'),40,30,[]);
   for(const zone of objects('triggers')){

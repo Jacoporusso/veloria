@@ -35,6 +35,13 @@
       "location": "Palestra di Portolume",
       "description": "Una conchiglia e due onde ricordano una squadra capace di leggere il ritmo dell’acqua.",
       "emblem": "tide"
+    },
+    "badge_riflesso": {
+      "name": "Medaglia Riflesso",
+      "leader": "Selene",
+      "location": "Palestra di Acquariva",
+      "description": "Uno specchio sfaccettato ricorda una strategia costruita osservando tipi, mosse e status.",
+      "emblem": "reflection"
     }
   }
 }

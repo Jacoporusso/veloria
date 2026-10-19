@@ -231,23 +231,32 @@
     {
       "id": "delta",
       "name": "Delta degli Specchi",
-      "kind": "future",
+      "kind": "landmark",
       "x": 500,
       "y": 530,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Un futuro intreccio di canali tra costa e lago."
+      "mapIds": [
+        "veloria/d04_delta_specchi"
+      ],
+      "visitedFlags": [
+        "q_delta_report"
+      ],
+      "description": "Tre osservazioni sui pontili: corrente, canneti e vivaio naturale."
     },
     {
       "id": "acquariva",
       "name": "Acquariva",
-      "kind": "future",
+      "kind": "city",
       "gym": 6,
       "x": 275,
       "y": 470,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Una futura città sul lago e sui pontili."
+      "mapIds": [
+        "veloria/acquariva",
+        "veloria/gym06_acquariva"
+      ],
+      "visitedFlags": [
+        "q_acquariva_visited"
+      ],
+      "description": "Città sul lago, osservatorio e palestra Psico di Selene."
     },
     {
       "id": "passobrina",
@@ -314,6 +323,42 @@
         "area_r08_visited"
       ],
       "description": "Passeggiata costiera fra habitat, turbine e un belvedere di pesca."
+    },
+    {
+      "id": "r09",
+      "name": "Dune Salmastre",
+      "kind": "route",
+      "x": 622,
+      "y": 473,
+      "mapIds": [
+        "veloria/r09_dune_salmastre"
+      ],
+      "visitedFlags": [],
+      "description": "Sentiero percorribile con habitat laterali e ritorno disponibile."
+    },
+    {
+      "id": "r10",
+      "name": "Sentiero delle Canne",
+      "kind": "route",
+      "x": 387,
+      "y": 512,
+      "mapIds": [
+        "veloria/r10_sentiero_canne"
+      ],
+      "visitedFlags": [],
+      "description": "Sentiero percorribile con habitat laterali e ritorno disponibile."
+    },
+    {
+      "id": "r11",
+      "name": "Via delle Cascate",
+      "kind": "route",
+      "x": 362,
+      "y": 367,
+      "mapIds": [
+        "veloria/r11_via_cascate"
+      ],
+      "visitedFlags": [],
+      "description": "Sentiero percorribile con habitat laterali e ritorno disponibile."
     }
   ],
   "connections": [
@@ -370,14 +415,6 @@
       "centrale"
     ],
     [
-      "portolume",
-      "delta"
-    ],
-    [
-      "delta",
-      "acquariva"
-    ],
-    [
       "acquariva",
       "passobrina"
     ],
@@ -404,6 +441,30 @@
     [
       "r08",
       "portolume"
+    ],
+    [
+      "portolume",
+      "r09"
+    ],
+    [
+      "r09",
+      "delta"
+    ],
+    [
+      "delta",
+      "r10"
+    ],
+    [
+      "r10",
+      "acquariva"
+    ],
+    [
+      "acquariva",
+      "r11"
+    ],
+    [
+      "r11",
+      "vetracielo"
     ]
   ]
 }

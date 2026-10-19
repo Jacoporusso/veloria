@@ -3,6 +3,7 @@ import dalia from '../../../content/trainers/gym02_dalia.trainer.json' with { ty
 import aster from '../../../content/trainers/gym03_aster.trainer.json' with { type: 'json' };
 import rhea from '../../../content/trainers/gym04_rhea.trainer.json' with { type: 'json' };
 import nerea from '../../../content/trainers/gym05_nerea.trainer.json' with { type: 'json' };
+import selene from '../../../content/trainers/gym06_selene.trainer.json' with { type: 'json' };
 import badgeContent from '../../../content/badges/badges.v1.json' with { type: 'json' };
 import { trainerPreparation } from '../battle/trainer-challenge.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
@@ -54,6 +55,15 @@ export const journeyMilestones = [
   { flag: 'gym05_sluice_open', title: 'La chiusa superiore', objective: 'Attraversa il primo ponte della palestra e usa la console a destra sulla terrazza centrale.' },
   { flag: 'gym05_tide_stable', title: 'Una marea stabile', objective: 'Attraversa il secondo ponte e usa la console a sinistra sulla terrazza superiore.' },
   { flag: 'badge_marea_awarded', trainer: nerea, title: 'La Medaglia Marea', objective: 'Parla con Nerea al centro della terrazza superiore della palestra di Portolume.' },
+  { flag: 'q_delta_flow_read', title: 'La corrente del Delta', objective: 'Con la Medaglia Marea scendi dal giardino delle fontane di Portolume e attraversa le Dune verso est. Nel Delta, sali sul pontile alto a sinistra e leggi il misuratore della corrente.' },
+  { flag: 'q_delta_reeds_read', title: 'Riparo fra le canne', objective: 'Nel Delta degli Specchi leggi il pannello dei canneti sul tratto orientale del pontile alto. Le tre osservazioni si possono fare in qualsiasi ordine.' },
+  { flag: 'q_delta_nursery_read', title: 'Il vivaio naturale', objective: 'Dal pontile inferiore del Delta segui il ramo a sud. Leggi il pannello sull’approdo del vivaio naturale.' },
+  { flag: 'q_delta_report', title: 'Tre sguardi sul Delta', objective: 'Riporta le tre osservazioni alla biologa Iris, sul pontile d’ingresso del Delta. Il suo rapporto apre il percorso orientale.' },
+  { flag: 'q_r10_kit_found', optional: true, title: 'Il kit del pontile', objective: 'Sul Sentiero delle Canne, dal pontile alto scendi lungo il ramo orientale fino al piccolo approdo: raccogli il kit con due Antidoti.' },
+  { flag: 'q_acquariva_visited', title: 'Il lago oltre le canne', objective: 'Dal Delta prosegui a est sul Sentiero delle Canne. Segui il pontile a destra, risali e svolta ancora a destra per Acquariva.' },
+  { flag: 'q_acquariva_report', title: 'Confrontare le osservazioni', objective: 'Ad Acquariva attraversa il ponte a est della piazza e parla con Tessa nell’osservatorio sul lago.' },
+  { flag: 'gym06_reflections_aligned', title: 'La luce del lago', objective: 'Entra nella palestra a nord della piazza di Acquariva. Ruota i quattro specchi e segui il fascio dalla sorgente al ricevitore; puoi correggerli in qualsiasi ordine.' },
+  { flag: 'badge_riflesso_awarded', trainer: selene, title: 'La Medaglia Riflesso', objective: 'Affronta Selene sulla terrazza superiore della palestra. Considera tipi, mosse e status: Slowbro è Acqua/Psico. Con la medaglia si apre la Via delle Cascate per Vetracielo.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

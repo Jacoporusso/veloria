@@ -95,6 +95,12 @@
       "x": 24,
       "y": 22,
       "facing": "up"
+    },
+    {
+      "id": "from_r11",
+      "x": 11,
+      "y": 28,
+      "facing": "up"
     }
   ],
   "connections": [
@@ -118,6 +124,14 @@
       "targetSpawnId": "from_vetracielo",
       "requiresFlags": [
         "badge_circuito_awarded"
+      ]
+    },
+    {
+      "toMapId": "veloria/r11_via_cascate",
+      "viaSpawnId": "from_r11",
+      "targetSpawnId": "from_vetracielo",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
       ]
     }
   ],

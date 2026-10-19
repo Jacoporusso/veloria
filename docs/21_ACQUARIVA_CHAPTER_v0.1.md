@@ -1,6 +1,12 @@
 # Dune, Delta e Acquariva — contratto del capitolo
 
-Stato: preparazione, non giocabile. Fonte principale: documento 02, sezioni 3–8. Il capitolo deve proseguire da Portolume alla sesta medaglia, senza concludere la regione.
+Stato: integrato localmente nella versione 0.3.87, verifiche di gioco in corso, non pubblicato. Fonte principale: documento 02, sezioni 3–8. Il capitolo prosegue da Portolume alla sesta medaglia, senza concludere la regione. Le sezioni di preparazione qui sotto conservano i checkpoint precedenti; per lo stato attuale valgono questa nota e `docs/CI_STATUS.md`.
+
+## Integrazione locale
+
+Le sei mappe sono nei registri runtime, con cinque quest, allenatore Selene, dialoghi, mercato, cure, fermata ferroviaria, atlante e diario. La Medaglia Riflesso ha un emblema SVG originale condiviso tra banner e raccolta. Gli accessi dalle città richiedono rispettivamente Marea e Riflesso; i ritorni dalle nuove zone rimangono aperti. Acquariva non è selezionabile in monorotaia prima della prima visita. Fonti PNG conservate, sei WebP lossless registrati e precaricati nella cache v108.
+
+Validatore e build riusciti: 30 mappe, 29 quest, 10 allenatori e 7 negozi. Le prove di dominio del capitolo leggono ora i file effettivi del runtime; 350 prove di dominio/persistenza e 49 Python passate. Quattro prove touch verificano traversate/ritorni, ricerca, premi unici, puzzle in ordine diverso con reload, battaglia, cambio dopo KO, medaglia e denaro persistenti. Osservatorio e palestra esaminati in portrait/landscape. La squadra della prova P6 è un checkpoint potenziato: il bilanciamento naturale e il primo accesso offline restano da verificare.
 
 ## Contenuti richiesti
 

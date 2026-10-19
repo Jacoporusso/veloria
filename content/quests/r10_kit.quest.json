@@ -1,0 +1,21 @@
+{
+  "id": "veloria/q_r10_kit",
+  "version": 1,
+  "displayName": "Il kit tra le canne",
+  "steps": [
+    {
+      "id": "recover",
+      "trigger": "r10/kit/recover",
+      "setFlag": "q_r10_kit_found",
+      "requiresFlags": [
+        "q_delta_report"
+      ]
+    }
+  ],
+  "completionFlag": "q_r10_kit_found",
+  "reward": {
+    "items": {
+      "antidote": 2
+    }
+  }
+}

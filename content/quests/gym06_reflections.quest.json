@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_gym06_reflections",
+  "version": 1,
+  "displayName": "Il percorso della luce",
+  "steps": [
+    {
+      "id": "align",
+      "trigger": "gym06/reflections/aligned",
+      "setFlag": "gym06_reflections_aligned",
+      "requiresFlags": [
+        "q_acquariva_report"
+      ]
+    }
+  ],
+  "completionFlag": "gym06_reflections_aligned",
+  "reward": {}
+}

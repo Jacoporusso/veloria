@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import grass from '../../content/drafts/acquariva/r09_dune_patch.encounter.json' with {type:'json'};
-import fishing from '../../content/drafts/acquariva/r09_lagoon_fishing.encounter.json' with {type:'json'};
+import grass from '../../content/encounters/r09_dune_patch.encounter.json' with {type:'json'};
+import fishing from '../../content/encounters/r09_lagoon_fishing.encounter.json' with {type:'json'};
 import species from '../../content/battle/species.v1.json' with {type:'json'};
 import {validateTable,type EncounterTable} from '../../src/core/encounters/select-encounter.ts';
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
@@ -13,7 +13,7 @@ test('Dunes habitat tables use available species and valid time-band weights',()
 });
 
 test('Dunes exits and fishing remain reachable while avoiding both optional habitats',()=>{
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/r09_dune_salmastre.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/r09_dune_salmastre.tmj',import.meta.url),'utf8'));
   const objects=(name:string)=>map.layers.find((layer:any)=>layer.name===name).objects;
   const blocked=collectMapCollision(objects('collision'),40,28,[]);
   for(const zone of objects('triggers')){

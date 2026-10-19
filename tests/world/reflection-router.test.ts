@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import puzzle from '../../content/drafts/acquariva/gym06_reflections.v1.json' with {type:'json'};
+import puzzle from '../../content/puzzles/gym06_reflections.v1.json' with {type:'json'};
 import {rotateSignalRouter,traceSignalRouter,validateSignalRouter,type SignalRouter} from '../../src/core/world/signal-router.ts';
 const router=puzzle as SignalRouter;
 const ids=['first','second','third','fourth'];

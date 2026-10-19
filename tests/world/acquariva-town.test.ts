@@ -1,14 +1,14 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFileSync} from 'node:fs';
-import metadata from '../../content/drafts/acquariva/acquariva.map.json' with {type:'json'};
-import quest from '../../content/drafts/acquariva/acquariva_research.quest.json' with {type:'json'};
+import metadata from '../../content/maps/acquariva.map.json' with {type:'json'};
+import quest from '../../content/quests/acquariva_research.quest.json' with {type:'json'};
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
 import {applyQuestEvent} from '../../src/core/quests/apply-quest-event.ts';
 import type {GameSave} from '../../src/persistence/save-types.ts';
 
 test('Acquariva services, observatory and exits connect without crossing the lake',()=>{
-  const map=JSON.parse(readFileSync(new URL('../../content/drafts/acquariva/acquariva.tmj',import.meta.url),'utf8'));
+  const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/acquariva.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,40,30,[]);
   blocked.add('34,14');
   const seen=new Set(['1,16']),queue=[[1,16]];

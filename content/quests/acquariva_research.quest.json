@@ -1,0 +1,30 @@
+{
+  "id": "veloria/q_acquariva_research",
+  "version": 1,
+  "displayName": "Il lago conserva le tracce",
+  "steps": [
+    {
+      "id": "arrive",
+      "trigger": "area/veloria/acquariva/enter",
+      "setFlag": "q_acquariva_visited",
+      "requiresFlags": [
+        "q_delta_report"
+      ]
+    },
+    {
+      "id": "compare",
+      "trigger": "acquariva/tessa/report",
+      "setFlag": "q_acquariva_report",
+      "requiresFlags": [
+        "q_acquariva_visited",
+        "q_delta_report"
+      ]
+    }
+  ],
+  "completionFlag": "q_acquariva_report",
+  "reward": {
+    "items": {
+      "potion": 2
+    }
+  }
+}

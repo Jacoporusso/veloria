@@ -16,8 +16,10 @@ Avvicinarsi al terminale con il simbolo del treno e premere A, E o Spazio. Senza
 | Petalora | 24,13 | 24,14 |
 | Vetracielo | 24,21 | 24,22 |
 | Ferraluce | 24,21 | 24,22 |
+| Portolume | 7,21 | 7,22 (`from_monorail`) |
+| Acquariva, integrazione 0.3.87 | 6,22 | 7,22 (`metro_arrival`, rivolto a sinistra) |
 
-Gli arrivi guardano a nord, verso il terminale, anche dopo una ripresa esattamente sullo spawn. Aster annuncia il servizio nella ricompensa di Circuito; Lea ne indica il terminale a sud-est della sua posizione.
+Gli arrivi guardano verso il terminale, anche dopo una ripresa esattamente sullo spawn: a nord nelle prime cinque città, a sinistra ad Acquariva. Aster annuncia il servizio nella ricompensa di Circuito; Lea ne indica il terminale a sud-est della sua posizione. Le estensioni mantengono il requisito di visita: la monorotaia non apre Acquariva prima del percorso attraverso Delta e Canne. La funivia dopo P7 resta da implementare.
 
 ## Contratti e ampliamento
 
