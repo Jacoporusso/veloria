@@ -23,6 +23,10 @@ Configurazione P6 in `content/drafts/acquariva/gym06_reflections.v1.json`: quatt
 
 Illustrazione originale conservata con prompt/hash in `assets/prompts/r09-dunes-v1.md`. Bozza mappa e due tabelle in `content/drafts/acquariva/`: due habitat opzionali, pesca con canna e ritorni previsti a Portolume/Delta. Due prove superate su specie/pesi/fasce e raggiungibilità di uscite/pesca evitando entrambi gli habitat. Non è ancora una traversata nel gioco. Il collegamento a Portolume resta chiuso fino all'integrazione del capitolo.
 
+### D04 preparato
+
+Illustrazione originale con fonte/prompt/hash in `assets/prompts/d04-delta-v1.md`; mappa, tabella pesca e quest in `content/drafts/acquariva/`. Tre osservazioni indipendenti — corrente, canneti, vivaio naturale — richiedono P5; il rapporto alla biologa Iris richiede tutte le letture e apre il seguito verso R10. Premio unico 350 monete e tre Sfere. Due prove verificano tutti i sei ordini, serializzazione, rifiuto prematuro, premio non duplicabile e accessibilità dei pontili con la biologa presente. Il ritorno alle Dune non dipende dal rapporto. Mancano dialoghi, R10, runtime e verifica visuale con personaggio.
+
 1. Importare e conservare dati/artwork delle specie necessarie a incontri e palestra; ogni mossa deve risultare disponibile alla specie al livello previsto. Non assegnare mosse per analogia di tipo.
 2. Integrare tutte le mappe del percorso e i ritorni, servizi, ricerca, puzzle, allenatore, medaglia, diario e atlante. Aprire l'uscita di Portolume soltanto quando il percorso è verificabile.
 3. Allineare collisioni e pontili alle illustrazioni effettive, non alle sole coordinate richieste nel prompt; impedire il cammino su acqua e vegetazione solida.
