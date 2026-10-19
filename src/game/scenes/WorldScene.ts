@@ -42,6 +42,7 @@ import { WorldGuidance } from '../ui/WorldGuidance.ts';
 import { worldCameraZoom } from '../rendering/world-camera.ts';
 import { worldFollowDeadzone } from '../rendering/camera-follow.ts';
 import { gameViewport } from '../rendering/game-size.ts';
+import { playFishingCast } from '../rendering/fishing-cast';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import { showPrologueCompletion } from '../ui/PrologueCompletion';
 import opening from '../../../content/dialogue/opening.v1.json';
@@ -92,6 +93,7 @@ export class WorldScene extends Phaser.Scene {
   private completionActive = false;
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
+  private fishingActive = false;
   private battleSceneReady: Promise<void> | null = null;
   private mapTransitionLoading = false;
   private typingTimer?: number;
@@ -211,7 +213,7 @@ export class WorldScene extends Phaser.Scene {
   private updateInteractionPrompt(): void {
     const prompt = document.querySelector<HTMLButtonElement>('#interaction-prompt');
     if (!prompt) return;
-    const blocked = this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
+    const blocked = this.fishingActive || this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
     const guidanceKey = this.map.metadata.id + '|' + this.save.flags.join('|');
     if (!this.mapTransitionLoading && guidanceKey !== this.openingGuidanceKey) this.drawOpeningGuidance();
 
@@ -226,7 +228,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private renderGuidance(): void {
-    const visible = this.sys.isActive() && !this.navigationOpen && !this.moving && !this.battleActive &&
+    const visible = this.sys.isActive() && !this.fishingActive && !this.navigationOpen && !this.moving && !this.battleActive &&
       !this.mapTransitionLoading && !this.dialogueLines.length && this.starterChoices?.hidden !== false &&
       !this.pokedexOpen && !this.journey?.isOpen;
     this.openingGuidance?.render(this.cameras.main, this.game.canvas, visible, this.player ? [this.player.getBounds()] : []);
@@ -369,7 +371,7 @@ export class WorldScene extends Phaser.Scene {
   }
   private openPokedex(returnFocus: HTMLElement, view: 'team' | 'dex' = 'dex') {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
-    if (!panel || this.battleActive || this.journey?.isOpen) return;
+    if (!panel || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
     new PokemonPanel().render(this.save, view);
     panel.hidden = false;
     this.pokedexOpen = true;
@@ -480,7 +482,7 @@ export class WorldScene extends Phaser.Scene {
     // The UI can be replaced during a Vite hot reload while Phaser keeps its
     // scene alive for a frame. Treat a missing starter panel as closed instead
     // of letting one stale DOM reference stop the whole world loop.
-    if(this.battleActive||this.mapTransitionLoading||this.dialogueLines.length||this.starterChoices?.hidden===false||this.pokedexOpen||this.journey?.isOpen)return;
+    if(this.fishingActive||this.battleActive||this.mapTransitionLoading||this.dialogueLines.length||this.starterChoices?.hidden===false||this.pokedexOpen||this.journey?.isOpen)return;
     if(this.moving)return;
     if(this.heldDirection){this.tryMove(this.heldDirection);return;}
     if(this.keys.W.isDown||this.keys.UP.isDown)this.tryMove('up');
@@ -491,7 +493,7 @@ export class WorldScene extends Phaser.Scene {
 
   private tryMove(direction:Direction) {
     if (this.navigationOpen) return;
-    if(this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
+    if(this.fishingActive||this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
     if(this.moving){this.queuedDirection=direction;return;}
     const destination=tryGridMove(this.playerTile,direction,this.renderedMap.width,this.renderedMap.height,this.occupied);
     this.facing=direction;this.drawFace();
@@ -522,6 +524,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private interact() {
+    if (this.fishingActive) return;
     const {x,y}=adjacentGridPoint(this.playerTile,this.facing);
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
@@ -732,6 +735,7 @@ export class WorldScene extends Phaser.Scene {
     };
     this.showServiceOptions(prop.name, `Usa ${itemCatalog[itemId].name} per cercare Pokémon nell’acqua. La canna non si consuma.`, [
       { label: 'PESCA', icon: 'fishing', action: () => {
+        if (this.fishingActive || this.battleActive || this.mapTransitionLoading) return;
         const result = castFishingLine({
           spot, mapId: this.map.metadata.id, inventory: this.save.inventory, flags: this.save.flags,
           hasReadyCreature: this.save.party.some(creature => creature.hp > 0),
@@ -748,12 +752,19 @@ export class WorldScene extends Phaser.Scene {
           return;
         }
         this.save.rngState = result.nextRngState;
-        if (result.kind === 'no-bite') {
-          this.persistProgress();
-          this.showToast('Nessuna abboccata. Puoi rilanciare la lenza.');
-          return;
-        }
-        this.startWildBattle(result.encounter.speciesId, result.encounter.level);
+        this.persistProgress();
+        this.fishingActive = true;
+        this.heldDirection = null;
+        this.queuedDirection = null;
+        this.showToast('Lenza in acqua…');
+        const direction = adjacentGridPoint({x:0,y:0},this.facing);
+        playFishingCast(this,{x:this.player.x,y:this.player.y-12},
+          {x:prop.x+prop.width/2+direction.x*24,y:prop.y+prop.height/2+direction.y*24},
+          this.reducedAnimations,result.kind==='encounter',()=>{
+            this.fishingActive=false;
+            if(result.kind==='no-bite')this.showToast('Nessuna abboccata. Puoi rilanciare la lenza.');
+            else this.startWildBattle(result.encounter.speciesId,result.encounter.level);
+          });
       } },
       { label: 'NON PESCARE', icon: 'close', action: () => undefined },
     ]);

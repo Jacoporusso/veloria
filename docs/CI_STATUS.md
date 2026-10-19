@@ -1,3 +1,9 @@
+## Feedback pesca — checkpoint locale successivo a 0.3.85
+
+- Lenza e galleggiante disegnati nel mondo, segnale di abboccata, durata completa 1,1 s e ridotta 180 ms. Input di movimento/interazione e suggerimenti sospesi durante il lancio; risorse grafiche/tween rimosse allo shutdown senza avviare incontri tardivi. RNG salvato prima dell'effetto.
+- Build passata e percorso Ferraluce–Portolume–R08/pesca ripetuto con animazioni complete abilitate: 39,1 s, incontro avviato e canna conservata. Modifica non ancora pubblicata.
+- Deploy del capitolo d197ea7, run 39285031933, ancora queued al controllo (build/deploy queued). Conservata la stessa esecuzione, senza annullarla o riavviarla.
+
 ## Verifiche Portolume 0.3.85 — 19/10/2026
 
 - Percorso touch P5 superato in 51,7 s: tre console, apertura progressiva dei ponti, reload, battaglia Nerea, banner/emblema, premio 1400 monete e medaglia unica dopo reload. Squadra di checkpoint potenziata: prova di integrazione, non bilanciamento naturale.

@@ -101,6 +101,7 @@ test('Nerea sluices open in order and the Marea medal survives reload', async({p
 
 test('Ferraluce reaches Portolume by the coast and fishing starts a coastal wild battle',async({page},info)=>{
   test.setTimeout(180_000);
+  await page.addInitScript(()=>localStorage.setItem('veloria-animation-quality','full'));
   await page.route('**/src/main.ts*',async route=>{
     const response=await route.fetch();await route.fulfill({response,body:await response.text()+'\nglobalThis.__coastGame=game;'});
   });
