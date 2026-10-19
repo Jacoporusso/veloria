@@ -5,7 +5,7 @@ import { enterGame } from './helpers/enter-game';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
 
-test('Circuito gates the station; only visited cities are listed, cancel releases movement, and four stations persist', async ({ page }, info) => {
+test('Circuito gates the station; only visited cities are listed and cancel releases movement', async ({ page }) => {
   test.setTimeout(90_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -34,7 +34,13 @@ test('Circuito gates the station; only visited cities are listed, cancel release
   await page.getByRole('button', { name: 'Conferma e interagisci' }).tap();
   await expect(page.getByRole('button', { name: 'Brumalta', exact: true })).toBeFocused();
   await page.getByRole('button', { name: 'NON PARTIRE', exact: true }).tap();
+  expect(errors).toEqual([]);
+});
 
+test('four visited monorail stations persist with keyboard boarding and both phone orientations', async ({page},info)=>{
+  test.setTimeout(90_000);
+  const errors:string[]=[];
+  page.on('pageerror',error=>errors.push(error.message));
   await prepareMonorailTraveler(page);
   const before = travelResources(await readBrowserSave(page));
   for (const id of ['brumalta', 'petalora', 'ferraluce', 'vetracielo']) {

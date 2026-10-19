@@ -20,7 +20,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3]
+        # The previous middle shard exceeded its 24-minute step budget while
+        # the long MVP journeys were still running. Keep browser isolation and
+        # divide the suite further instead of increasing individual timeouts.
+        shard: [1, 2, 3, 4, 5, 6]
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -60,7 +63,7 @@ jobs:
 
       - name: Run browser end-to-end tests
         timeout-minutes: 24
-        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/3
+        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/6
 
       - name: Preserve browser screenshots and traces
         if: ${{ always() }}

@@ -1,3 +1,10 @@
+## Diagnosi CI e distribuzione suite 0.3.86 — 19/10/2026
+
+- Letti i log reali di Verify 39225087078: shard1 36 passati e unico fallimento nella lettura prematura di `battle.ui` del test P4 (attesa già corretta e verificata localmente). Shard2 interrotto dal limite globale di 24 minuti dopo 23 prove completate e una fallita; prove restanti non concluse. Shard3 e Offline riusciti. Log sotto `.tmp/ci-39225087078-shard*.log`.
+- La traccia della monorotaia mostra esaurimento del budget individuale di 90 s durante il tap su Petalora, dopo requisiti, annullamento, orientamenti e primo viaggio; non prova una causa del runtime. Separati requisiti/cancellazione e percorso quattro stazioni, conservando tutte le asserzioni, tastiera, DPR3 e portrait/landscape. Entrambi passati localmente in 22,4 s (7,9 e 13,2 s).
+- Matrice CI portata da tre a sei shard, sempre un worker per runner, stessi limiti individuali e del job. Copertura verificata con enumerazione Playwright: nessun caso escluso o duplicato. Il prossimo esito CI resta da acquisire; la suddivisione non costituisce prova che tutti i problemi siano risolti.
+- Cache v107 e contenuto 0.3.86 includono il feedback pesca già verificato. Nessun riavvio manuale dei job precedenti.
+
 ## Feedback pesca — checkpoint locale successivo a 0.3.85
 
 - Lenza e galleggiante disegnati nel mondo, segnale di abboccata, durata completa 1,1 s e ridotta 180 ms. Input di movimento/interazione e suggerimenti sospesi durante il lancio; risorse grafiche/tween rimosse allo shutdown senza avviare incontri tardivi. RNG salvato prima dell'effetto.
