@@ -1,0 +1,16 @@
+{
+  "id": "veloria/trainer_nerea_gym05",
+  "name": "Nerea",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym05_nerea_defeated",
+  "defeatQuestEvent": "battle/trainer_nerea/defeated",
+  "rewardMoney": 1400,
+  "victoryMessage": "Hai vinto contro Nerea. Ricevi 1400 ₿ e la Medaglia Marea.",
+  "victoryFeedback": "La Medaglia Marea è tua! Hai letto il ritmo della mia squadra. Barriera aumenta la Difesa, ma non la Difesa Speciale. Lanturn unisce Acqua ed Elettro: una risposta utile contro Krabby non funziona sempre allo stesso modo contro di lui. Le misure dell’osservatorio restano nel nostro registro: continueremo a confrontarle con quelle della Centrale.",
+  "team": [
+    { "speciesId": 72, "level": 26, "moveIds": ["bubble-beam", "acid", "barrier", "poison-sting"] },
+    { "speciesId": 98, "level": 27, "moveIds": ["bubble-beam", "mud-shot", "harden", "vice-grip"] },
+    { "speciesId": 171, "level": 28, "moveIds": ["water-gun", "spark", "thunder-wave", "supersonic"] }
+  ]
+}

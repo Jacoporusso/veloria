@@ -172,6 +172,16 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    case 'sluice-gate': {
+      if (active) break;
+      const gate = attach(container, scene.add.graphics().setDepth(depth));
+      gate.fillStyle(0x244c60, .94).fillRoundedRect(x, y + 10, item.width, 12, 4);
+      gate.lineStyle(2, 0xe5bc7e, 1).strokeRoundedRect(x, y + 10, item.width, 12, 4);
+      for (let offset = 8; offset < item.width; offset += 12) {
+        gate.lineBetween(x + offset, y + 12, x + offset, y + 20);
+      }
+      break;
+    }
     case 'signal-router':
       renderSignalRouter(scene, container, getSignalRouter(String(item.properties.routerId)), flags);
       break;

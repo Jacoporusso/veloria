@@ -46,6 +46,12 @@ La bozza R08 è stata riallineata: ingresso ovest y21–22, uscita est y10–11,
 
 ### Collegamento traghetti in lavorazione
 
+### Quinta palestra in lavorazione
+
+Bozze di Nerea, puzzle e medaglia in `content/drafts/portolume/`: Tentacool 26, Krabby 27 e Lanturn 28, con tutte le mosse verificate contro il learnset HGSS locale al livello effettivo. Medaglia Marea, premio allenatore 1400 monete, feedback su Difesa/Difesa Speciale e doppio tipo di Lanturn. Nomi e dialoghi sono contenuti originali di questa implementazione.
+
+La palestra illustrata ha tre terrazze, due ponti con paratoie e tre regolazioni successive: compensazione, apertura, stabilizzazione. Il renderer delle paratoie usa `activatedFlag`; collisioni e stato persistente usano i medesimi flag. Tre prove superate: legalità mosse, ordine/medaglia unica dopo serializzazione e raggiungibilità della prossima console con ritorno sud. Mancano ancora dialoghi integrati, emblema, percorso touch e bilanciamento naturale; il tema meteo indicato nel documento 02 non ha ancora un sistema di combattimento implementato.
+
 `local-ferry-registry.ts` carica reti `content/transit/*.ferry.json`, verifica configurazione e duplicati. Il WorldScene legge `kind=local-ferry`, `networkId` e `stopId`, presenta un menu con icona battello e ricontrolla la rotta prima di usare la transizione mappe esistente. Il registro runtime è ancora vuoto: la rete porto–osservatorio resta sotto `content/drafts/portolume/`.
 
 La bozza di quest consegna `old-rod` una sola volta dopo l'arrivo e l'orientamento, richiede la lettura delle maree prima del rapporto e non consuma RNG o monete. Build riuscita; cinque prove del nucleo traghetti e due prove sui dati effettivi della bozza superate. Mancano ancora oggetto nel catalogo runtime, dialoghi, interazioni collegate, feedback del viaggio e prova touch; questi esiti non provano una navigazione nel mondo completo.

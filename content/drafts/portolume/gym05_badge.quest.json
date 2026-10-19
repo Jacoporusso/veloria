@@ -1,0 +1,10 @@
+{
+  "id": "veloria/q_gym05_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Marea",
+  "steps": [
+    { "id": "complete", "trigger": "battle/trainer_nerea/defeated", "setFlag": "badge_marea_awarded", "requiresFlags": ["q_portolume_tide_report", "gym05_tide_stable"], "addBadge": "badge_marea" }
+  ],
+  "completionFlag": "badge_marea_awarded",
+  "reward": {}
+}
