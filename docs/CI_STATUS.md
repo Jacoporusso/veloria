@@ -1,3 +1,9 @@
+## Preparazione riflessi P6 — checkpoint locale
+
+- Sistema condiviso di orientamenti esteso con presentazione ottica e inclinazioni esplicite, validate sia in TypeScript sia in Python. Renderer con fasci attivi e specchi; nessun nuovo accesso nel mondo ancora.
+- Configurazione di bozza P6 verificata in tutti i 24 ordini, con serializzazione e orientamenti ottici coerenti. Due nuove prove e tre regressioni P4 passate; build riuscita. Resta da verificare visivamente e integrare la palestra nel capitolo Acquariva.
+- Al controllo, deploy 39286113121 e Verify 39286112986 su 371f469 ancora queued, come i precedenti 39285031933/39285031878. Nessuna esecuzione annullata o riavviata.
+
 ## Diagnosi CI e distribuzione suite 0.3.86 — 19/10/2026
 
 - Letti i log reali di Verify 39225087078: shard1 36 passati e unico fallimento nella lettura prematura di `battle.ui` del test P4 (attesa già corretta e verificata localmente). Shard2 interrotto dal limite globale di 24 minuti dopo 23 prove completate e una fallita; prove restanti non concluse. Shard3 e Offline riusciti. Log sotto `.tmp/ci-39225087078-shard*.log`.

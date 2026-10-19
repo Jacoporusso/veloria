@@ -13,6 +13,7 @@ def _props(obj):
 
 
 def validate_signal_router(router, tiled, quest_steps):
+    _check(router.get('presentation', 'circuit') in {'circuit', 'reflection'}, 'Invalid signal presentation')
     valid_id = lambda value: isinstance(value, str) and re.fullmatch(r'[a-z][a-z0-9]*', value)
     _check(valid_id(router.get('id')), 'Invalid signal router ID')
     nodes = router.get('nodes', [])
@@ -31,6 +32,8 @@ def validate_signal_router(router, tiled, quest_steps):
         states = {state['id']: state for state in node['states']}
         _check(states and len(states) == len(node['states']) and node['initialStateId'] in states, 'Invalid signal initial state or duplicate state')
         for state in states.values():
+            if router.get('presentation') == 'reflection' and len(states) > 1:
+                _check(state.get('mirror') in {'/', '\\'}, 'Invalid mirror inclination')
             _check(valid_id(state['id']) and isinstance(state.get('label'), str) and state['label'].strip() and state['direction'] in {'up', 'down', 'left', 'right'}, 'Invalid signal orientation')
             target_id = state['nextNodeId']
             if target_id is not None:

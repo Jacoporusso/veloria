@@ -3,6 +3,7 @@ export interface SignalRouterState {
   label: string;
   direction: 'up' | 'down' | 'left' | 'right';
   nextNodeId: string | null;
+  mirror?: '/' | '\\';
 }
 
 export interface SignalRouterNode {
@@ -16,6 +17,7 @@ export interface SignalRouterNode {
 
 export interface SignalRouter {
   id: string;
+  presentation?: 'circuit' | 'reflection';
   sourceNodeId: string;
   goalNodeId: string;
   solvedFlag: string;
@@ -34,6 +36,9 @@ function flagPrefix(router: SignalRouter, node: SignalRouterNode): string {
 
 /** Reject broken authored routes before they can trap the player in a puzzle. */
 export function validateSignalRouter(router: SignalRouter): void {
+  if (router.presentation !== undefined && !['circuit','reflection'].includes(router.presentation)) {
+    throw new Error('Invalid signal router presentation.');
+  }
   const validId = (id: string) => /^[a-z][a-z0-9]*$/.test(id);
   const nodes = new Set(router.nodes.map(node => node.id));
   if (!validId(router.id) || nodes.size !== router.nodes.length || !nodes.has(router.sourceNodeId) || !nodes.has(router.goalNodeId)) {
@@ -44,6 +49,9 @@ export function validateSignalRouter(router: SignalRouter): void {
     if (!validId(node.id) || !Number.isInteger(node.x) || !Number.isInteger(node.y) || node.x < 0 || node.y < 0 ||
         states.size !== node.states.length || !states.has(node.initialStateId)) throw new Error(`Invalid signal node ${node.id}.`);
     for (const state of node.states) {
+      if (router.presentation === 'reflection' && node.states.length > 1 && state.mirror !== '/' && state.mirror !== '\\') {
+        throw new Error(`Invalid mirror inclination ${node.id}/${state.id}.`);
+      }
       if (!validId(state.id) || !['up', 'down', 'left', 'right'].includes(state.direction) ||
           state.nextNodeId !== null && !nodes.has(state.nextNodeId)) throw new Error(`Invalid signal state ${node.id}/${state.id}.`);
     }
