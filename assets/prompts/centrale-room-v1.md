@@ -1,0 +1,14 @@
+# Centrale Risonante — ambiente illustrato v1
+
+Generato il 19/10/2026 con il tool integrato OpenAI ImageGen. Nuova illustrazione originale, nessuna immagine di terzi usata come input. Originale PNG 1448×1086; derivato WebP lossless, senza ritocchi alla composizione.
+
+## Prompt
+
+Use case: stylized-concept. Production environment background for the original Veloria 2D illustrated modern mobile RPG. Create one clean high definition top-down 4:3 complete interior illustration, a welcoming sustainable energy research central hall named Centrale Risonante (NO TEXT anywhere). Orthographic top-down with only subtle front faces to machinery, no isometric view, no pixel art, no retro outlines. Entire room fills canvas edge to edge, pale warm limestone and brushed steel floor, richly crafted contemporary fantasy technology, glass energy tubes, botanical planters, copper conduits, cyan and lilac light accents. Bright reassuring children-friendly scientific adventure. EXACT PLAYABLE FLOOR PLAN: the room is 32 columns by24 rows, but DO NOT draw a grid. Coordinates normalized: keep central vertical corridor x=42–58% clear from bottom edge all the way to y=30%; keep horizontal aisle y=48–60% completely clear across room. Lower half y=60–95% mostly open walkable floor with pleasant material variation, no obstacles. Main machinery islands occupy ONLY x=10–30% and x=69–90%, y=12–40%. North wall at y=0–12% has sophisticated ring-shaped reactor behind glass, pipes and warm indirect lighting. Center at x48%,y25% leave floor space for a runtime sensor. Positions x25%,y42% and x72%,y42% are clear small console landing areas at south edges of machinery; actual interactive consoles are rendered separately by the game, don't draw extra control panels there. Bottom center x43–57% unobstructed entrance. Sidewalls decorated with glass ribs, hanging plants and subtle blue reflection; details dense in north and upper side edges, soft floor readable elsewhere. Sophisticated painted illustrated game art, crisp organic materials, detailed and inviting, no flat geometric placeholder. NO people, NO creatures, NO labels, NO UI, NO letters, NO camera perspective, NO black borders.
+
+## Output e verifica
+
+- `public/assets/sprites/veloria-centrale-room-v1.png` SHA256 `602b0843b865aa1447af97aba43137948f40cd4efdf48cc8ea5b44abb4dee554`.
+- `public/assets/sprites/veloria-centrale-room-v1.webp` SHA256 `b336103c64c27254777f78b723979c7e1ce94f2c7023e80c53ea4d298bae6ffb`.
+- Ispezione dell'immagine: pavimento libero a sud, due isole tecniche e reattore a nord; nessun testo o personaggio incorporato.
+- Integrata come scenery della stanza 32×24, con collisioni separate per reattore e isole tecniche e console sovrapposte dal runtime. Screenshot in portrait e landscape ispezionati; esiti del percorso completo in `docs/CI_STATUS.md`. L'immagine da sola non prova la percorribilità della stanza.

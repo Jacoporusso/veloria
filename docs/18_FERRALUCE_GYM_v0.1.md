@@ -41,4 +41,4 @@ Le difese hanno risposte diverse: Skarmory è immune a Terra, Steelix a Elettro.
 - Python: authoring coerente, frecce errate, nodo mancante, comando assente, ricevitore irraggiungibile, evento quest inesistente e nodi fuori mappa.
 - Browser: accesso bloccato prima del rapporto, tre orientamenti con reload intermedio, portrait/landscape, uscita; seconda prova sfida bloccata, vittoria, banner, premio unico e quattro medaglie dopo reload.
 - La battaglia di integrazione usa Quagsire 35 preparato: certifica le interazioni, non la difficoltà naturale. QA su smartphone fisico, collisioni visive ai bordi e playtest con tutti gli starter restano aperti.
-- Esito della nuova prova produzione offline e stato GitHub in `CI_STATUS.md`. La versione pubblica precedente non contiene ancora P4.
+- Esiti delle prove e stato GitHub in `CI_STATUS.md`. P4 è stata pubblicata; la prosecuzione R07/D03 è descritta nel contratto `19_CENTRALE_RISONANTE_v0.1.md`.

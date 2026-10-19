@@ -84,6 +84,12 @@
       "x": 34,
       "y": 19,
       "facing": "down"
+    },
+    {
+      "id": "from_r07",
+      "x": 38,
+      "y": 25,
+      "facing": "left"
     }
   ],
   "connections": [
@@ -99,6 +105,14 @@
       "targetSpawnId": "from_city",
       "requiresFlags": [
         "q_ferraluce_report"
+      ]
+    },
+    {
+      "toMapId": "veloria/r07_condotto_risonante",
+      "viaSpawnId": "from_r07",
+      "targetSpawnId": "from_ferraluce",
+      "requiresFlags": [
+        "badge_acciaio_awarded"
       ]
     }
   ],

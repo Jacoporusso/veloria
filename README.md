@@ -2,7 +2,7 @@
 
 **Data:** 18 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, quattro Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. Il percorso attuale va da Borgofonte fino alla Piazza dell’Energia di Ferraluce passando per l’Anello Magnetico, attraverso Brumalta, Radicelmo, Petalora e Vetracielo: 19 mappe, quattro medaglie, 34 specie e 45 mosse da fonti locali. Il bilanciamento e alcune regole restano prototipali; le città complete, le quattro Palestre successive, i dungeon avanzati e la Lega non sono disponibili. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. Il percorso attuale va da Borgofonte alla Centrale Risonante, oltre Ferraluce e il Condotto, attraverso Brumalta, Radicelmo, Petalora e Vetracielo: 21 mappe, quattro medaglie, 34 specie e 45 mosse da fonti locali. Il bilanciamento e alcune regole restano prototipali; le città complete, le quattro Palestre successive, gli altri dungeon avanzati e la Lega non sono disponibili. Esiti e limiti delle verifiche in `docs/CI_STATUS.md`. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
 Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le quattro città già visitate: Brumalta, Petalora, Vetracielo e Ferraluce. Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
 

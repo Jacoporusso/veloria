@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r07_conduit_patch",
+  "mapId": "veloria/r07_condotto_risonante",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 81,
+        "weight": 30,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 100,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 194,
+        "weight": 20,
+        "minLevel": 18,
+        "maxLevel": 21
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 81,
+        "weight": 30,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 100,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 194,
+        "weight": 20,
+        "minLevel": 18,
+        "maxLevel": 21
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 81,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 100,
+        "weight": 30,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 179,
+        "weight": 15,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 18,
+        "maxLevel": 21
+      }
+    ]
+  }
+}

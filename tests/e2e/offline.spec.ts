@@ -716,6 +716,57 @@ test('Ferraluce magnetic gym opens and retains its circuit with networking disab
   expect(failedRequests).toEqual([]);
 });
 
+test('the Condotto and Centrale open for the first time offline and retain the investigation reading', async ({ page, context }, info) => {
+  test.setTimeout(240_000);
+  const errors: string[] = [], failedRequests: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await prepareMonorailTraveler(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_ferraluce_report', 'gym04_magnetic_aligned', 'badge_acciaio_awarded', 'badge_aurora_awarded', 'badge_corolla_awarded'])];
+  save.badges = ['badge_aurora', 'badge_corolla', 'badge_circuito', 'badge_acciaio'];
+  save.player = { ...save.player, mapId: 'veloria/ferraluce', spawnPointId: 'from_r07', x: 38, y: 25 };
+  await seedBrowserSave(page, save);
+  // Neither new map has been opened: their first requests must use the production cache.
+  page.on('requestfailed', request => failedRequests.push(request.url()));
+  await context.setOffline(true);
+  await page.reload(); await enterGame(page);
+  await expect(page.locator('#current-location')).toContainText('FERRALUCE');
+  await walkDirection(page, 'right');
+  await expect(page.locator('#current-location')).toHaveText('CONDOTTO RISONANTE');
+  async function dismissDialogue() {
+    await expect(page.locator('#dialogue-box')).toBeVisible();
+    for (let tap = 0; tap < 16 && await page.locator('#dialogue-box').isVisible(); tap++)
+      await page.getByRole('button', { name: 'Conferma e interagisci' }).tap();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+  }
+  await walkTo(page, 'r07_condotto_risonante.tmj', 20, 18);
+  await walkDirection(page, 'up');
+  await page.getByRole('button', { name: 'Conferma e interagisci' }).tap();
+  await dismissDialogue();
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_r07_measurement');
+  await walkTo(page, 'r07_condotto_risonante.tmj', 39, 11);
+  await expect(page.locator('#current-location')).toHaveText('CENTRALE RISONANTE');
+  await walkTo(page, 'd03_centrale_risonante.tmj', 8, 12);
+  await walkDirection(page, 'up');
+  await page.getByRole('button', { name: 'Conferma e interagisci' }).tap();
+  await dismissDialogue();
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_centrale_log');
+  await page.reload(); await enterGame(page);
+  await expect(page.locator('#current-location')).toHaveText('CENTRALE RISONANTE');
+  const resumed = await readBrowserSave(page);
+  expect(resumed.flags).toEqual(expect.arrayContaining(['q_r07_measurement', 'q_centrale_log']));
+  expect(resumed.flags).not.toContain('q_centrale_isolated');
+  await walkTo(page, 'd03_centrale_risonante.tmj', 15, 23);
+  await expect(page.locator('#current-location')).toHaveText('CONDOTTO RISONANTE');
+  await walkTo(page, 'r07_condotto_risonante.tmj', 0, 23);
+  await expect(page.locator('#current-location')).toContainText('FERRALUCE');
+  expect((await readBrowserSave(page)).flags).toEqual(expect.arrayContaining(['q_r07_measurement', 'q_centrale_log']));
+  await page.screenshot({ path: info.outputPath('centrale-investigation-offline-return.png') });
+  expect(errors).toEqual([]);
+  expect(failedRequests).toEqual([]);
+});
+
 test('Ferraluce candidate artwork decodes on its first request offline', async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-urban-artwork-v1.json', import.meta.url), 'utf8'));
   const artwork = manifest.artworks.filter((entry: { speciesId: number }) => [82, 208, 227].includes(entry.speciesId));

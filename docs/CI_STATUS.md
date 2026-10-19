@@ -1,3 +1,16 @@
+## Centrale 0.3.82 — verifiche locali 19/10/2026
+
+- Nuove illustrazioni originali integrate per Condotto e Centrale; collisioni del Condotto adattate al percorso disegnato, sensore spostato a (20,16), ingressi ovest y22–24 / est y10–12. WebP lossless e prompt conservati. Postazioni con `activatedFlag` per distinguere azioni completate da azioni ancora da eseguire. Cache v103.
+- Percorso touch con le illustrazioni: `.tmp/centrale-art-results/.last-run.json` passato; schermate R07/D03 ispezionate. Verifica finale passata in 1,9 minuti (`.tmp/centrale-final-e2e.txt`): gate quarta medaglia, misura, azione fuori ordine, registro, reload intermedio, isolamento, riscontro, ritorno e premio unico. Rotazione in landscape, controlli da almeno 44 px e ritorno portrait verificati; schermata `.tmp/centrale-final-results/.../d03-centrale-landscape.png` ispezionata.
+- Produzione offline: un caso passato in 1,4 minuti, inclusa build; primo accesso alle due mappe senza rete, lettura misuratore e registro, reload in Centrale e ritorno a Ferraluce, zero errori runtime e richieste fallite. Log `.tmp/centrale-offline.txt`. Questo caso non esegue isolamento, riscontro o rapporto finale offline.
+- Validazione completa superata: 140 asset, 21 mappe, 21 missioni; 40 test Python passati. Dominio/persistenza 299 passati nella stessa integrazione, prima delle rifiniture grafiche. Nessun playtest naturale con tutti gli starter o QA su telefono fisico dichiarati. P5–P8, Lega, resto della regione e conclusione della storia rimangono da implementare.
+
+## Controlli 0.3.81 e capitolo Centrale locale — 19/10/2026
+
+- Commit `fbacd95`: deploy Pages `39216323884` riuscito. Controlli landscape da almeno 44 px; sei prove DPR3 superate nelle palestre 2–4, portrait/landscape, con rotazione e persistenza. Nuovo run Verify `39216323920` ancora in esecuzione all'ultimo controllo; non è dichiarato verde.
+- Verify precedente `39215047534` concluso: tutti e tre gli shard browser falliti, Offline adventure riuscito. Shard3: 33 passati/1 fallito; Vetracielo rimane in modalità battaglia `message` per tutti i 15 secondi di attesa. Il trace non registra coda e TimerEvent: causa dell'avanzamento automatico ancora da isolare. Aumentare un timeout o usare conferme manuali non viene presentato come soluzione del difetto.
+- Capitolo R07/D03 in integrazione locale: due mappe, lettura del Condotto e indagine in quattro passi. Validatore completo: 21 mappe, 21 quest, 136 asset; build superata. Dominio/persistenza: 299 test passati (283 + 16), inclusi prerequisiti fuori ordine, serializzazione e premio unico della Centrale. Prove browser, produzione offline e ispezione visiva ancora da completare: il capitolo non è dichiarato pubblicato.
+
 ## Dialoghi 0.3.80 e verifica pubblica P4 — 19/10/2026
 
 - Sul sito pubblico 0.3.79: avvio, atlante decodificato, cache v100 e reload offline superati (`.tmp/pages-smoke-v100.txt`). Seconda prova su GitHub Pages: checkpoint isolato, ascensore, circuito risolto, reload offline nella palestra e ritorno a Ferraluce, senza errori runtime (`.tmp/pages-gym04-public.txt`). Non è una partita naturale completa né QA fisico.

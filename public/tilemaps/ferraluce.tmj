@@ -12678,6 +12678,43 @@
               "value": "Prima porta a Ivo le letture dell’Anello Magnetico. Poi potrai salire alla Palestra di Rhea."
             }
           ]
+        },
+        {
+          "id": 538,
+          "name": "Verso il Condotto Risonante",
+          "x": 1248,
+          "y": 768,
+          "width": 32,
+          "height": 96,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r07_condotto_risonante"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_ferraluce"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "badge_acciaio_awarded"
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Per accedere al Condotto serve la Medaglia Acciaio. Affronta Rhea nell’Officina Magnetica, dalla pedana P4."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -13046,7 +13083,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 538,
+  "nextobjectid": 539,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -601,8 +601,29 @@
         "questEvent": "ferraluce/ivo/report",
         "lines": [
           "Hai portato le letture. Anche qui abbiamo notato oscillazioni, ma non basta per attribuirle a una persona o a un impianto. Confrontiamo i registri e segnaliamo la discrepanza al gruppo di ricerca.",
-          "Grazie per aver contribuito: tieni due Pozioni e un Antidoto per il viaggio. La Palestra di Ferraluce aprirà nella prossima tappa dell’avventura. Il Condotto e la Centrale Risonante verranno dopo quella prova."
+          "Grazie per aver contribuito: tieni due Pozioni e un Antidoto per il viaggio. Puoi ora raggiungere la Palestra di Rhea: sali sulla pedana P4 a est della piazza, poco a nord del cartello."
         ]
+      },
+      {
+        "lines": [
+          "Hai messo in sicurezza la linea e portato un riscontro verificabile. I registri confermano prove senza autorizzazione: segnaleremo i fatti, senza accusare chi non è coinvolto.",
+          "Grazie! Ricevi 300 monete e due Pozioni. L’anomalia locale è contenuta, ma dobbiamo ancora capire come si colleghi alle altre Vene Luminose."
+        ],
+        "whenFlagMissing": "q_centrale_report",
+        "whenFlagPresent": "q_centrale_output",
+        "questEvent": "ferraluce/ivo/centrale_report"
+      },
+      {
+        "lines": [
+          "Il rapporto della Centrale è stato consegnato. La linea sperimentale resta isolata; la rete ordinaria è attiva. Hai completato questo intervento, non l’intera indagine di Veloria."
+        ],
+        "whenFlagPresent": "q_centrale_report"
+      },
+      {
+        "lines": [
+          "Con la Medaglia Acciaio puoi raggiungere il Condotto dall’uscita est, nella parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro nella Centrale."
+        ],
+        "whenFlagPresent": "badge_acciaio_awarded"
       },
       {
         "lines": [
@@ -623,7 +644,7 @@
     "speaker": "Segnaletica del distretto",
     "lines": [
       "Palestra di Ferraluce · Acciaio · Capopalestra Rhea.",
-      "Dopo aver riferito a Ivo, sali sulla pedana P4 poco a nord di questo cartello. L’ascensore conduce all’Officina Magnetica. Cure a ovest, bottega al centro-est. R07 e la Centrale sono ancora in preparazione."
+      "Dopo il rapporto a Ivo, la pedana P4 conduce all’Officina Magnetica. Con la Medaglia Acciaio puoi proseguire verso il Condotto dall’uscita est, nella parte bassa della piazza."
     ]
   },
   "ferraluce_care": {
@@ -659,7 +680,145 @@
         "whenFlagPresent": "badge_acciaio_awarded",
         "lines": [
           "Hai dimostrato che una buona strategia sa cambiare direzione. La Medaglia Acciaio è tua.",
-          "Le letture della rete vanno confrontate con quelle della Centrale Risonante. Il Condotto e la Centrale sono ancora in preparazione: puoi tornare sulle altre rotte con la monorotaia."
+          "Ora puoi raggiungere il Condotto Risonante dall’uscita est della parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro della Centrale."
+        ]
+      }
+    ]
+  },
+  "r07_sign": {
+    "speaker": "Condotto Risonante",
+    "lines": [
+      "Ferraluce a ovest · Centrale Risonante a est.",
+      "Segui la passerella chiara. Il misuratore si trova accanto alla curva centrale; i giardini ai lati ospitano Pokémon."
+    ]
+  },
+  "r07_sensor": {
+    "speaker": "Misuratore del Condotto",
+    "stages": [
+      {
+        "lines": [
+          "La linea di osservazione richiede la Medaglia Acciaio."
+        ],
+        "whenFlagMissing": "badge_acciaio_awarded"
+      },
+      {
+        "lines": [
+          "Il misuratore confronta le letture con quelle dell’Anello. Gli impulsi più forti coincidono con intervalli indicati come prove sperimentali.",
+          "Dato registrato. Prosegui sulla passerella verso est: nella Centrale puoi consultare il registro delle prove."
+        ],
+        "whenFlagMissing": "q_r07_measurement",
+        "questEvent": "r07/sensor/read"
+      },
+      {
+        "lines": [
+          "Lettura registrata. Il registro nella Centrale, a est, permette di controllare a quali prove corrispondono gli impulsi."
+        ]
+      }
+    ]
+  },
+  "centrale_technician": {
+    "speaker": "Tecnico della Centrale",
+    "stages": [
+      {
+        "lines": [
+          "Prima di intervenire serve una misura del Condotto. Trovi il misuratore lungo la passerella, all’esterno. Puoi uscire e tornare quando vuoi."
+        ],
+        "whenFlagMissing": "q_r07_measurement"
+      },
+      {
+        "lines": [
+          "Grazie per le letture! Controlla il registro sulla postazione a sinistra. La linea sperimentale è separata dalla rete che alimenta la città.",
+          "Se il registro conferma l’anomalia, usa la console a destra per isolare quella linea. Poi verifica il sensore al centro, in fondo alla sala."
+        ],
+        "whenFlagMissing": "q_centrale_log"
+      },
+      {
+        "lines": [
+          "Il registro indica una prova priva di autorizzazione. La console sulla destra può isolare la linea sperimentale mantenendo attiva la rete ordinaria."
+        ],
+        "whenFlagMissing": "q_centrale_isolated"
+      },
+      {
+        "lines": [
+          "Linea sperimentale isolata. Controlla il sensore in fondo alla sala: serve un riscontro prima di concludere l’intervento."
+        ],
+        "whenFlagMissing": "q_centrale_output"
+      },
+      {
+        "lines": [
+          "Il riscontro è registrato. Riporta a Ivo, nella piazza di Ferraluce, ciò che abbiamo trovato. Non sappiamo ancora chi abbia avviato queste prove."
+        ]
+      }
+    ]
+  },
+  "centrale_log": {
+    "speaker": "Registro delle prove",
+    "stages": [
+      {
+        "lines": [
+          "Manca la lettura di confronto: esamina prima il misuratore lungo il Condotto."
+        ],
+        "whenFlagMissing": "q_r07_measurement"
+      },
+      {
+        "lines": [
+          "Gli orari delle prove coincidono con gli impulsi del Condotto. Il registro riporta un aumento del ritmo della linea sperimentale; il campo di autorizzazione è vuoto.",
+          "Non è una prova contro tutti i ricercatori. Per ora possiamo mettere in sicurezza la linea: usa la console sul lato destro della sala."
+        ],
+        "whenFlagMissing": "q_centrale_log",
+        "questEvent": "centrale/log/read"
+      },
+      {
+        "lines": [
+          "Registro copiato: gli impulsi coincidono con prove energetiche senza autorizzazione registrata. Restano da chiarire responsabilità e portata."
+        ]
+      }
+    ]
+  },
+  "centrale_regulator": {
+    "speaker": "Console della linea di prova",
+    "stages": [
+      {
+        "lines": [
+          "Prima di agire controlla il registro sulla postazione a sinistra. La rete ordinaria deve restare attiva."
+        ],
+        "whenFlagMissing": "q_centrale_log"
+      },
+      {
+        "lines": [
+          "Attivi il comando di isolamento predisposto dal tecnico. La linea sperimentale si separa dalla rete; gli indicatori della città restano verdi.",
+          "Ora verifica il sensore al centro, in fondo alla sala."
+        ],
+        "whenFlagMissing": "q_centrale_isolated",
+        "questEvent": "centrale/regulator/isolate"
+      },
+      {
+        "lines": [
+          "Linea di prova isolata. La rete ordinaria continua a funzionare."
+        ]
+      }
+    ]
+  },
+  "centrale_output": {
+    "speaker": "Sensore di uscita",
+    "stages": [
+      {
+        "lines": [
+          "Gli impulsi sperimentali continuano. Leggi il registro a sinistra, poi isola la linea dalla console a destra."
+        ],
+        "whenFlagMissing": "q_centrale_isolated"
+      },
+      {
+        "lines": [
+          "Gli impulsi della linea sperimentale sono cessati. Il segnale ordinario continua a scorrere senza quelle variazioni.",
+          "Riscontro registrato. Torna da Ivo nella piazza di Ferraluce: dobbiamo confrontare i dati e segnalare le prove non autorizzate."
+        ],
+        "whenFlagMissing": "q_centrale_output",
+        "questEvent": "centrale/output/read"
+      },
+      {
+        "lines": [
+          "Il riscontro conferma l’arresto degli impulsi sperimentali. Questo intervento riguarda la Centrale: il mistero delle Vene Luminose resta aperto."
         ]
       }
     ]

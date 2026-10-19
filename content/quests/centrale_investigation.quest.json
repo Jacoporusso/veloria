@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_centrale_investigation",
+  "version": 1,
+  "displayName": "Una linea fuori controllo",
+  "steps": [
+    {
+      "id": "read_test_log",
+      "trigger": "centrale/log/read",
+      "setFlag": "q_centrale_log",
+      "requiresFlags": ["badge_acciaio_awarded", "q_r07_measurement"]
+    },
+    {
+      "id": "isolate_test_line",
+      "trigger": "centrale/regulator/isolate",
+      "setFlag": "q_centrale_isolated",
+      "requiresFlags": ["q_centrale_log"]
+    },
+    {
+      "id": "verify_output",
+      "trigger": "centrale/output/read",
+      "setFlag": "q_centrale_output",
+      "requiresFlags": ["q_centrale_isolated"]
+    },
+    {
+      "id": "report_to_ivo",
+      "trigger": "ferraluce/ivo/centrale_report",
+      "setFlag": "q_centrale_report",
+      "requiresFlags": ["q_centrale_output"]
+    }
+  ],
+  "completionFlag": "q_centrale_report",
+  "reward": { "money": 300, "items": { "potion": 2 } }
+}

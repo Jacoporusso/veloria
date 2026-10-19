@@ -1,0 +1,113 @@
+{
+  "id": "veloria/r07_condotto_risonante",
+  "version": 2,
+  "displayName": "Condotto Risonante",
+  "biomeId": "resonant_conduit",
+  "tiledAsset": "tilemaps/r07_condotto_risonante.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-forest-floor-v1",
+      "path": "assets/tilesets/veloria-forest-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-plants-v1",
+      "path": "assets/sprites/veloria-borgofonte-plants-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-industrial-floor-v1",
+      "path": "assets/tilesets/veloria-industrial-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r07-conduit-v1",
+      "path": "assets/sprites/veloria-r07-conduit-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_ferraluce",
+      "x": 1,
+      "y": 23,
+      "facing": "right"
+    },
+    {
+      "id": "from_centrale",
+      "x": 38,
+      "y": 11,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/ferraluce",
+      "viaSpawnId": "from_ferraluce",
+      "targetSpawnId": "from_r07",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/d03_centrale_risonante",
+      "viaSpawnId": "from_centrale",
+      "targetSpawnId": "from_r07",
+      "requiresFlags": [
+        "badge_acciaio_awarded"
+      ]
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r07_conduit_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [
+    "quest/r07_measurement"
+  ],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-battle-forest-v1",
+  "ambientEffects": [
+    {
+      "kind": "grass-sway",
+      "tuftsPerArea": 6,
+      "triggerIds": [
+        "Habitat Ovest · muschio di luce",
+        "Habitat Est · felci del condotto"
+      ],
+      "colors": [
+        "#b8d8c4",
+        "#d3ecbb"
+      ]
+    }
+  ],
+  "terrainBase": {
+    "assetKey": "veloria-industrial-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 1
+  }
+}

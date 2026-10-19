@@ -199,12 +199,18 @@
     {
       "id": "centrale",
       "name": "Centrale Risonante",
-      "kind": "future",
+      "kind": "dungeon",
       "x": 840,
       "y": 195,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Area prevista oltre Ferraluce; non ancora giocabile."
+      "mapIds": [
+        "veloria/r07_condotto_risonante",
+        "veloria/d03_centrale_risonante"
+      ],
+      "visitedFlags": [
+        "q_r07_measurement",
+        "q_centrale_log"
+      ],
+      "description": "Condotto Risonante e indagine sulle prove energetiche della Centrale, dopo la Medaglia Acciaio."
     },
     {
       "id": "portolume",

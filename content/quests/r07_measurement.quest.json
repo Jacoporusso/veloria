@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r07_measurement",
+  "version": 1,
+  "displayName": "Gli impulsi del Condotto",
+  "steps": [
+    {
+      "id": "read_conduit_sensor",
+      "trigger": "r07/sensor/read",
+      "setFlag": "q_r07_measurement",
+      "requiresFlags": ["badge_acciaio_awarded"]
+    }
+  ],
+  "completionFlag": "q_r07_measurement",
+  "reward": {}
+}

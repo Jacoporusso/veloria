@@ -1,3 +1,10 @@
+## veloria-content-0.3.82 — 19/10/2026
+
+- Dopo la Medaglia Acciaio, il Condotto Risonante collega Ferraluce alla Centrale: due mappe illustrate originali con percorsi, collisioni, ritorni sempre aperti e habitat opzionali. 21 mappe, 21 missioni, quattro medaglie; l'avventura completa non è ancora disponibile.
+- Indagine persistente: misura del Condotto, registro delle prove non autorizzate, isolamento della sola linea sperimentale, riscontro e rapporto a Ivo. Ordine guidato, postazioni con indicatore di completamento, premio unico di 300 monete e due Pozioni.
+- Diario e atlante aggiornati; corretto il dialogo di Ivo che descriveva la P4 come ancora chiusa. Dati Pokémon locali invariati, incontri del Condotto a livelli 18–21. Illustrazioni e prompt originali registrati, WebP lossless e cache PWA v103.
+- Percorso touch completo passato, inclusi portrait/landscape, reload e premio unico; primo accesso alle mappe e ritorno offline passati. Build, validatore e 40 test Python superati; 299 test dominio/persistenza passati durante l'integrazione. Prove, perimetro offline e limiti in `docs/CI_STATUS.md`; stato della nuova pubblicazione GitHub da verificare.
+
 ## veloria-content-0.3.81 — 19/10/2026
 
 - Controlli touch in landscape: frecce e azioni da almeno 44×44 px, mantenendo movimento a destra e azioni a sinistra. Cache PWA v102.

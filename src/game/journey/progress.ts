@@ -40,6 +40,11 @@ export const journeyMilestones = [
   { flag: 'q_ferraluce_report', title: 'Un segnale da capire', objective: 'Porta le letture a Ivo, al centro della piazza di Ferraluce. Cure gratuite a sinistra e rifornimenti a destra.' },
   { flag: 'gym04_magnetic_aligned', title: 'Il circuito magnetico', objective: 'Dopo il rapporto a Ivo sali sulla pedana P4 a est della piazza, poco a nord del cartello. Nella palestra orienta il primo nastro a est, il secondo a nord e il campo a ovest: segui il segnale fino al ricevitore.' },
   { flag: 'badge_acciaio_awarded', trainer: rhea, title: 'La Medaglia Acciaio', objective: 'Affronta Rhea al centro-nord dell’Officina Magnetica. Prepara mosse speciali e risposte diverse: Steelix è immune a Elettro, Skarmory a Terra. Wooper si incontra sull’Anello Magnetico.' },
+  { flag: 'q_r07_measurement', title: 'Gli impulsi del Condotto', objective: 'Con la Medaglia Acciaio esci a est della parte bassa della piazza di Ferraluce. Nel Condotto Risonante esamina il misuratore vicino alla curva della passerella.' },
+  { flag: 'q_centrale_log', title: 'Una prova senza autorizzazione', objective: 'Dal misuratore prosegui a est fino alla Centrale Risonante. Consulta il registro sulla postazione a sinistra della sala.' },
+  { flag: 'q_centrale_isolated', title: 'Mettere in sicurezza la linea', objective: 'Dopo aver letto il registro, usa la console sulla destra della Centrale per isolare la linea sperimentale. La rete ordinaria deve restare attiva.' },
+  { flag: 'q_centrale_output', title: 'Un riscontro misurabile', objective: 'Verifica il sensore al centro, in fondo alla sala della Centrale. Controlla che gli impulsi della linea sperimentale siano cessati.' },
+  { flag: 'q_centrale_report', title: 'I fatti prima delle accuse', objective: 'Esci a sud dalla Centrale, torna a ovest lungo il Condotto e riferisci a Ivo nella piazza di Ferraluce.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

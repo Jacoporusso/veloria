@@ -1,9 +1,13 @@
-const CACHE = 'veloria-shell-v102';
+const CACHE = 'veloria-shell-v103';
 const SHELL = [
   './assets/ui/veloria-region-atlas-v1.webp',
   './assets/tilesets/veloria-industrial-floor-v1.webp',
   './tilemaps/r06_anello_magnetico.tmj',
   './tilemaps/ferraluce.tmj',
+  './tilemaps/r07_condotto_risonante.tmj',
+  './tilemaps/d03_centrale_risonante.tmj',
+  './assets/sprites/veloria-centrale-room-v1.webp',
+  './assets/sprites/veloria-r07-conduit-v1.webp',
   './tilemaps/gym04_ferraluce.tmj',
   './assets/sprites/veloria-gym04-magnetic-room-v1.webp',
   './assets/sprites/veloria-ferraluce-energy-hall-v1.webp',
