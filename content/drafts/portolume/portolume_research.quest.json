@@ -1,0 +1,13 @@
+{
+  "id": "veloria/q_portolume_research",
+  "version": 1,
+  "displayName": "Il ritmo delle maree",
+  "steps": [
+    { "id": "arrive", "trigger": "portolume/arrive", "setFlag": "q_portolume_visited", "requiresFlags": ["q_centrale_report"] },
+    { "id": "meet_captain", "trigger": "portolume/captain/orientation", "setFlag": "q_portolume_orientation", "requiresFlags": ["q_portolume_visited"], "grantItems": { "old-rod": 1 } },
+    { "id": "read_tide", "trigger": "portolume/tide/read", "setFlag": "q_portolume_tide_read", "requiresFlags": ["q_portolume_orientation"] },
+    { "id": "report", "trigger": "portolume/captain/report", "setFlag": "q_portolume_tide_report", "requiresFlags": ["q_portolume_tide_read"] }
+  ],
+  "completionFlag": "q_portolume_tide_report",
+  "reward": { "items": { "potion": 2 } }
+}

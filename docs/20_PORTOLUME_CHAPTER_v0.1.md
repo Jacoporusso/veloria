@@ -44,6 +44,12 @@ La bozza R08 è stata riallineata: ingresso ovest y21–22, uscita est y10–11,
 
 ## Gate di consegna
 
+### Collegamento traghetti in lavorazione
+
+`local-ferry-registry.ts` carica reti `content/transit/*.ferry.json`, verifica configurazione e duplicati. Il WorldScene legge `kind=local-ferry`, `networkId` e `stopId`, presenta un menu con icona battello e ricontrolla la rotta prima di usare la transizione mappe esistente. Il registro runtime è ancora vuoto: la rete porto–osservatorio resta sotto `content/drafts/portolume/`.
+
+La bozza di quest consegna `old-rod` una sola volta dopo l'arrivo e l'orientamento, richiede la lettura delle maree prima del rapporto e non consuma RNG o monete. Build riuscita; cinque prove del nucleo traghetti e due prove sui dati effettivi della bozza superate. Mancano ancora oggetto nel catalogo runtime, dialoghi, interazioni collegate, feedback del viaggio e prova touch; questi esiti non provano una navigazione nel mondo completo.
+
 1. Catalogo e learnset verificati sulle fonti locali, senza attribuire mosse per analogia di tipo.
 2. Traversata, servizi, equipaggiamento, pesca, barca, puzzle e quinta medaglia integrati; stato e premi persistenti e non duplicabili.
 3. Azioni fuori ordine spiegate, senza avanzamento; uscite di ritorno sempre disponibili e spawn fuori dagli ostacoli.

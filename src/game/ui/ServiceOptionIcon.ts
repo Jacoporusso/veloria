@@ -10,6 +10,7 @@ export type ServiceOptionIconKind =
   | 'challenge'
   | 'transit'
   | 'fishing'
+  | 'ferry'
   | 'rotate';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -30,7 +31,11 @@ export function decorateServiceOption(button: HTMLButtonElement, kind: ServiceOp
   const path = (d: string, className = 'line') => add('path', { d, class: className });
   const circle = (cx: number, cy: number, r: number, className = 'line') => add('circle', { cx: `${cx}`, cy: `${cy}`, r: `${r}`, class: className });
 
-  if (kind === 'fishing') {
+  if (kind === 'ferry') {
+    path('M6 22h28l-6 10H12z', 'fill');
+    path('M12 22V12h15v10M19 12V5M19 6h10', 'line');
+    path('M4 35q4-4 8 0t8 0t8 0t8 0', 'line');
+  } else if (kind === 'fishing') {
     path('M8 32L24 7l5 3-16 25', 'line');
     path('M25 8h8v16a5 5 0 0 1-10 0v-2', 'line');
     path('M4 35h32', 'line');
