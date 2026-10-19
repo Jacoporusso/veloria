@@ -7,7 +7,9 @@ import { readBrowserSave, seedBrowserSave, walkDirection, walkTo as planWalkTo }
 
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
 
-test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
+// Full journeys keep every interaction at standard density; dedicated world-control
+// and camera/presentation tests cover high-density rendering and orientation.
+test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 test('Circuito opens R06, the reading reaches Ivo once, and Ferraluce services survive reload', async ({ page }, info) => {
   test.setTimeout(240_000);

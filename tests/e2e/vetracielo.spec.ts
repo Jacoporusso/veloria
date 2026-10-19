@@ -5,7 +5,9 @@ import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpers/world-navigation';
 
-test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
+// Full journeys keep every interaction at standard density; dedicated world-control
+// and camera/presentation tests cover high-density rendering and orientation.
+test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services persist', async ({ page }, info) => {
   test.setTimeout(240_000);
   const errors: string[] = [];

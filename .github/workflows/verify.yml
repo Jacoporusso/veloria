@@ -59,7 +59,7 @@ jobs:
         run: python -m unittest discover -s tests -p "test_*.py"
 
       - name: Run browser end-to-end tests
-        timeout-minutes: 16
+        timeout-minutes: 24
         run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/3
 
       - name: Preserve browser screenshots and traces

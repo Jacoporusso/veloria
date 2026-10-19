@@ -1,3 +1,9 @@
+## veloria-content-0.3.81 — 19/10/2026
+
+- Controlli touch in landscape: frecce e azioni da almeno 44×44 px, mantenendo movimento a destra e azioni a sinistra. Cache PWA v102.
+- Sei prove dedicate a densità 3 nelle palestre 2–4, portrait e landscape: input touch, rotazione, dimensioni dei controlli e persistenza dopo reload verificati (6/6). Build e type-check superati.
+- Percorsi lunghi delle palestre e città alla densità standard, con copertura ad alta densità dedicata; budget CI esteso per tre percorsi MVP e job browser. I trace mostrano tap e letture del salvataggio lenti anche senza retry: la causa delle prestazioni del runner resta da determinare. La suite GitHub completa non è ancora dichiarata verde.
+
 ## veloria-content-0.3.80 — 19/10/2026
 
 - Testo dei dialoghi scandito dal tempo trascorso anziché dal numero di callback: recupera la progressione dopo un task lento del browser, mantenendo velocità lenta/normale/rapida, caratteri Unicode e conferma A della pagina.

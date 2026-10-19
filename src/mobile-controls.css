@@ -80,15 +80,15 @@
 
 @media(max-height:520px) and (orientation:landscape) {
   .dpad {
-    grid-template-columns:40px 40px 40px;
-    grid-template-rows:40px 40px;
+    grid-template-columns:44px 44px 44px;
+    grid-template-rows:44px 44px;
     gap:3px;
     right:max(18px,env(safe-area-inset-right));
     bottom:max(12px,env(safe-area-inset-bottom))
   }
   .dpad-key {
-    width:40px;
-    height:40px
+    width:44px;
+    height:44px
   }
   .touch-actions {
     left:max(18px,env(safe-area-inset-left));
@@ -96,8 +96,8 @@
     gap:4px
   }
   .action-button {
-    width:40px;
-    height:40px;
+    width:44px;
+    height:44px;
     font-size:12px
   }
 }

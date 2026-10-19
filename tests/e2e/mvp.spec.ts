@@ -747,8 +747,8 @@ test('E2E-09: the R01 first-aid pickup grants one potion and stays collected aft
 
 test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP, PP, and XP', async ({ page }) => {
   // This scenario includes the full indoor prologue, route traversal and several turns.
-  // Keep the same journey budget as E2E-02; the final reload must also be verified.
-  test.setTimeout(120_000);
+  // Allow slower CI input while retaining every step, including the final reload.
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
   // The smallest supported portrait candidate catches battle UI overflow before device QA.
   await page.setViewportSize({ width: 320, height: 568 });
   await page.addInitScript(() => {
@@ -825,7 +825,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
 });
 
 test('E2E-04: capture with a full party stores a unique creature visible at the Pokémon Center after reload', async ({ page }) => {
-  test.setTimeout(240_000);
+  test.setTimeout(process.env.CI ? 360_000 : 240_000);
   await page.addInitScript(() => { Date.prototype.getHours = () => 12; });
   await chooseCharmander(page);
   for (let step = 0; step < 4; step += 1) await tapConfirm(page);
@@ -946,7 +946,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
 });
 
 test('E2E-05: defeating Mira awards one persistent Aurora Badge and updates her dialogue', async ({ page }, testInfo) => {
-  test.setTimeout(120_000);
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
   await page.route('**/src/main.ts*', async route => {
     const response = await route.fetch();
     await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });

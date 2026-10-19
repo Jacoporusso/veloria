@@ -7,7 +7,9 @@ import { journeyMilestones } from '../../src/game/journey/progress.ts';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpers/world-navigation';
 
-test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
+// Full journeys keep every interaction at standard density; dedicated world-control
+// and camera/presentation tests cover high-density rendering and orientation.
+test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 async function prepare(page: Page, report: boolean) {
   await page.route('**/src/main.ts*', async route => {
