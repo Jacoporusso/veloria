@@ -139,3 +139,20 @@ S5 -> S6
 - Contenuti 0.3.73: Anello Magnetico e primo distretto di Ferraluce collegati dopo Circuito, misurazione/rapporto, cure/deposito/bottega, quattro habitat e nuove illustrazioni originali. Palestra 4 e Centrale non ancora giocabili; requisiti della città completa, QA fisico e bilanciamento naturale restano aperti nel piano16.
 
 - Requisito regionale aperto da doc02: rete di viaggio rapido dopo P3. I binari e le console della palestra attuali non realizzano il trasporto; implementarlo con destinazioni da dati e flag di visita, mantenendo i percorsi a piedi accessibili.
+
+## 9. Stato corrente e prosecuzione — 19/10/2026
+
+La sezione 8 conserva le fotografie storiche del 17/10. Lo stato corrente è 0.3.82: 21 mappe, quattro Palestre, 21 missioni, 34 specie e 45 mosse supportate. I contenuti successivi non sono implicitamente soddisfatti dall'espansione oltre l'MVP.
+
+| Ambito | Evidenza corrente | Lavoro ancora richiesto |
+|---|---|---|
+| P1–P4 | Percorsi, puzzle, vittorie e premi persistenti verificati con checkpoint preparati | Bilanciamento naturale completo con tutti gli starter e QA fisico |
+| Trasporto dopo P3 | Monorotaia dati/visite tra quattro città, prove browser e offline | Aggiungere le nuove città quando diventano visitabili |
+| Ferraluce e D03 | Condotto e indagine della Centrale pubblicati; indagine completa offline provata sull'URL Pages | Quartieri e interni della città completa, revisione narrativa complessiva |
+| Catalogo Pokémon | Parametri/mosse da fonti PokéAPI locali, artwork delle 34 specie verificati alle tre densità | Roster #001–#251, altre mosse/effetti/evoluzioni e disponibilità completa senza scambi |
+| Verifiche | Build, validazione contenuti, test di dominio e percorsi locali; resoconti in CI_STATUS | Suite GitHub completa verde, dialoghi iniziali e timeout lunghi ancora da chiudere |
+| Regione finale | Contratto geografico nel documento 02 | R08–R16, città successive, P5–P8, Lega, conclusione ed epilogo |
+
+La prossima espansione geografica è **R08 Costa delle Turbine, Ferraluce → Portolume**, con identità costiera/eolica, Palestra 5 Acqua, navigazione locale e pesca come da documento 02. Collegamento, progressione narrativa dopo l'indagine, roster ufficiale supportato, illustrazioni, servizi e prerequisiti vanno realizzati e verificati insieme; una semplice uscita verso una mappa vuota non soddisfa il capitolo.
+
+Il gate S6 dell'MVP e l'obiettivo dell'avventura completa restano aperti: né il deploy riuscito né i checkpoint preparati dimostrano la fine del gioco o la qualità su telefono reale.

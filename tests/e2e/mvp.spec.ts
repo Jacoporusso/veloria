@@ -124,6 +124,16 @@ async function tapConfirm(page: Page) {
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
 }
 
+async function finishOpenDialogue(page: Page) {
+  const dialogue = page.locator('#dialogue-box');
+  await expect(dialogue).toBeVisible();
+  await expect(page.locator('#starter-choices')).toBeHidden();
+  // A reveals or advances depending on typing progress. Stop at closure so a
+  // faster/slower browser cannot turn an extra confirmation into a new interaction.
+  for (let step = 0; step < 24 && await dialogue.isVisible(); step += 1) await tapConfirm(page);
+  await expect(dialogue).toBeHidden();
+}
+
 async function waitForWorldReady(page: Page) {
   await enterGame(page);
   await expect(page.locator('#current-location')).not.toHaveText('');
@@ -170,7 +180,7 @@ async function completeResearchReadings(page: Page) {
   await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 8);
   await tapConfirm(page);
   await expect(page.locator('#dialogue-speaker')).toHaveText('Professoressa Elia');
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_research_sample_received');
   await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 14, 'veloria/borgofonte');
@@ -185,7 +195,7 @@ async function completeAdaForestQuest(page: Page) {
   else if (player.x > 12) await walkToTile(page, 'sinistra', player.x - 12);
   await tapConfirm(page);
   await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
 
   await walkToTile(page, 'destra', 4);
@@ -194,7 +204,7 @@ async function completeAdaForestQuest(page: Page) {
   await walkToTile(page, 'sinistra', 2);
   await tapConfirm(page);
   await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   const save = await readCurrentSave(page);
   expect(save.flags).toContain('q_ada_helped');
@@ -621,7 +631,9 @@ test('E2E-01: mobile controls reach Elia, select one starter, and do not offer a
   expect(save.party[0]).toMatchObject({ speciesId: 4, level: 5 });
   expect(save.player).toMatchObject({ mapId: 'veloria/borgofonte_lab', x: 12, y: 8 });
 
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  // A slow reader may confirm after the first page has finished typing.
+  await expect(page.locator('#dialogue-text')).toHaveText('Ottima scelta. Charmander sarà il tuo compagno di viaggio.');
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await tapConfirm(page);
   await expect(page.locator('#dialogue-speaker')).toHaveText('Professoressa Elia');
@@ -649,7 +661,7 @@ test('E2E-01: mobile controls reach Elia, select one starter, and do not offer a
 
 test('E2E save recovery: a checksum mismatch restores the previous valid record', async ({ page }) => {
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await walkToTile(page, 'destra', 1);
   await page.evaluate(() => new Promise<void>((resolve, reject) => {
@@ -682,7 +694,7 @@ test('E2E save recovery: a checksum mismatch restores the previous valid record'
 test('E2E-02: touch navigation reaches the forest and restores its spawn after reload', async ({ page }) => {
   test.setTimeout(120_000);
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
 
   // Elia supplies the readings after the starter; the northern exit requires the starter itself.
@@ -722,7 +734,7 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
 test('E2E-09: the R01 first-aid pickup grants one potion and stays collected after reload', async ({ page }) => {
   test.setTimeout(120_000);
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
   await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
@@ -755,7 +767,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
     Date.prototype.getHours = () => 12;
   });
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
   await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
@@ -828,7 +840,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   test.setTimeout(process.env.CI ? 360_000 : 240_000);
   await page.addInitScript(() => { Date.prototype.getHours = () => 12; });
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
 
@@ -1186,7 +1198,7 @@ test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo archive and
   await page.getByRole('button', { name: 'Vai in alto' }).tap();
   await tapConfirm(page);
   await expect(page.locator('#dialogue-speaker')).toHaveText('Custode Leda');
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_radicelmo_seed_archived');
   const completed = await readCurrentSave(page);
@@ -1205,7 +1217,7 @@ test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo archive and
   await walkToMapTile(page, 'radicelmo.tmj', 25, 13);
   await page.getByRole('button', { name: 'Vai in alto' }).tap();
   await tapConfirm(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   const repeated = await readCurrentSave(page);
   expect(repeated.player.money).toBe(completed.player.money);
@@ -1423,7 +1435,7 @@ test('E2E-13: Borgofonte interiors have reciprocal doors, persistent location an
   test.setTimeout(120_000);
   await page.setViewportSize({ width: 390, height: 844 });
   await chooseCharmander(page);
-  for (let step = 0; step < 4; step += 1) await tapConfirm(page);
+  await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await page.screenshot({ path: testInfo.outputPath('borgofonte-lab-mobile.png') });
 
