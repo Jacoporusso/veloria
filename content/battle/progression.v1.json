@@ -86,6 +86,24 @@
       "toSpeciesId": 195,
       "minimumLevel": 20,
       "assetId": "pokeapi-evolution-195-v1-webp"
+    },
+    {
+      "fromSpeciesId": 72,
+      "toSpeciesId": 73,
+      "minimumLevel": 30,
+      "assetId": "pokeapi-coast-73-v1-webp"
+    },
+    {
+      "fromSpeciesId": 98,
+      "toSpeciesId": 99,
+      "minimumLevel": 28,
+      "assetId": "pokeapi-coast-99-v1-webp"
+    },
+    {
+      "fromSpeciesId": 170,
+      "toSpeciesId": 171,
+      "minimumLevel": 27,
+      "assetId": "pokeapi-coast-171-v1-webp"
     }
   ]
 }

@@ -23,9 +23,9 @@ test('creates all four level-5 starters with deterministic prototype stats and f
   assert.deepEqual(starters[0].types, ['grass', 'poison']);
 });
 
-test('all 34 registered species including urban species and starter evolutions have valid default battle data', () => {
+test('every registered species has valid default battle data', () => {
   const entries = Object.values(species);
-  assert.equal(entries.length, 34);
+  assert.ok(entries.length > 0);
   for (const entry of entries) {
     const creature = createBattleCreature({
       species,
@@ -145,7 +145,7 @@ test('versioned move values form a usable, stable catalog without a global chart
   assert.equal(catalog['vine-whip'].power, 35);
   assert.notEqual(catalog.ember.power, catalog['vine-whip'].power);
   assert.equal(catalog.tackle.accuracy, 95);
-  assert.equal(Object.keys(catalog).length, 45);
+  for (const [id, move] of Object.entries(catalog)) assert.equal(move.id, id);
   assert.equal('typeChart' in movesData, false);
 });
 

@@ -87,18 +87,24 @@ test('both panels show level evolutions and final forms near the top of the deta
     document.querySelector('#game-loading').hidden = true;
   ` }));
   for (const view of ['team', 'dex']) {
-    for (const [id, name, requirement] of [[4, 'Charmander', 'Dal livello 16'], [10, 'Caterpie', 'Dal livello 7'], [12, 'Butterfree', 'Non ha ulteriori evoluzioni'], [82, 'Magneton', 'Aumenta di livello presso Mt. Coronet'], [208, 'Steelix', 'Non ha ulteriori evoluzioni'], [227, 'Skarmory', 'Non ha ulteriori evoluzioni']] as const) {
+    for (const [id, name, requirement] of [
+      [4, 'Charmander', 'Dal livello 16'], [10, 'Caterpie', 'Dal livello 7'], [12, 'Butterfree', 'Non ha ulteriori evoluzioni'],
+      [82, 'Magneton', 'Aumenta di livello presso Mt. Coronet'], [208, 'Steelix', 'Non ha ulteriori evoluzioni'], [227, 'Skarmory', 'Non ha ulteriori evoluzioni'],
+      [72, 'Tentacool', 'Dal livello 30'], [73, 'Tentacruel', 'Non ha ulteriori evoluzioni'],
+      [98, 'Krabby', 'Dal livello 28'], [99, 'Kingler', 'Non ha ulteriori evoluzioni'],
+      [170, 'Chinchou', 'Dal livello 27'], [171, 'Lanturn', 'Non ha ulteriori evoluzioni'],
+    ] as const) {
       await page.goto(`/?species=${id}&view=${view}`);
       await page.getByRole('button', { name: new RegExp(name) }).click();
       const evolution = page.getByRole('region', { name: 'Evoluzione' });
       await expect(evolution).toContainText(requirement);
       await expect(evolution).not.toContainText('livello null');
       if (id === 82) await expect(evolution).toContainText('non ancora disponibile nel prototipo');
-      if (id === 82 || id === 208 || id === 227) {
+      if ([82, 208, 227, 72, 73, 98, 99, 170, 171].includes(id)) {
         const artUrl = await page.locator('.pokemon-detail .creature-portrait').evaluate(element => getComputedStyle(element).backgroundImage.slice(5, -2));
         await page.evaluate(async url => { const image = new Image(); image.src = url; await image.decode(); }, artUrl);
       }
-      if (id === 10) await expect(evolution).toContainText('Disponibile nel gioco');
+      if ([10, 72, 98, 170].includes(id)) await expect(evolution).toContainText('Disponibile nel gioco');
       if (id === 4) {
         await expect(evolution).toContainText('Charmeleon');
         await evolution.scrollIntoViewIfNeeded();

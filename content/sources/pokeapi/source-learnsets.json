@@ -2243,6 +2243,473 @@
         "moveId": "night-slash",
         "order": null
       }
+    ],
+    "72": [
+      {
+        "level": 1,
+        "moveId": "poison-sting",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "constrict",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "acid",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "barrier",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "73": [
+      {
+        "level": 1,
+        "moveId": "poison-sting",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "supersonic",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "constrict",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "constrict",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "acid",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "barrier",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "98": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 2
+      },
+      {
+        "level": 5,
+        "moveId": "vice-grip",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "leer",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "harden",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-shot",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "metal-claw",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "stomp",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "guillotine",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "crabhammer",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "flail",
+        "order": null
+      }
+    ],
+    "99": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "vice-grip",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "vice-grip",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "leer",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "harden",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 19,
+        "moveId": "mud-shot",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "metal-claw",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "stomp",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "guillotine",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "crabhammer",
+        "order": null
+      },
+      {
+        "level": 63,
+        "moveId": "flail",
+        "order": null
+      }
+    ],
+    "170": [
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "supersonic",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "flail",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "spark",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "charge",
+        "order": null
+      }
+    ],
+    "171": [
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "supersonic",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "thunder-wave",
+        "order": 3
+      },
+      {
+        "level": 6,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "flail",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "spark",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "stockpile",
+        "order": 1
+      },
+      {
+        "level": 27,
+        "moveId": "swallow",
+        "order": 2
+      },
+      {
+        "level": 27,
+        "moveId": "spit-up",
+        "order": 3
+      },
+      {
+        "level": 30,
+        "moveId": "bubble-beam",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "charge",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -2629,11 +3096,6 @@
       {
         "level": 21,
         "moveId": "body-slam",
-        "order": null
-      },
-      {
-        "level": 25,
-        "moveId": "bubble-beam",
         "order": null
       },
       {
@@ -3549,6 +4011,263 @@
       {
         "level": 45,
         "moveId": "night-slash",
+        "order": null
+      }
+    ],
+    "72": [
+      {
+        "level": 15,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "73": [
+      {
+        "level": 15,
+        "moveId": "toxic-spikes",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "wrap",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "poison-jab",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "wring-out",
+        "order": null
+      }
+    ],
+    "98": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 9,
+        "moveId": "leer",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "metal-claw",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "stomp",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "guillotine",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "crabhammer",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "flail",
+        "order": null
+      }
+    ],
+    "99": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 9,
+        "moveId": "leer",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "metal-claw",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "stomp",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "guillotine",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "crabhammer",
+        "order": null
+      },
+      {
+        "level": 63,
+        "moveId": "flail",
+        "order": null
+      }
+    ],
+    "170": [
+      {
+        "level": 9,
+        "moveId": "flail",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "charge",
+        "order": null
+      }
+    ],
+    "171": [
+      {
+        "level": 9,
+        "moveId": "flail",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "stockpile",
+        "order": 1
+      },
+      {
+        "level": 27,
+        "moveId": "swallow",
+        "order": 2
+      },
+      {
+        "level": 27,
+        "moveId": "spit-up",
+        "order": 3
+      },
+      {
+        "level": 35,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 52,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "charge",
         "order": null
       }
     ]

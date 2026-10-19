@@ -636,6 +636,52 @@
       "accuracy": 90,
       "priority": 0,
       "maxPp": 15
+    },
+    "bubble-beam": {
+      "id": "bubble-beam",
+      "name": "Bollaraggio",
+      "type": "water",
+      "category": "special",
+      "power": 65,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "speed",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 10
+    },
+    "vice-grip": {
+      "id": "vice-grip",
+      "name": "Presa",
+      "type": "normal",
+      "category": "physical",
+      "power": 55,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 30
+    },
+    "barrier": {
+      "id": "barrier",
+      "name": "Barriera",
+      "type": "psychic",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 30,
+      "alwaysHits": true,
+      "statChanges": [
+        {
+          "target": "self",
+          "stat": "defense",
+          "stages": 2
+        }
+      ]
     }
   }
 }

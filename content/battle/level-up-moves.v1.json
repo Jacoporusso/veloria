@@ -203,6 +203,10 @@
         "moveId": "double-slap"
       },
       {
+        "level": 25,
+        "moveId": "bubble-beam"
+      },
+      {
         "level": 28,
         "moveId": "mud-shot"
       }
@@ -569,6 +573,138 @@
       {
         "level": 31,
         "moveId": "metal-sound"
+      }
+    ],
+    "72": [
+      {
+        "level": 5,
+        "moveId": "supersonic"
+      },
+      {
+        "level": 8,
+        "moveId": "constrict"
+      },
+      {
+        "level": 12,
+        "moveId": "acid"
+      },
+      {
+        "level": 19,
+        "moveId": "bubble-beam"
+      },
+      {
+        "level": 26,
+        "moveId": "barrier"
+      },
+      {
+        "level": 36,
+        "moveId": "screech"
+      }
+    ],
+    "73": [
+      {
+        "level": 5,
+        "moveId": "supersonic"
+      },
+      {
+        "level": 8,
+        "moveId": "constrict"
+      },
+      {
+        "level": 12,
+        "moveId": "acid"
+      },
+      {
+        "level": 19,
+        "moveId": "bubble-beam"
+      },
+      {
+        "level": 26,
+        "moveId": "barrier"
+      },
+      {
+        "level": 42,
+        "moveId": "screech"
+      }
+    ],
+    "98": [
+      {
+        "level": 5,
+        "moveId": "vice-grip"
+      },
+      {
+        "level": 11,
+        "moveId": "harden"
+      },
+      {
+        "level": 15,
+        "moveId": "bubble-beam"
+      },
+      {
+        "level": 19,
+        "moveId": "mud-shot"
+      },
+      {
+        "level": 35,
+        "moveId": "slam"
+      }
+    ],
+    "99": [
+      {
+        "level": 5,
+        "moveId": "vice-grip"
+      },
+      {
+        "level": 11,
+        "moveId": "harden"
+      },
+      {
+        "level": 15,
+        "moveId": "bubble-beam"
+      },
+      {
+        "level": 19,
+        "moveId": "mud-shot"
+      },
+      {
+        "level": 44,
+        "moveId": "slam"
+      }
+    ],
+    "170": [
+      {
+        "level": 6,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 12,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 20,
+        "moveId": "spark"
+      },
+      {
+        "level": 28,
+        "moveId": "bubble-beam"
+      }
+    ],
+    "171": [
+      {
+        "level": 6,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 12,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 20,
+        "moveId": "spark"
+      },
+      {
+        "level": 30,
+        "moveId": "bubble-beam"
       }
     ]
   }

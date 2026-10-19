@@ -1,6 +1,6 @@
 # Costa delle Turbine e Portolume — contratto di implementazione
 
-**Stato: basi di dominio implementate in 0.3.83; collegamento al mondo, mappe, contenuti e UI del capitolo non ancora implementati.** Fonti: GDD, documento 02 e roadmap 08. Il capitolo segue l'indagine della Centrale e porta alla quinta palestra; non conclude la regione.
+**Stato: basi di dominio implementate in 0.3.83, catalogo costiero in 0.3.84; collegamento al mondo, mappe e UI del capitolo non ancora implementati.** Fonti: GDD, documento 02 e roadmap 08. Il capitolo segue l'indagine della Centrale e porta alla quinta palestra; non conclude la regione.
 
 ## Requisiti del capitolo
 
@@ -28,9 +28,9 @@ Scelta di progressione proposta per questa implementazione: accesso R08 dopo `q_
 - `src/core/encounters/fishing.ts`: controllo di postazione, equipaggiamento, flag e squadra disponibile; esito dell'abboccata e scelta di specie/livello usano il RNG persistente del gioco. Nessuna canna consumata.
 - `src/core/world/local-ferry.ts`: reti locali dichiarative, rotte direzionali esplicite, approdi nella stessa mappa consentiti e requisiti ricontrollati all'imbarco. Nessuna moneta, inventario o RNG modificati dal planner.
 - `src/core/world/map-collision.ts`: collisioni del renderer basate su dati, con apertura della sola impronta della chiusa e conservazione dei muri sovrapposti. Validazione Python contro flag di quest non dichiarati.
-- Cache ufficiale preparata per Tentacool #72, Krabby #98, Chinchou #170 e Lanturn #171: risorse `pokemon` e `pokemon-species` da `https://pokeapi.co/api/v2/`, conservate sotto `content/sources/pokeapi/`. Non sono ancora registrati nel roster runtime. Learnset HGSS da usare per la scelta delle mosse; nessuna mossa assegnata per somiglianza di tipo.
+- Registrati Tentacool #72, Tentacruel #73, Krabby #98, Kingler #99, Chinchou #170 e Lanturn #171: dati e learnset HGSS da PokéAPI conservati sotto `content/sources/pokeapi/`, artwork nel gruppo `coast`, evoluzioni ai livelli 30, 28 e 27. Bollaraggio, Presa e Barriera importate dalle fonti locali; Barriera usa i 30 PP della versione HGSS. Queste specie attendono ancora gli habitat giocabili del capitolo.
 
-Queste basi non costituiscono ancora pesca o navigazione giocabili. Mancano postazioni, equipaggiamento ottenibile, menu, animazioni, reti/spawn del capitolo, nuovo catalogo/artwork, mappe e percorso fino alla medaglia. Esiti delle prove in `CI_STATUS.md`.
+Queste basi non costituiscono ancora pesca o navigazione giocabili. Mancano postazioni, equipaggiamento ottenibile, menu, animazioni, reti/spawn del capitolo, mappe e percorso fino alla medaglia. Esiti delle prove in `CI_STATUS.md`.
 
 ## Gate di consegna
 

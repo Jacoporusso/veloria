@@ -200,6 +200,20 @@
         }
       ]
     },
+    "72": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 73,
+          "targetName": "Tentacruel",
+          "trigger": "level-up",
+          "minimumLevel": 30,
+          "itemName": null
+        }
+      ]
+    },
+    "73": {
+      "evolutions": []
+    },
     "81": {
       "evolutions": [
         {
@@ -222,6 +236,20 @@
           "locationName": "Mt. Coronet"
         }
       ]
+    },
+    "98": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 99,
+          "targetName": "Kingler",
+          "trigger": "level-up",
+          "minimumLevel": 28,
+          "itemName": null
+        }
+      ]
+    },
+    "99": {
+      "evolutions": []
     },
     "100": {
       "evolutions": [
@@ -272,6 +300,20 @@
           "itemName": null
         }
       ]
+    },
+    "170": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 171,
+          "targetName": "Lanturn",
+          "trigger": "level-up",
+          "minimumLevel": 27,
+          "itemName": null
+        }
+      ]
+    },
+    "171": {
+      "evolutions": []
     },
     "179": {
       "evolutions": [

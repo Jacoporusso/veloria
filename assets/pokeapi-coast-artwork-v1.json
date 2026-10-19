@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-19",
+  "scope": "Private prototype coast-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 72,
+      "name": "Tentacool",
+      "path": "assets/creatures/pokeapi-coast-72-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+      "sourcePath": "assets/sources/pokeapi/coast/72.png",
+      "sourceSha256": "f3d81b1b278ef105f33a9d4f25dfaad37471b841df5a5b34f99559e25914bec6",
+      "sha256": "eff860cead46b6133f113ac998c36482eacf50abfb8368adbc1b7075a2eedeef"
+    },
+    {
+      "speciesId": 73,
+      "name": "Tentacruel",
+      "path": "assets/creatures/pokeapi-coast-73-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+      "sourcePath": "assets/sources/pokeapi/coast/73.png",
+      "sourceSha256": "14c5a462583b43fcb26f9831a696b917434114e9c0210c9035aa2e625f4d71eb",
+      "sha256": "288a86dfaebd62f3116010b7d0cdfc2dc54ba11c27cfd37df202db0f676ce89a"
+    },
+    {
+      "speciesId": 98,
+      "name": "Krabby",
+      "path": "assets/creatures/pokeapi-coast-98-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "sourcePath": "assets/sources/pokeapi/coast/98.png",
+      "sourceSha256": "d8c82af68675a957686f1dc5a5a42f796426dbadb049dfeca1033a2e278a543b",
+      "sha256": "4adb7e5cb73e25e99f204c6b32e992fc4495776e356d413f8e1e50566bbdfbf5"
+    },
+    {
+      "speciesId": 99,
+      "name": "Kingler",
+      "path": "assets/creatures/pokeapi-coast-99-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "sourcePath": "assets/sources/pokeapi/coast/99.png",
+      "sourceSha256": "437b0e360946693baf256305826cb95090c15aa5ba0330954cf544c137e7d847",
+      "sha256": "f568327ff83076ed1dd97dde56127735f696646fe087a2f21e5376fcbd4b0d0b"
+    },
+    {
+      "speciesId": 170,
+      "name": "Chinchou",
+      "path": "assets/creatures/pokeapi-coast-170-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/170.png",
+      "sourcePath": "assets/sources/pokeapi/coast/170.png",
+      "sourceSha256": "f3a8197677bd1573a3d9d63e5c85a2d721acfbaadc03244912f6da70d805ac3b",
+      "sha256": "8103b7653f738094fcf2351027ccdeb9add47fd6b032a8439d52fd79bf7b2a78"
+    },
+    {
+      "speciesId": 171,
+      "name": "Lanturn",
+      "path": "assets/creatures/pokeapi-coast-171-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/171.png",
+      "sourcePath": "assets/sources/pokeapi/coast/171.png",
+      "sourceSha256": "61f724d93824b8e0efed757cb88a5aa77b8b82fed3a16b9e434c303731d28f67",
+      "sha256": "7aeff3e95b6e6cfcd5a7863bf444f63062c6c14676432e3124995f7b88da6588"
+    }
+  ]
+}

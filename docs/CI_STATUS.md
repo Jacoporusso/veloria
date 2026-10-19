@@ -1,3 +1,10 @@
+## Catalogo costiero 0.3.84 — 19/10/2026
+
+- Catalogo esteso a 40 specie e 48 mosse con fonti PokéAPI locali: sei specie delle famiglie Tentacool, Krabby e Chinchou; evoluzioni ai livelli 30/28/27; Bollaraggio, Presa e Barriera con parametri HGSS. Gli habitat costieri non sono ancora collegati al mondo.
+- Importatore artwork generalizzato per gruppi dichiarati nei dati; renderer e validatore scoprono i manifest senza elenchi manuali. Sei PNG ufficiali conservati con hash e sei WebP lossless inclusi nella cache v105.
+- 321 test dominio/persistenza passati (`.tmp/coast-catalog-domain.txt`), 46 test Python passati. Validatore: 152 asset, 21 mappe, 21 quest, otto allenatori. Quattro prove browser passate: tutti i 40 artwork a tre densità e dettagli evoluzione delle sei specie nei pannelli Squadra/Pokédex (`.tmp/coast-art-panel.txt`).
+- Build TypeScript/Vite e prova production offline completate: i sei artwork decodificano alla prima richiesta dopo la disconnessione (1 test, 15,5 secondi compresa build). Nessun capitolo P5 dichiarato giocabile. Pubblicazione della versione precedente b6b14cf riuscita; Verify 39223134920 ancora in esecuzione al controllo, precedente Verify 39221522486 fallita e da diagnosticare.
+
 ## Basi Portolume 0.3.83 — 19/10/2026
 
 - Implementati i nuclei puri di pesca e tragitti in barca locali, con configurazione, requisiti e stato immutabile. Pesca con RNG persistibile e canna non consumata; approdi anche nella stessa mappa e rotte direzionali senza consumo di monete/RNG. Non sono ancora azioni raggiungibili dal mondo: restano postazioni, equipaggiamento, UI, mappe e capitolo P5.

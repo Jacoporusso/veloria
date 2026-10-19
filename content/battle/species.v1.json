@@ -577,6 +577,10 @@
           "moveId": "double-slap"
         },
         {
+          "level": 25,
+          "moveId": "bubble-beam"
+        },
+        {
           "level": 28,
           "moveId": "mud-shot"
         }
@@ -1560,6 +1564,318 @@
         {
           "level": 31,
           "moveId": "metal-sound"
+        }
+      ]
+    },
+    "72": {
+      "speciesId": 72,
+      "name": "Tentacool",
+      "types": [
+        "water",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 35,
+        "specialAttack": 50,
+        "specialDefense": 100,
+        "speed": 70
+      },
+      "experienceYield": 67,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "poison-sting",
+        "supersonic"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "poison-sting"
+        },
+        {
+          "level": 5,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 8,
+          "moveId": "constrict"
+        },
+        {
+          "level": 12,
+          "moveId": "acid"
+        },
+        {
+          "level": 19,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 26,
+          "moveId": "barrier"
+        },
+        {
+          "level": 36,
+          "moveId": "screech"
+        }
+      ]
+    },
+    "73": {
+      "speciesId": 73,
+      "name": "Tentacruel",
+      "types": [
+        "water",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 70,
+        "defense": 65,
+        "specialAttack": 80,
+        "specialDefense": 120,
+        "speed": 100
+      },
+      "experienceYield": 180,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "poison-sting",
+        "supersonic",
+        "constrict"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "poison-sting"
+        },
+        {
+          "level": 1,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 1,
+          "moveId": "constrict"
+        },
+        {
+          "level": 5,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 8,
+          "moveId": "constrict"
+        },
+        {
+          "level": 12,
+          "moveId": "acid"
+        },
+        {
+          "level": 19,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 26,
+          "moveId": "barrier"
+        },
+        {
+          "level": 42,
+          "moveId": "screech"
+        }
+      ]
+    },
+    "98": {
+      "speciesId": 98,
+      "name": "Krabby",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 30,
+        "attack": 105,
+        "defense": 90,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "speed": 50
+      },
+      "experienceYield": 65,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "vice-grip"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 5,
+          "moveId": "vice-grip"
+        },
+        {
+          "level": 11,
+          "moveId": "harden"
+        },
+        {
+          "level": 15,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 19,
+          "moveId": "mud-shot"
+        },
+        {
+          "level": 35,
+          "moveId": "slam"
+        }
+      ]
+    },
+    "99": {
+      "speciesId": 99,
+      "name": "Kingler",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 75
+      },
+      "experienceYield": 166,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "vice-grip"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "vice-grip"
+        },
+        {
+          "level": 5,
+          "moveId": "vice-grip"
+        },
+        {
+          "level": 11,
+          "moveId": "harden"
+        },
+        {
+          "level": 15,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 19,
+          "moveId": "mud-shot"
+        },
+        {
+          "level": 44,
+          "moveId": "slam"
+        }
+      ]
+    },
+    "170": {
+      "speciesId": 170,
+      "name": "Chinchou",
+      "types": [
+        "water",
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 38,
+        "defense": 38,
+        "specialAttack": 56,
+        "specialDefense": 56,
+        "speed": 67
+      },
+      "experienceYield": 66,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "supersonic"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 6,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 12,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 20,
+          "moveId": "spark"
+        },
+        {
+          "level": 28,
+          "moveId": "bubble-beam"
+        }
+      ]
+    },
+    "171": {
+      "speciesId": 171,
+      "name": "Lanturn",
+      "types": [
+        "water",
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 125,
+        "attack": 58,
+        "defense": 58,
+        "specialAttack": 76,
+        "specialDefense": 76,
+        "speed": 67
+      },
+      "experienceYield": 161,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "supersonic",
+        "thunder-wave"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 1,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 6,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 12,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 20,
+          "moveId": "spark"
+        },
+        {
+          "level": 30,
+          "moveId": "bubble-beam"
         }
       ]
     }

@@ -1,8 +1,4 @@
 import Phaser from 'phaser';
-import starterArtwork from '../../../assets/pokeapi-starter-artwork-v1.json';
-import routeArtwork from '../../../assets/pokeapi-route-artwork-v1.json';
-import evolutionArtwork from '../../../assets/pokeapi-evolution-artwork-v1.json';
-import urbanArtwork from '../../../assets/pokeapi-urban-artwork-v1.json';
 import { publicAssetUrl } from '../../core/assets/index.ts';
 
 /** Stable species IDs map to atlas cells; no art lookup depends on a translated name. */
@@ -13,7 +9,11 @@ export const CREATURE_ART_GROUPS = [
   [14, 15, 167, 179],
   [43, 60, 69, 194],
 ] as const;
-const standaloneArt = new Map([...starterArtwork.artworks, ...routeArtwork.artworks, ...evolutionArtwork.artworks, ...urbanArtwork.artworks].map(art => [art.speciesId, art]));
+type StandaloneArtwork = { speciesId: number; path: string };
+const artworkManifests = Object.values(import.meta.glob<{ artworks: StandaloneArtwork[] }>('../../../assets/pokeapi-*-artwork-v1.json', {
+  eager: true, import: 'default',
+}));
+const standaloneArt = new Map(artworkManifests.flatMap(manifest => manifest.artworks).map(art => [art.speciesId, art]));
 
 // Only accepted generation outputs enter the runtime. Missing art is explicit in the UI.
 const AVAILABLE_GROUPS = new Set([2, 3]);

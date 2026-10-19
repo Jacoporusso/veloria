@@ -19,7 +19,7 @@ from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
 from import_pokeapi_evolution_art import main as verify_evolution_art
-from import_pokeapi_urban_art import main as verify_urban_art
+from import_pokeapi_species_art import main as verify_species_art
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "content" / "examples"
@@ -46,7 +46,9 @@ verify_pokeapi_import(['--check'])
 verify_evolution_import(['--check'])
 verify_species_import(['--check'])
 verify_evolution_art(['--check'])
-verify_urban_art(['--check'])
+artwork_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
+for artwork_group in sorted({entry['artworkGroup'] for entry in artwork_imports if entry.get('artworkGroup')}):
+    verify_species_art(['--group', artwork_group, '--check'])
 
 def read(name):
     return json.loads((EXAMPLES / name).read_text(encoding="utf-8"))

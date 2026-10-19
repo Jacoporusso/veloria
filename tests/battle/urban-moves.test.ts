@@ -9,9 +9,8 @@ const speciesData = readJson<{ species: Record<string, { speciesId: number; name
 const moveData = readJson<{ moves: Record<string, MoveDefinition> }>(`${root}/content/battle/moves.v1.json`);
 const sourceLearnsets = readJson<{ source: { versionGroup: string }; species: Record<string, { level: number; moveId: string }[]> }>(`${root}/content/sources/pokeapi/source-learnsets.json`);
 
-test('canonical urban battle content has 34 species and 45 implemented moves', () => {
-  assert.equal(Object.keys(speciesData.species).length, 34);
-  assert.equal(Object.keys(moveData.moves).length, 45);
+test('city trainer content uses registered species and sourced HGSS moves', () => {
+  assert.deepEqual(Object.keys(speciesData.species).sort(), Object.keys(sourceLearnsets.species).sort());
   assert.equal(sourceLearnsets.source.versionGroup, 'heartgold-soulsilver');
 });
 
