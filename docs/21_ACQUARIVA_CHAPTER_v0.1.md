@@ -33,6 +33,10 @@ Illustrazione originale con fonte/prompt/hash in `assets/prompts/d04-delta-v1.md
 
 Illustrazione originale e geometria allineata del Sentiero delle Canne conservate con fonte/hash. Due habitat, campana del salice come riferimento e kit facoltativo sul ramo del pontile: due Antidoti una sola volta dopo il rapporto del Delta. Incontri con Natu, Drowzee, Hoothoot ed Eevee secondo fascia oraria. Due prove superate: tabelle valide, uscite e riferimenti raggiungibili evitando gli habitat; kit persistente e non duplicabile. File sotto `content/drafts/acquariva/`, ancora esclusi dal runtime. Mancano Acquariva, R11 e P6 complete prima dell'apertura del capitolo.
 
+### Acquariva preparata
+
+Illustrazione originale ripulita dalle figure incorporate con ImageGen; fonte, due prompt e hash conservati. Geometria di bozza con ingresso R10, osservatorio raggiungibile a piedi, cure/deposito, negozio, terminale ferroviario, ingresso P6 e uscita R11. Il monumento e l'acqua sono esclusi dal cammino; tutti gli approcci sono collegati anche con la ricercatrice presente. Tessa confronta il rapporto completo del Delta, assegna due Pozioni una sola volta e abilita P6. Due prove di geometria/quest passate; mancano dialoghi integrati, R11, P6 completa e prova touch. L'uscita R11 è proposta dopo Medaglia Riflesso, come scelta di progressione di questa implementazione, non nome canonico preesistente.
+
 1. Importare e conservare dati/artwork delle specie necessarie a incontri e palestra; ogni mossa deve risultare disponibile alla specie al livello previsto. Non assegnare mosse per analogia di tipo.
 2. Integrare tutte le mappe del percorso e i ritorni, servizi, ricerca, puzzle, allenatore, medaglia, diario e atlante. Aprire l'uscita di Portolume soltanto quando il percorso è verificabile.
 3. Allineare collisioni e pontili alle illustrazioni effettive, non alle sole coordinate richieste nel prompt; impedire il cammino su acqua e vegetazione solida.
