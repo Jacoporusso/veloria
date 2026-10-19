@@ -1,0 +1,75 @@
+{
+  "id": "veloria/r11_via_cascate",
+  "version": 2,
+  "displayName": "Via delle Cascate",
+  "biomeId": "waterfall_gorge",
+  "tiledAsset": "tilemaps/r11_via_cascate.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r11-cascades-v1",
+      "path": "assets/sprites/veloria-r11-cascades-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_acquariva",
+      "x": 17,
+      "y": 28,
+      "facing": "up"
+    },
+    {
+      "id": "from_vetracielo",
+      "x": 20,
+      "y": 1,
+      "facing": "down"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/acquariva",
+      "viaSpawnId": "from_acquariva",
+      "targetSpawnId": "from_r11",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/vetracielo",
+      "viaSpawnId": "from_vetracielo",
+      "targetSpawnId": "from_r11",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r11_cascade_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-r11-cascades-v1"
+}

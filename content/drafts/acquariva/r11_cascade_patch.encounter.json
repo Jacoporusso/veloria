@@ -1,0 +1,81 @@
+{
+  "id": "veloria/r11_cascade_patch",
+  "mapId": "veloria/r11_via_cascate",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 17,
+        "weight": 30,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 180,
+        "weight": 30,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 177,
+        "weight": 25,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 133,
+        "weight": 15,
+        "minLevel": 28,
+        "maxLevel": 32
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 17,
+        "weight": 35,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 180,
+        "weight": 35,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 177,
+        "weight": 15,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 133,
+        "weight": 15,
+        "minLevel": 28,
+        "maxLevel": 32
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 96,
+        "weight": 45,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 180,
+        "weight": 30,
+        "minLevel": 28,
+        "maxLevel": 32
+      },
+      {
+        "speciesId": 177,
+        "weight": 25,
+        "minLevel": 28,
+        "maxLevel": 32
+      }
+    ]
+  }
+}
