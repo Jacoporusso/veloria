@@ -46,6 +46,13 @@
       "description": "La scheda del seme affidato alla serra di Radicelmo. Conserva la memoria della tua ricerca con Leda.",
       "price": 0,
       "maxStack": 1
+    },
+    "old-rod": {
+      "id": "old-rod",
+      "name": "Canna da pesca",
+      "price": 0,
+      "maxStack": 1,
+      "description": "Affidata dalla capitana di Portolume. Usa A presso un punto di pesca per lanciare la lenza; non si consuma."
     }
   }
 }

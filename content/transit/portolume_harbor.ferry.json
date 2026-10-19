@@ -1,0 +1,31 @@
+{
+  "id": "portolume_harbor",
+  "name": "Battello di Portolume",
+  "requiredFlags": [
+    "q_portolume_orientation"
+  ],
+  "stops": [
+    {
+      "id": "mainland",
+      "name": "Molo di Portolume",
+      "mapId": "veloria/portolume",
+      "spawnPointId": "dock_mainland"
+    },
+    {
+      "id": "observatory",
+      "name": "Osservatorio delle maree",
+      "mapId": "veloria/portolume",
+      "spawnPointId": "dock_observatory"
+    }
+  ],
+  "routes": [
+    {
+      "fromStopId": "mainland",
+      "toStopId": "observatory"
+    },
+    {
+      "fromStopId": "observatory",
+      "toStopId": "mainland"
+    }
+  ]
+}

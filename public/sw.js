@@ -1,5 +1,12 @@
-const CACHE = 'veloria-shell-v105';
+const CACHE = 'veloria-shell-v106';
 const SHELL = [
+  './tilemaps/r08_costa_turbine.tmj',
+  './tilemaps/portolume.tmj',
+  './tilemaps/gym05_portolume.tmj',
+  './assets/sprites/veloria-r08-coast-v1.webp',
+  './assets/sprites/veloria-portolume-v1.webp',
+  './assets/sprites/veloria-gym05-sluices-v1.webp',
+
   './assets/creatures/pokeapi-coast-72-v1.webp',
   './assets/creatures/pokeapi-coast-73-v1.webp',
   './assets/creatures/pokeapi-coast-98-v1.webp',

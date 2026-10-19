@@ -5637,23 +5637,6 @@
           ]
         },
         {
-          "id": 118,
-          "name": "east-21",
-          "x": 1248,
-          "y": 672,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": [
-            {
-              "name": "kind",
-              "type": "string",
-              "value": "collision"
-            }
-          ]
-        },
-        {
           "id": 119,
           "name": "west-22",
           "x": 0,
@@ -5671,43 +5654,9 @@
           ]
         },
         {
-          "id": 120,
-          "name": "east-22",
-          "x": 1248,
-          "y": 704,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": [
-            {
-              "name": "kind",
-              "type": "string",
-              "value": "collision"
-            }
-          ]
-        },
-        {
           "id": 121,
           "name": "west-23",
           "x": 0,
-          "y": 736,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": [
-            {
-              "name": "kind",
-              "type": "string",
-              "value": "collision"
-            }
-          ]
-        },
-        {
-          "id": 122,
-          "name": "east-23",
-          "x": 1248,
           "y": 736,
           "width": 32,
           "height": 32,
@@ -12715,6 +12664,43 @@
               "value": "Per accedere al Condotto serve la Medaglia Acciaio. Affronta Rhea nell’Officina Magnetica, dalla pedana P4."
             }
           ]
+        },
+        {
+          "id": 2300,
+          "name": "Costa delle Turbine",
+          "x": 1248,
+          "y": 672,
+          "width": 32,
+          "height": 96,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r08_costa_turbine"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_ferraluce"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "q_centrale_report"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Prima riferisci a Ivo le rilevazioni della Centrale. Poi potrai raggiungere Portolume lungo la costa."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -13083,7 +13069,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 539,
+  "nextobjectid": 2301,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

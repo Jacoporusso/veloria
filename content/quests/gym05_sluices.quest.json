@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_gym05_sluices",
+  "version": 1,
+  "displayName": "Il respiro delle chiuse",
+  "steps": [
+    {
+      "id": "balance",
+      "trigger": "gym05/basin/balance",
+      "setFlag": "gym05_basin_balanced",
+      "requiresFlags": [
+        "q_portolume_tide_report"
+      ]
+    },
+    {
+      "id": "open",
+      "trigger": "gym05/sluice/open",
+      "setFlag": "gym05_sluice_open",
+      "requiresFlags": [
+        "gym05_basin_balanced"
+      ]
+    },
+    {
+      "id": "stabilize",
+      "trigger": "gym05/tide/stabilize",
+      "setFlag": "gym05_tide_stable",
+      "requiresFlags": [
+        "gym05_sluice_open"
+      ]
+    }
+  ],
+  "completionFlag": "gym05_tide_stable",
+  "reward": {}
+}

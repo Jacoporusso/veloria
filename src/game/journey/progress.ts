@@ -2,6 +2,7 @@ import mira from '../../../content/trainers/gym01_mira.trainer.json' with { type
 import dalia from '../../../content/trainers/gym02_dalia.trainer.json' with { type: 'json' };
 import aster from '../../../content/trainers/gym03_aster.trainer.json' with { type: 'json' };
 import rhea from '../../../content/trainers/gym04_rhea.trainer.json' with { type: 'json' };
+import nerea from '../../../content/trainers/gym05_nerea.trainer.json' with { type: 'json' };
 import badgeContent from '../../../content/badges/badges.v1.json' with { type: 'json' };
 import { trainerPreparation } from '../battle/trainer-challenge.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
@@ -45,6 +46,14 @@ export const journeyMilestones = [
   { flag: 'q_centrale_isolated', title: 'Mettere in sicurezza la linea', objective: 'Dopo aver letto il registro, usa la console sulla destra della Centrale per isolare la linea sperimentale. La rete ordinaria deve restare attiva.' },
   { flag: 'q_centrale_output', title: 'Un riscontro misurabile', objective: 'Verifica il sensore al centro, in fondo alla sala della Centrale. Controlla che gli impulsi della linea sperimentale siano cessati.' },
   { flag: 'q_centrale_report', title: 'I fatti prima delle accuse', objective: 'Esci a sud dalla Centrale, torna a ovest lungo il Condotto e riferisci a Ivo nella piazza di Ferraluce.' },
+  { flag: 'q_portolume_visited', title: 'Il mare oltre le turbine', objective: 'Dopo il rapporto a Ivo, esci dal varco est di Ferraluce poco sopra quello del Condotto. Segui la passeggiata della Costa delle Turbine fino a Portolume.' },
+  { flag: 'q_portolume_orientation', title: 'La capitana del porto', objective: 'Parla con Marina presso il molo a destra della piazza. Ti affiderà la canna e ti indicherà il battello.' },
+  { flag: 'q_portolume_tide_read', title: 'Il ritmo delle maree', objective: 'Usa il battello del molo per raggiungere l’osservatorio. Leggi il misuratore sull’isola, a nord-est dell’approdo.' },
+  { flag: 'q_portolume_tide_report', title: 'Misure da confrontare', objective: 'Torna al porto con il battello e riferisci le misure a Marina.' },
+  { flag: 'gym05_basin_balanced', title: 'Compensare il flusso', objective: 'Entra nella palestra a nord della piazza. Regola la console a sinistra della terrazza d’ingresso.' },
+  { flag: 'gym05_sluice_open', title: 'La chiusa superiore', objective: 'Attraversa il primo ponte della palestra e usa la console a destra sulla terrazza centrale.' },
+  { flag: 'gym05_tide_stable', title: 'Una marea stabile', objective: 'Attraversa il secondo ponte e usa la console a sinistra sulla terrazza superiore.' },
+  { flag: 'badge_marea_awarded', trainer: nerea, title: 'La Medaglia Marea', objective: 'Parla con Nerea al centro della terrazza superiore della palestra di Portolume.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

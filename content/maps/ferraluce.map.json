@@ -90,6 +90,12 @@
       "x": 38,
       "y": 25,
       "facing": "left"
+    },
+    {
+      "id": "from_r08",
+      "x": 38,
+      "y": 22,
+      "facing": "left"
     }
   ],
   "connections": [
@@ -113,6 +119,14 @@
       "targetSpawnId": "from_ferraluce",
       "requiresFlags": [
         "badge_acciaio_awarded"
+      ]
+    },
+    {
+      "toMapId": "veloria/r08_costa_turbine",
+      "viaSpawnId": "from_r08",
+      "targetSpawnId": "from_ferraluce",
+      "requiresFlags": [
+        "q_centrale_report"
       ]
     }
   ],

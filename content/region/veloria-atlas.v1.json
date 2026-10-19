@@ -215,13 +215,18 @@
     {
       "id": "portolume",
       "name": "Portolume",
-      "kind": "future",
+      "kind": "city",
       "gym": 5,
       "x": 745,
       "y": 440,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Una futura città di mare, porto e giardini costieri."
+      "mapIds": [
+        "veloria/portolume",
+        "veloria/gym05_portolume"
+      ],
+      "visitedFlags": [
+        "q_portolume_visited"
+      ],
+      "description": "Porto, osservatorio delle maree e Palestra Acqua. Il battello collega i due approdi."
     },
     {
       "id": "delta",
@@ -295,6 +300,20 @@
       "mapIds": [],
       "visitedFlags": [],
       "description": "La destinazione sportiva finale prevista per l’avventura."
+    },
+    {
+      "id": "r08",
+      "name": "Costa delle Turbine",
+      "kind": "route",
+      "x": 685,
+      "y": 415,
+      "mapIds": [
+        "veloria/r08_costa_turbine"
+      ],
+      "visitedFlags": [
+        "area_r08_visited"
+      ],
+      "description": "Passeggiata costiera fra habitat, turbine e un belvedere di pesca."
     }
   ],
   "connections": [
@@ -351,10 +370,6 @@
       "centrale"
     ],
     [
-      "ferraluce",
-      "portolume"
-    ],
-    [
       "portolume",
       "delta"
     ],
@@ -381,6 +396,14 @@
     [
       "concordia",
       "lega"
+    ],
+    [
+      "ferraluce",
+      "r08"
+    ],
+    [
+      "r08",
+      "portolume"
     ]
   ]
 }

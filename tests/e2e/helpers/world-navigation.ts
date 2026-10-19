@@ -1,6 +1,7 @@
 import {expect, type Page} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import type {GameSave} from '../../../src/persistence/save-types.ts';
+import {collectMapCollision} from '../../../src/core/world/map-collision.ts';
 
 export async function readBrowserSave(page: Page): Promise<GameSave> {
   return page.evaluate(()=>new Promise<any>((resolve,reject)=>{
@@ -41,17 +42,17 @@ export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'r
 /** Plan against the authored collision map; do not teleport through the play test. */
 export async function walkTo(page: Page, tiledFile: string, targetX: number, targetY: number, options: { avoidEncounters?: boolean } = {}) {
   const m=JSON.parse(await readFile(new URL('../../../public/tilemaps/'+tiledFile,import.meta.url),'utf8'));
-  const blocked=new Set<string>();
+  const save=await readBrowserSave(page);
+  const blocked=collectMapCollision(m.layers.find((l:any)=>l.name==='collision').objects,m.width,m.height,save.flags);
   const add=(o:any,allowTarget=false)=>{
     for(let y=Math.floor(o.y/32);y<Math.ceil((o.y+o.height)/32);y++)
       for(let x=Math.floor(o.x/32);x<Math.ceil((o.x+o.width)/32);x++)
         if(!allowTarget||x!==targetX||y!==targetY)blocked.add(`${x},${y}`);
   };
-  for(const o of m.layers.find((l:any)=>l.name==='collision').objects) add(o);
   for(const o of m.layers.find((l:any)=>l.name==='triggers').objects)
     if(o.properties?.some((p:any)=>p.name==='kind'&&p.value==='map-exit'))add(o,true);
     else if(options.avoidEncounters && o.properties?.some((p:any)=>p.name==='kind'&&p.value==='encounter-zone'))add(o);
-  const p=(await readBrowserSave(page)).player;
+  const p=save.player;
   const start=`${p.x},${p.y}`, target=`${targetX},${targetY}`, queue=[start];
   const previous=new Map<string,{from:string;direction:'up'|'down'|'left'|'right'}>();
   const visited=new Set(queue);

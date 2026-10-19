@@ -1,6 +1,6 @@
 # Costa delle Turbine e Portolume — contratto di implementazione
 
-**Stato: basi di dominio implementate in 0.3.83, catalogo costiero in 0.3.84; collegamento al mondo, mappe e UI del capitolo non ancora implementati.** Fonti: GDD, documento 02 e roadmap 08. Il capitolo segue l'indagine della Centrale e porta alla quinta palestra; non conclude la regione.
+**Stato: integrazione locale 0.3.85, non pubblicata e non ancora verificata integralmente.** Tre mappe, dialoghi, canna, battello, servizi, diario e P5 sono ora collegati al runtime. Prima prova touch porto–osservatorio–porto e persistenza riuscita; mancano attraversamento completo da Ferraluce, pesca, lotta P5, offline e revisione visuale completa. Fonti: GDD, documento 02 e roadmap 08. Il capitolo segue l'indagine della Centrale e porta alla quinta palestra; non conclude la regione.
 
 ## Requisiti del capitolo
 

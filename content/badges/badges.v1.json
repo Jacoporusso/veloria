@@ -28,6 +28,13 @@
       "location": "Palestra di Ferraluce",
       "description": "Due poli uniscono precisione e flessibilità: ogni difesa ha una risposta.",
       "emblem": "magnet"
+    },
+    "badge_marea": {
+      "name": "Medaglia Marea",
+      "leader": "Nerea",
+      "location": "Palestra di Portolume",
+      "description": "Una conchiglia e due onde ricordano una squadra capace di leggere il ritmo dell’acqua.",
+      "emblem": "tide"
     }
   }
 }

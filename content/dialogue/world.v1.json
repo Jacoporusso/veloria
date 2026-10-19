@@ -822,5 +822,169 @@
         ]
       }
     ]
+  },
+  "r08_sign": {
+    "speaker": "Costa delle Turbine",
+    "lines": [
+      "A ovest Ferraluce, a est Portolume. I sentieri laterali conducono agli habitat. Il belvedere sul mare è un punto di pesca: la capitana del porto ti aiuterà a iniziare."
+    ]
+  },
+  "portolume_captain": {
+    "speaker": "Capitana Marina",
+    "stages": [
+      {
+        "lines": [
+          "Prima confrontiamo i dati della Centrale. Riferisci a Ivo a Ferraluce."
+        ],
+        "whenFlagMissing": "q_centrale_report"
+      },
+      {
+        "lines": [
+          "Benvenuto a Portolume! Ti affido una canna da pesca: usala sui punti d’acqua segnalati. Il battello del molo raggiunge l’osservatorio e torna sempre al porto.",
+          "Leggi il misuratore sull’isola, poi torna da me. Vogliamo confrontare le maree con le rilevazioni della Centrale."
+        ],
+        "whenFlagMissing": "q_portolume_orientation",
+        "questEvent": "portolume/captain/orientation"
+      },
+      {
+        "lines": [
+          "Il molo è a destra della piazza. Prendi il battello per l’osservatorio e leggi il misuratore sull’isola; poi torna qui."
+        ],
+        "whenFlagMissing": "q_portolume_tide_read"
+      },
+      {
+        "lines": [
+          "Le variazioni non bastano a dimostrare una causa: conserveremo orari e misure per il confronto. Grazie per il riscontro!",
+          "Puoi affrontare la prova delle chiuse nella palestra in cima alla passeggiata. Ecco due Pozioni per la tua squadra."
+        ],
+        "whenFlagMissing": "q_portolume_tide_report",
+        "questEvent": "portolume/captain/report"
+      },
+      {
+        "lines": [
+          "Il battello e la pesca restano disponibili. Nerea ti aspetta nella palestra a nord della piazza."
+        ]
+      }
+    ]
+  },
+  "portolume_tide_gauge": {
+    "speaker": "Misuratore delle maree",
+    "stages": [
+      {
+        "lines": [
+          "Parla prima con la capitana del porto."
+        ],
+        "whenFlagMissing": "q_portolume_orientation"
+      },
+      {
+        "lines": [
+          "Misure registrate: intervalli e altezza dell’acqua saranno confrontati con i dati della Centrale. Torna al porto con il battello e riferisci alla capitana."
+        ],
+        "whenFlagMissing": "q_portolume_tide_read",
+        "questEvent": "portolume/tide/read"
+      },
+      {
+        "lines": [
+          "Le misure sono conservate. Il battello al molo dell’isola ti riporta a Portolume."
+        ]
+      }
+    ]
+  },
+  "gym05_balance": {
+    "speaker": "Vasca di compensazione",
+    "stages": [
+      {
+        "lines": [
+          "Concludi il confronto delle maree con la capitana del porto."
+        ],
+        "whenFlagMissing": "q_portolume_tide_report"
+      },
+      {
+        "lines": [
+          "La vasca è compensata: il primo ponte è libero. Attraversalo e raggiungi la console a destra."
+        ],
+        "whenFlagMissing": "gym05_basin_balanced",
+        "questEvent": "gym05/basin/balance"
+      },
+      {
+        "lines": [
+          "La vasca è compensata: il primo ponte è libero. Attraversalo e raggiungi la console a destra."
+        ]
+      }
+    ]
+  },
+  "gym05_open": {
+    "speaker": "Chiusa superiore",
+    "stages": [
+      {
+        "lines": [
+          "Compensa prima la vasca sulla terrazza d’ingresso."
+        ],
+        "whenFlagMissing": "gym05_basin_balanced"
+      },
+      {
+        "lines": [
+          "La chiusa è aperta: il secondo ponte è libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
+        ],
+        "whenFlagMissing": "gym05_sluice_open",
+        "questEvent": "gym05/sluice/open"
+      },
+      {
+        "lines": [
+          "La chiusa è aperta: il secondo ponte è libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
+        ]
+      }
+    ]
+  },
+  "gym05_stabilize": {
+    "speaker": "Stabilizzatore di marea",
+    "stages": [
+      {
+        "lines": [
+          "Apri prima la chiusa dalla console sulla terrazza centrale."
+        ],
+        "whenFlagMissing": "gym05_sluice_open"
+      },
+      {
+        "lines": [
+          "Flusso stabile. Nerea ti aspetta al centro della terrazza superiore."
+        ],
+        "whenFlagMissing": "gym05_tide_stable",
+        "questEvent": "gym05/tide/stabilize"
+      },
+      {
+        "lines": [
+          "Flusso stabile. Nerea ti aspetta al centro della terrazza superiore."
+        ]
+      }
+    ]
+  },
+  "nerea_gym": {
+    "speaker": "Nerea",
+    "stages": [
+      {
+        "lines": [
+          "Confronta le misure delle maree con la capitana prima della prova."
+        ],
+        "whenFlagMissing": "q_portolume_tide_report"
+      },
+      {
+        "lines": [
+          "Compensa la vasca a sud, apri la chiusa sulla terrazza centrale e stabilizza il flusso qui a nord. Le paratoie mostrano quali ponti sono disponibili."
+        ],
+        "whenFlagMissing": "gym05_tide_stable"
+      },
+      {
+        "lines": [
+          "Hai regolato il flusso. Ora leggiamo insieme il ritmo di una battaglia!"
+        ],
+        "whenFlagMissing": "badge_marea_awarded"
+      },
+      {
+        "lines": [
+          "La Medaglia Marea ricorda la tua capacità di adattarti. La prossima parte della regione è ancora in preparazione: puoi esplorare, pescare e completare il Pokédex."
+        ]
+      }
+    ]
   }
 }

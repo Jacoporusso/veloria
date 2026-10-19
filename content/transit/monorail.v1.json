@@ -29,6 +29,12 @@
       "name": "Ferraluce",
       "mapId": "veloria/ferraluce",
       "spawnPointId": "metro_arrival"
+    },
+    {
+      "id": "portolume",
+      "name": "Portolume",
+      "mapId": "veloria/portolume",
+      "spawnPointId": "from_monorail"
     }
   ]
 }

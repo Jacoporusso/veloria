@@ -1,3 +1,10 @@
+## Integrazione locale Portolume 0.3.85 — 19/10/2026
+
+- Registrate R08, Portolume e P5 nel runtime: 24 mappe, 24 quest, nove allenatori, sei negozi e 158 asset validati. Dialoghi, canna, battello, puzzle, emblema Marea, accesso distinto da Ferraluce, diario, atlante e stazione collegati. Cache v106 preparata, versione non ancora pubblicata.
+- Type-check/build e suite dominio/persistenza passati (`.tmp/portolume-integration-tests.txt`). Il percorso dei test ora usa le collisioni condizionali con i flag correnti; non attraversa paratoie ancora chiuse.
+- Prima prova browser touch Portolume riuscita in 14,6 s: capitana, canna unica, viaggio all'isola, lettura misuratore, reload, ritorno al porto e rapporto. Screenshot ispezionato: illustrazione e personaggi renderizzati. Test `tests/e2e/portolume.spec.ts`. Setup a checkpoint isolato; non prova l'arrivo naturale dalla Centrale.
+- Restano verifica touch della pesca e dell'intero percorso Ferraluce–P5, lotta/medaglia, portrait/landscape completi, offline, feedback animati e bilanciamento naturale. I test sui dati delle bozze non sostituiscono questi percorsi runtime.
+
 ## Preparazione Portolume e attesa scena P4 — 19/10/2026
 
 - Creata l'illustrazione originale di Portolume, conservata con prompt e SHA256; non ancora uno sfondo runtime. Bozza della Costa riallineata all'immagine: 183 celle percorribili e 54 rettangoli di collisione, collegamento verificato tra ingressi, habitat e belvedere. Queste sono verifiche geometriche di bozza, non una traversata nel gioco. Registro completo: 154 asset.
