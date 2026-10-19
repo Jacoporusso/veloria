@@ -15,6 +15,7 @@ import { applyQuestEvent } from '../../core/quests/apply-quest-event';
 import { questCatalog } from '../quests/catalog.ts';
 import { selectWildEncounter } from '../../core/encounters/select-encounter.ts';
 import { rollEncounterCheck } from '../../core/encounters/roll-encounter-check.ts';
+import { castFishingLine, type FishingSpot } from '../../core/encounters/fishing.ts';
 import type { BattleEvent, BattleState } from '../../core/battle/types.ts';
 import { adjacentGridPoint, isGridTileOpen, selectAreaTrigger, tryGridMove, type CardinalDirection } from '../../core/world/index.ts';
 import { publicAssetUrl } from '../../core/assets/index.ts';
@@ -523,6 +524,10 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop?.kind === 'fishing-spot') {
+      this.showFishingMenu(prop);
+      return;
+    }
     if (prop?.kind === 'signal-router-switch') {
       this.showSignalRouterMenu(String(prop.properties.routerId), String(prop.properties.nodeId));
       return;
@@ -690,15 +695,62 @@ export class WorldScene extends Phaser.Scene {
       species: battleSpecies,
     });
     this.save.rngState = selected.nextRngState;
+    this.startWildBattle(selected.speciesId, selected.level);
+  }
+
+  private startWildBattle(speciesId: number, level: number) {
     const state = createWildBattle({
       save: this.save,
-      speciesId: selected.speciesId,
-      level: selected.level,
+      speciesId,
+      level,
       registries: { species: battleSpecies, moves: battleMoves },
       rules: veloriaBattleRules,
       battleId: createUniqueId(),
     });
     this.beginBattle(state);
+  }
+
+  private showFishingMenu(prop: MapInteractable) {
+    const tableId = prop.properties.encounterTableId;
+    const itemId = prop.properties.requiredItemId;
+    const biteChance = prop.properties.biteChance;
+    const table = typeof tableId === 'string' ? encounterCatalog[tableId] : undefined;
+    if (!table || typeof itemId !== 'string' || !itemCatalog[itemId] || typeof biteChance !== 'number') {
+      this.showToast('Postazione di pesca non configurata.');
+      return;
+    }
+    const spot: FishingSpot = {
+      id: prop.id, mapId: this.map.metadata.id, encounterTableId: table.id,
+      requiredItemId: itemId, biteChance,
+      requiredFlags: typeof prop.properties.requiredFlag === 'string' ? [prop.properties.requiredFlag] : [],
+    };
+    this.showServiceOptions(prop.name, `Usa ${itemCatalog[itemId].name} per cercare Pokémon nell’acqua. La canna non si consuma.`, [
+      { label: 'PESCA', icon: 'fishing', action: () => {
+        const result = castFishingLine({
+          spot, mapId: this.map.metadata.id, inventory: this.save.inventory, flags: this.save.flags,
+          hasReadyCreature: this.save.party.some(creature => creature.hp > 0),
+          rngState: this.save.rngState, localHour: new Date().getHours(), table, species: battleSpecies,
+        });
+        if (result.kind === 'blocked') {
+          const messages = {
+            'missing-equipment': `Ti serve ${itemCatalog[itemId].name}.`,
+            exhausted: 'La squadra ha bisogno di riposare prima di pescare.',
+            locked: 'Questo punto di pesca non è ancora disponibile.',
+            'wrong-map': 'Avvicinati alla postazione per pescare.',
+          };
+          this.showToast(messages[result.reason]);
+          return;
+        }
+        this.save.rngState = result.nextRngState;
+        if (result.kind === 'no-bite') {
+          this.persistProgress();
+          this.showToast('Nessuna abboccata. Puoi rilanciare la lenza.');
+          return;
+        }
+        this.startWildBattle(result.encounter.speciesId, result.encounter.level);
+      } },
+      { label: 'NON PESCARE', icon: 'close', action: () => undefined },
+    ]);
   }
 
   private startTrainerBattle(trainer: (typeof trainerCatalog)[string]) {

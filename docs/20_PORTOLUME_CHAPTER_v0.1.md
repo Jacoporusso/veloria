@@ -32,6 +32,14 @@ Scelta di progressione proposta per questa implementazione: accesso R08 dopo `q_
 
 Queste basi non costituiscono ancora pesca o navigazione giocabili. Mancano postazioni, equipaggiamento ottenibile, menu, animazioni, reti/spawn del capitolo, mappe e percorso fino alla medaglia. Esiti delle prove in `CI_STATUS.md`.
 
+## Collegamento della pesca in lavorazione
+
+Il WorldScene riconosce `kind=fishing-spot` e legge dal Tiled `encounterTableId`, `requiredItemId`, `biteChance` e l'eventuale `requiredFlag`. Il menu con icona propone il lancio o l'uscita; il lancio ricontrolla requisiti e squadra, conserva la canna e aggiorna il RNG anche senza abboccata. L'incontro avvia lo stesso costruttore di battaglia usato dagli habitat terrestri. Il validatore rifiuta tabelle di altre mappe o metodi, oggetti/flag inesistenti e probabilità non valide.
+
+Build e tre test del validatore passati; regressione reale E2E-03 passata in 56 secondi con HP, PP e XP persistenti dopo la rifattorizzazione dell'avvio selvatico. Mancano ancora la prova touch di una postazione reale, la canna ottenibile e il feedback animato: il collegamento tecnico non prova una sessione di pesca completa.
+
+Illustrazione della Costa generata e conservata con prompt/hash in `assets/prompts/r08-coast-v1.md`. Non è ancora uno sfondo runtime; la geometria Tiled deve essere adattata alla costa effettivamente disegnata.
+
 ## Gate di consegna
 
 1. Catalogo e learnset verificati sulle fonti locali, senza attribuire mosse per analogia di tipo.

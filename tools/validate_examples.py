@@ -15,6 +15,7 @@ from json_schema_validation import validate_json_schema
 from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
 from collision_gate_validation import validate_collision_gates
+from fishing_validation import validate_fishing_spot
 from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -198,6 +199,8 @@ for species_id, entries in learning["species"].items():
         check(type(entry["level"]) is int and 2 <= entry["level"] <= 100, f"Invalid learning level: {species_id}")
         check(entry["moveId"] in move_registry, f"Unknown level-up move: {entry['moveId']}")
 item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
+fishing_tables = {table["id"]: table for table in
+                  (json.loads(path.read_text(encoding="utf-8")) for path in ENCOUNTERS.glob("*.encounter.json"))}
 trainer_files = sorted(TRAINERS.glob("*.trainer.json"))
 trainers = [json.loads(file.read_text(encoding="utf-8")) for file in trainer_files]
 trainer_registry = {trainer["id"]: trainer for trainer in trainers}
@@ -440,6 +443,8 @@ for file in runtime_maps:
                         check(properties["battleRequiredFlag"] in quest_flags, f"Trainer requires an unregistered quest flag: {properties['trainerId']}")
             elif kind in {"house", "sign", "mill-wheel", "rock", "hotspot"}:
                 check(isinstance(properties.get("message"), str) or properties.get("dialogueId") in dialogues, f"Missing interaction message or dialogue in {metadata['id']}: {obj.get('name')}")
+            if kind == "fishing-spot":
+                validate_fishing_spot(properties, metadata["id"], fishing_tables, item_registry, quest_flags)
             if kind == "pickup":
                 check(properties.get("itemId") in item_registry, f"Unknown pickup item in {metadata['id']}: {obj.get('name')}")
                 check(properties.get("questEvent") in quest_triggers, f"Unknown pickup quest event in {metadata['id']}: {obj.get('name')}")
