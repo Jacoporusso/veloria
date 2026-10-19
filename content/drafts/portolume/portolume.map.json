@@ -1,0 +1,69 @@
+{
+  "id": "veloria/portolume",
+  "version": 2,
+  "displayName": "Portolume Ã‚Â· Porto delle Maree",
+  "biomeId": "coastal_harbor",
+  "tiledAsset": "tilemaps/portolume.tmj",
+  "renderAssets": [],
+  "spawns": [
+    {
+      "id": "from_r08",
+      "x": 1,
+      "y": 17,
+      "facing": "right"
+    },
+    {
+      "id": "dock_mainland",
+      "x": 25,
+      "y": 14,
+      "facing": "right"
+    },
+    {
+      "id": "dock_observatory",
+      "x": 33,
+      "y": 9,
+      "facing": "down"
+    },
+    {
+      "id": "from_gym05",
+      "x": 18,
+      "y": 8,
+      "facing": "down"
+    },
+    {
+      "id": "from_monorail",
+      "x": 7,
+      "y": 22,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r08_costa_turbine",
+      "viaSpawnId": "from_r08",
+      "targetSpawnId": "from_portolume",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/gym05_portolume",
+      "viaSpawnId": "from_gym05",
+      "targetSpawnId": "from_portolume",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "portolume_center",
+    "portolume_market_npc",
+    "portolume_captain"
+  ],
+  "scriptRefs": [],
+  "musicId": "ambient_portolume",
+  "battleBackgroundKey": "veloria-battle-coast-v1",
+  "ambientEffects": [],
+  "terrainBase": {
+    "assetKey": "veloria-coastal-floor-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 1
+  }
+}

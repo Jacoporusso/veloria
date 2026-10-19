@@ -1,0 +1,72 @@
+{
+  "id": "veloria/r08_costa_turbine",
+  "version": 2,
+  "displayName": "Costa delle Turbine",
+  "biomeId": "coastal_route",
+  "tiledAsset": "tilemaps/r08_costa_turbine.tmj",
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-battle-forest-v1",
+      "path": "assets/battle/veloria-battle-forest-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-field-props-v1",
+      "path": "assets/sprites/veloria-field-props-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r08-coast-v1",
+      "path": "assets/sprites/veloria-r08-coast-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_ferraluce",
+      "x": 1,
+      "y": 21,
+      "facing": "right"
+    },
+    {
+      "id": "from_portolume",
+      "x": 38,
+      "y": 11,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/ferraluce",
+      "viaSpawnId": "from_ferraluce",
+      "targetSpawnId": "from_r08",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/portolume",
+      "viaSpawnId": "from_portolume",
+      "targetSpawnId": "from_r08",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r08_coastal_grass",
+    "veloria/r08_shore_fishing"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-battle-forest-v1"
+}
