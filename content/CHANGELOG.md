@@ -1,3 +1,10 @@
+## veloria-content-0.3.83 — 19/10/2026
+
+- Basi per Portolume: azione di pesca pura con equipaggiamento, prerequisiti e RNG persistibile; planner di tragitti locali in barca con approdi anche nella stessa mappa e autorizzazioni ricontrollate all'imbarco. I sistemi non sono ancora collegati a postazioni giocabili.
+- Collisioni Tiled estratte nel dominio e integrate nel renderer: `blocksUntilFlag` apre soltanto l'ingombro della chiusa completata. Validazione contro flag di quest inesistenti; i muri fissi sovrapposti restano solidi. Nessuna chiusa nuova esposta nelle mappe pubbliche in questa consegna.
+- Quindici prove mirate dei nuovi moduli e tre prove browser di regressione passate; build e validazione contenuti superate. Fonti PokéAPI costiere acquisite localmente, prima dell'import nel catalogo. Cache PWA v104.
+- Portolume, pesca nel mondo, tragitti, quinta palestra e relativa grafica restano in implementazione; contratto nel documento 20. Il percorso pubblico continua a terminare dopo l'indagine della Centrale.
+
 ## veloria-content-0.3.82 — 19/10/2026
 
 - Dopo la Medaglia Acciaio, il Condotto Risonante collega Ferraluce alla Centrale: due mappe illustrate originali con percorsi, collisioni, ritorni sempre aperti e habitat opzionali. 21 mappe, 21 missioni, quattro medaglie; l'avventura completa non è ancora disponibile.

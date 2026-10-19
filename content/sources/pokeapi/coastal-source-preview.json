@@ -1,0 +1,52 @@
+{
+  "status": "source-preview-not-runtime",
+  "versionGroup": "heartgold-soulsilver",
+  "speciesIds": [
+    72,
+    98,
+    170,
+    171
+  ],
+  "resources": {
+    "pokemon/72": {
+      "url": "https://pokeapi.co/api/v2/pokemon/72/",
+      "path": "content/sources/pokeapi/pokemon-72.json",
+      "sha256": "2e92ece629e86b46643ddca464b2f8f1a9f8099ce786ec47d7f946dce7af559d"
+    },
+    "pokemon-species/72": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/72/",
+      "path": "content/sources/pokeapi/pokemon-species-72.json",
+      "sha256": "655d0581c20c80439506ef18807aeae2bce77b0908736b4c535b124f089092e7"
+    },
+    "pokemon/98": {
+      "url": "https://pokeapi.co/api/v2/pokemon/98/",
+      "path": "content/sources/pokeapi/pokemon-98.json",
+      "sha256": "a1e32ffd5fb2402e3d4de0219e9de3e74153e66773073be091df27e652c49f08"
+    },
+    "pokemon-species/98": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/98/",
+      "path": "content/sources/pokeapi/pokemon-species-98.json",
+      "sha256": "c3a7c55c875e6aa91dcefe2d050d653c789677a080a09458d178019188ec0649"
+    },
+    "pokemon/170": {
+      "url": "https://pokeapi.co/api/v2/pokemon/170/",
+      "path": "content/sources/pokeapi/pokemon-170.json",
+      "sha256": "53344fb78d1e1849e83d6ffac2b094b4ff043bb2355925a9ef1a4309ba0e5af2"
+    },
+    "pokemon-species/170": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/170/",
+      "path": "content/sources/pokeapi/pokemon-species-170.json",
+      "sha256": "021bb3e168c59bfeca204cb4ab20b2afb4430b844cf3fe38d8d9e24cf006929b"
+    },
+    "pokemon/171": {
+      "url": "https://pokeapi.co/api/v2/pokemon/171/",
+      "path": "content/sources/pokeapi/pokemon-171.json",
+      "sha256": "b71f0c8b3ad18a6b999d79b83af0b6579774228662bc8dbfcadb634eb6c3da3c"
+    },
+    "pokemon-species/171": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/171/",
+      "path": "content/sources/pokeapi/pokemon-species-171.json",
+      "sha256": "914ce7873d5a7afd549b770335484af8f8611d31a6bdf6d03fa6347dd61b443a"
+    }
+  }
+}

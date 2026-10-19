@@ -14,6 +14,7 @@ from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
 from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
+from collision_gate_validation import validate_collision_gates
 from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -453,6 +454,7 @@ for file in runtime_maps:
     check(len(spawn_ids) == len(metadata["spawns"]), f"Duplicate runtime spawn in {metadata['id']}")
     collision_layer = layers["collision"]
     check(collision_layer.get("type") == "objectgroup", f"collision must be an object layer in {tiled_path.name}")
+    validate_collision_gates(collision_layer.get("objects", []), quest_flags)
     blocked = set()
     for obj in collision_layer.get("objects", []):
         left, top = max(0, int(obj.get("x", 0) // 32)), max(0, int(obj.get("y", 0) // 32))

@@ -8,6 +8,7 @@ import { renderRailConsole } from './rail-console';
 import { renderTransitTerminal } from './TransitTerminal';
 import { getSignalRouter } from '../maps/signal-router-registry';
 import { renderSignalRouter } from './signal-router';
+import { collectMapCollision } from '../../core/world/map-collision';
 
 const TILE = 32;
 type RenderedMap = {
@@ -20,7 +21,6 @@ type RenderedMap = {
 };
 
 type TiledObject = Phaser.Types.Tilemaps.TiledObject & { properties?: unknown; class?: string };
-const cellKey = (x: number, y: number) => `${x},${y}`;
 
 function propertiesOf(object: TiledObject): Record<string, unknown> {
   if (Array.isArray(object.properties)) {
@@ -117,7 +117,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   container.add(terrainSurface);
   for (const layer of terrainLayers) layer.destroy();
 
-  const occupied = collectCollision(tilemap, tilemap.width, tilemap.height);
+  const occupied = collectMapCollision(tilemap.getObjectLayer('collision')?.objects ?? [], tilemap.width, tilemap.height, collectedFlags);
   const interactables: MapInteractable[] = [];
   for (const layerName of ['decorations', 'characters', 'canopy_overhead', 'interactions']) {
     const objectLayer = tilemap.getObjectLayer(layerName);
@@ -167,20 +167,6 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   });
 
   return { container, occupied, interactables, triggers, width: tilemap.width, height: tilemap.height };
-}
-
-function collectCollision(tilemap: Phaser.Tilemaps.Tilemap, width: number, height: number): Set<string> {
-  const occupied = new Set<string>();
-  for (const object of tilemap.getObjectLayer('collision')?.objects ?? []) {
-    const objectX = object.x ?? 0, objectY = object.y ?? 0;
-    const objectWidth = object.width ?? TILE, objectHeight = object.height ?? TILE;
-    const left = Math.max(0, Math.floor(objectX / TILE));
-    const top = Math.max(0, Math.floor(objectY / TILE));
-    const right = Math.min(width, Math.ceil((objectX + Math.max(1, objectWidth)) / TILE));
-    const bottom = Math.min(height, Math.ceil((objectY + Math.max(1, objectHeight)) / TILE));
-    for (let y = top; y < bottom; y++) for (let x = left; x < right; x++) occupied.add(cellKey(x, y));
-  }
-  return occupied;
 }
 
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
