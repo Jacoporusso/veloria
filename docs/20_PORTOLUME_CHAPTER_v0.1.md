@@ -40,6 +40,8 @@ Build e tre test del validatore passati; regressione reale E2E-03 passata in 56 
 
 Illustrazione della Costa generata e conservata con prompt/hash in `assets/prompts/r08-coast-v1.md`. Non è ancora uno sfondo runtime; la geometria Tiled deve essere adattata alla costa effettivamente disegnata.
 
+La bozza R08 è stata riallineata: ingresso ovest y21–22, uscita est y10–11, belvedere (21,14), percorsi verso entrambi gli habitat verificati con BFS. Restano ispezione nel gioco e registrazione insieme al capitolo. Portolume ha ora una prima illustrazione originale (`assets/prompts/portolume-v1.md`), con centro, mercato, palestra e isola separata; la geometria della città deve ancora essere riallineata all'output. Le bozze sotto `.tmp/portolume-draft/` e `.tmp/portolume-city-draft/` non sono contenuti caricati dal gioco.
+
 ## Gate di consegna
 
 1. Catalogo e learnset verificati sulle fonti locali, senza attribuire mosse per analogia di tipo.

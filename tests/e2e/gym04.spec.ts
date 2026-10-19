@@ -104,7 +104,9 @@ test('Rhea requires the circuit, awards Acciaio once, and the medal survives rel
     await expect.poll(async () => {
       const mode = await page.evaluate(() => {
         const scene = (window as any).__gym04Game.scene.keys.battle;
-        return !scene ? 'loading' : scene.terminalShown ? 'terminal' : scene.mode;
+        return !scene?.sys.isActive() || !scene.ui || !scene.state
+          ? 'loading'
+          : scene.terminalShown ? 'terminal' : scene.mode;
       });
       if (mode === 'learning') await tapLabel('Tieni le mosse');
       return mode === 'terminal' || mode === 'menu';

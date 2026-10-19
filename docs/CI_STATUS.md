@@ -1,3 +1,10 @@
+## Preparazione Portolume e attesa scena P4 — 19/10/2026
+
+- Creata l'illustrazione originale di Portolume, conservata con prompt e SHA256; non ancora uno sfondo runtime. Bozza della Costa riallineata all'immagine: 183 celle percorribili e 54 rettangoli di collisione, collegamento verificato tra ingressi, habitat e belvedere. Queste sono verifiche geometriche di bozza, non una traversata nel gioco. Registro completo: 154 asset.
+- Audit Verify 39221522486: shard 2, shard 3 e Offline riusciti; shard 1 con 34 prove passate e tre fallimenti. Centrale (180 s) e Ferraluce (240 s) esauriscono il budget esterno durante la lettura del movimento. Restano da diagnosticare. Log e artefatti in `.tmp/ci-39221522486/`.
+- P4: il test osservava `mode=menu` dopo init, prima della creazione di `ui`, poi leggeva `ui.list` inesistente. L'attesa ora richiede scena attiva, stato e container UI prima di leggere il modo. Nessuna modifica ai tempi o al runtime. Percorso completo di Rhea passato localmente in 34,2 s, compresi premio unico, banner e medaglia persistente dopo reload. Non prova da solo la risoluzione di tutta la CI.
+- Deploy Pages 39225087089 su 3ab585a riuscito; Verify 39225087078 accodata al controllo. Verify precedente 39223134920 ancora in esecuzione, con shard 3 già riuscito. Nessun riavvio o cancellazione effettuati.
+
 ## Catalogo costiero 0.3.84 — 19/10/2026
 
 - Catalogo esteso a 40 specie e 48 mosse con fonti PokéAPI locali: sei specie delle famiglie Tentacool, Krabby e Chinchou; evoluzioni ai livelli 30/28/27; Bollaraggio, Presa e Barriera con parametri HGSS. Gli habitat costieri non sono ancora collegati al mondo.
