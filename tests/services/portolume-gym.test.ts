@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import trainer from '../../content/drafts/portolume/gym05_nerea.trainer.json' with { type: 'json' };
-import puzzle from '../../content/drafts/portolume/gym05_sluices.quest.json' with { type: 'json' };
-import medal from '../../content/drafts/portolume/gym05_badge.quest.json' with { type: 'json' };
+import trainer from '../../content/trainers/gym05_nerea.trainer.json' with { type: 'json' };
+import puzzle from '../../content/quests/gym05_sluices.quest.json' with { type: 'json' };
+import medal from '../../content/quests/gym05_badge.quest.json' with { type: 'json' };
 import learnsets from '../../content/sources/pokeapi/source-learnsets.json' with { type: 'json' };
 import moves from '../../content/battle/moves.v1.json' with { type: 'json' };
 import { applyQuestEvent } from '../../src/core/quests/apply-quest-event.ts';
@@ -39,7 +39,7 @@ test('sluices open in sequence and the fifth badge remains unique after serializ
 });
 
 test('gym geometry exposes each next control and keeps the south return reachable', () => {
-  const map = JSON.parse(readFileSync(new URL('../../content/drafts/portolume/gym05_portolume.tmj', import.meta.url), 'utf8'));
+  const map = JSON.parse(readFileSync(new URL('../../public/tilemaps/gym05_portolume.tmj', import.meta.url), 'utf8'));
   const collision = map.layers.find((layer: any) => layer.name === 'collision').objects;
   const reach = (flags: string[]) => {
     const blocked = collectMapCollision(collision, map.width, map.height, flags);

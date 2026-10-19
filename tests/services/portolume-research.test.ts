@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import quest from '../../content/drafts/portolume/portolume_research.quest.json' with { type: 'json' };
-import network from '../../content/drafts/portolume/portolume_harbor.ferry.json' with { type: 'json' };
-import map from '../../content/drafts/portolume/portolume.map.json' with { type: 'json' };
+import quest from '../../content/quests/portolume_research.quest.json' with { type: 'json' };
+import network from '../../content/transit/portolume_harbor.ferry.json' with { type: 'json' };
+import map from '../../content/maps/portolume.map.json' with { type: 'json' };
 import { applyQuestEvent } from '../../src/core/quests/apply-quest-event.ts';
 import { localFerryDestinations, planLocalFerryTrip } from '../../src/core/world/local-ferry.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';

@@ -14,6 +14,39 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('Portolume ferry and new chapter resources work on their first offline request', async({page,context})=>{
+  test.setTimeout(90_000);
+  await page.goto('/');await enterGame(page);
+  await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+  const save=await readBrowserSave(page);
+  save.flags=[...save.flags,'q_starter_selected','q_centrale_report','q_portolume_visited','q_portolume_orientation'];
+  save.player={...save.player,mapId:'veloria/portolume',spawnPointId:'dock_mainland',x:25,y:14};
+  await seedBrowserSave(page,save);
+  await context.setOffline(true);
+  const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));
+  await page.reload();await enterGame(page);
+  const decoded=await page.evaluate(async()=>{
+    const names=['r08-coast','portolume','gym05-sluices'];
+    return Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/sprites/veloria-${name}-v1.webp`;await image.decode();return image.naturalWidth>1000;}));
+  });
+  expect(decoded).toEqual([true,true,true]);
+  const mapSizes=await page.evaluate(async()=>Promise.all(['r08_costa_turbine','portolume','gym05_portolume'].map(async name=>{
+    const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return (await response.json()).width;
+  })));
+  expect(mapSizes).toEqual([40,40,32]);
+  await page.getByRole('button',{name:'Vai a destra',exact:true}).tap();
+  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();
+  await page.getByRole('button',{name:'Osservatorio delle maree',exact:true}).tap();
+  await expect.poll(async()=>(await readBrowserSave(page)).player.spawnPointId).toBe('dock_observatory');
+  await page.reload();await enterGame(page);
+  await walkTo(page,'portolume.tmj',33,10);
+  await page.getByRole('button',{name:'Vai a sinistra',exact:true}).tap();
+  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();
+  await page.getByRole('button',{name:'Molo di Portolume',exact:true}).tap();
+  await expect.poll(async()=>(await readBrowserSave(page)).player.spawnPointId).toBe('dock_mainland');
+  expect(failures).toEqual([]);
+});
+
 async function getMvpResourcePaths(): Promise<string[]> {
   const mapsDirectory = new URL('../../content/maps/', import.meta.url);
   const files = await readdir(mapsDirectory);

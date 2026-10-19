@@ -1,3 +1,11 @@
+## Verifiche Portolume 0.3.85 — 19/10/2026
+
+- Percorso touch P5 superato in 51,7 s: tre console, apertura progressiva dei ponti, reload, battaglia Nerea, banner/emblema, premio 1400 monete e medaglia unica dopo reload. Squadra di checkpoint potenziata: prova di integrazione, non bilanciamento naturale.
+- Traversata Ferraluce–R08–Portolume e ritorno R08, seguita dal lancio della lenza, superata in 37,7 s. Incontro effettivo con specie della tabella pesca e livello 20–23; canna conservata. Nessun teletrasporto dopo il setup iniziale.
+- Porto–osservatorio–porto con canna e rapporto persistenti passato anche con cambio portrait/landscape e bersaglio A di almeno 44×44 px (14,4 s). Screenshot landscape ispezionato.
+- Production offline: primo accesso ai tre Tiled e tre WebP, viaggio all'isola, reload e ritorno al porto passati in 18,1 s compresa build. Non è una lotta P5 completa offline. Test canonici di ricerca/palestra ora leggono i file runtime e passano (cinque prove).
+- Suite locale precedente: 311 dominio + 16 persistenza. CI pubblica precedente 39225087078 fallita negli shard 1/2; shard 3 e Offline riusciti. Run 39223134920 anch'essa fallita. Cause residue da diagnosticare; nessuna affermazione di CI completamente verde. Pubblicazione del capitolo da controllare dopo push.
+
 ## Integrazione locale Portolume 0.3.85 — 19/10/2026
 
 - Registrate R08, Portolume e P5 nel runtime: 24 mappe, 24 quest, nove allenatori, sei negozi e 158 asset validati. Dialoghi, canna, battello, puzzle, emblema Marea, accesso distinto da Ferraluce, diario, atlante e stazione collegati. Cache v106 preparata, versione non ancora pubblicata.
