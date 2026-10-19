@@ -1048,17 +1048,23 @@ export class WorldScene extends Phaser.Scene {
 
   private showSignalRouterMenu(routerId: string, nodeId: string): void {
     const router = getSignalRouter(routerId);
+    const reflection = router.presentation === 'reflection';
     const node = router.nodes.find(candidate => candidate.id === nodeId);
     if (!node) return;
     this.afterDialogue = null;
     if (this.save.flags.includes(router.solvedFlag)) {
-      this.showDialogue(node.label, ['Il circuito è stabile: il segnale ha raggiunto il ricevitore. Puoi affrontare il capopalestra.']);
+      this.showDialogue(node.label, [reflection
+        ? 'Gli specchi sono allineati: la luce ha raggiunto il ricevitore. Puoi affrontare la prova della palestra.'
+        : 'Il circuito è stabile: il segnale ha raggiunto il ricevitore. Puoi affrontare il capopalestra.']);
       return;
     }
     const current = signalRouterState(router, node, this.save.flags);
     const trace = traceSignalRouter(router, this.save.flags);
     const last = router.nodes.find(candidate => candidate.id === trace.nodeIds.at(-1))!;
-    this.showServiceOptions(node.label, `Direzione: ${current.label}. Il segnale arriva a ${last.label}. Segui le linee sul pavimento fino al ricevitore.`, [
+    const prompt = reflection
+      ? `Orientamento: ${current.label}. La luce raggiunge ${last.label}. Ruota gli specchi e segui il fascio fino al ricevitore.`
+      : `Direzione: ${current.label}. Il segnale arriva a ${last.label}. Segui le linee sul pavimento fino al ricevitore.`;
+    this.showServiceOptions(node.label, prompt, [
       { label: 'RUOTA', icon: 'rotate', action: () => {
         const result = rotateSignalRouter(router, nodeId, this.save.flags);
         this.save = { ...this.save, flags: result.flags };

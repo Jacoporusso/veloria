@@ -4978,11 +4978,6 @@
     ],
     "96": [
       {
-        "level": 1,
-        "moveId": "pound",
-        "order": 1
-      },
-      {
         "level": 7,
         "moveId": "disable",
         "order": null
@@ -4995,11 +4990,6 @@
       {
         "level": 18,
         "moveId": "poison-gas",
-        "order": null
-      },
-      {
-        "level": 21,
-        "moveId": "meditate",
         "order": null
       },
       {
@@ -5051,11 +5041,6 @@
       },
       {
         "level": 1,
-        "moveId": "pound",
-        "order": 3
-      },
-      {
-        "level": 1,
         "moveId": "disable",
         "order": 5
       },
@@ -5072,11 +5057,6 @@
       {
         "level": 18,
         "moveId": "poison-gas",
-        "order": null
-      },
-      {
-        "level": 21,
-        "moveId": "meditate",
         "order": null
       },
       {

@@ -719,6 +719,34 @@
       "priority": 0,
       "maxPp": 20,
       "alwaysHits": true
+    },
+    "pound": {
+      "id": "pound",
+      "name": "Botta",
+      "type": "normal",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35
+    },
+    "meditate": {
+      "id": "meditate",
+      "name": "Meditazione",
+      "type": "psychic",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 40,
+      "alwaysHits": true,
+      "statChanges": [
+        {
+          "target": "self",
+          "stat": "attack",
+          "stages": 1
+        }
+      ]
     }
   }
 }

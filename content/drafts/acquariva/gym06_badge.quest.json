@@ -1,0 +1,10 @@
+{
+  "id": "veloria/q_gym06_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Riflesso",
+  "steps": [
+    { "id": "complete", "trigger": "battle/trainer_selene/defeated", "setFlag": "badge_riflesso_awarded", "requiresFlags": ["q_acquariva_report", "gym06_reflections_aligned"], "addBadge": "badge_riflesso" }
+  ],
+  "completionFlag": "badge_riflesso_awarded",
+  "reward": {}
+}

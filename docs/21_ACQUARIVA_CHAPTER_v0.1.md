@@ -13,6 +13,10 @@ Stato: preparazione, non giocabile. Fonte principale: documento 02, sezioni 3–
 
 ## Implementazione iniziata
 
+P6 preparata in bozza: Selene schiera Hypno 35, Slowbro 37 ed Espeon 38; dodici mosse verificate sui learnset HGSS. Botta e Meditazione importate dalle fonti locali, portando il catalogo a 53 mosse. Medaglia Riflesso e premio allenatore 1800 monete; feedback su immunità Buio, doppio tipo e status. Requisiti di medaglia: rapporto del lago e puzzle completo.
+
+Ambiente illustrato allineato al Tiled, con sei dispositivi ottici solidi e quattro controlli aggirabili. Tre prove su squadra, geometria e medaglia unica, più le due prove del puzzle in 24 ordini, passate. Suite completa 330 dominio + 16 persistenza (`.tmp/p6-preparation-tests.txt`). Manca integrazione runtime, dialoghi, emblema e percorso touch. R11 resta da realizzare prima di aprire il capitolo.
+
 Catalogo lacustre pronto: Slowpoke/Slowbro, Drowzee/Hypno, Natu/Xatu, Eevee/Espeon con fonti PokéAPI locali e artwork. Registrate le tre evoluzioni per livello; altre condizioni restano riferimenti espliciti non ancora eseguibili. Psicoraggio, Stordiraggio e Comete disponibili con semantica HGSS. La scelta della squadra P6 deve ancora avvenire sui learnset effettivi; non assegnare a Natu/Xatu mosse Psico anticipate per analogia di tipo. Nessuna delle nuove specie è ancora assegnata a habitat giocabili.
 
 Il sistema di orientamenti condiviso supporta `presentation=reflection` e inclinazioni `/` e `\\`. La variante mostra soltanto i fasci attivi e gli specchi inclinati, anziché frecce e condutture. La propagazione usa il grafo dichiarato nei dati: non è un simulatore ottico libero né ricerca automaticamente ostacoli sul Tiled.
