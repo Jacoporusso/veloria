@@ -1,3 +1,8 @@
+## Pubblicazione 0.3.86 e Sentiero delle Canne — 19/10/2026
+
+- Deploy GitHub Pages 39286113121 su 371f469 completato con successo; Verify 39286112986 ancora in esecuzione al controllo. Non si dichiara verde l'intera CI.
+- Preparati illustrazione e dati R10, con due habitat opzionali, riferimenti per orientarsi e ricompensa laterale unica. Due prove di tabelle/raggiungibilità e persistenza del kit passate. R10 non è ancora caricato dal gioco; nessun nuovo accesso aperto verso Acquariva.
+
 ## Catalogo lacustre — checkpoint locale successivo a 0.3.86
 
 - Importate otto specie (Slowpoke/Slowbro, Drowzee/Hypno, Natu/Xatu, Eevee/Espeon), parametri, learnset HGSS e artwork ufficiali locali. Catalogo 48 specie/51 mosse; Psicoraggio, Stordiraggio e Comete importate con effetti supportati. 378 voci learnset non implementate ancora esplicitamente registrate. Habitat nuovi non collegati al mondo.
