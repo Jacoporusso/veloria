@@ -98,6 +98,10 @@
       {
         "level": 18,
         "moveId": "supersonic"
+      },
+      {
+        "level": 24,
+        "moveId": "psybeam"
       }
     ],
     "13": [],
@@ -423,6 +427,10 @@
       {
         "level": 19,
         "moveId": "screech"
+      },
+      {
+        "level": 33,
+        "moveId": "swift"
       }
     ],
     "17": [
@@ -563,6 +571,10 @@
         "moveId": "sand-attack"
       },
       {
+        "level": 9,
+        "moveId": "swift"
+      },
+      {
         "level": 12,
         "moveId": "agility"
       },
@@ -681,6 +693,10 @@
         "moveId": "water-gun"
       },
       {
+        "level": 17,
+        "moveId": "confuse-ray"
+      },
+      {
         "level": 20,
         "moveId": "spark"
       },
@@ -699,12 +715,124 @@
         "moveId": "water-gun"
       },
       {
+        "level": 17,
+        "moveId": "confuse-ray"
+      },
+      {
         "level": 20,
         "moveId": "spark"
       },
       {
         "level": 30,
         "moveId": "bubble-beam"
+      }
+    ],
+    "79": [
+      {
+        "level": 6,
+        "moveId": "growl"
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 15,
+        "moveId": "confusion"
+      },
+      {
+        "level": 43,
+        "moveId": "amnesia"
+      }
+    ],
+    "80": [
+      {
+        "level": 6,
+        "moveId": "growl"
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 15,
+        "moveId": "confusion"
+      },
+      {
+        "level": 37,
+        "moveId": "withdraw"
+      },
+      {
+        "level": 47,
+        "moveId": "amnesia"
+      }
+    ],
+    "96": [
+      {
+        "level": 9,
+        "moveId": "confusion"
+      },
+      {
+        "level": 26,
+        "moveId": "psybeam"
+      }
+    ],
+    "97": [
+      {
+        "level": 9,
+        "moveId": "confusion"
+      },
+      {
+        "level": 28,
+        "moveId": "psybeam"
+      }
+    ],
+    "133": [
+      {
+        "level": 8,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 15,
+        "moveId": "growl"
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack"
+      }
+    ],
+    "177": [
+      {
+        "level": 23,
+        "moveId": "confuse-ray"
+      }
+    ],
+    "178": [
+      {
+        "level": 23,
+        "moveId": "confuse-ray"
+      }
+    ],
+    "196": [
+      {
+        "level": 8,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 15,
+        "moveId": "confusion"
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 29,
+        "moveId": "swift"
+      },
+      {
+        "level": 36,
+        "moveId": "psybeam"
       }
     ]
   }

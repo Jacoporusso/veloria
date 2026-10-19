@@ -30,7 +30,7 @@ function defeatWild(speciesId: number, experience: number, level = 15) {
   return { injured, moveSlot, ...transition };
 }
 
-for (const [fromId, toId, threshold] of [[1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27]]) {
+for (const [fromId, toId, threshold] of [[1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25]]) {
   test(`${species[fromId].name} evolves at level ${threshold} and preserves identity, injury and spent PP through saving`, () => {
     const required = experienceToNextLevel(threshold - 1, progression.growthCurves.veloria_medium_fast_v1);
     const { injured, moveSlot, state, events } = defeatWild(fromId, required - 1, threshold - 1);

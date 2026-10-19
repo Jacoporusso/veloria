@@ -682,6 +682,43 @@
           "stages": 2
         }
       ]
+    },
+    "psybeam": {
+      "id": "psybeam",
+      "name": "Psicoraggio",
+      "type": "psychic",
+      "category": "special",
+      "power": 65,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "inflictedConfusionChance": 10,
+      "minConfusionTurns": 2,
+      "maxConfusionTurns": 5
+    },
+    "confuse-ray": {
+      "id": "confuse-ray",
+      "name": "Stordiraggio",
+      "type": "ghost",
+      "category": "status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 10,
+      "inflictedConfusionChance": 100,
+      "minConfusionTurns": 2,
+      "maxConfusionTurns": 5
+    },
+    "swift": {
+      "id": "swift",
+      "name": "Comete",
+      "type": "normal",
+      "category": "special",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "alwaysHits": true
     }
   }
 }

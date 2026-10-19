@@ -56,13 +56,25 @@ def main(argv=None):
                 # Reference-only location evolutions do not enable runtime rules.
                 # Fail closed if upstream introduces a condition we cannot explain.
                 extra = {key: value for key, value in detail.items()
-                         if key not in {'trigger', 'min_level', 'item', 'location', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
+                         if key not in {'trigger', 'min_level', 'item', 'location', 'near_special_rock', 'held_item', 'min_happiness', 'time_of_day', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
                          and value is not None and value is not False and value != '' and value != []}
                 if extra:
                     raise ValueError(f'Unsupported evolution conditions for {species_id}: {extra}')
                 trigger = detail['trigger']['name']
                 item_name = None
                 location_name = None
+                held_item_name = None
+                if detail.get('near_special_rock') and not detail.get('location'):
+                    raise ValueError(f'Special-rock evolution lacks its reference location for {species_id}')
+                happiness = detail.get('min_happiness')
+                time_of_day = detail.get('time_of_day') or None
+                if happiness is not None and (not isinstance(happiness, int) or happiness < 1):
+                    raise ValueError(f'Invalid friendship condition for {species_id}')
+                if time_of_day not in (None, 'day', 'night'):
+                    raise ValueError(f'Unsupported time-of-day condition for {species_id}: {time_of_day}')
+                if detail.get('held_item'):
+                    held_item = load('item', key_of(detail['held_item']))
+                    held_item_name = next(name['name'] for name in held_item['names'] if name['language']['name'] == 'it')
                 if detail.get('location'):
                     if trigger != 'level-up':
                         raise ValueError(f'Unsupported location trigger for {species_id}: {detail}')
@@ -74,13 +86,23 @@ def main(argv=None):
                 if trigger == 'use-item' and detail['item']:
                     item = load('item', key_of(detail['item']))
                     item_name = next(name['name'] for name in item['names'] if name['language']['name'] == 'it')
-                elif trigger != 'level-up' or not (detail['min_level'] or location_name):
+                elif trigger == 'trade':
+                    pass  # Reference only; this does not enable a multiplayer evolution.
+                elif trigger != 'level-up' or not (detail['min_level'] or location_name or happiness):
                     raise ValueError(f'Unsupported evolution trigger for {species_id}: {detail}')
                 entry = {'targetSpeciesId': target_id,
                          'targetName': next(name['name'] for name in target['names'] if name['language']['name'] == 'it'),
                          'trigger': trigger, 'minimumLevel': detail['min_level'], 'itemName': item_name}
                 if location_name:
                     entry['locationName'] = location_name
+                if detail.get('near_special_rock'):
+                    entry['nearSpecialRock'] = True
+                if held_item_name:
+                    entry['heldItemName'] = held_item_name
+                if happiness:
+                    entry['minimumHappiness'] = happiness
+                if time_of_day:
+                    entry['timeOfDay'] = time_of_day
                 if entry not in evolutions:
                     evolutions.append(entry)
         entries[str(species_id)] = {'evolutions': evolutions}

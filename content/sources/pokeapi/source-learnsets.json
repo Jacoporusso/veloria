@@ -2710,6 +2710,632 @@
         "moveId": "charge",
         "order": null
       }
+    ],
+    "79": [
+      {
+        "level": 1,
+        "moveId": "curse",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "yawn",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 3
+      },
+      {
+        "level": 6,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "slack-off",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "psych-up",
+        "order": null
+      }
+    ],
+    "80": [
+      {
+        "level": 1,
+        "moveId": "curse",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "yawn",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 4
+      },
+      {
+        "level": 6,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "withdraw",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "slack-off",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "amnesia",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 61,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 67,
+        "moveId": "psych-up",
+        "order": null
+      }
+    ],
+    "96": [
+      {
+        "level": 1,
+        "moveId": "pound",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "hypnosis",
+        "order": 2
+      },
+      {
+        "level": 7,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "poison-gas",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "meditate",
+        "order": null
+      },
+      {
+        "level": 26,
+        "moveId": "psybeam",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "swagger",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "nasty-plot",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "future-sight",
+        "order": null
+      }
+    ],
+    "97": [
+      {
+        "level": 1,
+        "moveId": "nightmare",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "switcheroo",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "pound",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "hypnosis",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "disable",
+        "order": 5
+      },
+      {
+        "level": 1,
+        "moveId": "confusion",
+        "order": 6
+      },
+      {
+        "level": 7,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "poison-gas",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "meditate",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "psybeam",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "swagger",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "nasty-plot",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 69,
+        "moveId": "future-sight",
+        "order": null
+      }
+    ],
+    "133": [
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "trump-card",
+        "order": null
+      }
+    ],
+    "177": [
+      {
+        "level": 1,
+        "moveId": "peck",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "teleport",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "miracle-eye",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "wish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "ominous-wind",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "power-swap",
+        "order": 1
+      },
+      {
+        "level": 44,
+        "moveId": "guard-swap",
+        "order": 2
+      },
+      {
+        "level": 47,
+        "moveId": "psychic",
+        "order": null
+      }
+    ],
+    "178": [
+      {
+        "level": 1,
+        "moveId": "peck",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "teleport",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "miracle-eye",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "wish",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "ominous-wind",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "power-swap",
+        "order": 1
+      },
+      {
+        "level": 54,
+        "moveId": "guard-swap",
+        "order": 2
+      },
+      {
+        "level": 59,
+        "moveId": "psychic",
+        "order": null
+      }
+    ],
+    "196": [
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "confusion",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "swift",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "psybeam",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "morning-sun",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "power-swap",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -2836,11 +3462,6 @@
       {
         "level": 22,
         "moveId": "whirlwind",
-        "order": null
-      },
-      {
-        "level": 24,
-        "moveId": "psybeam",
         "order": null
       },
       {
@@ -3536,11 +4157,6 @@
         "order": null
       },
       {
-        "level": 33,
-        "moveId": "swift",
-        "order": null
-      },
-      {
         "level": 36,
         "moveId": "magnet-rise",
         "order": null
@@ -3974,11 +4590,6 @@
         "order": 1
       },
       {
-        "level": 9,
-        "moveId": "swift",
-        "order": null
-      },
-      {
         "level": 20,
         "moveId": "feint",
         "order": null
@@ -4179,11 +4790,6 @@
         "order": null
       },
       {
-        "level": 17,
-        "moveId": "confuse-ray",
-        "order": null
-      },
-      {
         "level": 23,
         "moveId": "take-down",
         "order": null
@@ -4218,11 +4824,6 @@
       {
         "level": 9,
         "moveId": "flail",
-        "order": null
-      },
-      {
-        "level": 17,
-        "moveId": "confuse-ray",
         "order": null
       },
       {
@@ -4268,6 +4869,457 @@
       {
         "level": 57,
         "moveId": "charge",
+        "order": null
+      }
+    ],
+    "79": [
+      {
+        "level": 1,
+        "moveId": "curse",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "yawn",
+        "order": 2
+      },
+      {
+        "level": 20,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "slack-off",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "psych-up",
+        "order": null
+      }
+    ],
+    "80": [
+      {
+        "level": 1,
+        "moveId": "curse",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "yawn",
+        "order": 2
+      },
+      {
+        "level": 20,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "slack-off",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 61,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 67,
+        "moveId": "psych-up",
+        "order": null
+      }
+    ],
+    "96": [
+      {
+        "level": 1,
+        "moveId": "pound",
+        "order": 1
+      },
+      {
+        "level": 7,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "poison-gas",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "meditate",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "swagger",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "nasty-plot",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "future-sight",
+        "order": null
+      }
+    ],
+    "97": [
+      {
+        "level": 1,
+        "moveId": "nightmare",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "switcheroo",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "pound",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "disable",
+        "order": 5
+      },
+      {
+        "level": 7,
+        "moveId": "disable",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "poison-gas",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "meditate",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "swagger",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "nasty-plot",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "zen-headbutt",
+        "order": null
+      },
+      {
+        "level": 69,
+        "moveId": "future-sight",
+        "order": null
+      }
+    ],
+    "133": [
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "baton-pass",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "trump-card",
+        "order": null
+      }
+    ],
+    "177": [
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "teleport",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "miracle-eye",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "wish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "ominous-wind",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "power-swap",
+        "order": 1
+      },
+      {
+        "level": 44,
+        "moveId": "guard-swap",
+        "order": 2
+      },
+      {
+        "level": 47,
+        "moveId": "psychic",
+        "order": null
+      }
+    ],
+    "178": [
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 6,
+        "moveId": "night-shade",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "teleport",
+        "order": null
+      },
+      {
+        "level": 12,
+        "moveId": "lucky-chant",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "miracle-eye",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "me-first",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "tailwind",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "wish",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "psycho-shift",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "ominous-wind",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "power-swap",
+        "order": 1
+      },
+      {
+        "level": 54,
+        "moveId": "guard-swap",
+        "order": 2
+      },
+      {
+        "level": 59,
+        "moveId": "psychic",
+        "order": null
+      }
+    ],
+    "196": [
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 43,
+        "moveId": "future-sight",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "psych-up",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "psychic",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "morning-sun",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "power-swap",
         "order": null
       }
     ]

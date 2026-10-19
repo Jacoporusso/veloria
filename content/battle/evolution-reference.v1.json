@@ -214,6 +214,28 @@
     "73": {
       "evolutions": []
     },
+    "79": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 80,
+          "targetName": "Slowbro",
+          "trigger": "level-up",
+          "minimumLevel": 37,
+          "itemName": null
+        },
+        {
+          "targetSpeciesId": 199,
+          "targetName": "Slowking",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Roccia di Re"
+        }
+      ]
+    },
+    "80": {
+      "evolutions": []
+    },
     "81": {
       "evolutions": [
         {
@@ -237,6 +259,20 @@
         }
       ]
     },
+    "96": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 97,
+          "targetName": "Hypno",
+          "trigger": "level-up",
+          "minimumLevel": 26,
+          "itemName": null
+        }
+      ]
+    },
+    "97": {
+      "evolutions": []
+    },
     "98": {
       "evolutions": [
         {
@@ -259,6 +295,67 @@
           "trigger": "level-up",
           "minimumLevel": 30,
           "itemName": null
+        }
+      ]
+    },
+    "133": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 134,
+          "targetName": "Vaporeon",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietraidrica"
+        },
+        {
+          "targetSpeciesId": 135,
+          "targetName": "Jolteon",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietratuono"
+        },
+        {
+          "targetSpeciesId": 136,
+          "targetName": "Flareon",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafocaia"
+        },
+        {
+          "targetSpeciesId": 196,
+          "targetName": "Espeon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "minimumHappiness": 160,
+          "timeOfDay": "day"
+        },
+        {
+          "targetSpeciesId": 197,
+          "targetName": "Umbreon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "minimumHappiness": 160,
+          "timeOfDay": "night"
+        },
+        {
+          "targetSpeciesId": 470,
+          "targetName": "Leafeon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Eterna Forest",
+          "nearSpecialRock": true
+        },
+        {
+          "targetSpeciesId": 471,
+          "targetName": "Glaceon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Route 217",
+          "nearSpecialRock": true
         }
       ]
     },
@@ -315,6 +412,20 @@
     "171": {
       "evolutions": []
     },
+    "177": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 178,
+          "targetName": "Xatu",
+          "trigger": "level-up",
+          "minimumLevel": 25,
+          "itemName": null
+        }
+      ]
+    },
+    "178": {
+      "evolutions": []
+    },
     "179": {
       "evolutions": [
         {
@@ -349,6 +460,9 @@
       ]
     },
     "195": {
+      "evolutions": []
+    },
+    "196": {
       "evolutions": []
     },
     "208": {

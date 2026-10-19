@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-19",
+  "scope": "Private prototype lake-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 79,
+      "name": "Slowpoke",
+      "path": "assets/creatures/pokeapi-lake-79-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "sourcePath": "assets/sources/pokeapi/lake/79.png",
+      "sourceSha256": "e0802e526e073469aabd520014267a22f6120ccdccd9e580c0271788cd246708",
+      "sha256": "bf1e35638d91a50947ea7ecc2413492874efdb37c7ee05b61d4fd646dbe62bf8"
+    },
+    {
+      "speciesId": 80,
+      "name": "Slowbro",
+      "path": "assets/creatures/pokeapi-lake-80-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "sourcePath": "assets/sources/pokeapi/lake/80.png",
+      "sourceSha256": "78c59860688ec9c386afce52097d4f6ede75401f2bbb492e1a63fd50a0517e95",
+      "sha256": "b34621dd890a0305e4d6c01170e96f2d81c968c5461ecaf2d6a8cb3bfeb1eb29"
+    },
+    {
+      "speciesId": 96,
+      "name": "Drowzee",
+      "path": "assets/creatures/pokeapi-lake-96-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "sourcePath": "assets/sources/pokeapi/lake/96.png",
+      "sourceSha256": "a258c5bcd18bd37dd001038584199df450d40b8bc298a81cb4bd30d4f578cb4d",
+      "sha256": "d72146468a30d83a731853b0a50acbe388089737fc388b1ba40bbc8eba159343"
+    },
+    {
+      "speciesId": 97,
+      "name": "Hypno",
+      "path": "assets/creatures/pokeapi-lake-97-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+      "sourcePath": "assets/sources/pokeapi/lake/97.png",
+      "sourceSha256": "f874aa2fe043c0362f33ac9dc03c5c30d3e20ffc3bb02fb3596bd9e49d211939",
+      "sha256": "7c4e4664b74abe9592a56f234b9285193b6287d59f991d57dcc397a048ebc09c"
+    },
+    {
+      "speciesId": 133,
+      "name": "Eevee",
+      "path": "assets/creatures/pokeapi-lake-133-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "sourcePath": "assets/sources/pokeapi/lake/133.png",
+      "sourceSha256": "33ea993d3478ee920062b0bf27792a045b3a2f75d941bdb8cb3912ef50b1fb44",
+      "sha256": "3fe5792abbe3f22eea5bcb4832cf9aacc47ffbda5b769d727ad472eeda011cad"
+    },
+    {
+      "speciesId": 177,
+      "name": "Natu",
+      "path": "assets/creatures/pokeapi-lake-177-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/177.png",
+      "sourcePath": "assets/sources/pokeapi/lake/177.png",
+      "sourceSha256": "4e7a5538754d00519f4a4233fcdcdad2f80fe04a556eb1684369ea03b5f4cacc",
+      "sha256": "c3a404decfee63ee05d8b71f27f42ae69a9085022609ea1f6c18bb69f28f69d3"
+    },
+    {
+      "speciesId": 178,
+      "name": "Xatu",
+      "path": "assets/creatures/pokeapi-lake-178-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/178.png",
+      "sourcePath": "assets/sources/pokeapi/lake/178.png",
+      "sourceSha256": "08b3d80e60b1f9b41cac31b5f6aaa3ec3f52545f68ceb25a8871d07238c3e0ca",
+      "sha256": "0a5809c045ade2489847eb820dbca87ec6880ed5895d2fef14fd9abe69f4dead"
+    },
+    {
+      "speciesId": 196,
+      "name": "Espeon",
+      "path": "assets/creatures/pokeapi-lake-196-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/196.png",
+      "sourcePath": "assets/sources/pokeapi/lake/196.png",
+      "sourceSha256": "d0e74b02adc3df07f9bf026303b1068c58183f8703ae2ca42b8d7b58e9a0696f",
+      "sha256": "38fdf3c4d385536238cc9f382753ad9a2308d5d5e0d99066e18224442f3fb0d9"
+    }
+  ]
+}

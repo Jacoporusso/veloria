@@ -1,3 +1,10 @@
+## Catalogo lacustre — checkpoint locale successivo a 0.3.86
+
+- Importate otto specie (Slowpoke/Slowbro, Drowzee/Hypno, Natu/Xatu, Eevee/Espeon), parametri, learnset HGSS e artwork ufficiali locali. Catalogo 48 specie/51 mosse; Psicoraggio, Stordiraggio e Comete importate con effetti supportati. 378 voci learnset non implementate ancora esplicitamente registrate. Habitat nuovi non collegati al mondo.
+- Evoluzioni runtime di livello 79→80 a 37, 96→97 a 26, 177→178 a 25, con artwork registrati. Le condizioni ufficiali di scambio/strumento, amicizia/orario e roccia speciale sono conservate nei riferimenti e mostrate nei due pannelli, senza trasformarle in livelli o abilitarle nel runtime. Le soglie numeriche d'amicizia della fonte non sono presentate come soglie storiche HGSS verificate.
+- Validazione completa: 176 asset, 48 riferimenti evolutivi da 104 risorse API, 28 specie importate; 323 test dominio + 16 persistenza e 49 Python passati (`.tmp/lake-catalog-tests.txt`). Quattro prove browser passate in 15,5 s: artwork completi a DPR1/2/3 portrait/landscape, dettagli in Squadra e Pokédex. Build e prova primo accesso agli otto artwork offline passate in 14,4 s.
+- Questo checkpoint non aggiunge mappe giocabili e non è ancora pubblicato.
+
 ## Preparazione riflessi P6 — checkpoint locale
 
 - Sistema condiviso di orientamenti esteso con presentazione ottica e inclinazioni esplicite, validate sia in TypeScript sia in Python. Renderer con fasci attivi e specchi; nessun nuovo accesso nel mondo ancora.

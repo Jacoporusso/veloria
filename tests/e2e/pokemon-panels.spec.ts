@@ -93,6 +93,10 @@ test('both panels show level evolutions and final forms near the top of the deta
       [72, 'Tentacool', 'Dal livello 30'], [73, 'Tentacruel', 'Non ha ulteriori evoluzioni'],
       [98, 'Krabby', 'Dal livello 28'], [99, 'Kingler', 'Non ha ulteriori evoluzioni'],
       [170, 'Chinchou', 'Dal livello 27'], [171, 'Lanturn', 'Non ha ulteriori evoluzioni'],
+      [79, 'Slowpoke', 'Dal livello 37'], [80, 'Slowbro', 'Non ha ulteriori evoluzioni'],
+      [96, 'Drowzee', 'Dal livello 26'], [97, 'Hypno', 'Non ha ulteriori evoluzioni'],
+      [177, 'Natu', 'Dal livello 25'], [178, 'Xatu', 'Non ha ulteriori evoluzioni'],
+      [133, 'Eevee', 'amicizia alta'], [196, 'Espeon', 'Non ha ulteriori evoluzioni'],
     ] as const) {
       await page.goto(`/?species=${id}&view=${view}`);
       await page.getByRole('button', { name: new RegExp(name) }).click();
@@ -100,6 +104,13 @@ test('both panels show level evolutions and final forms near the top of the deta
       await expect(evolution).toContainText(requirement);
       await expect(evolution).not.toContainText('livello null');
       if (id === 82) await expect(evolution).toContainText('non ancora disponibile nel prototipo');
+      if (id === 79) await expect(evolution).toContainText('Tramite scambio tenendo');
+      if (id === 133) {
+        await expect(evolution).toContainText('di giorno');
+        await expect(evolution).toContainText('di notte');
+        await expect(evolution).not.toContainText('Usa null');
+        await expect(evolution).toContainText('roccia speciale');
+      }
       if ([82, 208, 227, 72, 73, 98, 99, 170, 171].includes(id)) {
         const artUrl = await page.locator('.pokemon-detail .creature-portrait').evaluate(element => getComputedStyle(element).backgroundImage.slice(5, -2));
         await page.evaluate(async url => { const image = new Image(); image.src = url; await image.decode(); }, artUrl);

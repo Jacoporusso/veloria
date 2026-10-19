@@ -800,10 +800,11 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-test('coastal artwork decodes on its first request offline', async ({ page, context }) => {
-  const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-coast-artwork-v1.json', import.meta.url), 'utf8'));
+for (const [group, expected] of [['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]]] as const) {
+test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
+  const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
   const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;
-  expect(artwork.map(entry => entry.speciesId).sort((a, b) => a - b)).toEqual([72, 73, 98, 99, 170, 171]);
+  expect(artwork.map(entry => entry.speciesId).sort((a, b) => a - b)).toEqual(expected);
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const failedRequests: string[] = [];
@@ -816,6 +817,8 @@ test('coastal artwork decodes on its first request offline', async ({ page, cont
   expect(decoded).toEqual(artwork.map(() => true));
   expect(failedRequests).toEqual([]);
 });
+
+}
 
 test('Ferraluce candidate artwork decodes on its first request offline', async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-urban-artwork-v1.json', import.meta.url), 'utf8'));

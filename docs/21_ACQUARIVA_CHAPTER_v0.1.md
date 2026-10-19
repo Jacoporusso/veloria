@@ -13,6 +13,8 @@ Stato: preparazione, non giocabile. Fonte principale: documento 02, sezioni 3–
 
 ## Implementazione iniziata
 
+Catalogo lacustre pronto: Slowpoke/Slowbro, Drowzee/Hypno, Natu/Xatu, Eevee/Espeon con fonti PokéAPI locali e artwork. Registrate le tre evoluzioni per livello; altre condizioni restano riferimenti espliciti non ancora eseguibili. Psicoraggio, Stordiraggio e Comete disponibili con semantica HGSS. La scelta della squadra P6 deve ancora avvenire sui learnset effettivi; non assegnare a Natu/Xatu mosse Psico anticipate per analogia di tipo. Nessuna delle nuove specie è ancora assegnata a habitat giocabili.
+
 Il sistema di orientamenti condiviso supporta `presentation=reflection` e inclinazioni `/` e `\\`. La variante mostra soltanto i fasci attivi e gli specchi inclinati, anziché frecce e condutture. La propagazione usa il grafo dichiarato nei dati: non è un simulatore ottico libero né ricerca automaticamente ostacoli sul Tiled.
 
 Configurazione P6 in `content/drafts/acquariva/gym06_reflections.v1.json`: quattro specchi, sorgente e ricevitore. Non viene scoperta dal registro runtime. Due prove verificano tutti i 24 ordini, salvataggio degli orientamenti, inclinazioni coerenti con il fascio in ingresso e rifiuto dei dati mancanti. Le tre prove del circuito P4 continuano a passare. Build riuscita; mancano mappa, controlli, quest, ispezione visuale e percorso touch del puzzle.

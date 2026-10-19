@@ -259,6 +259,10 @@
         {
           "level": 18,
           "moveId": "supersonic"
+        },
+        {
+          "level": 24,
+          "moveId": "psybeam"
         }
       ]
     },
@@ -1117,6 +1121,10 @@
         {
           "level": 19,
           "moveId": "screech"
+        },
+        {
+          "level": 33,
+          "moveId": "swift"
         }
       ]
     },
@@ -1554,6 +1562,10 @@
           "moveId": "sand-attack"
         },
         {
+          "level": 9,
+          "moveId": "swift"
+        },
+        {
           "level": 12,
           "moveId": "agility"
         },
@@ -1817,6 +1829,10 @@
           "moveId": "water-gun"
         },
         {
+          "level": 17,
+          "moveId": "confuse-ray"
+        },
+        {
           "level": 20,
           "moveId": "spark"
         },
@@ -1870,12 +1886,340 @@
           "moveId": "water-gun"
         },
         {
+          "level": 17,
+          "moveId": "confuse-ray"
+        },
+        {
           "level": 20,
           "moveId": "spark"
         },
         {
           "level": 30,
           "moveId": "bubble-beam"
+        }
+      ]
+    },
+    "79": {
+      "speciesId": 79,
+      "name": "Slowpoke",
+      "types": [
+        "water",
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 90,
+        "attack": 65,
+        "defense": 65,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "speed": 15
+      },
+      "experienceYield": 63,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 6,
+          "moveId": "growl"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 15,
+          "moveId": "confusion"
+        },
+        {
+          "level": 43,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "80": {
+      "speciesId": 80,
+      "name": "Slowbro",
+      "types": [
+        "water",
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 95,
+        "attack": 75,
+        "defense": 110,
+        "specialAttack": 100,
+        "specialDefense": 80,
+        "speed": 30
+      },
+      "experienceYield": 172,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "growl"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 6,
+          "moveId": "growl"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 15,
+          "moveId": "confusion"
+        },
+        {
+          "level": 37,
+          "moveId": "withdraw"
+        },
+        {
+          "level": 47,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "96": {
+      "speciesId": 96,
+      "name": "Drowzee",
+      "types": [
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 48,
+        "defense": 45,
+        "specialAttack": 43,
+        "specialDefense": 90,
+        "speed": 42
+      },
+      "experienceYield": 66,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "hypnosis"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 9,
+          "moveId": "confusion"
+        },
+        {
+          "level": 26,
+          "moveId": "psybeam"
+        }
+      ]
+    },
+    "97": {
+      "speciesId": 97,
+      "name": "Hypno",
+      "types": [
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 85,
+        "attack": 73,
+        "defense": 70,
+        "specialAttack": 73,
+        "specialDefense": 115,
+        "speed": 67
+      },
+      "experienceYield": 169,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "hypnosis",
+        "confusion"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 1,
+          "moveId": "confusion"
+        },
+        {
+          "level": 9,
+          "moveId": "confusion"
+        },
+        {
+          "level": 28,
+          "moveId": "psybeam"
+        }
+      ]
+    },
+    "133": {
+      "speciesId": 133,
+      "name": "Eevee",
+      "types": [
+        "normal"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "speed": 55
+      },
+      "experienceYield": 65,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tail-whip",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 15,
+          "moveId": "growl"
+        },
+        {
+          "level": 22,
+          "moveId": "quick-attack"
+        }
+      ]
+    },
+    "177": {
+      "speciesId": 177,
+      "name": "Natu",
+      "types": [
+        "psychic",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 50,
+        "defense": 45,
+        "specialAttack": 70,
+        "specialDefense": 45,
+        "speed": 70
+      },
+      "experienceYield": 64,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "peck"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "peck"
+        },
+        {
+          "level": 23,
+          "moveId": "confuse-ray"
+        }
+      ]
+    },
+    "178": {
+      "speciesId": 178,
+      "name": "Xatu",
+      "types": [
+        "psychic",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 75,
+        "defense": 70,
+        "specialAttack": 95,
+        "specialDefense": 70,
+        "speed": 95
+      },
+      "experienceYield": 165,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "peck"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "peck"
+        },
+        {
+          "level": 23,
+          "moveId": "confuse-ray"
+        }
+      ]
+    },
+    "196": {
+      "speciesId": 196,
+      "name": "Espeon",
+      "types": [
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "specialAttack": 130,
+        "specialDefense": 95,
+        "speed": 110
+      },
+      "experienceYield": 184,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tail-whip",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 15,
+          "moveId": "confusion"
+        },
+        {
+          "level": 22,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 29,
+          "moveId": "swift"
+        },
+        {
+          "level": 36,
+          "moveId": "psybeam"
         }
       ]
     }

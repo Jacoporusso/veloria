@@ -14,6 +14,7 @@ SOURCE = ROOT / 'content/sources/pokeapi'
 API = 'https://pokeapi.co/api/v2/'
 VERSION_GROUP = 'heartgold-soulsilver'
 SUPPORTED_MOVES = '''thunder-shock growl scratch tackle tail-whip defense-curl quick-attack gust poison-sting string-shot ember water-gun vine-whip absorb bubble harden confusion fury-attack hypnosis peck withdraw scary-face acid agility amnesia poison-powder sleep-powder stun-spore double-slap fury-swipes leech-life constrict mud-shot slam sand-attack smokescreen sweet-scent leech-seed metal-sound supersonic sonic-boom thunder-wave spark screech rock-throw bubble-beam vice-grip barrier'''.split()
+SUPPORTED_MOVES += ['psybeam', 'confuse-ray', 'swift']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 

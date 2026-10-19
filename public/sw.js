@@ -1,5 +1,15 @@
 const CACHE = 'veloria-shell-v107';
 const SHELL = [
+
+  './assets/creatures/pokeapi-lake-79-v1.webp',
+  './assets/creatures/pokeapi-lake-80-v1.webp',
+  './assets/creatures/pokeapi-lake-96-v1.webp',
+  './assets/creatures/pokeapi-lake-97-v1.webp',
+  './assets/creatures/pokeapi-lake-133-v1.webp',
+  './assets/creatures/pokeapi-lake-177-v1.webp',
+  './assets/creatures/pokeapi-lake-178-v1.webp',
+  './assets/creatures/pokeapi-lake-196-v1.webp',
+
   './tilemaps/r08_costa_turbine.tmj',
   './tilemaps/portolume.tmj',
   './tilemaps/gym05_portolume.tmj',

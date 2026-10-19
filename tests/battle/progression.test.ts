@@ -77,6 +77,7 @@ test('vertical-slice evolution content includes both second-stage thresholds and
     [10, 11, 7], [11, 12, 10], [13, 14, 7], [14, 15, 10],
     [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20],
     [72, 73, 30], [98, 99, 28], [170, 171, 27],
+    [79, 80, 37], [96, 97, 26], [177, 178, 25],
   ]);
   for (const speciesId of [10, 11, 12, 13, 14, 15]) assert.ok(species[String(speciesId)]);
 });
