@@ -1,3 +1,7 @@
+## Pubblicazione montagna 0.3.91 — 20/10/2026
+
+Commit cf99e0583cc4bbfb466799d26b973544d0fec387 pubblicato su main. Deploy Pages 39382295591 concluso con successo: test, validatore, build con base /veloria/ e deploy riusciti. Verificati via HTTPS il registro con veloria-content-0.3.91, service worker v112 e Tiled P7 32×24. Verify 39382295627 ancora in esecuzione al momento di questo aggiornamento: non viene attestata una suite Linux interamente verde. Il test finale locale conta 378 prove dominio e 16 persistenza, tutte riuscite.
+
 ## Capitolo montano locale 0.3.91 — 20/10/2026
 
 - Integrati cinque ambienti illustrati, Acquariva v2 e percorso fino a P7 con ricerca climatica, Nives, Medaglia Brina e funivia. 220 asset, 35 mappe, 33 quest, 14 allenatori, 9 negozi; catalogo 58 specie/64 mosse. Sei specie montane da fonti HGSS, Delibird differito senza inventare mosse.

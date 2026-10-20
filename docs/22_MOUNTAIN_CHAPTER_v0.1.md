@@ -2,7 +2,7 @@
 
 ## Stato
 
-Integrato localmente, ancora da pubblicare. Il sito pubblico resta alla 0.3.90 fino al prossimo deploy verificato. La progressione successiva a Biancavetta non è implementata.
+Pubblicato con commit cf99e05 e deploy Pages 39382295591 riuscito; contenuto 0.3.91, cache v112 e Tiled P7 verificati via HTTPS. La suite Verify Linux è ancora in esecuzione. La progressione successiva a Biancavetta non è implementata.
 
 ## Percorso e ricerca
 
