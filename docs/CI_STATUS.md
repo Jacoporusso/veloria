@@ -1,3 +1,7 @@
+## Pubblicazione allenamenti 0.3.98 — 20/10/2026
+
+Commit `92773b9` su main. Deploy Pages `39427311402` SUCCESS; HTTPS conferma registro0.3.98, cachev119 e NPC Celia nella Tiled pubblica R11. Verify `39427311160` in attesa della run0.3.96, lasciata terminare; Verify0.3.97 `39426075026` cancellato dalla coda a favore dell'ultima revisione, non descritto come fallimento del gioco. Al controllo13:05UTC la precedente run ha12job terminati (11successi e MVP3 con fixture corretta in0.3.97), capitoli2 ancora in esecuzione. Nuova suite Linux completa non ancora attestata. Aggiornamento documentale senza duplicare i workflow.
+
 ## Allenamenti intermedi 0.3.98 — verifiche locali 20/10/2026
 
 - Quattro allenatori e quattro quest aggiunti, collegati a R06/R07/R08/R11 con NPC, collisioni, dialoghi, scelta facoltativa e premio unico. Validatore: 48 mappe, 48 quest, 27 allenatori, 11 negozi, 270 asset. 451 test dominio, 25 persistenza e build riusciti.

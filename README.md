@@ -1,10 +1,10 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione pubblicata 0.3.97:** Lega, Campione, epilogo e rifornimenti intermedi aggiornati. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+**Versione pubblicata 0.3.98:** Lega, Campione, epilogo, rifornimenti e quattro allenatori intermedi. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.96 collega Borgofonte al Campione e all’epilogo: 48 mappe, otto medaglie, 23 allenatori, 69 specie e 78 mosse da fonti locali PokéAPI. Il Santuario conclude la ricerca sulla Risonanza; la Lega propone cinque incontri consecutivi senza cure automatiche, con interruzione esplicita e premi unici. Cerimonia ed epilogo sono recuperabili dopo il ricaricamento. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale dell’intera avventura. Catalogo completo, ulteriori meccaniche e post-game restano aperti. Regole ed estensione: [Lega](docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md). `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.96 collega Borgofonte al Campione e all’epilogo: 48 mappe, otto medaglie, 27 allenatori, 69 specie e 78 mosse da fonti locali PokéAPI. Il Santuario conclude la ricerca sulla Risonanza; la Lega propone cinque incontri consecutivi senza cure automatiche, con interruzione esplicita e premi unici. Cerimonia ed epilogo sono recuperabili dopo il ricaricamento. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale dell’intera avventura. Catalogo completo, ulteriori meccaniche e post-game restano aperti. Regole ed estensione: [Lega](docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md). `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
 Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le città già visitate: Brumalta, Petalora, Vetracielo, Ferraluce, Portolume, Acquariva e Concordia. Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
 
