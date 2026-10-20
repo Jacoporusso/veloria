@@ -1,3 +1,7 @@
+## Pubblicazione Cammino e piazzale 0.3.95 — 20/10/2026
+
+Commit `f4e841efecce1af6a87a30e2cfef7158ef575412` pubblicato su main. Deploy Pages `39419114200` riuscito: test, validatore, build con base `/veloria/` e deploy completati. HTTPS conferma contenuti0.3.95, cachev116 e Tiled R16/piazzale entrambe40×30. Verify `39419114192` ancora in esecuzione: la suite Linux completamente verde attestata è quella precedente0.3.94, non ancora questa revisione. Aggiornamento documentale senza duplicare i workflow.
+
 ## Cammino e piazzale della Lega 0.3.95 — 20/10/2026
 
 - 43 mappe, 42 quest, 18 allenatori, 11 negozi, 260 asset; 69 specie e 76 mosse. Build e validatore passati. 446 test dominio + 16 persistenza, 88 Python riusciti.

@@ -1,4 +1,4 @@
-## 0.3.95 — Cammino dell’Equilibrio e piazzale della Lega (locale,20/10/2026)
+## 0.3.95 — Cammino dell’Equilibrio e piazzale della Lega (20/10/2026)
 
 - R16 dopo il rapporto del Santuario, tre habitat laterali, Maia/Tobia facoltativi, piazzale con cure/deposito/mercato/accoglienza e ritorni.
 - Due ambienti illustrati originali, diario/atlante e cachev116.43mappe,42quest,18allenatori,11negozi,260asset.

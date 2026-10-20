@@ -2,7 +2,7 @@
 
 ## Stato
 
-Integrazione locale in verifica.43 mappe, 42 quest, 18 allenatori, 11 negozi, 260 asset; 69 specie e 76 mosse. R16 e piazzale sono giocabili; le sale interne, i cinque incontri consecutivi, la vittoria finale e l’epilogo non sono ancora collegati. La ricerca sulla Risonanza è già conclusa dal Santuario. Questo capitolo non viene presentato come partita completa.
+Pubblicata su GitHub Pages: deploy39419114200 riuscito, HTTPS0.3.95/cachev116/Tiled verificati.43 mappe, 42 quest, 18 allenatori, 11 negozi, 260 asset; 69 specie e 76 mosse. R16 e piazzale sono giocabili; le sale interne, i cinque incontri consecutivi, la vittoria finale e l’epilogo non sono ancora collegati. La ricerca sulla Risonanza è già conclusa dal Santuario. Questo capitolo non viene presentato come partita completa.
 
 ## Geografia e ritorni
 
@@ -26,4 +26,4 @@ Cinque nuove mosse importate da PokéAPI locale, version groupHGSS: Lanciafiamme
 
 ## Verifiche locali
 
-446 test dominio + 16 persistenza e 88 Python riusciti, build e validatore passati. Geometria reale, percorsi senza habitat, accessibilità, tutti i ritorni e legalità delle due squadre coperti da5test dedicati. Browser: percorso completo con blocco iniziale, cure HP/PP, acquisti, accoglienza e ritorni1minuto. Due lotte touch con contromosse legali e squadre potenziate fresche passate30,6s/23,9s; premi unici e reload. Non sono prove di bilanciamento naturale. Un primo tentativo riutilizzava Quagsire ferito e perdeva contro Hypno: le prove di integrazione ora isolano i due allenamenti con checkpoint freschi e contromosse diverse, senza cambiare i trainer. R16 e piazzale esaminati in landscape; Primo accesso offline a due ambienti e Tiled, servizi e ritorno completo passato in 49 secondi (1 minuto con build). Pubblicazione e nuova CI in CI_STATUS.
+446 test dominio + 16 persistenza e 88 Python riusciti, build e validatore passati. Geometria reale, percorsi senza habitat, accessibilità, tutti i ritorni e legalità delle due squadre coperti da5test dedicati. Browser: percorso completo con blocco iniziale, cure HP/PP, acquisti, accoglienza e ritorni1minuto. Due lotte touch con contromosse legali e squadre potenziate fresche passate30,6s/23,9s; premi unici e reload. Non sono prove di bilanciamento naturale. Un primo tentativo riutilizzava Quagsire ferito e perdeva contro Hypno: le prove di integrazione ora isolano i due allenamenti con checkpoint freschi e contromosse diverse, senza cambiare i trainer. R16 e piazzale esaminati in landscape; Primo accesso offline a due ambienti e Tiled, servizi e ritorno completo passato in 49 secondi (1 minuto con build). Pubblicazione confermata; nuova CI39419114192 ancora in esecuzione in CI_STATUS.
