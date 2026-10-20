@@ -1,3 +1,11 @@
+## 0.3.101 — Strategia, evoluzioni e Borgofonte (20/10/2026)
+
+- Mosse: efficacia nelle carte e dettaglio contro l’avversario, fattori dei singoli tipi, effetti e probabilità, precisione base/attuale, PP e stima danni. Paginazione per gli schermi piccoli.
+- Evoluzioni per livello solo alla vittoria, con attesa, silhouette e rivelazione saltabile. Catture con rivelazione e scheda del Pokémon.
+- Pietrafocaia, Pietraidrica e Pietratuono da Zaino/Squadra con anteprima; consumo, evoluzione e ricevuta salvati insieme. Recupero della cerimonia dopo reload, senza duplicare il costo.
+- Dati ufficiali HGSS locali per Raichu, Vaporeon, Jolteon e Flareon; prima pietra nella serra di Radicelmo e bottega dopo Corolla.
+- Borgofonte illustrata, percorsi e soglie riallineati; indicatori delle uscite e transizioni con input protetto.
+
 ## 0.3.100 — Indietro nella lotta mobile (20/10/2026)
 
 - Pulsante Indietro con area124×44, separata dai comandi e dal collegamento ai dettagli. Spazio riservato anche in Borsa/Squadra/Cattura; nessun turno o PP consumato tornando al menu.

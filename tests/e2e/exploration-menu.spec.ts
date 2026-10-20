@@ -37,7 +37,7 @@ test('objective compacts on movement and the menu pauses movement input', async 
   await enterGame(page);
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
   await expect(page.locator('.journey-trigger')).toHaveClass(/is-compact/);
-  await expect.poll(() => savedY(page)).toBe(21);
+  await expect.poll(() => savedY(page)).toBe(19);
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
   await expect(page.locator('#settings-menu')).toBeVisible();
@@ -45,7 +45,7 @@ test('objective compacts on movement and the menu pauses movement input', async 
   await page.keyboard.down('ArrowDown');
   await page.waitForTimeout(300); // Longer than two full movement steps.
   await page.keyboard.up('ArrowDown');
-  expect(await savedY(page)).toBe(21);
+  expect(await savedY(page)).toBe(19);
   await expect(page.locator('#settings-menu')).toBeVisible();
   await page.keyboard.press('Escape', { delay: 40 });
   await expect(page.locator('#settings-menu')).toBeHidden();

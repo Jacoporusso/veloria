@@ -11,7 +11,12 @@ import {createBattleCreature} from '../../src/core/battle/create-creature.ts';
 import {fightWithTouch} from './helpers/battle-touch';
 const labels={up:'Vai in alto',down:'Vai in basso',left:'Vai a sinistra',right:'Vai a destra'};
 const confirm=(p:Page)=>p.getByRole('button',{name:'Conferma e interagisci',exact:true});
-async function dialogue(page:Page){for(let i=0;i<24&&await page.locator('#dialogue-box').isVisible();i++)await confirm(page).tap();await expect(page.locator('#dialogue-box')).toBeHidden();}
+async function dialogue(page:Page){
+ const stayHere=page.getByRole('button',{name:'RESTA QUI',exact:true});
+ if(await stayHere.isVisible())await stayHere.tap();
+ for(let i=0;i<24&&await page.locator('#dialogue-box').isVisible();i++)await confirm(page).tap();
+ await expect(page.locator('#dialogue-box')).toBeHidden();
+}
 async function checkpoint(page:Page,mapId:string,spawnPointId:string,x:number,y:number,flags:string[]){
  await page.route('**/src/main.ts*',async route=>{const response=await route.fetch();await route.fulfill({response,body:await response.text()+'\nglobalThis.mountainGame=game;'});});
  await page.goto('/');await enterGame(page);const save=await readBrowserSave(page);

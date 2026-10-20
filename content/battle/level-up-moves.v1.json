@@ -1516,6 +1516,73 @@
         "level": 57,
         "moveId": "dragon-pulse"
       }
+    ],
+    "26": [],
+    "134": [
+      {
+        "level": 8,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 15,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 36,
+        "moveId": "aurora-beam"
+      },
+      {
+        "level": 71,
+        "moveId": "hydro-pump"
+      }
+    ],
+    "135": [
+      {
+        "level": 8,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 15,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 57,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 64,
+        "moveId": "agility"
+      },
+      {
+        "level": 78,
+        "moveId": "discharge"
+      }
+    ],
+    "136": [
+      {
+        "level": 8,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 15,
+        "moveId": "ember"
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 64,
+        "moveId": "scary-face"
+      }
     ]
   }
 }

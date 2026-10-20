@@ -18,8 +18,11 @@ export class BattleCelebration {
   private readonly root = element('div', 'battle-celebration');
   private readonly controller = new AbortController();
   private readonly confirm: HTMLButtonElement;
+  private revealTimer?: number;
+  private previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
-  constructor(state: BattleState, events: readonly BattleEvent[], moves: MoveCatalog, victory: VictoryPresentation | undefined, onClose: (event?: KeyboardEvent) => void, reducedAnimations = false) {
+  constructor(state: BattleState, events: readonly BattleEvent[], moves: MoveCatalog, victory: VictoryPresentation | undefined, onClose: (event?: KeyboardEvent) => void, reducedAnimations = false, capturedIsNew = false) {
+    reducedAnimations ||= window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.root.classList.toggle('is-reduced', reducedAnimations);
     const dialog = element('section', 'battle-celebration-card');
     dialog.setAttribute('role', 'dialog');
@@ -32,18 +35,25 @@ export class BattleCelebration {
     const badge = victory?.badgeId ? badgeCatalog[victory.badgeId] : undefined;
     const captured = [...events].reverse().find(event => event.type === 'creatureCaptured');
     const creature = captured?.type === 'creatureCaptured' ? [...state.player.creatures, ...state.playerStorage].find(mon => mon.instanceId === captured.creatureId) : undefined;
+    this.root.classList.toggle('is-capture', Boolean(creature));
     const kicker = element('p', 'battle-celebration-kicker', badge ? 'UN NUOVO TRAGUARDO' : creature ? 'UN NUOVO COMPAGNO' : 'SFIDA COMPLETATA');
     const title = element('h2', '', badge ? `${badge.name} conquistata!` : creature ? `${creature.name} catturato!` : victory ? `Hai vinto contro ${victory.trainerName}!` : 'Vittoria!');
     title.id = 'battle-celebration-title';
     const visual = badge ? createBadgeEmblem(victory!.badgeId) : creature ? createCreaturePortrait(creature.speciesId) : element('span', 'battle-victory-star', '✦');
     contents.append(kicker, visual, title);
     if (creature && captured?.type === 'creatureCaptured') {
+      if (capturedIsNew) contents.append(element('p', 'battle-capture-new', 'Prima cattura di questa specie'));
       contents.append(element('p', 'battle-celebration-subtitle', `${creature.types.map(battleTypeLabel).join(' / ')} · Livello ${creature.level} · HP ${creature.hp}/${creature.stats.maxHp}`));
       contents.append(element('p', 'battle-celebration-destination', captured.destination === 'party' ? 'Aggiunto alla tua squadra' : 'Squadra piena: ti aspetta nel box'));
+      const details = document.createElement('details');
+      details.className = 'battle-capture-details';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Vedi Pokémon';
       const skills = element('div', 'battle-capture-moves');
       skills.append(element('h3', '', 'Le sue mosse'));
       for (const slot of creature.moves) skills.append(element('span', '', `${moves[slot.moveId]?.name ?? slot.moveId} · PP ${slot.pp}/${moves[slot.moveId]?.maxPp ?? '?'}`));
-      contents.append(skills);
+      details.append(summary, skills);
+      contents.append(details);
     }
     const rewards = battleRewardSummary(events);
     if (victory?.rewardMoney) rewards.push(`+${victory.rewardMoney} monete`);
@@ -57,21 +67,53 @@ export class BattleCelebration {
     this.confirm.className = 'battle-celebration-continue';
     this.confirm.type = 'button';
     this.confirm.textContent = 'Continua';
-    this.confirm.addEventListener('click', () => { this.destroy(); onClose(); }, { signal: this.controller.signal });
+    let revealing = Boolean(creature) && !reducedAnimations;
+    const reveal = () => {
+      if (!revealing) return;
+      revealing = false;
+      window.clearTimeout(this.revealTimer);
+      this.root.classList.remove('is-capture-revealing');
+      this.root.classList.add('is-capture-revealed');
+      this.confirm.textContent = 'Continua';
+    };
+    if (revealing) {
+      this.root.classList.add('is-capture-revealing');
+      this.confirm.textContent = 'Mostra Pokémon';
+      this.revealTimer = window.setTimeout(reveal, 2800);
+    }
+    this.confirm.addEventListener('click', () => {
+      if (revealing) { reveal(); return; }
+      this.destroy(); onClose();
+    }, { signal: this.controller.signal });
     dialog.append(contents, this.confirm);
     this.root.append(dialog);
     for (const name of ['pointerdown', 'pointerup', 'touchstart', 'touchend']) this.root.addEventListener(name, event => event.stopPropagation());
     document.addEventListener('keydown', event => {
       event.stopImmediatePropagation();
-      if (event.key === 'Tab') { event.preventDefault(); (document.activeElement === this.confirm ? contents : this.confirm).focus(); }
-      if (['Enter', ' ', 'Escape'].includes(event.key)) {
+      if (event.key === 'Tab') {
         event.preventDefault();
-        if (!event.repeat) { this.destroy(); onClose(event); }
+        const targets = [contents, ...dialog.querySelectorAll<HTMLElement>('summary,button')].filter(node => !node.hidden);
+        const current = targets.indexOf(document.activeElement as HTMLElement);
+        targets[(current + (event.shiftKey ? -1 : 1) + targets.length) % targets.length].focus();
+      }
+      if (['Enter', ' ', 'Escape'].includes(event.key)) {
+        if (document.activeElement?.tagName === 'SUMMARY' && event.key !== 'Escape') return;
+        event.preventDefault();
+        if (!event.repeat) {
+          if (revealing) reveal();
+          else { this.destroy(); onClose(event); }
+        }
       }
     }, { capture: true, signal: this.controller.signal });
     (document.querySelector('.game-stage') ?? document.body).append(this.root);
     this.confirm.focus({ preventScroll: true });
   }
 
-  destroy(): void { this.controller.abort(); this.root.remove(); }
+  destroy(): void {
+    window.clearTimeout(this.revealTimer);
+    this.controller.abort();
+    this.root.remove();
+    if (this.previousFocus?.isConnected) this.previousFocus.focus({ preventScroll: true });
+    this.previousFocus = null;
+  }
 }

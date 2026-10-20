@@ -66,6 +66,7 @@ export function createBattleState(args: {
     player: { creatures: args.playerTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })), activeIndex: firstAvailable(args.playerTeam) },
     opponent: { creatures: args.opponentTeam.map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })), activeIndex: firstAvailable(args.opponentTeam) },
     playerStorage: (args.playerStorage ?? []).map(creature => ({ ...cloneCreature(creature), statStages: undefined, confusionTurnsRemaining: undefined, leechSeed: undefined })),
+    pendingLevelEvolutions: [],
     outcome: { kind: 'ongoing' },
   };
 }
@@ -235,7 +236,7 @@ export function resolveBattleTurn(
     state = applyResidual(state, side, rules, events);
     state = checkForWinner(state, events);
   }
-  state = { ...state, rngState: cursor.state };
+  state = finalizeLevelEvolutions({ ...state, rngState: cursor.state }, rules, events);
   return { state, events };
 }
 
@@ -610,7 +611,33 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     : recipient.stats;
   const maxHpIncrease = stats.maxHp - recipient.stats.maxHp;
   const hp = recipient.hp === 0 ? 0 : Math.min(stats.maxHp, recipient.hp + Math.max(0, maxHpIncrease));
-  let evolved: BattleCreature = { ...recipient, level, experience, stats, hp, moves };
+  const updated = setCreature(state, side, index, { ...recipient, level, experience, stats, hp, moves });
+  if (level === recipient.level || updated.pendingLevelEvolutions.some(entry => entry.creatureId === recipientId)) return updated;
+  return { ...updated, pendingLevelEvolutions: [...updated.pendingLevelEvolutions, { creatureId: recipientId, previousLevel: recipient.level }] };
+}
+
+/** Level evolution is resolved only after victory, never between opponents or on escape/loss/capture.
+ * Only living party members which actually gained a level during this battle qualify.
+ */
+function finalizeLevelEvolutions(state: BattleState, rules: BattleRules, events: BattleEvent[]): BattleState {
+  if (state.outcome.kind === 'ongoing') return state;
+  if (state.outcome.kind === 'won' && state.outcome.winner === 'player') {
+    for (const pending of state.pendingLevelEvolutions) {
+      const index = state.player.creatures.findIndex(creature => creature.instanceId === pending.creatureId);
+      const recipient = state.player.creatures[index];
+      if (!recipient || recipient.hp === 0) continue;
+      const evolved = evolveAfterBattle(recipient, pending.previousLevel, rules, events);
+      state = setCreature(state, 'player', index, evolved);
+    }
+  }
+  return { ...state, pendingLevelEvolutions: [] };
+}
+
+function evolveAfterBattle(recipient: BattleCreature, previousLevel: number, rules: BattleRules, events: BattleEvent[]): BattleCreature {
+  const side = 'player';
+  let evolved = recipient;
+  let moves = recipient.moves;
+  const attempted = new Set(moves.map(slot => slot.moveId));
   const seenSpecies = new Set<number>([evolved.speciesId]);
   while (true) {
     const rule = rules.evolutions[evolved.speciesId]?.find(candidate => evolved.level >= candidate.minimumLevel && !seenSpecies.has(candidate.target.speciesId));
@@ -633,7 +660,7 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     seenSpecies.add(target.speciesId);
     events.push({ type: 'creatureEvolved', side, creatureId: evolved.instanceId, fromSpeciesId: previous.speciesId, fromName: previous.name, toSpeciesId: target.speciesId, toName: target.name, level: evolved.level });
     for (const learning of rules.levelUpMoves[target.speciesId] ?? []) {
-      if (learning.level <= recipient.level || learning.level > evolved.level || attempted.has(learning.moveId)) continue;
+      if (learning.level <= previousLevel || learning.level > evolved.level || attempted.has(learning.moveId)) continue;
       attempted.add(learning.moveId);
       if (moves.length >= rules.maxMoves) {
         events.push({ type: 'moveLearningSkipped', side, creatureId: evolved.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });
@@ -644,7 +671,7 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
       }
     }
   }
-  return setCreature(state, side, index, evolved);
+  return evolved;
 }
 
 function endBattle(state: BattleState, outcome: Exclude<BattleOutcome, { kind: 'ongoing' }>, events: BattleEvent[]): BattleState {

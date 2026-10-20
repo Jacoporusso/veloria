@@ -39,6 +39,11 @@ import { healParty } from '../../core/services/healing.ts';
 import { moveCreatureToStorage, withdrawCreatureFromStorage } from '../../core/services/party-storage.ts';
 import { recordSpeciesSeen } from '../../core/party/pokedex.ts';
 import { PokemonPanel } from '../ui/PokemonPanel.ts';
+import { applyItemEvolution, pendingEvolutionReceipts, queueEvolutionReceipts, evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
+import { itemEvolutionRules } from '../battle/catalog.ts';
+import { chooseItemEvolution } from '../ui/ItemEvolutionMenu.ts';
+import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
+import { ensureSavedProgress } from '../ui/SaveRetryDialog.ts';
 import { purchaseShopItem } from '../../core/services/shop.ts';
 import { itemCatalog, shopCatalog } from '../battle/catalog.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
@@ -98,11 +103,13 @@ export class WorldScene extends Phaser.Scene {
   private openingGuidance?: WorldGuidance;
   private openingGuidanceKey = '';
   private completionActive = false;
+  private presentationAbort = new AbortController();
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
   private fishingActive = false;
   private battleSceneReady: Promise<void> | null = null;
   private mapTransitionLoading = false;
+  private movementReleaseRequired = false;
   private challengeOperationActive = false;
   private challengeRecovered = false;
   private typingTimer?: number;
@@ -140,6 +147,8 @@ export class WorldScene extends Phaser.Scene {
   }
 
   create() {
+    this.presentationAbort = new AbortController();
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.presentationAbort.abort());
     try { this.map = getMap(this.save.player.mapId); }
     catch { this.map = getMap('veloria/borgofonte'); this.save.player.mapId = this.map.metadata.id; this.save.player.spawnPointId = 'start'; }
     this.reducedAnimations = this.getAnimationQuality() === 'reduced';
@@ -167,7 +176,7 @@ export class WorldScene extends Phaser.Scene {
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
     const stage = document.querySelector<HTMLElement>('.game-stage');
     if (stage) {
-      this.journey = new JourneyPanel(stage);
+      this.journey = new JourneyPanel(stage, (itemId, creatureId) => void this.openItemEvolution(itemId, creatureId));
       this.journey.update(this.save);
       this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.journey?.destroy());
     }
@@ -197,7 +206,19 @@ export class WorldScene extends Phaser.Scene {
       this.game.events.off(Phaser.Core.Events.RESUME, this.fitWorldCamera, this);
     });
     window.setTimeout(() => { const loading = document.querySelector<HTMLElement>('#game-loading'); if (loading) loading.hidden = true; }, 120);
-    if (!this.previewMode && this.save.flags.includes('intro_started') && !this.save.flags.includes('intro_completed')) {
+    if (!this.previewMode && pendingEvolutionReceipts(this.save).length) {
+      void this.presentPendingEvolutions().then(async () => {
+        if (this.presentationAbort.signal.aborted) return;
+        if (this.challengeRecovered) {
+          this.challengeOperationActive = true;
+          await this.finishChallengeRecovery();
+        } else if (this.save.flags.includes('q_league_completed') && !this.save.flags.includes('q_league_epilogue_seen')) {
+          await this.presentLeagueFinale();
+        } else if (this.save.flags.includes('badge_aurora_awarded') && !this.save.flags.includes('prologue_complete_seen')) {
+          await this.presentPrologueCompletion();
+        }
+      });
+    } else if (!this.previewMode && this.save.flags.includes('intro_started') && !this.save.flags.includes('intro_completed')) {
       this.afterDialogue = () => {
         this.save.flags = [...new Set([...this.save.flags, 'intro_completed'])];
         this.persistProgress();
@@ -209,10 +230,10 @@ export class WorldScene extends Phaser.Scene {
     if (this.map.metadata.id === 'veloria/borgofonte' && !this.save.flags.includes('q_starter_selected')) {
       this.showToast('Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud.');
     }
-    if (this.challengeRecovered) {
+    if (this.challengeRecovered && !this.completionActive) {
       this.challengeOperationActive = true;
       void this.finishChallengeRecovery();
-    } else if (!this.previewMode && this.save.flags.includes('q_league_completed') && !this.save.flags.includes('q_league_epilogue_seen')) {
+    } else if (!this.completionActive && !this.previewMode && this.save.flags.includes('q_league_completed') && !this.save.flags.includes('q_league_epilogue_seen')) {
       void this.presentLeagueFinale();
     }
   }
@@ -227,6 +248,8 @@ export class WorldScene extends Phaser.Scene {
     this.cameras.main.startFollow(this.player, true, .12, .12);
     this.cameras.main.setDeadzone(deadzone.width, deadzone.height);
     this.cameras.main.centerOn(this.player.x, this.player.y);
+    // Resolve the new bounds and deadzone before revealing a destination.
+    this.cameras.main.preRender();
     this.positionToast();
   }
 
@@ -235,6 +258,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private updateInteractionPrompt(): void {
+    this.renderedMap.updateExitMarkers(this.save.flags);
     const prompt = document.querySelector<HTMLButtonElement>('#interaction-prompt');
     if (!prompt) return;
     const blocked = this.fishingActive || this.navigationOpen || this.moving || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length > 0 || this.starterChoices?.hidden === false || this.pokedexOpen || this.journey?.isOpen;
@@ -400,7 +424,7 @@ export class WorldScene extends Phaser.Scene {
   private openPokedex(returnFocus: HTMLElement, view: 'team' | 'dex' = 'dex') {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
     if (!panel || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
-    new PokemonPanel().render(this.save, view);
+    new PokemonPanel((itemId, creatureId) => void this.openItemEvolution(itemId, creatureId)).render(this.save, view);
     panel.hidden = false;
     this.pokedexOpen = true;
     this.pokedexReturnFocus = returnFocus.closest('.exploration-menu') ? document.querySelector<HTMLElement>('#menu-button') ?? returnFocus : returnFocus;
@@ -507,6 +531,11 @@ export class WorldScene extends Phaser.Scene {
   update(time: number) {
     this.traveler?.update(time);
     this.updateInteractionPrompt();
+    if (this.movementReleaseRequired) {
+      const movementKeys = ['W', 'A', 'S', 'D', 'UP', 'DOWN', 'LEFT', 'RIGHT'];
+      if (!movementKeys.some(key => this.keys[key].isDown) && !this.heldDirection) this.movementReleaseRequired = false;
+      else return;
+    }
     if (this.navigationOpen) { this.heldDirection = null; this.queuedDirection = null; return; }
     // The UI can be replaced during a Vite hot reload while Phaser keeps its
     // scene alive for a frame. Treat a missing starter panel as closed instead
@@ -522,6 +551,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private tryMove(direction:Direction) {
+    if (this.movementReleaseRequired) return;
     if (this.slidingDirection && direction !== this.slidingDirection) return;
     if (this.navigationOpen) return;
     if(this.fishingActive||this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
@@ -598,7 +628,14 @@ export class WorldScene extends Phaser.Scene {
       this.showHealingMenu(prop?.name ?? 'Punto di riposo', serviceId === 'pokemon_center');
       return;
     }
-    if (typeof shopId === 'string') { this.showShopMenu(prop?.name ?? 'Bottega', shopId); return; }
+    if (typeof shopId === 'string') {
+      const required = prop?.properties.serviceRequiredFlag;
+      if (typeof required === 'string' && !this.save.flags.includes(required)) {
+        this.showToast(String(prop?.properties.serviceLockedMessage ?? 'Completa prima la prova indicata nel diario.'));
+        return;
+      }
+      this.showShopMenu(prop?.name ?? 'Bottega', shopId); return;
+    }
     if (prop?.kind === 'pickup') {
       const questEvent = prop.properties.questEvent;
       const progressed = typeof questEvent === 'string' && this.applyQuestEvent(questEvent);
@@ -686,27 +723,40 @@ export class WorldScene extends Phaser.Scene {
       ]);
       return;
     }
+    this.mapTransitionLoading = true;
     const previous = this.map;
+    const gameRegion = document.querySelector('#game');
+    gameRegion?.setAttribute('aria-busy', 'true');
+    this.movementReleaseRequired = ['W', 'A', 'S', 'D', 'UP', 'DOWN', 'LEFT', 'RIGHT'].some(key => this.keys[key].isDown);
     this.heldDirection = null;
     this.queuedDirection = null;
     this.slidingDirection = null;
     document.querySelectorAll('.dpad-key.pressed').forEach(button => button.classList.remove('pressed'));
     const loading = document.querySelector<HTMLElement>('#game-loading');
-    if (loading) {
+    // Cached neighboring rooms should not flash the full startup screen.
+    // Keep the current scene visible while an uncached illustration arrives.
+    const loadingTimer = window.setTimeout(() => {
+      if (!loading) return;
       const caption = loading.querySelector('span:last-child');
       if (caption) caption.textContent = `Andiamo a ${destination.metadata.displayName}…`;
       loading.hidden = false;
-    }
+    }, 350);
     try {
       await this.loadMapRenderAssets(destination);
     } catch {
+      window.clearTimeout(loadingTimer);
       this.releaseMapRenderAssets(destination, previous);
       this.mapTransitionLoading = false;
+      gameRegion?.removeAttribute('aria-busy');
       if (loading) loading.hidden = true;
       this.showToast('La mappa non è disponibile. Riprova tra poco.');
       return;
     }
 
+    window.clearTimeout(loadingTimer);
+    if (loading) loading.hidden = true;
+    await this.fadeMapTransition('out');
+    if (!this.sys.isActive()) { gameRegion?.removeAttribute('aria-busy'); return; }
     this.mapLayer.remove(this.player,false);
     this.destroyMapLayer();
     this.map=destination;
@@ -721,11 +771,42 @@ export class WorldScene extends Phaser.Scene {
     this.mapLayer.add(this.player);
     this.player.setPosition(spawn.x*TILE+TILE/2,spawn.y*TILE+TILE/2).setDepth(this.player.y+20);
     this.fitWorldCamera();
-    this.mapTransitionLoading = false;
-    if (loading) loading.hidden = true;
+    // A spawn may overlap an entry threshold: it must be left before it can
+    // trigger again, regardless of whether movement was held during loading.
+    this.activeTriggerId = selectAreaTrigger(this.renderedMap.triggers, { x: this.player.x, y: this.player.y })?.id ?? null;
     this.persistProgress();
     this.applyQuestEvent(`area/${destination.metadata.id}/enter`);
+    await this.fadeMapTransition('in');
+    this.heldDirection = null;
+    this.queuedDirection = null;
+    this.movementReleaseRequired = ['W', 'A', 'S', 'D', 'UP', 'DOWN', 'LEFT', 'RIGHT'].some(key => this.keys[key].isDown);
+    document.querySelectorAll('.dpad-key.pressed').forEach(button => button.classList.remove('pressed'));
+    this.mapTransitionLoading = false;
+    gameRegion?.removeAttribute('aria-busy');
     this.showToast(destination.metadata.displayName);
+  }
+
+  private fadeMapTransition(direction: 'out' | 'in'): Promise<void> {
+    const camera = this.cameras.main;
+    if (this.reducedAnimations) {
+      // No animated darkening or bright flash for reduced motion.
+      camera.resetFX();
+      return Promise.resolve();
+    }
+    return new Promise(resolve => {
+      const event = direction === 'out'
+        ? Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE
+        : Phaser.Cameras.Scene2D.Events.FADE_IN_COMPLETE;
+      const finish = () => {
+        camera.off(event, finish);
+        this.events.off(Phaser.Scenes.Events.SHUTDOWN, finish);
+        resolve();
+      };
+      camera.once(event, finish);
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, finish);
+      if (direction === 'out') camera.fadeOut(140, 15, 29, 38);
+      else camera.fadeIn(180, 15, 29, 38);
+    });
   }
 
   private loadMapRenderAssets(map: RegisteredMap): Promise<void> {
@@ -1039,6 +1120,7 @@ export class WorldScene extends Phaser.Scene {
     let challengeReturn = false;
     let leagueCompletion = false;
     const hadAuroraBadge = this.save.flags.includes('badge_aurora_awarded');
+    const ownedSpecies = new Set([...this.save.party, ...this.save.storage].map(creature => creature.speciesId));
     void this.ensureBattleScene().then(() => {
       document.body.classList.add('battle-active');
       document.querySelector<HTMLElement>('#save-menu')!.hidden = true;
@@ -1051,6 +1133,12 @@ export class WorldScene extends Phaser.Scene {
         createInstanceId: createUniqueId,
         arenaTextureKey: this.map.metadata.battleBackgroundKey,
         reducedAnimations: this.reducedAnimations,
+        capturedIsNew: state.opponent.creatures.some(creature => !ownedSpecies.has(creature.speciesId)),
+        beforeCelebration: async (_state: BattleState, _events: readonly BattleEvent[], battleSignal: AbortSignal) => {
+          const signal = AbortSignal.any([this.presentationAbort.signal, battleSignal]);
+          if (!await ensureSavedProgress(() => this.persistProgress(), signal)) throw new DOMException('Presentation cancelled', 'AbortError');
+          await this.presentPendingEvolutions(signal);
+        },
         victoryPresentation: trainer ? () => ({ trainerName: trainer.name, rewardMoney: earnedMoney, badgeId: earnedBadgeId, feedback: trainer.victoryFeedback ?? trainer.victoryMessage }) : undefined,
         onSpeciesSeen: (speciesId: number) => {
           if (!battleSpecies[speciesId] || this.save.flags.includes(`pokedex_seen_${speciesId}`)) return;
@@ -1063,6 +1151,9 @@ export class WorldScene extends Phaser.Scene {
           const previousMoney = this.save.player.money;
           const previousBadges = new Set(this.save.badges);
           this.save = mergeBattlePlayerState(this.save, finalState);
+          this.save = queueEvolutionReceipts(this.save, events.flatMap(event =>
+            event.type === 'creatureEvolved' && event.side === 'player' ? [{ creatureId: event.creatureId,
+              fromSpeciesId: event.fromSpeciesId, toSpeciesId: event.toSpeciesId, level: event.level }] : []));
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
           if (challenge && trainer) {
             const outcome = finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player' ? 'won'
@@ -1573,6 +1664,39 @@ export class WorldScene extends Phaser.Scene {
       setTimeout(()=>window.location.reload(),500);
     } catch(error) { this.showToast(error instanceof Error?`Backup non importato: ${error.message}`:'Backup non importato.'); }
     document.querySelector<HTMLElement>('#save-menu')!.hidden=true;
+  }
+
+  private async openItemEvolution(itemId: string, creatureId?: string): Promise<void> {
+    if (this.previewMode || this.navigationOpen || this.battleActive) return;
+    this.completionActive = true;
+    const signal = this.presentationAbort.signal;
+    try {
+      const selected = await chooseItemEvolution({ save: this.save, itemId, creatureId, rules: itemEvolutionRules,
+        species: battleSpecies, moves: battleMoves, itemName: itemCatalog[itemId]?.name ?? itemId, signal });
+      if (!selected || signal.aborted) return;
+      const result = applyItemEvolution(this.save, itemId, selected, itemEvolutionRules, battleSpecies);
+      if (!result.ok) { this.showToast('Questa evoluzione non è più disponibile. Controlla squadra e zaino.'); return; }
+      this.save = result.save;
+      if (!await ensureSavedProgress(() => this.persistProgress(), signal)) return;
+      await this.presentPendingEvolutions();
+    } finally { this.completionActive = false; }
+  }
+
+  private async presentPendingEvolutions(signal: AbortSignal = this.presentationAbort.signal): Promise<void> {
+    const previousLock = this.completionActive;
+    this.completionActive = true;
+    try {
+      for (const receipt of pendingEvolutionReceipts(this.save)) {
+        if (signal.aborted) return;
+        await showEvolutionCelebration({ ...receipt,
+          fromName: battleSpecies[receipt.fromSpeciesId]?.name ?? 'Pokémon',
+          toName: battleSpecies[receipt.toSpeciesId]?.name ?? 'Pokémon',
+          reducedAnimations: this.reducedAnimations, signal });
+        if (signal.aborted) return;
+        this.save = { ...this.save, flags: this.save.flags.filter(flag => flag !== evolutionReceiptFlag(receipt)) };
+        if (!await ensureSavedProgress(() => this.persistProgress(), signal)) return;
+      }
+    } finally { this.completionActive = previousLock; }
   }
 
   private persistProgress(showToast=false): Promise<boolean> {

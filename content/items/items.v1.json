@@ -82,6 +82,33 @@
           "paralysis"
         ]
       }
+    },
+    "fire-stone": {
+      "id": "fire-stone",
+      "name": "Pietrafocaia",
+      "price": 3000,
+      "maxStack": 99,
+      "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
+      "evolutionStone": true,
+      "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
+    },
+    "water-stone": {
+      "id": "water-stone",
+      "name": "Pietraidrica",
+      "price": 3000,
+      "maxStack": 99,
+      "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
+      "evolutionStone": true,
+      "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
+    },
+    "thunder-stone": {
+      "id": "thunder-stone",
+      "name": "Pietratuono",
+      "price": 3000,
+      "maxStack": 99,
+      "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
+      "evolutionStone": true,
+      "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
     }
   }
 }

@@ -12,7 +12,9 @@ import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState, MoveDefinition } from '../../core/battle/types.ts';
 import { createCreatureImage, preloadCreatureArt } from '../battle/creature-art.ts';
 import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatFlinched, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
-import { formatMoveDescription } from '../battle/move-description.ts';
+import { describeMoveMatchup } from '../battle/move-matchup.ts';
+import { describeMoveEffects } from '../battle/move-description.ts';
+import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
 import { BattleCelebration, type VictoryPresentation } from '../ui/BattleCelebration.ts';
 import { gameViewport } from '../rendering/game-size.ts';
 
@@ -23,6 +25,9 @@ export interface BattleSceneInit {
   readonly rules: BattleRules;
   /** Events remain the source of truth for save/inventory updates in the owning application. */
   readonly onComplete: (state: BattleState, events: readonly BattleEvent[]) => void;
+  /** Owner commits the result and presents any durable ceremonies before the receipt. */
+  readonly beforeCelebration?: (state: BattleState, events: readonly BattleEvent[], signal: AbortSignal) => Promise<void>;
+  readonly capturedIsNew?: boolean;
   readonly onDismiss?: (event?: KeyboardEvent) => void;
   readonly victoryPresentation?: () => VictoryPresentation;
   /** Optional game-level UUID source for newly captured creatures. */
@@ -82,6 +87,11 @@ export class BattleScene extends Phaser.Scene {
   private terminalShown = false;
   private dismissalReported = false;
   private celebration?: BattleCelebration;
+  private beforeCelebration?: BattleSceneInit['beforeCelebration'];
+  private capturedIsNew = false;
+  private terminalPreparing = false;
+  private terminalController = new AbortController();
+  private readonly unrevealedEvolutions = new Map<string, BattleCreature>();
   private victoryPresentation?: BattleSceneInit['victoryPresentation'];
   private pendingMoveLearning?: Extract<BattleEvent, { type: 'moveLearningSkipped' }>;
   private messageTimer?: Phaser.Time.TimerEvent;
@@ -92,6 +102,8 @@ export class BattleScene extends Phaser.Scene {
   private moveSlotIndexes: number[] = [];
   private selectionIndex = 0;
   private detailMoveIndex = 0;
+  private detailPage = 0;
+  private detailPageCount = 1;
   private onSpeciesSeen?: BattleSceneInit['onSpeciesSeen'];
   private seenSpecies = new Set<number>();
   private renderedViewportKey = '';
@@ -100,6 +112,7 @@ export class BattleScene extends Phaser.Scene {
     this.render(true);
   };
   private readonly removeScaleResizeListener = (): void => {
+    this.terminalController.abort();
     this.scale.off('resize', this.handleScaleResize);
     this.ui?.list.forEach(child => this.tweens.killTweensOf(child));
     this.messageTimer?.remove(false);
@@ -116,6 +129,12 @@ export class BattleScene extends Phaser.Scene {
     this.rules = data.rules;
     this.opponentPolicy = data.opponentPolicy ?? getOpponentPolicy();
     this.onComplete = data.onComplete;
+    this.beforeCelebration = data.beforeCelebration;
+    this.capturedIsNew = data.capturedIsNew ?? false;
+    this.terminalController.abort();
+    this.terminalController = new AbortController();
+    this.terminalPreparing = false;
+    this.unrevealedEvolutions.clear();
     this.onDismiss = data.onDismiss;
     this.celebration?.destroy();
     this.celebration = undefined;
@@ -181,7 +200,13 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private confirm(event?: KeyboardEvent): void {
-    if (this.mode === 'moveDetails') { this.back(); return; }
+    if (this.terminalPreparing) return;
+    if (this.mode === 'moveDetails') {
+      if (event?.repeat) return;
+      this.detailPage = (this.detailPage + 1) % this.detailPageCount;
+      this.render();
+      return;
+    }
     if (this.mode === 'message') {
       this.advanceMessage(event);
       return;
@@ -194,6 +219,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private back(): void {
+    if (this.terminalPreparing) return;
     if (this.mode === 'moveDetails') { this.mode = 'moves'; this.render(); return; }
     if (this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch) return;
     if (this.mode === 'menu') return;
@@ -452,9 +478,8 @@ export class BattleScene extends Phaser.Scene {
     const options = creature.moves.map((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
       const type = move ? battleTypeLabel(move.type).toLocaleUpperCase('it-IT') : '';
-      const category = move?.category === 'status' ? 'SUPPORTO' : move?.category === 'physical' ? 'FISICA' : 'SPECIALE';
       return {
-        label: move ? `${move.name}\n${type} · ${category}\nPP ${slot.pp}/${move.maxPp}` : `${slot.moveId}\nPP ${slot.pp}`,
+        label: move ? `${move.name}\n${describeMoveMatchup(move, this.activeCreature('opponent'), this.rules).label}\n${type} · PP ${slot.pp}/${move.maxPp}` : `${slot.moveId}\nPP ${slot.pp}`,
         enabled: slot.pp > 0,
         accent: move ? this.typeColor(move.type) : COLORS.blue,
         callback: () => this.act({ kind: 'useMove', moveSlot: index }),
@@ -477,6 +502,7 @@ export class BattleScene extends Phaser.Scene {
   private openMoveDetails(): void {
     if (this.mode !== 'moves') return;
     this.detailMoveIndex = this.moveSlotIndexes[this.selectionIndex] ?? 0;
+    this.detailPage = 0;
     this.mode = 'moveDetails';
     this.render();
   }
@@ -496,22 +522,59 @@ export class BattleScene extends Phaser.Scene {
       const by = 60 + Math.floor(index / columns) * 48;
       const card = this.add.rectangle(bx, by, itemWidth, 44, index === this.detailMoveIndex ? 0x3a6070 : 0x223e54).setOrigin(0);
       card.setStrokeStyle(1, index === this.detailMoveIndex ? 0xafffe3 : 0x426479);
-      card.setInteractive({ useHandCursor: true }).on('pointerdown', () => { this.detailMoveIndex = index; this.render(); });
+      card.setInteractive({ useHandCursor: true }).on('pointerdown', () => { this.detailMoveIndex = index; this.detailPage = 0; this.render(); });
       this.ui.add(card);
       this.label(bx + 10, by + 7, `${move?.name ?? slot.moveId}\nPP ${slot.pp}/${move?.maxPp ?? '?'}`, COLORS.paper, 11);
     });
-    const move = this.moveCatalog[slots[this.detailMoveIndex]?.moveId ?? ''];
+    const slot = slots[this.detailMoveIndex];
+    const move = this.moveCatalog[slot?.moveId ?? ''];
     const textX = landscape ? 240 : 26;
     const textY = landscape ? 60 : 168;
-    if (move) {
+    if (move && slot) {
       this.label(textX, textY, move.name, '#afffe3', 19);
-      const description = this.text(textX, textY + 32, formatMoveDescription(move), {
+      const target = this.activeCreature('opponent');
+      const matchup = describeMoveMatchup(move, target, this.rules);
+      const forecast = this.moveForecast(move);
+      const category = move.category === 'status' ? 'Supporto' : move.category === 'physical' ? 'Fisica' : 'Speciale';
+      const paragraphs = [
+        `CONTRO ${target.name.toLocaleUpperCase('it-IT')}\n${matchup.label}\n${matchup.explanation.join(' ')}`,
+        `${battleTypeLabel(move.type)} · ${category}\n${move.fixedDamage ? `Danno fisso: ${move.fixedDamage} HP` : `Potenza: ${move.power || '—'}`} · Precisione base: ${move.alwaysHits ? 'non verifica' : `${move.accuracy}%`}\nPrecisione attuale: ${this.moveAccuracyLabel(move)} · PP: ${slot.pp}/${move.maxPp}${forecast ? `\nDanno stimato: ${forecast.minimum}–${forecast.maximum} HP (non garantito)` : ''}`,
+        ...describeMoveEffects(move),
+      ];
+      // Measure actual wrapped text before paging; no effect or probability is cut off on short screens.
+      const pages: string[] = [];
+      const availableHeight = Math.max(50, height - textY - 114);
+      const availableWidth = width - textX - 30;
+      let current = '';
+      const measure = this.text(0, 0, '', { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', lineSpacing: 3, wordWrap: { width: availableWidth } });
+      for (const paragraph of paragraphs) {
+        const words = paragraph.split(' ');
+        for (let index = 0; index < words.length; index++) {
+          const separator = index === 0 && current ? '\n\n' : current ? ' ' : '';
+          const candidate = `${current}${separator}${words[index]}`;
+          measure.setText(candidate);
+          if (current && measure.height > availableHeight) { pages.push(current); current = words[index]; }
+          else current = candidate;
+        }
+      }
+      if (current) pages.push(current);
+      measure.destroy();
+      this.detailPageCount = Math.max(1, pages.length);
+      this.detailPage = Math.min(this.detailPage, pages.length - 1);
+      const description = this.text(textX, textY + 32, pages[this.detailPage] ?? '', {
         fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', color: COLORS.paper,
-        lineSpacing: 3, wordWrap: { width: width - textX - 30 },
+        lineSpacing: 3, wordWrap: { width: availableWidth },
       });
       this.ui.add(description);
+      if (pages.length > 1) {
+        const pageTarget = this.add.zone(textX, height - 62, 140, 44).setOrigin(0).setInteractive({ useHandCursor: true });
+        pageTarget.setName('move-details-page');
+        pageTarget.on('pointerdown', () => { this.detailPage = (this.detailPage + 1) % pages.length; this.render(); });
+        this.ui.add(pageTarget);
+        this.label(textX + 4, height - 49, `${this.detailPage + 1}/${pages.length} · PAGINA →`, '#afffe3', 12);
+      }
     }
-    const closeTarget = this.add.zone(width - 138, height - 62, 116, 44).setOrigin(0).setInteractive({ useHandCursor: true });
+    const closeTarget = this.add.zone(width - 146, height - 62, 124, 44).setOrigin(0).setInteractive({ useHandCursor: true });
     closeTarget.setName('move-details-back');
     closeTarget.on('pointerdown', this.back, this);
     this.ui.add(closeTarget);
@@ -568,16 +631,7 @@ export class BattleScene extends Phaser.Scene {
     const category = move.category === 'status' ? 'STATO' : move.category === 'physical' ? 'FISICA' : 'SPECIALE';
     const typeEffectiveness = effectivenessFor(this.activeCreature('opponent').types, move.type, this.rules.typeChart);
     const effectiveness = move.fixedDamage && typeEffectiveness !== 0 ? 1 : typeEffectiveness;
-    const matchup = move.statusAffectedByTypeImmunity && effectiveness === 0 ? 'NESSUN EFFETTO · IMMUNITÀ DI TIPO' : move.category === 'status'
-      ? move.leechSeedFraction
-        ? `DRENA 1/${Math.round(1 / move.leechSeedFraction)} DEGLI HP MASSIMI A FINE TURNO`
-        : move.inflictedStatus
-        ? `PUÒ INFLIGGERE ${this.statusName(move.inflictedStatus).toLocaleUpperCase('it-IT')} · ${move.statusChance ?? 100}%`
-        : move.statChanges?.length
-          ? this.moveTacticLabel(move) ?? 'MOSSA DI SUPPORTO'
-          : move.inflictedConfusionChance ? `PUÒ CONFONDERE · ${move.inflictedConfusionChance}%`
-          : 'MOSSA DI SUPPORTO'
-      : effectiveness === 0 ? 'NESSUN EFFETTO' : effectiveness > 1 ? 'SUPER EFFICACE' : effectiveness < 1 ? 'POCO EFFICACE' : 'EFFETTO NORMALE';
+    const matchup = describeMoveMatchup(move, this.activeCreature('opponent'), this.rules).label.toLocaleUpperCase('it-IT');
     const detail = move.category === 'status'
       ? `${category} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`
       : `${move.fixedDamage ? `DANNO FISSO ${move.fixedDamage} HP` : `POTENZA ${move.power}`} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`;
@@ -594,7 +648,7 @@ export class BattleScene extends Phaser.Scene {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '12px', fontStyle: 'bold', color: '#d6e9f5',
       wordWrap: { width: width - 54 },
     });
-    const extra = move.category !== 'status' ? this.moveTacticLabel(move) : undefined;
+    const extra = this.moveTacticLabel(move);
     const tactic = this.text(x + 30, y + 54, `${matchup}  ·  ${extra ?? this.activeCreature('opponent').types.map(battleTypeLabel).join(' / ')}`, {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '10px', fontStyle: 'bold', color: effectiveness > 1 ? '#ffe08a' : effectiveness === 0 ? '#ffb6a4' : '#bdd3df',
       wordWrap: { width: width - 54 },
@@ -746,9 +800,11 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private navigate(rowDelta: number, columnDelta: number): void {
+    if (this.terminalPreparing) return;
     if (this.mode === 'moveDetails') {
       const count = this.activeCreature('player').moves.length;
       this.detailMoveIndex = (this.detailMoveIndex + rowDelta + columnDelta + count) % count;
+      this.detailPage = 0;
       this.render();
       return;
     }
@@ -905,6 +961,12 @@ export class BattleScene extends Phaser.Scene {
       this.moveCatalog,
       this.rules,
     );
+    for (const event of transition.events) {
+      if (event.type === 'creatureEvolved' && !this.unrevealedEvolutions.has(event.creatureId)) {
+        const previous = this.creatureById(event.side, event.creatureId);
+        if (previous) this.unrevealedEvolutions.set(event.creatureId, previous);
+      }
+    }
     this.state = transition.state;
     this.eventLog.push(...transition.events);
     this.consumeInventoryForEvents(transition.events);
@@ -930,6 +992,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private advanceMessage(event?: KeyboardEvent): void {
+    if (this.terminalPreparing) return;
     this.messageTimer?.remove(false);
     this.messageTimer = undefined;
     const current = this.pendingMessages[0];
@@ -1013,12 +1076,13 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private finishPostTurn(event?: KeyboardEvent): void {
+    if (this.terminalPreparing) return;
     if (this.state.outcome.kind !== 'ongoing') {
       if (!this.completionReported) {
         this.completionReported = true;
         this.onComplete(this.state, [...this.eventLog]);
       }
-      if (!this.terminalShown) this.showTerminalMessage();
+      if (!this.terminalShown) void this.prepareTerminalPresentation();
       else if (!this.dismissalReported) {
         this.dismissalReported = true;
         this.onDismiss?.(event);
@@ -1036,6 +1100,32 @@ export class BattleScene extends Phaser.Scene {
     this.render();
   }
 
+  private async prepareTerminalPresentation(): Promise<void> {
+    if (this.terminalPreparing) return;
+    this.terminalPreparing = true;
+    const signal = this.terminalController.signal;
+    try {
+      if (this.beforeCelebration) await this.beforeCelebration(this.state, [...this.eventLog], signal);
+      else {
+        for (const event of this.eventLog) {
+          if (signal.aborted) return;
+          if (event.type === 'creatureEvolved') await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
+        }
+      }
+      if (signal.aborted) return;
+      this.unrevealedEvolutions.clear();
+      this.terminalPreparing = false;
+      this.showTerminalMessage();
+    } catch (error) {
+      if (signal.aborted) return;
+      console.error('Unable to prepare battle result presentation', error);
+      this.terminalPreparing = false;
+      this.pendingMessages = [{ text: 'Non siamo riusciti a completare il salvataggio. Tocca per riprovare.' }];
+      this.mode = 'message';
+      this.render();
+    }
+  }
+
   private showTerminalMessage(): void {
     const terminal = this.outcomeMessage();
     const rewards = battleRewardSummary(this.eventLog);
@@ -1044,7 +1134,7 @@ export class BattleScene extends Phaser.Scene {
     this.terminalShown = true;
     this.render();
     if (this.state.outcome.kind === 'captured' || this.state.outcome.kind === 'won' && this.state.outcome.winner === 'player') {
-      this.celebration = new BattleCelebration(this.state, this.eventLog, this.moveCatalog, this.victoryPresentation?.(), event => this.finishPostTurn(event), this.reducedAnimations);
+      this.celebration = new BattleCelebration(this.state, this.eventLog, this.moveCatalog, this.victoryPresentation?.(), event => this.finishPostTurn(event), this.reducedAnimations, this.capturedIsNew);
     }
   }
 
@@ -1155,16 +1245,6 @@ export class BattleScene extends Phaser.Scene {
       if (this.actors.opponent) this.floatingFeedback(this.actors.opponent, 'SI È LIBERATO!', '#ffb6a4');
     } else if (event.type === 'creatureCaptured') {
       if (this.actors.opponent) this.floatingFeedback(this.actors.opponent, 'CATTURATO!', '#f4db9b');
-    } else if (event.type === 'creatureEvolved') {
-      const actor = this.actors[event.side];
-      if (actor) {
-        this.floatingFeedback(actor, `${event.toName.toUpperCase()}!`, '#c6edaf');
-        if (!this.reducedAnimations) {
-          const glow = this.add.circle(actor.x, actor.y, 34, 0xc6edaf, 0.22).setStrokeStyle(3, 0xf4e6a2, 0.9);
-          this.ui.add(glow);
-          this.tweens.add({ targets: glow, scale: 2.1, alpha: 0, duration: 520, ease: 'Cubic.easeOut', onComplete: () => glow.destroy() });
-        }
-      }
     } else if (event.type === 'creatureFainted') {
       const actor = this.actors[event.side];
       if (actor && !this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.15, y: actor.y + 12, duration: 280 });
@@ -1224,7 +1304,7 @@ export class BattleScene extends Phaser.Scene {
         return formatStatStageChanged(event.stat, event.change, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
       case 'statStageLimited':
         return formatStatStageLimited(event.stat, event.stage, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
-      case 'creatureEvolved': return `${event.fromName} si è evoluta in ${event.toName}!`;
+      case 'creatureEvolved': return null;
       case 'creatureSwitched': return `${this.creatureById(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
       case 'itemUsed': return 'Hai usato uno strumento.';
       case 'captureAttempted': return 'La sfera è in volo…';
@@ -1247,7 +1327,9 @@ export class BattleScene extends Phaser.Scene {
 
   private displayedCreature(side: BattleSide): BattleCreature {
     const id = this.visualActiveIds.get(side);
-    return (id ? this.creatureById(side, id) : undefined) ?? this.activeCreature(side);
+    const current = (id ? this.creatureById(side, id) : undefined) ?? this.activeCreature(side);
+    const previous = this.unrevealedEvolutions.get(current.instanceId);
+    return previous ? { ...current, speciesId: previous.speciesId, name: previous.name, types: previous.types } : current;
   }
 
   private activeCreature(side: BattleSide): BattleCreature {

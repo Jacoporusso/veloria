@@ -48,6 +48,7 @@ async function walk(page: Page, mapFile: string, targetX: number, targetY: numbe
   }
   if(!route)throw Error('No route to the authored objective');
   for(const name of route){
+    await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
     const before=(await saved(page)).player;
     await page.getByRole('button',{name,exact:true}).tap();
     await expect.poll(async()=>{const p=(await saved(page)).player;return p.mapId+'|'+p.x+','+p.y}).not.toBe(before.mapId+'|'+before.x+','+before.y);
@@ -73,7 +74,7 @@ test('a named trainer starts the story, chooses one starter and resumes the same
   expect((await saved(page)).player.name).toBe('Aurora');
   expect((await saved(page)).party).toHaveLength(0);
   const saveId=(await saved(page)).saveId;
-  await walk(page,'bg_borgofonte.tmj',20,30);
+  await walk(page,'bg_borgofonte.tmj',21,25);
   await expect(page.locator('#current-location')).toHaveText('LABORATORIO DI ELIA');
   await walk(page,'borgofonte_lab.tmj',12,8);
   await expect(page.locator('#interaction-prompt')).toContainText('Elia');
@@ -110,8 +111,8 @@ test('a named trainer starts the story, chooses one starter and resumes the same
   await expect.poll(async () => (await saved(page)).flags).toContain('q_research_sample_received');
   await walk(page,'borgofonte_lab.tmj',11,14);
   await expect(page.locator('#current-location')).toHaveText('BORGOFONTE');
-  // Follow the visible street directly north on x23, beside the former one-tile trigger.
-  await walk(page,'bg_borgofonte.tmj',23,7);
+  // Follow the illustrated street to the full-width northern threshold.
+  await walk(page,'bg_borgofonte.tmj',22,0);
   await expect(page.locator('#current-location')).toHaveText("SENTIERO DELL'ALBA");
   expect((await saved(page)).party).toHaveLength(1);
   await page.screenshot({ path: testInfo.outputPath('first-route-after-starter.png') });

@@ -29,6 +29,7 @@ export async function seedBrowserSave(page: Page, save: GameSave): Promise<void>
 }
 
 export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'right', beforeSave?: GameSave): Promise<GameSave> {
+  await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
   const labels={up:'Vai in alto',down:'Vai in basso',left:'Vai a sinistra',right:'Vai a destra'};
   const before=(beforeSave ?? await readBrowserSave(page)).player;
   let observed: GameSave;

@@ -25,6 +25,7 @@ from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
 from import_pokeapi_evolution_art import main as verify_evolution_art
 from import_pokeapi_species_art import main as verify_species_art
+from import_item_evolutions import main as verify_item_evolutions
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "content" / "examples"
@@ -52,6 +53,7 @@ verify_item_import(['--check'])
 verify_evolution_import(['--check'])
 verify_species_import(['--check'])
 verify_evolution_art(['--check'])
+verify_item_evolutions(['--check'])
 artwork_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
 for artwork_group in sorted({entry['artworkGroup'] for entry in artwork_imports if entry.get('artworkGroup')}):
     verify_species_art(['--group', artwork_group, '--check'])
@@ -192,6 +194,22 @@ for species_id, entries in learning["species"].items():
         check(type(entry["level"]) is int and 2 <= entry["level"] <= 100, f"Invalid learning level: {species_id}")
         check(entry["moveId"] in move_registry, f"Unknown level-up move: {entry['moveId']}")
 item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
+item_evolution_catalog = json.loads((ROOT / "content" / "battle" / "item-evolutions.v1.json").read_text(encoding="utf-8"))
+check(item_evolution_catalog.get("versionGroup") == "heartgold-soulsilver", "Item evolutions must use the HGSS source version group")
+item_evolution_rules = item_evolution_catalog.get("rules", [])
+check(len(item_evolution_rules) == 4, "Expected the four supported Pikachu/Eevee stone branches")
+item_evolution_keys = set()
+for rule in item_evolution_rules:
+    source, target, item_id = rule.get("fromSpeciesId"), rule.get("toSpeciesId"), rule.get("itemId")
+    check(str(source) in species_registry and str(target) in species_registry,
+          f"Item evolution references an unknown species: {source} -> {target}")
+    check(item_id in item_registry and item_registry[item_id].get("evolutionStone") is True,
+          f"Item evolution references a non-stone or unknown item: {item_id}")
+    check(type(source) is int and type(target) is int and source != target,
+          f"Invalid item evolution edge: {source} -> {target}")
+    key = (source, target, item_id)
+    check(key not in item_evolution_keys, f"Duplicate item evolution: {key}")
+    item_evolution_keys.add(key)
 fishing_tables = {table["id"]: table for table in
                   (json.loads(path.read_text(encoding="utf-8")) for path in ENCOUNTERS.glob("*.encounter.json"))}
 trainer_files = sorted(TRAINERS.glob("*.trainer.json"))

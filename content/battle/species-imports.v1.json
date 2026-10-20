@@ -238,6 +238,26 @@
       "speciesId": 230,
       "templateSpeciesId": 7,
       "artworkGroup": "dragon"
+    },
+    {
+      "artworkGroup": "stone-evolutions",
+      "speciesId": 26,
+      "templateSpeciesId": 25
+    },
+    {
+      "artworkGroup": "stone-evolutions",
+      "speciesId": 134,
+      "templateSpeciesId": 133
+    },
+    {
+      "artworkGroup": "stone-evolutions",
+      "speciesId": 135,
+      "templateSpeciesId": 133
+    },
+    {
+      "artworkGroup": "stone-evolutions",
+      "speciesId": 136,
+      "templateSpeciesId": 133
     }
   ],
   "deferredImports": [

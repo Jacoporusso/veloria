@@ -1,0 +1,10 @@
+.evolution-item-use {
+  min-height:44px; min-width:66px; padding:10px 15px; border-radius:13px;
+  border:1px solid #b6f7df; background:linear-gradient(115deg,#afffe3,#c6b1ff);
+  color:#173d50; font:800 12px var(--font-ui,system-ui); cursor:pointer;
+  touch-action:manipulation; flex-shrink:0;
+}
+.evolution-item-use:focus-visible { outline:3px solid #c6b1ff; outline-offset:3px; }
+.pokemon-evolution .evolution-item-use { margin:5px 0 14px; }
+.bag-item:has(.evolution-item-use) { flex-wrap:wrap; }
+@media(max-width:380px) { .bag-item .evolution-item-use { margin-left:auto; } }

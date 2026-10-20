@@ -3,7 +3,8 @@ import { buildPokedexEntries, seenSpeciesFromFlags } from '../../core/party/poke
 import { BATTLE_TYPES, type MoveDefinition } from '../../core/battle/types.ts';
 import { effectivenessFor } from '../../core/battle/rules.ts';
 import { calculateStats } from '../../core/battle/create-creature.ts';
-import { battleMoves, battleSpecies, veloriaBattleRules } from '../battle/catalog.ts';
+import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, itemCatalog } from '../battle/catalog.ts';
+import '../../evolution-item-actions.css';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
@@ -26,6 +27,8 @@ export class PokemonPanel {
   private readonly list = document.querySelector<HTMLOListElement>('#pokedex-list')!;
   private readonly title = document.querySelector<HTMLElement>('#pokedex-title')!;
   private readonly summary = document.querySelector<HTMLElement>('#pokedex-summary')!;
+
+  constructor(private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void) {}
 
   render(save: GameSave, view: 'team' | 'dex'): void {
     this.title.textContent = view === 'team' ? 'Squadra' : 'Pokédex';
@@ -81,10 +84,25 @@ export class PokemonPanel {
             evolution.timeOfDay === 'day' ? 'di giorno' : evolution.timeOfDay === 'night' ? 'di notte' : ''].filter(Boolean).join(' ')
         : `Usa ${evolution.itemName} · non dipende dal livello`;
       evolutionSection.append(node('strong', `${species.name} → ${evolution.targetName}`), node('p', requirement, 'pokemon-evolution-requirement'));
-      const available = (veloriaBattleRules.evolutions[speciesId] ?? []).some(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
+      const stoneRule = itemEvolutionRules.find(rule => rule.fromSpeciesId === speciesId && rule.toSpeciesId === evolution.targetSpeciesId && battleSpecies[String(rule.toSpeciesId)]);
+      const available = Boolean(stoneRule) || (veloriaBattleRules.evolutions[speciesId] ?? []).some(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
       evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : evolution.targetSpeciesId > 251
         ? 'Evoluzione ufficiale non ancora disponibile nel prototipo: fuori dal catalogo Gen I–II.'
         : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));
+      if (view === 'team' && creature && stoneRule && this.onUseEvolutionItem) {
+        const quantity = save.inventory[stoneRule.itemId] ?? 0;
+        const itemName = itemCatalog[stoneRule.itemId]?.name ?? stoneRule.itemId;
+        if (quantity > 0) {
+          const use = node('button', `Usa ${itemName} · ×${quantity}`, 'evolution-item-use');
+          use.type = 'button';
+          use.addEventListener('click', () => {
+            // Let the owner close the panel and release its input/focus state first.
+            document.querySelector<HTMLButtonElement>('#pokedex-close')?.click();
+            this.onUseEvolutionItem?.(stoneRule.itemId, creature.instanceId);
+          });
+          evolutionSection.append(use);
+        } else evolutionSection.append(node('p', `${itemName}: non presente nello zaino.`, 'pokemon-note'));
+      }
     }
     body.append(evolutionSection);
     body.append(node('h3', 'Affinità difensive'));

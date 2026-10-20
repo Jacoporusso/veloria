@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "scope": "Private prototype stone-evolutions-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 26,
+      "name": "Raichu",
+      "path": "assets/creatures/pokeapi-stone-evolutions-26-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+      "sourcePath": "assets/sources/pokeapi/stone-evolutions/26.png",
+      "sourceSha256": "e5671c5f00695fa6f6a3fc08a70d0b53a34e14f5dafcccc66316bdee90d076ac",
+      "sha256": "63ed9c7f7e60acf0558264bfff91e851fbf03a754e9bfebd78d51918b40c6629"
+    },
+    {
+      "speciesId": 134,
+      "name": "Vaporeon",
+      "path": "assets/creatures/pokeapi-stone-evolutions-134-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "sourcePath": "assets/sources/pokeapi/stone-evolutions/134.png",
+      "sourceSha256": "3f4a86ef2ec064c98dd8fb207046c7202c1669e5fb7fac05fc1acea364d2770f",
+      "sha256": "6ed20f43fb1d87811e247c9f07b08848fa847be0ce0eb5338d06bf71f3369b3f"
+    },
+    {
+      "speciesId": 135,
+      "name": "Jolteon",
+      "path": "assets/creatures/pokeapi-stone-evolutions-135-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+      "sourcePath": "assets/sources/pokeapi/stone-evolutions/135.png",
+      "sourceSha256": "bf525c20b899e08398d93d0436d2e592463068d85da8760424ac340c7f8f8ed8",
+      "sha256": "cfa5cc2c418887144c59683b55c98cb00b5378be454f8171690a2246e41720da"
+    },
+    {
+      "speciesId": 136,
+      "name": "Flareon",
+      "path": "assets/creatures/pokeapi-stone-evolutions-136-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+      "sourcePath": "assets/sources/pokeapi/stone-evolutions/136.png",
+      "sourceSha256": "a11d3f021baf917f9106266d5fec5b6326a2850b130e4560e333fa9f481c41ec",
+      "sha256": "4cc94054897c728e1976278cb535308a736954f2ecb52b0d059ec4962a8dc379"
+    }
+  ]
+}

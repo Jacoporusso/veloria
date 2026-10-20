@@ -1,6 +1,21 @@
 {
   "versionGroup": "heartgold-soulsilver",
   "resources": {
+    "item/fire-stone": {
+      "url": "https://pokeapi.co/api/v2/item/fire-stone/",
+      "path": "content/sources/pokeapi/item-fire-stone.json",
+      "sha256": "d729a6730859fedd68437544d2e1d53c0b85b81bf8351dbf8a364062e3bf8d8e"
+    },
+    "item/thunder-stone": {
+      "url": "https://pokeapi.co/api/v2/item/thunder-stone/",
+      "path": "content/sources/pokeapi/item-thunder-stone.json",
+      "sha256": "796203cd93893c8a95b0cecfc7f7caa5ee74946a7f710e97fcbba929ff9f31db"
+    },
+    "item/water-stone": {
+      "url": "https://pokeapi.co/api/v2/item/water-stone/",
+      "path": "content/sources/pokeapi/item-water-stone.json",
+      "sha256": "c2405fe38cf3ffcde4e40cda70a1af33f6c269ded821d6a1e60c6a82272a6cbd"
+    },
     "move/absorb": {
       "url": "https://pokeapi.co/api/v2/move/absorb/",
       "path": "content/sources/pokeapi/move-absorb.json",
@@ -626,6 +641,21 @@
       "path": "content/sources/pokeapi/pokemon-133.json",
       "sha256": "c14bc4bd2ce36e57bb72634c8fc474de9b06a137901046aa75b322175078b95e"
     },
+    "pokemon/134": {
+      "url": "https://pokeapi.co/api/v2/pokemon/134/",
+      "path": "content/sources/pokeapi/pokemon-134.json",
+      "sha256": "96bb5afd658800bdc11f3ae143eb1c05f2caf5a067e71b1612d20b7a7cc51978"
+    },
+    "pokemon/135": {
+      "url": "https://pokeapi.co/api/v2/pokemon/135/",
+      "path": "content/sources/pokeapi/pokemon-135.json",
+      "sha256": "d32a70bc45eb64fbd4df9f4c094d6b441fe9b2d42f5287231914c15dff950e6c"
+    },
+    "pokemon/136": {
+      "url": "https://pokeapi.co/api/v2/pokemon/136/",
+      "path": "content/sources/pokeapi/pokemon-136.json",
+      "sha256": "5fdb45574c7b809d79d28fd3b6fb6fe9a975291a3fc03e87bd8be15137d7d8d0"
+    },
     "pokemon/14": {
       "url": "https://pokeapi.co/api/v2/pokemon/14/",
       "path": "content/sources/pokeapi/pokemon-14.json",
@@ -790,6 +820,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/25/",
       "path": "content/sources/pokeapi/pokemon-25.json",
       "sha256": "496f79f6858cb31ce6318c6b0c1eee946af8968d0cbb4e3b048e8ec77b11e078"
+    },
+    "pokemon/26": {
+      "url": "https://pokeapi.co/api/v2/pokemon/26/",
+      "path": "content/sources/pokeapi/pokemon-26.json",
+      "sha256": "404c2f813956230014622d78a70f1521ab30f5bac4ef509da2595f967075597f"
     },
     "pokemon/3": {
       "url": "https://pokeapi.co/api/v2/pokemon/3/",

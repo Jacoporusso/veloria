@@ -1,3 +1,11 @@
+## 0.3.101 — preparazione pubblicazione (20/10/2026)
+
+Mosse strategiche, cerimonie, pietre e Borgofonte illustrata. Contenuti:48 mappe,49 missioni,27 allenatori,12 botteghe,73 specie,280 asset registrati. Cache prevista `veloria-shell-v122`.
+
+Verifiche locali:464 test dominio,25 persistenza,103 Python; TypeScript, validatore contenuti/fonti/artwork e build produzione riusciti. Browser: dettagli mosse su320×568 e844×390 con tutti gli effetti/pagine leggibili; Indietro mobile senza turno; evoluzione Caterpie→Metapod con vecchio sprite fino alla rivelazione; quattro prove isolate pietre e salvataggio fallito; raccolta unica e bottega reale, annullamento/evoluzione Eevee→Flareon e reload della ricevuta; avvio touch, porte reciproche e letto Borgofonte; catture fino al box; funivia Brina. Nuovi artwork e Borgofonte decodificati offline alla prima richiesta. E2E06 completo fino a tre medaglie senza rete passato5,5min (5,7min inclusa build).
+
+La precedente Verify39483711095 è FAILURE: cattura selezionata con coordinate superate nei testMVP/offline; funivia trattata dal test come dialogo normale invece di scelta; capitoli2 ancora in timeout cumulativo. Corrette le interazioni dei test senza indebolire gli esiti; capitoli ripartiti su6runner per ridurre il carico misurato. Nessuna attestazione di CI Linux completamente verde per questa versione prima dell'esito del nuovo run. Passati anche avvio con nome/starter e percorso nord37,8s, uso pietre con reload8,6s e sequenza evoluzione pendente → finale Lega4,3s. Le transizioni espongono aria-busy; gli helper attendono che la dissolvenza termini prima di inviare il passo successivo. Pubblicazione e nuovi run da registrare.
+
 ## Pubblicazione Indietro0.3.100 —20/10/2026
 
 Commit `c3d650d7e409a993e5c1f6c27bfcc54b79f1e7e8`, deploy Pages `39483711087` SUCCESS. HTTPS conferma cachev121. Verify `39483711095` in esecuzione; non attestato verde. Design mosse/cattura/evoluzione nel documento29; pietre proposte, non implementate. Borgofonte/transizioni ancora in lavorazione separata.

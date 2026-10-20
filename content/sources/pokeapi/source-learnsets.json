@@ -5018,6 +5018,244 @@
         "moveId": "dragon-pulse",
         "order": null
       }
+    ],
+    "26": [
+      {
+        "level": 1,
+        "moveId": "thunder-shock",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "quick-attack",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "thunderbolt",
+        "order": 4
+      }
+    ],
+    "134": [
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "aurora-beam",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "acid-armor",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "hydro-pump",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ],
+    "135": [
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "double-kick",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "thunder-fang",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "thunder",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "discharge",
+        "order": null
+      }
+    ],
+    "136": [
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "sand-attack",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "ember",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "fire-spin",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "smog",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "fire-blast",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "lava-plume",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -7654,6 +7892,124 @@
       {
         "level": 30,
         "moveId": "brine",
+        "order": null
+      }
+    ],
+    "26": [
+      {
+        "level": 1,
+        "moveId": "thunderbolt",
+        "order": 4
+      }
+    ],
+    "134": [
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 64,
+        "moveId": "acid-armor",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "muddy-water",
+        "order": null
+      }
+    ],
+    "135": [
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 29,
+        "moveId": "double-kick",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "pin-missile",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "thunder-fang",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "136": [
+      {
+        "level": 1,
+        "moveId": "helping-hand",
+        "order": 3
+      },
+      {
+        "level": 29,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "fire-spin",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 50,
+        "moveId": "last-resort",
+        "order": null
+      },
+      {
+        "level": 57,
+        "moveId": "smog",
+        "order": null
+      },
+      {
+        "level": 71,
+        "moveId": "fire-blast",
+        "order": null
+      },
+      {
+        "level": 78,
+        "moveId": "lava-plume",
         "order": null
       }
     ]

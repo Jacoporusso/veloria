@@ -5,6 +5,8 @@ import { questCatalog } from '../quests/catalog.ts';
 import itemContent from '../../../content/items/items.v1.json';
 import { formatQuestRewards, selectJourneyProgress } from './progress.ts';
 import { badgeCatalog, createBadgeEmblem } from '../ui/BadgeEmblem.ts';
+import { itemEvolutionRules } from '../battle/catalog.ts';
+import '../../evolution-item-actions.css';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
 const itemNames = Object.fromEntries(Object.entries(itemContent.items).map(([id, item]) => [id, item.name]));
@@ -41,7 +43,7 @@ export class JourneyPanel {
   get isOpen(): boolean { return !this.overlay.hidden; }
   get hasReward(): boolean { return !this.reward.hidden; }
 
-  constructor(stage: HTMLElement) {
+  constructor(stage: HTMLElement, private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void) {
     this.contents.tabIndex = 0;
     this.trigger.type = 'button';
     this.trigger.setAttribute('aria-label', 'Apri diario del viaggio');
@@ -227,6 +229,13 @@ export class JourneyPanel {
       if (item && 'description' in item) description = item.description;
       details.append(element('strong', '', item?.name ?? id), element('p', '', description));
       row.append(element('span', 'bag-item-icon', item && 'capture' in item ? '◉' : item && 'battle' in item ? '✚' : '✦'), details, element('span', 'bag-quantity', `×${quantity}`));
+      if (this.onUseEvolutionItem && itemEvolutionRules.some(rule => rule.itemId === id)) {
+        const use = element('button', 'evolution-item-use', 'Usa');
+        use.type = 'button';
+        use.setAttribute('aria-label', `Usa ${item?.name ?? id}`);
+        use.addEventListener('click', () => { this.close(); this.onUseEvolutionItem?.(id); });
+        row.append(use);
+      }
       list.append(row);
     }
     this.contents.replaceChildren(balance, element('h3', 'journey-section-title', 'Il tuo equipaggiamento'));
@@ -240,7 +249,9 @@ export class JourneyPanel {
     if (event.key === 'Escape') { event.preventDefault(); this.close(); }
     if (event.key === 'Tab') {
       event.preventDefault();
-      (document.activeElement === this.closeButton ? this.contents : this.closeButton).focus();
+      const controls = [this.closeButton, this.contents, ...this.contents.querySelectorAll<HTMLButtonElement>('button:not(:disabled)')];
+      const index = controls.indexOf(document.activeElement as HTMLButtonElement);
+      controls[(index + (event.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
     }
     // Stop game input while keeping native arrow/page scrolling available inside the journal.
   };

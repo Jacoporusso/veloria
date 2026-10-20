@@ -254,8 +254,10 @@ async function advanceBattleMessages(page: import('@playwright/test').Page) {
 
 async function captureWildOffline(page: import('@playwright/test').Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
+  // This suite runs the compiled production bundle: confirm the first ball with
+  // the real keyboard command. Dynamic touch bounds are covered by MVP-04.
   await tapBattleCanvas(page, 0.75, 93);
-  await tapBattleCanvas(page, 0.25, 144);
+  await page.keyboard.press('Enter', { delay: 40 });
   await advanceBattleMessages(page);
 }
 
@@ -304,7 +306,7 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
   await expect.poll(async () => {
     try { return (await readSave(page))?.player?.y ?? null; } catch { return null; }
-  }).toBe(21);
+  }).toBe(19);
 
   // Disable all browser networking for the actual offline assertions.
   await context.setOffline(true);
@@ -326,6 +328,7 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
     const button = page.getByRole('button', { name: directions[direction] });
     let observed = beforeSave ?? await readSave(page);
     for (let step = 0; step < count; step += 1) {
+      await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
       const before = observed;
       await button.tap();
       await expect.poll(async () => {
@@ -399,8 +402,8 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
 
   // Start a new-game flow, then follow the same walkable route as E2E-02 while offline.
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
-  await expect.poll(async () => (await readSave(page))?.player?.y).toBe(22);
-  await walkToMapTile('bg_borgofonte.tmj', 20, 30);
+  await expect.poll(async () => (await readSave(page))?.player?.y).toBe(20);
+  await walkToMapTile('bg_borgofonte.tmj', 21, 25);
   await expect(page.locator('#current-location')).toHaveText('LABORATORIO DI ELIA');
   await walkToMapTile('borgofonte_lab.tmj', 12, 8);
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
@@ -429,9 +432,8 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await expect(page.locator('#dialogue-box')).toBeHidden();
 
   await walkToMapTile('borgofonte_lab.tmj', 12, 14);
-  await walkToMapTile('bg_borgofonte.tmj', 20, 22);
-  await walk('alto', 15);
-  await walk('destra', 2, 'veloria/r01_sentiero_alba');
+  await walkToMapTile('bg_borgofonte.tmj', 28, 20);
+  await walkToMapTile('bg_borgofonte.tmj', 22, 0);
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/r01_sentiero_alba');
   expect((await readSave(page)).player).toMatchObject({ x: 1, y: 10 });
   await walk('destra', 14);
@@ -816,7 +818,7 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-for (const [group, expected] of [['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]]] as const) {
+for (const [group, expected] of [['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,134,135,136]]] as const) {
 test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
   const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;
@@ -1036,4 +1038,15 @@ test('new route trainer data and Celia battle work on first offline visit', asyn
   await walkTo(page, 'r11_via_cascate.tmj', 16, 29);
   await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
   expect(failures).toEqual([]);
+});
+
+
+test('illustrated Borgofonte decodes on its first offline request', async ({ page, context }) => {
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30000 });
+  await context.setOffline(true);
+  expect(await page.evaluate(async () => {
+    const image = new Image(); image.src = new URL('assets/scenery/veloria-borgofonte-v2.webp', location.href).href;
+    await image.decode(); return image.naturalWidth > 0 && image.naturalHeight > 0;
+  })).toBe(true);
 });

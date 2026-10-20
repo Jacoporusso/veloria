@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { getMapKey } from '../maps/map-registry';
+import { getMap, getMapKey } from '../maps/map-registry';
 import type { MapInteractable, MapTrigger, RegisteredMap } from '../maps/map-types';
 import { ensureSeamlessTilesetTexture } from './seamless-tileset';
 import { getTerrainTileFlip } from './terrain-tiling';
@@ -18,6 +18,7 @@ type RenderedMap = {
   iceTiles: Set<string>;
   interactables: MapInteractable[];
   triggers: MapTrigger[];
+  updateExitMarkers: (flags: readonly string[]) => void;
   width: number;
   height: number;
 };
@@ -159,6 +160,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
       x: object.x ?? 0, y: object.y ?? 0, width: object.width ?? TILE, height: object.height ?? TILE,
       destinationMapId: propString(properties, 'destinationMapId'),
       destinationSpawnId: propString(properties, 'destinationSpawnId'),
+      exitDirection: propString(properties, 'exitDirection'),
       requiredFlag: propString(properties, 'requiredFlag'),
       message: propString(properties, 'message'),
       failureMessage: propString(properties, 'failureMessage'),
@@ -169,7 +171,34 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   });
 
   const iceTiles = collectIceTiles(tilemap.getObjectLayer('movement_surfaces')?.objects ?? [], tilemap.width, tilemap.height);
-  return { container, occupied, iceTiles, interactables, triggers, width: tilemap.width, height: tilemap.height };
+  const exitMarkers = triggers.filter(trigger => trigger.kind === 'map-exit' && trigger.destinationMapId).map(trigger => {
+    const cx = trigger.x + trigger.width / 2, cy = trigger.y + trigger.height / 2;
+    const direction = trigger.exitDirection ?? (trigger.x < TILE ? 'left' : trigger.x + trigger.width > terrainWidth - TILE ? 'right' : trigger.y < terrainHeight / 2 ? 'up' : 'down');
+    const angle = { up: 0, right: Math.PI / 2, down: Math.PI, left: -Math.PI / 2 }[direction] ?? 0;
+    const marker = attach(container, scene.add.graphics().setDepth(1));
+    const labelX = Math.max(95, Math.min(terrainWidth - 95, cx));
+    const labelY = cy < 70 ? cy + 38 : cy - 30;
+    const label = attach(container, scene.add.text(labelX, labelY, '', {
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '11px', fontStyle: 'bold', color: '#e6fff5',
+      backgroundColor: '#183c49', padding: { x: 6, y: 4 }, align: 'center', wordWrap: { width: 180 }, resolution: 3,
+    }).setOrigin(.5, cy < 70 ? 0 : 1).setDepth(trigger.y + trigger.height + 2));
+    let previousOpen: boolean | undefined;
+    return (flags: readonly string[]) => {
+      const open = !trigger.requiredFlag || flags.includes(trigger.requiredFlag);
+      if (open === previousOpen) return;
+      previousOpen = open;
+      const color = open ? 0xa5ffe1 : 0xffd494;
+      marker.clear().fillStyle(color, .16).fillRoundedRect(trigger.x, trigger.y, trigger.width, trigger.height, 5);
+      marker.lineStyle(1.5, color, .9).strokeRoundedRect(trigger.x + 1, trigger.y + 1, trigger.width - 2, trigger.height - 2, 5);
+      const points = [[-7, 3], [0, -4], [7, 3]].map(([x, y]) => ({ x: cx + x * Math.cos(angle) - y * Math.sin(angle), y: cy + x * Math.sin(angle) + y * Math.cos(angle) }));
+      marker.lineStyle(2.5, color, 1).beginPath().moveTo(points[0].x, points[0].y).lineTo(points[1].x, points[1].y).lineTo(points[2].x, points[2].y).strokePath();
+      const destination = getMap(trigger.destinationMapId!).metadata.displayName;
+      label.setText(open ? destination : `${destination}\n${trigger.failureMessage ?? 'Passaggio ancora chiuso'}`).setColor(open ? '#e6fff5' : '#ffe4b3');
+    };
+  });
+  const updateExitMarkers = (flags: readonly string[]) => exitMarkers.forEach(update => update(flags));
+  updateExitMarkers(collectedFlags);
+  return { container, occupied, iceTiles, interactables, triggers, updateExitMarkers, width: tilemap.width, height: tilemap.height };
 }
 
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {

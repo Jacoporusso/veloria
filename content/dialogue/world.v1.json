@@ -162,14 +162,23 @@
         "whenFlagMissing": "q_radicelmo_greenhouse_complete",
         "lines": [
           "La prima foglia! Le Vene Luminose reagiscono alla crescita, non soltanto alle nostre macchine.",
-          "Grazie per la ricerca: ricevi 180 monete, due Pozioni e un Antidoto. Ora puoi proseguire: l’uscita a nord di Radicelmo porta alla Salita dei Petali, poi a Petalora."
+          "Grazie per la ricerca: ricevi 180 monete, due Pozioni e un Antidoto. Ora puoi proseguire: l’uscita a nord di Radicelmo porta alla Salita dei Petali, poi a Petalora.",
+          "Ho lasciato una Pietrafocaia nel vivaio: è la piccola pietra a sud-est di me, sopra il vaso centrale. Raccoglila dopo aver registrato il risultato. Potrai usarla dallo zaino su un Pokémon compatibile, senza consumarla se annulli."
         ],
         "questEvent": "interaction/radicelmo/greenhouse/report"
       },
       {
+        "whenFlagMissing": "q_radicelmo_fire_stone_found",
+        "lines": [
+          "La Pietrafocaia ti aspetta nel vivaio, a sud-est di me e sopra il vaso centrale. Avvicinati alla piccola pietra e raccoglila con il tasto azione.",
+          "Dopo la Medaglia Corolla di Selene, la Bottega delle Pietre a est di me venderà anche Pietraidrica e Pietratuono. Prima di evolvere un compagno, controlla le mosse della nuova forma."
+        ]
+      },
+      {
         "lines": [
           "Il germoglio resta nel vivaio: da un seme abbiamo ricostruito un piccolo frammento della memoria di Veloria.",
-          "L’uscita a nord di Radicelmo porta alla Salita dei Petali: segui i ponti fino a Petalora."
+          "L’uscita a nord di Radicelmo porta alla Salita dei Petali: segui i ponti fino a Petalora.",
+          "La Bottega delle Pietre è a est di me, davanti alla serra. Aprirà dopo la Medaglia Corolla: là troverai Pietrafocaia, Pietraidrica e Pietratuono."
         ]
       }
     ]

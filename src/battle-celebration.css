@@ -22,8 +22,24 @@
 .battle-celebration-continue { flex-shrink:0; width:100%; min-height:48px; margin-top:10px; border:1px solid #c5f8e5; border-radius:15px; background:linear-gradient(110deg,#afffe3,#9fceff); color:#18384b; font:800 14px var(--font-ui,system-ui) }
 .battle-celebration-continue:focus-visible { outline:3px solid #fff0bc; outline-offset:3px }
 .battle-celebration.is-reduced .battle-celebration-card { animation:none }
+.battle-celebration.is-capture { background:radial-gradient(ellipse at 50% 35%,#6b9d9be6,#18273bef 75%) }
+.is-capture .battle-celebration-card { position:relative; width:min(540px,100%); background:linear-gradient(145deg,#234b5cf5,#3e3e68f5); border-color:#c9fff05a; box-shadow:0 0 90px #b6a0ff22,0 24px 100px #07192877 }
+.is-capture .creature-portrait { width:190px; height:190px; margin:8px auto; position:relative; background-repeat:no-repeat; background-size:200% 200%; filter:drop-shadow(0 12px 28px #aaffdf55) }
+.battle-capture-new { display:inline-block; padding:6px 12px; margin:0 0 5px; border-radius:20px; color:#bcffe6; background:#aaffdf13; font-size:11px; font-weight:800 }
+.battle-capture-details { text-align:left; margin-top:14px; border-radius:15px; background:#b8e6f00b; border:1px solid #b4eceb25 }
+.battle-capture-details summary { min-height:44px; padding:12px 16px; cursor:pointer; color:#c8fff0; font-size:13px; font-weight:800; box-sizing:border-box }
+.battle-capture-details summary:focus-visible { outline:3px solid #c6b1ff; outline-offset:2px; border-radius:12px }
+.battle-capture-details .battle-capture-moves { margin:0; padding:0 12px 12px }
+.is-capture-revealing .creature-portrait { animation:capture-art-reveal 2.8s cubic-bezier(.16,1,.3,1) both }
+.is-capture-revealing .battle-celebration-card h2 { animation:capture-title-reveal 2.8s ease both }
+.is-capture-revealing .battle-celebration-destination { animation:capture-title-reveal 2.8s ease both }
+.is-capture-revealing .battle-celebration-card::after { content:'✦'; position:absolute; top:35%; left:50%; pointer-events:none; color:#d8fff2; font-size:75px; text-shadow:0 0 40px #d1bcff; animation:capture-star 2.8s ease both }
+@keyframes capture-art-reveal { 0% { opacity:0; transform:scale(.7); filter:brightness(0) invert(1) blur(8px) } 28% { opacity:.7; filter:brightness(0) invert(1) blur(0) } 65% { opacity:1; transform:scale(1.05); filter:brightness(1.3) drop-shadow(0 0 30px #bdffe5) } 100% { opacity:1; transform:none; filter:drop-shadow(0 12px 28px #aaffdf55) } }
+@keyframes capture-title-reveal { 0%,40% { opacity:0; transform:translateY(8px) } 75%,100% { opacity:1; transform:none } }
+@keyframes capture-star { 0% { opacity:0; transform:translate(-50%,-50%) scale(.2) rotate(-30deg) } 30% { opacity:1 } 80%,100% { opacity:0; transform:translate(-50%,-50%) scale(2) rotate(30deg) } }
+.battle-celebration.is-reduced * { animation:none!important; transition:none!important }
 @keyframes battle-reward-in { from { opacity:0; transform:translateY(14px) scale(.96) } to { opacity:1; transform:none } }
-@media(prefers-reduced-motion:reduce) { .battle-celebration-card { animation:none } }
+@media(prefers-reduced-motion:reduce) { .battle-celebration * { animation:none!important; transition:none!important } }
 @media(max-height:480px) and (orientation:landscape) {
   .battle-celebration-card { width:min(720px,100%); padding:16px 24px }
   .battle-celebration-content { display:grid; grid-template-columns:116px minmax(0,1fr); gap:4px 18px; align-content:start }

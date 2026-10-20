@@ -57,31 +57,36 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-borgofonte-v2",
+      "path": "assets/scenery/veloria-borgofonte-v2.webp"
     }
   ],
   "spawns": [
     {
       "id": "start",
-      "x": 20,
-      "y": 20,
-      "facing": "down"
+      "x": 28,
+      "y": 18,
+      "facing": "up"
     },
     {
       "id": "from_r01",
       "x": 22,
-      "y": 8,
+      "y": 1,
       "facing": "down"
     },
     {
       "id": "from_home",
-      "x": 15,
-      "y": 14,
+      "x": 13,
+      "y": 9,
       "facing": "down"
     },
     {
       "id": "from_lab",
-      "x": 20,
-      "y": 31,
+      "x": 21,
+      "y": 26,
       "facing": "down"
     }
   ],

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "versionGroup": "heartgold-soulsilver",
+  "rules": [
+    {
+      "fromSpeciesId": 25,
+      "toSpeciesId": 26,
+      "itemId": "thunder-stone"
+    },
+    {
+      "fromSpeciesId": 133,
+      "toSpeciesId": 134,
+      "itemId": "water-stone"
+    },
+    {
+      "fromSpeciesId": 133,
+      "toSpeciesId": 135,
+      "itemId": "thunder-stone"
+    },
+    {
+      "fromSpeciesId": 133,
+      "toSpeciesId": 136,
+      "itemId": "fire-stone"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/10/",
+      "path": "content/sources/pokeapi/evolution-chain-10.json",
+      "sha256": "15e7b538a392b4402a8065d2424f267d8f289a8520b97b18963b1e49d9dc0820"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/67/",
+      "path": "content/sources/pokeapi/evolution-chain-67.json",
+      "sha256": "48eb1dc4c41fec44e5a957e3b93af5a22511cc23a6b973ffed1b5e2eef8f778c"
+    }
+  ]
+}

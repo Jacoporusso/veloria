@@ -23,7 +23,7 @@ test('forest ambient effects load from map metadata at full animation quality', 
       get.onerror = () => reject(get.error);
       transaction.oncomplete = () => db.close();
     };
-  }))).toBe(21);
+  }))).toBe(19);
   await page.evaluate(() => new Promise<void>((resolve, reject) => {
     const request = indexedDB.open('veloria-save', 1);
     request.onerror = () => reject(request.error);

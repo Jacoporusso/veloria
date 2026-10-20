@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
+import { tapBattleLabel } from './helpers/battle-touch';
 
 // Long progression journeys exercise reduced motion; dedicated effect tests cover full animation.
 test.use({ reducedMotion: 'reduce' });
@@ -154,9 +155,9 @@ async function reachStarterChoice(page: Page) {
   await down.tap();
   await page.waitForTimeout(180);
   await down.tap();
-  await expect.poll(async () => (await readCurrentSave(page))?.player.y).toBe(22);
+  await expect.poll(async () => (await readCurrentSave(page))?.player.y).toBe(20);
 
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 20, 30, 'veloria/borgofonte_lab');
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 21, 25, 'veloria/borgofonte_lab');
   await expect(page.locator('#current-location')).toHaveText('LABORATORIO DI ELIA');
   await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 8);
 
@@ -184,7 +185,7 @@ async function completeResearchReadings(page: Page) {
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_research_sample_received');
   await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 14, 'veloria/borgofonte');
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 20, 22);
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 28, 20);
 }
 
 async function completeAdaForestQuest(page: Page) {
@@ -220,6 +221,7 @@ async function walkToTile(page: Page, direction: 'alto' | 'basso' | 'sinistra' |
   } as const;
   const button = page.getByRole('button', { name: controls[direction] });
   for (let step = 0; step < count; step += 1) {
+    await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
     const before = await readCurrentSave(page);
     await button.tap();
     await expect.poll(async () => {
@@ -638,9 +640,11 @@ async function advanceBattleToMenu(page: Page) {
 
 async function captureWildWithTouch(page: Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
-  // CATTURA is row two, column two; the first capture item is the top-left choice.
-  await tapBattleCanvas(page, 0.75, 93);
-  await tapBattleCanvas(page, 0.25, 144);
+  // Resolve actual text bounds from the current battle layout; fixed offsets drifted below the item button.
+  await tapBattleLabel(page, '__mvpGame', 'CATTURA');
+  await expect.poll(() => battleMode(page)).toBe('captures');
+  await tapBattleLabel(page, '__mvpGame', 'POKE-BALL');
+  await expect.poll(() => battleMode(page)).toBe('message');
   await advanceBattleMessages(page);
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
 }
@@ -723,7 +727,7 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
   await completeResearchReadings(page);
 
   // The helper returns to the village approach at (20,22); follow the north path.
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 0, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => {
     const save = await readCurrentSave(page);
     return `${save?.player.mapId}|${save?.player.spawnPointId}|${save?.player.x},${save?.player.y}`;
@@ -759,7 +763,7 @@ test('E2E-09: the R01 first-aid pickup grants one potion and stays collected aft
   await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 0, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
   await walkToTile(page, 'destra', 14);
 
@@ -792,7 +796,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 0, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
 
   // Walk to the tile just outside the northwest grass zone, then seed one 8% roll for a day-band Pidgey.
@@ -860,6 +864,10 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
 
 test('E2E-04: capture with a full party stores a unique creature visible at the Pokémon Center after reload', async ({ page }) => {
   test.setTimeout(process.env.CI ? 360_000 : 240_000);
+  await page.route('**/src/main.ts*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });
+  });
   await page.addInitScript(() => { Date.prototype.getHours = () => 12; });
   await chooseCharmander(page);
   await finishOpenDialogue(page);
@@ -867,7 +875,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await completeResearchReadings(page);
 
   // Enter Bosco via R01 while keeping to the encounter-free south edge of the route.
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 23, 7, 'veloria/r01_sentiero_alba');
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 0, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
   await walkToTile(page, 'destra', 28);
   await walkToTile(page, 'alto', 2);
@@ -1432,7 +1440,7 @@ test('E2E-11: reduced animation quality persists and movement remains available'
   await expect(page.getByLabel('Qualità animazioni')).toHaveValue('reduced');
   await page.keyboard.press('Escape', { delay: 40 });
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
-  await expect.poll(async () => (await readCurrentSave(page))?.player?.y).toBe(21);
+  await expect.poll(async () => (await readCurrentSave(page))?.player?.y).toBe(19);
 });
 
 test('DEV: map picker opens every registered map without reading or saving the player game', async ({ page }, testInfo) => {
@@ -1466,8 +1474,8 @@ test('E2E-13: Borgofonte interiors have reciprocal doors, persistent location an
   await page.screenshot({ path: testInfo.outputPath('borgofonte-lab-mobile.png') });
 
   await walkToMapTile(page, 'borgofonte_lab.tmj', 12, 14, 'veloria/borgofonte');
-  await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ mapId: 'veloria/borgofonte', x: 20, y: 31 });
-  await walkToMapTile(page, 'bg_borgofonte.tmj', 15, 13, 'veloria/borgofonte_home');
+  await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ mapId: 'veloria/borgofonte', x: 21, y: 26 });
+  await walkToMapTile(page, 'bg_borgofonte.tmj', 13, 8, 'veloria/borgofonte_home');
   await expect(page.locator('#current-location')).toHaveText('CASA DI BORGOFONTE');
 
   const wounded = await readCurrentSave(page);
@@ -1503,7 +1511,7 @@ test('E2E-13: Borgofonte interiors have reciprocal doors, persistent location an
   expect(rested.player).toMatchObject({ mapId: 'veloria/borgofonte_home', x: 16, y: 8 });
   await page.screenshot({ path: testInfo.outputPath('borgofonte-home-mobile.png') });
   await walkToMapTile(page, 'borgofonte_home.tmj', 12, 14, 'veloria/borgofonte');
-  await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ mapId: 'veloria/borgofonte', x: 15, y: 14 });
+  await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ mapId: 'veloria/borgofonte', x: 13, y: 9 });
   await page.reload();
   await waitForWorldReady(page);
   await expect(page.locator('#current-location')).toHaveText('BORGOFONTE');

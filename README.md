@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione pubblicata 0.3.100:** corretto Indietro nella lotta mobile; interazione iniziale PC, Lega, epilogo e allenamenti intermedi disponibili. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.101:** dettagli strategici delle mosse, cerimonie di cattura/evoluzione, pietre evolutive e nuova Borgofonte illustrata. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 

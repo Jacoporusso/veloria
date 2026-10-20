@@ -1,4 +1,5 @@
 import levelUpData from '../../../content/battle/level-up-moves.v1.json';
+import itemEvolutionData from '../../../content/battle/item-evolutions.v1.json';
 import speciesData from '../../../content/battle/species.v1.json';
 import moveData from '../../../content/battle/moves.v1.json';
 import type { EncounterTable } from '../../core/encounters/select-encounter.ts';
@@ -11,6 +12,7 @@ import progressionData from '../../../content/battle/progression.v1.json';
 import typeChartData from '../../../content/battle/type-chart.v1.json';
 import type { EvolutionRule, ExperienceCurve, TypeChart } from '../../core/battle/rules.ts';
 
+export const itemEvolutionRules = itemEvolutionData.rules;
 export const battleSpecies = (speciesData as { species: SpeciesBattleRegistry }).species;
 export const battleMoves: BattleMoveRegistry = (moveData as { moves: BattleMoveRegistry }).moves;
 export const trainerCatalog: Readonly<Record<string, TrainerBattleDefinition>> = Object.values(import.meta.glob<TrainerBattleDefinition>('../../../content/trainers/*.trainer.json', {
@@ -24,7 +26,7 @@ export const encounterCatalog: Readonly<Record<string, EncounterTable>> = Object
 })).reduce((catalog, table) => ({ ...catalog, [table.id]: table }), {});
 
 type ItemDefinition = {
-  id: string; name: string; price: number; maxStack: number; description?: string;
+  id: string; name: string; price: number; maxStack: number; description?: string; evolutionStone?: boolean;
   battle?: { healHp?: number; cures?: readonly ('burn' | 'poison' | 'paralysis' | 'sleep' | 'freeze')[] };
   capture?: { baseChance: number; missingHpBonus?: number; statusBonus?: number };
 };

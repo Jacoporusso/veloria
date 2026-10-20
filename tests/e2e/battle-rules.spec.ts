@@ -272,27 +272,42 @@ test('gym beginner policy uses Defense Curl on turn zero, then Tackle on turn on
   expect(errors).toEqual([]);
 });
 
-test('battle presents the evolved species and its registered sprite frame', async ({ page }) => {
+test('battle reveals evolution through a ceremony before showing the new sprite', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const errors = await mountBattle(page, 'evolution');
-
-  await chooseFirstMove(page); // Caterpie defeats the low-HP wild encounter and reaches level 7.
+  // Exercise the actual timed reveal rather than the fixture's usual reduced animation preference.
+  await page.evaluate(() => { (window as any).battleRulesFixture.scene.getScene('battle').reducedAnimations = false; });
+  await chooseFirstMove(page);
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-    const actor = scene.actors.player;
-    const image = actor.list.find((child: any) => child.type === 'Image');
+    const image = scene.actors.player.list.find((child: any) => child.type === 'Image');
     return {
       speciesId: scene.state.player.creatures[0].speciesId,
-      evolvedMessage: scene.pendingMessages.some((message: any) => message.text === 'Caterpie si è evoluta in Metapod!'),
-      spriteTexture: image?.texture?.key,
-      spriteFrame: image?.frame?.name,
+      terminalEvolution: scene.eventLog.some((event: any) => event.type === 'creatureEvolved' && event.toSpeciesId === 11),
+      instantAnnouncement: scene.pendingMessages.some((message: any) => message.event?.type === 'creatureEvolved'),
+      spriteTexture: image?.texture?.key, spriteFrame: image?.frame?.name,
     };
-  })).toEqual({
-    speciesId: 11,
-    evolvedMessage: true,
-    spriteTexture: 'veloria-creatures-3-v1',
-    spriteFrame: 'species-11',
-  });
+  })).toEqual({ speciesId: 11, terminalEvolution: true, instantAnnouncement: false, spriteTexture: 'veloria-creatures-3-v1', spriteFrame: 'species-10' });
+  for (let index = 0; index < 20 && !await page.locator('.evolution-celebration').count(); index++) {
+    await page.keyboard.press('Enter', { delay: 40 });
+  }
+  const ceremony = page.getByRole('dialog', { name: 'Sta succedendo qualcosa…' });
+  await expect(ceremony).toBeVisible({ timeout: 15_000 });
+  await expect(page.locator('.battle-celebration')).toHaveCount(0);
+  const skip = ceremony.getByRole('button', { name: 'Salta animazione', exact: true });
+  await expect(skip).toBeEnabled({ timeout: 3000 });
+  await skip.click();
+  const revealed = page.getByRole('dialog', { name: 'Ora è Metapod!' });
+  await expect(revealed).toBeVisible();
+  await expect(revealed).toContainText('Caterpie si è evoluto in Metapod');
+  await revealed.getByRole('button', { name: 'Continua', exact: true }).click();
+  await expect(page.locator('.evolution-celebration')).toHaveCount(0);
+  await expect(page.locator('.battle-celebration')).toBeVisible();
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+    const image = scene.actors.player.list.find((child: any) => child.type === 'Image');
+    return { frame: image?.frame?.name, completions: (window as any).battleCompletionCount };
+  })).toEqual({ frame: 'species-11', completions: 1 });
   expect(errors).toEqual([]);
 });
 
@@ -438,14 +453,18 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
     await tapText('DETTAGLI MOSSE');
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
     await tapText('Ruggito');
-    const layout = await page.evaluate(() => {
+    const pages = await page.evaluate(() => {
       const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-      const texts = scene.ui.list.filter((entry: any) => entry.type === 'Text');
-      return { text: texts.map((item: any) => item.text).join('\n'), outside: texts.filter((item: any) => { const b = item.getBounds(); return b.left < 0 || b.right > innerWidth || b.bottom > innerHeight; }).map((item: any) => item.text), state: JSON.stringify(scene.state) };
+      const result = [];
+      for (let index = 0; index < scene.detailPageCount; index++) {
+        scene.detailPage = index; scene.render();
+        const texts = scene.ui.list.filter((entry: any) => entry.type === 'Text');
+        result.push({ text: texts.map((item: any) => item.text).join('\n'), outside: texts.filter((item: any) => { const b = item.getBounds(); return b.left < 0 || b.right > innerWidth || b.bottom > innerHeight; }).map((item: any) => item.text), state: JSON.stringify(scene.state) });
+      }
+      return result;
     });
-    expect(layout.text).toContain('Riduce Attacco dell’avversario di 1 grado');
-    expect(layout.outside).toEqual([]);
-    expect(layout.state).toBe(before);
+    expect(pages.map(item => item.text).join(' ').replace(/\s+/g, ' ')).toContain('Riduce Attacco dell’avversario di 1 grado');
+    for (const layout of pages) { expect(layout.outside).toEqual([]); expect(layout.state).toBe(before); }
     await page.screenshot({ path: testInfo.outputPath('move-strategy-details.png') });
     await page.keyboard.press('ArrowLeft', { delay: 40 });
     await page.keyboard.press('Escape', { delay: 40 });
@@ -454,7 +473,8 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
     await page.keyboard.press('Escape', { delay: 40 });
     expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
-    const catalogLayouts = await page.evaluate(() => {
+    const catalogLayouts = await page.evaluate(async () => {
+      const { describeMoveEffects } = await import('/src/game/battle/move-description.ts' as string);
       const scene = (window as any).battleRulesFixture.scene.getScene('battle');
       const original = scene.state;
       const result: Array<{ id: string; overflow: string[]; overlapsClose: boolean }> = [];
@@ -465,10 +485,27 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
         scene.state = { ...original, player: { ...original.player, creatures: original.player.creatures.map((item: any, index: number) => index === original.player.activeIndex ? inspected : item) } };
         scene.mode = 'moveDetails';
         scene.detailMoveIndex = 0;
+        scene.detailPage = 0;
         scene.render();
-        const texts = scene.ui.list.filter((item: any) => item.type === 'Text');
-        const description = texts.find((item: any) => item.text.includes('Precisione'));
-        result.push({ id: move.id, overflow: texts.filter((item: any) => { const b = item.getBounds(); return b.left < 0 || b.right > innerWidth || b.bottom > innerHeight; }).map((item: any) => item.text), overlapsClose: description.getBounds().bottom >= innerHeight - 62 });
+        const pages: string[] = [];
+        const overflow: string[] = [];
+        let overlapsClose = false;
+        for (let page = 0; page < scene.detailPageCount; page++) {
+          scene.detailPage = page; scene.render();
+          const texts = scene.ui.list.filter((item: any) => item.type === 'Text');
+          // The content block is the only text with a 13px font, independent of which paragraph begins this page.
+          const description = texts.find((item: any) => item.style.fontSize === '13px');
+          if (!description) throw new Error(`Missing description for ${move.id}, page ${page}`);
+          pages.push(description.text);
+          overflow.push(...texts.filter((item: any) => { const b = item.getBounds(); return b.left < 0 || b.right > innerWidth || b.bottom > innerHeight; }).map((item: any) => item.text));
+          overlapsClose ||= description.getBounds().bottom >= innerHeight - 62;
+        }
+        const text = pages.join(' ').replace(/\s+/g, ' ');
+        if (!text.includes('Precisione base:') || !text.includes('PP: 0/')) throw new Error(`Missing move values for ${move.id}`);
+        for (const effect of describeMoveEffects(move)) {
+          if (!text.includes(effect.replace(/\s+/g, ' '))) throw new Error(`Missing effect for ${move.id}: ${effect}`);
+        }
+        result.push({ id: move.id, overflow, overlapsClose });
       }
       scene.state = original;
       return result;

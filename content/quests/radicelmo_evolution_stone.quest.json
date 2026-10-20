@@ -1,0 +1,21 @@
+{
+  "id": "veloria/q_radicelmo_evolution_stone",
+  "version": 1,
+  "displayName": "La pietra che custodisce il calore",
+  "steps": [
+    {
+      "id": "collect_stone",
+      "trigger": "pickup/radicelmo/greenhouse_fire_stone",
+      "setFlag": "q_radicelmo_fire_stone_found",
+      "requiresFlags": [
+        "q_radicelmo_greenhouse_complete"
+      ]
+    }
+  ],
+  "completionFlag": "q_radicelmo_fire_stone_found",
+  "reward": {
+    "items": {
+      "fire-stone": 1
+    }
+  }
+}

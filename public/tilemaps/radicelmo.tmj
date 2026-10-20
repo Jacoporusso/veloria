@@ -2842,6 +2842,17 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 34,
+          "name": "stone-counter-collision",
+          "type": "",
+          "x": 896,
+          "y": 352,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -3342,6 +3353,100 @@
               "value": "q_radicelmo_greenhouse_lit"
             }
           ]
+        },
+        {
+          "height": 32,
+          "id": 32,
+          "name": "Pietrafocaia della serra",
+          "rotation": 0,
+          "visible": true,
+          "width": 32,
+          "x": 832,
+          "y": 448,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "pickup"
+            },
+            {
+              "name": "itemId",
+              "type": "string",
+              "value": "fire-stone"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "pickup/radicelmo/greenhouse_fire_stone"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_radicelmo_fire_stone_found"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Leda ti affiderà questa pietra dopo la ricerca del vivaio. Completa acqua, luce e germoglio, poi torna da lei."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "height": 32,
+          "id": 33,
+          "name": "Bottega delle Pietre",
+          "rotation": 0,
+          "visible": true,
+          "width": 32,
+          "x": 896,
+          "y": 352,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "sign"
+            },
+            {
+              "name": "shopId",
+              "type": "string",
+              "value": "veloria/radicelmo_stones"
+            },
+            {
+              "name": "serviceRequiredFlag",
+              "type": "string",
+              "value": "badge_corolla_awarded"
+            },
+            {
+              "name": "serviceLockedMessage",
+              "type": "string",
+              "value": "La Bottega delle Pietre aprirà dopo la prova di Selene a Petalora: conquista la Medaglia Corolla e torna qui."
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "value": "Bottega delle Pietre · Pietrafocaia, Pietraidrica e Pietratuono. Consulta prima la nuova forma e le sue mosse."
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-field-props-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -3439,7 +3544,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 32,
+  "nextobjectid": 35,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

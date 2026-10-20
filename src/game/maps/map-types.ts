@@ -5,6 +5,7 @@ export type MapTrigger = {
   kind?: string;
   x: number; y: number; width: number; height: number;
   destinationMapId?: string; destinationSpawnId?: string; requiredFlag?: string; message?: string; failureMessage?: string; questEvent?: string;
+  exitDirection?: string;
   encounterTableId?: string; encounterChance?: number;
 };
 export type MapInteractable = {

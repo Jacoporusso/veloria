@@ -3551,6 +3551,195 @@
           "moveId": "dragon-pulse"
         }
       ]
+    },
+    "26": {
+      "speciesId": 26,
+      "name": "Raichu",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 90,
+        "defense": 55,
+        "specialAttack": 90,
+        "specialDefense": 80,
+        "speed": 100
+      },
+      "experienceYield": 218,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "thunder-shock",
+        "tail-whip",
+        "quick-attack"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "quick-attack"
+        }
+      ]
+    },
+    "134": {
+      "speciesId": 134,
+      "name": "Vaporeon",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 130,
+        "attack": 65,
+        "defense": 60,
+        "specialAttack": 110,
+        "specialDefense": 95,
+        "speed": 65
+      },
+      "experienceYield": 184,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tail-whip",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 15,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 22,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 36,
+          "moveId": "aurora-beam"
+        },
+        {
+          "level": 71,
+          "moveId": "hydro-pump"
+        }
+      ]
+    },
+    "135": {
+      "speciesId": 135,
+      "name": "Jolteon",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "specialAttack": 110,
+        "specialDefense": 95,
+        "speed": 130
+      },
+      "experienceYield": 184,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tail-whip",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 15,
+          "moveId": "thunder-shock"
+        },
+        {
+          "level": 22,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 57,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 64,
+          "moveId": "agility"
+        },
+        {
+          "level": 78,
+          "moveId": "discharge"
+        }
+      ]
+    },
+    "136": {
+      "speciesId": 136,
+      "name": "Flareon",
+      "types": [
+        "fire"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 130,
+        "defense": 60,
+        "specialAttack": 95,
+        "specialDefense": 110,
+        "speed": 65
+      },
+      "experienceYield": 184,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tail-whip",
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tail-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 15,
+          "moveId": "ember"
+        },
+        {
+          "level": 22,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 64,
+          "moveId": "scary-face"
+        }
+      ]
     }
   },
   "moveSource": {
