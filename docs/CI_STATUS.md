@@ -1,3 +1,7 @@
+## Pubblicazione Lega 0.3.96 — 20/10/2026
+
+Commit `c0bb039edb5b6d8374d45b9bb6f69e26362efefc` su main. Deploy Pages `39424370152` concluso SUCCESS, inclusi test, validatore e build con base `/veloria/`. HTTPS conferma registro `veloria-content-0.3.96`, cache `veloria-shell-v117`, chunk della cerimonia e Tiled della sala del Campione 32×24. Verify `39424370226` ancora in esecuzione: non si dichiara verde la suite Linux completa di questa revisione. Aggiornamento documentale senza duplicare i workflow.
+
 ## Lega e finale 0.3.96 — verifiche locali 20/10/2026
 
 - Build TypeScript/Vite e validatore contenuti passati: 48 mappe, 44 quest, 23 allenatori, 11 negozi, 270 asset; 69 specie e 78 mosse. 451 test dominio, 25 persistenza e 103 Python riusciti.

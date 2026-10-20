@@ -1,3 +1,9 @@
+## Aggiornamento 0.3.96
+
+Lega integrata: cinque sale, quattro consiglieri e Campione, tentativi, checkpoint, premi unici, cerimonia ed epilogo. Sette prove browser e battaglia finale offline riuscite; dettagli e pubblicazione in CI_STATUS. Contratto dei contenuti nel documento28. Il collegamento narrativo da Borgofonte al finale esiste; il bilanciamento di una partita naturale completa non è ancora attestato.
+
+Prossime priorità: misurare esperienza, livelli, disponibilità di catture e risorse lungo il percorso senza squadre potenziate; completare progressivamente catalogo251, meccaniche ufficiali/evoluzioni e uniformità artistica. Il post-game resta futuro.
+
 ## Aggiornamento locale0.3.95
 
 R16 e piazzale della Lega integrati: habitat laterali, Maia/Tobia, cure/deposito/mercato, accoglienza, ritorni. Mosse76da fonti locali, core puro delle sfide sequenziali pronto con9test. Documento27 per contenuti e limiti,26 per contratto della Lega. Sale/campionato/epilogo non ancora collegati.
