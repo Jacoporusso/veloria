@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r06_iris",
+  "version": 1,
+  "displayName": "Allenamento con Iris",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r06_iris/defeated",
+      "setFlag": "q_r06_iris_helped",
+      "requiresFlags": []
+    }
+  ],
+  "completionFlag": "q_r06_iris_helped",
+  "reward": {}
+}

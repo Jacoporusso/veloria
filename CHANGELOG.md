@@ -1,3 +1,9 @@
+## 0.3.98 — Allenamenti sui percorsi (20/10/2026)
+
+- Iris su R06, Dario su R07, Viola su R08 e Celia su R11: sfide facoltative, suggerimenti sui tipi, premi unici e passaggi liberi. Squadre con mosse HGSS legali.
+- 27 allenatori e 48 missioni; audit XP aggiornato con i nuovi contenuti. Il bilanciamento naturale rimane aperto; nessun moltiplicatore nascosto.
+- Quattro vere lotte touch, rifiuto, premi dopo reload e uscite verificati nel browser. Cache v119; dettagli offline e pubblicazione nel CI_STATUS.
+
 ## 0.3.97 — Rifornimenti intermedi e audit della crescita (20/10/2026)
 
 - Superpozioni e Antiparalisi a Ferraluce, Portolume e Acquariva; anche Iperpozioni a Passobrina e Biancavetta. Oggetti e prezzi del catalogo corrente, cache v118.

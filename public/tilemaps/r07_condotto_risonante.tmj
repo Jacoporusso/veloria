@@ -3593,6 +3593,17 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 60,
+          "name": "Oggetto solido",
+          "type": "",
+          "x": 576,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -3605,7 +3616,56 @@
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
-      "objects": [],
+      "objects": [
+        {
+          "id": 59,
+          "name": "Dario",
+          "type": "",
+          "x": 576,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r07_dario"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r07_dario"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r07_dario"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r07_dario_defeated"
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -3875,7 +3935,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 59,
+  "nextobjectid": 61,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

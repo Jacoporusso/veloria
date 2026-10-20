@@ -92,9 +92,12 @@
   "encounterTableIds": [
     "veloria/r06_magnetic_patch"
   ],
-  "npcRefs": [],
+  "npcRefs": [
+    "r06_iris"
+  ],
   "scriptRefs": [
-    "quest/r06_measurement"
+    "quest/r06_measurement",
+    "veloria/q_r06_iris"
   ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-battle-forest-v1",

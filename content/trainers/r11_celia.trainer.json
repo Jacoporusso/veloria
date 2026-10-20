@@ -1,0 +1,41 @@
+{
+  "id": "veloria/trainer_r11_celia",
+  "name": "Celia",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r11_celia_defeated",
+  "defeatQuestEvent": "battle/r11_celia/defeated",
+  "rewardMoney": 1500,
+  "victoryMessage": "Hai vinto contro Celia. Ricevi 1500 ₿.",
+  "victoryFeedback": "Sulla Via delle Cascate i tipi sono diversi: Pidgeotto è Normale/Volante, Flaaffy è Elettro e Natu è Psico/Volante. Una mossa Roccia può aiutare contro i Volanti; contro Flaaffy scegli un attacco che non sia Elettro.",
+  "team": [
+    {
+      "speciesId": 17,
+      "level": 33,
+      "moveIds": [
+        "tackle",
+        "gust",
+        "quick-attack",
+        "agility"
+      ]
+    },
+    {
+      "speciesId": 180,
+      "level": 34,
+      "moveIds": [
+        "tackle",
+        "thunder-shock",
+        "thunder-wave",
+        "discharge"
+      ]
+    },
+    {
+      "speciesId": 177,
+      "level": 35,
+      "moveIds": [
+        "peck",
+        "confuse-ray"
+      ]
+    }
+  ]
+}

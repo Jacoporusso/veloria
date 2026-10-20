@@ -31,6 +31,15 @@
       "kind": "image",
       "key": "veloria-r08-coast-v1",
       "path": "assets/sprites/veloria-r08-coast-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
     }
   ],
   "spawns": [
@@ -65,8 +74,12 @@
     "veloria/r08_coastal_grass",
     "veloria/r08_shore_fishing"
   ],
-  "npcRefs": [],
-  "scriptRefs": [],
+  "npcRefs": [
+    "r08_viola"
+  ],
+  "scriptRefs": [
+    "veloria/q_r08_viola"
+  ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-battle-forest-v1"
 }

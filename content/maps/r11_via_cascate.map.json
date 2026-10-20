@@ -68,8 +68,12 @@
   "encounterTableIds": [
     "veloria/r11_cascade_patch"
   ],
-  "npcRefs": [],
-  "scriptRefs": [],
+  "npcRefs": [
+    "r11_celia"
+  ],
+  "scriptRefs": [
+    "veloria/q_r11_celia"
+  ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-r11-cascades-v1"
 }

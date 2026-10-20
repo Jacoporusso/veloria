@@ -1,3 +1,7 @@
+## Aggiornamento 0.3.98
+
+Iris/R06, Dario/R07, Viola/R08 e Celia/R11 ora giocabili: scelta esplicita, squadre legali, premi unici, consigli e uscite verificati. Report di integrazione in `docs/playtests/2026-10-20-route-training.md`. Audit prima di Selene125→108 KO equivalenti ottimistici: miglioramento parziale, deficit ancora elevato. Proseguire con distribuzione degli allenamenti e verifica di catture, squadra naturale, risorse e curva completa. Catalogo251, meccaniche/evoluzioni mancanti, uniformità artistica e post-game restano aperti.
+
 ## Aggiornamento 0.3.97
 
 Audit di crescita riproducibile in `tools/audit_progression.ts`, risultati e limiti in `docs/playtests/2026-10-20-progression-budget.md`. I trainer prima di Selene porterebbero teoricamente un solo starter5 soltanto a21: servono ancora incontri intermedi e verifica delle squadre naturali. Rifornimenti di cinque città migliorati e verificati; questo non chiude il bilanciamento. Prossima priorità concreta: allenatori facoltativi su R06/R07/R08/R11, con mappe, squadre legali, ricompense e ritorni verificati.

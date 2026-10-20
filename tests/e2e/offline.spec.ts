@@ -993,3 +993,47 @@ test('League rooms cache offline and a real final battle completes the champions
  for(let input=0;input<600&&await page.locator('body').evaluate(b=>b.classList.contains('battle-active'));input++){if(await page.locator('.battle-celebration').isVisible()){await page.getByRole('button',{name:'Continua',exact:true}).tap();break;}await page.keyboard.press('Enter');await page.waitForTimeout(100);}
  const ceremony=page.getByRole('dialog',{name:'Campione di Veloria!'});await expect(ceremony).toBeVisible();await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_league_completed');await ceremony.getByRole('button',{name:'Leggi l’epilogo',exact:true}).tap();await page.getByRole('button',{name:'Torna a Veloria',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_league_epilogue_seen');await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.money).toBe(16000);await walkTo(page,'league_champion.tmj',15,23);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/league_forecourt');expect(failures).toEqual([]);
 });
+
+
+test('new route trainer data and Celia battle work on first offline visit', async ({ page, context }) => {
+  test.setTimeout(process.env.CI ? 240_000 : 150_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/r11_via_cascate', spawnPointId: 'from_acquariva', x: 15, y: 18, money: 2000 };
+  const c = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 20, level: 80, instanceId: 'offline-celia', moveIds: ['crunch'] });
+  save.party = [{ instanceId: c.instanceId, speciesId: 20, level: 80, experience: 0,
+    hp: c.hp, maxHp: c.stats.maxHp, moves: c.moves.map(m => ({ id: m.moveId, pp: m.pp })) }];
+  await seedBrowserSave(page, save);
+  const failures: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect(await page.evaluate(async () => Promise.all([
+    ['r06_anello_magnetico', 'r06_iris'], ['r07_condotto_risonante', 'r07_dario'],
+    ['r08_costa_turbine', 'r08_viola'], ['r11_via_cascate', 'r11_celia'],
+  ].map(async ([map, key]) => {
+    const r = await fetch(`/tilemaps/${map}.tmj`);
+    const tiled = await r.json();
+    return r.ok && tiled.layers.flatMap((l: any) => l.objects ?? []).some((o: any) =>
+      o.properties?.some((p: any) => p.name === 'trainerId' && p.value === `veloria/trainer_${key}`));
+  })))).toEqual([true, true, true, true]);
+  const a = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await a.tap();
+  for (let i = 0; i < 20 && !await page.getByRole('button', { name: 'SFIDA', exact: true }).isVisible(); i++) await a.tap();
+  await page.getByRole('button', { name: 'SFIDA', exact: true }).tap();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for (let input = 0; input < 400 && await page.locator('body').evaluate(b => b.classList.contains('battle-active')); input++) {
+    if (await page.locator('.battle-celebration').isVisible()) {
+      await page.getByRole('button', { name: 'Continua', exact: true }).tap(); break;
+    }
+    await page.keyboard.press('Enter'); await page.waitForTimeout(100);
+  }
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_r11_celia_helped');
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player.money).toBe(3500);
+  await walkTo(page, 'r11_via_cascate.tmj', 16, 29);
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
+  expect(failures).toEqual([]);
+});

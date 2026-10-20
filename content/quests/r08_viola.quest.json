@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r08_viola",
+  "version": 1,
+  "displayName": "Allenamento con Viola",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r08_viola/defeated",
+      "setFlag": "q_r08_viola_helped",
+      "requiresFlags": []
+    }
+  ],
+  "completionFlag": "q_r08_viola_helped",
+  "reward": {}
+}

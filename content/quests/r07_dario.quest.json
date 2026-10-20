@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r07_dario",
+  "version": 1,
+  "displayName": "Allenamento con Dario",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r07_dario/defeated",
+      "setFlag": "q_r07_dario_helped",
+      "requiresFlags": []
+    }
+  ],
+  "completionFlag": "q_r07_dario_helped",
+  "reward": {}
+}

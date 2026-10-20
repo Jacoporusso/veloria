@@ -7182,6 +7182,17 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 280,
+          "name": "Oggetto solido",
+          "type": "",
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -7194,7 +7205,56 @@
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
-      "objects": [],
+      "objects": [
+        {
+          "id": 279,
+          "name": "Iris",
+          "type": "",
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r06_iris"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r06_iris"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r06_iris"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r06_iris_defeated"
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -8964,7 +9024,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 279,
+  "nextobjectid": 281,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -3946,6 +3946,17 @@
           "height": 32,
           "rotation": 0,
           "visible": true
+        },
+        {
+          "id": 302,
+          "name": "Oggetto solido",
+          "type": "",
+          "x": 640,
+          "y": 352,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -3958,7 +3969,56 @@
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
-      "objects": [],
+      "objects": [
+        {
+          "id": 301,
+          "name": "Viola",
+          "type": "",
+          "x": 640,
+          "y": 352,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r08_viola"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r08_viola"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r08_viola"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r08_viola_defeated"
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4223,7 +4283,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 301,
+  "nextobjectid": 303,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

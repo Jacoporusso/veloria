@@ -1,3 +1,10 @@
+## Allenamenti intermedi 0.3.98 — verifiche locali 20/10/2026
+
+- Quattro allenatori e quattro quest aggiunti, collegati a R06/R07/R08/R11 con NPC, collisioni, dialoghi, scelta facoltativa e premio unico. Validatore: 48 mappe, 48 quest, 27 allenatori, 11 negozi, 270 asset. 451 test dominio, 25 persistenza e build riusciti.
+- Quattro casi browser passati in 1,5 minuti: rifiuto, vera lotta touch, premio, ricaricamento senza duplicazione e cammino fino all'uscita evitando gli habitat. Fixture Raticate80, non partita naturale. Celia portrait esaminata visivamente.
+- Offline passato9,3s (22,6 inclusa build): Tiled aggiornate dei quattro percorsi dalla cache, prima visita a Celia, vera lotta finale della prova, premio persistente e uscita ad Acquariva senza richieste fallite. Non si dichiarano quattro lotte offline.
+- Audit crescita aggiornato; prima di Selene125→108 KO selvatici equivalenti in un budget ottimistico. Il deficit resta elevato, distribuzione e bilanciamento naturale richiedono altro lavoro. Pubblicazione da confermare.
+
 ## Pubblicazione rifornimenti 0.3.97 — 20/10/2026
 
 Commit `5ff5dc7e1feb962f94c7c9915d97eaf50eaa12f9` pubblicato. Deploy Pages `39426075059` SUCCESS; HTTPS conferma registro0.3.97 e cachev118. Nuovo Verify `39426075026` in attesa della precedente suite, senza annullarla. Verify0.3.96 ha già concluso con successo Lega, entrambi i job offline, entrambi i job controlli e tre shard MVP; MVP3 contiene la fixture corretta da questa revisione. Tre shard capitoli ancora in esecuzione al controllo. Non si dichiara una suite completa verde. Aggiornamento documentale senza duplicare workflow.

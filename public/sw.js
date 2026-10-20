@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v118';
+const CACHE = 'veloria-shell-v119';
 const SHELL = [
   './tilemaps/league_council01.tmj',
   './tilemaps/league_council02.tmj',

@@ -1987,5 +1987,69 @@
     "lines": [
       "Siamo arrivati alla sfida finale. La mia squadra rappresenta il viaggio di Veloria: sei pronto a mettere insieme ciò che hai imparato?"
     ]
+  },
+  "r06_iris": {
+    "speaker": "Iris",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r06_iris_defeated",
+        "lines": [
+          "Conosci già i tipi Terra e Acciaio? Proviamo insieme con una sfida facoltativa. Puoi continuare verso Ferraluce e tornare quando vuoi."
+        ]
+      },
+      {
+        "lines": [
+          "Il Centro Pokémon di Ferraluce è vicino alla piazza: riposa lì prima di sfidare Rhea."
+        ]
+      }
+    ]
+  },
+  "r07_dario": {
+    "speaker": "Dario",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r07_dario_defeated",
+        "lines": [
+          "Le mosse di stato possono cambiare il ritmo della lotta. Vuoi provare? Il passaggio per la Centrale resta libero anche se scegli di non lottare."
+        ]
+      },
+      {
+        "lines": [
+          "Il misuratore del Condotto è poco più a nord-est. Per entrare nella Centrale serve la Medaglia Acciaio."
+        ]
+      }
+    ]
+  },
+  "r08_viola": {
+    "speaker": "Viola",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r08_viola_defeated",
+        "lines": [
+          "Prima di Portolume mi alleno a scegliere le mosse in base ai tipi. Ti va una sfida facoltativa? Puoi anche proseguire lungo la costa."
+        ]
+      },
+      {
+        "lines": [
+          "A Portolume trovi cure gratuite e Superpozioni. Prepara la squadra prima della palestra delle chiuse."
+        ]
+      }
+    ]
+  },
+  "r11_celia": {
+    "speaker": "Celia",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r11_celia_defeated",
+        "lines": [
+          "Cerchi un allenamento prima di Selene? Qui possiamo provare una sfida facoltativa. Puoi rifiutare e continuare lungo le cascate."
+        ]
+      },
+      {
+        "lines": [
+          "Torna al Centro Pokémon di Acquariva per recuperare HP e PP. Controlla nel Pokédex i tipi e le mosse degli avversari prima della palestra."
+        ]
+      }
+    ]
   }
 }

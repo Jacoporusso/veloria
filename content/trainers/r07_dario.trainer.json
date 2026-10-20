@@ -1,0 +1,41 @@
+{
+  "id": "veloria/trainer_r07_dario",
+  "name": "Dario",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r07_dario_defeated",
+  "defeatQuestEvent": "battle/r07_dario/defeated",
+  "rewardMoney": 850,
+  "victoryMessage": "Hai vinto contro Dario. Ricevi 850 ₿.",
+  "victoryFeedback": "Nel Condotto convivono Pokémon Elettro e Terra. Le mosse Elettro non colpiscono Wooper, mentre una mossa Erba può sfruttare la sua debolezza. Osserva i tipi prima di scegliere.",
+  "team": [
+    {
+      "speciesId": 179,
+      "level": 21,
+      "moveIds": [
+        "thunder-shock",
+        "thunder-wave",
+        "tackle"
+      ]
+    },
+    {
+      "speciesId": 194,
+      "level": 22,
+      "moveIds": [
+        "water-gun",
+        "mud-shot",
+        "slam"
+      ]
+    },
+    {
+      "speciesId": 81,
+      "level": 22,
+      "moveIds": [
+        "thunder-shock",
+        "sonic-boom",
+        "spark",
+        "thunder-wave"
+      ]
+    }
+  ]
+}
