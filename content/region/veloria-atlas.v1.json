@@ -325,12 +325,17 @@
       "x": 825,
       "y": 55,
       "mapIds": [
-        "veloria/league_forecourt"
+        "veloria/league_forecourt",
+        "veloria/league_council01",
+        "veloria/league_council02",
+        "veloria/league_council03",
+        "veloria/league_council04",
+        "veloria/league_champion"
       ],
       "visitedFlags": [
         "q_league_visited"
       ],
-      "description": "Piazzale monumentale, cure, deposito e rifornimenti. La sfida interna è in preparazione."
+      "description": "Consiglio, Campione, cerimonia e piazzale con cure e rifornimenti."
     },
     {
       "id": "r08",

@@ -1,3 +1,11 @@
+## 0.3.96 — Lega, Campione ed epilogo (20/10/2026)
+
+- Cinque sale illustrate originali, quattro membri del Consiglio e Campione: tentativi ordinati, otto medaglie richieste, nessuna cura automatica, uscita esplicita e ripresa tra le tappe.
+- Premi assegnati una sola volta; cerimonia con la squadra attuale ed epilogo recuperabili dopo il ricaricamento. Nessun albo storico o post-game dichiarato completo.
+- Ronzio e Velenpuntura importati da PokéAPI con apprendimenti ufficiali. 48 mappe, 44 quest, 23 allenatori, 11 negozi, 270 asset, 69 specie e 78 mosse; cache v117.
+- Salvataggi: selezione dello snapshot valido più recente tra IndexedDB e riserva locale; revisione monotona anche dopo errori di scrittura. Avvio lotta bloccato se entrambi gli archivi falliscono.
+- 451 test dominio, 25 persistenza, 103 Python e sette casi browser passati. Verifica offline e stato pubblicazione in CI_STATUS. Bilanciamento naturale, catalogo 251 e ulteriori meccaniche restano aperti.
+
 ## 0.3.95 — Cammino dell’Equilibrio e piazzale della Lega (20/10/2026)
 
 - R16 dopo il rapporto del Santuario, tre habitat laterali, Maia/Tobia facoltativi, piazzale con cure/deposito/mercato/accoglienza e ritorni.

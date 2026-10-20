@@ -3,7 +3,7 @@ import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, walkDirection } from './helpers/world-navigation';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
-test('the atlas shows current position, visited places, future areas and preserves movement and visits', async ({ page }, info) => {
+test('the atlas shows current position, visited places, unexplored destinations and preserves movement and visits', async ({ page }, info) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/'); await enterGame(page);
@@ -21,7 +21,7 @@ test('the atlas shows current position, visited places, future areas and preserv
   const currentHit = await atlas.locator('[data-area="borgofonte"] .region-map-hit').boundingBox();
   expect(currentHit!.width).toBeGreaterThanOrEqual(44);
   await atlas.locator('.region-map-select').selectOption('lega');
-  await expect(atlas.locator('.region-map-details')).toContainText('In preparazione');
+  await expect(atlas.locator('.region-map-details')).toContainText('Da esplorare');
   expect((await readBrowserSave(page)).player.mapId).toBe(before.mapId);
   await atlas.getByRole('button', { name: 'Mostra tutta la regione' }).click();
   for (const [width, height] of [[390, 844], [844, 390]]) {

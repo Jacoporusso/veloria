@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_league_council4",
+  "name": "Luce",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_league_council4_defeated",
+  "defeatQuestEvent": "league/stage/council4/won",
+  "rewardMoney": 3000,
+  "victoryMessage": "Hai vinto contro Luce.",
+  "victoryFeedback": "Velocità e difese speciali possono cambiare il ritmo di una lotta. Il prossimo incontro mette alla prova tutta la squadra.",
+  "team": [
+    {
+      "speciesId": 97,
+      "level": 54,
+      "moveIds": [
+        "psychic",
+        "hypnosis",
+        "psybeam",
+        "meditate"
+      ]
+    },
+    {
+      "speciesId": 80,
+      "level": 55,
+      "moveIds": [
+        "psychic",
+        "water-pulse",
+        "amnesia",
+        "withdraw"
+      ]
+    },
+    {
+      "speciesId": 196,
+      "level": 56,
+      "moveIds": [
+        "psybeam",
+        "swift",
+        "quick-attack",
+        "sand-attack"
+      ]
+    }
+  ]
+}

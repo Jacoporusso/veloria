@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_league_council3",
+  "name": "Brando",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_league_council3_defeated",
+  "defeatQuestEvent": "league/stage/council3/won",
+  "rewardMoney": 3000,
+  "victoryMessage": "Hai vinto contro Brando.",
+  "victoryFeedback": "La rete non ha una sola risposta: Terra aiuta contro Elettro, ma osserva le difese di Steelix e le mosse speciali.",
+  "team": [
+    {
+      "speciesId": 82,
+      "level": 53,
+      "moveIds": [
+        "discharge",
+        "metal-sound",
+        "thunder-wave",
+        "supersonic"
+      ]
+    },
+    {
+      "speciesId": 208,
+      "level": 53,
+      "moveIds": [
+        "crunch",
+        "dragon-breath",
+        "rock-throw",
+        "screech"
+      ]
+    },
+    {
+      "speciesId": 181,
+      "level": 54,
+      "moveIds": [
+        "discharge",
+        "thunder-punch",
+        "thunder-wave",
+        "growl"
+      ]
+    }
+  ]
+}

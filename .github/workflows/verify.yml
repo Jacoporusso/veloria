@@ -20,10 +20,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Separate long MVP journeys from chapter cases: count-based flat shards
-        # placed all 16 MVP cases together in run 39390958641 (24-minute timeout).
-        suite: [chapters, mvp]
-        shard: [1, 2, 3, 4]
+        # Isolate the measured DPR3 canvas journeys and the championship. Run
+        # 39419114192 exhausted a 24-minute chapter shard after 20 passing cases.
+        include:
+          - {suite: chapters, shard: 1, total: 4}
+          - {suite: chapters, shard: 2, total: 4}
+          - {suite: chapters, shard: 3, total: 4}
+          - {suite: chapters, shard: 4, total: 4}
+          - {suite: mvp, shard: 1, total: 4}
+          - {suite: mvp, shard: 2, total: 4}
+          - {suite: mvp, shard: 3, total: 4}
+          - {suite: mvp, shard: 4, total: 4}
+          - {suite: controls, shard: 1, total: 2}
+          - {suite: controls, shard: 2, total: 2}
+          - {suite: league, shard: 1, total: 1}
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -65,7 +75,7 @@ jobs:
         timeout-minutes: 24
         env:
           VELORIA_E2E_SUITE: ${{ matrix.suite }}
-        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/4
+        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/${{ matrix.total }}
 
       - name: Preserve browser screenshots and traces
         if: ${{ always() }}

@@ -11187,12 +11187,12 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "hotspot"
+              "value": "challenge-sequence"
             },
             {
-              "name": "dialogueId",
+              "name": "challengeId",
               "type": "string",
-              "value": "league_gate"
+              "value": "velorialeague"
             }
           ]
         }

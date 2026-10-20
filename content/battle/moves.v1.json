@@ -894,6 +894,36 @@
       ],
       "statChangeChance": 30
     },
+    "bug-buzz": {
+      "id": "bug-buzz",
+      "name": "Ronzio",
+      "type": "bug",
+      "category": "special",
+      "power": 90,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 10,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "specialDefense",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 10
+    },
+    "poison-jab": {
+      "id": "poison-jab",
+      "name": "Velenpuntura",
+      "type": "poison",
+      "category": "physical",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "inflictedStatus": "poison",
+      "statusChance": 30
+    },
     "flamethrower": {
       "id": "flamethrower",
       "name": "Lanciafiamme",

@@ -16,6 +16,7 @@ from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
 from collision_gate_validation import validate_collision_gates
 from dialogue_validation import validate_dialogue_choices
+from challenge_sequence_validation import challenge_sequence_flags, validate_challenge_sequences
 from fishing_validation import validate_fishing_spot
 from ice_validation import collect_movement_surfaces, object_tiles, validate_ice_triggers, reachable_tiles as reachable_with_ice
 from import_pokeapi_battle import main as verify_pokeapi_import
@@ -263,6 +264,8 @@ quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]
 quest_flags = {step["setFlag"] for quest in quests for step in quest["steps"]}
 check(starter_data.get("selectionFlag") == "q_starter_selected", "Starter selection flag is missing or unsupported")
 quest_flags.add(starter_data["selectionFlag"])
+quest_defined_flags = set(quest_flags)
+quest_flags.update(challenge_sequence_flags(ROOT, quest_defined_flags))
 check(len({quest["id"] for quest in quests}) == len(quests), "Duplicate quest ID")
 quest_schema = json.loads((SCHEMAS / "quest.v1.schema.json").read_text(encoding="utf-8"))
 for quest in quests:
@@ -569,6 +572,7 @@ for metadata in runtime_by_id.values():
         check(bool(targets & visited),
               f"Map exit is unreachable from spawn {connection['viaSpawnId']} in {metadata['id']}: {trigger.get('name')}")
 
+validate_challenge_sequences(ROOT, runtime_by_id, quest_defined_flags, quest_triggers, badge_registry, trainer_registry, species_registry, move_registry)
 validate_transit(ROOT, runtime_by_id, quest_flags)
 validate_environment_regulators(ROOT, runtime_by_id, quest_flags, quest_triggers)
 validate_signal_routers(ROOT, runtime_by_id, quests)

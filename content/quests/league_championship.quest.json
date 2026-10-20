@@ -1,0 +1,27 @@
+{
+  "id": "veloria/q_league_championship",
+  "version": 1,
+  "displayName": "Campione di Veloria",
+  "steps": [
+    {
+      "id": "championship",
+      "trigger": "league/championship/won",
+      "setFlag": "q_league_completed",
+      "requiresFlags": [
+        "challenge_velorialeague_won_council1",
+        "challenge_velorialeague_won_council2",
+        "challenge_velorialeague_won_council3",
+        "challenge_velorialeague_won_council4",
+        "challenge_velorialeague_won_champion",
+        "q_resonance_restored"
+      ]
+    }
+  ],
+  "completionFlag": "q_league_completed",
+  "reward": {
+    "money": 10000,
+    "items": {
+      "hyper-potion": 3
+    }
+  }
+}

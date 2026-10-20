@@ -1629,7 +1629,7 @@
         "whenFlagPresent": "q_resonance_restored",
         "lines": [
           "Il rapporto del Santuario è registrato: giardino e rete rispondono insieme. Ora puoi seguire il ponte a est di Concordia per il Cammino dell’Equilibrio.",
-          "Il percorso arriva al piazzale della Lega, con cure e rifornimenti. Le sale della sfida finale sono ancora in preparazione; puoi allenarti con Maia e Tobia lungo la strada."
+          "Il percorso arriva al piazzale della Lega, con cure e rifornimenti. Il portale del piazzale gestisce l’iscrizione alla sfida finale; puoi allenarti con Maia e Tobia lungo la strada."
         ]
       },
       {
@@ -1704,7 +1704,7 @@
       {
         "lines": [
           "La Risonanza è stabile: il Cammino dell’Equilibrio è aperto. Segui il ponte verso est, oltre questo cartello, fino al piazzale della Lega.",
-          "Maia e Tobia propongono allenamenti facoltativi; gli habitat sono ai lati del sentiero. Al piazzale trovi cure e mercato. Le sale del campionato sono ancora in preparazione."
+          "Maia e Tobia propongono allenamenti facoltativi; gli habitat sono ai lati del sentiero. Al piazzale trovi cure e mercato. Al portale del piazzale puoi iscriverti alla sfida consecutiva del Consiglio e del Campione."
         ]
       }
     ]
@@ -1924,6 +1924,12 @@
     "speaker": "Accoglienza della Lega",
     "stages": [
       {
+        "whenFlagPresent": "q_league_completed",
+        "lines": [
+          "Benvenuto, Campione! Il tuo traguardo è registrato. Puoi rivedere la cerimonia al portale e continuare a esplorare Veloria. Cure, deposito e mercato restano aperti."
+        ]
+      },
+      {
         "whenFlagMissing": "q_resonance_restored",
         "lines": [
           "Prima della sfida finale, completa con Elia il rapporto verificato del Santuario. Il Cammino a ovest riporta a Concordia."
@@ -1933,24 +1939,53 @@
         "whenFlagMissing": "q_league_orientation",
         "questEvent": "league/reception/welcome",
         "lines": [
-          "Benvenuto alla Lega di Veloria, {trainer}! Hai raggiunto la meta del Cammino dell’Equilibrio. Hai riportato stabilità alla Risonanza: ora la sfida sportiva richiederà una squadra preparata.",
-          "A ovest della piazza trovi il Centro Pokémon con cure e deposito; a est il mercato. Puoi tornare sul Cammino per allenarti e cercare Pokémon negli habitat laterali.",
-          "Le sale interne della Lega sono ancora in preparazione in questa versione. Il piazzale e i servizi sono aperti: non avvieremo una sfida incompleta."
+          "Benvenuto alla Lega di Veloria, {trainer}! Il Consiglio e il Campione ti aspettano. Servono tutte le otto medaglie e il rapporto verificato del Santuario.",
+          "A ovest trovi cure e deposito; a est il mercato. Durante un tentativo puoi usare gli strumenti, ma non riposare né cambiare i Pokémon dal deposito. Una sconfitta o l’abbandono fanno ripartire dal primo incontro, conservando esperienza e risorse rimaste.",
+          "Quando sei pronto esamina il portale a nord. Ogni incontro parte da una tua scelta: puoi controllare la squadra e ricaricare il gioco fra le sale."
         ]
       },
       {
         "lines": [
-          "Il piazzale resta aperto per curare la squadra, rivedere il deposito e acquistare strumenti. Le sale interne della Lega sono ancora in preparazione.",
-          "Puoi tornare a Concordia seguendo il Cammino verso ovest; gli allenamenti con Maia e Tobia sono facoltativi e assegnano un premio una sola volta."
+          "Il portale a nord gestisce iscrizione e avanzamento nella Lega. Prima prepara HP, PP, squadra e strumenti: non ci sono cure gratuite fra gli incontri.",
+          "Se lasci le sale, confermerai l’abbandono. Esperienza e ricompense già guadagnate restano, ma il prossimo tentativo ricomincia dal primo consigliere."
         ]
       }
     ]
   },
   "league_gate": {
-    "speaker": "Sale della Lega",
+    "speaker": "Lega di Veloria",
     "lines": [
-      "La sfida finale della Lega è in preparazione. Questa versione permette di esplorare il Cammino e il piazzale, curare la squadra e acquistare rifornimenti.",
-      "Il campionato comprenderà incontri consecutivi e una conclusione sportiva distinta dal rapporto del Santuario. Per ora puoi tornare a esplorare Veloria senza perdere il progresso."
+      "Esamina il portale per vedere requisiti, regole e avanzamento della sfida."
+    ]
+  },
+  "league_council1": {
+    "speaker": "Nerea",
+    "lines": [
+      "Benvenuto nella mia sala. La prossima lotta richiede tipi e risorse diverse: guarda la squadra prima di scegliere SFIDA."
+    ]
+  },
+  "league_council2": {
+    "speaker": "Silvo",
+    "lines": [
+      "Benvenuto nella mia sala. La prossima lotta richiede tipi e risorse diverse: guarda la squadra prima di scegliere SFIDA."
+    ]
+  },
+  "league_council3": {
+    "speaker": "Brando",
+    "lines": [
+      "Benvenuto nella mia sala. La prossima lotta richiede tipi e risorse diverse: guarda la squadra prima di scegliere SFIDA."
+    ]
+  },
+  "league_council4": {
+    "speaker": "Luce",
+    "lines": [
+      "Benvenuto nella mia sala. La prossima lotta richiede tipi e risorse diverse: guarda la squadra prima di scegliere SFIDA."
+    ]
+  },
+  "league_champion": {
+    "speaker": "Enea",
+    "lines": [
+      "Siamo arrivati alla sfida finale. La mia squadra rappresenta il viaggio di Veloria: sei pronto a mettere insieme ciò che hai imparato?"
     ]
   }
 }

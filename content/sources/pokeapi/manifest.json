@@ -86,6 +86,11 @@
       "path": "content/sources/pokeapi/move-bubble-beam.json",
       "sha256": "adf846f4f4c52dc676b6f7e1df38921877f9a956efc689d6a6832264656fc034"
     },
+    "move/bug-buzz": {
+      "url": "https://pokeapi.co/api/v2/move/bug-buzz/",
+      "path": "content/sources/pokeapi/move-bug-buzz.json",
+      "sha256": "267009f8aa7b2603bc3554d03aa15c3631c0f044bab27da8b5e5c7b73c98cced"
+    },
     "move/confuse-ray": {
       "url": "https://pokeapi.co/api/v2/move/confuse-ray/",
       "path": "content/sources/pokeapi/move-confuse-ray.json",
@@ -335,6 +340,11 @@
       "url": "https://pokeapi.co/api/v2/move/perish-song/",
       "path": "content/sources/pokeapi/move-perish-song.json",
       "sha256": "6225cc29da682e453e386caa9c493a19904ed4b7a29878f7d64c8fd0751c36ed"
+    },
+    "move/poison-jab": {
+      "url": "https://pokeapi.co/api/v2/move/poison-jab/",
+      "path": "content/sources/pokeapi/move-poison-jab.json",
+      "sha256": "76965d5baa19de267a6fa9c60627fe2b1cfc54e6d5395412dd88325df8c9f0d3"
     },
     "move/poison-powder": {
       "url": "https://pokeapi.co/api/v2/move/poison-powder/",

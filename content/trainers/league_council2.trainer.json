@@ -1,0 +1,42 @@
+{
+  "id": "veloria/trainer_league_council2",
+  "name": "Silvo",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_league_council2_defeated",
+  "defeatQuestEvent": "league/stage/council2/won",
+  "rewardMoney": 3000,
+  "victoryMessage": "Hai vinto contro Silvo.",
+  "victoryFeedback": "Hai distinto danni, sonno e semi. Ogni strumento consumato conta: scegli quando curare e quando cambiare Pokémon.",
+  "team": [
+    {
+      "speciesId": 12,
+      "level": 51,
+      "moveIds": [
+        "bug-buzz",
+        "psybeam",
+        "sleep-powder",
+        "gust"
+      ]
+    },
+    {
+      "speciesId": 15,
+      "level": 52,
+      "moveIds": [
+        "poison-jab",
+        "fury-attack",
+        "agility"
+      ]
+    },
+    {
+      "speciesId": 3,
+      "level": 53,
+      "moveIds": [
+        "vine-whip",
+        "leech-seed",
+        "sleep-powder",
+        "poison-powder"
+      ]
+    }
+  ]
+}

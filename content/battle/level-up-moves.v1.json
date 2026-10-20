@@ -122,6 +122,10 @@
       {
         "level": 24,
         "moveId": "psybeam"
+      },
+      {
+        "level": 40,
+        "moveId": "bug-buzz"
       }
     ],
     "13": [],
@@ -139,6 +143,10 @@
       {
         "level": 31,
         "moveId": "agility"
+      },
+      {
+        "level": 37,
+        "moveId": "poison-jab"
       }
     ],
     "16": [
@@ -341,6 +349,10 @@
       {
         "level": 40,
         "moveId": "psychic"
+      },
+      {
+        "level": 43,
+        "moveId": "poison-jab"
       }
     ],
     "179": [
@@ -717,6 +729,10 @@
         "moveId": "water-pulse"
       },
       {
+        "level": 33,
+        "moveId": "poison-jab"
+      },
+      {
         "level": 36,
         "moveId": "screech"
       },
@@ -749,6 +765,10 @@
       {
         "level": 29,
         "moveId": "water-pulse"
+      },
+      {
+        "level": 36,
+        "moveId": "poison-jab"
       },
       {
         "level": 42,

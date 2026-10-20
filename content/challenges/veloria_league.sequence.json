@@ -1,0 +1,85 @@
+{
+  "id": "velorialeague",
+  "name": "Lega di Veloria",
+  "version": 1,
+  "requiredFlags": [
+    "q_resonance_restored"
+  ],
+  "requiredBadgeIds": [
+    "badge_aurora",
+    "badge_corolla",
+    "badge_circuito",
+    "badge_acciaio",
+    "badge_marea",
+    "badge_riflesso",
+    "badge_brina",
+    "badge_armonia"
+  ],
+  "activeFlag": "challenge_velorialeague_active",
+  "pendingBattleFlag": "challenge_velorialeague_pending",
+  "completedFlag": "q_league_completed",
+  "completionEvent": "league/championship/won",
+  "memberMapIds": [
+    "veloria/league_council01",
+    "veloria/league_council02",
+    "veloria/league_council03",
+    "veloria/league_council04",
+    "veloria/league_champion"
+  ],
+  "checkpoint": {
+    "mapId": "veloria/league_forecourt",
+    "spawnId": "league_checkpoint"
+  },
+  "servicePolicy": {
+    "healing": "forbidden",
+    "storage": "forbidden",
+    "battleItems": "allowed"
+  },
+  "stages": [
+    {
+      "id": "council1",
+      "trainerId": "veloria/trainer_league_council1",
+      "mapId": "veloria/league_council01",
+      "spawnId": "from_entry",
+      "attemptWonFlag": "challenge_velorialeague_won_council1",
+      "firstRewardFlag": "challenge_velorialeague_paid_council1",
+      "battleOnceFlag": "trainer_league_council1_defeated"
+    },
+    {
+      "id": "council2",
+      "trainerId": "veloria/trainer_league_council2",
+      "mapId": "veloria/league_council02",
+      "spawnId": "from_entry",
+      "attemptWonFlag": "challenge_velorialeague_won_council2",
+      "firstRewardFlag": "challenge_velorialeague_paid_council2",
+      "battleOnceFlag": "trainer_league_council2_defeated"
+    },
+    {
+      "id": "council3",
+      "trainerId": "veloria/trainer_league_council3",
+      "mapId": "veloria/league_council03",
+      "spawnId": "from_entry",
+      "attemptWonFlag": "challenge_velorialeague_won_council3",
+      "firstRewardFlag": "challenge_velorialeague_paid_council3",
+      "battleOnceFlag": "trainer_league_council3_defeated"
+    },
+    {
+      "id": "council4",
+      "trainerId": "veloria/trainer_league_council4",
+      "mapId": "veloria/league_council04",
+      "spawnId": "from_entry",
+      "attemptWonFlag": "challenge_velorialeague_won_council4",
+      "firstRewardFlag": "challenge_velorialeague_paid_council4",
+      "battleOnceFlag": "trainer_league_council4_defeated"
+    },
+    {
+      "id": "champion",
+      "trainerId": "veloria/trainer_league_champion",
+      "mapId": "veloria/league_champion",
+      "spawnId": "from_entry",
+      "attemptWonFlag": "challenge_velorialeague_won_champion",
+      "firstRewardFlag": "challenge_velorialeague_paid_champion",
+      "battleOnceFlag": "trainer_league_champion_defeated"
+    }
+  ]
+}

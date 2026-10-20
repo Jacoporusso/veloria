@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_league_epilogue",
+  "version": 1,
+  "displayName": "Il viaggio continua",
+  "steps": [
+    {
+      "id": "epilogue",
+      "trigger": "league/epilogue/seen",
+      "setFlag": "q_league_epilogue_seen",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_league_epilogue_seen",
+  "reward": {}
+}

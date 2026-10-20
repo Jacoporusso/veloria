@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_league_council1",
+  "name": "Nerea",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_league_council1_defeated",
+  "defeatQuestEvent": "league/stage/council1/won",
+  "rewardMoney": 3000,
+  "victoryMessage": "Hai vinto contro Nerea.",
+  "victoryFeedback": "Hai superato le correnti! Quagsire unisce Acqua e Terra: osservare entrambi i tipi evita mosse senza effetto. Conserva le risorse per le prossime sale.",
+  "team": [
+    {
+      "speciesId": 9,
+      "level": 50,
+      "moveIds": [
+        "water-pulse",
+        "aqua-tail",
+        "withdraw",
+        "tail-whip"
+      ]
+    },
+    {
+      "speciesId": 195,
+      "level": 51,
+      "moveIds": [
+        "mud-bomb",
+        "amnesia",
+        "water-gun",
+        "slam"
+      ]
+    },
+    {
+      "speciesId": 87,
+      "level": 52,
+      "moveIds": [
+        "ice-beam",
+        "aqua-tail",
+        "ice-shard",
+        "aurora-beam"
+      ]
+    }
+  ]
+}

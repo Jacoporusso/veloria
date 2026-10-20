@@ -13,8 +13,10 @@ const existingServerUrl = process.env.VELORIA_E2E_BASE_URL;
 
 export default defineConfig({
   testDir: './tests/e2e',
-  testIgnore: ['**/offline.spec.ts', ...(process.env.VELORIA_E2E_SUITE === 'chapters' ? ['**/mvp.spec.ts'] : [])],
+  testIgnore: ['**/offline.spec.ts', ...(process.env.VELORIA_E2E_SUITE === 'chapters' ? ['**/mvp.spec.ts', '**/high-density-world-controls.spec.ts', '**/league.spec.ts'] : [])],
   ...(process.env.VELORIA_E2E_SUITE === 'mvp' ? { testMatch: '**/mvp.spec.ts' } : {}),
+  ...(process.env.VELORIA_E2E_SUITE === 'controls' ? { testMatch: '**/high-density-world-controls.spec.ts' } : {}),
+  ...(process.env.VELORIA_E2E_SUITE === 'league' ? { testMatch: '**/league.spec.ts' } : {}),
   // CI shards individual isolated cases, including the long MVP file. Each
   // runner still uses one worker so high-density canvases do not compete.
   fullyParallel: Boolean(process.env.CI),

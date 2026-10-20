@@ -185,6 +185,15 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
       }
       break;
     }
+    case 'challenge-sequence': {
+      const marker = attach(container, scene.add.graphics().setDepth(depth));
+      const cx = x + item.width / 2, cy = y + item.height / 2;
+      marker.fillStyle(0x183d52, .85).fillRoundedRect(x + 2, y + 7, item.width - 4, item.height - 8, 7);
+      marker.lineStyle(1.5, 0xb5fbe6, .9).strokeRoundedRect(x + 2, y + 7, item.width - 4, item.height - 8, 7);
+      marker.fillStyle(0xcbb4ff, 1).fillTriangle(cx, cy - 8, cx + 7, cy + 1, cx, cy + 8);
+      marker.fillStyle(0xa5ffe1, 1).fillTriangle(cx, cy - 8, cx - 7, cy + 1, cx, cy + 8);
+      break;
+    }
     case 'resonance-beacon': {
       // Authored state, shared rendering: feedback follows the verified quest flag.
       const light = attach(container, scene.add.graphics().setDepth(depth + 1));

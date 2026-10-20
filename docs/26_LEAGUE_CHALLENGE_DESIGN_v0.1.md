@@ -1,6 +1,6 @@
 # Sfide sequenziali e Lega — progetto v0.1
 
-Stato: **core puro implementato, integrazione di gioco non ancora disponibile**. Audit del codice al 20 ottobre 2026. Questo documento non introduce mappe, allenatori o progressi runtime.
+Stato: **core e adattatore di gioco implementati; percorso completo ancora da verificare nel browser**. Audit del codice al 20 ottobre 2026. Questo documento non introduce mappe, allenatori o progressi runtime.
 
 ## 1. Requisiti e riferimenti
 
@@ -126,7 +126,7 @@ R16 e piazzale possono essere pubblicati come contenuti di arrivo soltanto con f
 
 ## 8. Contratto del core implementato
 
-`src/core/world/challenge-sequence.ts` opera esclusivamente su `{ flags, badges }` readonly. Non modifica squadra, XP, denaro, inventario, RNG o coordinate e non scrive sul disco. Il documento resta una proposta per registry, scene, contenuti e adattatore di salvataggio.
+`src/core/world/challenge-sequence.ts` opera esclusivamente su `{ flags, badges }` readonly. Non modifica squadra, XP, denaro, inventario, RNG o coordinate e non scrive sul disco. L’integrazione successiva di registry e scene è descritta nella sezione 9; la verifica completa dei contenuti resta distinta dai test del core.
 
 API pubbliche: `validateChallengeSequence`, `challengeSequenceState`, `startChallengeSequence(sequence, traveler, hasConsciousParty)`, `prepareChallengeBattle(sequence, traveler, stageId)`, `settleChallengeBattle(sequence, traveler, stageId, outcome)`, `abortChallengeSequence`, `recoverChallengeSequence` e `challengeServiceAllowed`. Gli esiti ammessi sono `won | lost | draw`.
 
@@ -141,3 +141,16 @@ Le transizioni restituiscono `{ flags, changed, accepted, reason, state, nextSta
 `challengeServiceAllowed` nega cure e deposito in stato active/pending/awaitingCompletion/invalid; consente strumenti in battaglia. Non rende disponibili servizi che una mappa non offre. Il catalogo delle sfide potrà estendersi a un altro numero di tappe: cinque è una proprietà della Lega, non del motore.
 
 Verifica del core: `tests/world/challenge-sequence.test.ts` copre progressione a cinque tappe, gate delle otto medaglie, salti e callback duplicate, perdita/pareggio a ogni tappa, premi permanenti su ripetizione, annullamento, ricaricamento pending, immutabilità e servizi. Questo non dimostra una partita della Lega già giocabile.
+
+
+## 9. Adattatore di gioco implementato
+
+L’adattatore è ora presente in `WorldScene.ts`, con catalogo generico in `src/game/maps/challenge-sequence-registry.ts`. `src/game/battle/challenge-settlement.ts` applica ricevuta del premio, denaro e quest finale nello stesso snapshot. Le prove di unità dell’adattatore verificano ripetizioni senza doppio pagamento, completamento prima della pulizia, mancata quest finale e conservazione dei dati post-sconfitta. Non costituiscono prova che tutti i contenuti della Lega siano già raggiungibili.
+
+Il terminale con `challengeId` iscrive o riprende il tentativo dopo salvataggio riuscito. Gli NPC con `challengeStageId` offrono SFIDA soltanto alla tappa corrente; dopo una vittoria propongono PROSEGUI verso lo spawn della successiva. Il trasferimento non avvia automaticamente la lotta. La flag pending è consolidata prima di lanciare la scena. Ogni callback ha un guard contro doppio completamento; `onDismiss` attende il salvataggio e una sua eventuale ripetizione prima di liberare il mondo.
+
+La ripresa avviene prima del preload, per caricare le risorse del checkpoint corretto. Tentativo pending/incoerente o attivo in una mappa esterna torna al checkpoint; un tentativo valido fra incontri rimane nella propria stanza. Una stanza interna senza tentativo attivo viene ricondotta al piazzale. La pulizia di un titolo già conquistato conserva la posizione e i progressi permanenti.
+
+Uscire dall’insieme delle mappe della sequenza chiede conferma. La perdita non esegue la cura automatica generica: dopo il dismiss trasferisce al checkpoint con HP/PP e strumenti post-battaglia. I servizi di cura e deposito verificano il core sia aprendo il menu sia eseguendo l’azione; gli strumenti in battaglia restano disponibili. Un salvataggio fallito apre un comando di ripetizione e blocca movimento/nuove sfide finché il salvataggio non riesce.
+
+La presentazione finale usa `showLeagueCompletion(save): Promise<void>` soltanto dopo consolidamento di `q_league_completed`. Alla chiusura applica l’evento separato `league/epilogue/seen`; se la presentazione era stata interrotta viene riproposta al caricamento. Il terminale di una sequenza completata offre la revisione del traguardo senza riemettere vittorie o premi. Restano da verificare nel browser cinque tappe reali, perdita, abbandono, ripresa e fallimento del salvataggio, oltre alle mappe e alle squadre dichiarate dal contenuto.

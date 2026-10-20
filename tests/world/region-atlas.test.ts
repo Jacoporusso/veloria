@@ -45,7 +45,9 @@ test('quest evidence marks only witnessed places, never inferred routes or the u
   const league = state.areas.find(area => area.id === 'lega')!;
   assert.equal(league.available, true);
   assert.equal(league.visited, false);
-  assert.deepEqual(league.mapIds, ['veloria/league_forecourt']);
+  assert.ok(league.mapIds.includes('veloria/league_forecourt'));
+  assert.ok(league.mapIds.includes('veloria/league_champion'));
+  assert.equal(league.mapIds.length, 6);
   const witnessed = deriveAtlasState(save('veloria/concordia', ['q_league_visited']));
   assert.equal(witnessed.areas.find(area => area.id === 'lega')!.status, 'Visitato');
   assert.equal(witnessed.areas.find(area => area.id === 'r16')!.visited, false);

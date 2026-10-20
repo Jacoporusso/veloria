@@ -1,5 +1,16 @@
-const CACHE = 'veloria-shell-v116';
+const CACHE = 'veloria-shell-v117';
 const SHELL = [
+  './tilemaps/league_council01.tmj',
+  './tilemaps/league_council02.tmj',
+  './tilemaps/league_council03.tmj',
+  './tilemaps/league_council04.tmj',
+  './tilemaps/league_champion.tmj',
+  './assets/scenery/veloria-league-council01-v1.webp',
+  './assets/scenery/veloria-league-council02-v1.webp',
+  './assets/scenery/veloria-league-council03-v1.webp',
+  './assets/scenery/veloria-league-council04-v1.webp',
+  './assets/scenery/veloria-league-champion-v1.webp',
+
   './tilemaps/r16_cammino_equilibrio.tmj',
   './tilemaps/league_forecourt.tmj',
   './assets/scenery/veloria-r16-equilibrium-v1.webp',

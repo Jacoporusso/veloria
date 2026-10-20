@@ -1,4 +1,7 @@
 import { getEnvironmentRegulator } from '../maps/environment-regulator-registry';
+import { getChallengeSequence, listChallengeSequences } from '../maps/challenge-sequence-registry';
+import { abortChallengeSequence, challengeSequenceState, challengeServiceAllowed, prepareChallengeBattle, recoverChallengeSequence, startChallengeSequence, type ChallengeSequence } from '../../core/world/challenge-sequence.ts';
+import { settleChallengeSave } from '../battle/challenge-settlement.ts';
 import { adjustEnvironmentRegulator, resetEnvironmentRegulator, environmentRegulatorState } from '../../core/world/environment-regulator.ts';
 import { environmentRegulatorMenu, type EnvironmentRegulatorCommand } from '../ui/environment-regulator-menu';
 import { decorateServiceOption, type ServiceOptionIconKind } from '../ui/ServiceOptionIcon';
@@ -100,6 +103,8 @@ export class WorldScene extends Phaser.Scene {
   private fishingActive = false;
   private battleSceneReady: Promise<void> | null = null;
   private mapTransitionLoading = false;
+  private challengeOperationActive = false;
+  private challengeRecovered = false;
   private typingTimer?: number;
   private typingTarget?: HTMLElement;
   private typingText = '';
@@ -121,6 +126,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   preload() {
+    this.recoverChallengeProgress();
     const assetUrl = (path: string) => publicAssetUrl(path, import.meta.env.BASE_URL);
     this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.webp'));
     const maps = listMaps();
@@ -195,6 +201,12 @@ export class WorldScene extends Phaser.Scene {
     if (this.map.metadata.id === 'veloria/borgofonte' && !this.save.flags.includes('q_starter_selected')) {
       this.showToast('Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud.');
     }
+    if (this.challengeRecovered) {
+      this.challengeOperationActive = true;
+      void this.finishChallengeRecovery();
+    } else if (!this.previewMode && this.save.flags.includes('q_league_completed') && !this.save.flags.includes('q_league_epilogue_seen')) {
+      void this.presentLeagueFinale();
+    }
   }
 
   private fitWorldCamera(): void {
@@ -211,7 +223,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private get navigationOpen(): boolean {
-    return this.completionActive || Boolean(this.regionMap?.isOpen) || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
+    return this.completionActive || this.challengeOperationActive || Boolean(this.regionMap?.isOpen) || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
   }
 
   private updateInteractionPrompt(): void {
@@ -425,6 +437,7 @@ export class WorldScene extends Phaser.Scene {
     document.querySelector('#interaction-prompt')?.addEventListener('click',()=>this.advanceOrInteract());
     document.querySelector('#title-button')?.addEventListener('click',()=>{ void this.persistProgress(true).then(saved => { if (saved) location.reload(); }); });
     document.querySelector('#action-b')?.addEventListener('click',()=>{
+      if (this.challengeOperationActive) return; // Keep mandatory save recovery reachable.
       if(this.regionMap?.isOpen)this.regionMap.close();
       else if(this.journey?.isOpen)this.journey.close();
       else if(this.pokedexOpen)this.closePokedex();
@@ -545,6 +558,10 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop && (prop.kind === 'challenge-sequence' || typeof prop.properties.challengeId === 'string')) {
+      this.showChallengeSequenceMenu(String(prop.properties.challengeId), typeof prop.properties.challengeStageId === 'string' ? prop.properties.challengeStageId : undefined);
+      return;
+    }
     if (prop?.kind === 'local-transport') {
       this.showLocalTransportMenu(String(prop.properties.networkId), String(prop.properties.stopId));
       return;
@@ -647,6 +664,16 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private async transitionToMap(destination: RegisteredMap, spawn: ReturnType<typeof getSpawn>) {
+    const challenge = listChallengeSequences().find(sequence => this.save.flags.includes(sequence.activeFlag) && !this.save.flags.includes(sequence.completedFlag));
+    if (challenge && !challenge.memberMapIds.includes(destination.metadata.id)) {
+      this.mapTransitionLoading = false;
+      this.afterDialogue = null;
+      this.showServiceOptions(challenge.name, 'Uscire interrompe il tentativo: ripartirai dal primo incontro. Esperienza, denaro e risorse attuali restano conservati.', [
+        { label: 'ESCI E INTERROMPI', icon: 'close', action: () => void this.leaveChallenge(challenge) },
+        { label: 'RESTO NELLA SFIDA', icon: 'challenge', action: () => undefined },
+      ]);
+      return;
+    }
     const previous = this.map;
     this.heldDirection = null;
     this.queuedDirection = null;
@@ -793,7 +820,178 @@ export class WorldScene extends Phaser.Scene {
     ]);
   }
 
-  private startTrainerBattle(trainer: (typeof trainerCatalog)[string]) {
+  private recoverChallengeProgress(): void {
+    if (this.previewMode) return;
+    for (const sequence of listChallengeSequences()) {
+      const state = challengeSequenceState(sequence, this.save);
+      const outsideAttempt = ['active', 'pending'].includes(state.status) && !sequence.memberMapIds.includes(this.save.player.mapId);
+      const result = outsideAttempt ? abortChallengeSequence(sequence, this.save) : recoverChallengeSequence(sequence, this.save);
+      const stranded = sequence.memberMapIds.includes(this.save.player.mapId) && ['inactive', 'ready'].includes(result.state.status);
+      if (!result.changed && !result.checkpoint && !stranded) continue;
+      this.save = { ...this.save, flags: result.flags };
+      const checkpoint = result.checkpoint ?? (stranded ? sequence.checkpoint : null);
+      if (checkpoint) {
+        const map = getMap(checkpoint.mapId), spawn = getSpawn(map, checkpoint.spawnId);
+        this.save = { ...this.save, player: { ...this.save.player, mapId: map.metadata.id, spawnPointId: spawn.id, x: spawn.x, y: spawn.y } };
+      }
+      this.challengeRecovered = true;
+    }
+  }
+
+  private async finishChallengeRecovery(): Promise<void> {
+    await this.requireChallengeSave(() => {
+      this.challengeOperationActive = false;
+      this.challengeRecovered = false;
+      this.showToast('Tentativo aggiornato. Esperienza, denaro e risorse sono conservati.');
+      if (this.save.flags.includes('q_league_completed') && !this.save.flags.includes('q_league_epilogue_seen')) void this.presentLeagueFinale();
+    });
+  }
+
+  private async requireChallengeSave(continuation: () => void | Promise<void>): Promise<void> {
+    if (await this.persistProgress()) { await continuation(); return; }
+    this.challengeOperationActive = true;
+    this.afterDialogue = null;
+    this.showServiceOptions('Salvataggio da completare', 'I progressi sono pronti, ma non sono ancora al sicuro. Riprova il salvataggio prima di proseguire.', [
+      { label: 'RIPROVA SALVATAGGIO', icon: 'challenge', action: () => void this.requireChallengeSave(continuation) },
+    ]);
+    const keyboard = this.starterChoices.onkeydown;
+    this.starterChoices.onkeydown = event => {
+      if (event.key === 'Escape' || event.key.toLowerCase() === 'b') { event.preventDefault(); event.stopPropagation(); return; }
+      keyboard?.call(this.starterChoices, event);
+    };
+  }
+
+  private challengeServicePermitted(service: 'healing' | 'storage'): boolean {
+    const blocked = listChallengeSequences().some(sequence => !challengeServiceAllowed(sequence, this.save, service));
+    if (blocked) this.showToast('Durante il tentativo non puoi riposare o usare il deposito. Puoi usare gli strumenti in battaglia oppure interrompere la sfida.');
+    return !blocked;
+  }
+
+  private showChallengeSequenceMenu(id: string, stageId?: string): void {
+    this.afterDialogue = null;
+    const sequence = getChallengeSequence(id);
+    if (!sequence) { this.showToast('Questa sfida non è disponibile.'); return; }
+    if (this.previewMode) { this.showToast('Apri la partita salvata per partecipare alla sfida.'); return; }
+    const state = challengeSequenceState(sequence, this.save);
+    if (state.status === 'completed') {
+      this.showServiceOptions(sequence.name, 'Hai conquistato il titolo! I tuoi progressi restano disponibili e puoi continuare a esplorare.', [
+        { label: 'RIVEDI IL TRAGUARDO', icon: 'challenge', action: () => void this.presentLeagueFinale(true) },
+        { label: 'CONTINUA IL VIAGGIO', icon: 'close', action: () => undefined },
+      ]);
+      return;
+    }
+    if (state.status === 'invalid' || state.status === 'pending' || state.status === 'awaitingCompletion') {
+      this.showServiceOptions(sequence.name, 'Questo tentativo non può essere ripreso da qui. Ripartiamo dal piazzale conservando i progressi della squadra.', [
+        { label: 'TORNA AL PIAZZALE', icon: 'transit', action: () => void this.leaveChallenge(sequence) },
+      ]);
+      return;
+    }
+    if (state.status === 'inactive') {
+      this.showDialogue(sequence.name, [`Per partecipare servono le ${sequence.requiredBadgeIds.length} medaglie richieste e le missioni di accesso completate. Medaglie richieste ancora mancanti: ${state.missingBadgeIds.length}.`,
+        state.missingFlags.length ? 'Controlla il diario e completa le missioni di accesso prima di iniziare.' : 'Completa le prove delle Palestre, poi torna al piazzale.']);
+      return;
+    }
+    if (state.status === 'ready') {
+      if (listChallengeSequences().some(other => other.id !== sequence.id && this.save.flags.includes(other.activeFlag))) {
+        this.showToast('Concludi o interrompi prima il tentativo già in corso.'); return;
+      }
+      this.showServiceOptions(sequence.name, `${sequence.stages.length} incontri in ordine, con la tua squadra attuale. Nessuna cura o deposito tra le prove; gli strumenti sono consentiti. Se perdi o esci, ricominci dal primo incontro conservando esperienza e risorse attuali.`, [
+        { label: 'INIZIA IL TENTATIVO', icon: 'challenge', action: () => {
+          const result = startChallengeSequence(sequence, this.save, this.save.party.some(creature => creature.hp > 0));
+          if (!result.accepted) { this.showToast('Prepara una squadra cosciente prima di entrare.'); return; }
+          this.save = { ...this.save, flags: result.flags };
+          void this.travelToChallengeStage(sequence, result.nextStageId!);
+        } },
+        { label: 'MI PREPARO ANCORA', icon: 'close', action: () => undefined },
+      ]);
+      return;
+    }
+    const next = sequence.stages.find(stage => stage.id === state.nextStageId)!;
+    const trainer = trainerCatalog[next.trainerId];
+    if (!trainer) { this.showToast('L’avversario della prossima prova non è disponibile.'); return; }
+    const atOpponent = stageId === next.id && this.map.metadata.id === next.mapId;
+    this.showServiceOptions(sequence.name, `${state.wonStageIds.length}/${sequence.stages.length} prove superate. Prossimo avversario: ${trainer.name}.${atOpponent ? ` ${trainerChallengePrompt(trainer, this.save.party, this.save.inventory)}` : ' Puoi proseguire quando sei pronto.'}`, [
+      { label: atOpponent ? 'SFIDA' : 'PROSEGUI ALLA PROSSIMA PROVA', icon: 'challenge', action: () => {
+        if (atOpponent) void this.startChallengeBattle(sequence, next.id);
+        else void this.travelToChallengeStage(sequence, next.id);
+      } },
+      { label: 'INTERROMPI IL TENTATIVO', icon: 'close', action: () => this.confirmChallengeExit(sequence) },
+      { label: 'NON ORA', icon: 'close', action: () => undefined },
+    ]);
+  }
+
+  private confirmChallengeExit(sequence: ChallengeSequence): void {
+    this.afterDialogue = null;
+    this.showServiceOptions(sequence.name, 'Interrompere significa ricominciare dal primo incontro. Esperienza, denaro e risorse attuali restano conservati.', [
+      { label: 'ESCI E INTERROMPI', icon: 'close', action: () => void this.leaveChallenge(sequence) },
+      { label: 'RESTO NELLA SFIDA', icon: 'challenge', action: () => undefined },
+    ]);
+  }
+
+  private async travelToChallengeStage(sequence: ChallengeSequence, stageId: string): Promise<void> {
+    if (this.challengeOperationActive) return;
+    const state = challengeSequenceState(sequence, this.save);
+    const stage = sequence.stages.find(candidate => candidate.id === stageId);
+    if (state.status !== 'active' || state.nextStageId !== stageId || !stage) return;
+    this.challengeOperationActive = true;
+    await this.requireChallengeSave(async () => {
+      this.mapTransitionLoading = true;
+      await this.transitionToMap(getMap(stage.mapId), getSpawn(getMap(stage.mapId), stage.spawnId));
+      await this.requireChallengeSave(() => { this.challengeOperationActive = false; });
+    });
+  }
+
+  private async leaveChallenge(sequence: ChallengeSequence): Promise<void> {
+    if (this.challengeOperationActive) return;
+    this.challengeOperationActive = true;
+    const result = abortChallengeSequence(sequence, this.save);
+    this.save = { ...this.save, flags: result.flags };
+    await this.requireChallengeSave(async () => {
+      const checkpoint = sequence.checkpoint, map = getMap(checkpoint.mapId);
+      this.mapTransitionLoading = true;
+      await this.transitionToMap(map, getSpawn(map, checkpoint.spawnId));
+      await this.requireChallengeSave(() => { this.challengeOperationActive = false; });
+    });
+  }
+
+  private async startChallengeBattle(sequence: ChallengeSequence, stageId: string): Promise<void> {
+    if (this.challengeOperationActive || this.battleActive) return;
+    const stage = sequence.stages.find(candidate => candidate.id === stageId);
+    if (!stage || !trainerCatalog[stage.trainerId] || stage.mapId !== this.map.metadata.id || !this.save.party.some(creature => creature.hp > 0)) { this.showToast('La squadra o la prossima prova non sono disponibili. Puoi interrompere il tentativo e riposare al piazzale.'); return; }
+    const prepared = prepareChallengeBattle(sequence, this.save, stageId);
+    if (!prepared.accepted) return;
+    this.save = { ...this.save, flags: prepared.flags };
+    this.challengeOperationActive = true;
+    await this.requireChallengeSave(() => {
+      this.challengeOperationActive = false;
+      this.startTrainerBattle(trainerCatalog[stage.trainerId], { sequence, stageId });
+    });
+  }
+
+  private async presentLeagueFinale(review = false): Promise<void> {
+    if (this.previewMode || this.completionActive || !this.save.flags.includes('q_league_completed') || !review && this.save.flags.includes('q_league_epilogue_seen')) return;
+    this.completionActive = true;
+    this.heldDirection = null; this.queuedDirection = null;
+    this.scene.pause('world');
+    const shell = document.querySelector<HTMLElement>('.game-shell');
+    if (shell) shell.inert = true;
+    try {
+      const { showLeagueCompletion } = await import('../ui/LeagueCompletion');
+      await showLeagueCompletion(this.save);
+      const result = applyQuestEvent(this.save, 'league/epilogue/seen', questCatalog);
+      this.save = result.save;
+      await this.requireChallengeSave(() => { this.challengeOperationActive = false; });
+    } catch (error) {
+      this.showToast('Il riepilogo non è stato aperto. Puoi rivederlo dal terminale della Lega.');
+      console.error('Unable to present league completion.', error);
+    } finally {
+      if (shell) shell.inert = false;
+      this.completionActive = false;
+      this.scene.resume('world');
+    }
+  }
+
+  private startTrainerBattle(trainer: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }) {
     if (!this.save.party.some(creature => creature.hp > 0)) {
       this.showToast('La squadra è esausta. Usa una pozione prima della prova.');
       return;
@@ -806,19 +1004,28 @@ export class WorldScene extends Phaser.Scene {
         rules: veloriaBattleRules,
         battleId: createUniqueId(),
       });
-      this.beginBattle(state, trainer);
+      this.beginBattle(state, trainer, challenge);
     } catch (error) {
       this.showToast(error instanceof Error ? `Battaglia non avviata: ${error.message}` : 'Battaglia non avviata.');
+      if (challenge) {
+        this.save = { ...this.save, flags: this.save.flags.filter(flag => flag !== challenge.sequence.pendingBattleFlag) };
+        this.challengeOperationActive = true;
+        void this.requireChallengeSave(() => { this.challengeOperationActive = false; });
+      }
     }
   }
 
-  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string]) {
+  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }) {
     if (this.battleActive) return;
     this.battleActive = true;
     this.onMusicThemeChange(this.map.metadata.id === 'veloria/gym01_brumalta' ? 'battle_gym' : trainer ? 'battle_trainer' : 'battle_wild');
     let dismissMessage = 'Lo scontro è terminato.';
     let earnedMoney = 0;
     let earnedBadgeId: string | undefined;
+    let completionHandled = false;
+    let challengeSaved: Promise<boolean> = Promise.resolve(true);
+    let challengeReturn = false;
+    let leagueCompletion = false;
     const hadAuroraBadge = this.save.flags.includes('badge_aurora_awarded');
     void this.ensureBattleScene().then(() => {
       document.body.classList.add('battle-active');
@@ -839,10 +1046,34 @@ export class WorldScene extends Phaser.Scene {
           void this.persistProgress();
         },
         onComplete: (finalState: BattleState, events: readonly BattleEvent[]) => {
+          if (completionHandled) return;
+          completionHandled = true;
           const previousMoney = this.save.player.money;
           const previousBadges = new Set(this.save.badges);
           this.save = mergeBattlePlayerState(this.save, finalState);
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
+          if (challenge && trainer) {
+            const outcome = finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player' ? 'won'
+              : finalState.outcome.kind === 'draw' ? 'draw' : 'lost';
+            try {
+              const settled = settleChallengeSave(this.save, challenge.sequence, challenge.stageId, outcome, trainer.rewardMoney, questCatalog);
+              this.save = settled.save;
+              earnedMoney = settled.earnedMoney;
+              leagueCompletion = settled.newCompletion;
+              challengeReturn = settled.result.checkpoint !== null;
+              this.pendingQuestCelebrations.push(...settled.completedQuestIds);
+              dismissMessage = outcome === 'won' ? leagueCompletion ? `Hai completato ${challenge.sequence.name}!` : 'Prova superata! Parla con la guida o usa il terminale per proseguire.'
+                : 'Il tentativo è terminato. Torni al piazzale conservando esperienza e risorse: lì puoi curare la squadra.';
+            } catch (error) {
+              const aborted = abortChallengeSequence(challenge.sequence, this.save);
+              this.save = { ...this.save, flags: aborted.flags };
+              challengeReturn = true;
+              dismissMessage = 'Non è stato possibile registrare la prova. Il tentativo è interrotto; i progressi della squadra sono conservati.';
+              console.error('Unable to settle challenge battle.', error);
+            }
+            challengeSaved = this.persistProgress();
+            return;
+          }
           if (finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player') {
             if (trainer && !this.save.flags.includes(trainer.battleOnceFlag)) {
               this.save.player.money += trainer.rewardMoney;
@@ -871,6 +1102,22 @@ export class WorldScene extends Phaser.Scene {
           this.battleActive = false;
           this.onMusicThemeChange(this.map.metadata.musicId);
           document.body.classList.remove('battle-active');
+          if (challenge) {
+            this.challengeOperationActive = true;
+            const finish = async () => {
+              this.challengeOperationActive = false;
+              this.journey?.celebrate(this.pendingQuestCelebrations);
+              this.pendingQuestCelebrations = [];
+              if (challengeReturn) await this.leaveChallenge(challenge.sequence);
+              this.showToast(dismissMessage);
+              if (leagueCompletion) await this.presentLeagueFinale();
+            };
+            void challengeSaved.then(async saved => {
+              if (saved) await finish();
+              else await this.requireChallengeSave(finish);
+            });
+            return;
+          }
           this.journey?.celebrate(this.pendingQuestCelebrations);
           this.pendingQuestCelebrations = [];
           this.persistProgress();
@@ -884,6 +1131,11 @@ export class WorldScene extends Phaser.Scene {
       this.onMusicThemeChange(this.map.metadata.musicId);
       this.showToast('Non è stato possibile caricare la battaglia. Riprova.');
       console.error('Unable to load the battle scene.', error);
+      if (challenge) {
+        this.save = { ...this.save, flags: this.save.flags.filter(flag => flag !== challenge.sequence.pendingBattleFlag) };
+        this.challengeOperationActive = true;
+        void this.requireChallengeSave(() => { this.challengeOperationActive = false; });
+      }
     });
   }
 
@@ -1000,9 +1252,11 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private showHealingMenu(name: string, includeStorage: boolean) {
+    if (!this.challengeServicePermitted('healing')) return;
     this.afterDialogue = null;
     this.showServiceOptions(name, 'La squadra recupererà tutti gli HP, i PP e gli stati alterati.', [
       { label: 'RIPOSA', icon: 'rest', action: () => {
+        if (!this.challengeServicePermitted('healing')) return;
         this.save = healParty(this.save, battleMoves);
         this.persistProgress();
         this.showToast('La squadra è in piena forma.');
@@ -1013,12 +1267,14 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private showStorageMenu(name: string) {
+    if (!this.challengeServicePermitted('storage')) return;
     const speciesName = (speciesId: number) => battleSpecies[String(speciesId)]?.name ?? `Specie ${speciesId}`;
     const options = [
       ...this.save.party.map(creature => ({
         icon: 'storage' as const,
         label: `BOX · ${speciesName(creature.speciesId)} Lv.${creature.level}`,
         action: () => {
+          if (!this.challengeServicePermitted('storage')) return;
           const result = moveCreatureToStorage(this.save, creature.instanceId);
           if (result.ok) {
             this.save = result.save;
@@ -1031,6 +1287,7 @@ export class WorldScene extends Phaser.Scene {
         icon: 'storage' as const,
         label: `RITIRA · ${speciesName(creature.speciesId)}${typeof creature.level === 'number' ? ` Lv.${creature.level}` : ''}`,
         action: () => {
+          if (!this.challengeServicePermitted('storage')) return;
           const result = withdrawCreatureFromStorage(this.save, creature.instanceId);
           if (result.ok) {
             this.save = result.save;

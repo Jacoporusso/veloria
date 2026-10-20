@@ -36,82 +36,76 @@ function openDatabase(): Promise<IDBDatabase> {
   });
 }
 
+type SaveCandidate = { source: 'idbMain' | 'idbBackup' | 'localMain' | 'localBackup'; value: unknown; normalized: NormalizedStoredSave };
+
+function newestCandidate(candidates: readonly SaveCandidate[]): SaveCandidate | undefined {
+  const priority = { idbMain: 0, localMain: 1, idbBackup: 2, localBackup: 3 };
+  return candidates.filter(candidate => candidate.normalized.save).sort((a, b) =>
+    b.normalized.save!.saveRevision - a.normalized.save!.saveRevision || priority[a.source] - priority[b.source])[0];
+}
+
+/** Read each legacy slot independently: a malformed backup must not hide a valid main. */
+function readFallbackCandidates(): { candidates: SaveCandidate[]; hasData: boolean } {
+  const candidates: SaveCandidate[] = [];
+  let hasData = false;
+  for (const [key, source] of [[FALLBACK_KEY, 'localMain'], [FALLBACK_BACKUP_KEY, 'localBackup']] as const) {
+    let raw: string | null;
+    try { raw = localStorage.getItem(key); } catch { continue; }
+    if (raw === null) continue;
+    hasData = true;
+    try {
+      const value: unknown = JSON.parse(raw);
+      candidates.push({ source, value, normalized: normalizeStoredSave(value) });
+    } catch {
+      candidates.push({ source, value: undefined, normalized: { error: 'The local save is unreadable.' } });
+    }
+  }
+  return { candidates, hasData };
+}
+
 export async function loadSave(): Promise<GameSave | null> {
-  let db: IDBDatabase | null = null;
+  const fallback = readFallbackCandidates();
+  const candidates: SaveCandidate[] = [];
+  let slots: Awaited<ReturnType<typeof readSlots>> | undefined;
+  let db: IDBDatabase | undefined;
   try {
     db = await openDatabase();
-  } catch {
-    // If IndexedDB is unavailable, use the legacy local storage fallback below.
-  }
-  if (db) {
-    let slots: { main: unknown; backup: unknown; mainChecksum: unknown; backupChecksum: unknown };
-    try {
-      slots = await readSlots(db);
-    } finally {
-      db.close();
-    }
-    const mainResult = normalizeStoredSave(slots.main, slots.mainChecksum);
-    if (mainResult.save) {
-      if (mainResult.sourceVersion === 1) {
-        try {
-          const upgraded = await openDatabase();
-          try { await persistMigration(upgraded, slots.main, mainResult.save); }
-          finally { upgraded.close(); }
-        } catch {
-          // The validated migrated value remains usable; the original v1 is still safely stored.
-        }
-      }
-      if (mainResult.sourceVersion !== 1 && slots.mainChecksum === undefined && slots.main !== undefined) {
-        try {
-          const upgraded = await openDatabase();
-          try { await persistChecksum(upgraded, SLOT, slots.main); }
-          finally { upgraded.close(); }
-        } catch { /* A valid legacy record remains usable if storage cannot be upgraded. */ }
-      }
-      return mainResult.save;
-    }
-    const backupResult = normalizeStoredSave(slots.backup, slots.backupChecksum);
-    if (backupResult.save) {
+    slots = await readSlots(db);
+    candidates.push({ source: 'idbMain', value: slots.main, normalized: normalizeStoredSave(slots.main, slots.mainChecksum) });
+  } catch { /* Readable local records remain authoritative when IndexedDB is unavailable. */ }
+  finally { db?.close(); }
+  // Stable ties prefer IndexedDB main, then local main, then previous backups.
+  candidates.push(...fallback.candidates.filter(candidate => candidate.source === 'localMain'));
+  if (slots) candidates.push({ source: 'idbBackup', value: slots.backup, normalized: normalizeStoredSave(slots.backup, slots.backupChecksum) });
+  candidates.push(...fallback.candidates.filter(candidate => candidate.source === 'localBackup'));
+  const selected = newestCandidate(candidates);
+  if (selected) {
+    const normalized = selected.normalized, save = normalized.save!;
+    if (selected.source === 'idbMain' || selected.source === 'idbBackup') {
+      let repair: IDBDatabase | undefined;
       try {
-        const recoveryDb = await openDatabase();
-        try { await persistRecovery(recoveryDb, backupResult.save, slots.backup, slots.backupChecksum); }
-        finally { recoveryDb.close(); }
-      } catch { /* The verified backup remains usable in memory if the repair write fails. */ }
-      return backupResult.save;
+        if (selected.source === 'idbBackup') {
+          repair = await openDatabase();
+          await persistRecovery(repair, save, slots!.backup, slots!.backupChecksum);
+        } else if (normalized.sourceVersion === 1) {
+          repair = await openDatabase();
+          await persistMigration(repair, selected.value, save);
+        } else if (slots!.mainChecksum === undefined) {
+          repair = await openDatabase();
+          await persistChecksum(repair, SLOT, selected.value);
+        }
+      } catch { /* A validated selected record remains usable even when repair cannot be written. */ }
+      finally { repair?.close(); }
+    } else if (selected.source === 'localMain' && normalized.sourceVersion === 1) {
+      try {
+        localStorage.setItem(FALLBACK_BACKUP_KEY, JSON.stringify(selected.value));
+        localStorage.setItem(FALLBACK_KEY, JSON.stringify(save));
+      } catch { /* Migration is already valid in memory; preserve any readable original. */ }
     }
-    if (slots.main !== undefined || slots.backup !== undefined) {
-      throw new Error(`No valid save found. ${mainResult.error ?? backupResult.error ?? 'The stored records are invalid.'}`);
-    }
+    return save;
   }
-  let raw: string | null;
-  let backup: string | null;
-  try {
-    raw = localStorage.getItem(FALLBACK_KEY);
-    backup = localStorage.getItem(FALLBACK_BACKUP_KEY);
-  } catch {
-    // Storage can be disabled in private browsing; there is no readable record to preserve.
-    return null;
-  }
-  let mainValue: unknown;
-  let backupValue: unknown;
-  try {
-    mainValue = raw === null ? undefined : JSON.parse(raw);
-    backupValue = backup === null ? undefined : JSON.parse(backup);
-  } catch {
-    throw new Error('The stored save is unreadable or incompatible; it was left untouched. Export a backup or restore the previous save before starting a new game.');
-  }
-  const mainResult = normalizeStoredSave(mainValue);
-  if (mainResult.save) {
-    if (mainResult.sourceVersion === 1) {
-      localStorage.setItem(FALLBACK_BACKUP_KEY, raw!);
-      localStorage.setItem(FALLBACK_KEY, JSON.stringify(mainResult.save));
-    }
-    return mainResult.save;
-  }
-  const backupResult = normalizeStoredSave(backupValue);
-  if (backupResult.save) return backupResult.save;
-  if (raw !== null || backup !== null) {
-    throw new Error(`The stored save is invalid and was left untouched. ${mainResult.error ?? backupResult.error ?? 'Export a backup or restore the previous save before starting a new game.'}`);
+  if (fallback.hasData || slots && (slots.main !== undefined || slots.backup !== undefined)) {
+    throw new Error(`No valid save found; stored records were left untouched. ${candidates.find(candidate => candidate.normalized.error)?.normalized.error ?? 'The stored records are invalid.'}`);
   }
   return null;
 }
@@ -120,51 +114,64 @@ export async function saveGame(save: GameSave): Promise<void> {
   assertCurrentSave(save);
   const nextSave = structuredClone(save);
   nextSave.savedAt = new Date().toISOString();
+  let fallback = readFallbackCandidates();
+  let previousCandidate = newestCandidate(fallback.candidates);
+  let observedRevision = Math.max(save.saveRevision, previousCandidate?.normalized.save?.saveRevision ?? 0);
+  const stamp = () => {
+    if (observedRevision >= Number.MAX_SAFE_INTEGER) throw new Error('Save revision exhausted.');
+    nextSave.saveRevision = observedRevision + 1;
+  };
   try {
     const db = await openDatabase();
     try {
       await new Promise<void>((resolve, reject) => {
         const transaction = db.transaction(STORE_NAME, 'readwrite');
         const store = transaction.objectStore(STORE_NAME);
-        const previous = store.get(SLOT);
-        const previousChecksum = store.get(checksumSlot(SLOT));
-        let previousRead = false;
-        let checksumRead = false;
-        let previousValue: unknown;
-        let previousChecksumValue: unknown;
+        const values: Record<string, unknown> = {};
+        let remaining = 4;
         const commit = () => {
-          if (!previousRead || !checksumRead) return;
-          const previousSave = normalizeStoredSave(previousValue, previousChecksumValue).save;
-          if (previousSave && previousValue !== undefined) {
-            store.put(previousValue, BACKUP_SLOT);
-            store.put(checksumJson(previousValue), checksumSlot(BACKUP_SLOT));
+          if (remaining !== 0) return;
+          const stored = [
+            { source: 'idbMain' as const, value: values[SLOT], normalized: normalizeStoredSave(values[SLOT], values[checksumSlot(SLOT)]) },
+            { source: 'idbBackup' as const, value: values[BACKUP_SLOT], normalized: normalizeStoredSave(values[BACKUP_SLOT], values[checksumSlot(BACKUP_SLOT)]) },
+          ];
+          previousCandidate = newestCandidate([...stored, ...fallback.candidates]);
+          observedRevision = Math.max(observedRevision, previousCandidate?.normalized.save?.saveRevision ?? 0);
+          try {
+            // Stamp BEFORE the first backup put: synchronous quota errors must
+            // not lose the revision we just observed in the readable IDB main.
+            stamp();
+            if (previousCandidate) {
+              store.put(previousCandidate.value, BACKUP_SLOT);
+              store.put(checksumJson(previousCandidate.value), checksumSlot(BACKUP_SLOT));
+            }
+            store.put(nextSave, SLOT);
+            store.put(checksumJson(nextSave), checksumSlot(SLOT));
+          } catch (error) {
+            try { transaction.abort(); } catch { /* Transaction may already be aborted. */ }
+            reject(error);
           }
-          nextSave.saveRevision = Math.max(nextSave.saveRevision, previousSave?.saveRevision ?? 0) + 1;
-          store.put(nextSave, SLOT);
-          store.put(checksumJson(nextSave), checksumSlot(SLOT));
         };
-        previous.onsuccess = () => { previousValue = previous.result; previousRead = true; commit(); };
-        previousChecksum.onsuccess = () => { previousChecksumValue = previousChecksum.result; checksumRead = true; commit(); };
-        previous.onerror = () => reject(previous.error);
-        previousChecksum.onerror = () => reject(previousChecksum.error);
+        for (const key of [SLOT, checksumSlot(SLOT), BACKUP_SLOT, checksumSlot(BACKUP_SLOT)]) {
+          const request = store.get(key);
+          request.onsuccess = () => { values[key] = request.result; remaining--; commit(); };
+          request.onerror = () => reject(request.error);
+        }
         transaction.oncomplete = () => resolve();
         transaction.onabort = () => reject(transaction.error);
         transaction.onerror = () => reject(transaction.error);
       });
-    } finally {
-      db.close();
-    }
+    } finally { db.close(); }
   } catch {
-    const previous = localStorage.getItem(FALLBACK_KEY);
-    if (previous !== null) localStorage.setItem(FALLBACK_BACKUP_KEY, previous);
-    if (previous !== null) {
-      try {
-        const previousSave = normalizeStoredSave(JSON.parse(previous)).save;
-        nextSave.saveRevision = Math.max(nextSave.saveRevision, previousSave?.saveRevision ?? 0) + 1;
-      } catch {
-        nextSave.saveRevision += 1;
-      }
+    fallback = readFallbackCandidates();
+    previousCandidate = newestCandidate([...(previousCandidate ? [previousCandidate] : []), ...fallback.candidates]);
+    observedRevision = Math.max(observedRevision, previousCandidate?.normalized.save?.saveRevision ?? 0);
+    stamp();
+    if (previousCandidate) {
+      try { localStorage.setItem(FALLBACK_BACKUP_KEY, JSON.stringify(previousCandidate.value)); }
+      catch { /* A backup quota failure must not prevent a successful main write. */ }
     }
+    // Failure here rejects saveGame: both stores failed, so callers must retry.
     localStorage.setItem(FALLBACK_KEY, JSON.stringify(nextSave));
   }
 }

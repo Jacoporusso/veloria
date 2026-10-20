@@ -18,6 +18,7 @@ SUPPORTED_MOVES += ['psybeam', 'confuse-ray', 'swift', 'pound', 'meditate']
 SUPPORTED_MOVES += ['wing-attack', 'water-pulse', 'thunder-punch', 'discharge']
 SUPPORTED_MOVES += ['powder-snow', 'aurora-beam', 'ice-beam', 'icy-wind', 'ice-shard', 'feint-attack']
 SUPPORTED_MOVES += ['mud-bomb']
+SUPPORTED_MOVES += ['bug-buzz', 'poison-jab']
 SUPPORTED_MOVES += ['flamethrower', 'psychic', 'crunch', 'shadow-ball', 'sludge-bomb']
 SUPPORTED_MOVES += ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-dance', 'dragon-rush', 'hydro-pump', 'aqua-tail']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}

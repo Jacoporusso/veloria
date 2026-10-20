@@ -39,6 +39,12 @@
       "x": 1,
       "y": 15,
       "facing": "right"
+    },
+    {
+      "id": "league_checkpoint",
+      "x": 20,
+      "y": 8,
+      "facing": "up"
     }
   ],
   "connections": [
@@ -47,6 +53,46 @@
       "viaSpawnId": "from_r16",
       "targetSpawnId": "from_league",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/league_council01",
+      "viaSpawnId": "league_checkpoint",
+      "targetSpawnId": "from_entry",
+      "requiresFlags": [
+        "challenge_velorialeague_active"
+      ]
+    },
+    {
+      "toMapId": "veloria/league_council02",
+      "viaSpawnId": "league_checkpoint",
+      "targetSpawnId": "from_entry",
+      "requiresFlags": [
+        "challenge_velorialeague_active"
+      ]
+    },
+    {
+      "toMapId": "veloria/league_council03",
+      "viaSpawnId": "league_checkpoint",
+      "targetSpawnId": "from_entry",
+      "requiresFlags": [
+        "challenge_velorialeague_active"
+      ]
+    },
+    {
+      "toMapId": "veloria/league_council04",
+      "viaSpawnId": "league_checkpoint",
+      "targetSpawnId": "from_entry",
+      "requiresFlags": [
+        "challenge_velorialeague_active"
+      ]
+    },
+    {
+      "toMapId": "veloria/league_champion",
+      "viaSpawnId": "league_checkpoint",
+      "targetSpawnId": "from_entry",
+      "requiresFlags": [
+        "challenge_velorialeague_active"
+      ]
     }
   ],
   "encounterTableIds": [],

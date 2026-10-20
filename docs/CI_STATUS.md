@@ -1,3 +1,10 @@
+## Lega e finale 0.3.96 — verifiche locali 20/10/2026
+
+- Build TypeScript/Vite e validatore contenuti passati: 48 mappe, 44 quest, 23 allenatori, 11 negozi, 270 asset; 69 specie e 78 mosse. 451 test dominio, 25 persistenza e 103 Python riusciti.
+- Sette casi browser passati in 4,3 minuti: cinque incontri reali, otto medaglie obbligatorie, interruzione/ripetizione senza duplicare premi, cerimonia dopo reload, epilogo, sconfitta senza cure automatiche, battaglia pendente interrotta, entrambi gli archivi indisponibili, fallback locale più recente, recupero checksum e atlante. Fixture potenziate: non attestano il bilanciamento naturale. Cerimonia portrait esaminata visivamente.
+- Primo test offline: risorse caricate correttamente, singolo Dewgong di prova sconfitto dal Campione. Il test successivo usa una squadra completa; nessun indebolimento degli avversari. Seconda prova passata: 20,7 secondi, 34,2 inclusa build. Prima visita offline a tutte le cinque sale, vera battaglia finale, cerimonia, epilogo, premio unico persistente e ritorno. Le quattro vittorie precedenti sono un checkpoint preparato, non una dichiarazione di cinque lotte giocate offline. Pubblicazione da confermare.
+- Verify precedente 0.3.95 `39419114192` concluso FAILURE: shard capitoli 2 supera 24 minuti dopo 20 casi riusciti; shard 4 incontra l'aspettativa obsoleta dell'atlante «In preparazione». Aspettativa aggiornata a «Da esplorare», mantenendo controlli di visita e movimento. Prove DPR separate dai capitoli e Lega isolata: 11 job browser, 149 casi conservati, più due job offline. Nuova verifica Linux ancora necessaria; ultima suite completa verde 0.3.94 `39416755246`.
+
 ## Pubblicazione Cammino e piazzale 0.3.95 — 20/10/2026
 
 Commit `f4e841efecce1af6a87a30e2cfef7158ef575412` pubblicato su main. Deploy Pages `39419114200` riuscito: test, validatore, build con base `/veloria/` e deploy completati. HTTPS conferma contenuti0.3.95, cachev116 e Tiled R16/piazzale entrambe40×30. Verify `39419114192` ancora in esecuzione: la suite Linux completamente verde attestata è quella precedente0.3.94, non ancora questa revisione. Aggiornamento documentale senza duplicare i workflow.
