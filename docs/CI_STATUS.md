@@ -1,3 +1,7 @@
+## Pubblicazione Indietro0.3.100 —20/10/2026
+
+Commit `c3d650d7e409a993e5c1f6c27bfcc54b79f1e7e8`, deploy Pages `39483711087` SUCCESS. HTTPS conferma cachev121. Verify `39483711095` in esecuzione; non attestato verde. Design mosse/cattura/evoluzione nel documento29; pietre proposte, non implementate. Borgofonte/transizioni ancora in lavorazione separata.
+
 ## Indietro nella lotta mobile0.3.100 —20/10/2026
 
 Pulsante con hit area124×44 al posto del testo interattivo10px. Footer riservato senza sovrapporre gli ultimi comandi; altezza dei pannelli Borsa/Squadra/Cattura adattata in entrambi gli orientamenti. Due test browser passati2,6s: tocco sul margine del target e stato battaglia identico dopo ritorno. TypeScript passato. Borgofonte/transizioni in lavorazione separata, non inclusi in questo commit. Pubblicazione da confermare.
