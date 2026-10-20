@@ -1,0 +1,15 @@
+{
+  "status": "draft-not-runtime",
+  "requiredFlag": "badge_marea_awarded",
+  "placements": [
+    {"map": "r09_dune_salmastre", "trainerId": "veloria/trainer_r09_lina", "npcId": "r09_lina", "name": "Guardaparco Lina", "x": 18, "y": 8, "spriteFrame": 2,
+      "before": ["Una sfida facoltativa prima del Delta? La mia squadra alterna movimento e paralisi: puoi vedere tipi e livelli prima di accettare."],
+      "after": ["Ottima osservazione! Il sentiero orientale porta ai pontili del Delta. Parla con Iris per confrontare corrente, canneti e vivaio."]},
+    {"map": "d04_delta_specchi", "trainerId": "veloria/trainer_delta_teo", "npcId": "delta_teo", "name": "Naturalista Teo", "x": 24, "y": 6, "spriteFrame": 3,
+      "before": ["Studiare un ambiente significa notare le differenze. Ti va una sfida facoltativa con due Pokémon che condividono solo una parte dei loro tipi?"],
+      "after": ["Il doppio tipo cambia le resistenze. Per proseguire verso Acquariva, completa le tre osservazioni e riporta il rapporto a Iris sul pontile d’ingresso."]},
+    {"map": "r10_sentiero_canne", "trainerId": "veloria/trainer_r10_maya", "npcId": "r10_maya", "name": "Esploratrice Maya", "x": 20, "y": 8, "spriteFrame": 4,
+      "before": ["Selene combina mosse Psico e status. Vuoi allenarti con una sfida facoltativa prima di raggiungere il lago? Puoi rifiutare e continuare lungo il pontile."],
+      "after": ["Ad Acquariva cerca il Centro Pokémon nelle case a ovest della piazza. Poi porta il rapporto a Tessa nell’osservatorio a est; la palestra è a nord."]}
+  ]
+}
