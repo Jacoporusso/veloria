@@ -79,6 +79,12 @@ export const journeyMilestones = [
   { flag: 'gym07_ice_east', title: 'La pista orientale', objective: 'Sulla pista a est il passaggio libero è a sinistra del cristallo. Scivola fino alla terrazza a nord e attraversa il sigillo; puoi sempre tornare alla passerella a sud.' },
   { flag: 'gym07_ice_complete', title: 'Il cancello dei tre sigilli', objective: 'Con i tre sigilli accesi esamina la console a destra del sigillo centrale. Il cancello apre il passaggio verso Nives.' },
   { flag: 'badge_ghiaccio_awarded', trainer: nives, title: 'La Medaglia Brina', objective: 'Affronta Nives sulla terrazza oltre il cancello. Dewgong è Acqua/Ghiaccio e Piloswine è Ghiaccio/Terra: osserva entrambi i tipi prima di scegliere una mossa. La vittoria attiva la funivia tra Biancavetta e Passobrina.' },
+  {flag:'q_r14_visited',title:'Il Varco del Cristallo',objective:'Con la Medaglia Brina, attraversa il ponte a est della terrazza panoramica di Biancavetta. Il Varco del Cristallo conduce al rifugio e all’ingresso della grotta.'},
+  {flag:'q_d05_low_read',title:'Il calore della grotta',objective:'Nel Varco trovi Livia accanto al rifugio, dove puoi curare la squadra. Entra nella grotta e cerca la stazione illuminata in ambra sulla terrazza bassa, a sinistra della prima scalinata.'},
+  {flag:'q_d05_middle_read',title:'Le correnti in quota',objective:'Sali la prima scalinata delle Grotte del Cristallo e leggi il misuratore al centro della terrazza. Le due stazioni possono essere esaminate in qualsiasi ordine.'},
+  {flag:'q_d05_climate_balanced',title:'Due letture, una regolazione',objective:'Appunti: ventilazione DELICATA; scambio termico MODERATO. Sali la seconda scalinata, usa la console a nord e scegli Verifica equilibrio. Puoi ripristinare e riprovare senza perdere le letture.'},
+  {flag:'q_d05_upper_read',title:'Oltre i cristalli',objective:'Con la console stabile, esamina il ricevitore dell’arco in alto a destra della grotta per distinguere la direzione del segnale.'},
+  {flag:'q_d05_report',title:'Il rapporto del Cristallo',objective:'Scendi le due scalinate ed esci a sud. Porta i dati a Livia presso il rifugio nel Varco del Cristallo per ricevere il compenso della ricerca.'},
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

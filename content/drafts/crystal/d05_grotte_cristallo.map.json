@@ -1,0 +1,59 @@
+{
+  "id": "veloria/d05_grotte_cristallo",
+  "version": 2,
+  "displayName": "Grotte del Cristallo",
+  "biomeId": "crystal_cavern",
+  "tiledAsset": "tilemaps/d05_grotte_cristallo.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-d05-crystal-caverns-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 0
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-d05-crystal-caverns-v1",
+      "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_r14",
+      "x": 11,
+      "y": 28,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/r14_varco_cristallo",
+      "viaSpawnId": "from_r14",
+      "targetSpawnId": "from_cavern",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/d05_crystal_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_brumalta",
+  "battleBackgroundKey": "veloria-d05-crystal-caverns-v1"
+}

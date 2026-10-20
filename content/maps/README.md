@@ -90,3 +90,10 @@ The content validator distinguishes traversed tiles from stopping points, so a q
 ## Local transport terminals
 
 Networks in `content/transit/*.transport.json` declare a `kind` (`ferry` or `cable-car`), player-facing name and locked message, network/stop/route flag requirements, stops and directed routes. Add an interaction with `kind: local-transport`, `networkId` and `stopId`. Every stop has exactly one terminal and a persistent arrival spawn on its map. The terminal occupies one solid 32px tile; the arrival must stand next to it, face it and avoid collisions, exits and encounter zones. Use the shared planner and scene transition; do not branch on a particular city or transport network in the scene.
+
+
+## Environment regulators
+
+Author a discrete puzzle in `content/regulators/*.v1.json`: stable alphanumeric `id`, `name`, `requiredFlags`, `solvedFlag`, `solvedEvent`, and one to four controls. Every control declares `id`, `label`, `hint`, integer `min/max/initial/target`, and complete `levels` with `value/label/hint`. At most sixteen values are allowed per control. Values describe authored settings, without implicit physical units.
+
+Place an aligned, solid 32px interaction with `kind: environment-regulator` and `regulatorId`. Connect its solved event/flag through a registered quest. Give players reachable observation stations and explicit clues in dialogue/journal; targets are not automatically exposed by the menu. The core adjusts bounded values and persists exclusive flags; WorldScene requires explicit verification before sending the solved event. Reset never removes observations, unrelated flags or quest completion. Keep entry and return paths open for every setting.

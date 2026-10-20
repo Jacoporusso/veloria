@@ -1,3 +1,6 @@
+import { getEnvironmentRegulator } from '../maps/environment-regulator-registry';
+import { adjustEnvironmentRegulator, resetEnvironmentRegulator, environmentRegulatorState } from '../../core/world/environment-regulator.ts';
+import { environmentRegulatorMenu, type EnvironmentRegulatorCommand } from '../ui/environment-regulator-menu';
 import { decorateServiceOption, type ServiceOptionIconKind } from '../ui/ServiceOptionIcon';
 import { RegionMapPanel } from '../ui/RegionMapPanel';
 import { recordAreaVisited } from '../../core/world/region-atlas';
@@ -550,6 +553,10 @@ export class WorldScene extends Phaser.Scene {
       this.showFishingMenu(prop);
       return;
     }
+    if (prop?.kind === 'environment-regulator') {
+      this.showEnvironmentRegulatorMenu(String(prop.properties.regulatorId));
+      return;
+    }
     if (prop?.kind === 'signal-router-switch') {
       this.showSignalRouterMenu(String(prop.properties.routerId), String(prop.properties.nodeId));
       return;
@@ -1060,6 +1067,37 @@ export class WorldScene extends Phaser.Scene {
     options.push({ label: 'CHIUDI', icon: 'close', action: () => undefined });
     this.afterDialogue = null;
     this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
+  }
+
+  private showEnvironmentRegulatorMenu(id: string): void {
+    const regulator = getEnvironmentRegulator(id);
+    const menu = environmentRegulatorMenu(regulator, this.save.flags);
+    this.afterDialogue = null;
+    this.showServiceOptions(regulator.name, menu.prompt, menu.options.map(option => ({
+      label: option.label, icon: option.command.kind === 'close' ? 'close' : option.command.kind === 'verify' ? 'challenge' : 'rotate',
+      action: () => this.applyEnvironmentRegulatorCommand(id, option.command),
+    })));
+  }
+
+  private applyEnvironmentRegulatorCommand(id: string, command: EnvironmentRegulatorCommand): void {
+    if (command.kind === 'close') return;
+    const regulator = getEnvironmentRegulator(id);
+    if (command.kind === 'verify') {
+      const state = environmentRegulatorState(regulator, this.save.flags);
+      if (!state.completed && regulator.requiredFlags.every(flag => this.save.flags.includes(flag)) && state.balanced) {
+        this.applyQuestEvent(regulator.solvedEvent);
+        void this.persistProgress();
+        this.refreshMapVisuals();
+      } else if (!state.completed) {
+        this.showToast('Le letture non coincidono ancora. Controlla gli indizi delle stazioni e riprova.');
+      }
+    } else {
+      const result = command.kind === 'reset' ? resetEnvironmentRegulator(regulator, this.save.flags)
+        : adjustEnvironmentRegulator(regulator, command.controlId, command.delta, this.save.flags);
+      this.save = { ...this.save, flags: result.flags };
+      if (result.changed) void this.persistProgress();
+    }
+    this.showEnvironmentRegulatorMenu(id);
   }
 
   private showSignalRouterMenu(routerId: string, nodeId: string): void {

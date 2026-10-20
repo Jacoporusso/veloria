@@ -35,60 +35,76 @@ def level_detail(level=33, **extra):
 
 
 class EvolutionScopeTests(unittest.TestCase):
-    def test_mamoswine_and_weavile_edges_skip_conditions_but_keep_chain_urls(self):
+    def test_generation_four_conditions_are_informative_not_runtime_rules(self):
         sources = {
             ('pokemon-species', 215): species_record('sneasel', 109),
             ('pokemon-species', 221): species_record('piloswine', 112),
+            ('pokemon-species', 461): species_record('weavile', 109, 4),
+            ('pokemon-species', 473): species_record('mamoswine', 112, 4),
+            ('item', 303): {'names': [{'name': 'Affilartigli', 'language': {'name': 'it'}}]},
+            ('move', 246): {'names': [{'name': 'Forzantica', 'language': {'name': 'it'}}]},
             ('evolution-chain', 109): {'chain': {
                 'species': {'name': 'sneasel', 'url': 'https://pokeapi.co/api/v2/pokemon-species/215/'},
-                'evolves_to': [edge(461, 'weavile', [level_detail(None, turn_upside_down=True)])],
+                'evolves_to': [edge(461, 'weavile', [level_detail(None, held_item={'url': 'https://pokeapi.co/api/v2/item/303/'}, time_of_day='night')])],
             }},
             ('evolution-chain', 112): {'chain': {
-                'species': {'name': 'swinub', 'url': 'https://pokeapi.co/api/v2/pokemon-species/220/'},
-                'evolves_to': [{'species': {'name': 'piloswine', 'url': 'https://pokeapi.co/api/v2/pokemon-species/221/'},
-                    'evolution_details': [level_detail()], 'evolves_to': [edge(473, 'mamoswine', [level_detail(None, known_move={'name': 'ancient-power'})])]}],
+                'species': {'name': 'piloswine', 'url': 'https://pokeapi.co/api/v2/pokemon-species/221/'},
+                'evolves_to': [edge(473, 'mamoswine', [level_detail(None, known_move={'url': 'https://pokeapi.co/api/v2/move/246/'})])],
             }},
         }
-        loaded = []
+        entries = build_evolution_entries({'215': {}, '221': {}}, {'id': 10}, lambda kind, key: sources[(kind, key)])
+        weavile = entries['215']['evolutions'][0]
+        self.assertEqual((weavile['targetSpeciesId'], weavile['heldItemName'], weavile['timeOfDay']), (461, 'Affilartigli', 'night'))
+        mamoswine = entries['221']['evolutions'][0]
+        self.assertEqual((mamoswine['targetSpeciesId'], mamoswine['knownMoveName']), (473, 'Forzantica'))
+        self.assertIsNone(weavile['minimumLevel'])
+        self.assertIsNone(mamoswine['minimumLevel'])
 
-        def load(kind, key):
-            loaded.append((kind, key))
-            return sources[(kind, key)]
-
-        entries = build_evolution_entries({'215': {}, '221': {}}, {'id': 15}, load)
-        self.assertEqual(entries['215']['evolutions'], [])
-        self.assertEqual(entries['221']['evolutions'], [])
-        self.assertNotIn(('pokemon-species', 461), loaded)
-        self.assertNotIn(('pokemon-species', 473), loaded)
-        self.assertEqual(sources[('evolution-chain', 109)]['chain']['evolves_to'][0]['species']['url'],
-                         'https://pokeapi.co/api/v2/pokemon-species/461/')
-        self.assertEqual(sources[('evolution-chain', 112)]['chain']['evolves_to'][0]['evolves_to'][0]['species']['url'],
-                         'https://pokeapi.co/api/v2/pokemon-species/473/')
-
-    def test_supported_in_scope_level_evolution_is_kept(self):
+    def test_generation_five_target_is_excluded_before_parsing_its_conditions(self):
         sources = {
-            ('pokemon-species', 220): species_record('swinub', 112),
-            ('pokemon-species', 221): species_record('piloswine', 112),
-            ('evolution-chain', 112): {'chain': {
-                'species': {'name': 'swinub', 'url': 'https://pokeapi.co/api/v2/pokemon-species/220/'},
-                'evolves_to': [edge(221, 'piloswine', [level_detail()])],
+            ('pokemon-species', 1): species_record('fixture', 1),
+            ('pokemon-species', 500): species_record('future', 1, 5),
+            ('evolution-chain', 1): {'chain': {
+                'species': {'url': 'https://pokeapi.co/api/v2/pokemon-species/1/'},
+                'evolves_to': [edge(500, 'future', [level_detail(turn_upside_down=True)])],
             }},
         }
-        entries = build_evolution_entries({'220': {}}, {'id': 15}, lambda kind, key: sources[(kind, key)])
-        self.assertEqual(entries['220']['evolutions'][0]['targetSpeciesId'], 221)
-        self.assertEqual(entries['220']['evolutions'][0]['minimumLevel'], 33)
+        self.assertEqual(build_evolution_entries({'1': {}}, {'id': 10}, lambda kind, key: sources[(kind, key)])['1']['evolutions'], [])
 
-    def test_unsupported_conditions_for_in_scope_target_still_fail_closed(self):
+    def test_generation_four_target_with_unknown_condition_fails_closed(self):
         sources = {
-            ('pokemon-species', 220): species_record('swinub', 112),
             ('pokemon-species', 221): species_record('piloswine', 112),
+            ('pokemon-species', 473): species_record('mamoswine', 112, 4),
             ('evolution-chain', 112): {'chain': {
-                'species': {'name': 'swinub', 'url': 'https://pokeapi.co/api/v2/pokemon-species/220/'},
-                'evolves_to': [edge(221, 'piloswine', [level_detail(known_move={'name': 'ancient-power'})])],
+                'species': {'url': 'https://pokeapi.co/api/v2/pokemon-species/221/'},
+                'evolves_to': [edge(473, 'mamoswine', [level_detail(None, turn_upside_down=True)])],
             }},
         }
-        with self.assertRaisesRegex(ValueError, 'Unsupported evolution conditions for 220'):
-            build_evolution_entries({'220': {}}, {'id': 15}, lambda kind, key: sources[(kind, key)])
+        with self.assertRaisesRegex(ValueError, 'Unsupported evolution conditions for 221'):
+            build_evolution_entries({'221': {}}, {'id': 10}, lambda kind, key: sources[(kind, key)])
+
+    def test_cached_official_reference_restores_magnezone_and_eevee_without_runtime_expansion(self):
+        import json
+        from import_pokeapi_battle import resource
+        progression_path = ROOT / 'content/battle/progression.v1.json'
+        before = progression_path.read_bytes()
+        registry = json.loads((ROOT / 'content/battle/species.v1.json').read_text(encoding='utf-8'))['species']
+        entries = build_evolution_entries(registry, resource('version-group', 'heartgold-soulsilver')[0], lambda kind, key: resource(kind, key)[0])
+        magnezone = entries['82']['evolutions']
+        self.assertEqual([entry['targetSpeciesId'] for entry in magnezone], [462])
+        self.assertEqual(magnezone[0]['locationName'], 'Mt. Coronet')
+        eevee = {entry['targetSpeciesId']: entry for entry in entries['133']['evolutions']}
+        self.assertEqual(set(eevee), {134, 135, 136, 196, 197, 470, 471})
+        self.assertTrue(eevee[470]['nearSpecialRock'])
+        self.assertTrue(eevee[471]['nearSpecialRock'])
+        self.assertNotIn(700, eevee)
+        self.assertEqual(entries['221']['evolutions'][0]['knownMoveName'], 'Forzantica')
+        self.assertEqual(entries['215']['evolutions'][0]['heldItemName'], 'Affilartigli')
+        rules = json.loads(before)['evolutions']
+        self.assertTrue(all(rule['toSpeciesId'] <= 251 for rule in rules))
+        for rule in rules:
+            self.assertTrue(any(entry['targetSpeciesId'] == rule['toSpeciesId'] and entry['minimumLevel'] == rule['minimumLevel'] for entry in entries[str(rule['fromSpeciesId'])]['evolutions']))
+        self.assertEqual(progression_path.read_bytes(), before)
 
 
 if __name__ == '__main__':

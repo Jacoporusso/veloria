@@ -11,7 +11,7 @@ import evolutionData from '../../../content/battle/evolution-reference.v1.json';
 
 const evolutionReference: Readonly<Record<string, { evolutions: readonly {
   targetSpeciesId: number; targetName: string; trigger: string; minimumLevel: number | null; itemName: string | null; locationName?: string;
-  heldItemName?: string; minimumHappiness?: number; timeOfDay?: string; nearSpecialRock?: boolean;
+  heldItemName?: string; knownMoveName?: string; minimumHappiness?: number; timeOfDay?: string; nearSpecialRock?: boolean;
 }[] }>> = evolutionData.species;
 
 function node<K extends keyof HTMLElementTagNameMap>(tag: K, text = '', className = ''): HTMLElementTagNameMap[K] {
@@ -66,7 +66,7 @@ export class PokemonPanel {
     evolutionSection.append(node('h3', 'Evoluzione'));
     const reference = evolutionReference[speciesId];
     if (!reference) evolutionSection.append(node('p', 'Informazioni evolutive non ancora disponibili.'));
-    else if (!reference.evolutions.length) evolutionSection.append(node('p', 'Non ha ulteriori evoluzioni in HeartGold/SoulSilver.'));
+    else if (!reference.evolutions.length) evolutionSection.append(node('p', 'Non ha ulteriori evoluzioni fino alla quarta generazione.'));
     for (const evolution of reference?.evolutions ?? []) {
       const requirement = evolution.trigger === 'trade'
         ? `Tramite scambio${evolution.heldItemName ? ` tenendo ${evolution.heldItemName}` : ''} · non dipende dal livello`
@@ -74,10 +74,17 @@ export class PokemonPanel {
         ? `Aumenta di livello con amicizia alta${evolution.timeOfDay === 'day' ? ', di giorno' : evolution.timeOfDay === 'night' ? ', di notte' : ''}`
         : evolution.locationName
         ? `Aumenta di livello ${evolution.nearSpecialRock ? 'vicino alla roccia speciale di' : 'presso'} ${evolution.locationName}${evolution.minimumLevel ? `, dal livello ${evolution.minimumLevel}` : ''}. Luogo della serie originale.`
-        : evolution.trigger === 'level-up' ? `Dal livello ${evolution.minimumLevel}` : `Usa ${evolution.itemName} · non dipende dal livello`;
+        : evolution.trigger === 'level-up'
+        ? [evolution.minimumLevel === null ? 'Aumenta di livello' : `Dal livello ${evolution.minimumLevel}`,
+            evolution.knownMoveName ? `conoscendo la mossa ${evolution.knownMoveName}` : '',
+            evolution.heldItemName ? `tenendo ${evolution.heldItemName}` : '',
+            evolution.timeOfDay === 'day' ? 'di giorno' : evolution.timeOfDay === 'night' ? 'di notte' : ''].filter(Boolean).join(' ')
+        : `Usa ${evolution.itemName} · non dipende dal livello`;
       evolutionSection.append(node('strong', `${species.name} → ${evolution.targetName}`), node('p', requirement, 'pokemon-evolution-requirement'));
       const available = (veloriaBattleRules.evolutions[speciesId] ?? []).some(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
-      evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));
+      evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : evolution.targetSpeciesId > 251
+        ? 'Evoluzione ufficiale non ancora disponibile nel prototipo: fuori dal catalogo Gen I–II.'
+        : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));
     }
     body.append(evolutionSection);
     body.append(node('h3', 'Affinità difensive'));

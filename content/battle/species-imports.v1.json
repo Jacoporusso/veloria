@@ -183,6 +183,31 @@
       "speciesId": 124,
       "templateSpeciesId": 96,
       "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 74,
+      "templateSpeciesId": 194,
+      "artworkGroup": "crystal"
+    },
+    {
+      "speciesId": 75,
+      "templateSpeciesId": 194,
+      "artworkGroup": "crystal"
+    },
+    {
+      "speciesId": 95,
+      "templateSpeciesId": 19,
+      "artworkGroup": "crystal"
+    },
+    {
+      "speciesId": 41,
+      "templateSpeciesId": 19,
+      "artworkGroup": "crystal"
+    },
+    {
+      "speciesId": 42,
+      "templateSpeciesId": 19,
+      "artworkGroup": "crystal"
     }
   ],
   "deferredImports": [

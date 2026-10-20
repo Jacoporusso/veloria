@@ -4196,6 +4196,366 @@
         "moveId": "blizzard",
         "order": null
       }
+    ],
+    "74": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "defense-curl",
+        "order": 2
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "rock-throw",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "magnitude",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "rock-blast",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "75": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "defense-curl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "rock-polish",
+        "order": 4
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "rock-throw",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "magnitude",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "rock-blast",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "95": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "harden",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "bind",
+        "order": 4
+      },
+      {
+        "level": 6,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "rock-throw",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "rock-tomb",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "sandstorm",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "slam",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "dragon-breath",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "curse",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "iron-tail",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "sand-tomb",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "41": [
+      {
+        "level": 1,
+        "moveId": "leech-life",
+        "order": null
+      },
+      {
+        "level": 5,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "astonish",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "poison-fang",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "42": [
+      {
+        "level": 1,
+        "moveId": "screech",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "leech-life",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "supersonic",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "astonish",
+        "order": 4
+      },
+      {
+        "level": 5,
+        "moveId": "supersonic",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "astonish",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "confuse-ray",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "poison-fang",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "air-slash",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -6565,6 +6925,261 @@
       {
         "level": 55,
         "moveId": "blizzard",
+        "order": null
+      }
+    ],
+    "74": [
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "magnitude",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "rock-blast",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "75": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "rock-polish",
+        "order": 4
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "magnitude",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "self-destruct",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "rollout",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "rock-blast",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "explosion",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "95": [
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "bind",
+        "order": 4
+      },
+      {
+        "level": 14,
+        "moveId": "rage",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "rock-tomb",
+        "order": null
+      },
+      {
+        "level": 22,
+        "moveId": "sandstorm",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "rock-polish",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "dragon-breath",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "curse",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "iron-tail",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "sand-tomb",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 54,
+        "moveId": "stone-edge",
+        "order": null
+      }
+    ],
+    "41": [
+      {
+        "level": 9,
+        "moveId": "astonish",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 29,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "poison-fang",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "air-slash",
+        "order": null
+      }
+    ],
+    "42": [
+      {
+        "level": 1,
+        "moveId": "astonish",
+        "order": 4
+      },
+      {
+        "level": 9,
+        "moveId": "astonish",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "air-cutter",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "poison-fang",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "haze",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "air-slash",
         "order": null
       }
     ]

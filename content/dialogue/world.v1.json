@@ -1347,9 +1347,19 @@
   },
   "biancavetta_crystal_sign": {
     "speaker": "Varco del Cristallo",
-    "lines": [
-      "Il segnale continua verso il massiccio del Cristallo. Le guide stanno controllando il valico prima della prossima spedizione.",
-      "Nel frattempo puoi usare la funivia dopo la Medaglia Brina e tornare a esplorare i sentieri di Veloria."
+    "stages": [
+      {
+        "whenFlagMissing": "badge_ghiaccio_awarded",
+        "lines": [
+          "Il ponte verso il massiccio si apre dopo la Medaglia Brina. Nives ti aspetta nella palestra a nord."
+        ]
+      },
+      {
+        "lines": [
+          "Attraversa il ponte verso est per il Varco del Cristallo. Livia ti aspetta al rifugio prima dell’ingresso della grotta.",
+          "Nelle Grotte del Cristallo confronta le letture a quote diverse. Puoi tornare a piedi e usare la funivia da Biancavetta."
+        ]
+      }
     ]
   },
   "gym07_instructions": {
@@ -1408,6 +1418,119 @@
         "lines": [
           "La Medaglia Brina è tua! La funivia collega Biancavetta a Passobrina: trovi le cabine a sud della piazza.",
           "Il segnale continua verso il massiccio del Cristallo. Conserveremo le misure mentre le guide controllano il valico."
+        ]
+      }
+    ]
+  },
+  "r14_wind_reading": {
+    "speaker": "Belvedere del Cristallo",
+    "lines": [
+      "L’aria arriva dalle terrazze più alte. Nelle grotte, confronta la stazione bassa e quella centrale prima di usare la console in cima.",
+      "Le scale collegano tutte le quote: puoi sempre tornare al rifugio per curare la squadra."
+    ]
+  },
+  "r14_guide": {
+    "speaker": "Guida Livia",
+    "stages": [
+      {
+        "whenFlagMissing": "q_d05_low_read",
+        "lines": [
+          "Il rifugio è qui accanto: puoi far riposare la squadra prima della salita. Nella grotta cerca la stazione illuminata in ambra sulla terrazza bassa.",
+          "Poi segui le scale fino al misuratore sulla terrazza centrale. La console delle correnti è sul ripiano più alto. Non serve catturare Pokémon per completare la ricerca."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_d05_middle_read",
+        "lines": [
+          "Hai la lettura bassa. Ora sali la prima scalinata della grotta: il misuratore centrale confronta il movimento dell’aria."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_d05_climate_balanced",
+        "lines": [
+          "Confronta gli appunti: ventilazione delicata e scambio termico moderato. La console è sulla terrazza alta: regola entrambi, poi scegli Verifica equilibrio."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_d05_upper_read",
+        "lines": [
+          "La console è stabile! Esamina l’arco illuminato sul lato destro della terrazza alta: il ricevitore può finalmente distinguere il segnale."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_d05_report",
+        "questEvent": "r14/guide/report",
+        "lines": [
+          "Le letture sono complete! Le correnti della grotta modificano l’intensità del segnale, ma non spiegano da dove arriva. Il ricevitore alto indica il Passo delle Due Luci.",
+          "Le tue misure aiuteranno la spedizione a confrontare i dati senza spegnere la rete. Ecco il compenso della ricerca: 700 monete e due Pozioni."
+        ]
+      },
+      {
+        "lines": [
+          "Il rapporto è registrato. Conserviamo distinti i dati delle tre quote: in grotta il segnale cambia, oltre il valico potremo seguirne la direzione.",
+          "Puoi allenarti e tornare a Biancavetta. Il cammino resta aperto anche dopo la ricerca."
+        ]
+      }
+    ]
+  },
+  "d05_low_reading": {
+    "speaker": "Stazione bassa · calore",
+    "stages": [
+      {
+        "whenFlagMissing": "q_d05_low_read",
+        "questEvent": "d05/low/read",
+        "lines": [
+          "Vicino alle pozze, la camera bassa trattiene calore. Il regolatore va portato a scambio termico MODERATO: deve disperderlo con gradualità.",
+          "Appunto nel diario: scambio termico moderato. Le posizioni della console sono livelli del regolatore, non gradi di temperatura."
+        ]
+      },
+      {
+        "lines": [
+          "Appunto della terrazza bassa: scambio termico MODERATO. Evita di chiuderlo o portarlo al massimo."
+        ]
+      }
+    ]
+  },
+  "d05_middle_reading": {
+    "speaker": "Stazione centrale · correnti",
+    "stages": [
+      {
+        "whenFlagMissing": "q_d05_middle_read",
+        "questEvent": "d05/middle/read",
+        "lines": [
+          "Dall’arco alto arriva aria già fredda. Ai cristalli basta una ventilazione DELICATA: una corrente troppo forte altera la lettura.",
+          "Appunto nel diario: ventilazione delicata. Le due stazioni possono essere esaminate in qualsiasi ordine."
+        ]
+      },
+      {
+        "lines": [
+          "Appunto della terrazza centrale: ventilazione DELICATA. Confrontala con la lettura del calore prima di verificare la console."
+        ]
+      }
+    ]
+  },
+  "d05_upper_passage": {
+    "speaker": "Ricevitore dell’arco alto",
+    "stages": [
+      {
+        "whenFlagMissing": "q_d05_climate_balanced",
+        "lines": [
+          "Le correnti coprono il segnale. Leggi le stazioni sulle terrazze bassa e centrale, poi regola la console vicino all’arco.",
+          "Appunti: ventilazione delicata, scambio termico moderato. Premi Verifica equilibrio quando entrambe le impostazioni coincidono."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_d05_upper_read",
+        "questEvent": "d05/upper/read",
+        "lines": [
+          "Ora il ricevitore distingue un’onda che arriva da oltre il valico, verso il Passo delle Due Luci. I cristalli ne cambiano l’intensità: questa grotta non basta a identificarne la sorgente.",
+          "Porta questa lettura alla guida Livia, presso il rifugio fuori dalla grotta. Puoi scendere lungo entrambe le scalinate."
+        ]
+      },
+      {
+        "lines": [
+          "Direzione registrata: Passo delle Due Luci. La spedizione prepara il confronto con le stazioni oltre il valico.",
+          "La via verso Biancavetta rimane aperta: torna da Livia per il rapporto, poi puoi esplorare gli habitat laterali."
         ]
       }
     ]

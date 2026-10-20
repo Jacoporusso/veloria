@@ -1,0 +1,75 @@
+{
+  "id": "crystalclimate",
+  "name": "Console delle correnti",
+  "requiredFlags": [
+    "badge_ghiaccio_awarded",
+    "q_d05_low_read",
+    "q_d05_middle_read"
+  ],
+  "solvedFlag": "q_d05_climate_balanced",
+  "solvedEvent": "d05/climate/balanced",
+  "controls": [
+    {
+      "id": "ventilation",
+      "label": "Ventilazione",
+      "hint": "La stazione centrale descrive il flusso che serve ai cristalli.",
+      "min": 0,
+      "max": 3,
+      "initial": 3,
+      "target": 1,
+      "levels": [
+        {
+          "value": 0,
+          "label": "Chiusa",
+          "hint": "L’aria resta ferma."
+        },
+        {
+          "value": 1,
+          "label": "Delicata",
+          "hint": "Un flusso lieve attraversa la camera."
+        },
+        {
+          "value": 2,
+          "label": "Aperta",
+          "hint": "L’aria scorre rapidamente."
+        },
+        {
+          "value": 3,
+          "label": "Forte",
+          "hint": "Una corrente intensa attraversa la camera."
+        }
+      ]
+    },
+    {
+      "id": "exchange",
+      "label": "Scambio termico",
+      "hint": "La stazione bassa indica quanto calore disperdere.",
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "target": 2,
+      "levels": [
+        {
+          "value": 0,
+          "label": "Chiuso",
+          "hint": "Il calore resta nella camera bassa."
+        },
+        {
+          "value": 1,
+          "label": "Lieve",
+          "hint": "Una piccola parte del calore viene dispersa."
+        },
+        {
+          "value": 2,
+          "label": "Moderato",
+          "hint": "Il calore viene disperso con gradualità."
+        },
+        {
+          "value": 3,
+          "label": "Massimo",
+          "hint": "Il calore viene disperso molto rapidamente."
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+## Aggiornamento locale 0.3.92
+
+Varco e Grotte del Cristallo integrati e verificati: ponte dopo Brina, tre terrazze, rifugio, ricerca, regolazione ambientale riusabile, habitat, rapporto e ritorno. Catalogo63specie/64mosse; ripristinati i riferimenti evolutivi ufficiali fino a GenIV senza ampliare il roster giocabile. Browser/offline/unit/validator riusciti; pubblicazione e Linux nel CI_STATUS.
+
+Prossima geografia: R15 Passo delle Due Luci e Concordia/P8; poi Santuario e R16/Lega, conclusione ed epilogo. Restano bilanciamento naturale, catalogo251, regole/evoluzioni ancora non disponibili e uniformità artistica iniziale. I checkpoint storici sotto descrivono i rispettivi momenti del lavoro.
+
 ## Aggiornamento locale 0.3.91
 
 Integrato e verificato il capitolo R12–Passobrina–R13–Biancavetta/P7: ricerca in ordine libero, illustrazioni originali, servizi, ghiaccio, Nives, Medaglia Brina e funivia. Percorso completo e ritorni, puzzle/battaglia/medaglia, portrait/landscape e risorse offline verificati; pubblicazione e CI nel documento CI_STATUS. Il bilanciamento naturale resta da verificare. Le voci storiche di preparazione0.3.90 sotto sono superate da questo checkpoint.

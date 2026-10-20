@@ -1,0 +1,75 @@
+{
+  "id": "veloria/q_crystal_research",
+  "version": 1,
+  "displayName": "Le correnti del Cristallo",
+  "steps": [
+    {
+      "id": "varco",
+      "trigger": "area/veloria/r14_varco_cristallo/enter",
+      "setFlag": "q_r14_visited",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded"
+      ]
+    },
+    {
+      "id": "cavern",
+      "trigger": "area/veloria/d05_grotte_cristallo/enter",
+      "setFlag": "q_d05_visited",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded"
+      ]
+    },
+    {
+      "id": "low",
+      "trigger": "d05/low/read",
+      "setFlag": "q_d05_low_read",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded"
+      ]
+    },
+    {
+      "id": "middle",
+      "trigger": "d05/middle/read",
+      "setFlag": "q_d05_middle_read",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded"
+      ]
+    },
+    {
+      "id": "climate",
+      "trigger": "d05/climate/balanced",
+      "setFlag": "q_d05_climate_balanced",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded",
+        "q_d05_low_read",
+        "q_d05_middle_read"
+      ]
+    },
+    {
+      "id": "upper",
+      "trigger": "d05/upper/read",
+      "setFlag": "q_d05_upper_read",
+      "requiresFlags": [
+        "q_d05_climate_balanced"
+      ]
+    },
+    {
+      "id": "report",
+      "trigger": "r14/guide/report",
+      "setFlag": "q_d05_report",
+      "requiresFlags": [
+        "q_d05_low_read",
+        "q_d05_middle_read",
+        "q_d05_climate_balanced",
+        "q_d05_upper_read"
+      ]
+    }
+  ],
+  "completionFlag": "q_d05_report",
+  "reward": {
+    "money": 700,
+    "items": {
+      "potion": 2
+    }
+  }
+}

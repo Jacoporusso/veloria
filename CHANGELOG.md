@@ -1,5 +1,14 @@
 # Changelog — Veloria Project Pack
 
+## 0.3.92 — 20/10/2026
+
+- Ponte illustrato a est di Biancavetta, Varco del Cristallo e grotta a tre terrazze con scalinate, rifugio e habitat facoltativi.
+- Ricerca di calore e correnti, console con controlli discreti, reset e verifica esplicita. Letture e regolazioni persistono; ricevitore alto e rapporto a Livia assegnano una volta 700 monete e due Pozioni.
+- Sistema di regolazione ambientale dichiarativo e riusabile, separato da scene e contenuti; validazione Python e test di stati, limiti, reset e prerequisiti.
+- Geodude, Graveler, Onix, Zubat e Golbat da fonti ufficiali locali. Evoluzioni per livello Zubat22/Geodude25; scambi conservati come riferimenti senza livelli inventati.
+- Corretto il riferimento evolutivo: catalogo giocabile Gen I–II distinto dalle informazioni ufficiali HGSS/Gen IV. Ripristinati Magnezone e le evoluzioni di Eevee; descritte Forzantica per Mamoswine e Affilartigli/notte per Weavile senza abilitare target fuori catalogo.
+- Prove touch del capitolo completo e ritorni, menu portrait/landscape, Pokédex/Squadra e primo accesso offline. R15/Concordia e finale restano da implementare.
+
 ## 0.3.91 — 20/10/2026
 
 - Capitolo montano: R12, Passobrina, R13, Biancavetta e P7 con cinque nuove illustrazioni originali, percorsi e servizi. Nuova scala illustrata a nord di Acquariva.

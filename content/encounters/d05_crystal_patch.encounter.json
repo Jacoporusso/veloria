@@ -1,0 +1,105 @@
+{
+  "id": "veloria/d05_crystal_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "cave",
+  "mapId": "veloria/d05_grotte_cristallo",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 74,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 75,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 95,
+        "weight": 20,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 41,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 42,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 74,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 75,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 95,
+        "weight": 20,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 41,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 42,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 74,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 75,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 95,
+        "weight": 20,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 41,
+        "weight": 15,
+        "minLevel": 39,
+        "maxLevel": 44
+      },
+      {
+        "speciesId": 42,
+        "weight": 25,
+        "minLevel": 39,
+        "maxLevel": 44
+      }
+    ]
+  }
+}

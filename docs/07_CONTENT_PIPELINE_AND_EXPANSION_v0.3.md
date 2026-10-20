@@ -117,3 +117,8 @@ Il `itemId` del pickup Tiled identifica l’oggetto nella presentazione; non ass
 ## 8. Contenuti di esempio nel pack
 
 `content/examples/` contiene metadata fittizi/stabili per tre mappe, una tabella d'incontri, una quest, un trainer, una regione e un save. Sono **esempi di contratto**, non una rappresentazione completa del gioco; `tools/validate_examples.py` verifica sintassi e coerenza base.
+
+
+### Evoluzioni: riferimenti e regole giocabili
+
+Il catalogo giocabile resta Gen I–II. Il riferimento informativo delle evoluzioni conserva i metodi ufficiali disponibili fino a HGSS/Gen IV, anche con target oltre 251; la UI li segnala come fuori catalogo e non disponibili. Il riferimento non abilita automaticamente regole runtime. Condizioni come mossa conosciuta, oggetto tenuto, amicizia, fascia oraria e luogo devono essere importate e descritte interamente; condizioni sconosciute fanno fallire l’import. Non trasformare uno scambio o un requisito speciale in un livello inventato.

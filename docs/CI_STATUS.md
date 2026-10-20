@@ -1,3 +1,12 @@
+## Cristallo locale 0.3.92 — 20/10/2026
+
+- 37 mappe, 34 quest, 14 allenatori, 9 negozi, 236 asset, 63 specie e64mosse. Build riuscita. 392 dominio +16 persistenza, 74 Python e validatore globale passati.
+- Sette browser in1,7m: console con prerequisiti, errore/reset/reload e portrait/landscape; capitolo completo Brina→R14→due letture→console→ricevitore→rapporto/premio unico→Biancavetta; cinque regressioni Squadra/Pokédex. `.tmp/crystal-browser-v3.log`.
+- Primo accesso offline a due Tiled, tre ambienti e cinque artwork; console, salvataggio e ritorno dalla grotta riusciti in15,2s,27,5s con build. `.tmp/crystal-offline-v1.log`. Scenario e menu landscape esaminati visivamente.
+- Test iniziale del gate corretto per usare `failureMessage`, che è il campo effettivo dei trigger. La fixture del percorso ora rientra dal bordo dopo il tentativo bloccato prima di attraversare di nuovo; il primo test era rimasto sullo stesso tile dell’uscita e non generava un nuovo ingresso. Nessun aggiramento delle collisioni durante le prove.
+- Verify0.3.91 `39382295627` terminato: sei job riusciti (cinque shard e offline); shard5 fallisce solo nel riferimento evolutivo Magneton. Il filtro target>251 aveva cancellato le informazioni ufficiali pur lasciando il testo HGSS. Corretto l’importer per riferimento informativo fino aGenIV, condizioni complete e runtimeGenI–II distinto. Test browser originale invariato ora passa; introdotti test Python per GenIV, esclusioneGenV+ e condizioni sconosciute. Il precedente problema del budget monorotaia risulta superato in Linux.
+- Pubblicazione0.3.92 e nuova verifica Linux ancora da confermare. Il bilanciamento naturale e i capitoli finali restano aperti.
+
 ## Pubblicazione montagna 0.3.91 — 20/10/2026
 
 Commit cf99e0583cc4bbfb466799d26b973544d0fec387 pubblicato su main. Deploy Pages 39382295591 concluso con successo: test, validatore, build con base /veloria/ e deploy riusciti. Verificati via HTTPS il registro con veloria-content-0.3.91, service worker v112 e Tiled P7 32×24. Verify 39382295627 ancora in esecuzione al momento di questo aggiornamento: non viene attestata una suite Linux interamente verde. Il test finale locale conta 378 prove dominio e 16 persistenza, tutte riuscite.

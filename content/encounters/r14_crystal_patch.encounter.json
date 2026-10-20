@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r14_crystal_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "mapId": "veloria/r14_varco_cristallo",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 221,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 215,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 95,
+        "weight": 25,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 227,
+        "weight": 15,
+        "minLevel": 38,
+        "maxLevel": 42
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 221,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 215,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 95,
+        "weight": 25,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 227,
+        "weight": 15,
+        "minLevel": 38,
+        "maxLevel": 42
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 221,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 215,
+        "weight": 30,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 95,
+        "weight": 25,
+        "minLevel": 38,
+        "maxLevel": 42
+      },
+      {
+        "speciesId": 227,
+        "weight": 15,
+        "minLevel": 38,
+        "maxLevel": 42
+      }
+    ]
+  }
+}

@@ -291,12 +291,16 @@
     {
       "id": "grotte",
       "name": "Grotte del Cristallo",
-      "kind": "future",
+      "kind": "dungeon",
       "x": 665,
       "y": 65,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Un futuro passaggio montano verso l’altopiano."
+      "mapIds": [
+        "veloria/d05_grotte_cristallo"
+      ],
+      "visitedFlags": [
+        "q_d05_visited"
+      ],
+      "description": "Tre terrazze di cristallo, correnti d’aria e letture del segnale."
     },
     {
       "id": "concordia",
@@ -396,6 +400,20 @@
         "q_r13_visited"
       ],
       "description": "Terrazze innevate e sentieri battuti verso Biancavetta."
+    },
+    {
+      "id": "r14",
+      "name": "R14 · Varco del Cristallo",
+      "kind": "route",
+      "x": 605,
+      "y": 66,
+      "mapIds": [
+        "veloria/r14_varco_cristallo"
+      ],
+      "visitedFlags": [
+        "q_r14_visited"
+      ],
+      "description": "Un rifugio tra le nevi prima delle grotte del massiccio."
     }
   ],
   "connections": [
@@ -452,10 +470,6 @@
       "centrale"
     ],
     [
-      "biancavetta",
-      "grotte"
-    ],
-    [
       "grotte",
       "concordia"
     ],
@@ -510,6 +524,14 @@
     [
       "r13",
       "biancavetta"
+    ],
+    [
+      "biancavetta",
+      "r14"
+    ],
+    [
+      "r14",
+      "grotte"
     ]
   ]
 }

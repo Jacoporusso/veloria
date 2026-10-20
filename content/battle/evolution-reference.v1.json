@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "PokeAPI",
-  "scope": "Species and evolution methods available through Generation IV",
+  "scope": "Evolution reference through Generation IV for the registered species; informational targets do not extend the Gen I–II runtime roster",
   "sourceManifest": "content/sources/pokeapi/evolution-manifest.json",
   "species": {
     "1": {
@@ -176,6 +176,29 @@
         }
       ]
     },
+    "41": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 42,
+          "targetName": "Golbat",
+          "trigger": "level-up",
+          "minimumLevel": 22,
+          "itemName": null
+        }
+      ]
+    },
+    "42": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 169,
+          "targetName": "Crobat",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "minimumHappiness": 160
+        }
+      ]
+    },
     "43": {
       "evolutions": [
         {
@@ -223,6 +246,28 @@
     "73": {
       "evolutions": []
     },
+    "74": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 75,
+          "targetName": "Graveler",
+          "trigger": "level-up",
+          "minimumLevel": 25,
+          "itemName": null
+        }
+      ]
+    },
+    "75": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 76,
+          "targetName": "Golem",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null
+        }
+      ]
+    },
     "79": {
       "evolutions": [
         {
@@ -257,7 +302,16 @@
       ]
     },
     "82": {
-      "evolutions": []
+      "evolutions": [
+        {
+          "targetSpeciesId": 462,
+          "targetName": "Magnezone",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Mt. Coronet"
+        }
+      ]
     },
     "86": {
       "evolutions": [
@@ -272,6 +326,18 @@
     },
     "87": {
       "evolutions": []
+    },
+    "95": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 208,
+          "targetName": "Steelix",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Metalcoperta"
+        }
+      ]
     },
     "96": {
       "evolutions": [
@@ -355,6 +421,24 @@
           "itemName": null,
           "minimumHappiness": 160,
           "timeOfDay": "night"
+        },
+        {
+          "targetSpeciesId": 470,
+          "targetName": "Leafeon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Eterna Forest",
+          "nearSpecialRock": true
+        },
+        {
+          "targetSpeciesId": 471,
+          "targetName": "Glaceon",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "locationName": "Route 217",
+          "nearSpecialRock": true
         }
       ]
     },
@@ -471,7 +555,17 @@
       "evolutions": []
     },
     "215": {
-      "evolutions": []
+      "evolutions": [
+        {
+          "targetSpeciesId": 461,
+          "targetName": "Weavile",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Affilartigli",
+          "timeOfDay": "night"
+        }
+      ]
     },
     "220": {
       "evolutions": [
@@ -485,7 +579,16 @@
       ]
     },
     "221": {
-      "evolutions": []
+      "evolutions": [
+        {
+          "targetSpeciesId": 473,
+          "targetName": "Mamoswine",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "knownMoveName": "Forzantica"
+        }
+      ]
     },
     "227": {
       "evolutions": []

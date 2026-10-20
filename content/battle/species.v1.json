@@ -2846,6 +2846,211 @@
           "moveId": "double-slap"
         }
       ]
+    },
+    "74": {
+      "speciesId": 74,
+      "name": "Geodude",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 100,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "speed": 20
+      },
+      "experienceYield": 60,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "defense-curl"
+        },
+        {
+          "level": 11,
+          "moveId": "rock-throw"
+        }
+      ]
+    },
+    "75": {
+      "speciesId": 75,
+      "name": "Graveler",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "speed": 35
+      },
+      "experienceYield": 137,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "defense-curl"
+        },
+        {
+          "level": 11,
+          "moveId": "rock-throw"
+        }
+      ]
+    },
+    "95": {
+      "speciesId": 95,
+      "name": "Onix",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 35,
+        "attack": 45,
+        "defense": 160,
+        "specialAttack": 30,
+        "specialDefense": 45,
+        "speed": 70
+      },
+      "experienceYield": 77,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "harden"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "harden"
+        },
+        {
+          "level": 6,
+          "moveId": "screech"
+        },
+        {
+          "level": 9,
+          "moveId": "rock-throw"
+        },
+        {
+          "level": 25,
+          "moveId": "slam"
+        }
+      ]
+    },
+    "41": {
+      "speciesId": 41,
+      "name": "Zubat",
+      "types": [
+        "poison",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "specialAttack": 30,
+        "specialDefense": 40,
+        "speed": 55
+      },
+      "experienceYield": 49,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "leech-life",
+        "supersonic"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "leech-life"
+        },
+        {
+          "level": 5,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 17,
+          "moveId": "wing-attack"
+        },
+        {
+          "level": 21,
+          "moveId": "confuse-ray"
+        }
+      ]
+    },
+    "42": {
+      "speciesId": 42,
+      "name": "Golbat",
+      "types": [
+        "poison",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 70,
+        "specialAttack": 65,
+        "specialDefense": 75,
+        "speed": 90
+      },
+      "experienceYield": 159,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "screech",
+        "leech-life",
+        "supersonic"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "screech"
+        },
+        {
+          "level": 1,
+          "moveId": "leech-life"
+        },
+        {
+          "level": 1,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 5,
+          "moveId": "supersonic"
+        },
+        {
+          "level": 17,
+          "moveId": "wing-attack"
+        },
+        {
+          "level": 21,
+          "moveId": "confuse-ray"
+        }
+      ]
     }
   },
   "moveSource": {

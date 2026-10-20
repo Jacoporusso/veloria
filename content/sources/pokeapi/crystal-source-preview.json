@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "versionGroup": "heartgold-soulsilver",
+  "note": "Source audit only. No runtime species data or unsupported moves included.",
+  "species": [
+    {
+      "speciesId": 74,
+      "name": "Geodude",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 100,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "speed": 20
+      },
+      "officialGrowthRate": "medium-slow",
+      "levelFiveSupportedMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "levelFiveUnsupportedMoveIds": [
+        "mud-sport"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-74.json",
+          "sha256": "600e8f6094eed94d3ef54a2301f48e8ef886676ffb1b4ce9ef2071e03a060e31"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-74.json",
+          "sha256": "a209cddf452ee10d442adac0dffd00cf199da7a6d47ce84620f555e79b2e6049"
+        }
+      }
+    },
+    {
+      "speciesId": 75,
+      "name": "Graveler",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "specialAttack": 45,
+        "specialDefense": 45,
+        "speed": 35
+      },
+      "officialGrowthRate": "medium-slow",
+      "levelFiveSupportedMoveIds": [
+        "tackle",
+        "defense-curl"
+      ],
+      "levelFiveUnsupportedMoveIds": [
+        "mud-sport",
+        "rock-polish"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-75.json",
+          "sha256": "9a503d34324ad788bd743f4eb55bd1f1a5eda9e443df75a610435ce2e03df9e5"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-75.json",
+          "sha256": "0ee46c2b9635f57337c1054eae96689e9a2f38a17de540e5f36246087a07145b"
+        }
+      }
+    },
+    {
+      "speciesId": 95,
+      "name": "Onix",
+      "types": [
+        "rock",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 35,
+        "attack": 45,
+        "defense": 160,
+        "specialAttack": 30,
+        "specialDefense": 45,
+        "speed": 70
+      },
+      "officialGrowthRate": "medium",
+      "levelFiveSupportedMoveIds": [
+        "tackle",
+        "harden"
+      ],
+      "levelFiveUnsupportedMoveIds": [
+        "mud-sport",
+        "bind"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-95.json",
+          "sha256": "e4c1249abf34580c5fdabeee8e8e49418e9d78e12b94d16a0663b95888d872d6"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-95.json",
+          "sha256": "0860760bbb3cc721f09acf303eb44f522dc17ab09cee30fc6a7accae2b560958"
+        }
+      }
+    },
+    {
+      "speciesId": 41,
+      "name": "Zubat",
+      "types": [
+        "poison",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "specialAttack": 30,
+        "specialDefense": 40,
+        "speed": 55
+      },
+      "officialGrowthRate": "medium",
+      "levelFiveSupportedMoveIds": [
+        "leech-life",
+        "supersonic"
+      ],
+      "levelFiveUnsupportedMoveIds": [],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-41.json",
+          "sha256": "98087b90ec984ff9cc2d1b7f370d996860324b1d87dcb350b2164608b847c78b"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-41.json",
+          "sha256": "b283c9491855b5d52b431035d9b59045f7d402b9d295bfdab08cda04d9c6c65c"
+        }
+      }
+    },
+    {
+      "speciesId": 42,
+      "name": "Golbat",
+      "types": [
+        "poison",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 70,
+        "specialAttack": 65,
+        "specialDefense": 75,
+        "speed": 90
+      },
+      "officialGrowthRate": "medium",
+      "levelFiveSupportedMoveIds": [
+        "screech",
+        "leech-life",
+        "supersonic"
+      ],
+      "levelFiveUnsupportedMoveIds": [
+        "astonish"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-42.json",
+          "sha256": "79153e836abe1332b08940eab7f76d68427355279c094e8df82de8576d88b7e3"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-42.json",
+          "sha256": "d200505617463b27166504e8b346fc2e33eeaa7631ab931a95fd1e712bb3c468"
+        }
+      }
+    }
+  ]
+}

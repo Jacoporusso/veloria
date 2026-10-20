@@ -3,14 +3,14 @@ import argparse
 import json
 from import_pokeapi_battle import ROOT, resource
 
-MAX_SUPPORTED_SPECIES_ID = 251
+MAX_REFERENCE_GENERATION = 4
 
 
 def build_evolution_entries(registry, version_group, load):
-    """Build source references, skipping post-Gen-II targets before parsing methods.
+    """Describe Gen-IV evolution methods without extending the runtime roster.
 
-    The cached evolution-chain document remains the provenance for skipped edges;
-    its target URL is preserved verbatim in that raw source and tracked by the manifest.
+    Reference targets may be outside Gen I–II. Only progression.v1.json enables
+    actual evolutions; this catalog also explains official unavailable methods.
     """
     def key_of(reference):
         return int(reference['url'].rstrip('/').split('/')[-1])
@@ -34,10 +34,8 @@ def build_evolution_entries(registry, version_group, load):
         evolutions = []
         for child in current['evolves_to']:
             target_id = key_of(child['species'])
-            if target_id > MAX_SUPPORTED_SPECIES_ID:
-                continue
             target = load('pokemon-species', target_id)
-            if key_of(target['generation']) > 4:
+            if key_of(target['generation']) > MAX_REFERENCE_GENERATION:
                 continue
             for detail in child['evolution_details']:
                 if detail.get('version_group') and key_of(detail['version_group']) > version_group['id']:
@@ -51,7 +49,7 @@ def build_evolution_entries(registry, version_group, load):
                 # Reference-only location evolutions do not enable runtime rules.
                 # Fail closed if upstream introduces a condition we cannot explain.
                 extra = {key: value for key, value in detail.items()
-                         if key not in {'trigger', 'min_level', 'item', 'location', 'near_special_rock', 'held_item', 'min_happiness', 'time_of_day', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
+                         if key not in {'trigger', 'min_level', 'item', 'location', 'near_special_rock', 'held_item', 'known_move', 'min_happiness', 'time_of_day', 'version_group', 'is_default', 'required_pokemon_form', 'evolved_pokemon_form'}
                          and value is not None and value is not False and value != '' and value != []}
                 if extra:
                     raise ValueError(f'Unsupported evolution conditions for {species_id}: {extra}')
@@ -59,6 +57,7 @@ def build_evolution_entries(registry, version_group, load):
                 item_name = None
                 location_name = None
                 held_item_name = None
+                known_move_name = None
                 if detail.get('near_special_rock') and not detail.get('location'):
                     raise ValueError(f'Special-rock evolution lacks its reference location for {species_id}')
                 happiness = detail.get('min_happiness')
@@ -70,6 +69,11 @@ def build_evolution_entries(registry, version_group, load):
                 if detail.get('held_item'):
                     held_item = load('item', key_of(detail['held_item']))
                     held_item_name = next(name['name'] for name in held_item['names'] if name['language']['name'] == 'it')
+                if detail.get('known_move'):
+                    known_move = load('move', key_of(detail['known_move']))
+                    known_move_name = next(name['name'] for name in known_move['names'] if name['language']['name'] == 'it')
+                    if trigger != 'level-up':
+                        raise ValueError(f'Unsupported known-move trigger for {species_id}: {detail}')
                 if detail.get('location'):
                     if trigger != 'level-up':
                         raise ValueError(f'Unsupported location trigger for {species_id}: {detail}')
@@ -83,7 +87,7 @@ def build_evolution_entries(registry, version_group, load):
                     item_name = next(name['name'] for name in item['names'] if name['language']['name'] == 'it')
                 elif trigger == 'trade':
                     pass  # Reference only; this does not enable a multiplayer evolution.
-                elif trigger != 'level-up' or not (detail['min_level'] or location_name or happiness):
+                elif trigger != 'level-up' or not (detail['min_level'] or location_name or happiness or held_item_name or known_move_name):
                     raise ValueError(f'Unsupported evolution trigger for {species_id}: {detail}')
                 entry = {'targetSpeciesId': target_id,
                          'targetName': next(name['name'] for name in target['names'] if name['language']['name'] == 'it'),
@@ -94,6 +98,8 @@ def build_evolution_entries(registry, version_group, load):
                     entry['nearSpecialRock'] = True
                 if held_item_name:
                     entry['heldItemName'] = held_item_name
+                if known_move_name:
+                    entry['knownMoveName'] = known_move_name
                 if happiness:
                     entry['minimumHappiness'] = happiness
                 if time_of_day:
@@ -129,7 +135,7 @@ def main(argv=None):
 
     outputs = {
         ROOT / 'content/battle/evolution-reference.v1.json': {
-            'version': 1, 'source': 'PokeAPI', 'scope': 'Species and evolution methods available through Generation IV',
+            'version': 1, 'source': 'PokeAPI', 'scope': 'Evolution reference through Generation IV for the registered species; informational targets do not extend the Gen I–II runtime roster',
             'sourceManifest': 'content/sources/pokeapi/evolution-manifest.json', 'species': entries,
         },
         ROOT / 'content/sources/pokeapi/evolution-manifest.json': {'resources': dict(sorted(resources.items()))},

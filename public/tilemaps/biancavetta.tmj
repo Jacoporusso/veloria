@@ -4077,33 +4077,11 @@
           "properties": []
         },
         {
-          "id": 1040,
-          "name": "outside-authored-floor",
-          "x": 1184,
-          "y": 448,
-          "width": 96,
-          "height": 32,
-          "visible": true,
-          "rotation": 0,
-          "properties": []
-        },
-        {
           "id": 1041,
           "name": "outside-authored-floor",
           "x": 0,
           "y": 480,
           "width": 160,
-          "height": 32,
-          "visible": true,
-          "rotation": 0,
-          "properties": []
-        },
-        {
-          "id": 1042,
-          "name": "outside-authored-floor",
-          "x": 1184,
-          "y": 480,
-          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
@@ -4374,15 +4352,15 @@
           "properties": []
         },
         {
-          "id": 1067,
-          "name": "Segnale Varco del Cristallo",
+          "id": 1068,
+          "name": "Cartello Varco",
+          "type": "",
           "x": 1120,
-          "y": 448,
+          "y": 416,
           "width": 32,
           "height": 32,
-          "visible": true,
           "rotation": 0,
-          "properties": []
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -4541,7 +4519,7 @@
           "id": 96,
           "name": "Varco del Cristallo",
           "x": 1120,
-          "y": 448,
+          "y": 416,
           "width": 32,
           "height": 32,
           "rotation": 0,
@@ -4673,6 +4651,44 @@
               "value": "from_city"
             }
           ]
+        },
+        {
+          "id": 1069,
+          "name": "Varco del Cristallo",
+          "type": "",
+          "x": 1248,
+          "y": 480,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r14_varco_cristallo"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_biancavetta"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "badge_ghiaccio_awarded"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Conquista la Medaglia Brina da Nives per attraversare il Varco del Cristallo."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -4694,7 +4710,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1068,
+  "nextobjectid": 1070,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

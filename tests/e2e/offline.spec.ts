@@ -917,3 +917,18 @@ test('mountain resources decode on first offline request and cable return surviv
  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Biancavetta',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');
  await page.reload();await enterGame(page);await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Passobrina',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/passobrina');expect(failures).toEqual([]);
 });
+
+test('crystal resources and environmental regulation work on first offline visit',async({page,context})=>{
+ test.setTimeout(120_000);await page.goto('/');await enterGame(page);await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+ const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','badge_ghiaccio_awarded','q_d05_low_read','q_d05_middle_read'])];save.player={...save.player,mapId:'veloria/d05_grotte_cristallo',spawnPointId:'from_r14',x:29,y:3};await seedBrowserSave(page,save);
+ const failures:string[]=[];page.on('requestfailed',r=>failures.push(r.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/d05_grotte_cristallo');
+ const resources=await page.evaluate(async()=>{
+  const paths=['assets/scenery/veloria-r14-crystal-pass-v1.webp','assets/scenery/veloria-d05-crystal-caverns-v1.webp','assets/scenery/veloria-biancavetta-v2.webp',...[41,42,74,75,95].map(i=>`assets/creatures/pokeapi-crystal-${i}-v1.webp`)];
+  const images=await Promise.all(paths.map(async p=>{const im=new Image();im.src='/'+p;await im.decode();return im.naturalWidth>100;}));
+  const maps=await Promise.all(['r14_varco_cristallo','d05_grotte_cristallo'].map(async m=>{const r=await fetch(`/tilemaps/${m}.tmj`);if(!r.ok)throw new Error(m);return(await r.json()).width;}));return{images,maps};
+ });expect(resources).toEqual({images:Array(8).fill(true),maps:[40,40]});
+ await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();
+ for(const name of ['Ventilazione → Aperta','Ventilazione → Delicata','Scambio termico → Lieve','Scambio termico → Moderato','VERIFICA EQUILIBRIO','CHIUDI'])await page.getByRole('button',{name,exact:true}).tap();
+ await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_climate_balanced');await page.reload();await enterGame(page);expect((await readBrowserSave(page)).flags).toContain('q_d05_climate_balanced');
+ await walkTo(page,'d05_grotte_cristallo.tmj',11,29);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r14_varco_cristallo');expect(failures).toEqual([]);
+});

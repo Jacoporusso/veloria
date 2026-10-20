@@ -5,7 +5,7 @@
   "biomeId": "snow_town",
   "tiledAsset": "tilemaps/biancavetta.tmj",
   "terrainBase": {
-    "assetKey": "veloria-biancavetta-v1",
+    "assetKey": "veloria-biancavetta-v2",
     "tilesetName": "veloria_terrain",
     "tileIndex": 0
   },
@@ -29,8 +29,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-biancavetta-v1",
-      "path": "assets/scenery/veloria-biancavetta-v1.webp"
+      "key": "veloria-biancavetta-v2",
+      "path": "assets/scenery/veloria-biancavetta-v2.webp"
     }
   ],
   "spawns": [
@@ -51,6 +51,12 @@
       "x": 29,
       "y": 24,
       "facing": "up"
+    },
+    {
+      "id": "from_r14",
+      "x": 38,
+      "y": 15,
+      "facing": "left"
     }
   ],
   "connections": [
@@ -65,6 +71,14 @@
       "viaSpawnId": "from_gym07",
       "targetSpawnId": "from_city",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r14_varco_cristallo",
+      "viaSpawnId": "from_r14",
+      "targetSpawnId": "from_biancavetta",
+      "requiresFlags": [
+        "badge_ghiaccio_awarded"
+      ]
     }
   ],
   "encounterTableIds": [],
@@ -73,5 +87,5 @@
   ],
   "scriptRefs": [],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-biancavetta-v1"
+  "battleBackgroundKey": "veloria-biancavetta-v2"
 }

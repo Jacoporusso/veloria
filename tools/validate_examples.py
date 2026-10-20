@@ -11,6 +11,7 @@ from map_render_validation import validate_map_render_assets
 from asset_register_validation import validate_asset_register
 from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
+from environment_regulator_validation import validate_environment_regulators
 from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
 from collision_gate_validation import validate_collision_gates
@@ -565,6 +566,7 @@ for metadata in runtime_by_id.values():
               f"Map exit is unreachable from spawn {connection['viaSpawnId']} in {metadata['id']}: {trigger.get('name')}")
 
 validate_transit(ROOT, runtime_by_id, quest_flags)
+validate_environment_regulators(ROOT, runtime_by_id, quest_flags, quest_triggers)
 validate_signal_routers(ROOT, runtime_by_id, quests)
 
 enc = read("r01_tall_grass.encounter.json")

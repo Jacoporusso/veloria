@@ -706,6 +706,16 @@
       "path": "content/sources/pokeapi/pokemon-4.json",
       "sha256": "144639a8a4d1d8f7a64ec20bf2943bdcae19d56a3b14e61b23c05f9d45244bd8"
     },
+    "pokemon/41": {
+      "url": "https://pokeapi.co/api/v2/pokemon/41/",
+      "path": "content/sources/pokeapi/pokemon-41.json",
+      "sha256": "98087b90ec984ff9cc2d1b7f370d996860324b1d87dcb350b2164608b847c78b"
+    },
+    "pokemon/42": {
+      "url": "https://pokeapi.co/api/v2/pokemon/42/",
+      "path": "content/sources/pokeapi/pokemon-42.json",
+      "sha256": "79153e836abe1332b08940eab7f76d68427355279c094e8df82de8576d88b7e3"
+    },
     "pokemon/43": {
       "url": "https://pokeapi.co/api/v2/pokemon/43/",
       "path": "content/sources/pokeapi/pokemon-43.json",
@@ -746,6 +756,16 @@
       "path": "content/sources/pokeapi/pokemon-73.json",
       "sha256": "e0cf95cca0e12d702c34e342ae1ed64b105df20d312928b50e71b98f7c9fcaa8"
     },
+    "pokemon/74": {
+      "url": "https://pokeapi.co/api/v2/pokemon/74/",
+      "path": "content/sources/pokeapi/pokemon-74.json",
+      "sha256": "600e8f6094eed94d3ef54a2301f48e8ef886676ffb1b4ce9ef2071e03a060e31"
+    },
+    "pokemon/75": {
+      "url": "https://pokeapi.co/api/v2/pokemon/75/",
+      "path": "content/sources/pokeapi/pokemon-75.json",
+      "sha256": "9a503d34324ad788bd743f4eb55bd1f1a5eda9e443df75a610435ce2e03df9e5"
+    },
     "pokemon/79": {
       "url": "https://pokeapi.co/api/v2/pokemon/79/",
       "path": "content/sources/pokeapi/pokemon-79.json",
@@ -785,6 +805,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/9/",
       "path": "content/sources/pokeapi/pokemon-9.json",
       "sha256": "e24b83abc281ca425fdc732c5f0c1aa428d285879b7073986e76d54049b45de0"
+    },
+    "pokemon/95": {
+      "url": "https://pokeapi.co/api/v2/pokemon/95/",
+      "path": "content/sources/pokeapi/pokemon-95.json",
+      "sha256": "e4c1249abf34580c5fdabeee8e8e49418e9d78e12b94d16a0663b95888d872d6"
     },
     "pokemon/96": {
       "url": "https://pokeapi.co/api/v2/pokemon/96/",

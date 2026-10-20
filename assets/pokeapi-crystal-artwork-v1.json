@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "scope": "Private prototype crystal-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 74,
+      "name": "Geodude",
+      "path": "assets/creatures/pokeapi-crystal-74-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "sourcePath": "assets/sources/pokeapi/crystal/74.png",
+      "sourceSha256": "eb32b467700be75da0f9979ca46cdba9a220ec324edaf194a010a8477ca1c84e",
+      "sha256": "47b75c9e40d683a7427d4fecb6e06a10c09bcb0d55b2ea669c60623c38e7388a"
+    },
+    {
+      "speciesId": 75,
+      "name": "Graveler",
+      "path": "assets/creatures/pokeapi-crystal-75-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+      "sourcePath": "assets/sources/pokeapi/crystal/75.png",
+      "sourceSha256": "7f5baf80e6e8b381ada946489ee39a58575a9b036865c1998636810e363b82e2",
+      "sha256": "95c53e8210346d97d9406d77cc2b3490895a98b3ef9e05220af95d29d647ee7c"
+    },
+    {
+      "speciesId": 95,
+      "name": "Onix",
+      "path": "assets/creatures/pokeapi-crystal-95-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+      "sourcePath": "assets/sources/pokeapi/crystal/95.png",
+      "sourceSha256": "4f2496aeb88de932246d4d76516d2e0092abec5d3a0f51ae93181a7b0afc4bac",
+      "sha256": "59e0a4c5a5cfd7ca781afc8249c3888ad48712048c4a90d0dcd865e8e358181f"
+    },
+    {
+      "speciesId": 41,
+      "name": "Zubat",
+      "path": "assets/creatures/pokeapi-crystal-41-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "sourcePath": "assets/sources/pokeapi/crystal/41.png",
+      "sourceSha256": "249cd65089f552f51c8da681bb13af267c01c99c2f9d70fdcb3415a82f7c6912",
+      "sha256": "dda2ce8723a431a98ffa8a87675ac4289a7e9c784c70c55c3e3feb0360bbcdf1"
+    },
+    {
+      "speciesId": 42,
+      "name": "Golbat",
+      "path": "assets/creatures/pokeapi-crystal-42-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+      "sourcePath": "assets/sources/pokeapi/crystal/42.png",
+      "sourceSha256": "ad93bff798afe2f1be9abf5900f5825d2cf03be1cfa5d2bb74a5b8fc35e8aa53",
+      "sha256": "2ab9622b6835e434fb62ab4d032f8426eebc959625d2661ae50c56e406dc75eb"
+    }
+  ]
+}

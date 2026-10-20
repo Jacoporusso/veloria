@@ -1,5 +1,16 @@
-const CACHE = 'veloria-shell-v112';
+const CACHE = 'veloria-shell-v113';
 const SHELL = [
+  './assets/scenery/veloria-biancavetta-v2.webp',
+  './assets/creatures/pokeapi-crystal-41-v1.webp',
+  './assets/creatures/pokeapi-crystal-42-v1.webp',
+  './assets/creatures/pokeapi-crystal-74-v1.webp',
+  './assets/creatures/pokeapi-crystal-75-v1.webp',
+  './assets/creatures/pokeapi-crystal-95-v1.webp',
+
+  './tilemaps/r14_varco_cristallo.tmj',
+  './tilemaps/d05_grotte_cristallo.tmj',
+  './assets/scenery/veloria-r14-crystal-pass-v1.webp',
+  './assets/scenery/veloria-d05-crystal-caverns-v1.webp',
   './tilemaps/r12_valle_vento.tmj',
   './tilemaps/passobrina.tmj',
   './tilemaps/r13_tornanti_bianchi.tmj',
