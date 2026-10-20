@@ -1,3 +1,7 @@
+## Pubblicazione correzione PC0.3.99 —20/10/2026
+
+Commit `3f3fcf4f91f3b48faa2fc2ddf0197594ec589c8a` su main. Deploy Pages `39476491396` SUCCESS; HTTPS conferma registro0.3.99 e cachev120. Verifica completa `39476491440` in esecuzione, non ancora attestata verde. Quattro scenari desktop e regressione touch passati localmente. Aggiornamento documentale senza duplicare i workflow.
+
 ## Interazione iniziale PC 0.3.99 — verifiche locali 20/10/2026
 
 - Riproduzione: la sola lettura `isDown` nel ciclo frame perde una pressione breve di ArrowUp; il personaggio resta rivolto in basso e non trova Elia davanti a sé. E apriva il dialogo nei casi in cui il frame aveva campionato il tasto; Spazio risultava intermittente. Invio non era collegato. Il suggerimento «PARLA CON A» era ambiguo su PC, dove A muove a sinistra.

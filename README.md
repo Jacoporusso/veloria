@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione pubblicata 0.3.98:** Lega, Campione, epilogo, rifornimenti e quattro allenatori intermedi. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+**Versione pubblicata 0.3.99:** corretti interazione iniziale e scelta starter da tastiera PC; Lega, epilogo e allenamenti intermedi disponibili. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
