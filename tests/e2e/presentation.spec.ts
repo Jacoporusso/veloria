@@ -116,7 +116,12 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('menu');
   await page.keyboard.press('Enter', { delay: 50 }); // Lotta.
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
-  await page.keyboard.press('ArrowRight', { delay: 50 }); // Growl, second slot.
+  await page.keyboard.down('ArrowRight'); // Growl, second slot; wait for the rendered selection.
+  try {
+    await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);
+  } finally {
+    await page.keyboard.up('ArrowRight');
+  }
   await page.keyboard.press('Enter', { delay: 50 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleFixture.scene.getScene('battle');

@@ -20,8 +20,8 @@ const rules: BattleRules = { ...prototypeBattleRules, criticalChance: 0, minimum
   levelUpMoves: Object.fromEntries(Object.entries(learnsets.species).map(([id, entries]) => [id, entries.map(entry => ({ ...entry, maxPp: moves[entry.moveId].maxPp }))])),
 };
 
-function defeatWild(speciesId: number, experience: number, level = 15) {
-  const creature = createBattleCreature({ species, moves, speciesId, level, experience, instanceId: `starter-${speciesId}` });
+function defeatWild(speciesId: number, experience: number, level = 15, moveIds?: readonly string[]) {
+  const creature = createBattleCreature({ species, moves, speciesId, level, experience, instanceId: `starter-${speciesId}`, ...(moveIds ? {moveIds} : {}) });
   const injured = { ...creature, hp: creature.stats.maxHp - 5 };
   const target = { ...createBattleCreature({ species, moves, speciesId: 10, level: 3, instanceId: 'wild' }), hp: 1 };
   const state = createBattleState({ battleId: 'starter-evolution', battleType: 'wild', seed: 17, rules, playerTeam: [injured], opponentTeam: [target] });
@@ -30,7 +30,7 @@ function defeatWild(speciesId: number, experience: number, level = 15) {
   return { injured, moveSlot, ...transition };
 }
 
-for (const [fromId, toId, threshold] of [[1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25]]) {
+for (const [fromId, toId, threshold] of [[1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25], [2, 3, 32], [5, 6, 36], [8, 9, 36], [180, 181, 30]]) {
   test(`${species[fromId].name} evolves at level ${threshold} and preserves identity, injury and spent PP through saving`, () => {
     const required = experienceToNextLevel(threshold - 1, progression.growthCurves.veloria_medium_fast_v1);
     const { injured, moveSlot, state, events } = defeatWild(fromId, required - 1, threshold - 1);
@@ -63,3 +63,22 @@ for (const [fromId, toId, threshold] of [[1, 2, 16], [4, 5, 16], [7, 8, 16], [16
     assert.equal(events.some(event => event.type === 'creatureEvolved'), false);
   });
 }
+
+for(const [fromId,toId,level,moveId]of [[5,6,36,'wing-attack'],[180,181,30,'thunder-punch']]as const){
+  test(`${species[toId].name} offers its new form move in the same evolution turn`,()=>{
+    const required=experienceToNextLevel(level-1,progression.growthCurves.veloria_medium_fast_v1);
+    const result=defeatWild(fromId,required-1,level-1);
+    assert.equal(result.state.player.creatures[0].speciesId,toId);
+    const evolutionIndex=result.events.findIndex(event=>event.type==='creatureEvolved'&&event.toSpeciesId===toId);
+    const learningIndex=result.events.findIndex(event=>(event.type==='moveLearned'||event.type==='moveLearningSkipped')&&event.moveId===moveId);
+    assert.ok(evolutionIndex>=0&&learningIndex>evolutionIndex,'new form move must be offered after evolution, including full movesets');
+  });
+}
+
+test('evolution preserves forgotten older moves instead of automatically teaching them again',()=>{
+  const required=experienceToNextLevel(31,progression.growthCurves.veloria_medium_fast_v1);
+  const result=defeatWild(2,required-1,31,['vine-whip']);
+  assert.equal(result.state.player.creatures[0].speciesId,3);
+  const oldMoves=new Set(rules.levelUpMoves[3].filter(entry=>entry.level<=31).map(entry=>entry.moveId));
+  assert.equal(result.events.some(event=>(event.type==='moveLearned'||event.type==='moveLearningSkipped')&&oldMoves.has(event.moveId)),false);
+});

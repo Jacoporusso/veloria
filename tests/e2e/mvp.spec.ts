@@ -832,7 +832,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   await expect.poll(async () => {
     const save = await readCurrentSave(page);
     return save?.party?.[0]?.experience;
-  }).toBe(initialCreature.experience + 50);
+  }).toBe(initialCreature.experience + 21); // Pidgey level 3: floor(50 * 3 / 7).
   const afterBattle = await readCurrentSave(page);
   const defeated = afterBattle.party[0];
   expect(defeated.instanceId).toBe(initialCreature.instanceId);
@@ -847,7 +847,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   expect(restored.party[0]).toMatchObject({
     instanceId: initialCreature.instanceId,
     hp: defeated.hp,
-    experience: initialCreature.experience + 50,
+    experience: initialCreature.experience + 21,
   });
   expect(restored.party[0].moves).toEqual(defeated.moves);
 });

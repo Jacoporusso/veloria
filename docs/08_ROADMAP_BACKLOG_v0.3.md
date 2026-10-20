@@ -142,18 +142,20 @@ S5 -> S6
 
 ## 9. Stato corrente e prosecuzione — 20/10/2026
 
-La sezione 8 conserva le fotografie storiche del 17/10. La versione pubblica0.3.86 arriva a Portolume/P5. L'integrazione locale0.3.88 comprende30 mappe, sei Palestre definite,29 missioni,13 allenatori,48 specie e53 mosse supportate; la pubblicazione e le ultime verifiche sono registrate in CI_STATUS. I contenuti successivi non sono implicitamente soddisfatti dall'espansione oltre l'MVP.
+La sezione 8 conserva le fotografie storiche del 17/10. La versione pubblica 0.3.88 arriva ad Acquariva/P6. Il checkpoint locale 0.3.89 comprende 30 mappe, sei Palestre definite, 29 missioni, 13 allenatori, 52 specie e 57 mosse supportate; pubblicazione e verifiche sono registrate in CI_STATUS. I contenuti successivi non sono implicitamente soddisfatti dall'espansione oltre l'MVP.
 
 | Ambito | Evidenza corrente | Lavoro ancora richiesto |
 |---|---|---|
-| P1–P6 | Percorsi, puzzle, vittorie e premi persistenti verificati con checkpoint; P6 e tre sfide intermedie in verifica locale | Bilanciamento naturale completo con tutti gli starter e QA fisico |
+| P1–P6 | Percorsi, puzzle, vittorie e premi persistenti verificati con checkpoint; P6 e tre sfide intermedie pubblicate | Bilanciamento naturale completo con tutti gli starter e QA fisico |
 | Trasporto dopo P3 | Monorotaia dati/visite estesa a sei città; prime fermate verificate in browser e offline | Verifica delle fermate aggiunte e funivia dopo P7 |
 | Ferraluce e D03 | Condotto e indagine della Centrale pubblicati; indagine completa offline provata sull'URL Pages | Quartieri e interni della città completa, revisione narrativa complessiva |
-| Catalogo Pokémon |48 specie,53 mosse, fonti locali e artwork verificati; tre evoluzioni lacustri per livello | Roster #001–#251, forme finali degli starter e Ampharos, altre mosse/effetti/evoluzioni e disponibilità completa senza scambi |
+| Catalogo Pokémon | 52 specie, 57 mosse, fonti locali e artwork verificati; forme finali degli starter e Ampharos integrate localmente | Roster #001–#251, altre mosse/effetti/evoluzioni e disponibilità completa senza scambi |
 | Verifiche | Build, validazione contenuti, test di dominio e percorsi locali; resoconti in CI_STATUS | Suite GitHub completa verde, dialoghi iniziali e timeout lunghi ancora da chiudere |
-| Regione finale | Costa, Delta e lago fino a P6 integrati localmente; contratto geografico nel documento02 | R12–R16, Passobrina, Biancavetta/P7, Grotte del Cristallo, Concordia/P8, Santuario, Lega, conclusione ed epilogo; passaggi tardivi aggiuntivi |
+| Regione finale | Costa, Delta e lago fino a P6 pubblicati; contratto geografico nel documento02 | R12–R16, Passobrina, Biancavetta/P7, Grotte del Cristallo, Concordia/P8, Santuario, Lega, conclusione ed epilogo; passaggi tardivi aggiuntivi |
 
-Prima della prossima espansione completare verifica e pubblicazione di Acquariva, ritmo di crescita e forme evolute necessarie ai livelli raggiunti: Venusaur, Charizard, Blastoise e Ampharos mancano ancora al catalogo runtime. La correzione XP v8 e le sfide intermedie migliorano la progressione, ma non equivalgono a una partita naturale verificata.
+Prima della prossima espansione completare la verifica delle correzioni CI e pubblicare le forme evolute appena integrate. La correzione XP v8, le sfide intermedie e le evoluzioni finali migliorano la progressione, ma non equivalgono a una partita naturale verificata.
+
+La pubblicazione di Acquariva è riuscita su `5200b5f`; la suite GitHub completa è terminata con fallimenti, in correzione. Il checkpoint locale 0.3.89 include ora Venusaur, Charizard, Blastoise e Ampharos: 52 specie, 57 mosse, quattro nuove prove browser di evoluzione e salvataggio riuscite. Restano il bilanciamento naturale e la verifica offline/Linux del nuovo checkpoint. L'avvio pubblico mostra inoltre che Borgofonte mantiene un terreno a tile ripetute: la parità visiva delle prime zone con le nuove mappe illustrate resta aperta. Non dichiarare conclusa la modernizzazione dell'intera regione. Conservare porte, NPC, collisioni e missioni quando si aggiornano i primi ambienti, verificandoli in portrait/landscape e sul percorso iniziale.
 
 La prossima espansione geografica è **R12 Valle del Vento → Passobrina → R13 Tornanti Bianchi → Biancavetta/P7 Ghiaccio**, con preparazione alla montagna, puzzle di superfici ghiacciate e funivia dopo P7, come da documento02. Collegamento, progressione narrativa verso la sorgente, roster ufficiale supportato, illustrazioni, servizi e ritorni vanno realizzati e verificati insieme; una semplice uscita verso una mappa vuota non soddisfa il capitolo. D05/Grotte e il seguito verso P8 restano nel perimetro regionale, senza anticiparne il completamento.
 

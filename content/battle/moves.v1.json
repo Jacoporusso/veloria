@@ -747,6 +747,53 @@
           "stages": 1
         }
       ]
+    },
+    "wing-attack": {
+      "id": "wing-attack",
+      "name": "Attacco d’Ala",
+      "type": "flying",
+      "category": "physical",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 35
+    },
+    "water-pulse": {
+      "id": "water-pulse",
+      "name": "Idropulsar",
+      "type": "water",
+      "category": "special",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "inflictedConfusionChance": 20,
+      "minConfusionTurns": 2,
+      "maxConfusionTurns": 5
+    },
+    "thunder-punch": {
+      "id": "thunder-punch",
+      "name": "Tuonopugno",
+      "type": "electric",
+      "category": "physical",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedStatus": "paralysis",
+      "statusChance": 10
+    },
+    "discharge": {
+      "id": "discharge",
+      "name": "Scarica",
+      "type": "electric",
+      "category": "special",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedStatus": "paralysis",
+      "statusChance": 30
     }
   }
 }

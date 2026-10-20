@@ -332,7 +332,11 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
         const player = observed?.player;
         return `${player?.mapId}|${player?.x},${player?.y}`;
       }).not.toBe(`${before.player.mapId}|${before.player.x},${before.player.y}`);
-      if (stopAtMapId && observed?.player?.mapId === stopAtMapId) break;
+      if (stopAtMapId) {
+        await expect(page.locator('#game-loading')).toBeHidden();
+        observed = await readSave(page);
+        if (observed?.player?.mapId === stopAtMapId) break;
+      }
     }
     return observed;
   };
@@ -428,8 +432,9 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await walk('alto', 15);
   await walk('destra', 2, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/r01_sentiero_alba');
+  expect((await readSave(page)).player).toMatchObject({ x: 1, y: 10 });
   await walk('destra', 14);
-  await page.getByRole('button', { name: 'Vai in alto' }).tap();
+  await page.getByRole('button', { name: 'Vai in alto' }).tap(); // Face the solid pickup without entering its tile.
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect.poll(async () => (await readSave(page))?.inventory?.potion).toBe(3);
   await walk('destra', 14);
@@ -810,7 +815,7 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-for (const [group, expected] of [['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]]] as const) {
+for (const [group, expected] of [['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]]] as const) {
 test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
   const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;

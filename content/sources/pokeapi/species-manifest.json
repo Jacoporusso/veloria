@@ -50,6 +50,11 @@
       "path": "content/sources/pokeapi/pokemon-species-180.json",
       "sha256": "cf622d5a6a70a93ec59b50ec379698020df20eef05f32aaf48102674ca0568f2"
     },
+    "pokemon-species/181": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/181/",
+      "path": "content/sources/pokeapi/pokemon-species-181.json",
+      "sha256": "d2300b373e7ebf305519db362a94dd391df29f81e1fbd688b7c98bc37d916916"
+    },
     "pokemon-species/195": {
       "url": "https://pokeapi.co/api/v2/pokemon-species/195/",
       "path": "content/sources/pokeapi/pokemon-species-195.json",
@@ -80,10 +85,20 @@
       "path": "content/sources/pokeapi/pokemon-species-227.json",
       "sha256": "1433cd7bd1080cf68bc7cc526b9a346c08611dd993c5dac19c3e11d3a3f9f4df"
     },
+    "pokemon-species/3": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/3/",
+      "path": "content/sources/pokeapi/pokemon-species-3.json",
+      "sha256": "1ec7684f0dae5889a4cdb014c1dce2866be60479079004bbc14afff26d7b09e5"
+    },
     "pokemon-species/5": {
       "url": "https://pokeapi.co/api/v2/pokemon-species/5/",
       "path": "content/sources/pokeapi/pokemon-species-5.json",
       "sha256": "4b85319a7dc2723d641cf9376011c08429e4773bc489a5d8ebed945475a6db74"
+    },
+    "pokemon-species/6": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/6/",
+      "path": "content/sources/pokeapi/pokemon-species-6.json",
+      "sha256": "623e24b457cb50ed73df753dc54ba5b8f24ba314220ade8166a878edc44c3b3a"
     },
     "pokemon-species/72": {
       "url": "https://pokeapi.co/api/v2/pokemon-species/72/",
@@ -119,6 +134,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon-species/82/",
       "path": "content/sources/pokeapi/pokemon-species-82.json",
       "sha256": "05b0643d52f347e0e24fde889a9436707731564e491ce9758ad1f2d9ebd6b8fd"
+    },
+    "pokemon-species/9": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/9/",
+      "path": "content/sources/pokeapi/pokemon-species-9.json",
+      "sha256": "c38fe3038228bfe5f80c39be0e8677202e5fafd19cc20bb6e02a7af6ef3befbc"
     },
     "pokemon-species/96": {
       "url": "https://pokeapi.co/api/v2/pokemon-species/96/",
@@ -190,6 +210,11 @@
       "path": "content/sources/pokeapi/pokemon-180.json",
       "sha256": "aa44327b475f1ba259c4e5fe9a0e3fb77650aa0761c6ae29b8984e70b1a42dbc"
     },
+    "pokemon/181": {
+      "url": "https://pokeapi.co/api/v2/pokemon/181/",
+      "path": "content/sources/pokeapi/pokemon-181.json",
+      "sha256": "0c3adf4a26eea6950ad7fcbfe3243f5149d7459fdb18786222a38bc5533183a9"
+    },
     "pokemon/195": {
       "url": "https://pokeapi.co/api/v2/pokemon/195/",
       "path": "content/sources/pokeapi/pokemon-195.json",
@@ -220,10 +245,20 @@
       "path": "content/sources/pokeapi/pokemon-227.json",
       "sha256": "5ec39735d99c89786c4d6bd78df585288d07b2a1d53cb53999203d2ab4d16127"
     },
+    "pokemon/3": {
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "path": "content/sources/pokeapi/pokemon-3.json",
+      "sha256": "fd114adb1315542de8a79695e17e818643d357e72e12c2ffbd63fe4d8f8bd6a8"
+    },
     "pokemon/5": {
       "url": "https://pokeapi.co/api/v2/pokemon/5/",
       "path": "content/sources/pokeapi/pokemon-5.json",
       "sha256": "48d199521c4e4090c3460998a2154348741c385cd15ec4442c0aa69e413f0835"
+    },
+    "pokemon/6": {
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "path": "content/sources/pokeapi/pokemon-6.json",
+      "sha256": "867e3acf05e270dd61377f52067c82a9ca3d10acf18eb3b1f2b4f72145635fc2"
     },
     "pokemon/72": {
       "url": "https://pokeapi.co/api/v2/pokemon/72/",
@@ -259,6 +294,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/82/",
       "path": "content/sources/pokeapi/pokemon-82.json",
       "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
+    },
+    "pokemon/9": {
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+      "path": "content/sources/pokeapi/pokemon-9.json",
+      "sha256": "e24b83abc281ca425fdc732c5f0c1aa428d285879b7073986e76d54049b45de0"
     },
     "pokemon/96": {
       "url": "https://pokeapi.co/api/v2/pokemon/96/",

@@ -56,6 +56,11 @@
       "path": "content/sources/pokeapi/move-defense-curl.json",
       "sha256": "a1d203f4fb8eab485ba0ee7ef25808d18c60d8bbfd4c431c0dbc35cfb4c68cd9"
     },
+    "move/discharge": {
+      "url": "https://pokeapi.co/api/v2/move/discharge/",
+      "path": "content/sources/pokeapi/move-discharge.json",
+      "sha256": "e48d19cbdc5546e8cf386123dd1129e4f4eae42f0f3586b4ace8f1c3a0703992"
+    },
     "move/double-slap": {
       "url": "https://pokeapi.co/api/v2/move/double-slap/",
       "path": "content/sources/pokeapi/move-double-slap.json",
@@ -236,6 +241,11 @@
       "path": "content/sources/pokeapi/move-tail-whip.json",
       "sha256": "2e84534f89e28280393b4c71baef5d3e23ef413f38dfdd340afb394c958afc00"
     },
+    "move/thunder-punch": {
+      "url": "https://pokeapi.co/api/v2/move/thunder-punch/",
+      "path": "content/sources/pokeapi/move-thunder-punch.json",
+      "sha256": "4c740df9a58250ca4affdee21596c791831fd25a05d2311815894d1fe4eb32e8"
+    },
     "move/thunder-shock": {
       "url": "https://pokeapi.co/api/v2/move/thunder-shock/",
       "path": "content/sources/pokeapi/move-thunder-shock.json",
@@ -260,6 +270,16 @@
       "url": "https://pokeapi.co/api/v2/move/water-gun/",
       "path": "content/sources/pokeapi/move-water-gun.json",
       "sha256": "5b73fddd63a577c330b449867246a8a04e7ca5ed059cfd2e6e4b8fd92f17b3c7"
+    },
+    "move/water-pulse": {
+      "url": "https://pokeapi.co/api/v2/move/water-pulse/",
+      "path": "content/sources/pokeapi/move-water-pulse.json",
+      "sha256": "6de10ad9ded88ba01b9d1dca2a98d63e33bae6c14e093b30de1c55e7c1e5acab"
+    },
+    "move/wing-attack": {
+      "url": "https://pokeapi.co/api/v2/move/wing-attack/",
+      "path": "content/sources/pokeapi/move-wing-attack.json",
+      "sha256": "7870b075d543779ded5a37da7ef4677a331c6671a86345388e5363b357482bcf"
     },
     "move/withdraw": {
       "url": "https://pokeapi.co/api/v2/move/withdraw/",
@@ -376,6 +396,11 @@
       "path": "content/sources/pokeapi/pokemon-180.json",
       "sha256": "aa44327b475f1ba259c4e5fe9a0e3fb77650aa0761c6ae29b8984e70b1a42dbc"
     },
+    "pokemon/181": {
+      "url": "https://pokeapi.co/api/v2/pokemon/181/",
+      "path": "content/sources/pokeapi/pokemon-181.json",
+      "sha256": "0c3adf4a26eea6950ad7fcbfe3243f5149d7459fdb18786222a38bc5533183a9"
+    },
     "pokemon/19": {
       "url": "https://pokeapi.co/api/v2/pokemon/19/",
       "path": "content/sources/pokeapi/pokemon-19.json",
@@ -421,6 +446,11 @@
       "path": "content/sources/pokeapi/pokemon-25.json",
       "sha256": "496f79f6858cb31ce6318c6b0c1eee946af8968d0cbb4e3b048e8ec77b11e078"
     },
+    "pokemon/3": {
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "path": "content/sources/pokeapi/pokemon-3.json",
+      "sha256": "fd114adb1315542de8a79695e17e818643d357e72e12c2ffbd63fe4d8f8bd6a8"
+    },
     "pokemon/4": {
       "url": "https://pokeapi.co/api/v2/pokemon/4/",
       "path": "content/sources/pokeapi/pokemon-4.json",
@@ -435,6 +465,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/5/",
       "path": "content/sources/pokeapi/pokemon-5.json",
       "sha256": "48d199521c4e4090c3460998a2154348741c385cd15ec4442c0aa69e413f0835"
+    },
+    "pokemon/6": {
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "path": "content/sources/pokeapi/pokemon-6.json",
+      "sha256": "867e3acf05e270dd61377f52067c82a9ca3d10acf18eb3b1f2b4f72145635fc2"
     },
     "pokemon/60": {
       "url": "https://pokeapi.co/api/v2/pokemon/60/",
@@ -485,6 +520,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/82/",
       "path": "content/sources/pokeapi/pokemon-82.json",
       "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
+    },
+    "pokemon/9": {
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+      "path": "content/sources/pokeapi/pokemon-9.json",
+      "sha256": "e24b83abc281ca425fdc732c5f0c1aa428d285879b7073986e76d54049b45de0"
     },
     "pokemon/96": {
       "url": "https://pokeapi.co/api/v2/pokemon/96/",

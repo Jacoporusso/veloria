@@ -133,6 +133,26 @@
       "speciesId": 196,
       "templateSpeciesId": 7,
       "artworkGroup": "lake"
+    },
+    {
+      "speciesId": 3,
+      "templateSpeciesId": 2,
+      "artworkGroup": "starter-finals"
+    },
+    {
+      "speciesId": 6,
+      "templateSpeciesId": 5,
+      "artworkGroup": "starter-finals"
+    },
+    {
+      "speciesId": 9,
+      "templateSpeciesId": 8,
+      "artworkGroup": "starter-finals"
+    },
+    {
+      "speciesId": 181,
+      "templateSpeciesId": 180,
+      "artworkGroup": "starter-finals"
     }
   ]
 }

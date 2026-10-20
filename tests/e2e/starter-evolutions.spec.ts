@@ -48,7 +48,7 @@ async function tapText(page: Page, text: string) {
   await page.touchscreen.tap(point.x, point.y);
 }
 
-for (const [fromId, toId, name, threshold] of [[1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20]] as const) {
+for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20], [2, 3, 'Venusaur', 32, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals'], [8, 9, 'Blastoise', 36, 'starter-finals'], [180, 181, 'Ampharos', 30, 'starter-finals']] as const) {
   test(`${name} evolves in a real battle and survives IndexedDB reload with artwork`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -74,7 +74,7 @@ for (const [fromId, toId, name, threshold] of [[1, 2, 'Ivysaur', 16], [4, 5, 'Ch
     });
     expect(observed.completions).toBe(1);
     expect(observed.events).toBe(1);
-    expect(observed.artwork).toBe(`pokeapi-evolution-${toId}-v1`);
+    expect(observed.artwork).toBe(`pokeapi-${artGroup}-${toId}-v1`);
     await page.getByRole('button', { name: 'Continua', exact: true }).click();
     await page.reload();
     const stored = await page.evaluate(async () => {
@@ -94,7 +94,7 @@ for (const [fromId, toId, name, threshold] of [[1, 2, 'Ivysaur', 16], [4, 5, 'Ch
     expect(stored.moves).toEqual(observed.creature.moves.map((slot: any) => ({ id: slot.moveId, pp: slot.pp })));
     await page.getByRole('button', { name: new RegExp(name) }).click();
     await expect(page.locator('.pokemon-hero')).toContainText(name);
-    await expect(page.locator('.pokemon-hero .creature-portrait')).toHaveCSS('background-image', new RegExp(`pokeapi-evolution-${toId}-v1.webp`));
+    await expect(page.locator('.pokemon-hero .creature-portrait')).toHaveCSS('background-image', new RegExp(`pokeapi-${artGroup}-${toId}-v1.webp`));
     await page.screenshot({ path: testInfo.outputPath('evolved-creature.png') });
     expect(errors).toEqual([]);
   });

@@ -37,7 +37,7 @@ export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'r
     observed=await readBrowserSave(page);
     const p=observed.player;
     return `${p.mapId}|${p.x},${p.y}`;
-  }).not.toBe(`${before.mapId}|${before.x},${before.y}`);
+  }, { intervals: [50, 100] }).not.toBe(`${before.mapId}|${before.x},${before.y}`);
   await expect(page.locator('#game-loading')).toBeHidden({timeout:30_000});
   return observed!;
 }

@@ -3336,6 +3336,364 @@
         "moveId": "power-swap",
         "order": null
       }
+    ],
+    "3": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "leech-seed",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "vine-whip",
+        "order": 4
+      },
+      {
+        "level": 3,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed",
+        "order": null
+      },
+      {
+        "level": 9,
+        "moveId": "vine-whip",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder",
+        "order": 1
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder",
+        "order": 2
+      },
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "sweet-scent",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "petal-dance",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "6": [
+      {
+        "level": 1,
+        "moveId": "dragon-claw",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "shadow-claw",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "air-slash",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 5
+      },
+      {
+        "level": 1,
+        "moveId": "ember",
+        "order": 6
+      },
+      {
+        "level": 1,
+        "moveId": "smokescreen",
+        "order": 7
+      },
+      {
+        "level": 7,
+        "moveId": "ember",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "scary-face",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 36,
+        "moveId": "wing-attack",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "fire-spin",
+        "order": null
+      },
+      {
+        "level": 59,
+        "moveId": "heat-wave",
+        "order": null
+      },
+      {
+        "level": 66,
+        "moveId": "flare-blitz",
+        "order": null
+      }
+    ],
+    "9": [
+      {
+        "level": 1,
+        "moveId": "flash-cannon",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "tail-whip",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "bubble",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "withdraw",
+        "order": 5
+      },
+      {
+        "level": 4,
+        "moveId": "tail-whip",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "bubble",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "water-gun",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "water-pulse",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 60,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "181": [
+      {
+        "level": 1,
+        "moveId": "fire-punch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "thunder-shock",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "thunder-wave",
+        "order": 5
+      },
+      {
+        "level": 5,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 30,
+        "moveId": "thunder-punch",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "discharge",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 59,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 68,
+        "moveId": "thunder",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -3417,11 +3775,6 @@
       {
         "level": 22,
         "moveId": "protect",
-        "order": null
-      },
-      {
-        "level": 25,
-        "moveId": "water-pulse",
         "order": null
       },
       {
@@ -3562,11 +3915,6 @@
         "order": null
       },
       {
-        "level": 33,
-        "moveId": "wing-attack",
-        "order": null
-      },
-      {
         "level": 37,
         "moveId": "roost",
         "order": null
@@ -3653,11 +4001,6 @@
       {
         "level": 29,
         "moveId": "feint",
-        "order": null
-      },
-      {
-        "level": 37,
-        "moveId": "discharge",
         "order": null
       },
       {
@@ -3915,11 +4258,6 @@
         "order": null
       },
       {
-        "level": 28,
-        "moveId": "discharge",
-        "order": null
-      },
-      {
         "level": 32,
         "moveId": "signal-beam",
         "order": null
@@ -4063,11 +4401,6 @@
         "order": null
       },
       {
-        "level": 28,
-        "moveId": "water-pulse",
-        "order": null
-      },
-      {
         "level": 32,
         "moveId": "aqua-tail",
         "order": null
@@ -4102,11 +4435,6 @@
       {
         "level": 30,
         "moveId": "magnet-bomb",
-        "order": null
-      },
-      {
-        "level": 38,
-        "moveId": "discharge",
         "order": null
       },
       {
@@ -4191,11 +4519,6 @@
       {
         "level": 27,
         "moveId": "feather-dance",
-        "order": null
-      },
-      {
-        "level": 37,
-        "moveId": "wing-attack",
         "order": null
       },
       {
@@ -4392,11 +4715,6 @@
         "order": null
       },
       {
-        "level": 31,
-        "moveId": "discharge",
-        "order": null
-      },
-      {
         "level": 36,
         "moveId": "signal-beam",
         "order": null
@@ -4478,11 +4796,6 @@
       {
         "level": 30,
         "moveId": "magnet-bomb",
-        "order": null
-      },
-      {
-        "level": 40,
-        "moveId": "discharge",
         "order": null
       },
       {
@@ -4637,11 +4950,6 @@
         "order": null
       },
       {
-        "level": 29,
-        "moveId": "water-pulse",
-        "order": null
-      },
-      {
         "level": 33,
         "moveId": "poison-jab",
         "order": null
@@ -4666,11 +4974,6 @@
       {
         "level": 22,
         "moveId": "wrap",
-        "order": null
-      },
-      {
-        "level": 29,
-        "moveId": "water-pulse",
         "order": null
       },
       {
@@ -4800,11 +5103,6 @@
         "order": null
       },
       {
-        "level": 34,
-        "moveId": "discharge",
-        "order": null
-      },
-      {
         "level": 39,
         "moveId": "aqua-ring",
         "order": null
@@ -4852,11 +5150,6 @@
         "order": null
       },
       {
-        "level": 40,
-        "moveId": "discharge",
-        "order": null
-      },
-      {
         "level": 47,
         "moveId": "aqua-ring",
         "order": null
@@ -4891,11 +5184,6 @@
       {
         "level": 25,
         "moveId": "headbutt",
-        "order": null
-      },
-      {
-        "level": 29,
-        "moveId": "water-pulse",
         "order": null
       },
       {
@@ -4943,11 +5231,6 @@
       {
         "level": 25,
         "moveId": "headbutt",
-        "order": null
-      },
-      {
-        "level": 29,
-        "moveId": "water-pulse",
         "order": null
       },
       {
@@ -5300,6 +5583,184 @@
       {
         "level": 78,
         "moveId": "power-swap",
+        "order": null
+      }
+    ],
+    "3": [
+      {
+        "level": 15,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "razor-leaf",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "growth",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "double-edge",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "petal-dance",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "worry-seed",
+        "order": null
+      },
+      {
+        "level": 45,
+        "moveId": "synthesis",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "6": [
+      {
+        "level": 1,
+        "moveId": "dragon-claw",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "shadow-claw",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "air-slash",
+        "order": 3
+      },
+      {
+        "level": 17,
+        "moveId": "dragon-rage",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "fire-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "flamethrower",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "fire-spin",
+        "order": null
+      },
+      {
+        "level": 59,
+        "moveId": "heat-wave",
+        "order": null
+      },
+      {
+        "level": 66,
+        "moveId": "flare-blitz",
+        "order": null
+      }
+    ],
+    "9": [
+      {
+        "level": 1,
+        "moveId": "flash-cannon",
+        "order": 1
+      },
+      {
+        "level": 16,
+        "moveId": "bite",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "rapid-spin",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "protect",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "skull-bash",
+        "order": null
+      },
+      {
+        "level": 46,
+        "moveId": "iron-defense",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "rain-dance",
+        "order": null
+      },
+      {
+        "level": 60,
+        "moveId": "hydro-pump",
+        "order": null
+      }
+    ],
+    "181": [
+      {
+        "level": 1,
+        "moveId": "fire-punch",
+        "order": 1
+      },
+      {
+        "level": 20,
+        "moveId": "cotton-spore",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "charge",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "light-screen",
+        "order": null
+      },
+      {
+        "level": 59,
+        "moveId": "power-gem",
+        "order": null
+      },
+      {
+        "level": 68,
+        "moveId": "thunder",
         "order": null
       }
     ]

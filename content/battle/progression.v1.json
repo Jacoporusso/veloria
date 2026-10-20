@@ -122,6 +122,30 @@
       "toSpeciesId": 178,
       "minimumLevel": 25,
       "assetId": "pokeapi-lake-178-v1-webp"
+    },
+    {
+      "fromSpeciesId": 2,
+      "toSpeciesId": 3,
+      "minimumLevel": 32,
+      "assetId": "pokeapi-starter-finals-3-v1-webp"
+    },
+    {
+      "fromSpeciesId": 5,
+      "toSpeciesId": 6,
+      "minimumLevel": 36,
+      "assetId": "pokeapi-starter-finals-6-v1-webp"
+    },
+    {
+      "fromSpeciesId": 8,
+      "toSpeciesId": 9,
+      "minimumLevel": 36,
+      "assetId": "pokeapi-starter-finals-9-v1-webp"
+    },
+    {
+      "fromSpeciesId": 180,
+      "toSpeciesId": 181,
+      "minimumLevel": 30,
+      "assetId": "pokeapi-starter-finals-181-v1-webp"
     }
   ]
 }

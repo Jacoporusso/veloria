@@ -1,5 +1,10 @@
-const CACHE = 'veloria-shell-v109';
+const CACHE = 'veloria-shell-v110';
 const SHELL = [
+  './assets/creatures/pokeapi-starter-finals-3-v1.webp',
+  './assets/creatures/pokeapi-starter-finals-6-v1.webp',
+  './assets/creatures/pokeapi-starter-finals-9-v1.webp',
+  './assets/creatures/pokeapi-starter-finals-181-v1.webp',
+
   './tilemaps/r09_dune_salmastre.tmj',
   './tilemaps/d04_delta_specchi.tmj',
   './tilemaps/r10_sentiero_canne.tmj',

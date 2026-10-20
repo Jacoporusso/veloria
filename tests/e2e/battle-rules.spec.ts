@@ -308,8 +308,12 @@ test('level-up move choice supports replacement and decline in sequence before c
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').moveLearningPrompt())).toContain('Attacco Rapido');
 
   // Move to row two, first column: replace Tackle with Quick Attack.
-  await page.keyboard.press('ArrowDown', { delay: 40 });
-  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
+  await page.keyboard.down('ArrowDown');
+  try {
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
+  } finally {
+    await page.keyboard.up('ArrowDown');
+  }
   await page.keyboard.press('Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');

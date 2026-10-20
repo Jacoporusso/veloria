@@ -65,6 +65,10 @@
       {
         "level": 13,
         "moveId": "water-gun"
+      },
+      {
+        "level": 25,
+        "moveId": "water-pulse"
       }
     ],
     "10": [],
@@ -137,6 +141,10 @@
       {
         "level": 29,
         "moveId": "agility"
+      },
+      {
+        "level": 33,
+        "moveId": "wing-attack"
       }
     ],
     "19": [
@@ -165,6 +173,10 @@
       {
         "level": 34,
         "moveId": "agility"
+      },
+      {
+        "level": 37,
+        "moveId": "discharge"
       }
     ],
     "43": [
@@ -311,6 +323,10 @@
       {
         "level": 14,
         "moveId": "thunder-wave"
+      },
+      {
+        "level": 28,
+        "moveId": "discharge"
       }
     ],
     "194": [
@@ -383,6 +399,10 @@
       {
         "level": 13,
         "moveId": "water-gun"
+      },
+      {
+        "level": 28,
+        "moveId": "water-pulse"
       }
     ],
     "81": [
@@ -409,6 +429,10 @@
       {
         "level": 33,
         "moveId": "screech"
+      },
+      {
+        "level": 38,
+        "moveId": "discharge"
       }
     ],
     "100": [
@@ -449,6 +473,10 @@
       {
         "level": 32,
         "moveId": "agility"
+      },
+      {
+        "level": 37,
+        "moveId": "wing-attack"
       }
     ],
     "20": [
@@ -509,6 +537,10 @@
       {
         "level": 14,
         "moveId": "thunder-wave"
+      },
+      {
+        "level": 31,
+        "moveId": "discharge"
       }
     ],
     "195": [
@@ -549,6 +581,10 @@
       {
         "level": 34,
         "moveId": "screech"
+      },
+      {
+        "level": 40,
+        "moveId": "discharge"
       }
     ],
     "208": [
@@ -609,6 +645,10 @@
         "moveId": "barrier"
       },
       {
+        "level": 29,
+        "moveId": "water-pulse"
+      },
+      {
         "level": 36,
         "moveId": "screech"
       }
@@ -633,6 +673,10 @@
       {
         "level": 26,
         "moveId": "barrier"
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse"
       },
       {
         "level": 42,
@@ -703,6 +747,10 @@
       {
         "level": 28,
         "moveId": "bubble-beam"
+      },
+      {
+        "level": 34,
+        "moveId": "discharge"
       }
     ],
     "171": [
@@ -725,6 +773,10 @@
       {
         "level": 30,
         "moveId": "bubble-beam"
+      },
+      {
+        "level": 40,
+        "moveId": "discharge"
       }
     ],
     "79": [
@@ -739,6 +791,10 @@
       {
         "level": 15,
         "moveId": "confusion"
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse"
       },
       {
         "level": 43,
@@ -757,6 +813,10 @@
       {
         "level": 15,
         "moveId": "confusion"
+      },
+      {
+        "level": 29,
+        "moveId": "water-pulse"
       },
       {
         "level": 37,
@@ -841,6 +901,94 @@
       {
         "level": 36,
         "moveId": "psybeam"
+      }
+    ],
+    "3": [
+      {
+        "level": 3,
+        "moveId": "growl"
+      },
+      {
+        "level": 7,
+        "moveId": "leech-seed"
+      },
+      {
+        "level": 9,
+        "moveId": "vine-whip"
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 13,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 23,
+        "moveId": "sweet-scent"
+      }
+    ],
+    "6": [
+      {
+        "level": 7,
+        "moveId": "ember"
+      },
+      {
+        "level": 10,
+        "moveId": "smokescreen"
+      },
+      {
+        "level": 21,
+        "moveId": "scary-face"
+      },
+      {
+        "level": 36,
+        "moveId": "wing-attack"
+      }
+    ],
+    "9": [
+      {
+        "level": 4,
+        "moveId": "tail-whip"
+      },
+      {
+        "level": 7,
+        "moveId": "bubble"
+      },
+      {
+        "level": 10,
+        "moveId": "withdraw"
+      },
+      {
+        "level": 13,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 28,
+        "moveId": "water-pulse"
+      }
+    ],
+    "181": [
+      {
+        "level": 5,
+        "moveId": "growl"
+      },
+      {
+        "level": 10,
+        "moveId": "thunder-shock"
+      },
+      {
+        "level": 14,
+        "moveId": "thunder-wave"
+      },
+      {
+        "level": 30,
+        "moveId": "thunder-punch"
+      },
+      {
+        "level": 34,
+        "moveId": "discharge"
       }
     ]
   }

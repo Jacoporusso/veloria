@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "scope": "Private prototype starter-finals-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 3,
+      "name": "Venusaur",
+      "path": "assets/creatures/pokeapi-starter-finals-3-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "sourcePath": "assets/sources/pokeapi/starter-finals/3.png",
+      "sourceSha256": "106d0040aa775f95871706c30ddd4abaef2c962215f5e8bd4141e0caef0ef8e4",
+      "sha256": "1ae060ab6098f4d1803703be9b985cecd6b95f0c6fd8e2f84b76996bf434c592"
+    },
+    {
+      "speciesId": 6,
+      "name": "Charizard",
+      "path": "assets/creatures/pokeapi-starter-finals-6-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "sourcePath": "assets/sources/pokeapi/starter-finals/6.png",
+      "sourceSha256": "b6d5b8ee9fb05dc6f53294b2cae660dec770b92762cdb19d16bcbd679e1ba43a",
+      "sha256": "d7469d97ce02319fd8b091e1000dc00bc55f2a032fbdd3217296410355a22d81"
+    },
+    {
+      "speciesId": 9,
+      "name": "Blastoise",
+      "path": "assets/creatures/pokeapi-starter-finals-9-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "sourcePath": "assets/sources/pokeapi/starter-finals/9.png",
+      "sourceSha256": "ba0a6b633e7a5d5a8c52498b0556518005fd4c63ef4564a8b06b79a73905a635",
+      "sha256": "de2de80e8d3172b3d3bcc19fc9b98e5a542079e472cf79429e0cc4271fdd49a9"
+    },
+    {
+      "speciesId": 181,
+      "name": "Ampharos",
+      "path": "assets/creatures/pokeapi-starter-finals-181-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/181.png",
+      "sourcePath": "assets/sources/pokeapi/starter-finals/181.png",
+      "sourceSha256": "6642ebe7d357c229e6ba1a353bd8530bf98808b4c2a7acdd6bc4798fd07aa191",
+      "sha256": "3bc7b39ef43c37cc3c2e122ddfc5f2025f0b542f1c785d4c8db69aa39ac6cef5"
+    }
+  ]
+}

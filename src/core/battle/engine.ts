@@ -572,7 +572,7 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     const previousLevel = level++;
     events.push({ type: 'levelUp', side, creatureId: recipient.instanceId, previousLevel, level });
     for (const learning of rules.levelUpMoves[recipient.speciesId] ?? []) {
-      if (learning.level > level || attempted.has(learning.moveId)) continue;
+      if (learning.level !== level || attempted.has(learning.moveId)) continue;
       attempted.add(learning.moveId);
       if (moves.length >= rules.maxMoves) {
         events.push({ type: 'moveLearningSkipped', side, creatureId: recipient.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });
@@ -610,7 +610,7 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
     seenSpecies.add(target.speciesId);
     events.push({ type: 'creatureEvolved', side, creatureId: evolved.instanceId, fromSpeciesId: previous.speciesId, fromName: previous.name, toSpeciesId: target.speciesId, toName: target.name, level: evolved.level });
     for (const learning of rules.levelUpMoves[target.speciesId] ?? []) {
-      if (learning.level > evolved.level || attempted.has(learning.moveId)) continue;
+      if (learning.level <= recipient.level || learning.level > evolved.level || attempted.has(learning.moveId)) continue;
       attempted.add(learning.moveId);
       if (moves.length >= rules.maxMoves) {
         events.push({ type: 'moveLearningSkipped', side, creatureId: evolved.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });

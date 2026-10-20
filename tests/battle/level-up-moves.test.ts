@@ -66,3 +66,14 @@ test('Butterfree learns its three level-12 powders in source order', () => {
   assert.deepEqual(result.events.filter(event => event.type === 'moveLearned').map(event => event.moveId), ['poison-powder', 'stun-spore', 'sleep-powder']);
   assert.deepEqual(result.state.player.creatures[0].moves.map(slot => slot.moveId), ['confusion', 'poison-powder', 'stun-spore', 'sleep-powder']);
 });
+
+test('a later level does not offer a forgotten move from an earlier level again',()=>{
+  const player=createBattleCreature({species,moves,speciesId:4,level:10,instanceId:'forgotten-smokescreen',moveIds:['ember'],
+    experience:experienceToNextLevel(10,rules.experienceCurves.veloria_medium_fast_v1)-1});
+  const enemy={...createBattleCreature({species,moves,speciesId:19,level:7,instanceId:'one-xp'}),hp:1,experienceYield:1};
+  const state=createBattleState({battleId:'no-relearning',battleType:'wild',seed:321,rules,playerTeam:[player],opponentTeam:[enemy]});
+  const result=resolveBattleTurn(state,{player:{kind:'useMove',moveSlot:0},opponent:{kind:'useMove',moveSlot:0}},moves,rules);
+  assert.equal(result.state.player.creatures[0].level,11);
+  assert.deepEqual(result.state.player.creatures[0].moves.map(slot=>slot.moveId),['ember']);
+  assert.equal(result.events.some(event=>event.type==='moveLearned'||event.type==='moveLearningSkipped'),false);
+});
