@@ -321,12 +321,16 @@
     {
       "id": "lega",
       "name": "Lega di Veloria",
-      "kind": "future",
+      "kind": "town",
       "x": 825,
       "y": 55,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "La destinazione sportiva finale prevista per l’avventura."
+      "mapIds": [
+        "veloria/league_forecourt"
+      ],
+      "visitedFlags": [
+        "q_league_visited"
+      ],
+      "description": "Piazzale monumentale, cure, deposito e rifornimenti. La sfida interna è in preparazione."
     },
     {
       "id": "r08",
@@ -447,6 +451,20 @@
         "q_d06_visited"
       ],
       "description": "Il nodo sorgente della Risonanza: letture, consenso e riallineamento della rete."
+    },
+    {
+      "id": "r16",
+      "name": "R16 · Cammino dell’Equilibrio",
+      "kind": "route",
+      "x": 803,
+      "y": 102,
+      "mapIds": [
+        "veloria/r16_cammino_equilibrio"
+      ],
+      "visitedFlags": [
+        "q_r16_visited"
+      ],
+      "description": "Giardini d’altura, habitat laterali e allenamenti facoltativi verso la Lega."
     }
   ],
   "connections": [
@@ -573,6 +591,14 @@
     [
       "concordia",
       "santuario"
+    ],
+    [
+      "concordia",
+      "r16"
+    ],
+    [
+      "r16",
+      "lega"
     ]
   ]
 }

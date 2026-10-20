@@ -894,6 +894,84 @@
       ],
       "statChangeChance": 30
     },
+    "flamethrower": {
+      "id": "flamethrower",
+      "name": "Lanciafiamme",
+      "type": "fire",
+      "category": "special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedStatus": "burn",
+      "statusChance": 10
+    },
+    "psychic": {
+      "id": "psychic",
+      "name": "Psichico",
+      "type": "psychic",
+      "category": "special",
+      "power": 90,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 10,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "specialDefense",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 10
+    },
+    "crunch": {
+      "id": "crunch",
+      "name": "Sgranocchio",
+      "type": "dark",
+      "category": "physical",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "defense",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 20
+    },
+    "shadow-ball": {
+      "id": "shadow-ball",
+      "name": "Palla Ombra",
+      "type": "ghost",
+      "category": "special",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "specialDefense",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 20
+    },
+    "sludge-bomb": {
+      "id": "sludge-bomb",
+      "name": "Fangobomba",
+      "type": "poison",
+      "category": "special",
+      "power": 90,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 10,
+      "inflictedStatus": "poison",
+      "statusChance": 30
+    },
     "dragon-rage": {
       "id": "dragon-rage",
       "name": "Ira di Drago",

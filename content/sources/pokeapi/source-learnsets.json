@@ -5070,11 +5070,6 @@
         "order": null
       },
       {
-        "level": 34,
-        "moveId": "flamethrower",
-        "order": null
-      },
-      {
         "level": 37,
         "moveId": "fire-spin",
         "order": null
@@ -5268,11 +5263,6 @@
       {
         "level": 19,
         "moveId": "sucker-punch",
-        "order": null
-      },
-      {
-        "level": 22,
-        "moveId": "crunch",
         "order": null
       },
       {
@@ -5535,11 +5525,6 @@
         "order": null
       },
       {
-        "level": 40,
-        "moveId": "psychic",
-        "order": null
-      },
-      {
         "level": 43,
         "moveId": "poison-jab",
         "order": null
@@ -5660,11 +5645,6 @@
       {
         "level": 32,
         "moveId": "slash",
-        "order": null
-      },
-      {
-        "level": 39,
-        "moveId": "flamethrower",
         "order": null
       },
       {
@@ -5855,11 +5835,6 @@
       {
         "level": 19,
         "moveId": "sucker-punch",
-        "order": null
-      },
-      {
-        "level": 24,
-        "moveId": "crunch",
         "order": null
       },
       {
@@ -6147,11 +6122,6 @@
       {
         "level": 41,
         "moveId": "iron-tail",
-        "order": null
-      },
-      {
-        "level": 46,
-        "moveId": "crunch",
         "order": null
       },
       {
@@ -6446,11 +6416,6 @@
         "order": null
       },
       {
-        "level": 48,
-        "moveId": "psychic",
-        "order": null
-      },
-      {
         "level": 53,
         "moveId": "rain-dance",
         "order": null
@@ -6493,11 +6458,6 @@
         "order": null
       },
       {
-        "level": 54,
-        "moveId": "psychic",
-        "order": null
-      },
-      {
         "level": 61,
         "moveId": "rain-dance",
         "order": null
@@ -6537,11 +6497,6 @@
       {
         "level": 37,
         "moveId": "swagger",
-        "order": null
-      },
-      {
-        "level": 40,
-        "moveId": "psychic",
         "order": null
       },
       {
@@ -6604,11 +6559,6 @@
       {
         "level": 45,
         "moveId": "swagger",
-        "order": null
-      },
-      {
-        "level": 50,
-        "moveId": "psychic",
         "order": null
       },
       {
@@ -6719,11 +6669,6 @@
         "level": 44,
         "moveId": "guard-swap",
         "order": 2
-      },
-      {
-        "level": 47,
-        "moveId": "psychic",
-        "order": null
       }
     ],
     "178": [
@@ -6791,11 +6736,6 @@
         "level": 54,
         "moveId": "guard-swap",
         "order": 2
-      },
-      {
-        "level": 59,
-        "moveId": "psychic",
-        "order": null
       }
     ],
     "196": [
@@ -6817,11 +6757,6 @@
       {
         "level": 57,
         "moveId": "psych-up",
-        "order": null
-      },
-      {
-        "level": 64,
-        "moveId": "psychic",
         "order": null
       },
       {
@@ -6901,11 +6836,6 @@
       {
         "level": 32,
         "moveId": "slash",
-        "order": null
-      },
-      {
-        "level": 42,
-        "moveId": "flamethrower",
         "order": null
       },
       {

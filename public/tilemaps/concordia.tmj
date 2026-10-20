@@ -3519,6 +3519,44 @@
               "value": "Conquista la Medaglia Armonia da Aurel prima della spedizione al Santuario."
             }
           ]
+        },
+        {
+          "id": 172,
+          "name": "Cammino dell’Equilibrio",
+          "type": "",
+          "x": 1248,
+          "y": 480,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r16_cammino_equilibrio"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_concordia"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "q_resonance_restored"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Completa il rapporto verificato del Santuario con Elia prima di partire verso la Lega."
+            }
+          ]
         }
       ]
     },
@@ -3535,7 +3573,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 172,
+  "nextobjectid": 173,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

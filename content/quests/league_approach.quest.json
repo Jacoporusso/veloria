@@ -1,0 +1,34 @@
+{
+  "id": "veloria/q_league_approach",
+  "version": 1,
+  "displayName": "Verso la Lega di Veloria",
+  "steps": [
+    {
+      "id": "r16",
+      "trigger": "area/veloria/r16_cammino_equilibrio/enter",
+      "setFlag": "q_r16_visited",
+      "requiresFlags": [
+        "q_resonance_restored"
+      ]
+    },
+    {
+      "id": "forecourt",
+      "trigger": "area/veloria/league_forecourt/enter",
+      "setFlag": "q_league_visited",
+      "requiresFlags": [
+        "q_resonance_restored"
+      ]
+    },
+    {
+      "id": "welcome",
+      "trigger": "league/reception/welcome",
+      "setFlag": "q_league_orientation",
+      "requiresFlags": [
+        "q_league_visited",
+        "q_resonance_restored"
+      ]
+    }
+  ],
+  "completionFlag": "q_league_orientation",
+  "reward": {}
+}

@@ -1,3 +1,12 @@
+## Cammino e piazzale della Lega 0.3.95 — 20/10/2026
+
+- 43 mappe, 42 quest, 18 allenatori, 11 negozi, 260 asset; 69 specie e 76 mosse. Build e validatore passati. 446 test dominio + 16 persistenza, 88 Python riusciti.
+- Percorso browser: blocco prima del rapporto del Santuario, R16 senza incontri obbligatori, rifiuto di Maia, arrivo al piazzale, cure HP/PP, acquisti, accoglienza, portale informativo, ritorno completo e reload: passato in 1 minuto. Due lotte touch con Maia e Tobia, premi unici e dialoghi dopo reload: passate in 30,6 e 23,9 secondi. Checkpoint freschi e potenziati con contromosse legali; non attestano bilanciamento naturale. Il precedente Quagsire ferito perdeva contro Hypno: nessun indebolimento del trainer per far passare il test.
+- Primo accesso offline a due ambienti e due Tiled, cammino completo, servizi HP/PP, acquisto e ritorno a Concordia con reload: passato in 49 secondi, 1 minuto inclusa build. Cache v116. R16 e piazzale esaminati visivamente in landscape. Nessuna modifica runtime durante le prove.
+- Core puro delle sfide sequenziali verificato con 9 test; ancora privo di registry e integrazione nelle scene. Sale della Lega, cinque incontri consecutivi, finale ed epilogo non vengono dichiarati giocabili.
+- Verify della 0.3.94 `39416755246` concluso SUCCESS: tutti i 10 job riusciti (8 browser, percorso offline e risorse offline). La separazione MVP/capitoli e offline lungo/risorse ha completato l’intera suite Linux, senza rimuovere prove o asserzioni.
+- Pubblicazione 0.3.95 ancora da confermare; nuova suite Linux da verificare sui nuovi contenuti.
+
 ## Pubblicazione Santuario0.3.94 —20/10/2026
 
 Commit gioco `45c29882a3c8a2a3705a81479f9691050571378b` pubblicato; deploy Pages `39416687436` riuscito. HTTPS conferma registro0.3.94, cachev115 e Tiled D06 32×24. Commit successivo `ddf59b72df11c5e4f9ad35cd256b1455802339e3` include la selezione delle suite Playwright già verificata localmente: il file config non era incluso nel primo staging. Verify intermedio39416687513 annullato perché superato; nuova verifica39416755246 e deploy39416755376 ancora in attesa/all’avvio al momento di questo aggiornamento. Non si attesta una suite Linux completa verde. Aggiornamento soltanto documentale, senza nuovo workflow duplicato.

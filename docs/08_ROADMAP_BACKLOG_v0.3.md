@@ -1,3 +1,9 @@
+## Aggiornamento locale0.3.95
+
+R16 e piazzale della Lega integrati: habitat laterali, Maia/Tobia, cure/deposito/mercato, accoglienza, ritorni. Mosse76da fonti locali, core puro delle sfide sequenziali pronto con9test. Documento27 per contenuti e limiti,26 per contratto della Lega. Sale/campionato/epilogo non ancora collegati.
+
+Prossimo passo: integrare la sequenza dei quattro consiglieri e del Campione con reset, checkpoint, premi unici, conclusione sportiva ed epilogo; poi verifica della progressione naturale, catalogo251, regole/evoluzioni mancanti e uniformità artistica. Pubblicazione e CI in CI_STATUS.
+
 ## Aggiornamento locale0.3.94
 
 Santuario delle Due Luci collegato dopo P8: ambiente originale, ricerca in ordine libero, consenso, tre controlli dichiarativi, verifica indipendente del ricevitore e rapporto finale unico. Nessun portale verso mappe assenti. Documentazione25 e CI_STATUS attestano integrazione e verifiche.

@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_r16_maia",
+  "name": "Maia",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_r16_maia_defeated",
+  "defeatQuestEvent": "battle/r16_maia/defeated",
+  "rewardMoney": 1800,
+  "victoryMessage": "Hai vinto l’allenamento con Maia.",
+  "victoryFeedback": "Hai osservato entrambi i tipi! Steelix è Acciaio/Terra: Elettro non funziona. Dewgong resiste al Ghiaccio e Ampharos può paralizzare. Sul piazzale della Lega trovi cure e rifornimenti.",
+  "team": [
+    {
+      "speciesId": 208,
+      "level": 47,
+      "moveIds": [
+        "crunch",
+        "dragon-breath",
+        "rock-throw",
+        "harden"
+      ]
+    },
+    {
+      "speciesId": 87,
+      "level": 48,
+      "moveIds": [
+        "ice-beam",
+        "aurora-beam",
+        "aqua-tail",
+        "ice-shard"
+      ]
+    },
+    {
+      "speciesId": 181,
+      "level": 48,
+      "moveIds": [
+        "discharge",
+        "thunder-wave",
+        "thunder-punch",
+        "growl"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_r16_tobia",
+  "version": 1,
+  "displayName": "Allenamento con Tobia",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r16_tobia/defeated",
+      "setFlag": "q_r16_tobia_helped",
+      "requiresFlags": [
+        "q_resonance_restored"
+      ]
+    }
+  ],
+  "completionFlag": "q_r16_tobia_helped",
+  "reward": {}
+}

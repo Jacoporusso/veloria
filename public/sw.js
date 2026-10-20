@@ -1,5 +1,9 @@
-const CACHE = 'veloria-shell-v115';
+const CACHE = 'veloria-shell-v116';
 const SHELL = [
+  './tilemaps/r16_cammino_equilibrio.tmj',
+  './tilemaps/league_forecourt.tmj',
+  './assets/scenery/veloria-r16-equilibrium-v1.webp',
+  './assets/scenery/veloria-league-forecourt-v1.webp',
   './tilemaps/d06_santuario_due_luci.tmj',
   './assets/scenery/veloria-sanctuary-two-lights-v1.webp',
   './tilemaps/r15_passo_due_luci.tmj',

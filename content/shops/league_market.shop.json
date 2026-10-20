@@ -1,0 +1,13 @@
+{
+  "id": "veloria/league_market",
+  "name": "Mercato della Lega",
+  "version": 1,
+  "items": [
+    "potion",
+    "super-potion",
+    "hyper-potion",
+    "antidote",
+    "paralyze-heal",
+    "poke-ball"
+  ]
+}

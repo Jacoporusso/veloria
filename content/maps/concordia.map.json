@@ -57,6 +57,12 @@
       "x": 31,
       "y": 14,
       "facing": "down"
+    },
+    {
+      "id": "from_r16",
+      "x": 38,
+      "y": 15,
+      "facing": "left"
     }
   ],
   "connections": [
@@ -80,6 +86,14 @@
       "targetSpawnId": "from_concordia",
       "requiresFlags": [
         "badge_drago_awarded"
+      ]
+    },
+    {
+      "toMapId": "veloria/r16_cammino_equilibrio",
+      "viaSpawnId": "from_r16",
+      "targetSpawnId": "from_concordia",
+      "requiresFlags": [
+        "q_resonance_restored"
       ]
     }
   ],

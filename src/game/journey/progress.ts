@@ -100,6 +100,11 @@ export const journeyMilestones = [
   {flag:'q_d06_balance_restored',title:'Riallineare le Due Luci',objective:'Usa il plinto al centro-sud: flusso naturale GRADUALE, amplificazione CONTROLLATA, sincronia CONDIVISA. Scegli VERIFICA EQUILIBRIO; puoi ripristinare e riprovare.'},
   {flag:'q_d06_receiver_confirmed',title:'Verificare il risultato',objective:'Esamina il ricevitore luminoso sotto l’arco a nord del Santuario. La regolazione non basta: serve verificare che i due segnali coincidano.'},
   {flag:'q_resonance_restored',title:'La Risonanza ritrovata',objective:'Torna da Elia presso l’ingresso del Santuario e consegna il rapporto verificato. Riceverai il compenso della ricerca; l’uscita a sud riporta a Concordia.'},
+  {flag:'q_r16_visited',title:'Il Cammino dell’Equilibrio',objective:'Dopo il rapporto del Santuario, segui il ponte a est di Concordia. Il Cammino sale fra i giardini: gli habitat sono laterali e gli allenamenti facoltativi.'},
+  {flag:'q_league_visited',title:'Verso la Lega',objective:'Segui le tre piazzette del Cammino verso nord-est e attraversa il passaggio in alto a destra. Il piazzale della Lega offre cure, deposito e rifornimenti.'},
+  {flag:'q_league_orientation',title:'L’arrivo alla Lega',objective:'Parla con l’accoglienza sotto il portale a nord del piazzale. Le sale del campionato sono ancora in preparazione; puoi intanto curare la squadra, fare acquisti ed esplorare il Cammino.'},
+  {flag:'q_r16_maia_helped',optional:true,title:'Allenamento con Maia',objective:'Maia ti aspetta sulla prima piazzetta del Cammino. Sfida facoltativa: Steelix, Dewgong e Ampharos richiedono di osservare tipi e paralisi.'},
+  {flag:'q_r16_tobia_helped',optional:true,title:'Allenamento con Tobia',objective:'Tobia si trova sulla piazzetta centrale del Cammino. Sfida facoltativa: prepara difese fisiche e speciali, e conserva HP e PP.'},
   {flag:'q_r15_nilo_helped',optional:true,trainer:niloR15,title:'Un allenamento con Nilo',objective:'Sul Passo delle Due Luci, Nilo ti aspetta sulla piazzetta del ponte. La sfida è facoltativa: puoi curare la squadra a Concordia e tornare quando sei pronto.'},
 ] as const;
 

@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_r16_tobia",
+  "name": "Tobia",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_r16_tobia_defeated",
+  "defeatQuestEvent": "battle/r16_tobia/defeated",
+  "rewardMoney": 2200,
+  "victoryMessage": "Hai vinto l’allenamento con Tobia.",
+  "victoryFeedback": "Che strategia! Le mosse speciali e fisiche mettono alla prova difese diverse. Quagsire è Acqua/Terra: Elettro non funziona e Erba è molto efficace. Cura HP e PP prima della sfida finale.",
+  "team": [
+    {
+      "speciesId": 97,
+      "level": 50,
+      "moveIds": [
+        "psychic",
+        "hypnosis",
+        "psybeam",
+        "meditate"
+      ]
+    },
+    {
+      "speciesId": 6,
+      "level": 49,
+      "moveIds": [
+        "flamethrower",
+        "wing-attack",
+        "scary-face",
+        "smokescreen"
+      ]
+    },
+    {
+      "speciesId": 195,
+      "level": 49,
+      "moveIds": [
+        "mud-bomb",
+        "amnesia",
+        "water-gun",
+        "slam"
+      ]
+    }
+  ]
+}

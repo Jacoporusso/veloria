@@ -1,3 +1,10 @@
+## 0.3.95 — Cammino dell’Equilibrio e piazzale della Lega (locale,20/10/2026)
+
+- R16 dopo il rapporto del Santuario, tre habitat laterali, Maia/Tobia facoltativi, piazzale con cure/deposito/mercato/accoglienza e ritorni.
+- Due ambienti illustrati originali, diario/atlante e cachev116.43mappe,42quest,18allenatori,11negozi,260asset.
+- Cinque mosse ufficiali HGSS aggiunte,76totali; tutti gli apprendimenti aggiornati, senza assegnare mosse MT come mosse per livello.
+- Core puro delle sfide sequenziali e nove test, ancora da collegare alle sale della Lega. Finale sportivo, epilogo, bilanciamento naturale e catalogo completo restano aperti.
+
 ## 0.3.94 — Santuario delle Due Luci (20/10/2026)
 
 - Nuovo ambiente illustrato originale e accesso dal padiglione orientale di Concordia dopo P8, con ritorno sempre disponibile.

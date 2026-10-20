@@ -38,13 +38,17 @@ test('visit recording is immutable, idempotent and ignores unknown destinations'
   assert.deepEqual(visitedAreaIds(next), ['borgofonte', 'r01']);
 });
 
-test('quest evidence marks only witnessed places, never inferred routes or future cities', () => {
+test('quest evidence marks only witnessed places, never inferred routes or the unvisited League forecourt', () => {
   const state = deriveAtlasState(save('veloria/gym03_vetracielo', ['badge_aurora_awarded', 'q_ferraluce_report']));
   assert.deepEqual(state.areas.filter(area => area.visited).map(area => area.id), ['brumalta', 'vetracielo', 'ferraluce']);
   assert.ok(!state.areas.find(area => area.id === 'r06')!.visited);
-  const future = state.areas.filter(area => !area.available);
-  assert.ok(future.some(area => area.id === 'lega'));
-  assert.ok(future.every(area => area.status === 'In preparazione' && !area.visited && !area.current));
+  const league = state.areas.find(area => area.id === 'lega')!;
+  assert.equal(league.available, true);
+  assert.equal(league.visited, false);
+  assert.deepEqual(league.mapIds, ['veloria/league_forecourt']);
+  const witnessed = deriveAtlasState(save('veloria/concordia', ['q_league_visited']));
+  assert.equal(witnessed.areas.find(area => area.id === 'lega')!.status, 'Visitato');
+  assert.equal(witnessed.areas.find(area => area.id === 'r16')!.visited, false);
 });
 
 test('macro geography follows the documented peninsula and all eight gym cities', () => {

@@ -51,6 +51,10 @@
       {
         "level": 19,
         "moveId": "scary-face"
+      },
+      {
+        "level": 34,
+        "moveId": "flamethrower"
       }
     ],
     "7": [
@@ -163,6 +167,10 @@
       {
         "level": 4,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 22,
+        "moveId": "crunch"
       }
     ],
     "25": [
@@ -329,6 +337,10 @@
       {
         "level": 33,
         "moveId": "agility"
+      },
+      {
+        "level": 40,
+        "moveId": "psychic"
       }
     ],
     "179": [
@@ -409,6 +421,10 @@
       {
         "level": 21,
         "moveId": "scary-face"
+      },
+      {
+        "level": 39,
+        "moveId": "flamethrower"
       }
     ],
     "8": [
@@ -523,6 +539,10 @@
       {
         "level": 20,
         "moveId": "scary-face"
+      },
+      {
+        "level": 24,
+        "moveId": "crunch"
       }
     ],
     "162": [
@@ -643,6 +663,10 @@
       {
         "level": 33,
         "moveId": "dragon-breath"
+      },
+      {
+        "level": 46,
+        "moveId": "crunch"
       }
     ],
     "227": [
@@ -859,6 +883,10 @@
       {
         "level": 43,
         "moveId": "amnesia"
+      },
+      {
+        "level": 48,
+        "moveId": "psychic"
       }
     ],
     "80": [
@@ -885,6 +913,10 @@
       {
         "level": 47,
         "moveId": "amnesia"
+      },
+      {
+        "level": 54,
+        "moveId": "psychic"
       }
     ],
     "96": [
@@ -899,6 +931,10 @@
       {
         "level": 26,
         "moveId": "psybeam"
+      },
+      {
+        "level": 40,
+        "moveId": "psychic"
       }
     ],
     "97": [
@@ -913,6 +949,10 @@
       {
         "level": 28,
         "moveId": "psybeam"
+      },
+      {
+        "level": 50,
+        "moveId": "psychic"
       }
     ],
     "133": [
@@ -933,12 +973,20 @@
       {
         "level": 23,
         "moveId": "confuse-ray"
+      },
+      {
+        "level": 47,
+        "moveId": "psychic"
       }
     ],
     "178": [
       {
         "level": 23,
         "moveId": "confuse-ray"
+      },
+      {
+        "level": 59,
+        "moveId": "psychic"
       }
     ],
     "196": [
@@ -961,6 +1009,10 @@
       {
         "level": 36,
         "moveId": "psybeam"
+      },
+      {
+        "level": 64,
+        "moveId": "psychic"
       }
     ],
     "3": [
@@ -1009,6 +1061,10 @@
       {
         "level": 36,
         "moveId": "wing-attack"
+      },
+      {
+        "level": 42,
+        "moveId": "flamethrower"
       }
     ],
     "9": [

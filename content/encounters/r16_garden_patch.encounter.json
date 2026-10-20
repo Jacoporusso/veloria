@@ -1,0 +1,123 @@
+{
+  "id": "veloria/r16_garden_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "mapId": "veloria/r16_cammino_equilibrio",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 147,
+        "weight": 15,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 148,
+        "weight": 5,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 215,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 221,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 181,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 147,
+        "weight": 15,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 148,
+        "weight": 5,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 215,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 221,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 181,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 147,
+        "weight": 15,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 148,
+        "weight": 5,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 215,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 221,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      },
+      {
+        "speciesId": 181,
+        "weight": 20,
+        "minLevel": 45,
+        "maxLevel": 49
+      }
+    ]
+  }
+}
