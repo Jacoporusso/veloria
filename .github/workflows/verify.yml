@@ -22,7 +22,8 @@ jobs:
       matrix:
         # The previous middle shard exceeded its 24-minute step budget while
         # the long MVP journeys were still running. Keep browser isolation and
-        # divide the suite further instead of increasing individual timeouts.
+        # divide the suite further. Full walking journeys have separate hosted
+        # runner budgets, calibrated from their traces without skipping steps.
         shard: [1, 2, 3, 4, 5, 6]
     runs-on: ubuntu-latest
     timeout-minutes: 30

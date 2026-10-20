@@ -159,4 +159,6 @@ La pubblicazione di Acquariva è riuscita su `5200b5f`; la suite GitHub completa
 
 La prossima espansione geografica è **R12 Valle del Vento → Passobrina → R13 Tornanti Bianchi → Biancavetta/P7 Ghiaccio**, con preparazione alla montagna, puzzle di superfici ghiacciate e funivia dopo P7, come da documento02. Collegamento, progressione narrativa verso la sorgente, roster ufficiale supportato, illustrazioni, servizi e ritorni vanno realizzati e verificati insieme; una semplice uscita verso una mappa vuota non soddisfa il capitolo. D05/Grotte e il seguito verso P8 restano nel perimetro regionale, senza anticiparne il completamento.
 
+Preparazione locale 0.3.90: documento 22, movimento sul ghiaccio riusabile con salvataggio soltanto sulle fermate e geometria draft P7 verificata per soluzione e ritorni. Non sono ancora disponibili mappe montane, sigilli runtime, capopalestra Nives, Medaglia Brina o funivia; la prossima integrazione deve completare tutti questi contenuti e la loro arte illustrata coerente.
+
 Il gate S6 dell'MVP e l'obiettivo dell'avventura completa restano aperti: né il deploy riuscito né i checkpoint preparati dimostrano la fine del gioco o la qualità su telefono reale.

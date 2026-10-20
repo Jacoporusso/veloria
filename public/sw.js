@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v110';
+const CACHE = 'veloria-shell-v111';
 const SHELL = [
   './assets/creatures/pokeapi-starter-finals-3-v1.webp',
   './assets/creatures/pokeapi-starter-finals-6-v1.webp',

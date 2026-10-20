@@ -1,5 +1,7 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
+**Checkpoint 0.3.90:** selezione battaglia stabile durante la rotazione e fondazione del movimento sul ghiaccio. Il capitolo montano/P7 resta in preparazione; stato delle verifiche e della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, sei Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
 Questo archivio contiene la documentazione di progetto e l'implementazione progressiva dell’avventura. La versione 0.3.89 arriva da Borgofonte ad Acquariva, passando per Brumalta, Radicelmo, Petalora, Vetracielo, Ferraluce, Centrale, Portolume, Dune e Delta: 30 mappe, sei medaglie definite, 13 allenatori, 52 specie e 57 mosse da fonti locali. Sono incluse le evoluzioni finali Venusaur, Charizard, Blastoise e Ampharos. Il capitolo del lago offre ricerca, sfide facoltative, palestra Psico e ritorno a Vetracielo attraverso le cascate. L'esperienza cresce con il livello dell'avversario. Le verifiche locali del capitolo sono passate; stato della pubblicazione e limiti in `docs/CI_STATUS.md`, contratto nel documento 21. Il bilanciamento e alcune regole restano prototipali; meteo in battaglia, città complete, ultime due Palestre, altri dungeon avanzati e Lega non sono disponibili. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.

@@ -1,5 +1,11 @@
 # Changelog — Veloria Project Pack
 
+## 0.3.90 — 20/10/2026
+
+- La selezione in battaglia sopravvive a resize e rotazione; ignorati eventi resize senza variazioni delle dimensioni. Corrette le fixture browser per usare il normale osservatore del viewport.
+- Aggiunta meccanica riusabile per superfici ghiacciate in Tiled, con collisioni, arresto, trigger per tile, salvataggio e controlli di raggiungibilità che distinguono attraversamento e fermata.
+- Preparati contratto del capitolo montano e geometria preliminare della P7, con soluzione e ritorni verificati. R12, Passobrina, R13, Biancavetta, P7 e funivia non sono ancora mappe giocabili.
+
 ## v0.3 — 09/10/2026
 
 - Consolidati GDD v0.1 e World Map Design v0.2 originali senza sovrascriverli.

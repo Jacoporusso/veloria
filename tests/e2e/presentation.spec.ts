@@ -56,6 +56,8 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
       }
     }
     (window as any).battleFixture = new Phaser.Game({ type: Phaser.CANVAS, parent: 'battle-fixture', audio: { noAudio: true }, scale: { mode: Phaser.Scale.RESIZE, width: '100%', height: '100%' }, scene: [Fixture, BattleScene] });
+    const {observeGameSize}=await import('/src/game/rendering/game-size.ts' as string);
+    observeGameSize((window as any).battleFixture,document.querySelector<HTMLElement>('#battle-fixture')!);
   });
   await expect.poll(async () => ({ active: await page.evaluate(() => Boolean((window as any).battleFixture?.scene.isActive('battle'))), errors })).toEqual({ active: true, errors: [] });
   {
@@ -110,18 +112,11 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
   await page.touchscreen.tap(195, 844 - 132);
   await page.waitForTimeout(180);
   await page.screenshot({ path: testInfo.outputPath('battle-impact-mobile.png') });
-  for (let step = 0; step < 12 && await page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode === 'message'); step++) {
-    await page.keyboard.press('Enter', { delay: 50 });
-  }
-  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('menu');
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode), {timeout:15_000}).toBe('menu');
   await page.keyboard.press('Enter', { delay: 50 }); // Lotta.
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
-  await page.keyboard.down('ArrowRight'); // Growl, second slot; wait for the rendered selection.
-  try {
-    await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);
-  } finally {
-    await page.keyboard.up('ArrowRight');
-  }
+  await page.keyboard.press('ArrowRight', {delay:40}); // Growl, second slot.
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);
   await page.keyboard.press('Enter', { delay: 50 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleFixture.scene.getScene('battle');

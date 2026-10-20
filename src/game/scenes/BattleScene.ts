@@ -94,7 +94,11 @@ export class BattleScene extends Phaser.Scene {
   private detailMoveIndex = 0;
   private onSpeciesSeen?: BattleSceneInit['onSpeciesSeen'];
   private seenSpecies = new Set<number>();
-  private readonly handleScaleResize = (): void => this.render();
+  private renderedViewportKey = '';
+  private readonly handleScaleResize = (): void => {
+    if (this.viewportKey === this.renderedViewportKey) return;
+    this.render(true);
+  };
   private readonly removeScaleResizeListener = (): void => {
     this.scale.off('resize', this.handleScaleResize);
     this.ui?.list.forEach(child => this.tweens.killTweensOf(child));
@@ -197,7 +201,8 @@ export class BattleScene extends Phaser.Scene {
     this.render();
   }
 
-  private render(): void {
+  private render(preserveSelection = false): void {
+    this.renderedViewportKey = this.viewportKey;
     if (!this.ui || !this.state) return;
     this.ui.setScale(this.viewport.density);
     // Cancel presentation tweens before replacing their targets (including on resize).
@@ -213,7 +218,7 @@ export class BattleScene extends Phaser.Scene {
     }
     this.selectableButtons = [];
     this.moveSlotIndexes = [];
-    this.selectionIndex = 0;
+    if (!preserveSelection) this.selectionIndex = 0;
     this.movePreview = undefined;
     const width = this.viewport.width;
     const height = this.viewport.height;
@@ -250,6 +255,8 @@ export class BattleScene extends Phaser.Scene {
     if (!compact) this.drawPartyPips(width, height);
     this.drawMessagePanel(width, height);
     this.drawCommandPanel(width, height);
+    this.selectionIndex = Math.min(this.selectionIndex, Math.max(0, this.selectableButtons.length - 1));
+    this.updateSelectionStyle();
     if (newEvent) this.animateEvent(newEvent);
   }
 
@@ -841,6 +848,10 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private get viewport() { return gameViewport(this.game); }
+  private get viewportKey(): string {
+    const {width,height,density} = this.viewport;
+    return `${width}|${height}|${density}`;
+  }
 
   private text(x: number, y: number, value: string, style: Phaser.Types.GameObjects.Text.TextStyle): Phaser.GameObjects.Text {
     return this.add.text(x, y, value, { ...style, resolution: Math.max(4, Math.ceil(this.viewport.density)) });

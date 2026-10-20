@@ -1,0 +1,179 @@
+{
+  "id": "veloria/draft/gym07_ice",
+  "status": "draft-only",
+  "grid": {
+    "width": 12,
+    "height": 12,
+    "tileSize": 32
+  },
+  "spawn": {
+    "x": 1,
+    "y": 9,
+    "facing": "up"
+  },
+  "exit": {
+    "x": 1,
+    "y": 10,
+    "destination": "veloria/biancavetta",
+    "destinationSpawn": "from_gym07"
+  },
+  "collision": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 1
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "width": 12,
+      "height": 1
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 12
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "width": 1,
+      "height": 12
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "width": 1,
+      "height": 2
+    }
+  ],
+  "movementSurfaces": [
+    {
+      "x": 2,
+      "y": 3,
+      "width": 3,
+      "height": 4,
+      "properties": {
+        "surface": "ice"
+      }
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "width": 3,
+      "height": 4,
+      "properties": {
+        "surface": "ice"
+      }
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "width": 3,
+      "height": 4,
+      "properties": {
+        "surface": "ice"
+      }
+    }
+  ],
+  "sigils": [
+    {
+      "id": "west",
+      "landing": {
+        "x": 3,
+        "y": 2
+      },
+      "entry": {
+        "x": 3,
+        "y": 7
+      },
+      "direction": "up"
+    },
+    {
+      "id": "center",
+      "landing": {
+        "x": 6,
+        "y": 2
+      },
+      "entry": {
+        "x": 6,
+        "y": 7
+      },
+      "direction": "up"
+    },
+    {
+      "id": "east",
+      "landing": {
+        "x": 9,
+        "y": 2
+      },
+      "entry": {
+        "x": 9,
+        "y": 7
+      },
+      "direction": "up"
+    }
+  ],
+  "solution": [
+    {
+      "sigil": "west",
+      "actions": [
+        "right",
+        "right",
+        "up",
+        "up",
+        "up"
+      ],
+      "landing": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "sigil": "center",
+      "actions": [
+        "right",
+        "right",
+        "right",
+        "down",
+        "up"
+      ],
+      "landing": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "sigil": "east",
+      "actions": [
+        "right",
+        "right",
+        "right",
+        "down",
+        "up"
+      ],
+      "landing": {
+        "x": 9,
+        "y": 2
+      }
+    }
+  ],
+  "npcProposals": [
+    "assistant_at_entry",
+    "gym_leader_nives"
+  ]
+}

@@ -5,7 +5,6 @@ Run: python tools/validate_examples.py
 import json
 import hashlib
 import re
-from collections import deque
 from math import ceil
 from pathlib import Path
 from map_render_validation import validate_map_render_assets
@@ -16,6 +15,7 @@ from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
 from collision_gate_validation import validate_collision_gates
 from fishing_validation import validate_fishing_spot
+from ice_validation import collect_movement_surfaces, object_tiles, validate_ice_triggers, reachable_tiles as reachable_with_ice
 from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -57,18 +57,6 @@ def read(name):
 def check(condition, why):
     if not condition:
         raise AssertionError(why)
-
-def reachable_tiles(start, width, height, blocked):
-    pending = deque([start])
-    visited = {start}
-    while pending:
-        x, y = pending.popleft()
-        for point in ((x, y - 1), (x + 1, y), (x, y + 1), (x - 1, y)):
-            px, py = point
-            if (0 <= px < width and 0 <= py < height and point not in blocked and point not in visited):
-                visited.add(point)
-                pending.append(point)
-    return visited
 
 files = sorted(EXAMPLES.glob("*.json"))
 for file in files:
@@ -349,6 +337,7 @@ for file in runtime_maps:
     check(tiled.get("tilewidth") == 32 and tiled.get("tileheight") == 32, f"Map must use 32px tiles: {tiled_path.name}")
     check(tiled.get("width", 0) > 0 and tiled.get("height", 0) > 0, f"Map dimensions invalid: {tiled_path.name}")
     layers = {layer.get("name"): layer for layer in tiled.get("layers", [])}
+    ice_tiles = collect_movement_surfaces(layers.get("movement_surfaces"), tiled["width"], tiled["height"], tiled["tilewidth"], tiled["tileheight"])
     ambient_effects = metadata.get("ambientEffects", [])
     check(isinstance(ambient_effects, list), f"ambientEffects must be a list: {metadata['id']}")
     for effect in (ambient_effects if isinstance(ambient_effects, list) else []):
@@ -468,6 +457,8 @@ for file in runtime_maps:
         right = min(tiled["width"], ceil((obj.get("x", 0) + max(1, obj.get("width", 32))) / 32))
         bottom = min(tiled["height"], ceil((obj.get("y", 0) + max(1, obj.get("height", 32))) / 32))
         blocked.update((x, y) for y in range(top, bottom) for x in range(left, right))
+    validate_ice_triggers(layers["triggers"].get("objects", []), tiled["width"], tiled["height"], ice_tiles)
+    trigger_tiles = object_tiles(layers["triggers"].get("objects", []), tiled["width"], tiled["height"])
     for spawn in metadata["spawns"]:
         check(0 <= spawn["x"] < tiled["width"] and 0 <= spawn["y"] < tiled["height"], f"Spawn outside {metadata['id']}: {spawn['id']}")
         check((spawn["x"], spawn["y"]) not in blocked, f"Spawn blocked by collision in {metadata['id']}: {spawn['id']}")
@@ -523,6 +514,7 @@ for file in runtime_maps:
     trigger_destinations_by_id[metadata["id"]] = trigger_destinations
     runtime_navigation[metadata["id"]] = {
         "width": tiled["width"], "height": tiled["height"], "blocked": blocked,
+        "ice": ice_tiles, "trigger_tiles": trigger_tiles,
         "spawns": {spawn["id"]: (spawn["x"], spawn["y"]) for spawn in metadata["spawns"]},
         "exits": map_exits, "quest_triggers": quest_trigger_targets,
         "quest_interactions": quest_interaction_targets,
@@ -545,16 +537,17 @@ for metadata in runtime_by_id.values():
             check(reciprocal, f"Map connection is not reciprocal between {metadata['id']} and {target['id']}")
 
     navigation = runtime_navigation[metadata["id"]]
+    all_reachable, stoppable = set(), set()
+    for spawn in navigation["spawns"].values():
+        traversed, stops = reachable_with_ice(
+            spawn, navigation["width"], navigation["height"], navigation["blocked"],
+            navigation["ice"], navigation["trigger_tiles"])
+        all_reachable.update(traversed)
+        stoppable.update(stops)
     for event, targets in navigation["quest_triggers"]:
-        reachable = set()
-        for spawn in navigation["spawns"].values():
-            reachable.update(reachable_tiles(spawn, navigation["width"], navigation["height"], navigation["blocked"]))
-        check(bool(targets & reachable), f"Quest trigger {event} is unreachable from every spawn in {metadata['id']}")
+        check(bool(targets & all_reachable), f"Quest trigger {event} is unreachable from every spawn in {metadata['id']}")
     for event, targets in navigation["quest_interactions"]:
-        reachable = set()
-        for spawn in navigation["spawns"].values():
-            reachable.update(reachable_tiles(spawn, navigation["width"], navigation["height"], navigation["blocked"]))
-        check(bool(targets & reachable), f"Quest interaction {event} is unreachable from every spawn in {metadata['id']}")
+        check(bool(targets & stoppable), f"Quest interaction {event} is unreachable from every spawn in {metadata['id']}")
     for destination, trigger in navigation["exits"]:
         connection = next((item for item in metadata["connections"]
                            if (item["toMapId"], item["targetSpawnId"]) == destination), None)
@@ -566,16 +559,8 @@ for metadata in runtime_by_id.values():
         bottom = min(navigation["height"], ceil((trigger.get("y", 0) + max(1, trigger.get("height", 32))) / 32))
         targets = {(x, y) for y in range(top, bottom) for x in range(left, right)
                    if (x, y) not in navigation["blocked"]}
-        pending = deque([start])
-        visited = {start}
-        while pending:
-            x, y = pending.popleft()
-            for point in ((x, y - 1), (x + 1, y), (x, y + 1), (x - 1, y)):
-                px, py = point
-                if (0 <= px < navigation["width"] and 0 <= py < navigation["height"]
-                        and point not in navigation["blocked"] and point not in visited):
-                    visited.add(point)
-                    pending.append(point)
+        visited, _ = reachable_with_ice(start, navigation["width"], navigation["height"],
+                                        navigation["blocked"], navigation["ice"], navigation["trigger_tiles"])
         check(bool(targets & visited),
               f"Map exit is unreachable from spawn {connection['viaSpawnId']} in {metadata['id']}: {trigger.get('name')}")
 

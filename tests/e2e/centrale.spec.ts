@@ -62,7 +62,9 @@ async function inspect(page: Page, map: string, x: number, y: number, speaker: s
 }
 
 test('R07 readings and Centrale investigation advance in order and report once', async ({ page }, info) => {
-  test.setTimeout(180_000);
+  // Linux software rendering was still walking the return route at 180s;
+  // every movement assertion remains bounded independently.
+  test.setTimeout(process.env.CI ? 300_000 : 180_000);
   await seedFerraluce(page, false);
   const initial = await readBrowserSave(page);
   const startingMoney = initial.player.money;

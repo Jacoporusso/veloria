@@ -3,6 +3,16 @@ import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json
 
 type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner' | 'sparse-capture' | 'evolution' | 'move-learning' | 'leech-seed' | 'forced-player-switch' | 'forced-opponent-switch';
 
+test.afterEach(async ({page},info)=>{
+  if(info.status===info.expectedStatus)return;
+  const state=await page.evaluate(()=>{
+    const scene=(window as any).battleRulesFixture?.scene.getScene('battle');
+    return scene?{mode:scene.mode,selection:scene.selectionIndex,learning:scene.pendingMoveLearning,
+      events:scene.eventLog,moves:scene.state.player.creatures[0].moves}:null;
+  });
+  await info.attach('battle-state',{body:JSON.stringify(state,null,2),contentType:'application/json'});
+});
+
 async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string[]> {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -113,6 +123,8 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       scale: { mode: Phaser.Scale.RESIZE, width: '100%', height: '100%' },
       scene: [Fixture, BattleScene],
     });
+    const {observeGameSize}=await import('/src/game/rendering/game-size.ts' as string);
+    observeGameSize((window as any).battleRulesFixture,document.querySelector<HTMLElement>('#battle-rules-fixture')!);
   }, fixtureKind);
 
   await expect.poll(() => page.evaluate(() => Boolean((window as any).battleRulesFixture?.scene.isActive('battle')))).toBe(true);
@@ -136,20 +148,9 @@ async function advanceMessages(page: Page): Promise<void> {
 }
 
 async function advanceToMoveLearning(page: Page): Promise<void> {
-  for (let index = 0; index < 24; index += 1) {
-    const before = await page.evaluate(() => {
-      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-      return { mode: scene.mode, count: scene.pendingMessages.length, text: scene.pendingMessages[0]?.text };
-    });
-    if (before.mode === 'learning') return;
-    if (before.mode !== 'message') break;
-    await page.keyboard.press('Enter', { delay: 40 });
-    await expect.poll(() => page.evaluate(previous => {
-      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-      return scene.mode !== 'message' || scene.pendingMessages.length !== previous.count || scene.pendingMessages[0]?.text !== previous.text;
-    }, before)).toBe(true);
-  }
-  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('learning');
+  // Message timers advance normally. A queued skip could otherwise become a
+  // confirmation after the scene opens the move choice between two frames.
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode), {timeout:30_000}).toBe('learning');
 }
 
 test('battle UI describes an electric hit as super effective against Squirtle', async ({ page }) => {
@@ -308,22 +309,22 @@ test('level-up move choice supports replacement and decline in sequence before c
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').moveLearningPrompt())).toContain('Attacco Rapido');
 
   // Move to row two, first column: replace Tackle with Quick Attack.
-  await page.keyboard.down('ArrowDown');
-  try {
+  await page.keyboard.press('ArrowDown', {delay:40});
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
+  // Rotation must retain the selected move slot before confirmation.
+  for (const size of [{width:844,height:390},{width:390,height:844}]) {
+    await page.setViewportSize(size);
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').viewport.width)).toBe(size.width);
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
-  } finally {
-    await page.keyboard.up('ArrowDown');
   }
   await page.keyboard.press('Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-    return scene.state.player.creatures[0].moves[2].moveId === 'quick-attack'
-      && scene.eventLog.some((event: any) => event.type === 'moveReplaced' && event.previousMoveId === 'tackle')
-      && scene.mode === 'message';
-  })).toBe(true);
+    return {moves:scene.state.player.creatures[0].moves.map((slot:any)=>slot.moveId),
+      replacements:scene.eventLog.filter((event:any)=>event.type==='moveReplaced').map((event:any)=>({from:event.previousMoveId,to:event.moveId}))};
+  })).toEqual({moves:['thunder-shock','growl','quick-attack','scratch'],replacements:[{from:'tackle',to:'quick-attack'}]});
   expect(await page.evaluate(() => (window as any).battleCompletionCount)).toBe(0);
 
-  await page.keyboard.press('Enter', { delay: 40 });
   await advanceToMoveLearning(page);
   // The fifth option is on row three, first column: keep the current moveset.
   await page.keyboard.press('ArrowDown', { delay: 40 });

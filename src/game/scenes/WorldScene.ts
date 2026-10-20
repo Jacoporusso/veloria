@@ -19,7 +19,7 @@ import { selectWildEncounter } from '../../core/encounters/select-encounter.ts';
 import { rollEncounterCheck } from '../../core/encounters/roll-encounter-check.ts';
 import { castFishingLine, type FishingSpot } from '../../core/encounters/fishing.ts';
 import type { BattleEvent, BattleState } from '../../core/battle/types.ts';
-import { adjacentGridPoint, isGridTileOpen, selectAreaTrigger, tryGridMove, type CardinalDirection } from '../../core/world/index.ts';
+import { adjacentGridPoint, iceSlideContinues, isGridTileOpen, selectAreaTrigger, tryGridMove, type CardinalDirection } from '../../core/world/index.ts';
 import { publicAssetUrl } from '../../core/assets/index.ts';
 import { getMap, getMapKey, getSpawn, listMaps } from '../maps/map-registry';
 import type { MapTrigger, MapInteractable, RegisteredMap } from '../maps/map-types';
@@ -76,6 +76,7 @@ export class WorldScene extends Phaser.Scene {
   private moving = false;
   private heldDirection: Direction | null = null;
   private queuedDirection: Direction | null = null;
+  private slidingDirection: Direction | null = null;
   private activeTriggerId: string | null = null;
   private facing: Direction = 'down';
   private dialogueLines: string[] = [];
@@ -484,6 +485,7 @@ export class WorldScene extends Phaser.Scene {
     // of letting one stale DOM reference stop the whole world loop.
     if(this.fishingActive||this.battleActive||this.mapTransitionLoading||this.dialogueLines.length||this.starterChoices?.hidden===false||this.pokedexOpen||this.journey?.isOpen)return;
     if(this.moving)return;
+    if(this.slidingDirection){this.tryMove(this.slidingDirection);return;}
     if(this.heldDirection){this.tryMove(this.heldDirection);return;}
     if(this.keys.W.isDown||this.keys.UP.isDown)this.tryMove('up');
     else if(this.keys.S.isDown||this.keys.DOWN.isDown)this.tryMove('down');
@@ -492,22 +494,29 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private tryMove(direction:Direction) {
+    if (this.slidingDirection && direction !== this.slidingDirection) return;
     if (this.navigationOpen) return;
     if(this.fishingActive||this.battleActive||this.mapTransitionLoading||this.journey?.isOpen||this.pokedexOpen||this.dialogueLines.length||this.starterChoices?.hidden===false)return;
-    if(this.moving){this.queuedDirection=direction;return;}
+    if(this.moving){if(!this.slidingDirection)this.queuedDirection=direction;return;}
     const destination=tryGridMove(this.playerTile,direction,this.renderedMap.width,this.renderedMap.height,this.occupied);
     this.facing=direction;this.drawFace();
-    if(!destination.moved)return;
+    if(!destination.moved){this.slidingDirection=null;return;}
     const {x,y}=destination.position;
+    if(this.renderedMap.iceTiles.has(`${x},${y}`))this.slidingDirection=direction;
     this.journey?.compact();
     this.moving=true;this.playerTile={x,y};
     this.traveler.step(direction, this.time.now, this.reducedAnimations);
     this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Linear',onUpdate:()=>this.player.setDepth(this.player.y+20),onComplete:()=>{
-      this.moving=false;this.save.player.x=x;this.save.player.y=y;
-      this.persistProgress();
+      this.moving=false;
       const centerX=x*TILE+TILE/2,centerY=y*TILE+TILE/2;
       const trigger = selectAreaTrigger(this.renderedMap.triggers, { x: centerX, y: centerY });
+      const interrupted = Boolean(trigger && (trigger.kind === 'encounter-zone' || trigger.id !== this.activeTriggerId));
+      const continueSliding = !interrupted && iceSlideContinues(this.playerTile,direction,this.renderedMap.width,this.renderedMap.height,this.occupied,this.renderedMap.iceTiles);
+      // Persist only a valid stopping point: reloading halfway across ice must
+      // not create a new place to turn and bypass the authored puzzle.
+      if(!continueSliding){this.save.player.x=x;this.save.player.y=y;this.persistProgress();}
       if (trigger?.kind === 'encounter-zone') {
+        this.slidingDirection = null;
         this.queuedDirection = null;
         this.activeTriggerId = trigger.id;
         this.handleTrigger(trigger);
@@ -515,8 +524,12 @@ export class WorldScene extends Phaser.Scene {
       }
       if (trigger?.id !== this.activeTriggerId) {
         this.activeTriggerId = trigger?.id ?? null;
-        if (trigger) { this.queuedDirection = null; this.handleTrigger(trigger); return; }
+        if (trigger) { this.slidingDirection = null; this.queuedDirection = null; this.handleTrigger(trigger); return; }
       }
+      if(continueSliding){
+        this.slidingDirection=direction;this.queuedDirection=null;this.tryMove(direction);return;
+      }
+      this.slidingDirection=null;
       const queuedDirection = this.queuedDirection;
       this.queuedDirection = null;
       if (queuedDirection) this.tryMove(queuedDirection);
@@ -628,6 +641,7 @@ export class WorldScene extends Phaser.Scene {
     const previous = this.map;
     this.heldDirection = null;
     this.queuedDirection = null;
+    this.slidingDirection = null;
     document.querySelectorAll('.dpad-key.pressed').forEach(button => button.classList.remove('pressed'));
     const loading = document.querySelector<HTMLElement>('#game-loading');
     if (loading) {
@@ -877,6 +891,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private advanceOrInteract() {
+    if (this.slidingDirection) return;
     if (this.navigationOpen) return;
     if (this.battleActive || this.mapTransitionLoading || this.journey?.isOpen || this.pokedexOpen) return;
     if(this.dialogueLines.length){

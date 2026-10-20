@@ -9,11 +9,13 @@ import { renderTransitTerminal } from './TransitTerminal';
 import { getSignalRouter } from '../maps/signal-router-registry';
 import { renderSignalRouter } from './signal-router';
 import { collectMapCollision } from '../../core/world/map-collision';
+import { collectIceTiles } from '../../core/world/ice-movement';
 
 const TILE = 32;
 type RenderedMap = {
   container: Phaser.GameObjects.Container;
   occupied: Set<string>;
+  iceTiles: Set<string>;
   interactables: MapInteractable[];
   triggers: MapTrigger[];
   width: number;
@@ -166,7 +168,8 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
     };
   });
 
-  return { container, occupied, interactables, triggers, width: tilemap.width, height: tilemap.height };
+  const iceTiles = collectIceTiles(tilemap.getObjectLayer('movement_surfaces')?.objects ?? [], tilemap.width, tilemap.height);
+  return { container, occupied, iceTiles, interactables, triggers, width: tilemap.width, height: tilemap.height };
 }
 
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
