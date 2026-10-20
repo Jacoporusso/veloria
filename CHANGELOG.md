@@ -1,3 +1,9 @@
+## 0.3.99 — Interazione iniziale da PC (20/10/2026)
+
+- Le pressioni brevi di frecce/WASD aggiornano subito movimento e direzione: il primo tocco non dipende più dal campionamento del fotogramma.
+- Invio si aggiunge a E e Spazio per parlare. Indicazioni, dialoghi e suggerimenti distinguono tastiera desktop dal pulsante A touch.
+- Selezione dello starter con Invio/Spazio senza intercettazione da parte dei comandi del mondo. Quattro prove desktop Elia→starter→Ada e regressione touch passate. Cache v120.
+
 ## 0.3.98 — Allenamenti sui percorsi (20/10/2026)
 
 - Iris su R06, Dario su R07, Viola su R08 e Celia su R11: sfide facoltative, suggerimenti sui tipi, premi unici e passaggi liberi. Squadre con mosse HGSS legali.

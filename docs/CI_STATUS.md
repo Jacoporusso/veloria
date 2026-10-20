@@ -1,3 +1,10 @@
+## Interazione iniziale PC 0.3.99 — verifiche locali 20/10/2026
+
+- Riproduzione: la sola lettura `isDown` nel ciclo frame perde una pressione breve di ArrowUp; il personaggio resta rivolto in basso e non trova Elia davanti a sé. E apriva il dialogo nei casi in cui il frame aveva campionato il tasto; Spazio risultava intermittente. Invio non era collegato. Il suggerimento «PARLA CON A» era ambiguo su PC, dove A muove a sinistra.
+- Primo movimento/orientamento ora gestito su keydown, prosecuzione mentre il tasto resta premuto nel ciclo frame. E/Spazio/Invio aprono e avanzano il dialogo; suggerimenti desktop aggiornati. La scelta starter intercetta localmente Invio/Spazio, evitando che Phaser sopprima il click nativo.
+- Quattro prove desktop passate20,5s: E, Spazio, Invio e clic, scelta effettiva di Charmander con tastiera/mouse, missione ricevuta e dialogo con Ada nel bosco. Regressione touch E2E01 passata13,9s (14,8 complessivi). 451 test dominio, 25 persistenza, validatore e build passati. Nessuna modifica al core XP inclusa in questa correzione.
+- Verify0.3.98 `39427311160` concluso FAILURE: capitoli2 supera il limite cumulativo dopo32casi riusciti; capitoli4 supera60s nel caso atlante. Gli altri11job riusciti, inclusi MVP3 corretto, Lega e offline. Questi timeout restano da risolvere con evidenza specifica; non vengono dichiarati risolti dalla correzione iniziale. Pubblicazione0.3.99 da confermare.
+
 ## Pubblicazione allenamenti 0.3.98 — 20/10/2026
 
 Commit `92773b9` su main. Deploy Pages `39427311402` SUCCESS; HTTPS conferma registro0.3.98, cachev119 e NPC Celia nella Tiled pubblica R11. Verify `39427311160` in attesa della run0.3.96, lasciata terminare; Verify0.3.97 `39426075026` cancellato dalla coda a favore dell'ultima revisione, non descritto come fallimento del gioco. Al controllo13:05UTC la precedente run ha12job terminati (11successi e MVP3 con fixture corretta in0.3.97), capitoli2 ancora in esecuzione. Nuova suite Linux completa non ancora attestata. Aggiornamento documentale senza duplicare i workflow.

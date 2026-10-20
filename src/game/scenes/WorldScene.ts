@@ -171,9 +171,17 @@ export class WorldScene extends Phaser.Scene {
       this.journey.update(this.save);
       this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.journey?.destroy());
     }
-    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,M,P') as Record<string, Phaser.Input.Keyboard.Key>;
+    this.keys = this.input.keyboard!.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT,E,SPACE,ENTER,M,P') as Record<string, Phaser.Input.Keyboard.Key>;
+    // Frame polling alone misses short taps, including turning towards an NPC.
+    // Start the first step on keydown; update keeps movement going while held.
+    for (const [key, direction] of Object.entries({ W: 'up', UP: 'up', S: 'down', DOWN: 'down', A: 'left', LEFT: 'left', D: 'right', RIGHT: 'right' }) as [string, Direction][]) {
+      this.input.keyboard!.on(`keydown-${key}`, (event: KeyboardEvent) => {
+        if (!event.repeat) this.tryMove(direction);
+      });
+    }
     this.input.keyboard!.on('keydown-E', () => this.advanceOrInteract());
     this.input.keyboard!.on('keydown-SPACE', () => this.advanceOrInteract());
+    this.input.keyboard!.on('keydown-ENTER', () => this.advanceOrInteract());
     this.input.keyboard!.on('keydown-M', () => this.persistProgress(true));
     this.input.keyboard!.on('keydown-P', () => this.openPokedex(document.querySelector<HTMLElement>('#pokedex-button')!));
     this.regionMap = new RegionMapPanel();
@@ -238,9 +246,13 @@ export class WorldScene extends Phaser.Scene {
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
       const verb = target.properties.serviceId === 'monorail' ? 'Usa' : target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
-      prompt.textContent = 'A · ' + verb + ' ' + target.name;
+      prompt.textContent = this.interactionActionLabel() + ' · ' + verb + ' ' + target.name;
       this.promptTargetId = target.id;
     }
+  }
+
+  private interactionActionLabel(): string {
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches ? 'E / Spazio / Invio' : 'A';
   }
 
   private renderGuidance(): void {
@@ -294,7 +306,7 @@ export class WorldScene extends Phaser.Scene {
     const stage = document.querySelector<HTMLElement>('.game-stage');
     if (!stage) return;
     if (!this.openingGuidance) this.openingGuidance = new WorldGuidance(stage);
-    this.openingGuidance.setTarget(guidance.label, { x: target.x, y: target.y, width: target.width, height: target.height });
+    this.openingGuidance.setTarget(guidance.label.replace('PARLA CON A', `PARLA · ${this.interactionActionLabel()}`), { x: target.x, y: target.y, width: target.width, height: target.height });
   }
 
   private renderAmbientEffects() {
@@ -445,7 +457,7 @@ export class WorldScene extends Phaser.Scene {
       else {const toast=document.querySelector<HTMLElement>('#toast');toast?.classList.remove('visible');clearTimeout(this.toastTimer);}
     });
     document.querySelector('#action-save')?.addEventListener('click',()=>this.persistProgress(true));
-    document.querySelector('#help-button')?.addEventListener('click',()=>this.showToast('WASD o frecce per muoverti · E o Spazio per parlare · P o ◈ per il Pokédex. Su telefono usa i comandi in basso.'));
+    document.querySelector('#help-button')?.addEventListener('click',()=>this.showToast('WASD o frecce per muoverti · E, Spazio o Invio per parlare · P o ◈ per il Pokédex. Su telefono usa i comandi in basso.'));
     document.querySelector('#region-map-button')?.addEventListener('click', () => {
       if (this.battleActive || this.dialogueLines.length || this.mapTransitionLoading) return;
       this.heldDirection = null; this.queuedDirection = null;
@@ -1154,6 +1166,7 @@ export class WorldScene extends Phaser.Scene {
   private advanceOrInteract() {
     if (this.slidingDirection) return;
     if (this.navigationOpen) return;
+    if (this.starterChoices?.hidden === false) return;
     if (this.battleActive || this.mapTransitionLoading || this.journey?.isOpen || this.pokedexOpen) return;
     if(this.dialogueLines.length){
       if (this.typingTimer !== undefined) { this.revealDialogueLine(); return; }
@@ -1167,7 +1180,10 @@ export class WorldScene extends Phaser.Scene {
   private showDialogue(speaker:string,lines:string[]) {
     this.starterChoices.hidden=true;
     document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
-    this.dialogueLines=lines.map(line=>line.replaceAll('{trainer}',this.save.player.name));this.dialogueIndex=0;
+    const actionLabel = this.interactionActionLabel();
+    this.dialogueLines=lines.map(line=>line.replaceAll('{trainer}',this.save.player.name)
+      .replaceAll('premi A', `premi ${actionLabel}`).replaceAll('Premi A', `Premi ${actionLabel}`)
+      .replaceAll('con A', `con ${actionLabel}`));this.dialogueIndex=0;
     document.querySelector<HTMLElement>('#dialogue-speaker')!.textContent=speaker;
     this.dialogueBox.hidden=false;
     document.querySelector('.game-stage')?.classList.add('has-dialogue');
@@ -1195,7 +1211,7 @@ export class WorldScene extends Phaser.Scene {
       this.typingTarget.textContent = this.typingCharacters.slice(0, this.typingIndex).join('');
       if (this.typingIndex >= this.typingCharacters.length) this.stopTyping();
     }, delay);
-    document.querySelector<HTMLElement>('#dialogue-prompt')!.textContent=this.dialogueIndex<this.dialogueLines.length-1?'A · Continua  ▸':'A · Chiudi  ▸';
+    document.querySelector<HTMLElement>('#dialogue-prompt')!.textContent=this.interactionActionLabel()+(this.dialogueIndex<this.dialogueLines.length-1?' · Continua  ▸':' · Chiudi  ▸');
   }
 
   private revealDialogueLine() {
@@ -1243,12 +1259,22 @@ export class WorldScene extends Phaser.Scene {
         this.save = selected;
         this.starterChoices.hidden=true;
         document.querySelector<HTMLElement>('.dialogue-footer')!.hidden=false;
-        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,'Parlami ancora con A per ricevere la missione. Poi esci dalla porta in basso: il sentiero a nord si trova fuori, nel paese.']);
+        this.showDialogue('Professoressa Elia',[`Ottima scelta. ${starter.name} sarà il tuo compagno di viaggio.`,`Parlami ancora con ${this.interactionActionLabel()} per ricevere la missione. Poi esci dalla porta in basso: il sentiero a nord si trova fuori, nel paese.`]);
         this.persistProgress(true);
       });
       return button;
     }));
     this.starterChoices.hidden=false;
+    // Keep keyboard activation inside the choice panel. Phaser captures Space
+    // for the world and would otherwise suppress the button's native click.
+    this.starterChoices.onkeydown = event => {
+      event.stopPropagation();
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        if (!event.repeat) (event.target as HTMLElement).closest<HTMLButtonElement>('button')?.click();
+      }
+    };
+    this.starterChoices.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true });
   }
 
   private showHealingMenu(name: string, includeStorage: boolean) {
