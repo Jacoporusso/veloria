@@ -21,7 +21,7 @@ test('Selene uses only supported HGSS moves available at her team levels',()=>{
 test('reflection gym controls and leader stay reachable around all solid devices',()=>{
   const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/gym06_acquariva.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,32,24,[]);
-  blocked.add('16,2');
+  assert.ok(blocked.has('16,2'),'Selene occupies a real collision tile');
   const seen=new Set(['15,22']),queue=[[15,22]];
   for(let i=0;i<queue.length;i++){
     const[x,y]=queue[i];

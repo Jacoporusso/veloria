@@ -14,6 +14,38 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('Acquariva chapter resources load first offline and the waterfall walking return persists',async({page,context})=>{
+  test.setTimeout(180_000);
+  await page.goto('/');await enterGame(page);
+  await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+  const save=await readBrowserSave(page);
+  save.flags=[...new Set([...save.flags,'q_starter_selected','q_delta_report','q_acquariva_visited','q_acquariva_report','badge_riflesso_awarded'])];
+  save.badges=[...new Set([...save.badges,'badge_riflesso'])];
+  save.player={...save.player,mapId:'veloria/acquariva',spawnPointId:'from_r11',x:7,y:1};
+  await seedBrowserSave(page,save);
+  const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));
+  await context.setOffline(true);await page.reload();await enterGame(page);
+  const resources=await page.evaluate(async()=>{
+    const names=['r09-dunes','d04-delta','r10-reeds','acquariva','gym06-reflections','r11-cascades'];
+    const maps=['r09_dune_salmastre','d04_delta_specchi','r10_sentiero_canne','acquariva','gym06_acquariva','r11_via_cascate'];
+    const images=await Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/sprites/veloria-${name}-v1.webp`;await image.decode();return image.naturalWidth>1000;}));
+    const widths=await Promise.all(maps.map(async name=>{const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return(await response.json()).width;}));
+    return{images,widths};
+  });
+  expect(resources).toEqual({images:[true,true,true,true,true,true],widths:[40,40,40,40,32,40]});
+  await walkDirection(page,'up');
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r11_via_cascate');
+  await walkTo(page,'r11_via_cascate.tmj',20,0);
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');
+  await page.reload();await enterGame(page);await walkDirection(page,'down');
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r11_via_cascate');
+  await walkTo(page,'r11_via_cascate.tmj',17,29);
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
+  await page.reload();await enterGame(page);
+  expect((await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
+  expect(failures).toEqual([]);
+});
+
 test('Portolume ferry and new chapter resources work on their first offline request', async({page,context})=>{
   test.setTimeout(90_000);
   await page.goto('/');await enterGame(page);
@@ -159,33 +191,6 @@ async function seedOfflineCapture(page: import('@playwright/test').Page, rngStat
 }
 
 async function seedOfflineHealing(page: import('@playwright/test').Page) {
-  await page.evaluate(() => new Promise<void>((resolve, reject) => {
-    const request = indexedDB.open('veloria-save', 1);
-    request.onerror = () => reject(request.error);
-    request.onsuccess = () => {
-      const database = request.result;
-      const transaction = database.transaction('saves', 'readwrite');
-      const store = transaction.objectStore('saves');
-      const value = store.get('main');
-      value.onerror = () => reject(value.error);
-      value.onsuccess = () => {
-        const save = value.result;
-        save.party = save.party.map((creature: any) => ({
-          ...creature,
-          hp: 1,
-          status: { status: 'poison' },
-          moves: creature.moves.map((move: any) => ({ ...move, pp: 0 })),
-        }));
-        store.put(save, 'main');
-        store.delete('checksum:main');
-      };
-      transaction.oncomplete = () => { database.close(); resolve(); };
-      transaction.onerror = () => reject(transaction.error);
-    };
-  }));
-}
-
-async function seedOfflineGymBattleParty(page: import('@playwright/test').Page) {
   const species = JSON.parse(await readFile(new URL('../../content/battle/species.v1.json', import.meta.url), 'utf8')).species;
   const moves = JSON.parse(await readFile(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
   const prepared = createBattleCreature({ species, moves, speciesId: 5, level: 30, instanceId: 'offline-fixture', moveIds: ['scratch', 'growl', 'ember', 'smokescreen'] });
@@ -209,6 +214,11 @@ async function seedOfflineGymBattleParty(page: import('@playwright/test').Page) 
           maxHp: creature.stats.maxHp,
           moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })),
         };
+        // Prepare the gym party before the Center restores its HP, status and PP.
+        save.party = save.party.map((member: any) => ({
+          ...member, hp: 1, status: { status: 'poison' },
+          moves: member.moves.map((move: any) => ({ ...move, pp: 0 })),
+        }));
         store.put(save, 'main');
         store.delete('checksum:main');
       };
@@ -311,17 +321,20 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await enterGame(page);
 
   const directions = { alto: 'Vai in alto', basso: 'Vai in basso', sinistra: 'Vai a sinistra', destra: 'Vai a destra' } as const;
-  const walk = async (direction: keyof typeof directions, count: number, stopAtMapId?: string) => {
+  const walk = async (direction: keyof typeof directions, count: number, stopAtMapId?: string, beforeSave?: Awaited<ReturnType<typeof readSave>>) => {
     const button = page.getByRole('button', { name: directions[direction] });
+    let observed = beforeSave ?? await readSave(page);
     for (let step = 0; step < count; step += 1) {
-      const before = await readSave(page);
+      const before = observed;
       await button.tap();
       await expect.poll(async () => {
-        const player = (await readSave(page))?.player;
+        observed = await readSave(page);
+        const player = observed?.player;
         return `${player?.mapId}|${player?.x},${player?.y}`;
       }).not.toBe(`${before.player.mapId}|${before.player.x},${before.player.y}`);
-      if (stopAtMapId && (await readSave(page))?.player?.mapId === stopAtMapId) break;
+      if (stopAtMapId && observed?.player?.mapId === stopAtMapId) break;
     }
+    return observed;
   };
   const walkToMapTile = async (tilemapPath: string, targetX: number, targetY: number) => {
     const current = await readSave(page);
@@ -375,7 +388,8 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
       route.push(step.direction);
       point = step.point;
     }
-    for (const direction of route.reverse()) await walk(direction, 1);
+    let observed = current;
+    for (const direction of route.reverse()) observed = await walk(direction, 1, undefined, observed);
   };
 
   // Start a new-game flow, then follow the same walkable route as E2E-02 while offline.
@@ -487,10 +501,6 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
     creature.hp === creature.maxHp && creature.status === undefined && creature.moves.every((move: any) => move.pp > 0),
   )).toBe(true);
 
-  // Keep the offline gym battle deterministic and winnable after testing the Center's recovery service.
-  await seedOfflineGymBattleParty(page);
-  await page.reload();
-  await enterGame(page);
   await walkToMapTile('c01_brumalta.tmj', 28, 7);
   await expect.poll(async () => (await readSave(page))?.player?.mapId).toBe('veloria/gym01_brumalta');
   await expect(page.locator('#current-location')).toHaveText('PALESTRA DI BRUMALTA');

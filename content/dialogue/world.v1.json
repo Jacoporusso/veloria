@@ -1173,5 +1173,53 @@
         ]
       }
     ]
+  },
+  "r09_lina": {
+    "speaker": "Lina",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r09_lina_defeated",
+        "lines": [
+          "Una sfida facoltativa prima del Delta? La mia squadra alterna movimento e paralisi: puoi vedere tipi e livelli prima di accettare."
+        ]
+      },
+      {
+        "lines": [
+          "Ottima osservazione! Il sentiero orientale porta ai pontili del Delta. Parla con Iris per confrontare corrente, canneti e vivaio."
+        ]
+      }
+    ]
+  },
+  "delta_teo": {
+    "speaker": "Teo",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_delta_teo_defeated",
+        "lines": [
+          "Studiare un ambiente significa notare le differenze. Ti va una sfida facoltativa con due Pokémon che condividono solo una parte dei loro tipi?"
+        ]
+      },
+      {
+        "lines": [
+          "Il doppio tipo cambia le resistenze. Per proseguire verso Acquariva, completa le tre osservazioni e riporta il rapporto a Iris sul pontile d’ingresso."
+        ]
+      }
+    ]
+  },
+  "r10_maya": {
+    "speaker": "Maya",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r10_maya_defeated",
+        "lines": [
+          "Selene combina mosse Psico e status. Vuoi allenarti con una sfida facoltativa prima di raggiungere il lago? Puoi rifiutare e continuare lungo il pontile."
+        ]
+      },
+      {
+        "lines": [
+          "Ad Acquariva cerca il Centro Pokémon nelle case a ovest della piazza. Poi porta il rapporto a Tessa nell’osservatorio a est; la palestra è a nord."
+        ]
+      }
+    ]
   }
 }

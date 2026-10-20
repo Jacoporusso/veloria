@@ -5,6 +5,28 @@ import { enterGame } from './helpers/enter-game';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
 
+test('Acquariva terminal faces left after reload and returns to a visited city without spending resources',async({page},info)=>{
+  test.setTimeout(90_000);
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await prepareMonorailTraveler(page,true,['vetracielo','acquariva']);
+  const before=travelResources(await readBrowserSave(page));
+  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();
+  await page.getByRole('button',{name:'Acquariva',exact:true}).tap();
+  const {station,spawn}=await stationArrival('acquariva');
+  await expect.poll(async()=>(await readBrowserSave(page)).player).toMatchObject({mapId:station.mapId,spawnPointId:spawn.id,x:spawn.x,y:spawn.y});
+  await expect(page.locator('#game-loading')).toBeHidden();
+  await page.reload();await enterGame(page);
+  await page.setViewportSize({width:844,height:390});
+  // The arrival faces the terminal on its left, unlike the older north-facing stations.
+  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();
+  await expect(page.getByRole('button',{name:'Vetracielo',exact:true})).toBeVisible();
+  await page.screenshot({path:info.outputPath('acquariva-station-landscape.png')});
+  await page.getByRole('button',{name:'Vetracielo',exact:true}).tap();
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');
+  expect(travelResources(await readBrowserSave(page))).toEqual(before);
+  expect(errors).toEqual([]);
+});
+
 test('Circuito gates the station; only visited cities are listed and cancel releases movement', async ({ page }) => {
   test.setTimeout(90_000);
   const errors: string[] = [];

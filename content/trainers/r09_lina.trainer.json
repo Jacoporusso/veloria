@@ -1,0 +1,33 @@
+{
+  "id": "veloria/trainer_r09_lina",
+  "name": "Lina",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_r09_lina_defeated",
+  "defeatQuestEvent": "battle/trainer_r09_lina/defeated",
+  "rewardMoney": 420,
+  "victoryMessage": "Hai vinto contro Lina. Ricevi 420 ₿.",
+  "victoryFeedback": "Hai letto bene il ritmo della costa. La paralisi può rallentare: cambiare compagno o curare lo stato aiuta a ritrovare il controllo. Iris ti aspetta sui pontili del Delta, verso est.",
+  "team": [
+    {
+      "speciesId": 17,
+      "level": 28,
+      "moveIds": [
+        "gust",
+        "quick-attack",
+        "sand-attack",
+        "tackle"
+      ]
+    },
+    {
+      "speciesId": 180,
+      "level": 28,
+      "moveIds": [
+        "thunder-shock",
+        "thunder-wave",
+        "growl",
+        "tackle"
+      ]
+    }
+  ]
+}

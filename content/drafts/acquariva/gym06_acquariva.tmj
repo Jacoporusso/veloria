@@ -2988,6 +2988,16 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 67,
+          "name": "npc-footprint-selene_gym",
+          "x": 512,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -3298,7 +3308,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 67,
+  "nextobjectid": 68,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

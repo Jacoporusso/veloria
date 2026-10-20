@@ -55,15 +55,18 @@ export const journeyMilestones = [
   { flag: 'gym05_sluice_open', title: 'La chiusa superiore', objective: 'Attraversa il primo ponte della palestra e usa la console a destra sulla terrazza centrale.' },
   { flag: 'gym05_tide_stable', title: 'Una marea stabile', objective: 'Attraversa il secondo ponte e usa la console a sinistra sulla terrazza superiore.' },
   { flag: 'badge_marea_awarded', trainer: nerea, title: 'La Medaglia Marea', objective: 'Parla con Nerea al centro della terrazza superiore della palestra di Portolume.' },
+  { flag: 'trainer_r09_lina_defeated', optional: true, title: 'Allenarsi lungo la costa', objective: 'Lina propone una sfida facoltativa sulla curva delle Dune Salmastre, vicino al cartello. Puoi vedere la sua squadra prima di accettare.' },
   { flag: 'q_delta_flow_read', title: 'La corrente del Delta', objective: 'Con la Medaglia Marea scendi dal giardino delle fontane di Portolume e attraversa le Dune verso est. Nel Delta, sali sul pontile alto a sinistra e leggi il misuratore della corrente.' },
   { flag: 'q_delta_reeds_read', title: 'Riparo fra le canne', objective: 'Nel Delta degli Specchi leggi il pannello dei canneti sul tratto orientale del pontile alto. Le tre osservazioni si possono fare in qualsiasi ordine.' },
   { flag: 'q_delta_nursery_read', title: 'Il vivaio naturale', objective: 'Dal pontile inferiore del Delta segui il ramo a sud. Leggi il pannello sull’approdo del vivaio naturale.' },
   { flag: 'q_delta_report', title: 'Tre sguardi sul Delta', objective: 'Riporta le tre osservazioni alla biologa Iris, sul pontile d’ingresso del Delta. Il suo rapporto apre il percorso orientale.' },
+  { flag: 'trainer_delta_teo_defeated', optional: true, title: 'Due tipi sullo stesso pontile', objective: 'Teo ti aspetta sul tratto orientale del pontile alto del Delta. La sua sfida facoltativa mostra come cambiano le resistenze dei Pokémon con due tipi.' },
   { flag: 'q_r10_kit_found', optional: true, title: 'Il kit del pontile', objective: 'Sul Sentiero delle Canne, dal pontile alto scendi lungo il ramo orientale fino al piccolo approdo: raccogli il kit con due Antidoti.' },
   { flag: 'q_acquariva_visited', title: 'Il lago oltre le canne', objective: 'Dal Delta prosegui a est sul Sentiero delle Canne. Segui il pontile a destra, risali e svolta ancora a destra per Acquariva.' },
+  { flag: 'trainer_r10_maya_defeated', optional: true, title: 'Prepararsi alla prova Psico', objective: 'Maya propone una sfida facoltativa sulla salita centrale del Sentiero delle Canne. Dopo la lotta puoi curare la squadra al Centro Pokémon di Acquariva.' },
   { flag: 'q_acquariva_report', title: 'Confrontare le osservazioni', objective: 'Ad Acquariva attraversa il ponte a est della piazza e parla con Tessa nell’osservatorio sul lago.' },
   { flag: 'gym06_reflections_aligned', title: 'La luce del lago', objective: 'Entra nella palestra a nord della piazza di Acquariva. Ruota i quattro specchi e segui il fascio dalla sorgente al ricevitore; puoi correggerli in qualsiasi ordine.' },
-  { flag: 'badge_riflesso_awarded', trainer: selene, title: 'La Medaglia Riflesso', objective: 'Affronta Selene sulla terrazza superiore della palestra. Considera tipi, mosse e status: Slowbro è Acqua/Psico. Con la medaglia si apre la Via delle Cascate per Vetracielo.' },
+  { flag: 'badge_riflesso_awarded', trainer: selene, title: 'La Medaglia Riflesso', objective: 'Affronta Selene sulla terrazza superiore della palestra. Puoi allenarti con Lina nelle Dune, Teo nel Delta e Maya nelle Canne: sono sfide facoltative. Considera tipi, mosse e status: Slowbro è Acqua/Psico. Con la medaglia si apre la Via delle Cascate per Vetracielo.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

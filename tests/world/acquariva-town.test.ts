@@ -10,7 +10,7 @@ import type {GameSave} from '../../src/persistence/save-types.ts';
 test('Acquariva services, observatory and exits connect without crossing the lake',()=>{
   const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/acquariva.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,40,30,[]);
-  blocked.add('34,14');
+  assert.ok(blocked.has('34,14'),'Tessa occupies a real collision tile');
   const seen=new Set(['1,16']),queue=[[1,16]];
   for(let i=0;i<queue.length;i++){
     const[x,y]=queue[i];

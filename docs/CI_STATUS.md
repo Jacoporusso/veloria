@@ -1,3 +1,11 @@
+## Candidato pubblicazione Acquariva 0.3.88 — 20/10/2026
+
+- Integrati Lina nelle Dune, Teo nel Delta e Maya nelle Canne: sfide facoltative, squadre ufficiali da due Pokémon, dialoghi, banner, ricompense di 420/520/620 monete e flag persistenti. Le 24 mosse assegnate sono disponibili nei learnset HGSS ai livelli previsti. Diario aggiornato con indicazioni facoltative per allenarsi.
+- Iris, Tessa, Selene e i tre nuovi allenatori hanno ingombri reali nei Tiled. Le prove ora verificano la presenza delle collisioni, senza aggiungerle artificialmente. Percorsi principali e ritorni restano raggiungibili evitando gli habitat. Corretto il riferimento grafico dichiarato di Lina; il feedback di Selene indica contromisure già disponibili.
+- Validatore riuscito: 30 mappe, 29 quest, 13 allenatori, 7 negozi, 186 asset. 339 prove dominio + 16 persistenza e 49 Python passate. Sette prove touch passate in 5,8m: intero capitolo, puzzle/battaglia P6, ritorni, tre nuove sfide con rifiuto, collisione, banner, denaro e flag unici dopo reload. Screenshot del banner di Lina esaminato.
+- Fermata Acquariva verificata a DPR3: arrivo, reload, interazione a sinistra, landscape e ritorno a Vetracielo senza modificare risorse, 5,8s. Primo accesso offline a tutte le nuove mappe/immagini e cascate ripetuto sulla build finale: passato in 41,7s, inclusa build 54,7s. Build e dati conservati durante ciascuna prova.
+- E2E-06 della build con XP v8 passato fino a tre medaglie offline in 5,5m; insieme al primo controllo Acquariva 2 prove in 6,4m. Gli aggiornamenti successivi aggiungono solo allenatori, dialoghi e collisioni del nuovo capitolo; il codice della progressione e i capitoli attraversati da E2E-06 sono invariati. Non è una prova di battaglia P6 offline o di bilanciamento naturale. Pubblicazione e nuova CI da verificare dopo il push.
+
 ## Progressione XP e verifiche 0.3.88 — 20/10/2026
 
 - Ruleset v8: ricompensa XP scalata con livello e bonus allenatore, con overflow, apprendimento ed evoluzioni sul valore effettivo.352 prove dominio/persistenza passate (`.tmp/xp-level-scaled-tests-v2.txt`); build riuscita. Le fixture sintetiche che assegnano una soglia esatta usano avversari livello7, senza ripristinare la vecchia ricompensa nel runtime.

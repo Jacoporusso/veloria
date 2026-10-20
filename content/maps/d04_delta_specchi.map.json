@@ -62,7 +62,8 @@
     "veloria/d04_delta_fishing"
   ],
   "npcRefs": [
-    "delta_iris"
+    "delta_iris",
+    "delta_teo"
   ],
   "scriptRefs": [],
   "musicId": "ambient_route02",

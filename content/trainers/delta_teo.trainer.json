@@ -1,0 +1,33 @@
+{
+  "id": "veloria/trainer_delta_teo",
+  "name": "Teo",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_delta_teo_defeated",
+  "defeatQuestEvent": "battle/trainer_delta_teo/defeated",
+  "rewardMoney": 520,
+  "victoryMessage": "Hai vinto contro Teo. Ricevi 520 ₿.",
+  "victoryFeedback": "Conoscere un tipo non racconta tutta la strategia: Chinchou è Acqua/Elettro, Slowpoke Acqua/Psico. Guarda i dettagli del Pokédex e conserva le mosse che aiutano la tua squadra.",
+  "team": [
+    {
+      "speciesId": 170,
+      "level": 30,
+      "moveIds": [
+        "bubble-beam",
+        "spark",
+        "confuse-ray",
+        "thunder-wave"
+      ]
+    },
+    {
+      "speciesId": 79,
+      "level": 30,
+      "moveIds": [
+        "confusion",
+        "water-gun",
+        "growl",
+        "tackle"
+      ]
+    }
+  ]
+}

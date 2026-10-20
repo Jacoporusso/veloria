@@ -3,6 +3,7 @@
 - Ruleset v8: esperienza scalata con livello avversario e bonus allenatore esplicito. Eventi, overflow, livelli, mosse ed evoluzioni usano la ricompensa calcolata. Eliminata la resa costante che rallentava la progressione; bilanciamento naturale ancora in revisione.
 - Pannello messaggi della lotta toccabile per anticipare l'avanzamento, mantenendo i timer automatici. Nessuna conferma obbligatoria dopo una mossa. Cache v109.
 - Helper dei test: eliminate letture IndexedDB e geometria canvas duplicate; R04 attende il ritorno automatico al menu, mantenendo i comandi touch. Verifiche browser e offline in corso.
+- Tre sfide facoltative con Lina, Teo e Maya, mosse HGSS verificate, premi unici e diario. Collisioni reali dei personaggi del capitolo; contromisure di Selene riferite al catalogo disponibile.355 prove dominio/persistenza,49 Python, sette percorsi touch e fermata Acquariva superati. Risorse del capitolo e cascate offline verificate sulla build finale; avventura fino a tre medaglie offline passata sullo stesso core XP v8.
 
 ## veloria-content-0.3.87 — integrazione locale, 19/10/2026
 

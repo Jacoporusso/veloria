@@ -4394,6 +4394,16 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 78,
+          "name": "npc-footprint-r10_maya",
+          "x": 640,
+          "y": 256,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -4406,7 +4416,65 @@
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
-      "objects": [],
+      "objects": [
+        {
+          "id": 77,
+          "name": "Esploratrice Maya",
+          "x": 640,
+          "y": 256,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r10_maya"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r10_maya"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 4
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r10_maya"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r10_maya_defeated"
+            },
+            {
+              "name": "battleRequiredFlag",
+              "type": "string",
+              "value": "badge_marea_awarded"
+            },
+            {
+              "name": "battleLockedMessage",
+              "type": "string",
+              "value": "Prima completa la prova di Nerea a Portolume."
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4698,7 +4766,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 77,
+  "nextobjectid": 79,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

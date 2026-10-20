@@ -4405,6 +4405,16 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 78,
+          "name": "npc-footprint-acquariva_tessa",
+          "x": 1088,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -4720,7 +4730,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 78,
+  "nextobjectid": 79,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

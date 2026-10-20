@@ -26,7 +26,7 @@ test('Delta observations work in any order, require all three and reward once af
 test('Delta boardwalk reaches every observation and both exits without entering water',()=>{
   const map=JSON.parse(readFileSync(new URL('../../public/tilemaps/d04_delta_specchi.tmj',import.meta.url),'utf8'));
   const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,40,30,[]);
-  blocked.add('13,18'); // The biologist occupies this tile; row 17 provides a bypass.
+  assert.ok(blocked.has('13,18'),'Iris occupies a real collision tile; row 17 provides a bypass');
   const seen=new Set(['1,18']),queue=[[1,18]];
   for(let i=0;i<queue.length;i++){
     const[x,y]=queue[i];

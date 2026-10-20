@@ -68,7 +68,9 @@
   "encounterTableIds": [
     "veloria/r10_reed_patch"
   ],
-  "npcRefs": [],
+  "npcRefs": [
+    "r10_maya"
+  ],
   "scriptRefs": [],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-r10-reeds-v1"

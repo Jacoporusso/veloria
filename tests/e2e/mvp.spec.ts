@@ -562,13 +562,18 @@ async function seedBackupRoundtripScenario(page: Page) {
 
 async function tapBattleCanvas(page: Page, xRatio: number, bottomOffset: number) {
   const canvas = page.locator('#game canvas');
-  await expect.poll(async () => canvas.evaluate(element => {
-    const rect = element.getBoundingClientRect();
-    return Math.abs(element.width - rect.width) <= 1 && Math.abs(element.height - rect.height) <= 1;
-  })).toBe(true);
-  const box = await canvas.boundingBox();
+  let box: { x: number; y: number; width: number; height: number } | null = null;
+  await expect.poll(async () => {
+    box = await canvas.evaluate(element => {
+      const rect = element.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0 || Math.abs(element.width - rect.width) > 1 || Math.abs(element.height - rect.height) > 1) return null;
+      return { x: rect.x, y: rect.y, width: rect.width, height: rect.height };
+    });
+    return box !== null;
+  }).toBe(true);
   if (!box) throw new Error('Battle canvas is not visible.');
-  await page.touchscreen.tap(box.x + box.width * xRatio, box.y + box.height - bottomOffset);
+  const readyBox = box as { x: number; y: number; width: number; height: number };
+  await page.touchscreen.tap(readyBox.x + readyBox.width * xRatio, readyBox.y + readyBox.height - bottomOffset);
 }
 
 async function advanceBattleMessages(page: Page, stopAtCelebration = false) {
@@ -595,6 +600,17 @@ async function battleStatus(page: Page): Promise<{ mode: string; terminalShown: 
 }
 
 async function battleMode(page: Page): Promise<string> { return (await battleStatus(page)).mode; }
+
+async function advanceBattleToMenuWithTouch(page: Page) {
+  let terminalShown = false;
+  // Let the queued turn messages advance through their normal timers.
+  await expect.poll(async () => {
+    const status = await battleStatus(page);
+    terminalShown = status.terminalShown;
+    return status.terminalShown || status.mode === 'menu' || status.mode === 'inactive';
+  }, { timeout: 30_000, intervals: [100, 250, 500], message: 'The turn message queue returns to the command menu automatically.' }).toBe(true);
+  if (terminalShown) await expect(page.locator('.battle-celebration')).toBeVisible({ timeout: 15_000 });
+}
 
 async function advanceBattleToMenu(page: Page) {
   for (let step = 0; step < 60; step += 1) {
@@ -1062,6 +1078,10 @@ test('R04: the petal ascent reaches Petalora, services work, and Nila rewards on
   test.setTimeout(240_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/src/main.ts*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });
+  });
   await chooseCharmander(page);
   const species = JSON.parse(await readFile(new URL('../../content/battle/species.v1.json', import.meta.url), 'utf8')).species;
   const moves = JSON.parse(await readFile(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
@@ -1131,7 +1151,7 @@ test('R04: the petal ascent reaches Petalora, services work, and Nila rewards on
     if(await page.locator('.battle-celebration').isVisible())break;
     await tapBattleCanvas(page,.25,144);
     await tapBattleCanvas(page,.25,140);
-    await advanceBattleMessages(page,true);
+    await advanceBattleToMenuWithTouch(page);
   }
   const banner=page.locator('.battle-celebration');
   await expect(banner).toBeVisible();

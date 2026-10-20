@@ -28,15 +28,18 @@ export async function seedBrowserSave(page: Page, save: GameSave): Promise<void>
   }),save);
 }
 
-export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'right') {
+export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'right', beforeSave?: GameSave): Promise<GameSave> {
   const labels={up:'Vai in alto',down:'Vai in basso',left:'Vai a sinistra',right:'Vai a destra'};
-  const before=(await readBrowserSave(page)).player;
+  const before=(beforeSave ?? await readBrowserSave(page)).player;
+  let observed: GameSave;
   await page.getByRole('button',{name:labels[direction],exact:true}).tap();
   await expect.poll(async()=>{
-    const p=(await readBrowserSave(page)).player;
+    observed=await readBrowserSave(page);
+    const p=observed.player;
     return `${p.mapId}|${p.x},${p.y}`;
   }).not.toBe(`${before.mapId}|${before.x},${before.y}`);
   await expect(page.locator('#game-loading')).toBeHidden({timeout:30_000});
+  return observed!;
 }
 
 /** Plan against the authored collision map; do not teleport through the play test. */
@@ -68,5 +71,6 @@ export async function walkTo(page: Page, tiledFile: string, targetX: number, tar
   expect(visited.has(target),`${tiledFile}: reachable ${target}`).toBe(true);
   const route:Array<'up'|'down'|'left'|'right'>=[];
   for(let key=target;key!==start;) {const step=previous.get(key)!;route.push(step.direction);key=step.from;}
-  for(const direction of route.reverse())await walkDirection(page,direction);
+  let observed=save;
+  for(const direction of route.reverse())observed=await walkDirection(page,direction,observed);
 }

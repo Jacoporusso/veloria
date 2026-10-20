@@ -4141,6 +4141,26 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 54,
+          "name": "npc-footprint-delta_iris",
+          "x": 416,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 56,
+          "name": "npc-footprint-delta_teo",
+          "x": 768,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -4188,6 +4208,63 @@
               "name": "spriteFrame",
               "type": "int",
               "value": 2
+            }
+          ]
+        },
+        {
+          "id": 55,
+          "name": "Naturalista Teo",
+          "x": 768,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "delta_teo"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "delta_teo"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 3
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_delta_teo"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_delta_teo_defeated"
+            },
+            {
+              "name": "battleRequiredFlag",
+              "type": "string",
+              "value": "badge_marea_awarded"
+            },
+            {
+              "name": "battleLockedMessage",
+              "type": "string",
+              "value": "Prima completa la prova di Nerea a Portolume."
             }
           ]
         }
@@ -4451,7 +4528,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 54,
+  "nextobjectid": 57,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",
