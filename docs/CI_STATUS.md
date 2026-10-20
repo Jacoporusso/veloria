@@ -1,3 +1,7 @@
+## Pubblicazione rifornimenti 0.3.97 — 20/10/2026
+
+Commit `5ff5dc7e1feb962f94c7c9915d97eaf50eaa12f9` pubblicato. Deploy Pages `39426075059` SUCCESS; HTTPS conferma registro0.3.97 e cachev118. Nuovo Verify `39426075026` in attesa della precedente suite, senza annullarla. Verify0.3.96 ha già concluso con successo Lega, entrambi i job offline, entrambi i job controlli e tre shard MVP; MVP3 contiene la fixture corretta da questa revisione. Tre shard capitoli ancora in esecuzione al controllo. Non si dichiara una suite completa verde. Aggiornamento documentale senza duplicare workflow.
+
 ## Rifornimenti 0.3.97 — verifiche locali 20/10/2026
 
 - Validatore contenuti, 451 test dominio, 25 persistenza e build riusciti. Cinque E2E dei mercati passati in 22,9 secondi, con acquisti, addebito corretto e reload. Il primo tentativo di fixture aveva conservato uno spawn di un'altra mappa e non avviava la scena; corretta la fixture con spawn registrato nella mappa corrente.
