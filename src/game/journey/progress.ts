@@ -4,6 +4,7 @@ import aster from '../../../content/trainers/gym03_aster.trainer.json' with { ty
 import rhea from '../../../content/trainers/gym04_rhea.trainer.json' with { type: 'json' };
 import nerea from '../../../content/trainers/gym05_nerea.trainer.json' with { type: 'json' };
 import selene from '../../../content/trainers/gym06_selene.trainer.json' with { type: 'json' };
+import nives from '../../../content/trainers/gym07_nives.trainer.json' with { type: 'json' };
 import badgeContent from '../../../content/badges/badges.v1.json' with { type: 'json' };
 import { trainerPreparation } from '../battle/trainer-challenge.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
@@ -67,6 +68,17 @@ export const journeyMilestones = [
   { flag: 'q_acquariva_report', title: 'Confrontare le osservazioni', objective: 'Ad Acquariva attraversa il ponte a est della piazza e parla con Tessa nell’osservatorio sul lago.' },
   { flag: 'gym06_reflections_aligned', title: 'La luce del lago', objective: 'Entra nella palestra a nord della piazza di Acquariva. Ruota i quattro specchi e segui il fascio dalla sorgente al ricevitore; puoi correggerli in qualsiasi ordine.' },
   { flag: 'badge_riflesso_awarded', trainer: selene, title: 'La Medaglia Riflesso', objective: 'Affronta Selene sulla terrazza superiore della palestra. Puoi allenarti con Lina nelle Dune, Teo nel Delta e Maya nelle Canne: sono sfide facoltative. Considera tipi, mosse e status: Slowbro è Acqua/Psico. Con la medaglia si apre la Via delle Cascate per Vetracielo.' },
+  { flag: 'q_r12_visited', title: 'Verso la montagna', objective: 'Ad Acquariva risali il vicolo a sinistra della palestra. La nuova uscita a nord porta nella Valle del Vento; il sentiero delle Cascate rimane più a ovest.' },
+  { flag: 'q_r12_wind_read', title: 'Il vento della valle', objective: 'Nella Valle del Vento cerca la banderuola a nord-ovest, sul ramo laterale sopra il primo tornante. Le tre misure possono essere raccolte in qualsiasi ordine.' },
+  { flag: 'q_r12_temperature_read', title: 'Un altro punto di vista', objective: 'Leggi il termometro sul ramo a sud-est della Valle del Vento. Il percorso principale prosegue verso est, in alto, fino a Passobrina.' },
+  { flag: 'q_passobrina_snow_read', title: 'La neve del borgo', objective: 'A Passobrina cerca la piccola stazione meteo a nord-est della piazza e misura la neve. Puoi curare la squadra al Centro vicino al grande albero.' },
+  { flag: 'q_passobrina_report', title: 'Tre misure, un indizio', objective: 'Porta vento, temperatura e neve alla guida sulla piazzetta orientale di Passobrina. Il rapporto apre il sentiero dei Tornanti Bianchi.' },
+  { flag: 'q_biancavetta_visited', title: 'I Tornanti Bianchi', objective: 'Da Passobrina esci a est. Segui i tornanti battuti: prima a destra, poi a sinistra sulla terrazza centrale e infine a destra sulla terrazza alta, fino a Biancavetta.' },
+  { flag: 'gym07_ice_west', title: 'I sigilli della Brina', objective: 'Entra nella palestra a nord della piazza di Biancavetta. Attraversa le piste e accendi i tre sigilli sulle terrazze a nord, in qualsiasi ordine. Sul ghiaccio mantieni la direzione fino a un ostacolo o alla terra asciutta.' },
+  { flag: 'gym07_ice_center', title: 'La pista centrale', objective: 'Il cristallo della pista centrale ferma lo scivolo. Quando sei fermo puoi cambiare direzione: cerca il passaggio sul lato destro per raggiungere la terrazza del sigillo.' },
+  { flag: 'gym07_ice_east', title: 'La pista orientale', objective: 'Sulla pista a est il passaggio libero è a sinistra del cristallo. Scivola fino alla terrazza a nord e attraversa il sigillo; puoi sempre tornare alla passerella a sud.' },
+  { flag: 'gym07_ice_complete', title: 'Il cancello dei tre sigilli', objective: 'Con i tre sigilli accesi esamina la console a destra del sigillo centrale. Il cancello apre il passaggio verso Nives.' },
+  { flag: 'badge_ghiaccio_awarded', trainer: nives, title: 'La Medaglia Brina', objective: 'Affronta Nives sulla terrazza oltre il cancello. Dewgong è Acqua/Ghiaccio e Piloswine è Ghiaccio/Terra: osserva entrambi i tipi prima di scegliere una mossa. La vittoria attiva la funivia tra Biancavetta e Passobrina.' },
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

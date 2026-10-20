@@ -257,16 +257,21 @@
       ]
     },
     "82": {
+      "evolutions": []
+    },
+    "86": {
       "evolutions": [
         {
-          "targetSpeciesId": 462,
-          "targetName": "Magnezone",
+          "targetSpeciesId": 87,
+          "targetName": "Dewgong",
           "trigger": "level-up",
-          "minimumLevel": null,
-          "itemName": null,
-          "locationName": "Mt. Coronet"
+          "minimumLevel": 34,
+          "itemName": null
         }
       ]
+    },
+    "87": {
+      "evolutions": []
     },
     "96": {
       "evolutions": [
@@ -306,6 +311,9 @@
           "itemName": null
         }
       ]
+    },
+    "124": {
+      "evolutions": []
     },
     "133": {
       "evolutions": [
@@ -347,24 +355,6 @@
           "itemName": null,
           "minimumHappiness": 160,
           "timeOfDay": "night"
-        },
-        {
-          "targetSpeciesId": 470,
-          "targetName": "Leafeon",
-          "trigger": "level-up",
-          "minimumLevel": null,
-          "itemName": null,
-          "locationName": "Eterna Forest",
-          "nearSpecialRock": true
-        },
-        {
-          "targetSpeciesId": 471,
-          "targetName": "Glaceon",
-          "trigger": "level-up",
-          "minimumLevel": null,
-          "itemName": null,
-          "locationName": "Route 217",
-          "nearSpecialRock": true
         }
       ]
     },
@@ -478,6 +468,23 @@
       "evolutions": []
     },
     "208": {
+      "evolutions": []
+    },
+    "215": {
+      "evolutions": []
+    },
+    "220": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 221,
+          "targetName": "Piloswine",
+          "trigger": "level-up",
+          "minimumLevel": 33,
+          "itemName": null
+        }
+      ]
+    },
+    "221": {
       "evolutions": []
     },
     "227": {

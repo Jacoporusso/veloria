@@ -599,6 +599,10 @@
         {
           "level": 28,
           "moveId": "mud-shot"
+        },
+        {
+          "level": 41,
+          "moveId": "mud-bomb"
         }
       ]
     },
@@ -878,6 +882,10 @@
         {
           "level": 15,
           "moveId": "slam"
+        },
+        {
+          "level": 19,
+          "moveId": "mud-bomb"
         },
         {
           "level": 23,
@@ -1447,6 +1455,10 @@
         {
           "level": 15,
           "moveId": "slam"
+        },
+        {
+          "level": 19,
+          "moveId": "mud-bomb"
         },
         {
           "level": 24,
@@ -2544,6 +2556,294 @@
         {
           "level": 34,
           "moveId": "discharge"
+        }
+      ]
+    },
+    "220": {
+      "speciesId": 220,
+      "name": "Swinub",
+      "types": [
+        "ice",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 50,
+        "attack": 50,
+        "defense": 40,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "speed": 50
+      },
+      "experienceYield": 50,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "powder-snow"
+        },
+        {
+          "level": 20,
+          "moveId": "mud-bomb"
+        },
+        {
+          "level": 25,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 28,
+          "moveId": "ice-shard"
+        },
+        {
+          "level": 49,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "221": {
+      "speciesId": 221,
+      "name": "Piloswine",
+      "types": [
+        "ice",
+        "ground"
+      ],
+      "baseStats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 80,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "speed": 50
+      },
+      "experienceYield": 158,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "peck",
+        "powder-snow"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "peck"
+        },
+        {
+          "level": 1,
+          "moveId": "powder-snow"
+        },
+        {
+          "level": 8,
+          "moveId": "powder-snow"
+        },
+        {
+          "level": 20,
+          "moveId": "mud-bomb"
+        },
+        {
+          "level": 25,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 33,
+          "moveId": "fury-attack"
+        },
+        {
+          "level": 65,
+          "moveId": "amnesia"
+        }
+      ]
+    },
+    "215": {
+      "speciesId": 215,
+      "name": "Sneasel",
+      "types": [
+        "dark",
+        "ice"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "speed": 115
+      },
+      "experienceYield": 86,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "scratch"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "scratch"
+        },
+        {
+          "level": 8,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 10,
+          "moveId": "screech"
+        },
+        {
+          "level": 14,
+          "moveId": "feint-attack"
+        },
+        {
+          "level": 21,
+          "moveId": "fury-swipes"
+        },
+        {
+          "level": 24,
+          "moveId": "agility"
+        },
+        {
+          "level": 28,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 49,
+          "moveId": "ice-shard"
+        }
+      ]
+    },
+    "86": {
+      "speciesId": 86,
+      "name": "Seel",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 45,
+        "defense": 55,
+        "specialAttack": 45,
+        "specialDefense": 70,
+        "speed": 45
+      },
+      "experienceYield": 65,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "growl"
+      ],
+      "officialLearnset": [
+        {
+          "level": 3,
+          "moveId": "growl"
+        },
+        {
+          "level": 11,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 17,
+          "moveId": "ice-shard"
+        },
+        {
+          "level": 27,
+          "moveId": "aurora-beam"
+        },
+        {
+          "level": 47,
+          "moveId": "ice-beam"
+        }
+      ]
+    },
+    "87": {
+      "speciesId": 87,
+      "name": "Dewgong",
+      "types": [
+        "water",
+        "ice"
+      ],
+      "baseStats": {
+        "hp": 90,
+        "attack": 70,
+        "defense": 80,
+        "specialAttack": 70,
+        "specialDefense": 95,
+        "speed": 70
+      },
+      "experienceYield": 166,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "growl",
+        "icy-wind"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "growl"
+        },
+        {
+          "level": 1,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 3,
+          "moveId": "growl"
+        },
+        {
+          "level": 11,
+          "moveId": "icy-wind"
+        },
+        {
+          "level": 17,
+          "moveId": "ice-shard"
+        },
+        {
+          "level": 27,
+          "moveId": "aurora-beam"
+        },
+        {
+          "level": 47,
+          "moveId": "ice-beam"
+        }
+      ]
+    },
+    "124": {
+      "speciesId": 124,
+      "name": "Jynx",
+      "types": [
+        "ice",
+        "psychic"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 50,
+        "defense": 35,
+        "specialAttack": 115,
+        "specialDefense": 95,
+        "speed": 95
+      },
+      "experienceYield": 159,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "pound",
+        "powder-snow"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "pound"
+        },
+        {
+          "level": 1,
+          "moveId": "powder-snow"
+        },
+        {
+          "level": 11,
+          "moveId": "powder-snow"
+        },
+        {
+          "level": 15,
+          "moveId": "double-slap"
         }
       ]
     }

@@ -1,0 +1,78 @@
+{
+  "r12_wind_gauge": {
+    "speaker": "Misuratore di raffiche",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": ["Il sentiero sarà aperto dopo la Medaglia Riflesso."]
+      },
+      {
+        "whenFlagMissing": "q_r12_wind_read",
+        "questEvent": "r12/wind/read",
+        "lines": ["Sei nel nord-ovest della valle. La banderuola segna il vento di oggi. Dai un'occhiata anche al termometro a sud-est."]
+      },
+      { "lines": ["Vento segnato! Puoi leggere gli altri strumenti in qualunque ordine."] }
+    ]
+  },
+  "r12_valley_thermometer": {
+    "speaker": "Termometro di valle",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": ["Il sentiero sarà aperto dopo la Medaglia Riflesso."]
+      },
+      {
+        "whenFlagMissing": "q_r12_temperature_read",
+        "questEvent": "r12/temperature/read",
+        "lines": ["Sei nel sud-est della valle. Leggi la temperatura; il misuratore del vento è a nord-ovest."]
+      },
+      { "lines": ["Temperatura segnata! Puoi leggere gli altri punti in qualunque ordine."] }
+    ]
+  },
+  "passobrina_snow_reading": {
+    "speaker": "Misura della neve",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": ["Il sentiero sarà aperto dopo la Medaglia Riflesso."]
+      },
+      {
+        "whenFlagMissing": "q_passobrina_snow_read",
+        "questEvent": "passobrina/snow/read",
+        "lines": ["Questo punto è a nord-est del borgo. Segna quanta neve trovi qui."]
+      },
+      { "lines": ["Neve segnata! La guida alpina ti aspetta vicino al sentiero."] }
+    ]
+  },
+  "passobrina_guide": {
+    "speaker": "Guida alpina",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_riflesso_awarded",
+        "lines": ["Dopo la Medaglia Riflesso potrai confrontare tre letture lungo il passo."]
+      },
+      {
+        "whenFlagMissing": "q_r12_wind_read",
+        "lines": ["Manca il vento: il misuratore è a nord-ovest della Valle del Vento."]
+      },
+      {
+        "whenFlagMissing": "q_r12_temperature_read",
+        "lines": ["Manca la temperatura: il termometro è a sud-est della valle."]
+      },
+      {
+        "whenFlagMissing": "q_passobrina_snow_read",
+        "lines": ["Manca la neve: la misura è a nord-est del borgo di Passobrina."]
+      },
+      {
+        "whenFlagMissing": "q_passobrina_report",
+        "questEvent": "passobrina/guide/report",
+        "lines": ["Hai raccolto tutte e tre le letture. Le condizioni cambiano da un punto all'altro: il rapporto è pronto. Ora il sentiero per i Tornanti Bianchi è aperto."]
+      },
+      { "lines": ["Il rapporto è completo. Il sentiero dei Tornanti Bianchi è aperto."] }
+    ]
+  },
+  "passobrina_cableway_terminal": {
+    "speaker": "Terminale della funivia",
+    "lines": ["La funivia sarà disponibile più avanti nel viaggio."]
+  }
+}

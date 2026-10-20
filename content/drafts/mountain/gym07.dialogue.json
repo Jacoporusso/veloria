@@ -1,0 +1,62 @@
+{
+  "gym07_instructions": {
+    "speaker": "Le piste della Brina",
+    "lines": [
+      "Sul ghiaccio continui diritto finché trovi terra asciutta o un ostacolo. Quando ti fermi puoi scegliere una nuova direzione.",
+      "Accendi i tre sigilli nelle terrazze a nord: puoi farlo in qualsiasi ordine. Poi esamina la console a destra del sigillo centrale. Per tornare all’ingresso scendi lungo le piste."
+    ]
+  },
+  "gym07_ice_gate": {
+    "speaker": "Console dei tre sigilli",
+    "stages": [
+      {
+        "whenFlagMissing": "gym07_ice_west",
+        "lines": [
+          "Manca il sigillo della pista ovest. Raggiungi la sua terrazza a nord, poi torna qui."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym07_ice_center",
+        "lines": [
+          "Manca il sigillo della pista centrale. Raggiungi la sua terrazza a nord, poi torna qui."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym07_ice_east",
+        "lines": [
+          "Manca il sigillo della pista est. Raggiungi la sua terrazza a nord, poi torna qui."
+        ]
+      },
+      {
+        "whenFlagMissing": "gym07_ice_complete",
+        "questEvent": "gym07/ice/open",
+        "lines": [
+          "Tre sigilli accesi! Il cancello si apre: Nives ti aspetta sulla terrazza centrale."
+        ]
+      },
+      {
+        "lines": [
+          "Il cancello è aperto. Puoi raggiungere Nives passando a nord del sigillo centrale."
+        ]
+      }
+    ]
+  },
+  "nives_gym": {
+    "speaker": "Nives",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_gym07_nives_defeated",
+        "lines": [
+          "Hai trovato la strada tra le piste! In lotta conta osservare anche i tipi del tuo avversario, non solo il colore delle mosse.",
+          "Sono Nives. Scegli la tua squadra e preparati alla prova della Brina!"
+        ]
+      },
+      {
+        "lines": [
+          "La Medaglia Brina è tua! La funivia collega Biancavetta a Passobrina: trovi le cabine a sud della piazza.",
+          "Il segnale continua verso il massiccio del Cristallo. Conserveremo le misure mentre le guide controllano il valico."
+        ]
+      }
+    ]
+  }
+}

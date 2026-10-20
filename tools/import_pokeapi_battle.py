@@ -16,6 +16,8 @@ VERSION_GROUP = 'heartgold-soulsilver'
 SUPPORTED_MOVES = '''thunder-shock growl scratch tackle tail-whip defense-curl quick-attack gust poison-sting string-shot ember water-gun vine-whip absorb bubble harden confusion fury-attack hypnosis peck withdraw scary-face acid agility amnesia poison-powder sleep-powder stun-spore double-slap fury-swipes leech-life constrict mud-shot slam sand-attack smokescreen sweet-scent leech-seed metal-sound supersonic sonic-boom thunder-wave spark screech rock-throw bubble-beam vice-grip barrier'''.split()
 SUPPORTED_MOVES += ['psybeam', 'confuse-ray', 'swift', 'pound', 'meditate']
 SUPPORTED_MOVES += ['wing-attack', 'water-pulse', 'thunder-punch', 'discharge']
+SUPPORTED_MOVES += ['powder-snow', 'aurora-beam', 'ice-beam', 'icy-wind', 'ice-shard', 'feint-attack']
+SUPPORTED_MOVES += ['mud-bomb']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 
@@ -41,8 +43,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fetch', action='store_true', help='Download missing public API resources and cache them.')
     parser.add_argument('--check', action='store_true', help='Verify generated data without writing it or accessing the network.')
+    parser.add_argument('--group', help='Import only species assigned to this artwork group; preserve all other catalog entries.')
     args = parser.parse_args(argv)
     species = read_json(ROOT / 'content/battle/species.v1.json')['species']
+    imports = read_json(ROOT / 'content/battle/species-imports.v1.json')['imports']
+    selected = {str(entry['speciesId']) for entry in imports if args.group and entry.get('artworkGroup') == args.group}
+    if args.group and not selected:
+        raise ValueError(f'No species imports found for group {args.group!r}')
+    if not args.group:
+        selected = set(species)
     manifest = {}
     def get(kind, key):
         value, source = resource(kind, key, args.fetch and not args.check)
@@ -115,6 +124,8 @@ def main(argv=None):
 
     full_learnsets, learning, pending = {}, {}, {}
     for species_id, definition in species.items():
+        if species_id not in selected:
+            continue
         raw = get('pokemon', species_id)
         entries = []
         for move in raw['moves']:
@@ -129,7 +140,7 @@ def main(argv=None):
         for entry in supported:
             if entry['level'] <= 5 and entry['moveId'] not in preview:
                 preview.append(entry['moveId'])
-        assert preview, f'No supported level-five moves for {species_id}'
+        assert preview, f'No supported level-five moves for {species_id}; retain it as a deferred source instead of registering an unusable creature.'
         definition['defaultMoveIds'] = preview[-4:]
         seen = set()
         learning[species_id] = []
@@ -140,17 +151,42 @@ def main(argv=None):
             learning[species_id].append(entry)
         pending[species_id] = [entry for entry in entries if entry['moveId'] not in moves]
 
+    # Preserve and verify cached research sources as well as runtime sources.
+    # Candidate species/moves can be deferred without losing their provenance.
+    previous_manifest_path = SOURCE / 'manifest.json'
+    if previous_manifest_path.exists():
+        for resource_id in read_json(previous_manifest_path)['resources']:
+            if resource_id not in manifest:
+                kind, key = resource_id.split('/', 1)
+                get(kind, key)
+
     source = {'provider': 'PokeAPI', 'versionGroup': VERSION_GROUP, 'language': 'it', 'manifest': 'content/sources/pokeapi/manifest.json'}
     species_data = read_json(ROOT / 'content/battle/species.v1.json')
     species_data['species'] = species
     species_data['moveSource'] = source
     species_data['movePolicy'] = 'officialLearnset determines new creatures at their actual level; defaultMoveIds is a level-five preview. Prototype save compatibility is not required.'
-    starters = read_json(ROOT / 'content/starters/starting-partners.v1.json')
-    for starter in starters['starters']:
-        starter['moves'] = [{'id': move_id, 'pp': moves[move_id]['maxPp']} for move_id in species[str(starter['speciesId'])]['defaultMoveIds']]
-    starters['moveSource'] = source
+    if args.group:
+        previous_learnsets = read_json(SOURCE / 'source-learnsets.json') if (SOURCE / 'source-learnsets.json').exists() else {'species': {}, 'unimplemented': {}}
+        previous_learnsets['species'].update(full_learnsets)
+        previous_learnsets['unimplemented'].update(pending)
+        full_learnsets = previous_learnsets['species']
+        pending = previous_learnsets['unimplemented']
+        previous_manifest = read_json(SOURCE / 'manifest.json') if (SOURCE / 'manifest.json').exists() else {'resources': {}}
+        previous_manifest['resources'].update(manifest)
+        manifest = previous_manifest['resources']
+        previous_moves = read_json(ROOT / 'content/battle/moves.v1.json')['moves']
+        previous_moves.update(moves)
+        moves = previous_moves
+        previous_learning = read_json(ROOT / 'content/battle/level-up-moves.v1.json')['species']
+        previous_learning.update(learning)
+        learning = previous_learning
+    starters = None
+    if not args.group:
+        starters = read_json(ROOT / 'content/starters/starting-partners.v1.json')
+        for starter in starters['starters']:
+            starter['moves'] = [{'id': move_id, 'pp': moves[move_id]['maxPp']} for move_id in species[str(starter['speciesId'])]['defaultMoveIds']]
+        starters['moveSource'] = source
     outputs = {
-        ROOT / 'content/starters/starting-partners.v1.json': starters,
         ROOT / 'content/battle/moves.v1.json': {'version': 10, 'status': 'prototype', 'source': source,
             'notes': ['Generated by tools/import_pokeapi_battle.py from cached PokéAPI responses. No balance overrides.',
                       'Historical values apply before the past_values version_group change boundary. Null accuracy is represented by alwaysHits:true.',
@@ -161,6 +197,8 @@ def main(argv=None):
         SOURCE / 'source-learnsets.json': {'source': source, 'species': full_learnsets, 'unimplemented': pending},
         SOURCE / 'manifest.json': {'versionGroup': VERSION_GROUP, 'resources': dict(sorted(manifest.items()))},
     }
+    if starters is not None:
+        outputs[ROOT / 'content/starters/starting-partners.v1.json'] = starters
     for path, value in outputs.items():
         rendered = json.dumps(value, ensure_ascii=False, indent=2) + '\n'
         if args.check:

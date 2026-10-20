@@ -24,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-acquariva-v1",
-      "path": "assets/sprites/veloria-acquariva-v1.webp"
+      "key": "veloria-acquariva-v2",
+      "path": "assets/scenery/veloria-acquariva-v2.webp"
     }
   ],
   "spawns": [
@@ -52,6 +52,12 @@
       "x": 7,
       "y": 22,
       "facing": "left"
+    },
+    {
+      "id": "from_r12",
+      "x": 13,
+      "y": 1,
+      "facing": "down"
     }
   ],
   "connections": [
@@ -76,6 +82,14 @@
       "requiresFlags": [
         "badge_riflesso_awarded"
       ]
+    },
+    {
+      "toMapId": "veloria/r12_valle_vento",
+      "viaSpawnId": "from_r12",
+      "targetSpawnId": "from_acquariva",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
     }
   ],
   "encounterTableIds": [],
@@ -84,6 +98,6 @@
   ],
   "scriptRefs": [],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-acquariva-v1",
+  "battleBackgroundKey": "veloria-acquariva-v2",
   "ambientEffects": []
 }

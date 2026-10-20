@@ -794,6 +794,105 @@
       "maxPp": 15,
       "inflictedStatus": "paralysis",
       "statusChance": 30
+    },
+    "powder-snow": {
+      "id": "powder-snow",
+      "name": "Polneve",
+      "type": "ice",
+      "category": "special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 25,
+      "inflictedStatus": "freeze",
+      "statusChance": 10
+    },
+    "aurora-beam": {
+      "id": "aurora-beam",
+      "name": "Raggiaurora",
+      "type": "ice",
+      "category": "special",
+      "power": 65,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "attack",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 10
+    },
+    "ice-beam": {
+      "id": "ice-beam",
+      "name": "Geloraggio",
+      "type": "ice",
+      "category": "special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 10,
+      "inflictedStatus": "freeze",
+      "statusChance": 10
+    },
+    "icy-wind": {
+      "id": "icy-wind",
+      "name": "Ventogelato",
+      "type": "ice",
+      "category": "special",
+      "power": 55,
+      "accuracy": 95,
+      "priority": 0,
+      "maxPp": 15,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "speed",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 100
+    },
+    "ice-shard": {
+      "id": "ice-shard",
+      "name": "Geloscheggia",
+      "type": "ice",
+      "category": "physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 1,
+      "maxPp": 30
+    },
+    "feint-attack": {
+      "id": "feint-attack",
+      "name": "Finta",
+      "type": "dark",
+      "category": "physical",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 20,
+      "alwaysHits": true
+    },
+    "mud-bomb": {
+      "id": "mud-bomb",
+      "name": "Pantanobomba",
+      "type": "ground",
+      "category": "special",
+      "power": 65,
+      "accuracy": 85,
+      "priority": 0,
+      "maxPp": 10,
+      "statChanges": [
+        {
+          "target": "opponent",
+          "stat": "accuracy",
+          "stages": -1
+        }
+      ],
+      "statChangeChance": 30
     }
   }
 }

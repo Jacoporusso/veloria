@@ -1,5 +1,25 @@
-const CACHE = 'veloria-shell-v111';
+const CACHE = 'veloria-shell-v112';
 const SHELL = [
+  './tilemaps/r12_valle_vento.tmj',
+  './tilemaps/passobrina.tmj',
+  './tilemaps/r13_tornanti_bianchi.tmj',
+  './tilemaps/biancavetta.tmj',
+  './tilemaps/gym07_biancavetta.tmj',
+
+  './assets/scenery/veloria-biancavetta-v1.webp',
+  './assets/scenery/veloria-acquariva-v2.webp',
+  './assets/scenery/veloria-gym07-ice-v1.webp',
+  './assets/scenery/veloria-passobrina-v1.webp',
+  './assets/scenery/veloria-r12-wind-valley-v1.webp',
+  './assets/scenery/veloria-r13-white-switchbacks-v1.webp',
+  './assets/creatures/pokeapi-mountain-124-v1.webp',
+  './assets/creatures/pokeapi-mountain-215-v1.webp',
+  './assets/creatures/pokeapi-mountain-220-v1.webp',
+  './assets/creatures/pokeapi-mountain-221-v1.webp',
+  './assets/creatures/pokeapi-mountain-225-v1.webp',
+  './assets/creatures/pokeapi-mountain-86-v1.webp',
+  './assets/creatures/pokeapi-mountain-87-v1.webp',
+
   './assets/creatures/pokeapi-starter-finals-3-v1.webp',
   './assets/creatures/pokeapi-starter-finals-6-v1.webp',
   './assets/creatures/pokeapi-starter-finals-9-v1.webp',

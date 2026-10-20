@@ -1,5 +1,14 @@
 # Changelog — Veloria Project Pack
 
+## 0.3.91 — 20/10/2026
+
+- Capitolo montano: R12, Passobrina, R13, Biancavetta e P7 con cinque nuove illustrazioni originali, percorsi e servizi. Nuova scala illustrata a nord di Acquariva.
+- Ricerca climatica con tre letture in ordine libero, rapporto e premi unici. Diario e atlante aggiornati.
+- Tre piste di ghiaccio, sigilli, console e cancello dinamico; Nives, Medaglia Brina, banner e sblocco della funivia nei due sensi.
+- Trasporto locale dichiarativo per battello/funivia; validazione di rotte, flag, terminali e arrivi sicuri. Arrivo del battello all’osservatorio reso adiacente al terminale.
+- Sei specie montane e sette mosse ufficiali aggiunte, evoluzioni Swinub/Seel e artwork locali. Delibird resta escluso finché Present non sarà supportata. Fonti oltre Gen II conservate ma non importate nel runtime.
+- Prove di percorso completo e ritorni, quest in tutti gli ordini, puzzle con reload, battaglia, medaglia unica e funivia. Stato offline/pubblicazione/CI nel relativo documento.
+
 ## 0.3.90 — 20/10/2026
 
 - La selezione in battaglia sopravvive a resize e rotazione; ignorati eventi resize senza variazioni delle dimensioni. Corrette le fixture browser per usare il normale osservatore del viewport.

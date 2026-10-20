@@ -7086,6 +7086,28 @@
           "height": 32,
           "visible": true,
           "rotation": 0
+        },
+        {
+          "id": 2563,
+          "name": "Imbarcadero",
+          "type": "",
+          "x": 832,
+          "y": 448,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 2564,
+          "name": "Imbarcadero",
+          "type": "",
+          "x": 1024,
+          "y": 320,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -7258,7 +7280,7 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "local-ferry"
+              "value": "local-transport"
             },
             {
               "name": "networkId",
@@ -7285,7 +7307,7 @@
             {
               "name": "kind",
               "type": "string",
-              "value": "local-ferry"
+              "value": "local-transport"
             },
             {
               "name": "networkId",
@@ -7472,7 +7494,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 2563,
+  "nextobjectid": 2565,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

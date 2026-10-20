@@ -3694,6 +3694,508 @@
         "moveId": "thunder",
         "order": null
       }
+    ],
+    "220": [
+      {
+        "level": 1,
+        "moveId": "tackle",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "odor-sleuth",
+        "order": 2
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "powder-snow",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "mud-slap",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "endure",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "icy-wind",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "ice-shard",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "mist",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "blizzard",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "amnesia",
+        "order": null
+      }
+    ],
+    "221": [
+      {
+        "level": 1,
+        "moveId": "ancient-power",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "peck",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "odor-sleuth",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "powder-snow",
+        "order": 5
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "powder-snow",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "mud-slap",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "endure",
+        "order": null
+      },
+      {
+        "level": 20,
+        "moveId": "mud-bomb",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "icy-wind",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "ice-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "fury-attack",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "mist",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "blizzard",
+        "order": null
+      },
+      {
+        "level": 65,
+        "moveId": "amnesia",
+        "order": null
+      }
+    ],
+    "215": [
+      {
+        "level": 1,
+        "moveId": "scratch",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "taunt",
+        "order": 3
+      },
+      {
+        "level": 8,
+        "moveId": "quick-attack",
+        "order": null
+      },
+      {
+        "level": 10,
+        "moveId": "screech",
+        "order": null
+      },
+      {
+        "level": 14,
+        "moveId": "feint-attack",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "fury-swipes",
+        "order": null
+      },
+      {
+        "level": 24,
+        "moveId": "agility",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "icy-wind",
+        "order": null
+      },
+      {
+        "level": 35,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "beat-up",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "metal-claw",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "ice-shard",
+        "order": null
+      }
+    ],
+    "86": [
+      {
+        "level": 1,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 3,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "water-sport",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "icy-wind",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "encore",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "ice-shard",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "aurora-beam",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "aqua-jet",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "dive",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "ice-beam",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "safeguard",
+        "order": null
+      }
+    ],
+    "87": [
+      {
+        "level": 1,
+        "moveId": "headbutt",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "growl",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "signal-beam",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "icy-wind",
+        "order": 4
+      },
+      {
+        "level": 3,
+        "moveId": "growl",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "icy-wind",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "encore",
+        "order": null
+      },
+      {
+        "level": 17,
+        "moveId": "ice-shard",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 27,
+        "moveId": "aurora-beam",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "aqua-jet",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "sheer-cold",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "dive",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 47,
+        "moveId": "ice-beam",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "safeguard",
+        "order": null
+      }
+    ],
+    "124": [
+      {
+        "level": 1,
+        "moveId": "pound",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "lick",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "lovely-kiss",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "powder-snow",
+        "order": 4
+      },
+      {
+        "level": 5,
+        "moveId": "lick",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "lovely-kiss",
+        "order": null
+      },
+      {
+        "level": 11,
+        "moveId": "powder-snow",
+        "order": null
+      },
+      {
+        "level": 15,
+        "moveId": "double-slap",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "ice-punch",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "fake-tears",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "wake-up-slap",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "avalanche",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "body-slam",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "wring-out",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "perish-song",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "blizzard",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -4076,11 +4578,6 @@
         "level": 38,
         "moveId": "hydro-pump",
         "order": null
-      },
-      {
-        "level": 41,
-        "moveId": "mud-bomb",
-        "order": null
       }
     ],
     "69": [
@@ -4282,11 +4779,6 @@
       {
         "level": 5,
         "moveId": "mud-sport",
-        "order": null
-      },
-      {
-        "level": 19,
-        "moveId": "mud-bomb",
         "order": null
       },
       {
@@ -4744,11 +5236,6 @@
       {
         "level": 5,
         "moveId": "mud-sport",
-        "order": null
-      },
-      {
-        "level": 19,
-        "moveId": "mud-bomb",
         "order": null
       },
       {
@@ -5761,6 +6248,323 @@
       {
         "level": 68,
         "moveId": "thunder",
+        "order": null
+      }
+    ],
+    "220": [
+      {
+        "level": 1,
+        "moveId": "odor-sleuth",
+        "order": 2
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "mud-slap",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "endure",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "mist",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "blizzard",
+        "order": null
+      }
+    ],
+    "221": [
+      {
+        "level": 1,
+        "moveId": "ancient-power",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "odor-sleuth",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "mud-sport",
+        "order": 4
+      },
+      {
+        "level": 4,
+        "moveId": "mud-sport",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "mud-slap",
+        "order": null
+      },
+      {
+        "level": 16,
+        "moveId": "endure",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "ice-fang",
+        "order": null
+      },
+      {
+        "level": 32,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 40,
+        "moveId": "earthquake",
+        "order": null
+      },
+      {
+        "level": 48,
+        "moveId": "mist",
+        "order": null
+      },
+      {
+        "level": 56,
+        "moveId": "blizzard",
+        "order": null
+      }
+    ],
+    "215": [
+      {
+        "level": 1,
+        "moveId": "leer",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "taunt",
+        "order": 3
+      },
+      {
+        "level": 35,
+        "moveId": "slash",
+        "order": null
+      },
+      {
+        "level": 38,
+        "moveId": "beat-up",
+        "order": null
+      },
+      {
+        "level": 42,
+        "moveId": "metal-claw",
+        "order": null
+      }
+    ],
+    "86": [
+      {
+        "level": 1,
+        "moveId": "headbutt",
+        "order": null
+      },
+      {
+        "level": 7,
+        "moveId": "water-sport",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "encore",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "aqua-jet",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "dive",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "safeguard",
+        "order": null
+      }
+    ],
+    "87": [
+      {
+        "level": 1,
+        "moveId": "headbutt",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "signal-beam",
+        "order": 3
+      },
+      {
+        "level": 7,
+        "moveId": "signal-beam",
+        "order": null
+      },
+      {
+        "level": 13,
+        "moveId": "encore",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "rest",
+        "order": null
+      },
+      {
+        "level": 23,
+        "moveId": "aqua-ring",
+        "order": null
+      },
+      {
+        "level": 31,
+        "moveId": "aqua-jet",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "brine",
+        "order": null
+      },
+      {
+        "level": 34,
+        "moveId": "sheer-cold",
+        "order": null
+      },
+      {
+        "level": 37,
+        "moveId": "take-down",
+        "order": null
+      },
+      {
+        "level": 41,
+        "moveId": "dive",
+        "order": null
+      },
+      {
+        "level": 43,
+        "moveId": "aqua-tail",
+        "order": null
+      },
+      {
+        "level": 51,
+        "moveId": "safeguard",
+        "order": null
+      }
+    ],
+    "124": [
+      {
+        "level": 1,
+        "moveId": "lick",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "lovely-kiss",
+        "order": 3
+      },
+      {
+        "level": 5,
+        "moveId": "lick",
+        "order": null
+      },
+      {
+        "level": 8,
+        "moveId": "lovely-kiss",
+        "order": null
+      },
+      {
+        "level": 18,
+        "moveId": "ice-punch",
+        "order": null
+      },
+      {
+        "level": 21,
+        "moveId": "mean-look",
+        "order": null
+      },
+      {
+        "level": 25,
+        "moveId": "fake-tears",
+        "order": null
+      },
+      {
+        "level": 28,
+        "moveId": "wake-up-slap",
+        "order": null
+      },
+      {
+        "level": 33,
+        "moveId": "avalanche",
+        "order": null
+      },
+      {
+        "level": 39,
+        "moveId": "body-slam",
+        "order": null
+      },
+      {
+        "level": 44,
+        "moveId": "wring-out",
+        "order": null
+      },
+      {
+        "level": 49,
+        "moveId": "perish-song",
+        "order": null
+      },
+      {
+        "level": 55,
+        "moveId": "blizzard",
         "order": null
       }
     ]

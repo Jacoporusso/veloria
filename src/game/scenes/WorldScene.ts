@@ -4,8 +4,8 @@ import { recordAreaVisited } from '../../core/world/region-atlas';
 import { monorailDestinations, monorailNetwork, monorailUnlocked, planMonorailTrip } from '../../core/world/monorail.ts';
 import { rotateSignalRouter, signalRouterState, traceSignalRouter } from '../../core/world/signal-router.ts';
 import { getSignalRouter } from '../maps/signal-router-registry';
-import { getLocalFerryNetwork } from '../maps/local-ferry-registry';
-import { localFerryDestinations, planLocalFerryTrip } from '../../core/world/local-ferry.ts';
+import { getLocalTransportNetwork } from '../maps/local-transport-registry';
+import { localTransportDestinations, planLocalTransportTrip } from '../../core/world/local-transport.ts';
 import { trainerChallengePrompt } from '../battle/trainer-challenge.ts';
 import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
@@ -542,8 +542,8 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
-    if (prop?.kind === 'local-ferry') {
-      this.showLocalFerryMenu(String(prop.properties.networkId), String(prop.properties.stopId));
+    if (prop?.kind === 'local-transport') {
+      this.showLocalTransportMenu(String(prop.properties.networkId), String(prop.properties.stopId));
       return;
     }
     if (prop?.kind === 'fishing-spot') {
@@ -622,6 +622,7 @@ export class WorldScene extends Phaser.Scene {
     }
     if (exit.questEvent) {
       const progressed = this.applyQuestEvent(exit.questEvent);
+      if (progressed) this.refreshMapVisuals();
       this.showToast(progressed ? (exit.message ?? 'Hai registrato una nuova scoperta.') : (exit.failureMessage ?? 'Il sigillo resta silenzioso.'));
       return;
     }
@@ -1092,27 +1093,27 @@ export class WorldScene extends Phaser.Scene {
     ]);
   }
 
-  private showLocalFerryMenu(networkId: string, originStopId: string): void {
-    const network = getLocalFerryNetwork(networkId);
+  private showLocalTransportMenu(networkId: string, originStopId: string): void {
+    const network = getLocalTransportNetwork(networkId);
     const origin = network?.stops.find(stop => stop.id === originStopId);
     if (!network || !origin || origin.mapId !== this.map.metadata.id) {
-      this.showToast('Questo approdo non è disponibile.');
+      this.showToast('Questo collegamento non è disponibile.');
       return;
     }
     this.afterDialogue = null;
-    const destinations = localFerryDestinations(network, this.save, originStopId);
+    const destinations = localTransportDestinations(network, this.save, originStopId);
     this.showServiceOptions(network.name,
       destinations.length ? `Partenza da ${origin.name}. Il tragitto è gratuito. Dove andiamo?`
-        : 'Parla con la capitana del porto per conoscere i collegamenti disponibili.',
-      [...destinations.map(stop => ({ label: stop.name, icon: 'ferry' as const, action: () => {
+        : network.lockedMessage,
+      [...destinations.map(stop => ({ label: stop.name, icon: network.kind, action: () => {
         if (this.mapTransitionLoading || this.battleActive) return;
-        const trip = planLocalFerryTrip(network, this.save, originStopId, stop.id);
-        if (!trip.ok) { this.showToast('Il collegamento non è disponibile. Riapri l’approdo.'); return; }
+        const trip = planLocalTransportTrip(network, this.save, originStopId, stop.id);
+        if (!trip.ok) { this.showToast('Il collegamento non è disponibile. Riapri il terminale.'); return; }
         const destination = getMap(trip.destination.mapId);
         const spawn = getSpawn(destination, trip.destination.spawnPointId);
         this.mapTransitionLoading = true;
         void this.transitionToMap(destination, spawn);
-      } })), { label: 'RESTA A TERRA', icon: 'close', action: () => undefined }]);
+      } })), { label: 'RESTA QUI', icon: 'close', action: () => undefined }]);
   }
 
   private showMonorailMenu(originStationId: string): void {

@@ -1,0 +1,69 @@
+{
+  "id": "veloria/r12_wind_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 220,
+        "weight": 35,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 177,
+        "weight": 40,
+        "minLevel": 33,
+        "maxLevel": 37
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 220,
+        "weight": 45,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 215,
+        "weight": 20,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 177,
+        "weight": 35,
+        "minLevel": 33,
+        "maxLevel": 37
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 215,
+        "weight": 45,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 220,
+        "weight": 35,
+        "minLevel": 33,
+        "maxLevel": 37
+      },
+      {
+        "speciesId": 17,
+        "weight": 20,
+        "minLevel": 33,
+        "maxLevel": 37
+      }
+    ]
+  },
+  "mapId": "veloria/r12_valle_vento"
+}

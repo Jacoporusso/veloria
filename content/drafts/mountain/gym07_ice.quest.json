@@ -1,0 +1,46 @@
+{
+  "id": "veloria/q_gym07_ice",
+  "version": 1,
+  "displayName": "Le tre piste della Brina",
+  "steps": [
+    {
+      "id": "west",
+      "trigger": "gym07/ice/west",
+      "setFlag": "gym07_ice_west",
+      "requiresFlags": [
+        "q_passobrina_report",
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "center",
+      "trigger": "gym07/ice/center",
+      "setFlag": "gym07_ice_center",
+      "requiresFlags": [
+        "q_passobrina_report",
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "east",
+      "trigger": "gym07/ice/east",
+      "setFlag": "gym07_ice_east",
+      "requiresFlags": [
+        "q_passobrina_report",
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "gate",
+      "trigger": "gym07/ice/open",
+      "setFlag": "gym07_ice_complete",
+      "requiresFlags": [
+        "gym07_ice_west",
+        "gym07_ice_center",
+        "gym07_ice_east"
+      ]
+    }
+  ],
+  "completionFlag": "gym07_ice_complete",
+  "reward": {}
+}

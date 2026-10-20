@@ -88,3 +88,12 @@ test('every stoppable state reachable from the spawn can return to the exit', ()
     assert.ok(stops.has(key(sigil.landing)), `${sigil.id} landing must be reachable`);
   }
 });
+test('no sigil can be reached by walking only on dry ground', () => {
+ const seen=new Set([key(layout.spawn)]),queue=[layout.spawn];
+ for(let i=0;i<queue.length;i++)for(const direction of ['up','down','left','right'] as const){
+  const next=tryGridMove(queue[i],direction,width,height,blocked);
+  if(!next.moved||ice.has(key(next.position))||seen.has(key(next.position)))continue;
+  seen.add(key(next.position));queue.push(next.position);
+ }
+ for(const sigil of layout.sigils)assert.equal(seen.has(key(sigil.landing)),false,`${sigil.id} must require ice traversal`);
+});

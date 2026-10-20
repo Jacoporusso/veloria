@@ -1,0 +1,18 @@
+{
+  "id": "veloria/q_gym07_badge",
+  "version": 1,
+  "displayName": "La prova della Medaglia Brina",
+  "steps": [
+    {
+      "id": "complete",
+      "trigger": "battle/trainer_nives/defeated",
+      "setFlag": "badge_ghiaccio_awarded",
+      "requiresFlags": [
+        "gym07_ice_complete"
+      ],
+      "addBadge": "badge_brina"
+    }
+  ],
+  "completionFlag": "badge_ghiaccio_awarded",
+  "reward": {}
+}

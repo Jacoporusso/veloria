@@ -1,0 +1,70 @@
+{
+  "source": "PokeAPI",
+  "versionGroup": "heartgold-soulsilver",
+  "speciesIds": [
+    215,
+    220,
+    221,
+    225,
+    86,
+    87,
+    124
+  ],
+  "method": "All mountain level-up entries are retained in source-learnsets.json; only entries whose move IDs occur in moves.v1.json are promoted to officialLearnset and level-up-moves.v1.json.",
+  "unsupportedMechanics": [
+    {
+      "category": "critical-hit modifier",
+      "moves": [
+        "slash"
+      ],
+      "reason": "HGSS high critical-hit ratio is not represented by the battle move schema."
+    },
+    {
+      "category": "flinch",
+      "moves": [
+        "headbutt",
+        "ice-fang"
+      ],
+      "reason": "Flinch effects are not implemented; Ice Fang also combines flinch and freeze chances."
+    },
+    {
+      "category": "secondary effect chance",
+      "moves": [
+        "ice-fang"
+      ],
+      "reason": "Two independent secondary effects each have a 10% chance; the current move model cannot represent both."
+    },
+    {
+      "category": "target scope",
+      "moves": [
+        "blizzard",
+        "earthquake",
+        "leer",
+        "mist",
+        "mud-sport",
+        "perish-song",
+        "safeguard",
+        "water-sport"
+      ],
+      "reason": "These API targets are all-opponents, all-other-pokemon, field-wide, or users-field; those scopes are not encoded by the current move schema."
+    },
+    {
+      "category": "variable or conditional effect",
+      "moves": [
+        "present",
+        "beat-up",
+        "avalanche",
+        "sheer-cold"
+      ],
+      "reason": "Variable power, party-dependent damage, conditional power, and one-hit-knockout effects are not supported."
+    }
+  ],
+  "movePolicy": "These unsupported examples remain only in the unimplemented source learnset list and are excluded from runtime learnsets. Simple Ice attacks/status/stat effects and Feint Attack are imported with the exact HGSS parameters from PokéAPI.",
+  "deferredSpecies": [
+    {
+      "speciesId": 225,
+      "name": "Delibird",
+      "reason": "Its only HGSS level-up move is Present, which has variable power and is not implemented. Keep defaultMoveIds empty; do not add Delibird to runtime encounters until an official move is supported."
+    }
+  ]
+}

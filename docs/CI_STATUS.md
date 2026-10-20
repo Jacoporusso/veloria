@@ -1,3 +1,12 @@
+## Capitolo montano locale 0.3.91 — 20/10/2026
+
+- Integrati cinque ambienti illustrati, Acquariva v2 e percorso fino a P7 con ricerca climatica, Nives, Medaglia Brina e funivia. 220 asset, 35 mappe, 33 quest, 14 allenatori, 9 negozi; catalogo 58 specie/64 mosse. Sei specie montane da fonti HGSS, Delibird differito senza inventare mosse.
+- 377 dominio +16 persistenza passati; aggiunta successivamente prova contro il bypass asciutto delle piste, anch’essa passata. 64 test Python passati, inclusi validatori dei trasporti locali e ambito delle evoluzioni.
+- Cinque prove browser P7/funivia/regressioni Portolume passate in 2m; percorso completo Acquariva–letture–rapporto–Biancavetta e ritorni passato in 2,2m. P7 comprende ordine libero, reload, console, cancello, vera lotta touch, banner, emblema, monete e medaglia unici, portrait/landscape. Squadra potenziata usata per isolare l’integrazione: bilanciamento naturale ancora aperto.
+- Primo accesso offline ai nuovi ambienti, Tiled e artwork, funivia e reload passato in 3,8s; 15,1s inclusa build. Il primo tentativo aveva una fixture save non valida con proprietà `facing` estranea allo schema e ripartiva da Borgofonte: corretta la fixture e aggiunta verifica immediata della mappa caricata, senza modificare il runtime.
+- CI della 0.3.90: deploy 39360342181 riuscito; Verify 39360342220 fallisce solo nello shard3. Artifact esaminato: tutti e quattro i viaggi monorotaia e le asserzioni finali dopo reload completati; budget totale90s scaduto durante pulizia delle fixture. Budget CI di quella singola prova portato a120s; locale90s invariato. Altri shard, compresi apprendimento, Centrale e Ferraluce, e offline riusciti. La correzione attende nuova verifica Linux.
+- 0.3.91 pronta localmente; push/deploy/CI da verificare. Ultima versione pubblica confermata0.3.90. R14 e capitoli finali non implementati.
+
 ## Battaglia e fondazione montagna 0.3.90 — 20/10/2026
 
 - Riprodotto e diagnosticato il fallimento di apprendimento: i trace locali registrano `handleScaleResize → render` che azzera la selezione, anche per notifiche senza cambio effettivo del viewport. La scena ora ignora resize identici e conserva la selezione quando cambia orientamento. Le fixture battaglia usano lo stesso `observeGameSize` del gioco; le prove attendono l'avanzamento automatico dei messaggi, evitando conferme inviate mentre si apre una scelta.

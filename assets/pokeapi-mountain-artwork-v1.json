@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "scope": "Private prototype mountain-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 220,
+      "name": "Swinub",
+      "path": "assets/creatures/pokeapi-mountain-220-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/220.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/220.png",
+      "sourceSha256": "b214675c75d553f63b9be29e1857c5cf7519661bbc16a48030f0958ff309e761",
+      "sha256": "bd60c4e9a5775aeb8f54aa13c087e45bb298efa3fd27574824d6d5141124b72f"
+    },
+    {
+      "speciesId": 221,
+      "name": "Piloswine",
+      "path": "assets/creatures/pokeapi-mountain-221-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/221.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/221.png",
+      "sourceSha256": "a3edaa6dada4b21bba5c98ce0fca4c723db450aa1253c1a13e081fbcfe8b67aa",
+      "sha256": "750b12eb2df35b7bd0691f63913bb7d9d26d73c3ce3f1c6195fe5c6b92e6bd2f"
+    },
+    {
+      "speciesId": 215,
+      "name": "Sneasel",
+      "path": "assets/creatures/pokeapi-mountain-215-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/215.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/215.png",
+      "sourceSha256": "742454f21cf734e5cef059a73e5b8bb0f32314499cc66ae576093f2c1f90e171",
+      "sha256": "a82ad5f7091002bed14ea3166909f195eb78dafdcc1d535c650909a247de40db"
+    },
+    {
+      "speciesId": 86,
+      "name": "Seel",
+      "path": "assets/creatures/pokeapi-mountain-86-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/86.png",
+      "sourceSha256": "cbf86b4b4d959e22fb36c81f4c8467b3ad0bbe9ffb3254570f8a633f53d4679b",
+      "sha256": "d0bcdc601812c2c78df9e32bdf17d729dda8ed1af966a77d140ca8f95bb88dd6"
+    },
+    {
+      "speciesId": 87,
+      "name": "Dewgong",
+      "path": "assets/creatures/pokeapi-mountain-87-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/87.png",
+      "sourceSha256": "d3aea3f5a2aac5e9a98b075932cb9353366b5ad19af5b89357804fcff0fa0066",
+      "sha256": "1e49891989679f08670dcba6ab60525ee033b93c56834c7e21407a29b142f967"
+    },
+    {
+      "speciesId": 124,
+      "name": "Jynx",
+      "path": "assets/creatures/pokeapi-mountain-124-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "sourcePath": "assets/sources/pokeapi/mountain/124.png",
+      "sourceSha256": "c3bf3395798770b69c0686aa1165199de92e5ef4815b07500e11214d235f71e7",
+      "sha256": "5c79c6c9892993465e692ef9617f92771f1c039eaf1bdabd61b6017e4d2d2fee"
+    }
+  ]
+}

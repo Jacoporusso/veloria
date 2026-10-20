@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r13_snow_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 220,
+        "weight": 40,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 86,
+        "weight": 25,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 124,
+        "weight": 10,
+        "minLevel": 35,
+        "maxLevel": 39
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 220,
+        "weight": 40,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 86,
+        "weight": 25,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 124,
+        "weight": 10,
+        "minLevel": 35,
+        "maxLevel": 39
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 215,
+        "weight": 40,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 221,
+        "weight": 15,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 86,
+        "weight": 25,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 124,
+        "weight": 20,
+        "minLevel": 35,
+        "maxLevel": 39
+      }
+    ]
+  },
+  "mapId": "veloria/r13_tornanti_bianchi"
+}

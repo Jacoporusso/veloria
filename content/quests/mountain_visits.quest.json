@@ -1,0 +1,41 @@
+{
+  "id": "veloria/q_mountain_visits",
+  "version": 1,
+  "displayName": "Dalle rive alla neve",
+  "steps": [
+    {
+      "id": "r12_valle_vento",
+      "trigger": "area/veloria/r12_valle_vento/enter",
+      "setFlag": "q_r12_visited",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "passobrina",
+      "trigger": "area/veloria/passobrina/enter",
+      "setFlag": "q_passobrina_visited",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "r13_tornanti_bianchi",
+      "trigger": "area/veloria/r13_tornanti_bianchi/enter",
+      "setFlag": "q_r13_visited",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "biancavetta",
+      "trigger": "area/veloria/biancavetta/enter",
+      "setFlag": "q_biancavetta_visited",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    }
+  ],
+  "completionFlag": "q_biancavetta_visited",
+  "reward": {}
+}

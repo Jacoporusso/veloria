@@ -1,6 +1,7 @@
 {
   "id": "portolume_harbor",
   "name": "Battello di Portolume",
+  "lockedMessage": "Parla con la capitana del porto per conoscere i collegamenti disponibili.",
   "requiredFlags": [
     "q_portolume_orientation"
   ],
@@ -27,5 +28,6 @@
       "fromStopId": "observatory",
       "toStopId": "mainland"
     }
-  ]
+  ],
+  "kind": "ferry"
 }

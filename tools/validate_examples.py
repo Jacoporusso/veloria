@@ -252,7 +252,7 @@ badge_data = json.loads((ROOT / "content/badges/badges.v1.json").read_text(encod
 check(badge_data.get("version") == 1 and bool(badge_data.get("badges")), "Invalid badge catalog")
 badge_registry = badge_data["badges"]
 for badge_id, badge in badge_registry.items():
-    check(badge.get("emblem") in {"aurora", "corolla", "circuit", "magnet", "tide", "reflection"}, f"Unknown badge emblem: {badge_id}")
+    check(badge.get("emblem") in {"aurora", "corolla", "circuit", "magnet", "tide", "reflection", "snowflake"}, f"Unknown badge emblem: {badge_id}")
     check(all(isinstance(badge.get(field), str) and badge[field].strip() for field in ("name", "leader", "location", "description")), f"Incomplete badge: {badge_id}")
 quests = [json.loads(file.read_text(encoding="utf-8")) for file in quest_files]
 quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]}

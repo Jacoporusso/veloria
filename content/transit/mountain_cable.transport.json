@@ -1,0 +1,33 @@
+{
+  "id": "mountain_cable",
+  "name": "Funivia della Brina",
+  "lockedMessage": "La funivia ripartirà quando avrai conquistato la Medaglia Brina da Nives, nella palestra di Biancavetta. Il sentiero a piedi resta aperto.",
+  "kind": "cable-car",
+  "requiredFlags": [
+    "badge_ghiaccio_awarded"
+  ],
+  "stops": [
+    {
+      "id": "passobrina",
+      "name": "Passobrina",
+      "mapId": "veloria/passobrina",
+      "spawnPointId": "cable_arrival"
+    },
+    {
+      "id": "biancavetta",
+      "name": "Biancavetta",
+      "mapId": "veloria/biancavetta",
+      "spawnPointId": "cable_arrival"
+    }
+  ],
+  "routes": [
+    {
+      "fromStopId": "passobrina",
+      "toStopId": "biancavetta"
+    },
+    {
+      "fromStopId": "biancavetta",
+      "toStopId": "passobrina"
+    }
+  ]
+}

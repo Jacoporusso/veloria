@@ -11,6 +11,7 @@ export type ServiceOptionIconKind =
   | 'transit'
   | 'fishing'
   | 'ferry'
+  | 'cable-car'
   | 'rotate';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -35,6 +36,10 @@ export function decorateServiceOption(button: HTMLButtonElement, kind: ServiceOp
     path('M6 22h28l-6 10H12z', 'fill');
     path('M12 22V12h15v10M19 12V5M19 6h10', 'line');
     path('M4 35q4-4 8 0t8 0t8 0t8 0', 'line');
+  } else if (kind === 'cable-car') {
+    path('M3 9L37 3M20 6v9', 'line');
+    path('M11 16h18l3 5v13H8V21z', 'fill');
+    path('M12 21h16v7H12zM20 21v7', 'line');
   } else if (kind === 'fishing') {
     path('M8 32L24 7l5 3-16 25', 'line');
     path('M25 8h8v16a5 5 0 0 1-10 0v-2', 'line');

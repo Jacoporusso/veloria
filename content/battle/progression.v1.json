@@ -146,6 +146,18 @@
       "toSpeciesId": 181,
       "minimumLevel": 30,
       "assetId": "pokeapi-starter-finals-181-v1-webp"
+    },
+    {
+      "fromSpeciesId": 220,
+      "toSpeciesId": 221,
+      "minimumLevel": 33,
+      "assetId": "pokeapi-mountain-221-v1-webp"
+    },
+    {
+      "fromSpeciesId": 86,
+      "toSpeciesId": 87,
+      "minimumLevel": 34,
+      "assetId": "pokeapi-mountain-87-v1-webp"
     }
   ]
 }

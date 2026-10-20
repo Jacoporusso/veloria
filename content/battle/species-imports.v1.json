@@ -153,6 +153,42 @@
       "speciesId": 181,
       "templateSpeciesId": 180,
       "artworkGroup": "starter-finals"
+    },
+    {
+      "speciesId": 220,
+      "templateSpeciesId": 194,
+      "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 221,
+      "templateSpeciesId": 195,
+      "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 215,
+      "templateSpeciesId": 19,
+      "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 86,
+      "templateSpeciesId": 7,
+      "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 87,
+      "templateSpeciesId": 80,
+      "artworkGroup": "mountain"
+    },
+    {
+      "speciesId": 124,
+      "templateSpeciesId": 96,
+      "artworkGroup": "mountain"
+    }
+  ],
+  "deferredImports": [
+    {
+      "speciesId": 225,
+      "reason": "HGSS level-up contains only Present; its variable damage/healing is not implemented. Retain sources and artwork; do not register an unusable battle creature."
     }
   ]
 }

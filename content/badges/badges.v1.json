@@ -42,6 +42,13 @@
       "location": "Palestra di Acquariva",
       "description": "Uno specchio sfaccettato ricorda una strategia costruita osservando tipi, mosse e status.",
       "emblem": "reflection"
+    },
+    "badge_brina": {
+      "name": "Medaglia Brina",
+      "leader": "Nives",
+      "location": "Palestra di Biancavetta",
+      "description": "Un cristallo di neve ricorda una strategia preparata e un cammino trovato anche tra gli ostacoli.",
+      "emblem": "snowflake"
     }
   }
 }

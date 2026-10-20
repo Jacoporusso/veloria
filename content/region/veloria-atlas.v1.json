@@ -261,23 +261,32 @@
     {
       "id": "passobrina",
       "name": "Passobrina",
-      "kind": "future",
+      "kind": "town",
       "x": 420,
       "y": 100,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Un futuro borgo di preparazione alla montagna."
+      "mapIds": [
+        "veloria/passobrina"
+      ],
+      "visitedFlags": [
+        "q_passobrina_visited"
+      ],
+      "description": "Borgo alpino, misure ambientali e funivia dopo la Medaglia Brina."
     },
     {
       "id": "biancavetta",
       "name": "Biancavetta",
-      "kind": "future",
+      "kind": "town",
       "gym": 7,
       "x": 540,
       "y": 65,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Una futura città tra le nevi della dorsale settentrionale."
+      "mapIds": [
+        "veloria/biancavetta",
+        "veloria/gym07_biancavetta"
+      ],
+      "visitedFlags": [
+        "q_biancavetta_visited"
+      ],
+      "description": "Cupole tra le nevi, palestra Ghiaccio e funivia per Passobrina."
     },
     {
       "id": "grotte",
@@ -359,6 +368,34 @@
       ],
       "visitedFlags": [],
       "description": "Sentiero percorribile con habitat laterali e ritorno disponibile."
+    },
+    {
+      "id": "r12",
+      "name": "Valle del Vento",
+      "kind": "route",
+      "x": 340,
+      "y": 300,
+      "mapIds": [
+        "veloria/r12_valle_vento"
+      ],
+      "visitedFlags": [
+        "q_r12_visited"
+      ],
+      "description": "Dalle rive ai primi rilievi, con strumenti di ricerca e habitat laterali."
+    },
+    {
+      "id": "r13",
+      "name": "Tornanti Bianchi",
+      "kind": "route",
+      "x": 475,
+      "y": 80,
+      "mapIds": [
+        "veloria/r13_tornanti_bianchi"
+      ],
+      "visitedFlags": [
+        "q_r13_visited"
+      ],
+      "description": "Terrazze innevate e sentieri battuti verso Biancavetta."
     }
   ],
   "connections": [
@@ -415,14 +452,6 @@
       "centrale"
     ],
     [
-      "acquariva",
-      "passobrina"
-    ],
-    [
-      "passobrina",
-      "biancavetta"
-    ],
-    [
       "biancavetta",
       "grotte"
     ],
@@ -465,6 +494,22 @@
     [
       "r11",
       "vetracielo"
+    ],
+    [
+      "acquariva",
+      "r12"
+    ],
+    [
+      "r12",
+      "passobrina"
+    ],
+    [
+      "passobrina",
+      "r13"
+    ],
+    [
+      "r13",
+      "biancavetta"
     ]
   ]
 }

@@ -3,24 +3,17 @@ import argparse
 import json
 from import_pokeapi_battle import ROOT, resource
 
+MAX_SUPPORTED_SPECIES_ID = 251
 
-def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--fetch', action='store_true')
-    parser.add_argument('--check', action='store_true')
-    args = parser.parse_args(argv)
-    registry = json.loads((ROOT / 'content/battle/species.v1.json').read_text(encoding='utf-8'))['species']
-    resources = {}
 
-    def load(kind, key):
-        data, origin = resource(kind, key, args.fetch)
-        resources[f'{kind}/{key}'] = origin
-        return data
+def build_evolution_entries(registry, version_group, load):
+    """Build source references, skipping post-Gen-II targets before parsing methods.
 
+    The cached evolution-chain document remains the provenance for skipped edges;
+    its target URL is preserved verbatim in that raw source and tracked by the manifest.
+    """
     def key_of(reference):
         return int(reference['url'].rstrip('/').split('/')[-1])
-
-    version_group = load('version-group', 'heartgold-soulsilver')
 
     def find(node, species_id):
         if key_of(node['species']) == species_id:
@@ -41,6 +34,8 @@ def main(argv=None):
         evolutions = []
         for child in current['evolves_to']:
             target_id = key_of(child['species'])
+            if target_id > MAX_SUPPORTED_SPECIES_ID:
+                continue
             target = load('pokemon-species', target_id)
             if key_of(target['generation']) > 4:
                 continue
@@ -106,6 +101,24 @@ def main(argv=None):
                 if entry not in evolutions:
                     evolutions.append(entry)
         entries[str(species_id)] = {'evolutions': evolutions}
+    return entries
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--fetch', action='store_true')
+    parser.add_argument('--check', action='store_true')
+    args = parser.parse_args(argv)
+    registry = json.loads((ROOT / 'content/battle/species.v1.json').read_text(encoding='utf-8'))['species']
+    resources = {}
+
+    def load(kind, key):
+        data, origin = resource(kind, key, args.fetch)
+        resources[f'{kind}/{key}'] = origin
+        return data
+
+    version_group = load('version-group', 'heartgold-soulsilver')
+    entries = build_evolution_entries(registry, version_group, load)
 
     progression = json.loads((ROOT / 'content/battle/progression.v1.json').read_text(encoding='utf-8'))
     for rule in progression['evolutions']:

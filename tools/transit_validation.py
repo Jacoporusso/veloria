@@ -68,3 +68,58 @@ def validate_transit(root: Path, runtime_maps, quest_flags):
     schema = json.loads((root / 'specs/schemas/transit.v1.schema.json').read_text(encoding='utf-8'))
     tiled = {mid: json.loads((root / 'public' / metadata['tiledAsset']).read_text(encoding='utf-8')) for mid, metadata in runtime_maps.items()}
     validate_transit_network(network, runtime_maps, tiled, quest_flags, schema)
+    networks = [json.loads(path.read_text(encoding='utf-8')) for path in (root / 'content/transit').glob('*.transport.json')]
+    validate_local_transports(networks, runtime_maps, tiled, quest_flags)
+
+
+def validate_local_transports(networks, maps, tiled_by_id, quest_flags):
+    """Check local route references and safe terminal arrivals against actual maps."""
+    ids = [network['id'] for network in networks]
+    _check(len(ids) == len(set(ids)), 'Duplicate local transport network')
+    terminals = {}
+    for mid, tiled in tiled_by_id.items():
+        for layer in tiled['layers']:
+            for obj in layer.get('objects', []):
+                props = _properties(obj)
+                if props.get('kind') != 'local-transport':
+                    continue
+                network = next((n for n in networks if n['id'] == props.get('networkId')), None)
+                _check(network is not None, 'Orphan local transport network')
+                stop = next((s for s in network['stops'] if s['id'] == props.get('stopId')), None)
+                _check(stop is not None and stop['mapId'] == mid, 'Orphan local transport stop')
+                _check(layer['name'] == 'interactions', 'Local terminal must be in interactions')
+                terminals.setdefault((network['id'], stop['id']), []).append(obj)
+    for network in networks:
+        _check(network.get('kind') in {'ferry', 'cable-car'}, 'Invalid local transport kind')
+        _check(isinstance(network.get('lockedMessage'), str) and network['lockedMessage'].strip(), 'Missing local transport locked message')
+        stops = {s['id']: s for s in network['stops']}
+        _check(len(stops) == len(network['stops']) and len(stops) >= 2, 'Invalid local transport stops')
+        routes = set()
+        for item in [network, *network['stops'], *network['routes']]:
+            flags = item.get('requiredFlags', [])
+            _check(isinstance(flags, list) and all(isinstance(f, str) for f in flags) and set(flags) <= set(quest_flags), 'Unknown local transport required flag')
+        for route in network['routes']:
+            pair = (route['fromStopId'], route['toStopId'])
+            _check(all(s in stops for s in pair) and pair[0] != pair[1] and pair not in routes, 'Invalid local transport route')
+            routes.add(pair)
+        _check(routes and all(any(pair[0] == sid for pair in routes) for sid in stops), 'Local transport stop has no departure')
+        for stop in stops.values():
+            mid = stop['mapId']
+            _check(mid in maps and mid in tiled_by_id, 'Unknown local transport map')
+            arrivals = [s for s in maps[mid]['spawns'] if s['id'] == stop['spawnPointId']]
+            matches = terminals.get((network['id'], stop['id']), [])
+            _check(len(arrivals) == len(matches) == 1, 'Local transport needs exactly one arrival and terminal')
+            arrival, terminal, tiled = arrivals[0], matches[0], tiled_by_id[mid]
+            tile = tiled['tilewidth']
+            _check(tile == tiled['tileheight'] == 32 and terminal['width'] == terminal['height'] == tile and terminal['x'] % tile == terminal['y'] % tile == 0, 'Invalid local terminal footprint')
+            sx, sy = arrival['x'], arrival['y']
+            _check(isinstance(sx, int) and isinstance(sy, int) and 0 <= sx < tiled['width'] and 0 <= sy < tiled['height'], 'Local arrival outside map')
+            delta = (terminal['x'] / tile - sx, terminal['y'] / tile - sy)
+            facing = {(0, -1): 'up', (0, 1): 'down', (-1, 0): 'left', (1, 0): 'right'}
+            _check(delta in facing and arrival['facing'] == facing[delta], 'Local arrival must face adjacent terminal')
+            footprint = {'x': sx * tile, 'y': sy * tile, 'width': tile, 'height': tile}
+            collisions = [o for l in tiled['layers'] if l['name'] == 'collision' for o in l.get('objects', [])]
+            _check(any(o['x'] <= terminal['x'] and o['y'] <= terminal['y'] and o['x'] + o['width'] >= terminal['x'] + tile and o['y'] + o['height'] >= terminal['y'] + tile for o in collisions), 'Local terminal lacks full collision')
+            _check(not any(_overlap(footprint, o) for o in collisions), 'Local arrival overlaps collision')
+            hazards = [o for l in tiled['layers'] for o in l.get('objects', []) if _properties(o).get('kind') in {'map-exit', 'encounter-zone'}]
+            _check(not any(_overlap(footprint, o) for o in hazards), 'Local arrival overlaps exit or encounter')

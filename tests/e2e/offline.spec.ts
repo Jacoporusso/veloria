@@ -899,3 +899,21 @@ test('the monorail reaches visited cities and resumes at the terminal with netwo
   }
   expect(failures).toEqual([]);
 });
+
+
+test('mountain resources decode on first offline request and cable return survives reload',async({page,context})=>{
+ test.setTimeout(120_000);
+ await page.goto('/');await enterGame(page);await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+ const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','badge_riflesso_awarded','q_passobrina_report','badge_ghiaccio_awarded'])];save.badges=[...new Set([...save.badges,'badge_brina'])];save.player={...save.player,mapId:'veloria/passobrina',spawnPointId:'cable_arrival',x:29,y:22};
+ await seedBrowserSave(page,save);const failures:string[]=[];page.on('requestfailed',r=>failures.push(r.url()));await context.setOffline(true);await page.reload();await enterGame(page);
+ expect((await readBrowserSave(page)).player.mapId).toBe('veloria/passobrina');
+ const decoded=await page.evaluate(async()=>{
+  const names=['r12-wind-valley-v1','passobrina-v1','r13-white-switchbacks-v1','biancavetta-v1','gym07-ice-v1','acquariva-v2'];
+  const images=await Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/scenery/veloria-${name}.webp`;await image.decode();return image.naturalWidth>1000;}));
+  const widths=await Promise.all(['r12_valle_vento','passobrina','r13_tornanti_bianchi','biancavetta','gym07_biancavetta'].map(async name=>{const r=await fetch(`/tilemaps/${name}.tmj`);if(!r.ok)throw new Error(name);return(await r.json()).width;}));
+  const creatures=await Promise.all([220,221,215,86,87,124].map(async id=>{const im=new Image();im.src=`/assets/creatures/pokeapi-mountain-${id}-v1.webp`;await im.decode();return im.naturalWidth>100;}));return{images,widths,creatures};
+ });
+ expect(decoded).toEqual({images:Array(6).fill(true),widths:[40,40,40,40,32],creatures:Array(6).fill(true)});
+ await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Biancavetta',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');
+ await page.reload();await enterGame(page);await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Passobrina',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/passobrina');expect(failures).toEqual([]);
+});

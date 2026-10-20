@@ -225,6 +225,10 @@
       {
         "level": 28,
         "moveId": "mud-shot"
+      },
+      {
+        "level": 41,
+        "moveId": "mud-bomb"
       }
     ],
     "69": [
@@ -337,6 +341,10 @@
       {
         "level": 15,
         "moveId": "slam"
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb"
       },
       {
         "level": 23,
@@ -551,6 +559,10 @@
       {
         "level": 15,
         "moveId": "slam"
+      },
+      {
+        "level": 19,
+        "moveId": "mud-bomb"
       },
       {
         "level": 24,
@@ -989,6 +1001,134 @@
       {
         "level": 34,
         "moveId": "discharge"
+      }
+    ],
+    "220": [
+      {
+        "level": 8,
+        "moveId": "powder-snow"
+      },
+      {
+        "level": 20,
+        "moveId": "mud-bomb"
+      },
+      {
+        "level": 25,
+        "moveId": "icy-wind"
+      },
+      {
+        "level": 28,
+        "moveId": "ice-shard"
+      },
+      {
+        "level": 49,
+        "moveId": "amnesia"
+      }
+    ],
+    "221": [
+      {
+        "level": 8,
+        "moveId": "powder-snow"
+      },
+      {
+        "level": 20,
+        "moveId": "mud-bomb"
+      },
+      {
+        "level": 25,
+        "moveId": "icy-wind"
+      },
+      {
+        "level": 33,
+        "moveId": "fury-attack"
+      },
+      {
+        "level": 65,
+        "moveId": "amnesia"
+      }
+    ],
+    "215": [
+      {
+        "level": 8,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 10,
+        "moveId": "screech"
+      },
+      {
+        "level": 14,
+        "moveId": "feint-attack"
+      },
+      {
+        "level": 21,
+        "moveId": "fury-swipes"
+      },
+      {
+        "level": 24,
+        "moveId": "agility"
+      },
+      {
+        "level": 28,
+        "moveId": "icy-wind"
+      },
+      {
+        "level": 49,
+        "moveId": "ice-shard"
+      }
+    ],
+    "86": [
+      {
+        "level": 3,
+        "moveId": "growl"
+      },
+      {
+        "level": 11,
+        "moveId": "icy-wind"
+      },
+      {
+        "level": 17,
+        "moveId": "ice-shard"
+      },
+      {
+        "level": 27,
+        "moveId": "aurora-beam"
+      },
+      {
+        "level": 47,
+        "moveId": "ice-beam"
+      }
+    ],
+    "87": [
+      {
+        "level": 3,
+        "moveId": "growl"
+      },
+      {
+        "level": 11,
+        "moveId": "icy-wind"
+      },
+      {
+        "level": 17,
+        "moveId": "ice-shard"
+      },
+      {
+        "level": 27,
+        "moveId": "aurora-beam"
+      },
+      {
+        "level": 47,
+        "moveId": "ice-beam"
+      }
+    ],
+    "124": [
+      {
+        "level": 11,
+        "moveId": "powder-snow"
+      },
+      {
+        "level": 15,
+        "moveId": "double-slap"
       }
     ]
   }

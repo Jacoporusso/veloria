@@ -1,3 +1,9 @@
+## Aggiornamento locale 0.3.91
+
+Integrato e verificato il capitolo R12–Passobrina–R13–Biancavetta/P7: ricerca in ordine libero, illustrazioni originali, servizi, ghiaccio, Nives, Medaglia Brina e funivia. Percorso completo e ritorni, puzzle/battaglia/medaglia, portrait/landscape e risorse offline verificati; pubblicazione e CI nel documento CI_STATUS. Il bilanciamento naturale resta da verificare. Le voci storiche di preparazione0.3.90 sotto sono superate da questo checkpoint.
+
+Prossima espansione geografica: R14/D05, poi R15–Concordia/P8, Santuario e R16–Lega, conclusione ed epilogo. Restano anche catalogo completo Gen I–II, effetti mosse non supportati e uniformità artistica dei capitoli iniziali.
+
 # Veloria — Roadmap e backlog operativo (v0.3)
 
 ## 1. Milestone: ordine e gate, non stime

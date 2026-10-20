@@ -1,0 +1,49 @@
+{
+  "id": "veloria/q_passobrina_report",
+  "version": 1,
+  "displayName": "Misure lungo il passo",
+  "steps": [
+    {
+      "id": "wind_read",
+      "trigger": "r12/wind/read",
+      "setFlag": "q_r12_wind_read",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "temperature_read",
+      "trigger": "r12/temperature/read",
+      "setFlag": "q_r12_temperature_read",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "snow_read",
+      "trigger": "passobrina/snow/read",
+      "setFlag": "q_passobrina_snow_read",
+      "requiresFlags": [
+        "badge_riflesso_awarded"
+      ]
+    },
+    {
+      "id": "report",
+      "trigger": "passobrina/guide/report",
+      "setFlag": "q_passobrina_report",
+      "requiresFlags": [
+        "badge_riflesso_awarded",
+        "q_r12_wind_read",
+        "q_r12_temperature_read",
+        "q_passobrina_snow_read"
+      ]
+    }
+  ],
+  "completionFlag": "q_passobrina_report",
+  "reward": {
+    "money": 500,
+    "items": {
+      "potion": 2
+    }
+  }
+}

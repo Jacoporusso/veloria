@@ -1,0 +1,73 @@
+{
+  "id": "veloria/r12_valle_vento",
+  "version": 2,
+  "displayName": "Valle del Vento",
+  "biomeId": "windy_valley",
+  "tiledAsset": "tilemaps/r12_valle_vento.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-r12-wind-valley-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 0
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r12-wind-valley-v1",
+      "path": "assets/scenery/veloria-r12-wind-valley-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_acquariva",
+      "x": 1,
+      "y": 23,
+      "facing": "right"
+    },
+    {
+      "id": "from_passobrina",
+      "x": 38,
+      "y": 5,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/acquariva",
+      "targetSpawnId": "from_r12",
+      "requiresFlags": [],
+      "viaSpawnId": "from_acquariva"
+    },
+    {
+      "toMapId": "veloria/passobrina",
+      "targetSpawnId": "from_r12",
+      "requiresFlags": [],
+      "viaSpawnId": "from_passobrina"
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r12_wind_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [
+    "veloria/q_passobrina_report"
+  ],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-r12-wind-valley-v1"
+}

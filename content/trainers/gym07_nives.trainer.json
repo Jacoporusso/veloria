@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_nives_gym07",
+  "name": "Nives",
+  "version": 1,
+  "aiProfileId": "gym_beginner",
+  "battleOnceFlag": "trainer_gym07_nives_defeated",
+  "defeatQuestEvent": "battle/trainer_nives/defeated",
+  "rewardMoney": 2100,
+  "victoryMessage": "Hai vinto contro Nives. Ricevi 2100 ₿ e la Medaglia Brina.",
+  "victoryFeedback": "La Medaglia Brina è tua! Hai letto il percorso e scelto come affrontare Pokémon con due tipi. Dewgong è Acqua/Ghiaccio: le mosse Elettro possono aiutare. Piloswine è Ghiaccio/Terra e non teme l’Elettro. La funivia collega ora Passobrina e Biancavetta: trovi le cabine a sud della piazza.",
+  "team": [
+    {
+      "speciesId": 215,
+      "level": 41,
+      "moveIds": [
+        "feint-attack",
+        "icy-wind",
+        "screech",
+        "quick-attack"
+      ]
+    },
+    {
+      "speciesId": 87,
+      "level": 42,
+      "moveIds": [
+        "aurora-beam",
+        "ice-shard",
+        "icy-wind",
+        "growl"
+      ]
+    },
+    {
+      "speciesId": 221,
+      "level": 43,
+      "moveIds": [
+        "mud-bomb",
+        "icy-wind",
+        "fury-attack",
+        "peck"
+      ]
+    }
+  ]
+}

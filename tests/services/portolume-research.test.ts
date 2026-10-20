@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import quest from '../../content/quests/portolume_research.quest.json' with { type: 'json' };
-import network from '../../content/transit/portolume_harbor.ferry.json' with { type: 'json' };
+import networkData from '../../content/transit/portolume_harbor.transport.json' with { type: 'json' };
 import map from '../../content/maps/portolume.map.json' with { type: 'json' };
 import { applyQuestEvent } from '../../src/core/quests/apply-quest-event.ts';
-import { localFerryDestinations, planLocalFerryTrip } from '../../src/core/world/local-ferry.ts';
+import { localTransportDestinations, planLocalTransportTrip, type LocalTransportNetwork } from '../../src/core/world/local-transport.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
+
+const network = networkData as LocalTransportNetwork;
 
 const initial: GameSave = {
   schemaVersion: 2, saveRevision: 1, contentVersion: 'test', saveId: 'portolume', savedAt: '2026-10-19T00:00:00Z',
@@ -31,10 +33,10 @@ test('coastal research grants the rod once, preserves progress and rejects prema
 });
 
 test('the authored boat route opens after orientation and always permits the return trip', () => {
-  assert.deepEqual(localFerryDestinations(network, initial, 'mainland'), []);
+  assert.deepEqual(localTransportDestinations(network, initial, 'mainland'), []);
   const save = { ...initial, flags: [...initial.flags, 'q_portolume_orientation'] };
   for (const [from, to] of [['mainland', 'observatory'], ['observatory', 'mainland']]) {
-    const trip = planLocalFerryTrip(network, save, from, to);
+    const trip = planLocalTransportTrip(network, save, from, to);
     assert.equal(trip.ok, true);
     if (trip.ok) assert.ok(map.spawns.some(spawn => spawn.id === trip.destination.spawnPointId));
   }

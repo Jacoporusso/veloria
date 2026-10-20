@@ -3648,7 +3648,7 @@
       "name": "collision",
       "objects": [
         {
-          "id": 1,
+          "id": 6000,
           "name": "Edificio o lago",
           "x": 0,
           "y": 0,
@@ -3659,18 +3659,29 @@
           "properties": []
         },
         {
-          "id": 2,
+          "id": 6001,
           "name": "Edificio o lago",
           "x": 256,
           "y": 0,
-          "width": 1024,
+          "width": 160,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 3,
+          "id": 6002,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 0,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6003,
           "name": "Edificio o lago",
           "x": 0,
           "y": 32,
@@ -3681,18 +3692,29 @@
           "properties": []
         },
         {
-          "id": 4,
+          "id": 6004,
           "name": "Edificio o lago",
           "x": 256,
           "y": 32,
-          "width": 1024,
+          "width": 160,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 5,
+          "id": 6005,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 32,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6006,
           "name": "Edificio o lago",
           "x": 0,
           "y": 64,
@@ -3703,18 +3725,29 @@
           "properties": []
         },
         {
-          "id": 6,
+          "id": 6007,
           "name": "Edificio o lago",
           "x": 320,
           "y": 64,
-          "width": 960,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 7,
+          "id": 6008,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 64,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6009,
           "name": "Edificio o lago",
           "x": 0,
           "y": 96,
@@ -3725,18 +3758,29 @@
           "properties": []
         },
         {
-          "id": 8,
+          "id": 6010,
           "name": "Edificio o lago",
           "x": 320,
           "y": 96,
-          "width": 960,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 9,
+          "id": 6011,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 96,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6012,
           "name": "Edificio o lago",
           "x": 0,
           "y": 128,
@@ -3747,18 +3791,29 @@
           "properties": []
         },
         {
-          "id": 10,
+          "id": 6013,
           "name": "Edificio o lago",
           "x": 320,
           "y": 128,
-          "width": 960,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 11,
+          "id": 6014,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 128,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6015,
           "name": "Edificio o lago",
           "x": 0,
           "y": 160,
@@ -3769,18 +3824,29 @@
           "properties": []
         },
         {
-          "id": 12,
+          "id": 6016,
           "name": "Edificio o lago",
           "x": 320,
           "y": 160,
-          "width": 960,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 13,
+          "id": 6017,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 160,
+          "width": 800,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6018,
           "name": "Edificio o lago",
           "x": 0,
           "y": 192,
@@ -3791,18 +3857,29 @@
           "properties": []
         },
         {
-          "id": 14,
+          "id": 6019,
           "name": "Edificio o lago",
           "x": 320,
           "y": 192,
-          "width": 224,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 15,
+          "id": 6020,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 192,
+          "width": 64,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6021,
           "name": "Edificio o lago",
           "x": 608,
           "y": 192,
@@ -3813,7 +3890,7 @@
           "properties": []
         },
         {
-          "id": 16,
+          "id": 6022,
           "name": "Edificio o lago",
           "x": 0,
           "y": 224,
@@ -3824,18 +3901,29 @@
           "properties": []
         },
         {
-          "id": 17,
+          "id": 6023,
           "name": "Edificio o lago",
           "x": 320,
           "y": 224,
-          "width": 224,
+          "width": 96,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 18,
+          "id": 6024,
+          "name": "Edificio o lago",
+          "x": 480,
+          "y": 224,
+          "width": 64,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": []
+        },
+        {
+          "id": 6025,
           "name": "Edificio o lago",
           "x": 608,
           "y": 224,
@@ -3846,7 +3934,7 @@
           "properties": []
         },
         {
-          "id": 19,
+          "id": 6026,
           "name": "Edificio o lago",
           "x": 0,
           "y": 256,
@@ -3857,18 +3945,18 @@
           "properties": []
         },
         {
-          "id": 20,
+          "id": 6027,
           "name": "Edificio o lago",
           "x": 224,
           "y": 256,
-          "width": 320,
+          "width": 192,
           "height": 32,
           "visible": true,
           "rotation": 0,
           "properties": []
         },
         {
-          "id": 21,
+          "id": 6028,
           "name": "Edificio o lago",
           "x": 608,
           "y": 256,
@@ -3879,7 +3967,7 @@
           "properties": []
         },
         {
-          "id": 22,
+          "id": 6029,
           "name": "Edificio o lago",
           "x": 0,
           "y": 288,
@@ -3890,7 +3978,7 @@
           "properties": []
         },
         {
-          "id": 23,
+          "id": 6030,
           "name": "Edificio o lago",
           "x": 224,
           "y": 288,
@@ -3901,7 +3989,7 @@
           "properties": []
         },
         {
-          "id": 24,
+          "id": 6031,
           "name": "Edificio o lago",
           "x": 608,
           "y": 288,
@@ -3912,7 +4000,7 @@
           "properties": []
         },
         {
-          "id": 25,
+          "id": 6032,
           "name": "Edificio o lago",
           "x": 0,
           "y": 320,
@@ -3923,7 +4011,7 @@
           "properties": []
         },
         {
-          "id": 26,
+          "id": 6033,
           "name": "Edificio o lago",
           "x": 224,
           "y": 320,
@@ -3934,7 +4022,7 @@
           "properties": []
         },
         {
-          "id": 27,
+          "id": 6034,
           "name": "Edificio o lago",
           "x": 608,
           "y": 320,
@@ -3945,7 +4033,7 @@
           "properties": []
         },
         {
-          "id": 28,
+          "id": 6035,
           "name": "Edificio o lago",
           "x": 0,
           "y": 352,
@@ -3956,7 +4044,7 @@
           "properties": []
         },
         {
-          "id": 29,
+          "id": 6036,
           "name": "Edificio o lago",
           "x": 160,
           "y": 352,
@@ -3967,7 +4055,7 @@
           "properties": []
         },
         {
-          "id": 30,
+          "id": 6037,
           "name": "Edificio o lago",
           "x": 608,
           "y": 352,
@@ -3978,7 +4066,7 @@
           "properties": []
         },
         {
-          "id": 31,
+          "id": 6038,
           "name": "Edificio o lago",
           "x": 0,
           "y": 384,
@@ -3989,7 +4077,7 @@
           "properties": []
         },
         {
-          "id": 32,
+          "id": 6039,
           "name": "Edificio o lago",
           "x": 160,
           "y": 384,
@@ -4000,7 +4088,7 @@
           "properties": []
         },
         {
-          "id": 33,
+          "id": 6040,
           "name": "Edificio o lago",
           "x": 608,
           "y": 384,
@@ -4011,7 +4099,7 @@
           "properties": []
         },
         {
-          "id": 34,
+          "id": 6041,
           "name": "Edificio o lago",
           "x": 1120,
           "y": 384,
@@ -4022,7 +4110,7 @@
           "properties": []
         },
         {
-          "id": 35,
+          "id": 6042,
           "name": "Edificio o lago",
           "x": 0,
           "y": 416,
@@ -4033,7 +4121,7 @@
           "properties": []
         },
         {
-          "id": 36,
+          "id": 6043,
           "name": "Edificio o lago",
           "x": 160,
           "y": 416,
@@ -4044,7 +4132,7 @@
           "properties": []
         },
         {
-          "id": 37,
+          "id": 6044,
           "name": "Edificio o lago",
           "x": 672,
           "y": 416,
@@ -4055,7 +4143,7 @@
           "properties": []
         },
         {
-          "id": 38,
+          "id": 6045,
           "name": "Edificio o lago",
           "x": 1184,
           "y": 416,
@@ -4066,7 +4154,7 @@
           "properties": []
         },
         {
-          "id": 39,
+          "id": 6046,
           "name": "Edificio o lago",
           "x": 0,
           "y": 448,
@@ -4077,7 +4165,7 @@
           "properties": []
         },
         {
-          "id": 40,
+          "id": 6047,
           "name": "Edificio o lago",
           "x": 1184,
           "y": 448,
@@ -4088,7 +4176,7 @@
           "properties": []
         },
         {
-          "id": 41,
+          "id": 6048,
           "name": "Edificio o lago",
           "x": 0,
           "y": 480,
@@ -4099,7 +4187,7 @@
           "properties": []
         },
         {
-          "id": 42,
+          "id": 6049,
           "name": "Edificio o lago",
           "x": 544,
           "y": 480,
@@ -4110,7 +4198,7 @@
           "properties": []
         },
         {
-          "id": 43,
+          "id": 6050,
           "name": "Edificio o lago",
           "x": 672,
           "y": 480,
@@ -4121,7 +4209,7 @@
           "properties": []
         },
         {
-          "id": 44,
+          "id": 6051,
           "name": "Edificio o lago",
           "x": 1184,
           "y": 480,
@@ -4132,7 +4220,7 @@
           "properties": []
         },
         {
-          "id": 45,
+          "id": 6052,
           "name": "Edificio o lago",
           "x": 672,
           "y": 512,
@@ -4143,7 +4231,7 @@
           "properties": []
         },
         {
-          "id": 46,
+          "id": 6053,
           "name": "Edificio o lago",
           "x": 0,
           "y": 544,
@@ -4154,7 +4242,7 @@
           "properties": []
         },
         {
-          "id": 47,
+          "id": 6054,
           "name": "Edificio o lago",
           "x": 672,
           "y": 544,
@@ -4165,7 +4253,7 @@
           "properties": []
         },
         {
-          "id": 48,
+          "id": 6055,
           "name": "Edificio o lago",
           "x": 0,
           "y": 576,
@@ -4176,7 +4264,7 @@
           "properties": []
         },
         {
-          "id": 49,
+          "id": 6056,
           "name": "Edificio o lago",
           "x": 608,
           "y": 576,
@@ -4187,7 +4275,7 @@
           "properties": []
         },
         {
-          "id": 50,
+          "id": 6057,
           "name": "Edificio o lago",
           "x": 0,
           "y": 608,
@@ -4198,7 +4286,7 @@
           "properties": []
         },
         {
-          "id": 51,
+          "id": 6058,
           "name": "Edificio o lago",
           "x": 608,
           "y": 608,
@@ -4209,7 +4297,7 @@
           "properties": []
         },
         {
-          "id": 52,
+          "id": 6059,
           "name": "Edificio o lago",
           "x": 0,
           "y": 640,
@@ -4220,7 +4308,7 @@
           "properties": []
         },
         {
-          "id": 53,
+          "id": 6060,
           "name": "Edificio o lago",
           "x": 608,
           "y": 640,
@@ -4231,7 +4319,7 @@
           "properties": []
         },
         {
-          "id": 54,
+          "id": 6061,
           "name": "Edificio o lago",
           "x": 0,
           "y": 672,
@@ -4242,7 +4330,7 @@
           "properties": []
         },
         {
-          "id": 55,
+          "id": 6062,
           "name": "Edificio o lago",
           "x": 608,
           "y": 672,
@@ -4253,7 +4341,7 @@
           "properties": []
         },
         {
-          "id": 56,
+          "id": 6063,
           "name": "Edificio o lago",
           "x": 0,
           "y": 704,
@@ -4264,7 +4352,7 @@
           "properties": []
         },
         {
-          "id": 57,
+          "id": 6064,
           "name": "Edificio o lago",
           "x": 256,
           "y": 704,
@@ -4275,7 +4363,7 @@
           "properties": []
         },
         {
-          "id": 58,
+          "id": 6065,
           "name": "Edificio o lago",
           "x": 416,
           "y": 704,
@@ -4286,7 +4374,7 @@
           "properties": []
         },
         {
-          "id": 59,
+          "id": 6066,
           "name": "Edificio o lago",
           "x": 608,
           "y": 704,
@@ -4297,7 +4385,7 @@
           "properties": []
         },
         {
-          "id": 60,
+          "id": 6067,
           "name": "Edificio o lago",
           "x": 0,
           "y": 736,
@@ -4308,7 +4396,7 @@
           "properties": []
         },
         {
-          "id": 61,
+          "id": 6068,
           "name": "Edificio o lago",
           "x": 608,
           "y": 736,
@@ -4319,7 +4407,7 @@
           "properties": []
         },
         {
-          "id": 62,
+          "id": 6069,
           "name": "Edificio o lago",
           "x": 0,
           "y": 768,
@@ -4330,7 +4418,7 @@
           "properties": []
         },
         {
-          "id": 63,
+          "id": 6070,
           "name": "Edificio o lago",
           "x": 608,
           "y": 768,
@@ -4341,7 +4429,7 @@
           "properties": []
         },
         {
-          "id": 64,
+          "id": 6071,
           "name": "Edificio o lago",
           "x": 0,
           "y": 800,
@@ -4352,7 +4440,7 @@
           "properties": []
         },
         {
-          "id": 65,
+          "id": 6072,
           "name": "Edificio o lago",
           "x": 0,
           "y": 832,
@@ -4363,7 +4451,7 @@
           "properties": []
         },
         {
-          "id": 66,
+          "id": 6073,
           "name": "Edificio o lago",
           "x": 0,
           "y": 864,
@@ -4374,7 +4462,7 @@
           "properties": []
         },
         {
-          "id": 67,
+          "id": 6074,
           "name": "Edificio o lago",
           "x": 0,
           "y": 896,
@@ -4385,7 +4473,7 @@
           "properties": []
         },
         {
-          "id": 68,
+          "id": 6075,
           "name": "Edificio o lago",
           "x": 0,
           "y": 928,
@@ -4396,7 +4484,7 @@
           "properties": []
         },
         {
-          "id": 69,
+          "id": 6076,
           "name": "Terminale della monorotaia",
           "x": 192,
           "y": 704,
@@ -4407,7 +4495,7 @@
           "properties": []
         },
         {
-          "id": 78,
+          "id": 6077,
           "name": "npc-footprint-acquariva_tessa",
           "x": 1088,
           "y": 448,
@@ -4681,6 +4769,43 @@
               "value": "Conquista la Medaglia Riflesso per riaprire il passaggio delle Cascate."
             }
           ]
+        },
+        {
+          "id": 8000,
+          "name": "Valle del Vento",
+          "x": 416,
+          "y": 0,
+          "width": 64,
+          "height": 32,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r12_valle_vento"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_acquariva"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "badge_riflesso_awarded"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Il sentiero di montagna si apre con la Medaglia Riflesso di Selene."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -4712,7 +4837,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-acquariva-v1"
+              "value": "veloria-acquariva-v2"
             },
             {
               "name": "renderDepth",
@@ -4730,7 +4855,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 79,
+  "nextobjectid": 8001,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -16,11 +16,18 @@ export function createBadgeEmblem(badgeId = 'badge_aurora'): HTMLElement {
   const magnet = badgeCatalog[badgeId]?.emblem === 'magnet';
   const tide = badgeCatalog[badgeId]?.emblem === 'tide';
   const reflection = badgeCatalog[badgeId]?.emblem === 'reflection';
+  const snowflake = badgeCatalog[badgeId]?.emblem === 'snowflake';
   const shapes: Array<[string, Record<string, string>]> = [
     ['path', { d: 'M60 5 107 32 107 88 60 115 13 88 13 32Z', fill: '#203b59', stroke: '#aeece3', 'stroke-width': '3' }],
     ['path', { d: 'M60 17 96 38 96 81 60 102 24 81 24 38Z', fill: corolla ? '#4f7370' : '#56799c', stroke: corolla ? '#ffcbdc' : '#c6b1ff', 'stroke-width': '2' }],
   ];
-  if (reflection) shapes.push(
+  if (snowflake) {
+    for (let angle=0;angle<360;angle+=60) shapes.push(['path',{
+      d:'M60 60V27M60 39 49 32M60 39 71 32M60 49 48 42M60 49 72 42',
+      fill:'none',stroke:'#d3faff','stroke-width':'4','stroke-linecap':'round','stroke-linejoin':'round',transform:`rotate(${angle} 60 60)`,
+    }]);
+    shapes.push(['circle',{cx:'60',cy:'60',r:'8',fill:'#c6b1ff',stroke:'#ffffff','stroke-width':'2'}]);
+  } else if (reflection) shapes.push(
     ['path',{d:'M60 25 83 48 76 82 44 82 37 48Z',fill:'#e4deff',stroke:'#fff8df','stroke-width':'3'}],
     ['path',{d:'M60 25V82M37 48H83M44 82 60 48 76 82',fill:'none',stroke:'#a18ad5','stroke-width':'2'}],
     ['path',{d:'M28 77 48 57M72 43 91 24',fill:'none',stroke:'#ffe6a5','stroke-width':'4','stroke-linecap':'round'}],
