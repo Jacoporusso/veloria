@@ -2,7 +2,7 @@
 
 ## Stato
 
-Integrato localmente; non ancora pubblicato. La versione pubblica confermata resta 0.3.91. Sette prove browser riuscite in 1,7m: attraversamento completo/ritorno, console e cinque regressioni dei pannelli Pokémon. Offline passato in15,2s (27,5s inclusa build). 392 dominio +16 persistenza, 74 Python e validatore globale passati:236asset/37mappe/34quest/14allenatori/9negozi. R15 e Concordia/P8 restano capitoli successivi: l’arco alto è un ricevitore narrativo, senza uscita verso mappe vuote.
+Pubblicato su main con commit a542a5c. Deploy Pages39385729788 concluso con successo; verificati via HTTPS contenuto0.3.92, cachev113 e Tiled D05 40×30. La suite Verify Linux della nuova revisione è ancora in attesa/esecuzione. Sette prove browser riuscite in 1,7m: attraversamento completo/ritorno, console e cinque regressioni dei pannelli Pokémon. Offline passato in15,2s (27,5s inclusa build). 392 dominio +16 persistenza, 74 Python e validatore globale passati:236asset/37mappe/34quest/14allenatori/9negozi. R15 e Concordia/P8 restano capitoli successivi: l’arco alto è un ricevitore narrativo, senza uscita verso mappe vuote.
 
 ## Percorso e indicazioni
 

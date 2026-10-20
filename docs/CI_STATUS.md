@@ -1,3 +1,7 @@
+## Pubblicazione Cristallo 0.3.92 — 20/10/2026
+
+Commit a542a5ced137bf5a4f2bf62f7a767c89c69f3bfc pubblicato su main. Deploy Pages39385729788 riuscito: test, validatore, build con base/veloria/ e deploy completati. Via HTTPS confermati registro contenuti0.3.92, cachev113 e Tiled D05 40×30. Verify39385729650 resta in attesa dietro la revisione precedente al momento di questo aggiornamento; nessuna suite Linux completamente verde viene attestata. Questo aggiornamento modifica soltanto documentazione e non richiede una nuova esecuzione duplicata dei workflow.
+
 ## Cristallo locale 0.3.92 — 20/10/2026
 
 - 37 mappe, 34 quest, 14 allenatori, 9 negozi, 236 asset, 63 specie e64mosse. Build riuscita. 392 dominio +16 persistenza, 74 Python e validatore globale passati.

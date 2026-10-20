@@ -1,10 +1,10 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Checkpoint locale 0.3.92:** Varco e Grotte del Cristallo, regolazione ambientale, cinque Pokémon da grotta e riferimenti evolutivi ufficiali ripristinati. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+**Versione pubblicata 0.3.92:** Varco e Grotte del Cristallo, regolazione ambientale, cinque Pokémon da grotta e riferimenti evolutivi ufficiali ripristinati. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, sei Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione locale 0.3.92 arriva da Borgofonte alle Grotte del Cristallo: 37 mappe, sette medaglie, 14 allenatori, 63 specie e 64 mosse da fonti locali PokéAPI. Il nuovo capitolo offre misurazioni climatiche, sentieri con habitat facoltativi, servizi, tre piste di ghiaccio e funivia dopo P7. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale. R15, Concordia/P8, Santuario, Lega e finale restano da realizzare. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.92 arriva da Borgofonte alle Grotte del Cristallo: 37 mappe, sette medaglie, 14 allenatori, 63 specie e 64 mosse da fonti locali PokéAPI. Il nuovo capitolo offre misurazioni climatiche, sentieri con habitat facoltativi, servizi, tre piste di ghiaccio e funivia dopo P7. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale. R15, Concordia/P8, Santuario, Lega e finale restano da realizzare. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
 Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le città già visitate: Brumalta, Petalora, Vetracielo, Ferraluce, Portolume e Acquariva. Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
 
