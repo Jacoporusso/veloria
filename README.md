@@ -1,12 +1,12 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione locale 0.3.93:** Passo delle Due Luci, Concordia e ottava Palestra con convergenza di acqua e luce. Ultima pubblicazione confermata: 0.3.92. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
+**Versione pubblicata 0.3.93:** Passo delle Due Luci, Concordia e ottava Palestra con convergenza di acqua e luce. Stato della pubblicazione in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
-Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione locale 0.3.93 arriva da Borgofonte a Concordia: 40 mappe, otto medaglie, 16 allenatori, 69 specie e 71 mosse da fonti locali PokéAPI. Il nuovo capitolo collega le letture del Passo delle Due Luci a una scelta con Elia e alla convergenza della Palestra di Aurel. Concordia offre cure, mercato e monorotaia. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale. Santuario, R16, Lega e finale restano da realizzare. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
+Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.93 arriva da Borgofonte a Concordia: 40 mappe, otto medaglie, 16 allenatori, 69 specie e 71 mosse da fonti locali PokéAPI. Il nuovo capitolo collega le letture del Passo delle Due Luci a una scelta con Elia e alla convergenza della Palestra di Aurel. Concordia offre cure, mercato e monorotaia. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale. Santuario, R16, Lega e finale restano da realizzare. `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 
-Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le città già visitate: Brumalta, Petalora, Vetracielo, Ferraluce, Portolume, Acquariva e Concordia (locale 0.3.93). Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
+Dopo la Medaglia Circuito, i terminali della monorotaia collegano gratuitamente le città già visitate: Brumalta, Petalora, Vetracielo, Ferraluce, Portolume, Acquariva e Concordia. Contratto ed estensione delle fermate: [documentazione trasporti](docs/17_MONORAIL_v0.1.md). Funzione introdotta nella versione 0.3.77.
 
 La Palestra di Ferraluce si raggiunge dopo il rapporto a Ivo, dalla pedana P4 a est della piazza. Circuito magnetico, Rhea e Medaglia Acciaio: [contratto e limiti](docs/18_FERRALUCE_GYM_v0.1.md). Versione 0.3.79 in integrazione; verifica di pubblicazione in `docs/CI_STATUS.md`.
 

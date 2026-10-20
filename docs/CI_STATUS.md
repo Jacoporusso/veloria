@@ -1,3 +1,7 @@
+## Pubblicazione Concordia 0.3.93 — 20/10/2026
+
+Commit `4e94056afa7879a2c294fd046f3df18df5c66741` pubblicato su main. Deploy Pages `39390958602` riuscito: test, validatore, build con base `/veloria/` e deploy completati. Verificati via HTTPS registro `veloria-content-0.3.93`, service worker `v114` e Tiled P8 `32×24`. Verify `39390958641` ancora in esecuzione; non si attesta una suite Linux completa verde. Questo aggiornamento modifica soltanto documentazione.
+
 ## Concordia locale 0.3.93 — 20/10/2026
 
 - 40 mappe, 38 quest, 16 allenatori, 10 negozi, 254 asset; 69 specie e71mosse, otto medaglie. 425 dominio +16 persistenza e88 Python passati; validatore globale e build riusciti.
