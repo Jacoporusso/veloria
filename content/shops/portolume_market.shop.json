@@ -1,9 +1,11 @@
 {
   "id": "veloria/portolume_market",
-  "version": 1,
+  "version": 2,
   "items": [
     "potion",
+    "super-potion",
     "antidote",
+    "paralyze-heal",
     "poke-ball"
   ]
 }

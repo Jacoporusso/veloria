@@ -516,6 +516,12 @@ async function seedLegacySaveScenario(page: Page) {
         save.flags = [...new Set([...save.flags, 'q_brumalta_visited', 'trainer_gym01_mira_defeated', 'badge_aurora_awarded'])];
         delete save.player.x;
         delete save.player.y;
+        // Model an installation containing only this v1 save. A newer v2
+        // backup would correctly win the revision-based recovery policy.
+        store.delete('backup-previous');
+        store.delete('checksum:backup-previous');
+        localStorage.removeItem('veloria-save-v1');
+        localStorage.removeItem('veloria-save-v1-backup');
         store.put(save, 'main');
         store.delete('checksum:main');
       };

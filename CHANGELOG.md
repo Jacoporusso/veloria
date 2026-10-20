@@ -1,3 +1,9 @@
+## 0.3.97 — Rifornimenti intermedi e audit della crescita (20/10/2026)
+
+- Superpozioni e Antiparalisi a Ferraluce, Portolume e Acquariva; anche Iperpozioni a Passobrina e Biancavetta. Oggetti e prezzi del catalogo corrente, cache v118.
+- Audit riproducibile dell'esperienza con funzioni reali del motore, squadre e habitat correnti. Il report distingue budget ottimistico da partita naturale: la distribuzione degli allenatori resta insufficiente e richiede implementazione ulteriore.
+- Cinque prove browser verificano acquisti, denaro e reload nei mercati modificati. Corretto l'isolamento della fixture v1: non lascia più un backup v2 recente che prevale correttamente sul salvataggio artificiale.
+
 ## 0.3.96 — Lega, Campione ed epilogo (20/10/2026)
 
 - Cinque sale illustrate originali, quattro membri del Consiglio e Campione: tentativi ordinati, otto medaglie richieste, nessuna cura automatica, uscita esplicita e ripresa tra le tappe.

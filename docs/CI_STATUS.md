@@ -1,3 +1,9 @@
+## Rifornimenti 0.3.97 — verifiche locali 20/10/2026
+
+- Validatore contenuti, 451 test dominio, 25 persistenza e build riusciti. Cinque E2E dei mercati passati in 22,9 secondi, con acquisti, addebito corretto e reload. Il primo tentativo di fixture aveva conservato uno spawn di un'altra mappa e non avviava la scena; corretta la fixture con spawn registrato nella mappa corrente.
+- Audit budget XP generato con funzioni del motore e dati reali, ipotesi ottimistiche esplicite. Non è una partita naturale né una prova che il bilanciamento sia completo.
+- Verify0.3.96 `39424370226`: Lega, risorse offline, controlli e più shard già riusciti; MVP3 fallisce il vecchio scenario v1 perché un backup v2 più recente prevale sul main v1 artificiale. La policy di recupero è corretta: la fixture ora rappresenta un'installazione con il solo salvataggio v1, senza indebolire le asserzioni di migrazione. Prova isolata passata in 13,1 secondi, 14,2 complessivi. Pubblicazione da confermare.
+
 ## Pubblicazione Lega 0.3.96 — 20/10/2026
 
 Commit `c0bb039edb5b6d8374d45b9bb6f69e26362efefc` su main. Deploy Pages `39424370152` concluso SUCCESS, inclusi test, validatore e build con base `/veloria/`. HTTPS conferma registro `veloria-content-0.3.96`, cache `veloria-shell-v117`, chunk della cerimonia e Tiled della sala del Campione 32×24. Verify `39424370226` ancora in esecuzione: non si dichiara verde la suite Linux completa di questa revisione. Aggiornamento documentale senza duplicare i workflow.

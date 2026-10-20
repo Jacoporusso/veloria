@@ -1,10 +1,12 @@
 {
   "id": "veloria/ferraluce_shop",
-  "version": 1,
+  "version": 2,
   "displayName": "Rifornimenti di Ferraluce",
   "items": [
     "potion",
+    "super-potion",
     "antidote",
+    "paralyze-heal",
     "poke-ball"
   ]
 }

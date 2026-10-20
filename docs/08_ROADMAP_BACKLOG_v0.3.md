@@ -1,3 +1,7 @@
+## Aggiornamento 0.3.97
+
+Audit di crescita riproducibile in `tools/audit_progression.ts`, risultati e limiti in `docs/playtests/2026-10-20-progression-budget.md`. I trainer prima di Selene porterebbero teoricamente un solo starter5 soltanto a21: servono ancora incontri intermedi e verifica delle squadre naturali. Rifornimenti di cinque città migliorati e verificati; questo non chiude il bilanciamento. Prossima priorità concreta: allenatori facoltativi su R06/R07/R08/R11, con mappe, squadre legali, ricompense e ritorni verificati.
+
 ## Aggiornamento 0.3.96
 
 Lega integrata: cinque sale, quattro consiglieri e Campione, tentativi, checkpoint, premi unici, cerimonia ed epilogo. Sette prove browser e battaglia finale offline riuscite; dettagli e pubblicazione in CI_STATUS. Contratto dei contenuti nel documento28. Il collegamento narrativo da Borgofonte al finale esiste; il bilanciamento di una partita naturale completa non è ancora attestato.
