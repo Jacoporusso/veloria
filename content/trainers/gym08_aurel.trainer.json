@@ -1,0 +1,53 @@
+{
+  "id": "veloria/trainer_aurel_gym08",
+  "name": "Aurel",
+  "version": 1,
+  "aiProfileId": "gym_final",
+  "battleOnceFlag": "trainer_gym08_aurel_defeated",
+  "defeatQuestEvent": "battle/trainer_aurel/defeated",
+  "rewardMoney": 2600,
+  "victoryMessage": "Hai vinto contro Aurel. Ricevi 2600 ₿ e la Medaglia Armonia.",
+  "victoryFeedback": "La Medaglia Armonia è tua! Otto medaglie: hai osservato tipi, velocità e precisione. Dragonair teme il Ghiaccio, Kingdra è Acqua/Drago e non ha la stessa debolezza. Idropompa è potente ma meno precisa: conserva PP e una squadra pronta a subentrare. Con Elia prepareremo il riallineamento del Santuario.",
+  "team": [
+    {
+      "speciesId": 148,
+      "level": 46,
+      "moveIds": [
+        "dragon-rush",
+        "thunder-wave",
+        "agility",
+        "aqua-tail"
+      ]
+    },
+    {
+      "speciesId": 117,
+      "level": 47,
+      "moveIds": [
+        "bubble-beam",
+        "smokescreen",
+        "agility",
+        "hydro-pump"
+      ]
+    },
+    {
+      "speciesId": 230,
+      "level": 48,
+      "moveIds": [
+        "hydro-pump",
+        "bubble-beam",
+        "smokescreen",
+        "agility"
+      ]
+    },
+    {
+      "speciesId": 148,
+      "level": 49,
+      "moveIds": [
+        "dragon-rush",
+        "dragon-rage",
+        "thunder-wave",
+        "aqua-tail"
+      ]
+    }
+  ]
+}

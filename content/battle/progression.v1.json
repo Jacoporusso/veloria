@@ -170,6 +170,24 @@
       "toSpeciesId": 75,
       "minimumLevel": 25,
       "assetId": "pokeapi-crystal-75-v1-webp"
+    },
+    {
+      "fromSpeciesId": 147,
+      "toSpeciesId": 148,
+      "minimumLevel": 30,
+      "assetId": "pokeapi-dragon-148-v1-webp"
+    },
+    {
+      "fromSpeciesId": 148,
+      "toSpeciesId": 149,
+      "minimumLevel": 55,
+      "assetId": "pokeapi-dragon-149-v1-webp"
+    },
+    {
+      "fromSpeciesId": 116,
+      "toSpeciesId": 117,
+      "minimumLevel": 32,
+      "assetId": "pokeapi-dragon-117-v1-webp"
     }
   ]
 }

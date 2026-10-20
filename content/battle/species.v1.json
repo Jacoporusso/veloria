@@ -102,6 +102,10 @@
           "moveId": "smokescreen"
         },
         {
+          "level": 16,
+          "moveId": "dragon-rage"
+        },
+        {
           "level": 19,
           "moveId": "scary-face"
         }
@@ -151,6 +155,14 @@
         {
           "level": 25,
           "moveId": "water-pulse"
+        },
+        {
+          "level": 28,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 40,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -601,6 +613,10 @@
           "moveId": "mud-shot"
         },
         {
+          "level": 38,
+          "moveId": "hydro-pump"
+        },
+        {
           "level": 41,
           "moveId": "mud-bomb"
         }
@@ -997,6 +1013,10 @@
           "moveId": "smokescreen"
         },
         {
+          "level": 17,
+          "moveId": "dragon-rage"
+        },
+        {
           "level": 21,
           "moveId": "scary-face"
         }
@@ -1055,6 +1075,14 @@
         {
           "level": 28,
           "moveId": "water-pulse"
+        },
+        {
+          "level": 32,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 48,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -1577,6 +1605,10 @@
         {
           "level": 25,
           "moveId": "slam"
+        },
+        {
+          "level": 33,
+          "moveId": "dragon-breath"
         }
       ]
     },
@@ -1680,6 +1712,10 @@
         {
           "level": 36,
           "moveId": "screech"
+        },
+        {
+          "level": 40,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -1745,6 +1781,10 @@
         {
           "level": 42,
           "moveId": "screech"
+        },
+        {
+          "level": 49,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -1899,6 +1939,10 @@
         {
           "level": 34,
           "moveId": "discharge"
+        },
+        {
+          "level": 42,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -1960,6 +2004,10 @@
         {
           "level": 40,
           "moveId": "discharge"
+        },
+        {
+          "level": 52,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -2428,6 +2476,10 @@
           "moveId": "smokescreen"
         },
         {
+          "level": 17,
+          "moveId": "dragon-rage"
+        },
+        {
           "level": 21,
           "moveId": "scary-face"
         },
@@ -2495,6 +2547,14 @@
         {
           "level": 28,
           "moveId": "water-pulse"
+        },
+        {
+          "level": 32,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 60,
+          "moveId": "hydro-pump"
         }
       ]
     },
@@ -2750,6 +2810,10 @@
           "moveId": "aurora-beam"
         },
         {
+          "level": 43,
+          "moveId": "aqua-tail"
+        },
+        {
           "level": 47,
           "moveId": "ice-beam"
         }
@@ -2800,6 +2864,10 @@
         {
           "level": 27,
           "moveId": "aurora-beam"
+        },
+        {
+          "level": 43,
+          "moveId": "aqua-tail"
         },
         {
           "level": 47,
@@ -2960,6 +3028,10 @@
         {
           "level": 25,
           "moveId": "slam"
+        },
+        {
+          "level": 33,
+          "moveId": "dragon-breath"
         }
       ]
     },
@@ -3049,6 +3121,358 @@
         {
           "level": 21,
           "moveId": "confuse-ray"
+        }
+      ]
+    },
+    "147": {
+      "speciesId": 147,
+      "name": "Dratini",
+      "types": [
+        "dragon"
+      ],
+      "baseStats": {
+        "hp": 41,
+        "attack": 64,
+        "defense": 45,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 50
+      },
+      "experienceYield": 60,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "thunder-wave"
+      ],
+      "officialLearnset": [
+        {
+          "level": 5,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 15,
+          "moveId": "dragon-rage"
+        },
+        {
+          "level": 21,
+          "moveId": "slam"
+        },
+        {
+          "level": 25,
+          "moveId": "agility"
+        },
+        {
+          "level": 31,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 35,
+          "moveId": "dragon-rush"
+        },
+        {
+          "level": 45,
+          "moveId": "dragon-dance"
+        }
+      ]
+    },
+    "148": {
+      "speciesId": 148,
+      "name": "Dragonair",
+      "types": [
+        "dragon"
+      ],
+      "baseStats": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "speed": 70
+      },
+      "experienceYield": 147,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "thunder-wave"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 5,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 15,
+          "moveId": "dragon-rage"
+        },
+        {
+          "level": 21,
+          "moveId": "slam"
+        },
+        {
+          "level": 25,
+          "moveId": "agility"
+        },
+        {
+          "level": 33,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 39,
+          "moveId": "dragon-rush"
+        },
+        {
+          "level": 53,
+          "moveId": "dragon-dance"
+        }
+      ]
+    },
+    "149": {
+      "speciesId": 149,
+      "name": "Dragonite",
+      "types": [
+        "dragon",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "speed": 80
+      },
+      "experienceYield": 270,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "thunder-punch",
+        "thunder-wave"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "thunder-punch"
+        },
+        {
+          "level": 1,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 5,
+          "moveId": "thunder-wave"
+        },
+        {
+          "level": 15,
+          "moveId": "dragon-rage"
+        },
+        {
+          "level": 21,
+          "moveId": "slam"
+        },
+        {
+          "level": 25,
+          "moveId": "agility"
+        },
+        {
+          "level": 33,
+          "moveId": "aqua-tail"
+        },
+        {
+          "level": 39,
+          "moveId": "dragon-rush"
+        },
+        {
+          "level": 53,
+          "moveId": "dragon-dance"
+        },
+        {
+          "level": 55,
+          "moveId": "wing-attack"
+        }
+      ]
+    },
+    "116": {
+      "speciesId": 116,
+      "name": "Horsea",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "specialAttack": 70,
+        "specialDefense": 25,
+        "speed": 60
+      },
+      "experienceYield": 59,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "smokescreen"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 4,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 18,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 23,
+          "moveId": "agility"
+        },
+        {
+          "level": 35,
+          "moveId": "hydro-pump"
+        },
+        {
+          "level": 38,
+          "moveId": "dragon-dance"
+        },
+        {
+          "level": 42,
+          "moveId": "dragon-pulse"
+        }
+      ]
+    },
+    "117": {
+      "speciesId": 117,
+      "name": "Seadra",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 65,
+        "defense": 95,
+        "specialAttack": 95,
+        "specialDefense": 45,
+        "speed": 85
+      },
+      "experienceYield": 154,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "smokescreen",
+        "water-gun"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 1,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 4,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 18,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 23,
+          "moveId": "agility"
+        },
+        {
+          "level": 40,
+          "moveId": "hydro-pump"
+        },
+        {
+          "level": 48,
+          "moveId": "dragon-dance"
+        },
+        {
+          "level": 57,
+          "moveId": "dragon-pulse"
+        }
+      ]
+    },
+    "230": {
+      "speciesId": 230,
+      "name": "Kingdra",
+      "types": [
+        "water",
+        "dragon"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 95,
+        "specialAttack": 95,
+        "specialDefense": 95,
+        "speed": 85
+      },
+      "experienceYield": 243,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "smokescreen",
+        "water-gun"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 1,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 4,
+          "moveId": "smokescreen"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 18,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 23,
+          "moveId": "agility"
+        },
+        {
+          "level": 40,
+          "moveId": "hydro-pump"
+        },
+        {
+          "level": 48,
+          "moveId": "dragon-dance"
+        },
+        {
+          "level": 57,
+          "moveId": "dragon-pulse"
         }
       ]
     }

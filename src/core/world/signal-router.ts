@@ -17,17 +17,26 @@ export interface SignalRouterNode {
 
 export interface SignalRouter {
   id: string;
-  presentation?: 'circuit' | 'reflection';
+  presentation?: 'circuit' | 'reflection' | 'convergence';
   sourceNodeId: string;
+  additionalSourceNodeIds?: readonly string[];
   goalNodeId: string;
   solvedFlag: string;
   solvedEvent: string;
   nodes: readonly SignalRouterNode[];
 }
 
-export interface SignalTrace {
+export interface SignalPath {
+  sourceNodeId: string;
   nodeIds: string[];
   outcome: 'connected' | 'disconnected' | 'cycle';
+}
+
+export interface SignalTrace {
+  /** Stable union for node highlighting, never an ordered list of edges. */
+  nodeIds: string[];
+  outcome: SignalPath['outcome'];
+  paths: SignalPath[];
 }
 
 function flagPrefix(router: SignalRouter, node: SignalRouterNode): string {
@@ -36,12 +45,15 @@ function flagPrefix(router: SignalRouter, node: SignalRouterNode): string {
 
 /** Reject broken authored routes before they can trap the player in a puzzle. */
 export function validateSignalRouter(router: SignalRouter): void {
-  if (router.presentation !== undefined && !['circuit','reflection'].includes(router.presentation)) {
+  if (router.additionalSourceNodeIds !== undefined && !Array.isArray(router.additionalSourceNodeIds)) throw new Error('Invalid signal sources.');
+  if (router.presentation !== undefined && !['circuit','reflection','convergence'].includes(router.presentation)) {
     throw new Error('Invalid signal router presentation.');
   }
-  const validId = (id: string) => /^[a-z][a-z0-9]*$/.test(id);
+  const validId = (id: string) => typeof id === 'string' && /^[a-z][a-z0-9]*$/.test(id);
   const nodes = new Set(router.nodes.map(node => node.id));
-  if (!validId(router.id) || nodes.size !== router.nodes.length || !nodes.has(router.sourceNodeId) || !nodes.has(router.goalNodeId)) {
+  const sources = [router.sourceNodeId, ...(router.additionalSourceNodeIds ?? [])];
+  if (!validId(router.id) || nodes.size !== router.nodes.length || !nodes.has(router.goalNodeId) ||
+      new Set(sources).size !== sources.length || sources.some(id => !nodes.has(id) || id === router.goalNodeId)) {
     throw new Error('Invalid signal router identity or endpoints.');
   }
   for (const node of router.nodes) {
@@ -66,16 +78,24 @@ export function signalRouterState(router: SignalRouter, node: SignalRouterNode, 
 /** Follow the energy, independently from the order in which switches were used. */
 export function traceSignalRouter(router: SignalRouter, flags: readonly string[]): SignalTrace {
   validateSignalRouter(router);
-  const nodeIds: string[] = [];
-  let current: string | null = router.sourceNodeId;
-  while (current !== null) {
-    if (nodeIds.includes(current)) return { nodeIds, outcome: 'cycle' };
-    nodeIds.push(current);
-    if (current === router.goalNodeId) return { nodeIds, outcome: 'connected' };
-    const node = router.nodes.find(node => node.id === current)!;
-    current = signalRouterState(router, node, flags).nextNodeId;
-  }
-  return { nodeIds, outcome: 'disconnected' };
+  const paths = [router.sourceNodeId, ...(router.additionalSourceNodeIds ?? [])].map(sourceNodeId => {
+    const nodeIds: string[] = [];
+    let current: string | null = sourceNodeId;
+    let outcome: SignalPath['outcome'] = 'disconnected';
+    while (current !== null) {
+      if (nodeIds.includes(current)) { outcome = 'cycle'; break; }
+      nodeIds.push(current);
+      if (current === router.goalNodeId) { outcome = 'connected'; break; }
+      const node = router.nodes.find(node => node.id === current)!;
+      current = signalRouterState(router, node, flags).nextNodeId;
+    }
+    return { sourceNodeId, nodeIds, outcome };
+  });
+  return {
+    nodeIds: [...new Set(paths.flatMap(path => path.nodeIds))],
+    outcome: paths.every(path => path.outcome === 'connected') ? 'connected' : paths.some(path => path.outcome === 'cycle') ? 'cycle' : 'disconnected',
+    paths,
+  };
 }
 
 /** Persist only the selected orientation. Quest completion remains the quest engine's job. */

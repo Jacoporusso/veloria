@@ -11,7 +11,7 @@ import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from '../
 import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState, MoveDefinition } from '../../core/battle/types.ts';
 import { createCreatureImage, preloadCreatureArt } from '../battle/creature-art.ts';
-import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
+import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatFlinched, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
 import { formatMoveDescription } from '../battle/move-description.ts';
 import { BattleCelebration, type VictoryPresentation } from '../ui/BattleCelebration.ts';
 import { gameViewport } from '../rendering/game-size.ts';
@@ -1182,6 +1182,7 @@ export class BattleScene extends Phaser.Scene {
       case 'recoilApplied':
         return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.amount} danni da contraccolpo.`;
       case 'healingApplied': return `Assorbe energia e recupera ${event.amount} HP.`;
+      case 'flinched': return formatFlinched(this.creatureById(event.side, event.creatureId)?.name ?? 'Il Pokémon');
       case 'leechSeedApplied': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} è colpita da Parassiseme!`;
       case 'leechSeedPrevented': return event.reason === 'immune' ? 'Parassiseme non ha effetto sui Pokémon Erba.' : 'Il bersaglio è già sotto l’effetto di Parassiseme.';
       case 'leechSeedTick': return `Parassiseme sottrae ${event.damage} HP a ${this.creatureById(event.side, event.creatureId)?.name ?? 'la creatura'}.`;

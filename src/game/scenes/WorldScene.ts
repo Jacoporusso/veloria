@@ -27,7 +27,7 @@ import { publicAssetUrl } from '../../core/assets/index.ts';
 import { getMap, getMapKey, getSpawn, listMaps } from '../maps/map-registry';
 import type { MapTrigger, MapInteractable, RegisteredMap } from '../maps/map-types';
 import { resolveMapRenderAssets } from '../maps/map-render-assets';
-import { getNpcDialogue } from '../interactions/dialogue-catalog';
+import { getNpcDialogue, type Dialogue } from '../interactions/dialogue-catalog';
 import { renderMap } from '../rendering/MapRenderer';
 import { createAmbientEffectPoints, createGrassSwayPoints, createWaterShimmerPoints, getGrassSwayTween, getWaterShimmerTween } from '../rendering/ambient-effects.ts';
 import { battleMoves, battleSpecies, encounterCatalog, trainerCatalog, veloriaBattleRules } from '../battle/catalog.ts';
@@ -599,11 +599,12 @@ export class WorldScene extends Phaser.Scene {
       const trainer = trainerId ? trainerCatalog[trainerId] : undefined;
       const shouldBattle = Boolean(trainer && trainerFlag && !this.save.flags.includes(trainerFlag));
       const battleLocked = Boolean(shouldBattle && battleRequiredFlag && !this.save.flags.includes(battleRequiredFlag));
-      if (dialogue.questEvent || dialogue.requiresStarterChoice || shouldBattle) {
+      if (dialogue.questEvent || dialogue.requiresStarterChoice || shouldBattle || dialogue.choices?.length) {
         this.afterDialogue = () => {
           if (dialogue.questEvent && this.applyQuestEvent(dialogue.questEvent)) this.refreshMapVisuals();
           nextAction?.();
           if (dialogue.requiresStarterChoice) this.showStarterChoices();
+          if (dialogue.choices?.length) this.showDialogueChoices(dialogue);
           if (dialogue.questEvent && !this.journey?.hasReward) this.showToast('Diario aggiornato.');
           if (battleLocked) this.showToast(String(prop.properties.battleLockedMessage ?? `${trainer?.name ?? 'La guida'} aspetta che tu completi la prova della palestra.`));
           else if (shouldBattle && trainer) this.showTrainerChallenge(trainer);
@@ -1050,7 +1051,7 @@ export class WorldScene extends Phaser.Scene {
     const options = shop.items.flatMap(itemId => {
       const item = itemCatalog[itemId];
       if (!item) return [];
-      return [{ icon: ({ potion: 'potion', antidote: 'antidote', 'poke-ball': 'pokeball' } as Record<string, ServiceOptionIconKind>)[itemId] ?? 'shop', label: `${item.name} · ${item.price} ₿  (${this.save.inventory[itemId] ?? 0})`, action: () => {
+      return [{ icon: (item.battle?.healHp ? 'potion' : item.battle?.cures?.length ? 'antidote' : item.capture ? 'pokeball' : 'shop') as ServiceOptionIconKind, label: `${item.name} · ${item.price} ₿  (${this.save.inventory[itemId] ?? 0})`, action: () => {
         const result = purchaseShopItem(this.save, shop, itemId, itemCatalog);
         if (result.ok) {
           this.save = result.save;
@@ -1067,6 +1068,22 @@ export class WorldScene extends Phaser.Scene {
     options.push({ label: 'CHIUDI', icon: 'close', action: () => undefined });
     this.afterDialogue = null;
     this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
+  }
+
+  private showDialogueChoices(dialogue: Dialogue): void {
+    this.afterDialogue = null;
+    const choices = (dialogue.choices ?? []).filter(choice =>
+      (choice.requiresFlags ?? []).every(flag => this.save.flags.includes(flag)));
+    this.showServiceOptions(dialogue.speaker, dialogue.choicePrompt ?? 'Come vuoi procedere?', [
+      ...choices.map(choice => ({ label: choice.label, icon: 'challenge' as const, action: () => {
+        if (!(choice.requiresFlags ?? []).every(flag => this.save.flags.includes(flag))) return;
+        this.afterDialogue = () => {
+          if (choice.questEvent && this.applyQuestEvent(choice.questEvent)) this.refreshMapVisuals();
+        };
+        this.showDialogue(dialogue.speaker, choice.lines.map(line => line.replaceAll('{starter}', this.starterName())));
+      } })),
+      { label: 'DECIDO DOPO', icon: 'close', action: () => undefined },
+    ]);
   }
 
   private showEnvironmentRegulatorMenu(id: string): void {
@@ -1103,11 +1120,14 @@ export class WorldScene extends Phaser.Scene {
   private showSignalRouterMenu(routerId: string, nodeId: string): void {
     const router = getSignalRouter(routerId);
     const reflection = router.presentation === 'reflection';
+    const convergence = router.presentation === 'convergence';
     const node = router.nodes.find(candidate => candidate.id === nodeId);
     if (!node) return;
     this.afterDialogue = null;
     if (this.save.flags.includes(router.solvedFlag)) {
-      this.showDialogue(node.label, [reflection
+      this.showDialogue(node.label, [convergence
+        ? 'Tutti i flussi raggiungono insieme il ricevitore: natura e tecnologia sono in equilibrio.'
+        : reflection
         ? 'Gli specchi sono allineati: la luce ha raggiunto il ricevitore. Puoi affrontare la prova della palestra.'
         : 'Il circuito è stabile: il segnale ha raggiunto il ricevitore. Puoi affrontare il capopalestra.']);
       return;
@@ -1117,6 +1137,12 @@ export class WorldScene extends Phaser.Scene {
     const last = router.nodes.find(candidate => candidate.id === trace.nodeIds.at(-1))!;
     const prompt = reflection
       ? `Orientamento: ${current.label}. La luce raggiunge ${last.label}. Ruota gli specchi e segui il fascio fino al ricevitore.`
+      : convergence
+      ? `Orientamento: ${current.label}. ${trace.paths.map(path => {
+          const source = router.nodes.find(candidate => candidate.id === path.sourceNodeId)!;
+          const endpoint = router.nodes.find(candidate => candidate.id === path.nodeIds.at(-1))!;
+          return `${source.label}: ${path.outcome === 'connected' ? 'raggiunge il ricevitore' : path.outcome === 'cycle' ? `gira in un circuito chiuso presso ${endpoint.label}` : `si ferma presso ${endpoint.label}`}.`;
+        }).join(' ')} Tutti i flussi devono raggiungere il ricevitore nella stessa configurazione.`
       : `Direzione: ${current.label}. Il segnale arriva a ${last.label}. Segui le linee sul pavimento fino al ricevitore.`;
     this.showServiceOptions(node.label, prompt, [
       { label: 'RUOTA', icon: 'rotate', action: () => {

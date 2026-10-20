@@ -378,6 +378,29 @@
         }
       ]
     },
+    "116": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 117,
+          "targetName": "Seadra",
+          "trigger": "level-up",
+          "minimumLevel": 32,
+          "itemName": null
+        }
+      ]
+    },
+    "117": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 230,
+          "targetName": "Kingdra",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Squama Drago"
+        }
+      ]
+    },
     "124": {
       "evolutions": []
     },
@@ -441,6 +464,31 @@
           "nearSpecialRock": true
         }
       ]
+    },
+    "147": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 148,
+          "targetName": "Dragonair",
+          "trigger": "level-up",
+          "minimumLevel": 30,
+          "itemName": null
+        }
+      ]
+    },
+    "148": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 149,
+          "targetName": "Dragonite",
+          "trigger": "level-up",
+          "minimumLevel": 55,
+          "itemName": null
+        }
+      ]
+    },
+    "149": {
+      "evolutions": []
     },
     "161": {
       "evolutions": [
@@ -591,6 +639,9 @@
       ]
     },
     "227": {
+      "evolutions": []
+    },
+    "230": {
       "evolutions": []
     }
   }

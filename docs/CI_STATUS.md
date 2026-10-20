@@ -1,3 +1,12 @@
+## Concordia locale 0.3.93 — 20/10/2026
+
+- 40 mappe, 38 quest, 16 allenatori, 10 negozi, 254 asset; 69 specie e71mosse, otto medaglie. 425 dominio +16 persistenza e88 Python passati; validatore globale e build riusciti.
+- Cinque prove browser D05/R15/Concordia/P8 riuscite in3,5m: percorso e ritorno, decisione di Elia, acquisti, puzzle con due flussi e reload, vera lotta touch con Aurel, banner e premio unico, monorotaia e orientamenti. Ulteriore prova Nilo rifiuto/sfida/ricompensa unica riuscita in33,9s. Squadre potenziate per integrazione: il bilanciamento naturale resta aperto. Vista landscape della convergenza esaminata.
+- Primo accesso offline: tre nuovi ambienti, sei artwork Drago e tre Tiled; puzzle con reload parziale, ritorno a piedi dalla palestra alla stazione e monorotaia Concordia–Vetracielo–Concordia con risorse invariate. Passato in25,2s (37,5s con build). Cachev114. Nessun runtime modificato durante le prove.
+- Rulesetv10: tentennamento locale al turno. Corretto ordine sonno/gelo, tentennamento, confusione, paralisi e PP, con regressioni RNG e contatori. Medicine importate da fonti locali; prezzi da CSV corrente, non dichiarati storici HGSS.
+- Verify0.3.92 `39385729650`: offline e cinque shard riusciti, shard4 fallito. Il riferimento Magneton ora passa nello shard5. Artifact shard4 esaminato: itinerario montano termina300s durante il ritorno in Passobrina, da x26 a25,y15 dopo aver già completato letture, rapporto e Biancavetta. Budget CI di quella prova480s, locale300s invariato. Il job cumulativo interrompe poi le prove MVP a24min; suite crescente distribuita su8shard anziché6 senza eliminare prove o asserzioni. Le correzioni richiedono nuova verifica Linux.
+- Pubblicazione0.3.93 ancora da confermare. Santuario, R16, Lega e finale non implementati.
+
 ## Pubblicazione Cristallo 0.3.92 — 20/10/2026
 
 Commit a542a5ced137bf5a4f2bf62f7a767c89c69f3bfc pubblicato su main. Deploy Pages39385729788 riuscito: test, validatore, build con base/veloria/ e deploy completati. Via HTTPS confermati registro contenuti0.3.92, cachev113 e Tiled D05 40×30. Verify39385729650 resta in attesa dietro la revisione precedente al momento di questo aggiornamento; nessuna suite Linux completamente verde viene attestata. Questo aggiornamento modifica soltanto documentazione e non richiede una nuova esecuzione duplicata dei workflow.

@@ -3714,17 +3714,6 @@
           "properties": []
         },
         {
-          "id": 107,
-          "name": "outside-floor-or-solid-terminal",
-          "x": 1216,
-          "y": 96,
-          "width": 32,
-          "height": 32,
-          "rotation": 0,
-          "visible": true,
-          "properties": []
-        },
-        {
           "id": 108,
           "name": "outside-floor-or-solid-terminal",
           "x": 0,
@@ -4394,6 +4383,17 @@
           "rotation": 0,
           "visible": true,
           "properties": []
+        },
+        {
+          "id": 176,
+          "name": "Ricevitore laterale",
+          "type": "",
+          "x": 1152,
+          "y": 128,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -4498,8 +4498,8 @@
         {
           "id": 172,
           "name": "Passaggio superiore",
-          "x": 1216,
-          "y": 96,
+          "x": 1152,
+          "y": 128,
           "width": 32,
           "height": 32,
           "rotation": 0,
@@ -4582,6 +4582,44 @@
               "value": 0.2
             }
           ]
+        },
+        {
+          "id": 177,
+          "name": "Passo delle Due Luci",
+          "type": "",
+          "x": 1216,
+          "y": 96,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/r15_passo_due_luci"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_cavern"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "q_d05_report"
+            },
+            {
+              "name": "failureMessage",
+              "type": "string",
+              "value": "Porta prima le letture a Livia, presso il rifugio del Varco del Cristallo."
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -4603,7 +4641,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 176,
+  "nextobjectid": 178,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

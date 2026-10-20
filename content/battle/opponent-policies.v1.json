@@ -31,6 +31,13 @@
       "maxSetupStage": 1,
       "damageSelection": "best",
       "maxStatusUsesPerMove": 1
+    },
+    "gym_final": {
+      "id": "gym_final",
+      "statusEveryTurns": 2,
+      "maxSetupStage": 2,
+      "damageSelection": "best",
+      "maxStatusUsesPerMove": 1
     }
   }
 }

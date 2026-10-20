@@ -1,3 +1,9 @@
+## Aggiornamento locale 0.3.93
+
+R15, Concordia e P8 collegati: osservazioni, scelta esplicita con Elia, puzzle a due sorgenti, Aurel e ottava medaglia, Nilo facoltativo, cure/mercato/monorotaia. Catalogo69specie/71mosse; medicine importate dalle fonti locali. Contratto e limiti nel documento24. Sei prove browser riuscite; verifica offline e pubblicazione in corso nel CI_STATUS.
+
+Prossimo capitolo: Santuario e riallineamento effettivo, quindi R16, Lega, finale ed epilogo. Restano bilanciamento naturale, catalogo251, abilità/effetti non supportati, evoluzioni tramite strumenti/scambio e uniformità artistica delle prime mappe. Le squadre potenziate di integrazione non dimostrano il bilanciamento del percorso naturale.
+
 ## Aggiornamento locale 0.3.92
 
 Varco e Grotte del Cristallo integrati e verificati: ponte dopo Brina, tre terrazze, rifugio, ricerca, regolazione ambientale riusabile, habitat, rapporto e ritorno. Catalogo63specie/64mosse; ripristinati i riferimenti evolutivi ufficiali fino a GenIV senza ampliare il roster giocabile. Browser/offline/unit/validator riusciti; pubblicazione e Linux nel CI_STATUS.

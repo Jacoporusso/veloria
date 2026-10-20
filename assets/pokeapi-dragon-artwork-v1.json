@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "scope": "Private prototype dragon-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 147,
+      "name": "Dratini",
+      "path": "assets/creatures/pokeapi-dragon-147-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/147.png",
+      "sourceSha256": "0172fb6a0c44d0e748e679dc39195d662027aa170fd65ca98bc405eea184cc2d",
+      "sha256": "53bc31195453101298e7f9e53a4100d860e68d194fd68fc53f886af5e575f077"
+    },
+    {
+      "speciesId": 148,
+      "name": "Dragonair",
+      "path": "assets/creatures/pokeapi-dragon-148-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/148.png",
+      "sourceSha256": "9a650c967983f07696a867116617606b05179518024c60fa744491992d160f68",
+      "sha256": "b3ee77d284ccebf870e4cfc303cd3c7db37cae27e83fa0d18e038585cc9ba066"
+    },
+    {
+      "speciesId": 149,
+      "name": "Dragonite",
+      "path": "assets/creatures/pokeapi-dragon-149-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/149.png",
+      "sourceSha256": "4bd7549caa15eac43a8197ba53e843a95f2b56c71b1121829ea76764fbf26f9c",
+      "sha256": "9697590aabfff97a2caa82ff10296463bf85fc6135873263ce14e4ba1283f016"
+    },
+    {
+      "speciesId": 116,
+      "name": "Horsea",
+      "path": "assets/creatures/pokeapi-dragon-116-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/116.png",
+      "sourceSha256": "4b610c3adf68de8dfc96756bab275b55cfab2b1a9a507514c64fe97255b7c761",
+      "sha256": "cd47edad92d3bc62d14d41d64355908fbd57d4fe2d696ac6dca44449fd390943"
+    },
+    {
+      "speciesId": 117,
+      "name": "Seadra",
+      "path": "assets/creatures/pokeapi-dragon-117-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/117.png",
+      "sourceSha256": "7c61fbb408242fdfaf72074be222e0554fd4b3b9062ef1648d24dfff13933457",
+      "sha256": "60931ffa2f0e9f39c97fe51a70f8db2e2d56b1801e08d0e6f068da8ad0b26dc4"
+    },
+    {
+      "speciesId": 230,
+      "name": "Kingdra",
+      "path": "assets/creatures/pokeapi-dragon-230-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+      "sourcePath": "assets/sources/pokeapi/dragon/230.png",
+      "sourceSha256": "35a530d0da4ae6dfa34a1de280fc05db55aac871d0ca298b4f2b555ad3708039",
+      "sha256": "74e3e062ebf9342772942e6d08b0243f9868267828ec2c3556c9d08238b5e169"
+    }
+  ]
+}

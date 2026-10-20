@@ -30,6 +30,10 @@ export function formatStatStageLimited(stat: StatStageName, stage: number, creat
 
 export function battleTypeLabel(type: BattleType): string { return TYPE_NAMES[type]; }
 
+export function formatFlinched(creatureName: string): string {
+  return `${creatureName} ha tentennato e non può usare la sua mossa in questo turno!`;
+}
+
 /** The core stores XP toward the next level, rather than lifetime XP. */
 export function battleExperienceProgress(creature: BattleCreature, rules: BattleRules): { ratio: number; label: string } | undefined {
   if (creature.level >= rules.maxLevel) return { ratio: 1, label: 'LIVELLO MASSIMO' };

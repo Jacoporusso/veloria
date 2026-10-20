@@ -47,6 +47,44 @@ class SignalRouterValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, 'outside map'):
             validate_signal_router(self.router, self.tiled, self.steps)
 
+    def convergence(self):
+        self.router['presentation'] = 'convergence'
+        self.router['additionalSourceNodeIds'] = ['light']
+        self.router['nodes'].append({
+            'id': 'light', 'label': 'Luce della rete', 'x': 6, 'y': 14,
+            'initialStateId': 'south', 'states': [
+                {'id': 'south', 'label': 'Verso il canale condiviso', 'direction': 'down', 'nextNodeId': 'source'}],
+        })
+        next(layer for layer in self.tiled['layers'] if layer['name'] == 'collision')['objects'].append({
+            'x': 6*32, 'y': 14*32, 'width': 32, 'height': 32,
+        })
+
+    def test_convergence_constructs_one_shared_configuration_through_shared_switches(self):
+        self.convergence()
+        validate_signal_router(self.router, self.tiled, self.steps)
+
+    def test_primary_reachability_does_not_hide_an_unreachable_second_source(self):
+        self.convergence()
+        self.router['nodes'][-1]['states'][0]['nextNodeId'] = None
+        with self.assertRaisesRegex(AssertionError, 'no solution for all sources'):
+            validate_signal_router(self.router, self.tiled, self.steps)
+
+    def test_duplicate_unknown_or_receiver_sources_are_rejected(self):
+        self.convergence()
+        for sources in [['source'], ['light', 'light'], ['missing'], ['goal']]:
+            with self.subTest(sources=sources):
+                self.router['additionalSourceNodeIds'] = sources
+                with self.assertRaisesRegex(AssertionError, 'endpoints'):
+                    validate_signal_router(self.router, self.tiled, self.steps)
+
+    def test_closed_cycle_with_no_route_to_receiver_is_rejected(self):
+        self.convergence()
+        # The shared network can circulate through source/first forever, while
+        # the receiver still exists and the remaining controls remain valid.
+        self.router['nodes'][1]['states'][1].update(nextNodeId='source', direction='left')
+        with self.assertRaisesRegex(AssertionError, 'no solution'):
+            validate_signal_router(self.router, self.tiled, self.steps)
+
 
 if __name__ == '__main__':
     unittest.main()

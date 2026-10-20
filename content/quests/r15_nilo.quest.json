@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_r15_nilo",
+  "version": 1,
+  "displayName": "Un allenamento tra amici",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/trainer_r15_nilo/defeated",
+      "setFlag": "q_r15_nilo_helped",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
+    }
+  ],
+  "completionFlag": "q_r15_nilo_helped",
+  "reward": {}
+}

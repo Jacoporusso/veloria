@@ -14,6 +14,12 @@ export type BattleCommands = Readonly<Record<BattleSide, BattleCommand>>;
 
 interface RandomCursor { state: number }
 
+/** Turn-local bookkeeping, deliberately absent from battle snapshots and saves. */
+interface TurnMoveContext {
+  pendingCreatureIds: Set<string>;
+  flinchedCreatureIds: Set<string>;
+}
+
 /** Xorshift32. A zero seed is mapped to a fixed non-zero state; output is stable across runtimes. */
 export function normalizeSeed(seed: number): number {
   const normalized = seed >>> 0;
@@ -192,10 +198,15 @@ export function resolveBattleTurn(
   })).sort((a, b) => b.priority - a.priority || b.speed - a.speed || a.tieRoll - b.tieRoll).map(item => item.side);
   events.push({ type: 'actionOrder', sides });
   let state: BattleState = { ...input, rngState: cursor.state, turn: input.turn + 1 };
+  const moveContext: TurnMoveContext = {
+    pendingCreatureIds: new Set(sides.filter(side => commands[side].kind === 'useMove' || commands[side].kind === 'struggle').map(side => active(input, side).instanceId)),
+    flinchedCreatureIds: new Set(),
+  };
 
   for (const side of sides) {
     if (state.outcome.kind !== 'ongoing') break;
     const command = commands[side];
+    moveContext.pendingCreatureIds.delete(active(state, side).instanceId);
     if (command.kind === 'switch') {
       state = applySwitch(state, side, command, events);
     } else if (command.kind === 'attemptFlee') {
@@ -207,7 +218,7 @@ export function resolveBattleTurn(
     } else if (command.kind === 'useItem') {
       state = applyItem(state, side, command, rules, events);
     } else {
-      state = applyMove(state, side, command, catalog, rules, cursor, events);
+      state = applyMove(state, side, command, catalog, rules, cursor, events, moveContext);
     }
     state = checkForWinner(state, events);
   }
@@ -282,14 +293,11 @@ function applyItem(state: BattleState, side: BattleSide, command: Extract<Battle
   return setCreature(state, side, command.targetIndex, updated);
 }
 
-function canAct(state: BattleState, side: BattleSide, cursor: RandomCursor, rules: BattleRules, events: BattleEvent[]): { state: BattleState; canAct: boolean } {
+/** Sleep and freeze progress before flinch; confusion and paralysis are later checks. */
+function checkSleepAndFreeze(state: BattleState, side: BattleSide, cursor: RandomCursor, rules: BattleRules, events: BattleEvent[]): { state: BattleState; canAct: boolean } {
   const creature = active(state, side);
   const status = creature.status;
   if (!status) return { state, canAct: true };
-  if (status.status === 'paralysis' && random(cursor) < rules.paralysisActionChance) {
-    events.push({ type: 'statusTick', side, creatureId: creature.instanceId, status: 'paralysis' });
-    return { state, canAct: false };
-  }
   if (status.status === 'sleep') {
     const turnsRemaining = Math.max(0, (status.turnsRemaining ?? 1) - 1);
     const recovered = turnsRemaining === 0;
@@ -314,19 +322,23 @@ function canAct(state: BattleState, side: BattleSide, cursor: RandomCursor, rule
   return { state, canAct: true };
 }
 
-function applyMove(state: BattleState, side: BattleSide, command: Extract<BattleCommand, { kind: 'useMove' | 'struggle' }>, catalog: MoveCatalog, rules: BattleRules, cursor: RandomCursor, events: BattleEvent[]): BattleState {
+function applyMove(state: BattleState, side: BattleSide, command: Extract<BattleCommand, { kind: 'useMove' | 'struggle' }>, catalog: MoveCatalog, rules: BattleRules, cursor: RandomCursor, events: BattleEvent[], context: TurnMoveContext): BattleState {
   let user = active(state, side);
   if (user.hp <= 0) return state;
   const emergency = command.kind === 'struggle';
   const moveId = emergency ? EMERGENCY_MOVE_ID : user.moves[command.moveSlot].moveId;
-  const actionPermission = canAct(state, side, cursor, rules, events);
+  const actionPermission = checkSleepAndFreeze(state, side, cursor, rules, events);
   state = actionPermission.state;
   if (!actionPermission.canAct) {
     events.push({ type: 'moveFailed', side, moveId, reason: 'blockedByStatus' });
     return state;
   }
-  // Preserve status recovery performed by canAct instead of restoring the old snapshot.
+  // Preserve recovery even if flinch subsequently prevents the pending move.
   user = active(state, side);
+  if (context.flinchedCreatureIds.has(user.instanceId)) {
+    events.push({ type: 'flinched', side, creatureId: user.instanceId });
+    return state;
+  }
   if ((user.confusionTurnsRemaining ?? 0) > 0) {
     const turnsRemaining = user.confusionTurnsRemaining! - 1;
     state = setCreature(state, side, sideState(state, side).activeIndex, { ...user, confusionTurnsRemaining: turnsRemaining || undefined });
@@ -346,6 +358,11 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     }
     user = active(state, side);
   }
+  if (user.status?.status === 'paralysis' && random(cursor) < rules.paralysisActionChance) {
+    events.push({ type: 'statusTick', side, creatureId: user.instanceId, status: 'paralysis' });
+    events.push({ type: 'moveFailed', side, moveId, reason: 'blockedByStatus' });
+    return state;
+  }
   const slot = command.kind === 'useMove' ? user.moves[command.moveSlot] : undefined;
   if (slot && slot.pp <= 0) {
     events.push({ type: 'moveFailed', side, moveId: slot.moveId, reason: 'noPp' });
@@ -362,6 +379,7 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
       ((move.minStatusTurns !== undefined || move.maxStatusTurns !== undefined) &&
         (!Number.isInteger(move.minStatusTurns) || !Number.isInteger(move.maxStatusTurns) || move.minStatusTurns! < 1 || move.maxStatusTurns! < move.minStatusTurns!)) ||
       (move.statChangeChance !== undefined && (move.statChangeChance < 0 || move.statChangeChance > 100)) ||
+      (move.flinchChance !== undefined && (!Number.isFinite(move.flinchChance) || move.flinchChance < 0 || move.flinchChance > 100)) ||
       (move.inflictedConfusionChance !== undefined && (move.inflictedConfusionChance < 0 || move.inflictedConfusionChance > 100)) ||
       ((move.minConfusionTurns !== undefined || move.maxConfusionTurns !== undefined) &&
         (!Number.isInteger(move.minConfusionTurns) || !Number.isInteger(move.maxConfusionTurns) || move.minConfusionTurns! < 1 || move.maxConfusionTurns! < move.minConfusionTurns!)) ||
@@ -483,6 +501,11 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
       state = setCreature(state, targetSide, sideState(state, targetSide).activeIndex, { ...confused, confusionTurnsRemaining: turns });
       events.push({ type: 'confusionApplied', side: targetSide, creatureId: confused.instanceId, turns });
     }
+  }
+  const flinchTarget = active(state, targetSide);
+  if (move.flinchChance && dealsDamage && damagingMoveConnected && flinchTarget.hp > 0 &&
+      context.pendingCreatureIds.has(flinchTarget.instanceId) && random(cursor) * 100 < move.flinchChance) {
+    context.flinchedCreatureIds.add(flinchTarget.instanceId);
   }
   return state;
 }

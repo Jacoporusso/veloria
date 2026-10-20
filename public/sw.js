@@ -1,5 +1,18 @@
-const CACHE = 'veloria-shell-v113';
+const CACHE = 'veloria-shell-v114';
 const SHELL = [
+  './tilemaps/r15_passo_due_luci.tmj',
+  './tilemaps/concordia.tmj',
+  './tilemaps/gym08_concordia.tmj',
+  './assets/scenery/veloria-r15-two-lights-v1.webp',
+  './assets/scenery/veloria-concordia-v1.webp',
+  './assets/scenery/veloria-gym08-convergence-v1.webp',
+  './assets/creatures/pokeapi-dragon-147-v1.webp',
+  './assets/creatures/pokeapi-dragon-148-v1.webp',
+  './assets/creatures/pokeapi-dragon-149-v1.webp',
+  './assets/creatures/pokeapi-dragon-116-v1.webp',
+  './assets/creatures/pokeapi-dragon-117-v1.webp',
+  './assets/creatures/pokeapi-dragon-230-v1.webp',
+
   './assets/scenery/veloria-biancavetta-v2.webp',
   './assets/creatures/pokeapi-crystal-41-v1.webp',
   './assets/creatures/pokeapi-crystal-42-v1.webp',

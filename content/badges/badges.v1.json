@@ -49,6 +49,13 @@
       "location": "Palestra di Biancavetta",
       "description": "Un cristallo di neve ricorda una strategia preparata e un cammino trovato anche tra gli ostacoli.",
       "emblem": "snowflake"
+    },
+    "badge_armonia": {
+      "name": "Medaglia Armonia",
+      "leader": "Aurel",
+      "location": "Palestra di Concordia",
+      "description": "Due flussi convergono senza perdere la propria luce. Ottava medaglia di Veloria.",
+      "emblem": "harmony"
     }
   }
 }

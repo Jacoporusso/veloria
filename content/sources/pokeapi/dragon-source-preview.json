@@ -1,0 +1,2296 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-20",
+  "versionGroup": "heartgold-soulsilver",
+  "scope": "Source audit and preview snapshot for the activated Concordia dragon runtime catalog.",
+  "supportedMoveCount": 71,
+  "species": [
+    {
+      "speciesId": 147,
+      "name": "Dratini",
+      "typesHGSS": [
+        "dragon"
+      ],
+      "baseStatsHGSS": {
+        "hp": 41,
+        "attack": 64,
+        "defense": 45,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 50
+      },
+      "officialGrowthRate": "slow",
+      "evolutionChainId": 76,
+      "levelFiveOfficialLevelUpMoves": [
+        "wrap",
+        "leer",
+        "thunder-wave"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "thunder-wave"
+      ],
+      "levelFiveUnsupportedMoves": [
+        "wrap",
+        "leer"
+      ],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [
+            "dragon-dance"
+          ],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "aqua-tail",
+            "dragon-rush",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "wrap",
+        "leer",
+        "twister",
+        "dragon-rage",
+        "aqua-tail",
+        "dragon-rush",
+        "safeguard",
+        "dragon-dance"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-147.json",
+          "sha256": "83212b418da3313c5135fba4cb548c5c36af0a6ad7eede3874a475f87adf5ce6"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-147.json",
+          "sha256": "b0d671a837b6cd5aad493449b6e8bc4d8e82d162c285469d98f1120ca6792ebf"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+        "path": "assets/sources/pokeapi/dragon/147.png",
+        "sha256": "0172fb6a0c44d0e748e679dc39195d662027aa170fd65ca98bc405eea184cc2d",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-147-v1.webp"
+      }
+    },
+    {
+      "speciesId": 148,
+      "name": "Dragonair",
+      "typesHGSS": [
+        "dragon"
+      ],
+      "baseStatsHGSS": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "speed": 70
+      },
+      "officialGrowthRate": "slow",
+      "evolutionChainId": 76,
+      "levelFiveOfficialLevelUpMoves": [
+        "wrap",
+        "leer",
+        "thunder-wave",
+        "twister",
+        "thunder-wave"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "thunder-wave"
+      ],
+      "levelFiveUnsupportedMoves": [
+        "wrap",
+        "leer",
+        "twister"
+      ],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [
+            "safeguard"
+          ],
+          "unsupportedMovesLearnedAtLevel": [
+            "safeguard"
+          ]
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "wrap",
+        "leer",
+        "twister",
+        "dragon-rage",
+        "aqua-tail",
+        "dragon-rush",
+        "safeguard"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-148.json",
+          "sha256": "a3522729fd91cb89d6490c10c89c8cc14bc992786c546f9e86be82a324b988cd"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-148.json",
+          "sha256": "5d7a89aa42af2a30d79f8cd1dba8d9b50b2e8bb46bd5ed1fcafab4f7579bc740"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+        "path": "assets/sources/pokeapi/dragon/148.png",
+        "sha256": "9a650c967983f07696a867116617606b05179518024c60fa744491992d160f68",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-148-v1.webp"
+      }
+    },
+    {
+      "speciesId": 149,
+      "name": "Dragonite",
+      "typesHGSS": [
+        "dragon",
+        "flying"
+      ],
+      "baseStatsHGSS": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "specialAttack": 100,
+        "specialDefense": 100,
+        "speed": 80
+      },
+      "officialGrowthRate": "slow",
+      "evolutionChainId": 76,
+      "levelFiveOfficialLevelUpMoves": [
+        "fire-punch",
+        "thunder-punch",
+        "roost",
+        "wrap",
+        "leer",
+        "thunder-wave",
+        "twister",
+        "thunder-wave"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "thunder-punch",
+        "thunder-wave"
+      ],
+      "levelFiveUnsupportedMoves": [
+        "fire-punch",
+        "roost",
+        "wrap",
+        "leer",
+        "twister"
+      ],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [
+            "safeguard"
+          ],
+          "unsupportedMovesLearnedAtLevel": [
+            "safeguard"
+          ]
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "thunder-punch",
+            "thunder-wave",
+            "dragon-rage",
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "fourMovePreview": [
+            "slam",
+            "agility",
+            "aqua-tail",
+            "dragon-rush"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "fire-punch",
+        "roost",
+        "wrap",
+        "leer",
+        "twister",
+        "dragon-rage",
+        "aqua-tail",
+        "dragon-rush",
+        "safeguard"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-149.json",
+          "sha256": "bc3e64bd295e617ad75a924705099d98c89ce8b29bafae8a85b580517e482e89"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-149.json",
+          "sha256": "9dab8286b9bf0bf5def3c1667872c1137baac7c937bcefd057910fed6a265597"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+        "path": "assets/sources/pokeapi/dragon/149.png",
+        "sha256": "4bd7549caa15eac43a8197ba53e843a95f2b56c71b1121829ea76764fbf26f9c",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-149-v1.webp"
+      }
+    },
+    {
+      "speciesId": 116,
+      "name": "Horsea",
+      "typesHGSS": [
+        "water"
+      ],
+      "baseStatsHGSS": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "specialAttack": 70,
+        "specialDefense": 25,
+        "speed": 60
+      },
+      "officialGrowthRate": "medium",
+      "evolutionChainId": 54,
+      "levelFiveOfficialLevelUpMoves": [
+        "bubble",
+        "smokescreen"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "bubble",
+        "smokescreen"
+      ],
+      "levelFiveUnsupportedMoves": [],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "fourMovePreview": [
+            "agility",
+            "hydro-pump",
+            "dragon-dance",
+            "dragon-pulse"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "leer",
+        "focus-energy",
+        "twister",
+        "brine",
+        "hydro-pump",
+        "dragon-dance",
+        "dragon-pulse"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-116.json",
+          "sha256": "5e852e9fde4bcef82f0646f00cedde4e166100a7f757ff9f3c453c852d500d43"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-116.json",
+          "sha256": "abd1e17a1e0fa6496da0fb415b2e515ef3af6a4f84e4b4f10da453142cfdce55"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+        "path": "assets/sources/pokeapi/dragon/116.png",
+        "sha256": "4b610c3adf68de8dfc96756bab275b55cfab2b1a9a507514c64fe97255b7c761",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-116-v1.webp"
+      }
+    },
+    {
+      "speciesId": 117,
+      "name": "Seadra",
+      "typesHGSS": [
+        "water"
+      ],
+      "baseStatsHGSS": {
+        "hp": 55,
+        "attack": 65,
+        "defense": 95,
+        "specialAttack": 95,
+        "specialDefense": 45,
+        "speed": 85
+      },
+      "officialGrowthRate": "medium",
+      "evolutionChainId": 54,
+      "levelFiveOfficialLevelUpMoves": [
+        "bubble",
+        "smokescreen",
+        "leer",
+        "water-gun",
+        "smokescreen"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "bubble",
+        "smokescreen",
+        "water-gun"
+      ],
+      "levelFiveUnsupportedMoves": [
+        "leer"
+      ],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [
+            "dragon-dance"
+          ],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "leer",
+        "focus-energy",
+        "twister",
+        "brine",
+        "hydro-pump",
+        "dragon-dance"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-117.json",
+          "sha256": "10b75d032f2fa5a4609563f69473c8d9f507f4393943777e3acd56695e8d910b"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-117.json",
+          "sha256": "408d138784d27e91e609ff96ab0fafd7de440ea57599ed4d477a6f5c54a86a03"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+        "path": "assets/sources/pokeapi/dragon/117.png",
+        "sha256": "7c61fbb408242fdfaf72074be222e0554fd4b3b9062ef1648d24dfff13933457",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-117-v1.webp"
+      }
+    },
+    {
+      "speciesId": 230,
+      "name": "Kingdra",
+      "typesHGSS": [
+        "water",
+        "dragon"
+      ],
+      "baseStatsHGSS": {
+        "hp": 75,
+        "attack": 95,
+        "defense": 95,
+        "specialAttack": 95,
+        "specialDefense": 95,
+        "speed": 85
+      },
+      "officialGrowthRate": "medium",
+      "evolutionChainId": 54,
+      "levelFiveOfficialLevelUpMoves": [
+        "yawn",
+        "bubble",
+        "smokescreen",
+        "leer",
+        "water-gun",
+        "smokescreen"
+      ],
+      "levelFiveSupportedPreviewMoveIds": [
+        "bubble",
+        "smokescreen",
+        "water-gun"
+      ],
+      "levelFiveUnsupportedMoves": [
+        "yawn",
+        "leer"
+      ],
+      "levels45To50": [
+        {
+          "level": 45,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 46,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 47,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "fourMovePreview": [
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 48,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [
+            "dragon-dance"
+          ],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 49,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        },
+        {
+          "level": 50,
+          "legalSupportedLevelUpMoves": [
+            "bubble",
+            "smokescreen",
+            "water-gun",
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "fourMovePreview": [
+            "bubble-beam",
+            "agility",
+            "hydro-pump",
+            "dragon-dance"
+          ],
+          "movesLearnedAtLevel": [],
+          "unsupportedMovesLearnedAtLevel": []
+        }
+      ],
+      "unsupportedLevelUpMovesThrough50": [
+        "yawn",
+        "leer",
+        "focus-energy",
+        "twister",
+        "brine",
+        "hydro-pump",
+        "dragon-dance"
+      ],
+      "source": {
+        "pokemon": {
+          "path": "content/sources/pokeapi/pokemon-230.json",
+          "sha256": "b7009ba09e4e18f12752e74156616b493a9619d6221bccb81bb79f0b63e8d61c"
+        },
+        "pokemonSpecies": {
+          "path": "content/sources/pokeapi/pokemon-species-230.json",
+          "sha256": "9ae7dbba4aac0166437ea5d06d1b7e74996dd3b9238ecfb734ea6395c635b4f7"
+        }
+      },
+      "artworkSource": {
+        "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+        "path": "assets/sources/pokeapi/dragon/230.png",
+        "sha256": "35a530d0da4ae6dfa34a1de280fc05db55aac871d0ca298b4f2b555ad3708039",
+        "futureRuntimePath": "public/assets/creatures/pokeapi-dragon-230-v1.webp"
+      }
+    }
+  ],
+  "officialEvolutionConditionsReviewed": [
+    {
+      "chainId": 76,
+      "fromSpeciesId": 147,
+      "toSpeciesId": 148,
+      "details": [
+        {
+          "version_group": {
+            "name": "red-blue",
+            "url": "https://pokeapi.co/api/v2/version-group/1/"
+          },
+          "is_default": true,
+          "trigger": {
+            "name": "level-up",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+          },
+          "min_level": 30
+        }
+      ]
+    },
+    {
+      "chainId": 76,
+      "fromSpeciesId": 148,
+      "toSpeciesId": 149,
+      "details": [
+        {
+          "version_group": {
+            "name": "red-blue",
+            "url": "https://pokeapi.co/api/v2/version-group/1/"
+          },
+          "is_default": true,
+          "trigger": {
+            "name": "level-up",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+          },
+          "min_level": 55
+        }
+      ]
+    },
+    {
+      "chainId": 54,
+      "fromSpeciesId": 116,
+      "toSpeciesId": 117,
+      "details": [
+        {
+          "version_group": {
+            "name": "red-blue",
+            "url": "https://pokeapi.co/api/v2/version-group/1/"
+          },
+          "is_default": true,
+          "trigger": {
+            "name": "level-up",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+          },
+          "min_level": 32
+        }
+      ]
+    },
+    {
+      "chainId": 54,
+      "fromSpeciesId": 117,
+      "toSpeciesId": 230,
+      "details": [
+        {
+          "version_group": {
+            "name": "gold-silver",
+            "url": "https://pokeapi.co/api/v2/version-group/3/"
+          },
+          "is_default": true,
+          "trigger": {
+            "name": "trade",
+            "url": "https://pokeapi.co/api/v2/evolution-trigger/2/"
+          },
+          "held_item": {
+            "name": "dragon-scale",
+            "url": "https://pokeapi.co/api/v2/item/212/"
+          }
+        }
+      ]
+    }
+  ],
+  "moveMechanicsRawMetadata": [
+    {
+      "id": "dragon-rage",
+      "type": "dragon",
+      "damageClass": "special",
+      "power": null,
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Inflicts 40 points of damage.",
+      "englishEffect": "Inflicts exactly 40 damage.",
+      "source": {
+        "path": "content/sources/pokeapi/move-dragon-rage.json",
+        "sha256": "667e0120103e0a4f00aec5aa8ab634ffffbd0e647f319fd30b73058ba62bc0e4"
+      }
+    },
+    {
+      "id": "dragon-breath",
+      "type": "dragon",
+      "damageClass": "special",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 30,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "paralysis",
+          "url": "https://pokeapi.co/api/v2/move-ailment/1/"
+        },
+        "category": {
+          "name": "damage-ailment",
+          "url": "https://pokeapi.co/api/v2/move-category/4/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 30,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Has a chance to paralyze the target.",
+      "englishEffect": "Inflicts regular damage.  Has a chance to paralyze the target.",
+      "source": {
+        "path": "content/sources/pokeapi/move-dragon-breath.json",
+        "sha256": "8a32a7f241a24ee3fc941b0b0e21d33305c07abdfaafe601653709e40156ad5d"
+      }
+    },
+    {
+      "id": "twister",
+      "type": "dragon",
+      "damageClass": "special",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 20,
+      "effectChance": 20,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 20,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Has a chance to make the target flinch.",
+      "englishEffect": "Inflicts regular damage.  Has a chance to make each target flinch.\n\nIf the target is under the effect of Bounce, Fly, or Sky Drop, this move will hit with double power.",
+      "source": {
+        "path": "content/sources/pokeapi/move-twister.json",
+        "sha256": "34e9e34791d36708d92d3a78f9598c93ddc34955da3fd4c53b137218a0f725a8"
+      }
+    },
+    {
+      "id": "dragon-rush",
+      "type": "dragon",
+      "damageClass": "physical",
+      "power": 100,
+      "accuracy": 75,
+      "pp": 10,
+      "effectChance": 20,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 20,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Has a chance to make the target flinch.",
+      "englishEffect": "Inflicts regular damage.  Has a chance to make the target flinch.",
+      "source": {
+        "path": "content/sources/pokeapi/move-dragon-rush.json",
+        "sha256": "82d4a3f16770569cd17e49b942cdb003c3f71c8d02fa6bb4dde49e0ac3bbd1dd"
+      }
+    },
+    {
+      "id": "dragon-dance",
+      "type": "dragon",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 20,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "net-good-stats",
+          "url": "https://pokeapi.co/api/v2/move-category/2/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [
+        {
+          "change": 1,
+          "stat": {
+            "name": "attack",
+            "url": "https://pokeapi.co/api/v2/stat/2/"
+          }
+        },
+        {
+          "change": 1,
+          "stat": {
+            "name": "speed",
+            "url": "https://pokeapi.co/api/v2/stat/6/"
+          }
+        }
+      ],
+      "englishShortEffect": "Raises the user’s Attack and Speed by one stage.",
+      "englishEffect": "Raises the user’s Attack and Speed by one stage each.",
+      "source": {
+        "path": "content/sources/pokeapi/move-dragon-dance.json",
+        "sha256": "5054efda5a9316e7474a68765f367513bb998388049c60c6d071524ad3649ddb"
+      }
+    },
+    {
+      "id": "dragon-pulse",
+      "type": "dragon",
+      "damageClass": "special",
+      "power": 85,
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Inflicts regular damage with no additional effect.",
+      "englishEffect": "Inflicts regular damage.",
+      "source": {
+        "path": "content/sources/pokeapi/move-dragon-pulse.json",
+        "sha256": "1c61043c1d47ee046375042400eb83a6c499d584874b78468a89509e8e7982ba"
+      }
+    },
+    {
+      "id": "aqua-tail",
+      "type": "water",
+      "damageClass": "physical",
+      "power": 90,
+      "accuracy": 90,
+      "pp": 10,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Inflicts regular damage with no additional effect.",
+      "englishEffect": "Inflicts regular damage.",
+      "source": {
+        "path": "content/sources/pokeapi/move-aqua-tail.json",
+        "sha256": "e47a7dc53ae0c9875077d720efe8ebe5e2094219a9176aa1689ee68c7e9ba364"
+      }
+    },
+    {
+      "id": "wrap",
+      "type": "normal",
+      "damageClass": "physical",
+      "power": 15,
+      "accuracy": 90,
+      "pp": 20,
+      "effectChance": 100,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "trap",
+          "url": "https://pokeapi.co/api/v2/move-ailment/8/"
+        },
+        "category": {
+          "name": "damage-ailment",
+          "url": "https://pokeapi.co/api/v2/move-category/4/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": 2,
+        "max_turns": 4,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 100,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Prevents the target from fleeing and inflicts damage for 2-5 turns.",
+      "englishEffect": "Inflicts regular damage.  For the next 2–5 turns, the target cannot leave the field and is damaged for 1/16 its max HP at the end of each turn.  The user continues to use other moves during this time.  If the user leaves the field, this effect ends.\n\nHas a 3/8 chance each to hit 2 or 3 times, and a 1/8 chance each to hit 4 or 5 times.  Averages to 3 hits per use.\n\nRapid Spin cancels this effect.",
+      "source": {
+        "path": "content/sources/pokeapi/move-wrap.json",
+        "sha256": "6447ba0bfb09ce7f9f81148b7be7220050e12a65b0a23fc1e637979bbbcc1352"
+      }
+    },
+    {
+      "id": "leer",
+      "type": "normal",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": 100,
+      "pp": 30,
+      "effectChance": 100,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "net-good-stats",
+          "url": "https://pokeapi.co/api/v2/move-category/2/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 100
+      },
+      "statChanges": [
+        {
+          "change": -1,
+          "stat": {
+            "name": "defense",
+            "url": "https://pokeapi.co/api/v2/stat/3/"
+          }
+        }
+      ],
+      "englishShortEffect": "Lowers the target’s Defense by one stage.",
+      "englishEffect": "Lowers the target’s Defense by one stage.",
+      "source": {
+        "path": "content/sources/pokeapi/move-leer.json",
+        "sha256": "b5089c6f4b5fc4e0365093848f3623baf3355c8f82766d2763432efd5a9acb9d"
+      }
+    },
+    {
+      "id": "safeguard",
+      "type": "normal",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 25,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "field-effect",
+          "url": "https://pokeapi.co/api/v2/move-category/11/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Protects the user’s field from major status ailments and confusion for five turns.",
+      "englishEffect": "Protects Pokémon on the user’s side of the field from major status effects and confusion for five turns.  Does not cancel existing ailments.  This effect remains even if the user leaves the field.\n\nIf Yawn is used while this move is in effect, it will immediately fail.\n\nDefog used by an opponent will end this effect.\n\nThis effect does not prevent the confusion caused by Outrage, Petal Dance, or Thrash.",
+      "source": {
+        "path": "content/sources/pokeapi/move-safeguard.json",
+        "sha256": "073d92ffd1ada57d008197f2697115a0f1d91b81474de29d51826b0269cc2f6f"
+      }
+    },
+    {
+      "id": "focus-energy",
+      "type": "normal",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 30,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "unique",
+          "url": "https://pokeapi.co/api/v2/move-category/13/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Increases the user’s chance to score a critical hit.",
+      "englishEffect": "User’s critical hit rate is two levels higher until it leaves the field.  If the user has already used Focus Energy since entering the field, this move will fail.\n\nThis effect is passed on by Baton Pass.",
+      "source": {
+        "path": "content/sources/pokeapi/move-focus-energy.json",
+        "sha256": "9dfbfd90970bdc0e4fc96f58be9bf9af9caca4623d89a32871dc18c4cb6ef809"
+      }
+    },
+    {
+      "id": "yawn",
+      "type": "normal",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 10,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "yawn",
+          "url": "https://pokeapi.co/api/v2/move-ailment/14/"
+        },
+        "category": {
+          "name": "ailment",
+          "url": "https://pokeapi.co/api/v2/move-category/1/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": 2,
+        "max_turns": 2,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Target sleeps at the end of the next turn.",
+      "englishEffect": "Puts the target to sleep at the end of the next turn.  Ignores accuracy and evasion modifiers.  If the target leaves the field, this effect is canceled.  If the target has a status effect when this move is used, this move will fail.\n\nIf the target is protected by Safeguard when this move is used, this move will fail.\n\nInsomnia and Vital Spirit prevent the sleep if the target has either at the end of the next turn, but will not cause this move to fail on use.",
+      "source": {
+        "path": "content/sources/pokeapi/move-yawn.json",
+        "sha256": "d1c9b3ca94ed261475680b0f3c5e5d4e2193b546bc90bf61251700221e07f7e8"
+      }
+    },
+    {
+      "id": "brine",
+      "type": "water",
+      "damageClass": "special",
+      "power": 65,
+      "accuracy": 100,
+      "pp": 10,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Has double power against Pokémon that have less than half their max HP remaining.",
+      "englishEffect": "Inflicts regular damage.  If the target has less than half its max HP remaining, this move has double power.",
+      "source": {
+        "path": "content/sources/pokeapi/move-brine.json",
+        "sha256": "04a83f1706c30029e44117beaee3e19564e366f8099c5b2bcfb3abdf2476a023"
+      }
+    },
+    {
+      "id": "hydro-pump",
+      "type": "water",
+      "damageClass": "special",
+      "power": 110,
+      "accuracy": 80,
+      "pp": 5,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "damage",
+          "url": "https://pokeapi.co/api/v2/move-category/0/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Inflicts regular damage with no additional effect.",
+      "englishEffect": "Inflicts regular damage.",
+      "source": {
+        "path": "content/sources/pokeapi/move-hydro-pump.json",
+        "sha256": "71c25b10bb994110e41db3c1481349f2b64a4010ae9a93ff3fb3f77e7d0a88a7"
+      }
+    },
+    {
+      "id": "fire-punch",
+      "type": "fire",
+      "damageClass": "physical",
+      "power": 75,
+      "accuracy": 100,
+      "pp": 15,
+      "effectChance": 10,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "burn",
+          "url": "https://pokeapi.co/api/v2/move-ailment/4/"
+        },
+        "category": {
+          "name": "damage-ailment",
+          "url": "https://pokeapi.co/api/v2/move-category/4/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 0,
+        "crit_rate": 0,
+        "ailment_chance": 10,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Has a chance to burn the target.",
+      "englishEffect": "Inflicts regular damage.  Has a chance to burn the target.",
+      "source": {
+        "path": "content/sources/pokeapi/move-fire-punch.json",
+        "sha256": "1233385c541631d4c0b176b09daf8718b7c9f0a7cab3633d1af988705683dd65"
+      }
+    },
+    {
+      "id": "roost",
+      "type": "flying",
+      "damageClass": "status",
+      "power": null,
+      "accuracy": null,
+      "pp": 5,
+      "effectChance": null,
+      "priority": 0,
+      "meta": {
+        "ailment": {
+          "name": "none",
+          "url": "https://pokeapi.co/api/v2/move-ailment/0/"
+        },
+        "category": {
+          "name": "heal",
+          "url": "https://pokeapi.co/api/v2/move-category/3/"
+        },
+        "min_hits": null,
+        "max_hits": null,
+        "min_turns": null,
+        "max_turns": null,
+        "drain": 0,
+        "healing": 50,
+        "crit_rate": 0,
+        "ailment_chance": 0,
+        "flinch_chance": 0,
+        "stat_chance": 0
+      },
+      "statChanges": [],
+      "englishShortEffect": "Heals the user by half its max HP.",
+      "englishEffect": "Heals the user for half its max HP.  If the user is Flying, its Flying type is ignored until the end of this turn.",
+      "source": {
+        "path": "content/sources/pokeapi/move-roost.json",
+        "sha256": "67ef4cc01c51d87d890fd46f5507b37c175fa52262f4f01f6e315454e6f5a9ba"
+      }
+    }
+  ],
+  "sourceManifest": {
+    "pokemon": [
+      {
+        "path": "content/sources/pokeapi/pokemon-147.json",
+        "sha256": "83212b418da3313c5135fba4cb548c5c36af0a6ad7eede3874a475f87adf5ce6"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-148.json",
+        "sha256": "a3522729fd91cb89d6490c10c89c8cc14bc992786c546f9e86be82a324b988cd"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-149.json",
+        "sha256": "bc3e64bd295e617ad75a924705099d98c89ce8b29bafae8a85b580517e482e89"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-116.json",
+        "sha256": "5e852e9fde4bcef82f0646f00cedde4e166100a7f757ff9f3c453c852d500d43"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-117.json",
+        "sha256": "10b75d032f2fa5a4609563f69473c8d9f507f4393943777e3acd56695e8d910b"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-230.json",
+        "sha256": "b7009ba09e4e18f12752e74156616b493a9619d6221bccb81bb79f0b63e8d61c"
+      }
+    ],
+    "pokemonSpecies": [
+      {
+        "path": "content/sources/pokeapi/pokemon-species-147.json",
+        "sha256": "b0d671a837b6cd5aad493449b6e8bc4d8e82d162c285469d98f1120ca6792ebf"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-species-148.json",
+        "sha256": "5d7a89aa42af2a30d79f8cd1dba8d9b50b2e8bb46bd5ed1fcafab4f7579bc740"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-species-149.json",
+        "sha256": "9dab8286b9bf0bf5def3c1667872c1137baac7c937bcefd057910fed6a265597"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-species-116.json",
+        "sha256": "abd1e17a1e0fa6496da0fb415b2e515ef3af6a4f84e4b4f10da453142cfdce55"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-species-117.json",
+        "sha256": "408d138784d27e91e609ff96ab0fafd7de440ea57599ed4d477a6f5c54a86a03"
+      },
+      {
+        "path": "content/sources/pokeapi/pokemon-species-230.json",
+        "sha256": "9ae7dbba4aac0166437ea5d06d1b7e74996dd3b9238ecfb734ea6395c635b4f7"
+      }
+    ],
+    "evolutionChains": [
+      {
+        "path": "content/sources/pokeapi/evolution-chain-76.json",
+        "sha256": "4f3d932bb386a2ccfdf6edf7cbff28be9093e7249ccd44b28bad4866877dbedd"
+      },
+      {
+        "path": "content/sources/pokeapi/evolution-chain-54.json",
+        "sha256": "71f55a19962fdcea1792eb6d1eeb672a882a306f2da25a91cfcc67693cd174f9"
+      }
+    ],
+    "moves": [
+      {
+        "path": "content/sources/pokeapi/move-absorb.json",
+        "sha256": "c77aeffb4645e8dd52f976e50e87a5afb1a49eaa5c230e3b9b62bd3c57e14c0f"
+      },
+      {
+        "path": "content/sources/pokeapi/move-acid.json",
+        "sha256": "16228e9dca3e2163a608b60b6c1b31d41d1e50ff9f79e1ab7d96d1260fe007ff"
+      },
+      {
+        "path": "content/sources/pokeapi/move-agility.json",
+        "sha256": "5892e2ab3c33aa57449fa0eefb5624f29694cf46673c2458417abc3a6b8ae008"
+      },
+      {
+        "path": "content/sources/pokeapi/move-amnesia.json",
+        "sha256": "776ef3ed46e622ad03d094bd8a29fae39381ade58d8ddd3b295f8d3988029277"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ancient-power.json",
+        "sha256": "275a296f510836fc7dcbbc1b6b22a31a77a0dbee76e5928b026f1953913fa694"
+      },
+      {
+        "path": "content/sources/pokeapi/move-aqua-jet.json",
+        "sha256": "e32879a897fdfde81a09135aac100c8c62e9b450b7b91ddfc2c18b4fed863867"
+      },
+      {
+        "path": "content/sources/pokeapi/move-aqua-ring.json",
+        "sha256": "5d1f79887ff916911bd3def86b3a6bd0bb187c905844121eb0155404988ff7ef"
+      },
+      {
+        "path": "content/sources/pokeapi/move-aqua-tail.json",
+        "sha256": "e47a7dc53ae0c9875077d720efe8ebe5e2094219a9176aa1689ee68c7e9ba364"
+      },
+      {
+        "path": "content/sources/pokeapi/move-aurora-beam.json",
+        "sha256": "8d83bbbbe2fdd151e52b1cef718a94cbd8738ec5d0a51dcdfcdffa97b9a0deee"
+      },
+      {
+        "path": "content/sources/pokeapi/move-avalanche.json",
+        "sha256": "b1c9d42085c974f9cb34d9832e80dab7d4ec8692fc967bf3d075becf01ab1091"
+      },
+      {
+        "path": "content/sources/pokeapi/move-barrier.json",
+        "sha256": "f8b80ccfb75715ea311efa93fc929979bcea524885ee3cb214c8cd1bee6ce356"
+      },
+      {
+        "path": "content/sources/pokeapi/move-beat-up.json",
+        "sha256": "b0e0ed2750ac7f2081ce86650da6bbfeedaa03bbd1552a9ffaba725f8d8baa71"
+      },
+      {
+        "path": "content/sources/pokeapi/move-blizzard.json",
+        "sha256": "fb246cc7cf14e08bf920e947592ec49d6888a69e2de4661bfb00e3f27fd818ea"
+      },
+      {
+        "path": "content/sources/pokeapi/move-body-slam.json",
+        "sha256": "0835b78d7d95d3748784a0e71973869c35b470b272ae560b580173e3881f6e9b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-brine.json",
+        "sha256": "04a83f1706c30029e44117beaee3e19564e366f8099c5b2bcfb3abdf2476a023"
+      },
+      {
+        "path": "content/sources/pokeapi/move-bubble.json",
+        "sha256": "5a1b4e03e3be2c63096f0388f3eb1cd364d4f90a0c7c9f6c777c17369a6b924b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-bubble-beam.json",
+        "sha256": "adf846f4f4c52dc676b6f7e1df38921877f9a956efc689d6a6832264656fc034"
+      },
+      {
+        "path": "content/sources/pokeapi/move-confuse-ray.json",
+        "sha256": "2d37ae67c20cf1797febb283ee4c9858c750747a6ce4789542c609819c91cf6c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-confusion.json",
+        "sha256": "63305f2a8a78909a155b98b951ee3c5a524714cd2571a7df467e96529b26efb2"
+      },
+      {
+        "path": "content/sources/pokeapi/move-constrict.json",
+        "sha256": "660e0a83b4ebca13f17815dc3ae09fa2fed56f8b61265b294fa19d83be76b155"
+      },
+      {
+        "path": "content/sources/pokeapi/move-defense-curl.json",
+        "sha256": "a1d203f4fb8eab485ba0ee7ef25808d18c60d8bbfd4c431c0dbc35cfb4c68cd9"
+      },
+      {
+        "path": "content/sources/pokeapi/move-discharge.json",
+        "sha256": "e48d19cbdc5546e8cf386123dd1129e4f4eae42f0f3586b4ace8f1c3a0703992"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dive.json",
+        "sha256": "7f991242d9125d5f8208d0a8919719f9be3fc185f7976a40c6ca342c51a4a0db"
+      },
+      {
+        "path": "content/sources/pokeapi/move-double-slap.json",
+        "sha256": "7c4480e490e0182195b461dbf1f656663b2d5ebd4ed51cda2d041c60d2e9f72c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dragon-breath.json",
+        "sha256": "8a32a7f241a24ee3fc941b0b0e21d33305c07abdfaafe601653709e40156ad5d"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dragon-dance.json",
+        "sha256": "5054efda5a9316e7474a68765f367513bb998388049c60c6d071524ad3649ddb"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dragon-pulse.json",
+        "sha256": "1c61043c1d47ee046375042400eb83a6c499d584874b78468a89509e8e7982ba"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dragon-rage.json",
+        "sha256": "667e0120103e0a4f00aec5aa8ab634ffffbd0e647f319fd30b73058ba62bc0e4"
+      },
+      {
+        "path": "content/sources/pokeapi/move-dragon-rush.json",
+        "sha256": "82d4a3f16770569cd17e49b942cdb003c3f71c8d02fa6bb4dde49e0ac3bbd1dd"
+      },
+      {
+        "path": "content/sources/pokeapi/move-earthquake.json",
+        "sha256": "50bf4486496f6723d5b199c20f2ee2a3d1b9c9de0c4b5d2a17d005af2b7879e0"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ember.json",
+        "sha256": "6f4e0733d5ca5b35634a198e6f4d602da37d03066caa758f55ce6dc9956160a4"
+      },
+      {
+        "path": "content/sources/pokeapi/move-encore.json",
+        "sha256": "e140d6bbe7982fd7592df6c9d0dfc278d6543b6277b8ac3530b0d050decaf2ac"
+      },
+      {
+        "path": "content/sources/pokeapi/move-endure.json",
+        "sha256": "617213363380c01224323ed185e67f927bec12118dad0acf829d25dfaf5da592"
+      },
+      {
+        "path": "content/sources/pokeapi/move-fake-tears.json",
+        "sha256": "ef71e2148ef136fca7c38e4b666048fcfe8060ab87bc6544ee7c6569c041324b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-feint-attack.json",
+        "sha256": "f53932c022093bc939d3a3d164c1e336b3045cc91983e84fa4ef98457a152f95"
+      },
+      {
+        "path": "content/sources/pokeapi/move-fury-attack.json",
+        "sha256": "6fa9ba02eb533df088d39cd8660c2d41c639ba9bbaf1f382cf9dfca6ba55ab73"
+      },
+      {
+        "path": "content/sources/pokeapi/move-fury-swipes.json",
+        "sha256": "d8ee54bd301ce763cb4349a0235baf90d0145b937a24ad3ee1de55294769791e"
+      },
+      {
+        "path": "content/sources/pokeapi/move-growl.json",
+        "sha256": "5001a2b9c84aa8b84b151dd3f0a54fa2c35c904768a5b41454b85f09e4d66f60"
+      },
+      {
+        "path": "content/sources/pokeapi/move-gust.json",
+        "sha256": "0718ef2050c2ea48245ae430d6ea1061d4c9a300d967610a999ba04d756a7621"
+      },
+      {
+        "path": "content/sources/pokeapi/move-harden.json",
+        "sha256": "fc24b28f7f5626fd6bebb71243d512d82c0192d4c8eac8359562c5acae010e98"
+      },
+      {
+        "path": "content/sources/pokeapi/move-headbutt.json",
+        "sha256": "a16ee553ea23922f61dbb098ef750bdf83fc6b76d29117d2240960e1f1a4a051"
+      },
+      {
+        "path": "content/sources/pokeapi/move-hydro-pump.json",
+        "sha256": "71c25b10bb994110e41db3c1481349f2b64a4010ae9a93ff3fb3f77e7d0a88a7"
+      },
+      {
+        "path": "content/sources/pokeapi/move-hypnosis.json",
+        "sha256": "552454496c7f55536a8a586a82d51b60490a8fa302550f68bd4c563ca88ae26d"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ice-beam.json",
+        "sha256": "22fe4abf65d7827c1bab42a728a6fdf7ce05d1d52e04cebcd0ad0d6d615ded80"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ice-fang.json",
+        "sha256": "36a8ad20a8b35cc1aee639ae7676c12ac0b5d716cde93874b5ccdcf86001f5b9"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ice-punch.json",
+        "sha256": "a54d32e99fdb26afaec682da55ebac93cc07646e50bcc141d9243309e65a0ad0"
+      },
+      {
+        "path": "content/sources/pokeapi/move-ice-shard.json",
+        "sha256": "a8e84ce4c7784f0e4ca9260dd41b03a58838374111d3b3de0d78e4e419e2035c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-icy-wind.json",
+        "sha256": "aba8d74fb7c023099df806cfdba7cb4e20cbcd0be585481147597a2e8b9477e0"
+      },
+      {
+        "path": "content/sources/pokeapi/move-leech-life.json",
+        "sha256": "0153d8d4c2a4ec4f9b63a0147b83ea23c16985d91b97a8e0d47199f3dfd2dec6"
+      },
+      {
+        "path": "content/sources/pokeapi/move-leech-seed.json",
+        "sha256": "ba718423a5e2a6c4ea5e255f413c9cc1beab289b4255717e4982416a79015dcd"
+      },
+      {
+        "path": "content/sources/pokeapi/move-leer.json",
+        "sha256": "b5089c6f4b5fc4e0365093848f3623baf3355c8f82766d2763432efd5a9acb9d"
+      },
+      {
+        "path": "content/sources/pokeapi/move-lick.json",
+        "sha256": "fb2bf8dcd49baa15243b9b83ec1e907de8676b757853021522d8bfd52dfe2806"
+      },
+      {
+        "path": "content/sources/pokeapi/move-lovely-kiss.json",
+        "sha256": "995ae2916ca3f1996a8e96a87c001bb2d8129fc18205628966d902de1e297138"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mean-look.json",
+        "sha256": "6dd051b4705a91fb7d7c075bb85972304888b142c50a65e6fe5582cf84a4a31c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-meditate.json",
+        "sha256": "eb456a0a0dbc8f12a3e40c99961e58b652856a8ac601e2ce7a8cd7025c72f44a"
+      },
+      {
+        "path": "content/sources/pokeapi/move-metal-claw.json",
+        "sha256": "fbc9ffd1a7671c282f8c3bda6f156f31cdc30df979b40adfef724bbea3733d17"
+      },
+      {
+        "path": "content/sources/pokeapi/move-metal-sound.json",
+        "sha256": "d62c604fd1a02e16a891747d1252b9d52ff555113c8bcaf2847e831213abd699"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mist.json",
+        "sha256": "d046814f503d651a3bdd11665d913821fc770ffbe3746a6e3a5a138c8a535e00"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mud-bomb.json",
+        "sha256": "ffe9016a0da62130dd404d71b2cc5af79ab516bc238b201f2b45ff6db438dd71"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mud-shot.json",
+        "sha256": "bd4c679f45c7adfe875a633b510e2c480983176ed685bf235c40dc0fd064772c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mud-slap.json",
+        "sha256": "70f8223540174b2c21a282554959f283583e997ffd80fc410ea03c4338fe6560"
+      },
+      {
+        "path": "content/sources/pokeapi/move-mud-sport.json",
+        "sha256": "093d0ad6c20d8aa0de4374adf0d3366bca6adf69dcecf2e27509ecd4205fb935"
+      },
+      {
+        "path": "content/sources/pokeapi/move-odor-sleuth.json",
+        "sha256": "1374cb261aed8082a845029f86216d917960d77e5f8a67b5d42802d711a5bc6e"
+      },
+      {
+        "path": "content/sources/pokeapi/move-peck.json",
+        "sha256": "575fa8de5566ce37ff499bbff4accef81b76ac94151a33c9ffcbe70220ef0fde"
+      },
+      {
+        "path": "content/sources/pokeapi/move-perish-song.json",
+        "sha256": "6225cc29da682e453e386caa9c493a19904ed4b7a29878f7d64c8fd0751c36ed"
+      },
+      {
+        "path": "content/sources/pokeapi/move-poison-powder.json",
+        "sha256": "9a8bde108c3dc5644bb7642758ebce5fc2113d95d4d091f4b116bfef734b757c"
+      },
+      {
+        "path": "content/sources/pokeapi/move-poison-sting.json",
+        "sha256": "2d207c73ead9ad4f44a6ec15a6906234fb3a599028c79d18f81116de229e91d6"
+      },
+      {
+        "path": "content/sources/pokeapi/move-pound.json",
+        "sha256": "1c6e3aac069b0d1609ee4f7051167f7403403c28600fc347d8a21ad64726ccf4"
+      },
+      {
+        "path": "content/sources/pokeapi/move-powder-snow.json",
+        "sha256": "99f539289ade1f026706118386b6fea29d2698b13277c5fd6787cecc95dda2d0"
+      },
+      {
+        "path": "content/sources/pokeapi/move-present.json",
+        "sha256": "4b15edb4db0e86cd7a5fa38bf6c1f11b93435d2292f52c13b92b46326721a091"
+      },
+      {
+        "path": "content/sources/pokeapi/move-psybeam.json",
+        "sha256": "3869a8afdc3e9fa5cb48b40c69b43df02120ff14af13f29e56ab7ccf8ab83f7d"
+      },
+      {
+        "path": "content/sources/pokeapi/move-quick-attack.json",
+        "sha256": "08e1eaa2915032bc52b1fdc656c509a6148ef35a38f1fbe0c517be14862536d7"
+      },
+      {
+        "path": "content/sources/pokeapi/move-rest.json",
+        "sha256": "0c25b39c327939027ca21a276a5dbf7d13ee36f088d193a18aea67d7f21188f5"
+      },
+      {
+        "path": "content/sources/pokeapi/move-rock-throw.json",
+        "sha256": "9ad1cc3a9e05bb647369402a974341c490bd8288f102fc162ec8ededcae95850"
+      },
+      {
+        "path": "content/sources/pokeapi/move-safeguard.json",
+        "sha256": "073d92ffd1ada57d008197f2697115a0f1d91b81474de29d51826b0269cc2f6f"
+      },
+      {
+        "path": "content/sources/pokeapi/move-sand-attack.json",
+        "sha256": "52943f0e6e835a4de5701418d201a8e4dc43010b2e16b7409cfb001373fbf207"
+      },
+      {
+        "path": "content/sources/pokeapi/move-scary-face.json",
+        "sha256": "e90fbfe33836f8ed0bec5526a2def958fb2ae208f12a3269c68f2d27a72c853d"
+      },
+      {
+        "path": "content/sources/pokeapi/move-scratch.json",
+        "sha256": "7371293a613212ea30bbb7daf8de4ffaf7c3fd0f5d22d60b5bff706d4fb3c53b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-screech.json",
+        "sha256": "5f8664f739dc045665ab9a439951e10686e767b48f653390fb3675f30ad75f6f"
+      },
+      {
+        "path": "content/sources/pokeapi/move-sheer-cold.json",
+        "sha256": "a3bf95d1fac22985c243248809f6b1bb90789fc5451e25739fdd6da499496f64"
+      },
+      {
+        "path": "content/sources/pokeapi/move-signal-beam.json",
+        "sha256": "d51caa8c8ed694347e2df7c70b889746e1119969665a89cea527befa855a26cd"
+      },
+      {
+        "path": "content/sources/pokeapi/move-slam.json",
+        "sha256": "61f3220c1544ba735a031be905c10f2915038f209562728e3691c2efbde0f733"
+      },
+      {
+        "path": "content/sources/pokeapi/move-slash.json",
+        "sha256": "6a89d084d41ad927864375f3e1446d48b6a3d64093f227642c19bb14deeff299"
+      },
+      {
+        "path": "content/sources/pokeapi/move-sleep-powder.json",
+        "sha256": "ae8672b1db250522e7506574ec108be0f63227a32e8e874575da48ba1e8be1bb"
+      },
+      {
+        "path": "content/sources/pokeapi/move-smokescreen.json",
+        "sha256": "378192eb350e1120612687851e7f5b0c29d2beb661f2f44afdf995ed590a89bb"
+      },
+      {
+        "path": "content/sources/pokeapi/move-sonic-boom.json",
+        "sha256": "35bf2b01aa7d4b72575f824b1bf5bbae93621bb9e814d45f5a684c8b250802ff"
+      },
+      {
+        "path": "content/sources/pokeapi/move-spark.json",
+        "sha256": "ca7aa2761c960554d7b4d7c2aa0942e3f2d217a39933c65ff6c0166b90c090d7"
+      },
+      {
+        "path": "content/sources/pokeapi/move-string-shot.json",
+        "sha256": "af598fee38cc35435156ab53db4f75a493e63bc2e8e6a0a4a842d79dea42e8c4"
+      },
+      {
+        "path": "content/sources/pokeapi/move-stun-spore.json",
+        "sha256": "a49cc3eb7b9cebd4cb77b17e69c8fe61d9c760a1cc9da0a1aa01240e63f51144"
+      },
+      {
+        "path": "content/sources/pokeapi/move-supersonic.json",
+        "sha256": "e6c0225e95d59d61bc52589c4655f53433b38f95b140ed1033c98abd14e26261"
+      },
+      {
+        "path": "content/sources/pokeapi/move-sweet-scent.json",
+        "sha256": "3ccf9eed4de7d2aea77d8366e4b7a613e45e8b1f07a0164fec3d6fde2d7ef321"
+      },
+      {
+        "path": "content/sources/pokeapi/move-swift.json",
+        "sha256": "d54bf0ffdba40ff8dcd58d16bc181207459f15bad4149754baa0b1568864fa9b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-tackle.json",
+        "sha256": "e8af2fa50f91af7eece8cf6e7e19e93b8036e6b8a30f3a9bce41bb9dd526b123"
+      },
+      {
+        "path": "content/sources/pokeapi/move-tail-whip.json",
+        "sha256": "2e84534f89e28280393b4c71baef5d3e23ef413f38dfdd340afb394c958afc00"
+      },
+      {
+        "path": "content/sources/pokeapi/move-take-down.json",
+        "sha256": "dfb8fa09054af9f7d7867868d852ae3f43afb0d2077dd36f91d79129ec9e7b37"
+      },
+      {
+        "path": "content/sources/pokeapi/move-taunt.json",
+        "sha256": "41de47260185e3a3d7d141e757aa31e34979863f1513e41d923c37b2b602f593"
+      },
+      {
+        "path": "content/sources/pokeapi/move-thunder-punch.json",
+        "sha256": "4c740df9a58250ca4affdee21596c791831fd25a05d2311815894d1fe4eb32e8"
+      },
+      {
+        "path": "content/sources/pokeapi/move-thunder-shock.json",
+        "sha256": "3d550e8e28a90fed5f4e4f81dc566eba1a4e86af6b982c69d39ae175fdcc24e4"
+      },
+      {
+        "path": "content/sources/pokeapi/move-thunder-wave.json",
+        "sha256": "3970b549c3385395d707688310726d24cc3b62047401d5b3391c8edeb17e4bb5"
+      },
+      {
+        "path": "content/sources/pokeapi/move-vice-grip.json",
+        "sha256": "ebcb232535ab0097d187549d662ade3238d9a2286b16a2d35640ae8c59693a11"
+      },
+      {
+        "path": "content/sources/pokeapi/move-vine-whip.json",
+        "sha256": "1938f3bf7214c29bd8a50e8e7e6da84d0aadf0425fe756e582a939efc7d80604"
+      },
+      {
+        "path": "content/sources/pokeapi/move-wake-up-slap.json",
+        "sha256": "3cd5be44b13f47022f66121dd046db82ba81591260e5b38ae06184b5c9cc674b"
+      },
+      {
+        "path": "content/sources/pokeapi/move-water-gun.json",
+        "sha256": "5b73fddd63a577c330b449867246a8a04e7ca5ed059cfd2e6e4b8fd92f17b3c7"
+      },
+      {
+        "path": "content/sources/pokeapi/move-water-pulse.json",
+        "sha256": "6de10ad9ded88ba01b9d1dca2a98d63e33bae6c14e093b30de1c55e7c1e5acab"
+      },
+      {
+        "path": "content/sources/pokeapi/move-water-sport.json",
+        "sha256": "d75744199bf00e25d003a6fbabed3a2d4359732df3de4b29fd5f5c179fbd5a32"
+      },
+      {
+        "path": "content/sources/pokeapi/move-wing-attack.json",
+        "sha256": "7870b075d543779ded5a37da7ef4677a331c6671a86345388e5363b357482bcf"
+      },
+      {
+        "path": "content/sources/pokeapi/move-withdraw.json",
+        "sha256": "e2adcb5bfd3dde3e1248e0d05b0dd8ec4194443e6db8d79747d289e1979b0283"
+      },
+      {
+        "path": "content/sources/pokeapi/move-wring-out.json",
+        "sha256": "2f1576af2e2ea66f5bcf2dc8685c9a2fbc810c989962fd2519d5b12fe555d2a7"
+      }
+    ]
+  },
+  "activation": {
+    "speciesImportsChanged": true,
+    "runtimeRegistryGenerated": true,
+    "artworkRegisterChanged": true,
+    "assetRegisterCsvChanged": true
+  }
+}

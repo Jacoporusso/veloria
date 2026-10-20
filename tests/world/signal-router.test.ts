@@ -12,6 +12,7 @@ test('Ferraluce energy reaches the receiver in any switch order and survives ser
     for (const id of order) flags = rotateSignalRouter(router, id, flags).flags;
     assert.deepEqual(traceSignalRouter(router, JSON.parse(JSON.stringify(flags))), {
       nodeIds: ['source', 'first', 'second', 'field', 'goal'], outcome: 'connected',
+      paths: [{ sourceNodeId: 'source', nodeIds: ['source', 'first', 'second', 'field', 'goal'], outcome: 'connected' }],
     });
     assert.ok(flags.includes('badge_circuito_awarded'));
     assert.ok(flags.includes('q_ferraluce_report'));

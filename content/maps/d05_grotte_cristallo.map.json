@@ -39,6 +39,12 @@
       "x": 11,
       "y": 28,
       "facing": "up"
+    },
+    {
+      "id": "from_r15",
+      "x": 37,
+      "y": 3,
+      "facing": "left"
     }
   ],
   "connections": [
@@ -47,6 +53,14 @@
       "viaSpawnId": "from_r14",
       "targetSpawnId": "from_cavern",
       "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/r15_passo_due_luci",
+      "viaSpawnId": "from_r15",
+      "targetSpawnId": "from_cavern",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
     }
   ],
   "encounterTableIds": [

@@ -1,0 +1,50 @@
+{
+  "id": "veloria/q_concordia_research",
+  "version": 1,
+  "displayName": "Il nodo delle Due Luci",
+  "steps": [
+    {
+      "id": "r15",
+      "trigger": "area/veloria/r15_passo_due_luci/enter",
+      "setFlag": "q_r15_visited",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
+    },
+    {
+      "id": "city",
+      "trigger": "area/veloria/concordia/enter",
+      "setFlag": "q_concordia_visited",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
+    },
+    {
+      "id": "nature",
+      "trigger": "r15/nature/read",
+      "setFlag": "q_r15_nature_read",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
+    },
+    {
+      "id": "network",
+      "trigger": "r15/network/read",
+      "setFlag": "q_r15_network_read",
+      "requiresFlags": [
+        "q_d05_report"
+      ]
+    },
+    {
+      "id": "plan",
+      "trigger": "concordia/plan/restore",
+      "setFlag": "q_concordia_restore_plan",
+      "requiresFlags": [
+        "q_r15_nature_read",
+        "q_r15_network_read"
+      ]
+    }
+  ],
+  "completionFlag": "q_concordia_restore_plan",
+  "reward": {}
+}

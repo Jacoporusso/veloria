@@ -305,13 +305,18 @@
     {
       "id": "concordia",
       "name": "Concordia",
-      "kind": "future",
+      "kind": "town",
       "gym": 8,
       "x": 785,
       "y": 105,
-      "mapIds": [],
-      "visitedFlags": [],
-      "description": "Una futura città-giardino sull’altopiano nord-orientale."
+      "mapIds": [
+        "veloria/concordia",
+        "veloria/gym08_concordia"
+      ],
+      "visitedFlags": [
+        "q_concordia_visited"
+      ],
+      "description": "Città-giardino, nodo delle Due Luci e ottava palestra Drago."
     },
     {
       "id": "lega",
@@ -414,6 +419,20 @@
         "q_r14_visited"
       ],
       "description": "Un rifugio tra le nevi prima delle grotte del massiccio."
+    },
+    {
+      "id": "r15",
+      "name": "R15 · Passo delle Due Luci",
+      "kind": "route",
+      "x": 724,
+      "y": 84,
+      "mapIds": [
+        "veloria/r15_passo_due_luci"
+      ],
+      "visitedFlags": [
+        "q_r15_visited"
+      ],
+      "description": "Due letture confrontano il ritmo naturale e l’amplificazione della rete."
     }
   ],
   "connections": [
@@ -468,10 +487,6 @@
     [
       "ferraluce",
       "centrale"
-    ],
-    [
-      "grotte",
-      "concordia"
     ],
     [
       "concordia",
@@ -532,6 +547,14 @@
     [
       "r14",
       "grotte"
+    ],
+    [
+      "grotte",
+      "r15"
+    ],
+    [
+      "r15",
+      "concordia"
     ]
   ]
 }

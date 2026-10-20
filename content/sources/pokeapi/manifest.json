@@ -121,6 +121,31 @@
       "path": "content/sources/pokeapi/move-double-slap.json",
       "sha256": "7c4480e490e0182195b461dbf1f656663b2d5ebd4ed51cda2d041c60d2e9f72c"
     },
+    "move/dragon-breath": {
+      "url": "https://pokeapi.co/api/v2/move/dragon-breath/",
+      "path": "content/sources/pokeapi/move-dragon-breath.json",
+      "sha256": "8a32a7f241a24ee3fc941b0b0e21d33305c07abdfaafe601653709e40156ad5d"
+    },
+    "move/dragon-dance": {
+      "url": "https://pokeapi.co/api/v2/move/dragon-dance/",
+      "path": "content/sources/pokeapi/move-dragon-dance.json",
+      "sha256": "5054efda5a9316e7474a68765f367513bb998388049c60c6d071524ad3649ddb"
+    },
+    "move/dragon-pulse": {
+      "url": "https://pokeapi.co/api/v2/move/dragon-pulse/",
+      "path": "content/sources/pokeapi/move-dragon-pulse.json",
+      "sha256": "1c61043c1d47ee046375042400eb83a6c499d584874b78468a89509e8e7982ba"
+    },
+    "move/dragon-rage": {
+      "url": "https://pokeapi.co/api/v2/move/dragon-rage/",
+      "path": "content/sources/pokeapi/move-dragon-rage.json",
+      "sha256": "667e0120103e0a4f00aec5aa8ab634ffffbd0e647f319fd30b73058ba62bc0e4"
+    },
+    "move/dragon-rush": {
+      "url": "https://pokeapi.co/api/v2/move/dragon-rush/",
+      "path": "content/sources/pokeapi/move-dragon-rush.json",
+      "sha256": "82d4a3f16770569cd17e49b942cdb003c3f71c8d02fa6bb4dde49e0ac3bbd1dd"
+    },
     "move/earthquake": {
       "url": "https://pokeapi.co/api/v2/move/earthquake/",
       "path": "content/sources/pokeapi/move-earthquake.json",
@@ -180,6 +205,11 @@
       "url": "https://pokeapi.co/api/v2/move/headbutt/",
       "path": "content/sources/pokeapi/move-headbutt.json",
       "sha256": "a16ee553ea23922f61dbb098ef750bdf83fc6b76d29117d2240960e1f1a4a051"
+    },
+    "move/hydro-pump": {
+      "url": "https://pokeapi.co/api/v2/move/hydro-pump/",
+      "path": "content/sources/pokeapi/move-hydro-pump.json",
+      "sha256": "71c25b10bb994110e41db3c1481349f2b64a4010ae9a93ff3fb3f77e7d0a88a7"
     },
     "move/hypnosis": {
       "url": "https://pokeapi.co/api/v2/move/hypnosis/",
@@ -531,6 +561,16 @@
       "path": "content/sources/pokeapi/pokemon-11.json",
       "sha256": "bc3d169a151a87054e9715353c1131d7c8c1f9224023374a522f564801cd23bb"
     },
+    "pokemon/116": {
+      "url": "https://pokeapi.co/api/v2/pokemon/116/",
+      "path": "content/sources/pokeapi/pokemon-116.json",
+      "sha256": "5e852e9fde4bcef82f0646f00cedde4e166100a7f757ff9f3c453c852d500d43"
+    },
+    "pokemon/117": {
+      "url": "https://pokeapi.co/api/v2/pokemon/117/",
+      "path": "content/sources/pokeapi/pokemon-117.json",
+      "sha256": "10b75d032f2fa5a4609563f69473c8d9f507f4393943777e3acd56695e8d910b"
+    },
     "pokemon/12": {
       "url": "https://pokeapi.co/api/v2/pokemon/12/",
       "path": "content/sources/pokeapi/pokemon-12.json",
@@ -555,6 +595,21 @@
       "url": "https://pokeapi.co/api/v2/pokemon/14/",
       "path": "content/sources/pokeapi/pokemon-14.json",
       "sha256": "3ea75327d372b32e72543253fadf1f8c9572dbfac8a9e0e283dd63350c445175"
+    },
+    "pokemon/147": {
+      "url": "https://pokeapi.co/api/v2/pokemon/147/",
+      "path": "content/sources/pokeapi/pokemon-147.json",
+      "sha256": "83212b418da3313c5135fba4cb548c5c36af0a6ad7eede3874a475f87adf5ce6"
+    },
+    "pokemon/148": {
+      "url": "https://pokeapi.co/api/v2/pokemon/148/",
+      "path": "content/sources/pokeapi/pokemon-148.json",
+      "sha256": "a3522729fd91cb89d6490c10c89c8cc14bc992786c546f9e86be82a324b988cd"
+    },
+    "pokemon/149": {
+      "url": "https://pokeapi.co/api/v2/pokemon/149/",
+      "path": "content/sources/pokeapi/pokemon-149.json",
+      "sha256": "bc3e64bd295e617ad75a924705099d98c89ce8b29bafae8a85b580517e482e89"
     },
     "pokemon/15": {
       "url": "https://pokeapi.co/api/v2/pokemon/15/",
@@ -690,6 +745,11 @@
       "url": "https://pokeapi.co/api/v2/pokemon/227/",
       "path": "content/sources/pokeapi/pokemon-227.json",
       "sha256": "5ec39735d99c89786c4d6bd78df585288d07b2a1d53cb53999203d2ab4d16127"
+    },
+    "pokemon/230": {
+      "url": "https://pokeapi.co/api/v2/pokemon/230/",
+      "path": "content/sources/pokeapi/pokemon-230.json",
+      "sha256": "b7009ba09e4e18f12752e74156616b493a9619d6221bccb81bb79f0b63e8d61c"
     },
     "pokemon/25": {
       "url": "https://pokeapi.co/api/v2/pokemon/25/",

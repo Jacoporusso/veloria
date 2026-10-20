@@ -1,5 +1,13 @@
 # Changelog — Veloria Project Pack
 
+## 0.3.93 — 20/10/2026 — locale, non ancora pubblicata
+
+- Passo delle Due Luci, Concordia e ottava palestra illustrati, con letture indipendenti, servizi, habitat facoltativo e incontro opzionale con Nilo.
+- Elia propone riesame, rinvio o decisione esplicita di ripristino: solo quest’ultima apre la palestra. Santuario, Lega e finale restano da implementare.
+- Puzzle dichiarativo a due sorgenti: entrambi i flussi devono raggiungere il ricevitore. Relè persistenti, cancello dinamico, Aurel e Medaglia Armonia con banner e premio unico.
+- Sei specie ufficiali aggiunte; catalogo a 69 specie e 71 mosse supportate. Nuove medicine importate da fonti PokéAPI locali; prezzi correnti del prototipo, senza attribuirli al listino storico HGSS.
+- Cinque prove browser passate in circa 3,5 minuti. Il Dewgong75 della prova contro Aurel verifica l’integrazione, non il bilanciamento naturale. Offline del capitolo, pubblicazione e CI completa ancora da attestare.
+
 ## 0.3.92 — 20/10/2026
 
 - Ponte illustrato a est di Biancavetta, Varco del Cristallo e grotta a tre terrazze con scalinate, rifugio e habitat facoltativi.

@@ -1,0 +1,17 @@
+{
+  "id": "veloria/q_gym08_convergence",
+  "version": 1,
+  "displayName": "Due flussi, un equilibrio",
+  "steps": [
+    {
+      "id": "convergence",
+      "trigger": "gym08/convergence/connected",
+      "setFlag": "gym08_convergence_complete",
+      "requiresFlags": [
+        "q_concordia_restore_plan"
+      ]
+    }
+  ],
+  "completionFlag": "gym08_convergence_complete",
+  "reward": {}
+}

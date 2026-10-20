@@ -53,6 +53,35 @@
       "price": 0,
       "maxStack": 1,
       "description": "Affidata dalla capitana di Portolume. Usa A presso un punto di pesca per lanciare la lenza; non si consuma."
+    },
+    "super-potion": {
+      "id": "super-potion",
+      "name": "Superpozione",
+      "price": 700,
+      "maxStack": 99,
+      "battle": {
+        "healHp": 50
+      }
+    },
+    "hyper-potion": {
+      "id": "hyper-potion",
+      "name": "Iperpozione",
+      "price": 1500,
+      "maxStack": 99,
+      "battle": {
+        "healHp": 200
+      }
+    },
+    "paralyze-heal": {
+      "id": "paralyze-heal",
+      "name": "Antiparalisi",
+      "price": 200,
+      "maxStack": 99,
+      "battle": {
+        "cures": [
+          "paralysis"
+        ]
+      }
     }
   }
 }

@@ -932,3 +932,26 @@ test('crystal resources and environmental regulation work on first offline visit
  await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_climate_balanced');await page.reload();await enterGame(page);expect((await readBrowserSave(page)).flags).toContain('q_d05_climate_balanced');
  await walkTo(page,'d05_grotte_cristallo.tmj',11,29);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r14_varco_cristallo');expect(failures).toEqual([]);
 });
+
+test('P8 relays, crystal and dragon resources, and Concordia rail work offline',async({page,context})=>{
+ test.setTimeout(150_000);await page.goto('/');await enterGame(page);await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+ const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','q_concordia_restore_plan','q_d05_report','badge_circuito_awarded','badge_ghiaccio_awarded','q_concordia_visited','q_vetracielo_visited','atlas_visited_veloria/concordia','atlas_visited_veloria/vetracielo'])];save.badges=[...new Set([...save.badges,'badge_circuito','badge_brina'])];save.player={...save.player,mapId:'veloria/gym08_concordia',spawnPointId:'from_city',x:15,y:22};await seedBrowserSave(page,save);
+ const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/gym08_concordia');
+ const decoded=await page.evaluate(async()=>{
+  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15-two-lights-v1.webp',...[116,117,147,148,149,230].map(id=>`assets/creatures/pokeapi-dragon-${id}-v1.webp`)];
+  const imageResults=await Promise.all(images.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>100&&image.naturalHeight>100;}));
+  const maps=await Promise.all(['concordia','gym08_concordia','r15_passo_due_luci'].map(async name=>{const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return(await response.json()).width;}));return{imageResults,maps};
+ });expect(decoded).toEqual({imageResults:Array(9).fill(true),maps:[40,32,40]});
+ for(const [index,x,y]of [[0,21,14],[1,21,8],[2,11,8],[3,11,14]]as const){
+  await walkTo(page,'gym08_concordia.tmj',x,y+1);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'RUOTA',exact:true}).tap();
+  if(index<3){expect((await readBrowserSave(page)).flags).not.toContain('gym08_convergence_complete');await page.getByRole('button',{name:'CHIUDI',exact:true}).tap();}
+  if(index===3){for(let i=0;i<12&&await page.locator('#dialogue-box').isVisible();i++)await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await expect(page.locator('#dialogue-box')).toBeHidden();}
+  if(index===1){await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/gym08_concordia');expect((await readBrowserSave(page)).flags).not.toContain('gym08_convergence_complete');}
+ }
+ await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('gym08_convergence_complete');
+ await walkTo(page,'gym08_concordia.tmj',15,23);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');
+ // Check the city station offline while retaining the completed P8 progression.
+ await walkTo(page,'concordia.tmj',20,24);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();
+ const before=travelResources(await readBrowserSave(page));await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Vetracielo',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');expect(travelResources(await readBrowserSave(page))).toEqual(before);
+ await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Concordia',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');expect(travelResources(await readBrowserSave(page))).toEqual(before);expect(failures).toEqual([]);
+});

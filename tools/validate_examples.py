@@ -15,9 +15,11 @@ from environment_regulator_validation import validate_environment_regulators
 from transit_validation import validate_transit
 from signal_router_validation import validate_signal_routers
 from collision_gate_validation import validate_collision_gates
+from dialogue_validation import validate_dialogue_choices
 from fishing_validation import validate_fishing_spot
 from ice_validation import collect_movement_surfaces, object_tiles, validate_ice_triggers, reachable_tiles as reachable_with_ice
 from import_pokeapi_battle import main as verify_pokeapi_import
+from import_pokeapi_items import main as verify_item_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
 from import_pokeapi_evolution_art import main as verify_evolution_art
@@ -45,6 +47,7 @@ CONTENT_MANIFEST = ROOT / "content" / "manifest.json"
 
 # Canonical move data must reproduce exactly from the committed API snapshots.
 verify_pokeapi_import(['--check'])
+verify_item_import(['--check'])
 verify_evolution_import(['--check'])
 verify_species_import(['--check'])
 verify_evolution_art(['--check'])
@@ -253,7 +256,7 @@ badge_data = json.loads((ROOT / "content/badges/badges.v1.json").read_text(encod
 check(badge_data.get("version") == 1 and bool(badge_data.get("badges")), "Invalid badge catalog")
 badge_registry = badge_data["badges"]
 for badge_id, badge in badge_registry.items():
-    check(badge.get("emblem") in {"aurora", "corolla", "circuit", "magnet", "tide", "reflection", "snowflake"}, f"Unknown badge emblem: {badge_id}")
+    check(badge.get("emblem") in {"aurora", "corolla", "circuit", "magnet", "tide", "reflection", "snowflake", "harmony"}, f"Unknown badge emblem: {badge_id}")
     check(all(isinstance(badge.get(field), str) and badge[field].strip() for field in ("name", "leader", "location", "description")), f"Incomplete badge: {badge_id}")
 quests = [json.loads(file.read_text(encoding="utf-8")) for file in quest_files]
 quest_triggers = {step["trigger"] for quest in quests for step in quest["steps"]}
@@ -311,6 +314,7 @@ check(len(shop_registry) == len(shops), "Duplicate shop IDs")
 for shop in shops:
     check(len(shop["items"]) == len(set(shop["items"])), f"Duplicate stock item in {shop['id']}")
     check(all(item_id in item_registry for item_id in shop["items"]), f"Unknown stock item in {shop['id']}")
+validate_dialogue_choices(dialogues, quest_flags, quest_triggers)
 for dialogue_id, dialogue in dialogues.items():
     for stage in dialogue.get("stages", []):
         if stage.get("questEvent"):

@@ -1,3 +1,11 @@
+## Tentennamento e ordine degli impedimenti — 0.3.93, ruleset v10
+
+`flinchChance` proviene dai metadati ufficiali della mossa. Un colpo dannoso connesso può far tentennare soltanto un bersaglio vivo che deve ancora eseguire una mossa nello stesso turno. Il vincolo è locale al turno e non entra nel salvataggio. Strumenti e cambi non vengono annullati dal tentennamento; PP non consumati quando la mossa è impedita.
+
+Ordine: sonno/gelo → tentennamento → confusione → paralisi → PP/mossa. Sonno e gelo avanzano anche quando il Pokémon tentenna; il tentennamento evita invece i controlli successivi di confusione e paralisi. Riferimenti primari: [condizioni GenIV di Pokémon Showdown](https://github.com/smogon/pokemon-showdown/blob/master/data/mods/gen4/conditions.ts) e [priorità delle condizioni condivise](https://github.com/smogon/pokemon-showdown/blob/master/data/conditions.ts). Durate, RNG e altre regole prototipali preesistenti non equivalgono a emulazione integrale HGSS; abilità non implementate. Regressioni seeded controllano cursore RNG, eventi, contatori e PP.
+
+Importate sette mosse aggiuntive da fonti locali PokéAPI: Ira di Drago (40 danni fissi), Dragospiro, Dragopulsar, Dragodanza, Dragofuria, Idropompa e Idrondata. Le versioni HGSS usano Dragopulsar90 e Idropompa120 tramite `past_values`; non vengono applicati automaticamente i valori moderni. Tornado resta non supportata perché il suo effetto condizionale non è implementato. La selezione di un gruppo nell’importer aggiorna anche gli apprendimenti precedenti quando una mossa prima non supportata diventa disponibile.
+
 > Decisione progetto 17/10/2026: la retrocompatibilità dei salvataggi del prototipo non è richiesta. Non aggiungere recuperi o migrazioni per conservare dati di cataloghi precedenti; i test di gioco usano dati correnti.
 
 # Veloria — Battle engine e progressione (decision log v0.3)

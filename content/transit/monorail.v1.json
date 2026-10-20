@@ -41,6 +41,12 @@
       "name": "Acquariva",
       "mapId": "veloria/acquariva",
       "spawnPointId": "metro_arrival"
+    },
+    {
+      "id": "concordia",
+      "name": "Concordia",
+      "mapId": "veloria/concordia",
+      "spawnPointId": "metro_arrival"
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "id": "veloria/q_gym08_badge",
+  "version": 1,
+  "displayName": "La Medaglia Armonia",
+  "steps": [
+    {
+      "id": "badge",
+      "trigger": "battle/trainer_aurel/defeated",
+      "setFlag": "badge_drago_awarded",
+      "requiresFlags": [
+        "gym08_convergence_complete"
+      ],
+      "addBadge": "badge_armonia"
+    }
+  ],
+  "completionFlag": "badge_drago_awarded",
+  "reward": {}
+}

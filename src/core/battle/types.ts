@@ -60,6 +60,8 @@ export interface MoveDefinition {
   readonly maxStatusTurns?: number;
   readonly drainPercent?: number;
   readonly statChangeChance?: number;
+  /** Chance to cancel a target's still-pending move in this turn only (0..100). */
+  readonly flinchChance?: number;
   readonly minHits?: number;
   readonly maxHits?: number;
   readonly inflictedConfusionChance?: number;
@@ -137,6 +139,7 @@ export type BattleEvent =
   | { readonly type: 'actionOrder'; readonly sides: readonly BattleSide[] }
   | { readonly type: 'moveUsed'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string }
   | { readonly type: 'moveMissed'; readonly side: BattleSide; readonly moveId: string }
+  | { readonly type: 'flinched'; readonly side: BattleSide; readonly creatureId: string }
   | { readonly type: 'moveFailed'; readonly side: BattleSide; readonly moveId: string; readonly reason: 'noPp' | 'blockedByStatus' | 'noTarget' }
   | { readonly type: 'damageApplied'; readonly sourceSide: BattleSide; readonly targetSide: BattleSide; readonly moveId: string; readonly amount: number; readonly effectiveness: number; readonly critical: boolean }
   | { readonly type: 'recoilApplied'; readonly side: BattleSide; readonly creatureId: string; readonly moveId: string; readonly amount: number }

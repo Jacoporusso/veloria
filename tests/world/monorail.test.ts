@@ -27,7 +27,8 @@ test('unvisited, same-station and future destinations cannot be selected', () =>
   assert.deepEqual(monorailDestinations(state, 'vetracielo'), []);
   assert.deepEqual(planMonorailTrip(state, 'vetracielo', 'brumalta'), { ok: false, reason: 'unvisited' });
   assert.deepEqual(planMonorailTrip(state, 'vetracielo', 'vetracielo'), { ok: false, reason: 'same-station' });
-  assert.deepEqual(planMonorailTrip(state, 'vetracielo', 'concordia'), { ok: false, reason: 'unknown-station' });
+  assert.deepEqual(planMonorailTrip(state, 'vetracielo', 'concordia'), { ok: false, reason: 'unvisited' });
+  assert.deepEqual(planMonorailTrip(state, 'vetracielo', 'lega'), { ok: false, reason: 'unknown-station' });
   assert.deepEqual(planMonorailTrip(state, 'missing', 'brumalta'), { ok: false, reason: 'unknown-station' });
 });
 

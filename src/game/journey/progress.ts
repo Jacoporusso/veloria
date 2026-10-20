@@ -1,3 +1,5 @@
+import niloR15 from '../../../content/trainers/r15_nilo.trainer.json' with { type: 'json' };
+import aurel from '../../../content/trainers/gym08_aurel.trainer.json' with { type: 'json' };
 import mira from '../../../content/trainers/gym01_mira.trainer.json' with { type: 'json' };
 import dalia from '../../../content/trainers/gym02_dalia.trainer.json' with { type: 'json' };
 import aster from '../../../content/trainers/gym03_aster.trainer.json' with { type: 'json' };
@@ -85,6 +87,13 @@ export const journeyMilestones = [
   {flag:'q_d05_climate_balanced',title:'Due letture, una regolazione',objective:'Appunti: ventilazione DELICATA; scambio termico MODERATO. Sali la seconda scalinata, usa la console a nord e scegli Verifica equilibrio. Puoi ripristinare e riprovare senza perdere le letture.'},
   {flag:'q_d05_upper_read',title:'Oltre i cristalli',objective:'Con la console stabile, esamina il ricevitore dell’arco in alto a destra della grotta per distinguere la direzione del segnale.'},
   {flag:'q_d05_report',title:'Il rapporto del Cristallo',objective:'Scendi le due scalinate ed esci a sud. Porta i dati a Livia presso il rifugio nel Varco del Cristallo per ricevere il compenso della ricerca.'},
+  {flag:'q_r15_visited',title:'Il Passo delle Due Luci',objective:'Dopo il rapporto a Livia, risali la grotta e attraversa l’arco alto verso est. Il Passo delle Due Luci collega le grotte a Concordia.'},
+  {flag:'q_r15_nature_read',title:'Il ritmo del giardino',objective:'Sul Passo delle Due Luci, sali la diramazione a nord del ponte e della piazzetta. Leggi il sensore sulla terrazza del giardino.'},
+  {flag:'q_r15_network_read',title:'La risposta della rete',objective:'Dalla piazzetta del passo segui la scalinata a sud-est fino alla stazione dei condotti. Confronta il dato con quello del giardino: le letture accettano qualsiasi ordine.'},
+  {flag:'q_concordia_restore_plan',title:'Una scelta con Elia',objective:'Attraversa il ponte a est fino a Concordia. Elia ti aspetta presso l’osservatorio a nord-est della piazza. Rivedi le misure e scegli come ripristinare l’equilibrio; il piano apre la palestra a nord.'},
+  {flag:'gym08_convergence_complete',title:'Due flussi insieme',objective:'Nella palestra di Concordia ruota i quattro relè. Il flusso menta del giardino e quello lilla della rete devono raggiungere insieme il ricevitore al centro. Controlla entrambi gli esiti nel menu di ciascun relè.'},
+  {flag:'badge_drago_awarded',trainer:aurel,title:'La Medaglia Armonia',objective:'Raggiungi Aurel oltre il cancello della palestra. Dragonair teme il Ghiaccio; Kingdra è Acqua/Drago e non ha la stessa debolezza. Prepara una squadra varia e strumenti per HP e paralisi.'},
+  {flag:'q_r15_nilo_helped',optional:true,trainer:niloR15,title:'Un allenamento con Nilo',objective:'Sul Passo delle Due Luci, Nilo ti aspetta sulla piazzetta del ponte. La sfida è facoltativa: puoi curare la squadra a Concordia e tornare quando sei pronto.'},
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {

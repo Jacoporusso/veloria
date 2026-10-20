@@ -1529,8 +1529,181 @@
       },
       {
         "lines": [
-          "Direzione registrata: Passo delle Due Luci. La spedizione prepara il confronto con le stazioni oltre il valico.",
-          "La via verso Biancavetta rimane aperta: torna da Livia per il rapporto, poi puoi esplorare gli habitat laterali."
+          "Direzione registrata: Passo delle Due Luci. Porta il rapporto a Livia al rifugio, poi attraversa l’arco per raggiungere il passo e Concordia.",
+          "Puoi tornare in qualunque momento: le scale collegano la terrazza alta all’uscita per Biancavetta."
+        ]
+      }
+    ]
+  },
+  "r15_nature_reading": {
+    "speaker": "Stazione del giardino",
+    "stages": [
+      {
+        "whenFlagMissing": "q_r15_nature_read",
+        "questEvent": "r15/nature/read",
+        "lines": [
+          "L’acqua e le radici producono un segnale regolare, prima che raggiunga i condotti della rete. Qui riconosci lo stesso ritmo registrato sul lago e nella grotta.",
+          "Appunto: il segnale nasce dagli ecosistemi. La rete lo riceve e lo amplifica, non lo crea. Confronta la stazione dei condotti sulla terrazza a sud-est."
+        ]
+      },
+      {
+        "lines": [
+          "Lettura naturale registrata: un ritmo regolare entra nella rete. Cerca l’altra stazione sulla terrazza a sud-est, poi porta entrambe le letture a Elia a Concordia."
+        ]
+      }
+    ]
+  },
+  "r15_network_reading": {
+    "speaker": "Stazione dei condotti",
+    "stages": [
+      {
+        "whenFlagMissing": "q_r15_network_read",
+        "questEvent": "r15/network/read",
+        "lines": [
+          "La rete ripete il segnale naturale con un’intensità molto maggiore. I test registrati alla Centrale hanno aumentato l’amplificazione senza coordinare le stazioni.",
+          "La direzione converge sul nodo sopra Concordia: il Santuario delle Due Luci. Dobbiamo riallineare natura e tecnologia, non spegnere tutto. Elia ti aspetta presso l’osservatorio della città, oltre il ponte a est."
+        ]
+      },
+      {
+        "lines": [
+          "Lettura della rete registrata: il segnale naturale viene amplificato in modo instabile. Elia può confrontare questo dato con quello del giardino."
+        ]
+      }
+    ]
+  },
+  "concordia_elia": {
+    "speaker": "Professoressa Elia",
+    "stages": [
+      {
+        "whenFlagMissing": "q_r15_nature_read",
+        "lines": [
+          "Sei arrivato a Concordia, {trainer}! Le prove della Centrale e le letture del Cristallo indicano lo stesso ritmo. Prima confrontiamo le due stazioni sul Passo delle Due Luci.",
+          "Quella del giardino è sulla terrazza a nord del sentiero. L’altra è sulla diramazione a sud-est. Poi torna qui: sceglieremo insieme come procedere."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_r15_network_read",
+        "lines": [
+          "Hai il ritmo naturale. Manca il confronto con i condotti: segui la diramazione a sud-est del Passo delle Due Luci, poi torna all’osservatorio."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_concordia_restore_plan",
+        "lines": [
+          "Ora le letture coincidono. La Risonanza amplifica i segnali degli ecosistemi; i test non coordinati hanno reso instabile la risposta della rete. Il nodo principale è al Santuario sopra la città.",
+          "Possiamo riallineare i flussi lasciando attive le stazioni che sostengono i giardini. Aurel custodisce l’accesso alla prova di convergenza: la sua palestra insegna a coordinare le due parti."
+        ],
+        "choicePrompt": "Come vuoi procedere?",
+        "choices": [
+          {
+            "id": "review",
+            "label": "Rivediamo le misure",
+            "lines": [
+              "La stazione del giardino misura il ritmo prima dei condotti. Quella della rete rileva lo stesso ritmo amplificato. Le grotte e il lago ci hanno mostrato come cambia lungo il percorso.",
+              "Nella palestra dovrai far arrivare al ricevitore sia il flusso naturale sia quello della rete. Nessuna delle due parti deve essere esclusa. Puoi prenderti il tempo per preparare la squadra."
+            ]
+          },
+          {
+            "id": "restore",
+            "label": "Ripristiniamo l’equilibrio",
+            "requiresFlags": [
+              "q_r15_nature_read",
+              "q_r15_network_read"
+            ],
+            "questEvent": "concordia/plan/restore",
+            "lines": [
+              "Bene. Conserveremo entrambi i flussi e li riallineeremo usando le misure, una stazione alla volta. Nessuno deve rinunciare ai propri giardini per avere energia.",
+              "La palestra a nord è aperta. Aurel usa Pokémon Drago, ma osserva sempre tutti i tipi: Kingdra è Acqua/Drago e Seadra è Acqua. Puoi curare la squadra e fare acquisti a ovest della piazza."
+            ]
+          }
+        ]
+      },
+      {
+        "whenFlagMissing": "badge_drago_awarded",
+        "lines": [
+          "Il piano è registrato. Nella palestra a nord, fai convergere entrambi i flussi sul ricevitore. Puoi controllare il percorso di ciascuno prima di ruotare i relè.",
+          "I Drago resistono a Fuoco, Acqua, Erba ed Elettro. Il Ghiaccio aiuta contro Dragonair; Kingdra è anche Acqua e non condivide la stessa debolezza al Ghiaccio."
+        ]
+      },
+      {
+        "lines": [
+          "Otto medaglie! Hai dimostrato come collaborare con il mondo che ti circonda. I dati sono pronti per il riallineamento del Santuario delle Due Luci.",
+          "Il nodo e il Cammino dell’Equilibrio saranno le prossime tappe. Intanto puoi tornare alle stazioni, preparare la squadra e completare il Pokédex."
+        ]
+      }
+    ]
+  },
+  "gym08_instructions": {
+    "speaker": "La convergenza",
+    "lines": [
+      "Due sorgenti: Acqua del giardino a sinistra e Luce della rete a destra. Ruota i relè e segui le linee menta e lilla fino al ricevitore al centro.",
+      "Il cancello si apre soltanto quando entrambi i flussi arrivano insieme. Un flusso già collegato resta importante: controlla il percorso dell’altro prima di ruotare ancora. Puoi tornare all’ingresso in qualsiasi momento."
+    ]
+  },
+  "aurel_gym": {
+    "speaker": "Aurel",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_gym08_aurel_defeated",
+        "lines": [
+          "Hai portato due flussi allo stesso traguardo senza cancellarne nessuno. La forza di una squadra nasce dalle differenze, non da quattro mosse uguali.",
+          "Sono Aurel. Dragonair ti metterà alla prova con paralisi e velocità; osserva anche Seadra e Kingdra prima di scegliere una contromossa. Quando sei pronto, affrontiamo insieme l’ultima palestra."
+        ]
+      },
+      {
+        "lines": [
+          "La Medaglia Armonia è tua! Hai conquistato tutte e otto le medaglie di Veloria.",
+          "Con Elia prepareremo il riallineamento del Santuario. La strada verso la Lega richiederà tutta la squadra, non soltanto il Pokémon più forte."
+        ]
+      }
+    ]
+  },
+  "concordia_sanctuary_sign": {
+    "speaker": "Sentiero del Santuario",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_drago_awarded",
+        "lines": [
+          "Aurel custodisce la prova di convergenza. Conquista la Medaglia Armonia per preparare con Elia la spedizione al Santuario delle Due Luci."
+        ]
+      },
+      {
+        "lines": [
+          "Le misure sono pronte per la spedizione al Santuario. Elia sta coordinando il riallineamento con le stazioni della regione. Puoi tornare a preparare la squadra nei quartieri della città."
+        ]
+      }
+    ]
+  },
+  "concordia_league_sign": {
+    "speaker": "Cammino dell’Equilibrio",
+    "stages": [
+      {
+        "whenFlagMissing": "badge_drago_awarded",
+        "lines": [
+          "La sfida finale richiede tutte e otto le medaglie. Aurel ti aspetta nella palestra a nord della piazza."
+        ]
+      },
+      {
+        "lines": [
+          "Hai tutte e otto le medaglie. Prima di affrontare il Cammino dell’Equilibrio, la spedizione deve completare il riallineamento del Santuario. Il Centro di Concordia resta a tua disposizione."
+        ]
+      }
+    ]
+  },
+  "r15_nilo": {
+    "speaker": "Nilo",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r15_nilo_defeated",
+        "lines": [
+          "Ehi, {trainer}! Da Borgofonte fino a qui: ne abbiamo fatta di strada. Prima della prossima palestra ti va un allenamento? Puoi anche riposare a Concordia e tornare quando vuoi.",
+          "Ho scelto tre Pokémon con ruoli diversi. Osserva tipi e stati, e tieni pronta la squadra di riserva."
+        ]
+      },
+      {
+        "lines": [
+          "L’allenamento è registrato: la ricompensa non si ripete, ma possiamo continuare a confrontare le nostre strategie.",
+          "Per Aurel preparerei più di una risposta: Dragonair e Kingdra non hanno gli stessi punti deboli. Ci vediamo sul cammino verso la Lega!"
         ]
       }
     ]

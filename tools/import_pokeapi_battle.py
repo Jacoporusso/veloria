@@ -18,6 +18,7 @@ SUPPORTED_MOVES += ['psybeam', 'confuse-ray', 'swift', 'pound', 'meditate']
 SUPPORTED_MOVES += ['wing-attack', 'water-pulse', 'thunder-punch', 'discharge']
 SUPPORTED_MOVES += ['powder-snow', 'aurora-beam', 'ice-beam', 'icy-wind', 'ice-shard', 'feint-attack']
 SUPPORTED_MOVES += ['mud-bomb']
+SUPPORTED_MOVES += ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-dance', 'dragon-rush', 'hydro-pump', 'aqua-tail']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 
@@ -43,7 +44,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fetch', action='store_true', help='Download missing public API resources and cache them.')
     parser.add_argument('--check', action='store_true', help='Verify generated data without writing it or accessing the network.')
-    parser.add_argument('--group', help='Import only species assigned to this artwork group; preserve all other catalog entries.')
+    parser.add_argument('--group', help=('Prefer species assigned to this artwork group while preserving other catalog entries. '
+        'If a newly supported move appears in another registered species\' cached HGSS learnset, refresh every registered species.'))
     args = parser.parse_args(argv)
     species = read_json(ROOT / 'content/battle/species.v1.json')['species']
     imports = read_json(ROOT / 'content/battle/species-imports.v1.json')['imports']
@@ -104,10 +106,10 @@ def main(argv=None):
             move['inflictedConfusionChance'] = values['effect_chance'] if values['effect_chance'] is not None else (meta['ailment_chance'] or 100)
             move['minConfusionTurns'] = meta['min_turns']
             move['maxConfusionTurns'] = meta['max_turns']
-        if name == 'sonic-boom':
+        if name in {'sonic-boom', 'dragon-rage'}:
             prose = next(entry['short_effect'] for entry in values['effect_entries'] if entry['language']['name'] == 'en')
-            fixed = re.fullmatch(r'Inflicts (\d+) points of damage\.', prose)
-            assert fixed is not None and values['power'] is None, 'Unsupported fixed-damage source semantics'
+            fixed = re.fullmatch(r'Inflicts (?:exactly )?(\d+)(?: points of)? damage\.', prose)
+            assert fixed is not None and values['power'] is None and meta['category']['name'] == 'damage', 'Unsupported fixed-damage source semantics'
             move['fixedDamage'] = int(fixed.group(1))
         if name == 'thunder-wave':
             # PokéAPI describes paralysis but omits this selective type-immunity rule.
@@ -115,12 +117,36 @@ def main(argv=None):
             # HGSS accuracy still comes exclusively from the API past_values above.
             assert move['category'] == 'status' and move.get('inflictedStatus') == 'paralysis'
             move['statusAffectedByTypeImmunity'] = True
+        if name == 'dragon-rush':
+            assert move['category'] == 'physical' and meta['flinch_chance'] == 20
+            move['flinchChance'] = meta['flinch_chance']
         if meta['drain']:
             assert meta['drain'] > 0
             move['drainPercent'] = meta['drain']
         if meta['min_hits'] is not None:
             move.update(minHits=meta['min_hits'], maxHits=meta['max_hits'])
         moves[name] = move
+
+    if args.group:
+        previous_learnsets_path = SOURCE / 'source-learnsets.json'
+        if not previous_learnsets_path.exists():
+            selected.update(species)
+            print('No complete cached learnset report exists; refreshing all registered species.')
+        else:
+            previous_source_learnsets = read_json(previous_learnsets_path)
+            previous_unimplemented = previous_source_learnsets.get('unimplemented', {})
+            supported_move_ids = set(moves)
+            newly_supported = {
+                species_id for species_id, entries in previous_unimplemented.items()
+                if species_id in species and any(entry.get('moveId') in supported_move_ids for entry in entries)
+            }
+            missing_reports = set(species) - set(previous_source_learnsets.get('species', {}))
+            if newly_supported or missing_reports:
+                selected.update(species)
+                if newly_supported:
+                    print('Newly supported moves occur in cached learnsets outside the requested group; refreshing all registered species.')
+                if missing_reports:
+                    print('The cached learnset report omits registered species; refreshing all registered species.')
 
     full_learnsets, learning, pending = {}, {}, {}
     for species_id, definition in species.items():

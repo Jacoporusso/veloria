@@ -1,0 +1,42 @@
+{
+  "id": "veloria/trainer_r15_nilo",
+  "name": "Nilo",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r15_nilo_defeated",
+  "defeatQuestEvent": "battle/trainer_r15_nilo/defeated",
+  "rewardMoney": 1600,
+  "victoryMessage": "Hai vinto l’allenamento con Nilo. Ricevi 1600 ₿.",
+  "victoryFeedback": "Che squadra! Se Ampharos ti paralizza, puoi cambiare Pokémon o usare uno strumento. Golbat mescola attacco e confusione: osserva cosa cambia tra un turno e l’altro. A Concordia trovi cure e un mercato: arriviamoci preparati.",
+  "team": [
+    {
+      "speciesId": 181,
+      "level": 43,
+      "moveIds": [
+        "discharge",
+        "thunder-wave",
+        "thunder-punch",
+        "growl"
+      ]
+    },
+    {
+      "speciesId": 75,
+      "level": 44,
+      "moveIds": [
+        "rock-throw",
+        "defense-curl",
+        "tackle"
+      ]
+    },
+    {
+      "speciesId": 42,
+      "level": 45,
+      "moveIds": [
+        "wing-attack",
+        "confuse-ray",
+        "leech-life",
+        "screech"
+      ]
+    }
+  ]
+}

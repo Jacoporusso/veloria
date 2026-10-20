@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "provider": "PokeAPI",
+  "selectedVersionGroup": "heartgold-soulsilver",
+  "rightsNote": "Source data attributed to PokéAPI; upstream game names and flavor text remain the property of their respective rights holders.",
+  "priceSource": {
+    "url": "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/items.csv",
+    "path": "content/sources/pokeapi/items.csv",
+    "sha256": "f08cd6dc30b447cb91cbe9232c79052e8521f32f6105bb1489b5bfabf4ca3241",
+    "selectedField": "cost",
+    "note": "Current PokéAPI source cost is used for prototype economy; this value is not versioned as an HGSS price."
+  },
+  "items": {
+    "super-potion": {
+      "source": {
+        "url": "https://pokeapi.co/api/v2/item/super-potion/",
+        "path": "content/sources/pokeapi/item-super-potion.json",
+        "sha256": "d20e5087aed7674c77d791e3a5bf3aee27f4c49bf417293da88b0f7cf78e918e"
+      },
+      "selectedVersionGroup": "heartgold-soulsilver",
+      "englishEffectFlavor": "A spray-type medicine for wounds. It restores the HP of one Pokémon by 50 points.",
+      "italianDescriptionFlavor": null,
+      "derivedFields": {
+        "id": "super-potion",
+        "name": "Superpozione",
+        "price": 700,
+        "maxStack": 99,
+        "battle": {
+          "healHp": 50
+        }
+      },
+      "priceSource": "PokéAPI items.csv cost; current source value used as a prototype economy price, not asserted as HGSS price."
+    },
+    "hyper-potion": {
+      "source": {
+        "url": "https://pokeapi.co/api/v2/item/hyper-potion/",
+        "path": "content/sources/pokeapi/item-hyper-potion.json",
+        "sha256": "54b9fb5f2ff9ee4c6a41f82df45a2c143b52929f664aaa72e2147b6749b345d9"
+      },
+      "selectedVersionGroup": "heartgold-soulsilver",
+      "englishEffectFlavor": "A spray-type medicine for wounds. It restores the HP of one Pokémon by 200 points.",
+      "italianDescriptionFlavor": null,
+      "derivedFields": {
+        "id": "hyper-potion",
+        "name": "Iperpozione",
+        "price": 1500,
+        "maxStack": 99,
+        "battle": {
+          "healHp": 200
+        }
+      },
+      "priceSource": "PokéAPI items.csv cost; current source value used as a prototype economy price, not asserted as HGSS price."
+    },
+    "paralyze-heal": {
+      "source": {
+        "url": "https://pokeapi.co/api/v2/item/paralyze-heal/",
+        "path": "content/sources/pokeapi/item-paralyze-heal.json",
+        "sha256": "d76603874ea83054858005fc4fa6d28e01041fe44a79cb0713176c429012a829"
+      },
+      "selectedVersionGroup": "heartgold-soulsilver",
+      "englishEffectFlavor": "A spray-type medicine. It eliminates paralysis from a single Pokémon.",
+      "italianDescriptionFlavor": null,
+      "derivedFields": {
+        "id": "paralyze-heal",
+        "name": "Antiparalisi",
+        "price": 200,
+        "maxStack": 99,
+        "battle": {
+          "cures": [
+            "paralysis"
+          ]
+        }
+      },
+      "priceSource": "PokéAPI items.csv cost; current source value used as a prototype economy price, not asserted as HGSS price."
+    }
+  }
+}

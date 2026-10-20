@@ -1,0 +1,71 @@
+{
+  "id": "veloria/r15_passo_due_luci",
+  "version": 2,
+  "displayName": "Passo delle Due Luci",
+  "biomeId": "highland_garden",
+  "tiledAsset": "tilemaps/r15_passo_due_luci.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-r15-two-lights-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 0
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r15-two-lights-v1",
+      "path": "assets/scenery/veloria-r15-two-lights-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_cavern",
+      "x": 2,
+      "y": 10,
+      "facing": "down"
+    },
+    {
+      "id": "from_concordia",
+      "x": 38,
+      "y": 9,
+      "facing": "left"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/d05_grotte_cristallo",
+      "viaSpawnId": "from_cavern",
+      "targetSpawnId": "from_r15",
+      "requiresFlags": []
+    },
+    {
+      "toMapId": "veloria/concordia",
+      "viaSpawnId": "from_concordia",
+      "targetSpawnId": "from_r15",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [
+    "veloria/r15_garden_patch"
+  ],
+  "npcRefs": [],
+  "scriptRefs": [],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-r15-two-lights-v1"
+}

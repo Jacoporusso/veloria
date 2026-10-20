@@ -1,0 +1,105 @@
+{
+  "id": "veloria/r15_garden_patch",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "mapId": "veloria/r15_passo_due_luci",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 147,
+        "weight": 10,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 177,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 75,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 147,
+        "weight": 10,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 177,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 75,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 147,
+        "weight": 10,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 178,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 177,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 215,
+        "weight": 25,
+        "minLevel": 42,
+        "maxLevel": 46
+      },
+      {
+        "speciesId": 75,
+        "weight": 20,
+        "minLevel": 42,
+        "maxLevel": 46
+      }
+    ]
+  }
+}

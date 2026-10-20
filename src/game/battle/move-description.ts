@@ -20,6 +20,7 @@ export function describeMoveEffects(move: MoveDefinition): string[] {
   if (move.inflictedStatus) effects.push(`Infligge ${STATUS[move.inflictedStatus]} all’avversario${chance(move.statusChance ?? 100)}${move.minStatusTurns ? ` per ${move.minStatusTurns}–${move.maxStatusTurns ?? move.minStatusTurns} turni` : ''}. ${STATUS_HELP[move.inflictedStatus]}`);
   if (move.statusAffectedByTypeImmunity) effects.push(`Non funziona sui Pokémon immuni al tipo ${battleTypeLabel(move.type)}.`);
   if (move.inflictedConfusionChance) effects.push(`Confonde l’avversario${chance(move.inflictedConfusionChance)}${move.minConfusionTurns ? ` per ${move.minConfusionTurns}–${move.maxConfusionTurns ?? move.minConfusionTurns} turni` : ''}: può colpirsi da solo.`);
+  if (move.flinchChance) effects.push(`Può far tentennare l’avversario (${move.flinchChance}% di probabilità): perde la mossa di questo turno senza consumare PP, solo se colpisci prima che agisca e resta in campo.`);
   if (move.drainPercent) effects.push(`Recuperi HP pari al ${move.drainPercent}% dei danni inflitti.`);
   if (move.minHits) effects.push(`Colpisce ${move.minHits === move.maxHits ? move.minHits : `${move.minHits}–${move.maxHits ?? move.minHits}`} volte nello stesso turno.`);
   if (move.leechSeedFraction) effects.push(`Pianta un seme: a fine turno sottrae ${Number((move.leechSeedFraction * 100).toFixed(2))}% degli HP massimi avversari e cura il Pokémon attivo dalla tua parte. Non funziona sui Pokémon Erba o già seminati.`);

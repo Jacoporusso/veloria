@@ -1,0 +1,142 @@
+{
+  "id": "gym08convergence",
+  "presentation": "convergence",
+  "sourceNodeId": "sourcewest",
+  "additionalSourceNodeIds": [
+    "sourceeast"
+  ],
+  "goalNodeId": "receiver",
+  "solvedFlag": "gym08_convergence_complete",
+  "solvedEvent": "gym08/convergence/connected",
+  "nodes": [
+    {
+      "id": "sourcewest",
+      "label": "Acqua del giardino",
+      "x": 7,
+      "y": 14,
+      "initialStateId": "east",
+      "states": [
+        {
+          "id": "east",
+          "label": "Verso il relè ovest",
+          "direction": "right",
+          "nextNodeId": "westlower"
+        }
+      ]
+    },
+    {
+      "id": "sourceeast",
+      "label": "Luce della rete",
+      "x": 24,
+      "y": 14,
+      "initialStateId": "west",
+      "states": [
+        {
+          "id": "west",
+          "label": "Verso il relè est",
+          "direction": "left",
+          "nextNodeId": "eastlower"
+        }
+      ]
+    },
+    {
+      "id": "westlower",
+      "label": "Relè delle radici",
+      "x": 11,
+      "y": 14,
+      "initialStateId": "east",
+      "states": [
+        {
+          "id": "east",
+          "label": "Verso la corte",
+          "direction": "right",
+          "nextNodeId": null
+        },
+        {
+          "id": "north",
+          "label": "Verso la terrazza",
+          "direction": "up",
+          "nextNodeId": "westupper"
+        }
+      ]
+    },
+    {
+      "id": "westupper",
+      "label": "Relè delle foglie",
+      "x": 11,
+      "y": 8,
+      "initialStateId": "north",
+      "states": [
+        {
+          "id": "north",
+          "label": "Verso l’albero",
+          "direction": "up",
+          "nextNodeId": null
+        },
+        {
+          "id": "east",
+          "label": "Verso il ricevitore",
+          "direction": "right",
+          "nextNodeId": "receiver"
+        }
+      ]
+    },
+    {
+      "id": "eastlower",
+      "label": "Relè dei condotti",
+      "x": 21,
+      "y": 14,
+      "initialStateId": "west",
+      "states": [
+        {
+          "id": "west",
+          "label": "Verso la corte",
+          "direction": "left",
+          "nextNodeId": null
+        },
+        {
+          "id": "north",
+          "label": "Verso la terrazza",
+          "direction": "up",
+          "nextNodeId": "eastupper"
+        }
+      ]
+    },
+    {
+      "id": "eastupper",
+      "label": "Relè dei cristalli",
+      "x": 21,
+      "y": 8,
+      "initialStateId": "north",
+      "states": [
+        {
+          "id": "north",
+          "label": "Verso la volta",
+          "direction": "up",
+          "nextNodeId": null
+        },
+        {
+          "id": "west",
+          "label": "Verso il ricevitore",
+          "direction": "left",
+          "nextNodeId": "receiver"
+        }
+      ]
+    },
+    {
+      "id": "receiver",
+      "label": "Ricevitore comune",
+      "x": 16,
+      "y": 8,
+      "initialStateId": "north",
+      "states": [
+        {
+          "id": "north",
+          "label": "Convergenza",
+          "direction": "up",
+          "nextNodeId": null
+        }
+      ]
+    }
+  ]
+}

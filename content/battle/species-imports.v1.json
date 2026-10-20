@@ -208,6 +208,36 @@
       "speciesId": 42,
       "templateSpeciesId": 19,
       "artworkGroup": "crystal"
+    },
+    {
+      "speciesId": 147,
+      "templateSpeciesId": 1,
+      "artworkGroup": "dragon"
+    },
+    {
+      "speciesId": 148,
+      "templateSpeciesId": 1,
+      "artworkGroup": "dragon"
+    },
+    {
+      "speciesId": 149,
+      "templateSpeciesId": 1,
+      "artworkGroup": "dragon"
+    },
+    {
+      "speciesId": 116,
+      "templateSpeciesId": 7,
+      "artworkGroup": "dragon"
+    },
+    {
+      "speciesId": 117,
+      "templateSpeciesId": 7,
+      "artworkGroup": "dragon"
+    },
+    {
+      "speciesId": 230,
+      "templateSpeciesId": 7,
+      "artworkGroup": "dragon"
     }
   ],
   "deferredImports": [
