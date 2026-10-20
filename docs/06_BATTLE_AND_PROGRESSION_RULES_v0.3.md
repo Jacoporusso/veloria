@@ -2,6 +2,14 @@
 
 # Veloria — Battle engine e progressione (decision log v0.3)
 
+## Ricompensa esperienza — contenuto 0.3.88, ruleset v8
+
+L'esperienza base della specie viene ora scalata con il livello del Pokémon sconfitto: `base = max(1, floor(baseYield × livello / 7))`; nelle lotte allenatore `floor(base × 1.5)`. Una resa base nulla continua a non assegnare esperienza. I coefficienti sono espliciti in `BattleRules.experienceRewards`, la funzione è pura e gli eventi riportano la ricompensa effettiva, usata anche per livelli, mosse ed evoluzioni.
+
+Riferimento dell'algoritmo classico consultato: [pret/pokeemerald, Cmd_getexp](https://github.com/pret/pokeemerald/blob/master/src/battle_script_commands.c), calcolo della resa per livello e bonus allenatore. Questo non dichiara un'emulazione integrale HGSS: rese base locali da PokéAPI, curve di crescita cubiche del prototipo, esperienza al destinatario del KO, senza ripartizione tra partecipanti, Condividi Esperienza, strumenti tenuti o bonus scambio. Le prove sintetiche di apprendimento/evoluzione usano avversari livello7 con rese artificiali per raggiungere esattamente le soglie desiderate; non sono esempi di bilanciamento naturale.
+
+L'audit del capitolo Acquariva aveva rilevato ricompense costanti indipendenti dal livello, con centinaia di KO necessari per allenare un solo membro da28 a35. La correzione rimuove quel difetto; numero di allenatori intermedi e ritmo della crescita della squadra richiedono ancora revisione. Non si dichiara risolto il bilanciamento dall'esito dei soli checkpoint potenziati.
+
 > Regola vigente dal contenuto 0.3.46: dati e apprendimenti delle mosse provengono da PokéAPI, gruppo HeartGold/SoulSilver. Le precedenti tarature manuali sono superate; gli effetti non ancora supportati restano esplicitamente incompleti.
 
 ## 1. Obiettivo

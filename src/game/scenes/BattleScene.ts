@@ -372,11 +372,16 @@ export class BattleScene extends Phaser.Scene {
     });
     this.ui.add(text);
     if (this.mode === 'message' || this.mode === 'learning') {
-      const hintLabel = this.mode === 'learning' ? '↑ ↓ · SCEGLI' : this.terminalShown ? 'A · CHIUDI' : 'A · SALTA';
+      const hintLabel = this.mode === 'learning' ? '↑ ↓ · SCEGLI' : this.terminalShown ? 'A · CHIUDI' : 'TOCCA / A · SALTA';
       const hint = this.text(x + panelWidth - 12, y + 66, hintLabel, {
         fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '9px', fontStyle: 'bold', color: COLORS.muted,
       }).setOrigin(1, 0);
       this.ui.add(hint);
+      if (this.mode === 'message' && !this.terminalShown) {
+        const skip = this.add.zone(x, y, panelWidth, 82).setOrigin(0).setInteractive({ useHandCursor: true });
+        skip.on('pointerdown', () => this.advanceMessage());
+        this.ui.add(skip);
+      }
     }
   }
 

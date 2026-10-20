@@ -58,6 +58,7 @@ export interface BattleRules {
   readonly items: Readonly<Record<string, BattleItemRule>>;
   readonly captureItems: Readonly<Record<string, CaptureItemRule>>;
   readonly experienceCurves: Readonly<Record<string, ExperienceCurve>>;
+  readonly experienceRewards: { readonly levelDivisor: number; readonly trainerMultiplier: number };
   readonly levelUpMoves: Readonly<Record<number, readonly { readonly level: number; readonly moveId: string; readonly maxPp: number }[]>>;
   readonly evolutions: Readonly<Record<number, readonly EvolutionRule[]>>;
 }
@@ -69,7 +70,7 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v7',
+  id: 'veloria-battle-prototype-v8',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,
@@ -90,9 +91,20 @@ export const prototypeBattleRules: BattleRules = {
   items: {},
   captureItems: {},
   experienceCurves: { veloria_medium_fast_v1: { exponent: 3, multiplier: 1 } },
+  experienceRewards: { levelDivisor: 7, trainerMultiplier: 1.5 },
   levelUpMoves: {},
   evolutions: {},
 };
+
+/** Classic level-scaled base reward; recipient sharing and held-item bonuses are separate rules. */
+export function experienceForDefeat(baseYield: number, level: number, trainer: boolean, rules: BattleRules['experienceRewards']): number {
+  if (!Number.isFinite(baseYield) || baseYield < 0 || !Number.isInteger(level) || level < 1 ||
+      !Number.isFinite(rules.levelDivisor) || rules.levelDivisor <= 0 ||
+      !Number.isFinite(rules.trainerMultiplier) || rules.trainerMultiplier <= 0) throw new Error('Invalid experience reward parameters.');
+  if (baseYield === 0) return 0;
+  const base = Math.max(1, Math.floor(baseYield * level / rules.levelDivisor));
+  return Math.max(1, Math.floor(base * (trainer ? rules.trainerMultiplier : 1)));
+}
 
 export function effectivenessFor(types: readonly BattleType[], moveType: BattleType, chart: TypeChart): number {
   return types.reduce((effectiveness, defenderType) =>

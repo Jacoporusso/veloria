@@ -1,3 +1,9 @@
+## veloria-content-0.3.88 — integrazione locale, 20/10/2026
+
+- Ruleset v8: esperienza scalata con livello avversario e bonus allenatore esplicito. Eventi, overflow, livelli, mosse ed evoluzioni usano la ricompensa calcolata. Eliminata la resa costante che rallentava la progressione; bilanciamento naturale ancora in revisione.
+- Pannello messaggi della lotta toccabile per anticipare l'avanzamento, mantenendo i timer automatici. Nessuna conferma obbligatoria dopo una mossa. Cache v109.
+- Helper dei test: eliminate letture IndexedDB e geometria canvas duplicate; R04 attende il ritorno automatico al menu, mantenendo i comandi touch. Verifiche browser e offline in corso.
+
 ## veloria-content-0.3.87 — integrazione locale, 19/10/2026
 
 - Collegati R09, Delta degli Specchi, R10, Acquariva, palestra Psico e Via delle Cascate. Ricerca in tre osservazioni indipendenti, rapporto del lago, kit opzionale, servizi, monorotaia, diario e atlante. Ritorni aperti; accessi cittadini subordinati alle medaglie previste.

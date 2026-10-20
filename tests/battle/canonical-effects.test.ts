@@ -141,7 +141,7 @@ test('move-provided sleep duration overrides the ruleset and blocks at least one
 test('evolution teaches target species moves eligible at the current level', () => {
   const rules = evolutionRules();
   const caterpie = levelingSpecies(10, 'Caterpie', 6, caterpieStats, [{ moveId: 'tackle', pp: 35 }]);
-  const firstBattle = battle(caterpie, creature('opponent', { hp: 1, experienceYield: experienceToNextLevel(6, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] }));
+  const firstBattle = battle(caterpie, creature('opponent', { hp: 1, level: 7, experienceYield: experienceToNextLevel(6, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] }));
   assert.equal(firstBattle.opponent.creatures[0].hp, 1);
   const toMetapod = resolveBattleTurn(firstBattle, cmds(), moves, rules);
   assert.equal(toMetapod.state.player.creatures[0].speciesId, 11, JSON.stringify({ events: toMetapod.events, player: toMetapod.state.player.creatures[0] }));
@@ -149,7 +149,7 @@ test('evolution teaches target species moves eligible at the current level', () 
   assert.ok(toMetapod.state.player.creatures[0].moves.some(move => move.moveId === 'harden'));
 
   const metapod = levelingSpecies(11, 'Metapod', 9, metapodStats, [{ moveId: 'tackle', pp: 35 }]);
-  const toButterfree = resolveBattleTurn(battle(metapod, creature('opponent', { hp: 1, experienceYield: experienceToNextLevel(9, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] })), cmds(), moves, rules);
+  const toButterfree = resolveBattleTurn(battle(metapod, creature('opponent', { hp: 1, level: 7, experienceYield: experienceToNextLevel(9, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] })), cmds(), moves, rules);
   assert.equal(toButterfree.state.player.creatures[0].speciesId, 12);
   assert.ok(toButterfree.events.some(event => event.type === 'moveLearned' && event.moveId === 'confusion'));
   assert.ok(toButterfree.state.player.creatures[0].moves.some(move => move.moveId === 'confusion'));
@@ -157,6 +157,6 @@ test('evolution teaches target species moves eligible at the current level', () 
   const fullCaterpie = levelingSpecies(10, 'Caterpie', 6, caterpieStats, [
     { moveId: 'tackle', pp: 35 }, { moveId: 'slot-two', pp: 1 }, { moveId: 'slot-three', pp: 1 }, { moveId: 'slot-four', pp: 1 },
   ]);
-  const fullSlots = resolveBattleTurn(battle(fullCaterpie, creature('opponent', { hp: 1, experienceYield: experienceToNextLevel(6, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] })), cmds(), moves, rules);
+  const fullSlots = resolveBattleTurn(battle(fullCaterpie, creature('opponent', { hp: 1, level: 7, experienceYield: experienceToNextLevel(6, rules.experienceCurves.veloria_medium_fast_v1), stats: { maxHp: 200, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 1 }, moves: [{ moveId: 'tackle', pp: 2 }] })), cmds(), moves, rules);
   assert.ok(fullSlots.events.some(event => event.type === 'moveLearningSkipped' && event.moveId === 'harden' && event.reason === 'fullMoveSlots'));
 });

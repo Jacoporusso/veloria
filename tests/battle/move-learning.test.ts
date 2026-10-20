@@ -25,7 +25,7 @@ function battleWithFullMoves() {
     moveIds: ['tackle', 'growl', 'tail-whip', 'scratch'],
   });
   const opponentBase = createBattleCreature({ species, moves, speciesId: 10, level: 3, instanceId: 'lesson-caterpie' });
-  const opponent = { ...opponentBase, hp: 1, experienceYield: 91, stats: { ...opponentBase.stats, speed: 1 } };
+  const opponent = { ...opponentBase, hp: 1, level: 7, experienceYield: 91, stats: { ...opponentBase.stats, speed: 1 } };
   const state = createBattleState({
     battleId: 'move-learning-terminal-choice', battleType: 'wild', seed: 17,
     rules, playerTeam: [player], opponentTeam: [opponent],

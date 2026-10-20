@@ -71,7 +71,7 @@ test('an evolved creature is saved by its stable instance ID and rehydrates from
       90002: [{ minimumLevel: 7, target: localSpecies[90003] }],
     },
   };
-  const initial = createBattleState({ battleId: 'evolution-save', battleType: 'wild', seed: 456, rules, playerTeam: [player], opponentTeam: [{ ...opponent, hp: 1, experienceYield: 218 }] });
+  const initial = createBattleState({ battleId: 'evolution-save', battleType: 'wild', seed: 456, rules, playerTeam: [player], opponentTeam: [{ ...opponent, hp: 1, level: 7, experienceYield: 218 }] });
   const transition = resolveBattleTurn(initial, { player: { kind: 'useMove', moveSlot: 0 }, opponent: { kind: 'useMove', moveSlot: 0 } }, localMoves, rules);
   const evolvedSave = mergeBattlePlayerState(save, transition.state);
   const rehydrated = createBattleCreatureFromSave(evolvedSave.party[0], { species: localSpecies, moves: localMoves });

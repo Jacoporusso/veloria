@@ -45,7 +45,7 @@ test('Caterpie and Weedle evolve during a first-act battle and keep their party 
       const opponent = {
         ...baseOpponent,
         hp: 1,
-        experienceYield: 218,
+        level: 7, experienceYield: 218,
         stats: { ...baseOpponent.stats, speed: 1 },
       };
       const initial = createBattleState({
@@ -88,7 +88,7 @@ test('the second evolution stages trigger at level 10 with their registered targ
       // A trained cocoon retains its pre-evolution attack; wild cocoons only know Harden.
       const player = createBattleCreature({ species, moves, speciesId: fromSpeciesId, level: 9, instanceId: `second-stage-${fromSpeciesId}`, moveIds: [fromSpeciesId === 11 ? 'tackle' : 'poison-sting', 'harden'] });
       const baseOpponent = createBattleCreature({ species, moves, speciesId: 10, level: 3, instanceId: `second-stage-opponent-${fromSpeciesId}` });
-      const opponent = { ...baseOpponent, hp: 1, experienceYield: 271, stats: { ...baseOpponent.stats, speed: 1 } };
+      const opponent = { ...baseOpponent, hp: 1, level: 7, experienceYield: 271, stats: { ...baseOpponent.stats, speed: 1 } };
       const initial = createBattleState({
         battleId: `vertical-slice-second-evolution-${fromSpeciesId}`,
         battleType: 'wild',

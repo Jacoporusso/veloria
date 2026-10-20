@@ -1,3 +1,11 @@
+## Progressione XP e verifiche 0.3.88 — 20/10/2026
+
+- Ruleset v8: ricompensa XP scalata con livello e bonus allenatore, con overflow, apprendimento ed evoluzioni sul valore effettivo.352 prove dominio/persistenza passate (`.tmp/xp-level-scaled-tests-v2.txt`); build riuscita. Le fixture sintetiche che assegnano una soglia esatta usano avversari livello7, senza ripristinare la vecchia ricompensa nel runtime.
+- Pannello messaggi toccabile per saltare il timer, mantenendo l'avanzamento automatico. Quattro regressioni browser passate in11,6s: turno senza conferma, tocco che avanza il messaggio senza cambiare lo stato del turno, evoluzione con sprite e scelta delle mosse prima del terminale. Log `.tmp/xp-touch-battle-regressions.txt`.
+- R04 passato in1,9m con comandi touch, stesso timeout240s, controllo densità e rettangolo canvas raccolti insieme. L'helper attende il ritorno automatico al menu: i vecchi tap sul pannello comandi non avanzavano i messaggi. Log `.tmp/r04-efficiency-verification-v2.log`.
+- Primo accesso offline alle sei mappe/immagini e traversata di andata/ritorno delle cascate con reload passati in41,6s. E2E-06 fino a tre medaglie ancora attivo nella stessa esecuzione, sessione15534, log `.tmp/acquariva-xp-offline-verification.txt`. Nessun riavvio; build di produzione conservata durante la prova. Cache v109, nessuna pubblicazione ancora.
+- Audit del ritmo e limiti nel rapporto `docs/playtests/2026-10-20-acquariva-balance.md`. Tre allenatori intermedi preparati in bozza; non ancora incontrabili. Il bilanciamento naturale di P6 resta aperto.
+
 ## Integrazione locale Acquariva 0.3.87 — 19/10/2026
 
 - Sei mappe collegate localmente: R09, Delta, R10, Acquariva, palestra Psico e Via delle Cascate. Dialoghi, quest, servizi, monorotaia, atlante, diario, squadra di Selene e Medaglia Riflesso registrati. Cache v108; pubblicazione non ancora eseguita.

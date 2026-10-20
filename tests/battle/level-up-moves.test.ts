@@ -16,7 +16,7 @@ function award(speciesId:number, targetLevel:number, mode:'normal'|'known'|'full
   const entry=rules.levelUpMoves[speciesId].find(item=>item.level===targetLevel);
   const slots=mode==='full' ? ['scratch','growl','tackle','gust'].map(moveId=>({moveId,pp:3})) : mode==='known' && entry ? [...base.moves,{moveId:entry.moveId,pp:2}] : base.moves;
   const player={...base,experience:0,stats:{...base.stats,speed:100},moves:slots};
-  const enemy={...createBattleCreature({species,moves,speciesId:19,level:2,instanceId:'foe'}),hp:1,experienceYield:experience};
+  const enemy={...createBattleCreature({species,moves,speciesId:19,level:2,instanceId:'foe'}),hp:1,level: 7, experienceYield:experience};
   const state=createBattleState({battleId:'learn',battleType:'wild',seed:321,rules,playerTeam:[player],opponentTeam:[enemy]});
   const before=structuredClone(state);
   const result=resolveBattleTurn(state,{player:{kind:'useMove',moveSlot:0},opponent:{kind:'useMove',moveSlot:0}},moves,rules);

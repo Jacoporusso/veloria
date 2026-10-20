@@ -72,7 +72,7 @@ test('status application is logged; poison residual damage is bounded and can KO
   assert.ok(result.events.some(event => event.type === 'statusApplied' && event.status === 'poison'));
   assert.equal(result.state.opponent.creatures[0].hp, 0);
   assert.equal(result.state.outcome.kind, 'won');
-  assert.equal(result.state.player.creatures[0].experience, 17);
+  assert.equal(result.state.player.creatures[0].experience, 12);
   assert.ok(result.events.some(event => event.type === 'battleEnded'));
 });
 
@@ -82,7 +82,7 @@ test('prototype growth curve carries XP between levels and recalculates stats wi
     baseStats: { hp: 45, attack: 49, defense: 49, specialAttack: 65, specialDefense: 65, speed: 45 },
     growthCurveId: 'veloria_medium_fast_v1', hp: 14,
   });
-  const opponent = creature('opponent-01', { hp: 1, experienceYield: 100 });
+  const opponent = creature('opponent-01', { hp: 1, level: 7, experienceYield: 100 });
   const state = battle({ playerTeam: [player], opponentTeam: [opponent] });
   const result = resolveBattleTurn(state, actions, moves, prototypeBattleRules);
   const leveled = result.state.player.creatures[0];
@@ -95,7 +95,7 @@ test('prototype growth curve carries XP between levels and recalculates stats wi
 
 test('one XP reward may cross several thresholds while preserving overflow', () => {
   const player = creature('player-01', { growthCurveId: 'veloria_medium_fast_v1', baseStats: { hp: 45, attack: 49, defense: 49, specialAttack: 65, specialDefense: 65, speed: 45 } });
-  const opponent = creature('opponent-01', { hp: 1, experienceYield: 300 });
+  const opponent = creature('opponent-01', { hp: 1, level: 7, experienceYield: 300 });
   const result = resolveBattleTurn(battle({ playerTeam: [player], opponentTeam: [opponent] }), actions, moves, prototypeBattleRules);
   assert.equal(result.state.player.creatures[0].level, 7);
   assert.equal(result.state.player.creatures[0].experience, 82);
@@ -116,7 +116,7 @@ test('level evolution replaces species data after XP while preserving the creatu
     hp: 12,
     status: { status: 'poison' },
   });
-  const opponent = creature('opponent-01', { hp: 1, experienceYield: 218 });
+  const opponent = creature('opponent-01', { hp: 1, level: 7, experienceYield: 218 });
   const result = resolveBattleTurn(battle({ rules, playerTeam: [player], opponentTeam: [opponent] }), actions, moves, rules);
   const evolved = result.state.player.creatures[0];
   assert.deepEqual(result.events.filter(event => event.type === 'creatureEvolved').map(event => event.type === 'creatureEvolved' ? [event.fromSpeciesId, event.toSpeciesId] : []), [[90001, 90003], [90003, 90004]]);

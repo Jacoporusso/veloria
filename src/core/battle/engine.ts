@@ -1,6 +1,6 @@
 import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from './emergency-move.ts';
 import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat, effectiveMoveAccuracy } from './stat-stages.ts';
-import { effectivenessFor, type BattleRules } from './rules.ts';
+import { effectivenessFor, experienceForDefeat, type BattleRules } from './rules.ts';
 import { calculateHitDamage } from './damage.ts';
 import { calculateStats } from './create-creature.ts';
 import { experienceToNextLevel } from './progression.ts';
@@ -558,11 +558,12 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
   const index = team.creatures.findIndex(creature => creature.instanceId === recipientId);
   if (index < 0) return state;
   const recipient = team.creatures[index];
-  events.push({ type: 'experienceGained', side, creatureId: recipient.instanceId, amount: defeated.experienceYield, sourceCreatureId: defeated.instanceId });
+  const reward = experienceForDefeat(defeated.experienceYield, defeated.level, state.battleType === 'trainer', rules.experienceRewards);
+  events.push({ type: 'experienceGained', side, creatureId: recipient.instanceId, amount: reward, sourceCreatureId: defeated.instanceId });
   let moves = recipient.moves;
   const attempted = new Set(moves.map(slot => slot.moveId));
   let level = recipient.level;
-  let experience = recipient.experience + defeated.experienceYield;
+  let experience = recipient.experience + reward;
   const curve = recipient.growthCurveId ? rules.experienceCurves[recipient.growthCurveId] : undefined;
   while (curve && recipient.baseStats && level < rules.maxLevel) {
     const required = experienceToNextLevel(level, curve);

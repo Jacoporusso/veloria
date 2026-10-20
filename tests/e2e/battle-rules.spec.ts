@@ -60,7 +60,7 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
     const opponent = kind === 'forced-opponent-switch'
       ? { ...baseOpponent, hp: 1, experienceYield: 0 }
       : kind === 'evolution'
-      ? { ...baseOpponent, hp: 1, experienceYield: 218, stats: { ...baseOpponent.stats, speed: 1 } }
+      ? { ...baseOpponent, level: 7, hp: 1, experienceYield: 218, stats: { ...baseOpponent.stats, speed: 1 } }
       : kind === 'move-learning'
         ? { ...baseOpponent, hp: 1, experienceYield: 900, stats: { ...baseOpponent.stats, speed: 1 } }
       : baseOpponent;
@@ -223,6 +223,27 @@ test('move cards explain their values and the turn resolves without a continue c
   await page.keyboard.press('Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode), { timeout: 8000 }).toBe('menu');
+  expect(errors).toEqual([]);
+});
+
+test('touching the battle message skips its timer without changing the resolved turn',async({page})=>{
+  const errors=await mountBattle(page,'super-effective');
+  await page.keyboard.press('Enter');await page.keyboard.press('Enter');
+  await expect.poll(()=>page.evaluate(()=>(window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
+  const before=await page.evaluate(()=>{
+    const scene=(window as any).battleRulesFixture.scene.getScene('battle');
+    scene.messageTimer?.remove(false);scene.messageTimer=undefined;
+    const canvas=scene.game.canvas.getBoundingClientRect();
+    return{state:JSON.stringify(scene.state),count:scene.pendingMessages.length,text:scene.pendingMessages[0]?.text,
+      x:canvas.x+canvas.width/2,y:canvas.y+(scene.viewport.height-scene.commandHeight()-51)*scene.scale.zoom};
+  });
+  await page.touchscreen.tap(before.x,before.y);
+  await expect.poll(()=>page.evaluate(previous=>{
+    const scene=(window as any).battleRulesFixture.scene.getScene('battle');
+    return scene.mode!=='message'||scene.pendingMessages.length!==previous.count||scene.pendingMessages[0]?.text!==previous.text;
+  },before)).toBe(true);
+  expect(await page.evaluate(()=>JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before.state);
+  await expect.poll(()=>page.evaluate(()=>(window as any).battleRulesFixture.scene.getScene('battle').mode),{timeout:8000}).toBe('menu');
   expect(errors).toEqual([]);
 });
 

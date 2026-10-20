@@ -1,0 +1,39 @@
+{
+  "status": "draft-not-runtime",
+  "notes": "Tre sfide facoltative per accompagnare la crescita dopo P5. Nessuna specie obbligatoria; mosse da learnset HGSS locali. Posizioni e ritmo da verificare prima dell'integrazione.",
+  "trainers": [
+    {
+      "id": "veloria/trainer_r09_lina", "name": "Lina", "version": 1,
+      "aiProfileId": "gym_beginner", "battleOnceFlag": "trainer_r09_lina_defeated",
+      "defeatQuestEvent": "battle/trainer_r09_lina/defeated", "rewardMoney": 420,
+      "victoryMessage": "Hai vinto contro Lina. Ricevi 420 ₿.",
+      "victoryFeedback": "Hai letto bene il ritmo della costa. La paralisi può rallentare: cambiare compagno o curare lo stato aiuta a ritrovare il controllo. Iris ti aspetta sui pontili del Delta, verso est.",
+      "team": [
+        {"speciesId": 17, "level": 28, "moveIds": ["gust", "quick-attack", "sand-attack", "tackle"]},
+        {"speciesId": 180, "level": 28, "moveIds": ["thunder-shock", "thunder-wave", "growl", "tackle"]}
+      ]
+    },
+    {
+      "id": "veloria/trainer_delta_teo", "name": "Teo", "version": 1,
+      "aiProfileId": "gym_beginner", "battleOnceFlag": "trainer_delta_teo_defeated",
+      "defeatQuestEvent": "battle/trainer_delta_teo/defeated", "rewardMoney": 520,
+      "victoryMessage": "Hai vinto contro Teo. Ricevi 520 ₿.",
+      "victoryFeedback": "Conoscere un tipo non racconta tutta la strategia: Chinchou è Acqua/Elettro, Slowpoke Acqua/Psico. Guarda i dettagli del Pokédex e conserva le mosse che aiutano la tua squadra.",
+      "team": [
+        {"speciesId": 170, "level": 30, "moveIds": ["bubble-beam", "spark", "confuse-ray", "thunder-wave"]},
+        {"speciesId": 79, "level": 30, "moveIds": ["confusion", "water-gun", "growl", "tackle"]}
+      ]
+    },
+    {
+      "id": "veloria/trainer_r10_maya", "name": "Maya", "version": 1,
+      "aiProfileId": "gym_beginner", "battleOnceFlag": "trainer_r10_maya_defeated",
+      "defeatQuestEvent": "battle/trainer_r10_maya/defeated", "rewardMoney": 620,
+      "victoryMessage": "Hai vinto contro Maya. Ricevi 620 ₿.",
+      "victoryFeedback": "Hai provato un assaggio delle mosse Psico e degli status. Ad Acquariva puoi curare tutta la squadra, poi confrontare il rapporto con Tessa prima della prova di Selene. I Pokémon Psico resistono alle mosse del proprio tipo; contro Slowbro potrai valutare anche mosse Elettro.",
+      "team": [
+        {"speciesId": 97, "level": 33, "moveIds": ["psybeam", "meditate", "pound", "hypnosis"]},
+        {"speciesId": 133, "level": 32, "moveIds": ["quick-attack", "sand-attack", "growl", "tackle"]}
+      ]
+    }
+  ]
+}
