@@ -478,3 +478,26 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
     expect(errors).toEqual([]);
   });
 }
+
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+  test(`mobile back target is reachable without using a turn at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await mountBattle(page, 'super-effective');
+    const before = await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').state);
+    await page.keyboard.press('Enter');
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
+    const target = await page.evaluate(() => {
+      const s = (window as any).battleRulesFixture.scene.getScene('battle');
+      const zone = s.ui.list.find((item: any) => item.name === 'battle-back');
+      const b = zone.getBounds(), canvas = s.game.canvas.getBoundingClientRect();
+      return { x: canvas.x + (b.left + 6) * s.scale.zoom, y: canvas.y + (b.top + 6) * s.scale.zoom,
+        width: b.width * s.scale.zoom, height: b.height * s.scale.zoom };
+    });
+    expect(target.width).toBeGreaterThanOrEqual(44);
+    expect(target.height).toBeGreaterThanOrEqual(44);
+    await page.touchscreen.tap(target.x, target.y);
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('menu');
+    expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').state)).toEqual(before);
+  });
+}

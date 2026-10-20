@@ -512,6 +512,7 @@ export class BattleScene extends Phaser.Scene {
       this.ui.add(description);
     }
     const closeTarget = this.add.zone(width - 138, height - 62, 116, 44).setOrigin(0).setInteractive({ useHandCursor: true });
+    closeTarget.setName('move-details-back');
     closeTarget.on('pointerdown', this.back, this);
     this.ui.add(closeTarget);
     this.label(width - 28, height - 49, 'CHIUDI · B', '#bce8ff', 14).setOrigin(1, 0);
@@ -639,7 +640,8 @@ export class BattleScene extends Phaser.Scene {
       maxRows = singleMoveRow ? 1 : 2;
     }
     const buttonWidth = (width - gap * (columns - 1)) / columns;
-    const buttonAreaHeight = this.commandHeight() - 20 - (this.mode === 'moves' ? 30 : 0);
+    const hasBack = this.mode !== 'menu' && this.mode !== 'learning' && !this.playerForcedToSwitch;
+    const buttonAreaHeight = this.commandHeight() - (hasBack ? 48 : 20);
     const buttonHeight = Math.min(this.mode === 'moves' ? 66 : 52, (buttonAreaHeight - gap * (maxRows - 1)) / maxRows);
     options.slice(0, columns * maxRows).forEach((option, index) => {
       const column = index % columns;
@@ -653,9 +655,15 @@ export class BattleScene extends Phaser.Scene {
           : this.mode === 'party' ? 0xc6b1ff : this.mode === 'captures' ? 0xafffe3 : 0x79cfff);
       this.button(bx, by, buttonWidth, buttonHeight, option.label, option.callback, color, option.enabled, row, column);
     });
-    if (this.mode !== 'menu' && !this.playerForcedToSwitch) {
-      const back = this.label(x + width - 4, y + this.commandHeight() - 14, 'B · INDIETRO', COLORS.paper, 10).setOrigin(1, 0);
-      back.setInteractive({ useHandCursor: true }).on('pointerdown', this.back, this);
+    if (hasBack) {
+      const bx = x + width - 130, by = y + this.commandHeight() - 46;
+      const surface = this.add.graphics();
+      surface.fillStyle(0x315565, .95).fillRoundedRect(bx, by, 124, 44, 10);
+      surface.lineStyle(1, 0x9ad8db, .6).strokeRoundedRect(bx, by, 124, 44, 10);
+      const back = this.add.zone(bx, by, 124, 44).setOrigin(0).setName('battle-back').setInteractive({ useHandCursor: true });
+      back.on('pointerdown', this.back, this);
+      this.ui.add([surface, back]);
+      this.label(bx + 62, by + 13, 'B · INDIETRO', COLORS.paper, 13).setOrigin(.5, 0);
     }
   }
 
@@ -731,7 +739,10 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private commandHeight(): number {
-    return this.viewport.height < 520 && this.viewport.width > 600 ? (this.mode === 'moves' ? 148 : 112) : 166;
+    const hasBack = this.mode !== 'menu' && this.mode !== 'message' && this.mode !== 'learning' && !this.playerForcedToSwitch;
+    const landscape = this.viewport.height < 520 && this.viewport.width > 600;
+    if (landscape) return hasBack ? 148 : 112;
+    return hasBack && this.mode !== 'moves' ? 204 : 166;
   }
 
   private navigate(rowDelta: number, columnDelta: number): void {

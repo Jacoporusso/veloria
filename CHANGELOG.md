@@ -1,3 +1,8 @@
+## 0.3.100 — Indietro nella lotta mobile (20/10/2026)
+
+- Pulsante Indietro con area124×44, separata dai comandi e dal collegamento ai dettagli. Spazio riservato anche in Borsa/Squadra/Cattura; nessun turno o PP consumato tornando al menu.
+- Due prove touch passate in portrait390×844 e landscape844×390, toccando il margine del pulsante. Revisione dei dettagli mosse e nuove presentazioni di evoluzione/cattura ancora da implementare secondo il design concordato.
+
 ## 0.3.99 — Interazione iniziale da PC (20/10/2026)
 
 - Le pressioni brevi di frecce/WASD aggiornano subito movimento e direzione: il primo tocco non dipende più dal campionamento del fotogramma.

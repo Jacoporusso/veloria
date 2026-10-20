@@ -1,3 +1,7 @@
+## Indietro nella lotta mobile0.3.100 —20/10/2026
+
+Pulsante con hit area124×44 al posto del testo interattivo10px. Footer riservato senza sovrapporre gli ultimi comandi; altezza dei pannelli Borsa/Squadra/Cattura adattata in entrambi gli orientamenti. Due test browser passati2,6s: tocco sul margine del target e stato battaglia identico dopo ritorno. TypeScript passato. Borgofonte/transizioni in lavorazione separata, non inclusi in questo commit. Pubblicazione da confermare.
+
 ## Pubblicazione correzione PC0.3.99 —20/10/2026
 
 Commit `3f3fcf4f91f3b48faa2fc2ddf0197594ec589c8a` su main. Deploy Pages `39476491396` SUCCESS; HTTPS conferma registro0.3.99 e cachev120. Verifica completa `39476491440` in esecuzione, non ancora attestata verde. Quattro scenari desktop e regressione touch passati localmente. Aggiornamento documentale senza duplicare i workflow.
