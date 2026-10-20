@@ -1,3 +1,7 @@
+## Pubblicazione Santuario0.3.94 —20/10/2026
+
+Commit gioco `45c29882a3c8a2a3705a81479f9691050571378b` pubblicato; deploy Pages `39416687436` riuscito. HTTPS conferma registro0.3.94, cachev115 e Tiled D06 32×24. Commit successivo `ddf59b72df11c5e4f9ad35cd256b1455802339e3` include la selezione delle suite Playwright già verificata localmente: il file config non era incluso nel primo staging. Verify intermedio39416687513 annullato perché superato; nuova verifica39416755246 e deploy39416755376 ancora in attesa/all’avvio al momento di questo aggiornamento. Non si attesta una suite Linux completa verde. Aggiornamento soltanto documentale, senza nuovo workflow duplicato.
+
 ## Santuario locale0.3.94 —20/10/2026
 
 -41mappe,39quest,16allenatori,10negozi,256asset;69specie/71mosse.429dominio+16persistenza,88Python, validatore e build riusciti.

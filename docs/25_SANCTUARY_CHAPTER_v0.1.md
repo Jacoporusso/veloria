@@ -2,7 +2,7 @@
 
 ## Stato
 
-Integrazione locale in verifica, non ancora pubblicata.41mappe,39quest,16allenatori,10negozi,256asset; catalogo69specie/71mosse. La conclusione della ricerca sulla Risonanza non conclude la sfida sportiva: R16, Lega, finale ed epilogo restano da implementare.
+Pubblicata su GitHub Pages: deploy39416687436 riuscito; HTTPS conferma0.3.94/cachev115/D06.41mappe,39quest,16allenatori,10negozi,256asset; catalogo69specie/71mosse. La conclusione della ricerca sulla Risonanza non conclude la sfida sportiva: R16, Lega, finale ed epilogo restano da implementare.
 
 ## Accesso e geografia
 
@@ -28,4 +28,4 @@ Test dominio: prerequisiti, letture in entrambi gli ordini, consenso, ricevitore
 
 ## Evidenza locale
 
-429prove dominio+16persistenza e88Python passate; validatore globale e build riusciti. Scenario browser completo40,5s, regressione Concordia1,2m; primo accesso offline con ripristino/ricevitore/premio unico/ritorno17,3s (30,8s con build). Portrait e landscape esaminati. Pubblicazione e Linux ancora da confermare nel CI_STATUS.
+429prove dominio+16persistenza e88Python passate; validatore globale e build riusciti. Scenario browser completo40,5s, regressione Concordia1,2m; primo accesso offline con ripristino/ricevitore/premio unico/ritorno17,3s (30,8s con build). Portrait e landscape esaminati. Pubblicazione confermata; nuova suite Linux39416755246 ancora da confermare nel CI_STATUS.

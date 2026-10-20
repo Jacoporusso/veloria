@@ -1,4 +1,4 @@
-## 0.3.94 — Santuario delle Due Luci (locale,20/10/2026)
+## 0.3.94 — Santuario delle Due Luci (20/10/2026)
 
 - Nuovo ambiente illustrato originale e accesso dal padiglione orientale di Concordia dopo P8, con ritorno sempre disponibile.
 - Conclusione della ricerca sulla Risonanza: due letture, consenso esplicito con Elia, regolazione qualitativa a tre controlli, verifica del ricevitore e rapporto con premio unico. Nessuna distruzione della rete o nuova fazione antagonista.
