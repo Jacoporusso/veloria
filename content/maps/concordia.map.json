@@ -51,6 +51,12 @@
       "x": 20,
       "y": 24,
       "facing": "up"
+    },
+    {
+      "id": "from_sanctuary",
+      "x": 31,
+      "y": 14,
+      "facing": "down"
     }
   ],
   "connections": [
@@ -66,6 +72,14 @@
       "targetSpawnId": "from_city",
       "requiresFlags": [
         "q_concordia_restore_plan"
+      ]
+    },
+    {
+      "toMapId": "veloria/d06_santuario_due_luci",
+      "viaSpawnId": "from_sanctuary",
+      "targetSpawnId": "from_concordia",
+      "requiresFlags": [
+        "badge_drago_awarded"
       ]
     }
   ],

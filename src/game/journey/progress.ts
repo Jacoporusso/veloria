@@ -93,6 +93,13 @@ export const journeyMilestones = [
   {flag:'q_concordia_restore_plan',title:'Una scelta con Elia',objective:'Attraversa il ponte a est fino a Concordia. Elia ti aspetta presso l’osservatorio a nord-est della piazza. Rivedi le misure e scegli come ripristinare l’equilibrio; il piano apre la palestra a nord.'},
   {flag:'gym08_convergence_complete',title:'Due flussi insieme',objective:'Nella palestra di Concordia ruota i quattro relè. Il flusso menta del giardino e quello lilla della rete devono raggiungere insieme il ricevitore al centro. Controlla entrambi gli esiti nel menu di ciascun relè.'},
   {flag:'badge_drago_awarded',trainer:aurel,title:'La Medaglia Armonia',objective:'Raggiungi Aurel oltre il cancello della palestra. Dragonair teme il Ghiaccio; Kingdra è Acqua/Drago e non ha la stessa debolezza. Prepara una squadra varia e strumenti per HP e paralisi.'},
+  {flag:'q_d06_visited',title:'Il Santuario delle Due Luci',objective:'Dopo la Medaglia Armonia, entra nel padiglione del giardino a est della fontana di Concordia. Il passaggio conduce al Santuario; puoi tornare in città dall’ingresso a sud.'},
+  {flag:'q_d06_nature_read',title:'Il ritmo naturale',objective:'Nel Santuario, esamina il plinto a ovest della corte: annota il flusso GRADUALE. Le due stazioni possono essere lette in qualsiasi ordine.'},
+  {flag:'q_d06_network_read',title:'La risposta amplificata',objective:'Esamina il plinto a est: la rete richiede amplificazione CONTROLLATA e sincronia CONDIVISA. Poi confronta le due letture con Elia, vicino all’ingresso.'},
+  {flag:'q_d06_restore_authorized',title:'Un intervento condiviso',objective:'Parla con Elia nella corte a sud-est e conferma il piano di ripristino. Rivedere le misure o decidere dopo lascia le impostazioni invariate.'},
+  {flag:'q_d06_balance_restored',title:'Riallineare le Due Luci',objective:'Usa il plinto al centro-sud: flusso naturale GRADUALE, amplificazione CONTROLLATA, sincronia CONDIVISA. Scegli VERIFICA EQUILIBRIO; puoi ripristinare e riprovare.'},
+  {flag:'q_d06_receiver_confirmed',title:'Verificare il risultato',objective:'Esamina il ricevitore luminoso sotto l’arco a nord del Santuario. La regolazione non basta: serve verificare che i due segnali coincidano.'},
+  {flag:'q_resonance_restored',title:'La Risonanza ritrovata',objective:'Torna da Elia presso l’ingresso del Santuario e consegna il rapporto verificato. Riceverai il compenso della ricerca; l’uscita a sud riporta a Concordia.'},
   {flag:'q_r15_nilo_helped',optional:true,trainer:niloR15,title:'Un allenamento con Nilo',objective:'Sul Passo delle Due Luci, Nilo ti aspetta sulla piazzetta del ponte. La sfida è facoltativa: puoi curare la squadra a Concordia e tornare quando sei pronto.'},
 ] as const;
 

@@ -261,7 +261,7 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
 test('E2E-06: the cached adventure reaches three badges offline', async ({ page, context }, testInfo) => {
   // Hosted software rendering reaches the second gym near eight minutes.
   // Keep each interaction bounded while allowing the complete three-badge route.
-  test.setTimeout(process.env.CI ? 720_000 : 480_000);
+  test.setTimeout(process.env.CI ? 900_000 : 480_000);
   const runtimeErrors: string[] = [];
   page.on('pageerror', error => runtimeErrors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') runtimeErrors.push(message.text()); });
@@ -954,4 +954,19 @@ test('P8 relays, crystal and dragon resources, and Concordia rail work offline',
  await walkTo(page,'concordia.tmj',20,24);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();
  const before=travelResources(await readBrowserSave(page));await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Vetracielo',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');expect(travelResources(await readBrowserSave(page))).toEqual(before);
  await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/vetracielo');await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Concordia',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');expect(travelResources(await readBrowserSave(page))).toEqual(before);expect(failures).toEqual([]);
+});
+
+
+test('Sanctuary first offline visit restores and verifies resonance, rewards once and returns to Concordia',async({page,context})=>{
+ test.setTimeout(process.env.CI?240_000:150_000);await page.goto('/');await enterGame(page);await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),undefined,{timeout:30_000});
+ const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','badge_drago_awarded','q_d06_nature_read','q_d06_network_read','q_d06_restore_authorized'])];save.badges=[...new Set([...save.badges,'badge_armonia'])];save.player={...save.player,mapId:'veloria/d06_santuario_due_luci',spawnPointId:'from_concordia',x:15,y:22};await seedBrowserSave(page,save);const initialMoney=save.player.money,initialItems=save.inventory['hyper-potion']??0;
+ const failures:string[]=[];page.on('requestfailed',r=>failures.push(r.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/d06_santuario_due_luci');
+ expect(await page.evaluate(async()=>{const image=new Image();image.src='/assets/scenery/veloria-sanctuary-two-lights-v1.webp';await image.decode();const response=await fetch('/tilemaps/d06_santuario_due_luci.tmj');return[image.naturalWidth>1000,(await response.json()).width];})).toEqual([true,32]);
+ const confirm=()=>page.getByRole('button',{name:'Conferma e interagisci',exact:true});
+ async function finishDialogue(){for(let i=0;i<24&&await page.locator('#dialogue-box').isVisible();i++)await confirm().tap();await expect(page.locator('#dialogue-box')).toBeHidden();}
+ await walkTo(page,'d06_santuario_due_luci.tmj',16,16);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm().tap();for(const name of ['Flusso naturale → Graduale','Amplificazione → Controllata','Sincronia → Parziale','Sincronia → Condivisa','VERIFICA EQUILIBRIO','CHIUDI'])await page.getByRole('button',{name,exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d06_balance_restored');
+ await page.reload();await enterGame(page);await walkTo(page,'d06_santuario_due_luci.tmj',16,6);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm().tap();await finishDialogue();await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d06_receiver_confirmed');
+ await walkTo(page,'d06_santuario_due_luci.tmj',18,18);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm().tap();await finishDialogue();await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_resonance_restored');
+ await page.reload();await enterGame(page);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm().tap();await finishDialogue();const after=await readBrowserSave(page);expect(after.player.money).toBe(initialMoney+1000);expect(after.inventory['hyper-potion']).toBe(initialItems+2);
+ await walkTo(page,'d06_santuario_due_luci.tmj',15,23);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');expect(failures).toEqual([]);
 });

@@ -1,3 +1,12 @@
+## Santuario locale0.3.94 —20/10/2026
+
+-41mappe,39quest,16allenatori,10negozi,256asset;69specie/71mosse.429dominio+16persistenza,88Python, validatore e build riusciti.
+- Browser completo Santuario40,5s (39,7s scenario): accesso bloccato prima della medaglia, due letture e reload, riesame/rinvio senza consenso, conferma, regolazione parziale persistente, verifica errata/reset, soluzione, ricevitore obbligatorio, rapporto/premio unico e ritorno a Concordia. Regressione percorso D05–R15–Concordia e ritorno passata1,2m. Portrait e landscape esaminati.
+- Primo accesso offline al Santuario e alla Tiled, regolazione/verifica/ricevitore/rapporto con premio unico/reload/ritorno riuscito17,3s (30,8s con build). Cachev115. Nessuna modifica runtime durante le prove.
+- Primo tentativo browser non orientava il personaggio verso la console dopo reload: fixture corretta. Secondo tentativo ricaricava prima della conferma IndexedDB della lettura orientale; aggiunta attesa del flag persistito. Terzo scenario passato. La revisione visiva ha evidenziato il precedente toast d’errore rimasto dopo verifica riuscita: ora sostituito da conferma, provata nel browser e offline.
+- Verify0.3.93 `39390958641`:7shard riusciti, shard5 supera24min dopo il ritorno montano (ora passato6,1m) e13prove successive tutte verdi; suite piatta per conteggio concentrava16MVP in un gruppo. Configurazione ora separa16MVP/125capitoli su4shard ciascuno (8runner come prima), conservando141prove. OfflineE2E06 arriva a tre medaglie persistite e menu emblemi, ma scade720s durante scrollIntoView finale; artifact esaminato. BudgetCI900s, locale480s invariato; itinerario lungo separato dal resto offline in due job, step20min. Nuova conferma Linux necessaria, nessuna prova dichiarata verde per semplice modifica del budget.
+- Pubblicazione0.3.94 ancora da confermare. R16, Lega, finale, bilanciamento naturale e catalogo completo restano aperti.
+
 ## Pubblicazione Concordia 0.3.93 — 20/10/2026
 
 Commit `4e94056afa7879a2c294fd046f3df18df5c66741` pubblicato su main. Deploy Pages `39390958602` riuscito: test, validatore, build con base `/veloria/` e deploy completati. Verificati via HTTPS registro `veloria-content-0.3.93`, service worker `v114` e Tiled P8 `32×24`. Verify `39390958641` ancora in esecuzione; non si attesta una suite Linux completa verde. Questo aggiornamento modifica soltanto documentazione.

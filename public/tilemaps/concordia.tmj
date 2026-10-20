@@ -3478,12 +3478,45 @@
             {
               "name": "failureMessage",
               "type": "string",
-              "value": "Parla con Elia per preparare il piano di ripristino."
+              "value": "Confronta le due misure con Elia presso l’osservatorio a nord-est e scegli il piano di ripristino."
+            }
+          ]
+        },
+        {
+          "id": 171,
+          "name": "Santuario delle Due Luci",
+          "type": "",
+          "x": 992,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "map-exit"
+            },
+            {
+              "name": "destinationMapId",
+              "type": "string",
+              "value": "veloria/d06_santuario_due_luci"
+            },
+            {
+              "name": "destinationSpawnId",
+              "type": "string",
+              "value": "from_concordia"
+            },
+            {
+              "name": "requiredFlag",
+              "type": "string",
+              "value": "badge_drago_awarded"
             },
             {
               "name": "failureMessage",
               "type": "string",
-              "value": "Confronta le due misure con Elia presso l’osservatorio a nord-est e scegli il piano di ripristino."
+              "value": "Conquista la Medaglia Armonia da Aurel prima della spedizione al Santuario."
             }
           ]
         }
@@ -3502,7 +3535,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 171,
+  "nextobjectid": 172,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

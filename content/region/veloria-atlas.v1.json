@@ -433,6 +433,20 @@
         "q_r15_visited"
       ],
       "description": "Due letture confrontano il ritmo naturale e l’amplificazione della rete."
+    },
+    {
+      "id": "santuario",
+      "name": "Santuario delle Due Luci",
+      "kind": "dungeon",
+      "x": 793,
+      "y": 70,
+      "mapIds": [
+        "veloria/d06_santuario_due_luci"
+      ],
+      "visitedFlags": [
+        "q_d06_visited"
+      ],
+      "description": "Il nodo sorgente della Risonanza: letture, consenso e riallineamento della rete."
     }
   ],
   "connections": [
@@ -555,6 +569,10 @@
     [
       "r15",
       "concordia"
+    ],
+    [
+      "concordia",
+      "santuario"
     ]
   ]
 }

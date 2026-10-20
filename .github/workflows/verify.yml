@@ -16,17 +16,14 @@ concurrency:
 
 jobs:
   verify:
-    name: Browser shard ${{ matrix.shard }}
+    name: Browser ${{ matrix.suite }} shard ${{ matrix.shard }}
     strategy:
       fail-fast: false
       matrix:
-        # Run 39385729650 exhausted shard 4 at 24 minutes with MVP journeys still
-        # running; distribute the growing suite over eight isolated runners.
-        # The previous middle shard exceeded its 24-minute step budget while
-        # the long MVP journeys were still running. Keep browser isolation and
-        # divide the suite further. Full walking journeys have separate hosted
-        # runner budgets, calibrated from their traces without skipping steps.
-        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+        # Separate long MVP journeys from chapter cases: count-based flat shards
+        # placed all 16 MVP cases together in run 39390958641 (24-minute timeout).
+        suite: [chapters, mvp]
+        shard: [1, 2, 3, 4]
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -66,13 +63,15 @@ jobs:
 
       - name: Run browser end-to-end tests
         timeout-minutes: 24
-        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/8
+        env:
+          VELORIA_E2E_SUITE: ${{ matrix.suite }}
+        run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/4
 
       - name: Preserve browser screenshots and traces
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: browser-diagnostics-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+          name: browser-diagnostics-${{ matrix.suite }}-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             test-results/
             test-results-e2e-offline/
@@ -81,9 +80,17 @@ jobs:
           retention-days: 7
 
   offline:
-    name: Offline adventure
+    name: Offline ${{ matrix.suite }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - suite: journey
+            filter: --grep=E2E-06
+          - suite: resources
+            filter: --grep-invert=E2E-06
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -96,13 +103,13 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - name: Test complete cached adventure
-        timeout-minutes: 15
-        run: npm run test:e2e:offline -- --workers=1
+        timeout-minutes: 20
+        run: npm run test:e2e:offline -- --workers=1 ${{ matrix.filter }}
       - name: Preserve offline diagnostics
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: offline-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          name: offline-diagnostics-${{ matrix.suite }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: test-results-e2e-offline/
           if-no-files-found: ignore
           retention-days: 7

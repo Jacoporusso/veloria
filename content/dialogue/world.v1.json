@@ -1626,9 +1626,15 @@
         ]
       },
       {
+        "whenFlagPresent": "q_resonance_restored",
         "lines": [
-          "Otto medaglie! Hai dimostrato come collaborare con il mondo che ti circonda. I dati sono pronti per il riallineamento del Santuario delle Due Luci.",
-          "Il nodo e il Cammino dell’Equilibrio saranno le prossime tappe. Intanto puoi tornare alle stazioni, preparare la squadra e completare il Pokédex."
+          "Il rapporto del Santuario è registrato: giardino e rete rispondono insieme. Grazie per aver verificato ogni passaggio, non soltanto cambiato le impostazioni.",
+          "Il Cammino dell’Equilibrio verso la Lega è la prossima tappa, ancora in preparazione. Puoi tornare al Santuario e ai sentieri della regione per allenare la squadra."
+        ]
+      },
+      {
+        "lines": [
+          "Otto medaglie! Il Santuario si raggiunge entrando nel padiglione del giardino a est della fontana. Ti aspetterò nella corte: prima leggeremo entrambe le stazioni e concorderemo l’intervento."
         ]
       }
     ]
@@ -1664,12 +1670,18 @@
       {
         "whenFlagMissing": "badge_drago_awarded",
         "lines": [
-          "Aurel custodisce la prova di convergenza. Conquista la Medaglia Armonia per preparare con Elia la spedizione al Santuario delle Due Luci."
+          "Conquista la Medaglia Armonia da Aurel per partecipare al riallineamento. Il Santuario si raggiunge dal padiglione del giardino a est della fontana."
+        ]
+      },
+      {
+        "whenFlagMissing": "q_resonance_restored",
+        "lines": [
+          "Entra nel padiglione qui accanto, a ovest del cartello: conduce al Santuario delle Due Luci. Elia ti aspetta nella corte. Le stazioni del giardino e della rete vanno confrontate prima di intervenire."
         ]
       },
       {
         "lines": [
-          "Le misure sono pronte per la spedizione al Santuario. Elia sta coordinando il riallineamento con le stazioni della regione. Puoi tornare a preparare la squadra nei quartieri della città."
+          "Il Santuario è stabile: natura e rete condividono il ritmo. Puoi tornare a consultare le letture dal padiglione del giardino."
         ]
       }
     ]
@@ -1684,8 +1696,14 @@
         ]
       },
       {
+        "whenFlagMissing": "q_resonance_restored",
         "lines": [
-          "Hai tutte e otto le medaglie. Prima di affrontare il Cammino dell’Equilibrio, la spedizione deve completare il riallineamento del Santuario. Il Centro di Concordia resta a tua disposizione."
+          "Dopo l’ottava medaglia, completa il riallineamento al Santuario: entra nel padiglione del giardino accanto alla fontana, raccogli le letture e parla con Elia."
+        ]
+      },
+      {
+        "lines": [
+          "La Risonanza è stabile e hai otto medaglie. Il Cammino dell’Equilibrio e la Lega sono la prossima tappa, ancora in preparazione. Puoi curare la squadra e tornare a esplorare la regione."
         ]
       }
     ]
@@ -1704,6 +1722,163 @@
         "lines": [
           "L’allenamento è registrato: la ricompensa non si ripete, ma possiamo continuare a confrontare le nostre strategie.",
           "Per Aurel preparerei più di una risposta: Dragonair e Kingdra non hanno gli stessi punti deboli. Ci vediamo sul cammino verso la Lega!"
+        ]
+      }
+    ]
+  },
+  "d06_nature_reading": {
+    "speaker": "Stazione occidentale · giardino",
+    "stages": [
+      {
+        "lines": [
+          "Il pannello riconosce la tua Medaglia Armonia. Prima completa la prova di convergenza con Aurel a Concordia: dobbiamo saper coordinare entrambi i flussi prima di intervenire."
+        ],
+        "whenFlagMissing": "badge_drago_awarded"
+      },
+      {
+        "lines": [
+          "Le radici e l’acqua mantengono un ritmo regolare. Il flusso attuale è troppo intenso: serve un FLUSSO NATURALE GRADUALE, senza fermare l’acqua del giardino.",
+          "Appunto: flusso graduale. Il ricevitore può seguire il ritmo soltanto se anche la rete lo condivide. Confronta la stazione a est e poi parla con Elia prima di regolare il nodo."
+        ],
+        "whenFlagMissing": "q_d06_nature_read",
+        "questEvent": "d06/nature/read"
+      },
+      {
+        "lines": [
+          "Appunto della stazione occidentale: FLUSSO NATURALE GRADUALE. L’acqua deve continuare a raggiungere il giardino e il nodo. Per la sincronia serve un ritmo CONDIVISO con la stazione orientale."
+        ]
+      }
+    ]
+  },
+  "d06_network_reading": {
+    "speaker": "Stazione orientale · rete",
+    "stages": [
+      {
+        "lines": [
+          "La verifica del nodo richiede la Medaglia Armonia. Aurel ti aspetta nella palestra di Concordia: la convergenza insegna a coordinare le due sorgenti."
+        ],
+        "whenFlagMissing": "badge_drago_awarded"
+      },
+      {
+        "lines": [
+          "La rete sta amplificando ogni piccola variazione. Serve un’AMPLIFICAZIONE CONTROLLATA, non la massima potenza e nemmeno spegnere tutto.",
+          "Appunto: amplificazione controllata e SINCRONIA CONDIVISA. I test della divisione di ricerca sono stati avviati senza l’autorizzazione necessaria e senza coordinare le stazioni. Ora i ricercatori ci aiutano a correggere il problema: porta entrambe le letture a Elia."
+        ],
+        "whenFlagMissing": "q_d06_network_read",
+        "questEvent": "d06/network/read"
+      },
+      {
+        "lines": [
+          "Appunto della stazione orientale: AMPLIFICAZIONE CONTROLLATA e SINCRONIA CONDIVISA. La rete può continuare a sostenere i giardini seguendo il ritmo naturale."
+        ]
+      }
+    ]
+  },
+  "d06_elia": {
+    "speaker": "Elia",
+    "stages": [
+      {
+        "lines": [
+          "Il Santuario raccoglie i segnali di tutta Veloria, {trainer}. Prima di toccare il nodo, completa con Aurel la prova di convergenza e conquista la Medaglia Armonia. Puoi tornare a Concordia dall’ingresso a sud."
+        ],
+        "whenFlagMissing": "badge_drago_awarded"
+      },
+      {
+        "lines": [
+          "Siamo arrivati al nodo delle Due Luci. Non dobbiamo scegliere tra giardini e rete: dobbiamo farli collaborare. Esamina prima la stazione occidentale, sul lato del giardino.",
+          "I test della divisione di ricerca non erano stati autorizzati e hanno alterato l’amplificazione. Gli scienziati hanno condiviso i registri e ora lavorano con noi: correggeremo le impostazioni usando le misure."
+        ],
+        "whenFlagMissing": "q_d06_nature_read"
+      },
+      {
+        "lines": [
+          "La lettura del giardino è pronta. Esamina anche la stazione orientale, sul lato dei condotti: prima di intervenire dobbiamo confrontare i due segnali."
+        ],
+        "whenFlagMissing": "q_d06_network_read"
+      },
+      {
+        "lines": [
+          "Le letture concordano: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. La rete resterà attiva, seguendo il ritmo del giardino.",
+          "Ti propongo di applicare queste tre impostazioni e poi verificare il ricevitore centrale. Vuoi procedere? Nessuna regolazione partirà finché non avrai scelto."
+        ],
+        "whenFlagMissing": "q_d06_restore_authorized",
+        "choicePrompt": "Come vuoi procedere?",
+        "choices": [
+          {
+            "id": "review",
+            "label": "RIVEDIAMO LE MISURE",
+            "lines": [
+              "A ovest abbiamo misurato il ritmo naturale: serve un flusso GRADUALE. A est abbiamo visto una risposta troppo intensa: serve un’amplificazione CONTROLLATA. Le due stazioni devono avere una sincronia CONDIVISA.",
+              "Regolerai il nodo, poi sceglierai Verifica equilibrio. Infine leggerai il ricevitore centrale e tornerai da me per il rapporto. Puoi rivedere gli strumenti e decidere più tardi."
+            ]
+          },
+          {
+            "id": "confirm",
+            "label": "RIPRISTINIAMO L’EQUILIBRIO",
+            "lines": [
+              "Piano confermato. Al nodo imposta flusso GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA, poi scegli Verifica equilibrio.",
+              "Dopo la regolazione, esamina il ricevitore centrale: non basta cambiare le impostazioni, dobbiamo controllare il risultato. Poi torna qui."
+            ],
+            "requiresFlags": [
+              "badge_drago_awarded",
+              "q_d06_nature_read",
+              "q_d06_network_read"
+            ],
+            "questEvent": "d06/plan/confirm"
+          }
+        ]
+      },
+      {
+        "lines": [
+          "Il piano è confermato. Regola il nodo: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. Scegli Verifica equilibrio quando tutte e tre le impostazioni corrispondono alle letture.",
+          "Il ricevitore centrale servirà a controllare il risultato. Puoi tornare all’ingresso e a Concordia in qualsiasi momento."
+        ],
+        "whenFlagMissing": "q_d06_balance_restored"
+      },
+      {
+        "lines": [
+          "Le impostazioni del nodo sono stabili! Ora esamina il ricevitore centrale per verificare che giardino e rete rispondano insieme. Poi torna qui: registreremo il risultato."
+        ],
+        "whenFlagMissing": "q_d06_receiver_confirmed"
+      },
+      {
+        "lines": [
+          "Il ricevitore conferma lo stesso ritmo nelle due stazioni. La Risonanza è tornata in equilibrio: l’acqua sostiene il giardino e la rete accompagna il segnale senza sovrastarlo.",
+          "Grazie, {trainer}. Gli scienziati registreranno ogni nuova regolazione e chiederanno l’autorizzazione prima di altri test. Per il lavoro di ricerca ricevi 1000 monete e due Iperpozioni.",
+          "Puoi tornare a Concordia dall’ingresso a sud. Le stazioni restano consultabili: questo risultato è un punto da cui continuare il viaggio, insieme ai tuoi Pokémon."
+        ],
+        "whenFlagMissing": "q_resonance_restored",
+        "questEvent": "d06/report"
+      },
+      {
+        "lines": [
+          "Il rapporto è registrato. Giardino e rete condividono lo stesso ritmo: abbiamo ripristinato l’equilibrio senza distruggere la tecnologia.",
+          "Le stazioni restano aperte per confrontare i dati. Puoi tornare a Concordia a sud, allenare la squadra e continuare a esplorare Veloria."
+        ]
+      }
+    ]
+  },
+  "d06_receiver": {
+    "speaker": "Ricevitore delle Due Luci",
+    "stages": [
+      {
+        "lines": [
+          "Il ricevitore non riesce ancora a confrontare i due flussi. Leggi le stazioni a ovest e a est, concorda il piano con Elia e regola il nodo prima di verificare il risultato."
+        ],
+        "whenFlagMissing": "q_d06_balance_restored"
+      },
+      {
+        "lines": [
+          "Verifica riuscita: il ritmo del giardino e la risposta della rete coincidono. Il segnale resta leggibile senza fermare l’acqua né interrompere le stazioni.",
+          "Lettura di controllo registrata. Torna da Elia per completare il rapporto: la regolazione è stata confermata anche dal ricevitore."
+        ],
+        "whenFlagMissing": "q_d06_receiver_confirmed",
+        "questEvent": "d06/receiver/confirm"
+      },
+      {
+        "lines": [
+          "Verifica registrata: flusso graduale, amplificazione controllata e sincronia condivisa. Le due stazioni rispondono insieme.",
+          "Il rapporto finale va consegnato a Elia. Puoi poi scendere verso l’ingresso a sud e tornare a Concordia."
         ]
       }
     ]

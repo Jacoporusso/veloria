@@ -1,0 +1,61 @@
+{
+  "id": "veloria/d06_santuario_due_luci",
+  "version": 2,
+  "displayName": "Santuario delle Due Luci",
+  "biomeId": "resonance_sanctuary",
+  "tiledAsset": "tilemaps/d06_santuario_due_luci.tmj",
+  "terrainBase": {
+    "assetKey": "veloria-sanctuary-two-lights-v1",
+    "tilesetName": "veloria_terrain",
+    "tileIndex": 0
+  },
+  "renderAssets": [
+    {
+      "kind": "tileset",
+      "key": "veloria-ground-hd-v5",
+      "path": "assets/tilesets/veloria-ground-hd-v5.webp",
+      "tiledName": "veloria_terrain",
+      "tileWidth": 254,
+      "tileHeight": 510
+    },
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v2",
+      "path": "assets/sprites/veloria-npcs-v2.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sanctuary-two-lights-v1",
+      "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp"
+    }
+  ],
+  "spawns": [
+    {
+      "id": "from_concordia",
+      "x": 15,
+      "y": 22,
+      "facing": "up"
+    }
+  ],
+  "connections": [
+    {
+      "toMapId": "veloria/concordia",
+      "viaSpawnId": "from_concordia",
+      "targetSpawnId": "from_sanctuary",
+      "requiresFlags": []
+    }
+  ],
+  "encounterTableIds": [],
+  "npcRefs": [
+    "d06_elia"
+  ],
+  "scriptRefs": [
+    "veloria/q_sanctuary_restoration"
+  ],
+  "musicId": "ambient_route02",
+  "battleBackgroundKey": "veloria-sanctuary-two-lights-v1"
+}

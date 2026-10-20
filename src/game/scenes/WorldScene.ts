@@ -1105,6 +1105,7 @@ export class WorldScene extends Phaser.Scene {
         this.applyQuestEvent(regulator.solvedEvent);
         void this.persistProgress();
         this.refreshMapVisuals();
+        this.showToast('Equilibrio verificato. Prosegui con le indicazioni del diario.');
       } else if (!state.completed) {
         this.showToast('Le letture non coincidono ancora. Controlla gli indizi delle stazioni e riprova.');
       }

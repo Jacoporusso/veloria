@@ -1,5 +1,7 @@
-const CACHE = 'veloria-shell-v114';
+const CACHE = 'veloria-shell-v115';
 const SHELL = [
+  './tilemaps/d06_santuario_due_luci.tmj',
+  './assets/scenery/veloria-sanctuary-two-lights-v1.webp',
   './tilemaps/r15_passo_due_luci.tmj',
   './tilemaps/concordia.tmj',
   './tilemaps/gym08_concordia.tmj',

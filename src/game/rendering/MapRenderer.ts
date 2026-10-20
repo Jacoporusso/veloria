@@ -185,6 +185,18 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
       }
       break;
     }
+    case 'resonance-beacon': {
+      // Authored state, shared rendering: feedback follows the verified quest flag.
+      const light = attach(container, scene.add.graphics().setDepth(depth + 1));
+      const cx = x + item.width / 2, cy = y + item.height / 2;
+      light.fillStyle(active ? 0x94f5dc : 0xa8abda, active ? .22 : .09).fillEllipse(cx, cy, item.width * .9, item.height * .9);
+      light.lineStyle(active ? 3 : 2, active ? 0xa3ffe6 : 0xb4abdf, active ? .9 : .4);
+      light.strokeEllipse(cx, cy, item.width * .68, item.height * .68);
+      light.lineStyle(2, active ? 0xe2c2ff : 0x68849a, active ? .85 : .35);
+      light.strokeEllipse(cx, cy, item.width * .4, item.height * .4);
+      if (active) light.fillStyle(0xf1fffa, .95).fillCircle(cx, cy, 4);
+      break;
+    }
     case 'signal-router':
       renderSignalRouter(scene, container, getSignalRouter(String(item.properties.routerId)), flags);
       break;

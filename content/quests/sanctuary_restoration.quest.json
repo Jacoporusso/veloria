@@ -1,0 +1,77 @@
+{
+  "id": "veloria/q_sanctuary_restoration",
+  "version": 1,
+  "displayName": "Le Due Luci, insieme",
+  "steps": [
+    {
+      "id": "visit",
+      "trigger": "area/veloria/d06_santuario_due_luci/enter",
+      "setFlag": "q_d06_visited",
+      "requiresFlags": [
+        "badge_drago_awarded"
+      ]
+    },
+    {
+      "id": "nature",
+      "trigger": "d06/nature/read",
+      "setFlag": "q_d06_nature_read",
+      "requiresFlags": [
+        "badge_drago_awarded"
+      ]
+    },
+    {
+      "id": "network",
+      "trigger": "d06/network/read",
+      "setFlag": "q_d06_network_read",
+      "requiresFlags": [
+        "badge_drago_awarded"
+      ]
+    },
+    {
+      "id": "authorize",
+      "trigger": "d06/plan/confirm",
+      "setFlag": "q_d06_restore_authorized",
+      "requiresFlags": [
+        "badge_drago_awarded",
+        "q_d06_nature_read",
+        "q_d06_network_read"
+      ]
+    },
+    {
+      "id": "balance",
+      "trigger": "d06/balance/restored",
+      "setFlag": "q_d06_balance_restored",
+      "requiresFlags": [
+        "badge_drago_awarded",
+        "q_d06_nature_read",
+        "q_d06_network_read",
+        "q_d06_restore_authorized"
+      ]
+    },
+    {
+      "id": "receiver",
+      "trigger": "d06/receiver/confirm",
+      "setFlag": "q_d06_receiver_confirmed",
+      "requiresFlags": [
+        "badge_drago_awarded",
+        "q_d06_balance_restored"
+      ]
+    },
+    {
+      "id": "report",
+      "trigger": "d06/report",
+      "setFlag": "q_resonance_restored",
+      "requiresFlags": [
+        "badge_drago_awarded",
+        "q_d06_receiver_confirmed"
+      ]
+    }
+  ],
+  "completionFlag": "q_resonance_restored",
+  "reward": {
+    "money": 1000,
+    "items": {
+      "hyper-potion": 2
+    }
+  }
+}

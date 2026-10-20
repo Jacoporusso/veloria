@@ -2,9 +2,9 @@
 
 ## Stato e limiti
 
-Versione **locale, non ancora pubblicata** al momento di questo documento. Il catalogo integrato contiene 40 mappe, 38 quest, 16 allenatori, 10 negozi, 254 asset registrati, 69 specie e 71 mosse supportate. Le otto medaglie sono presenti; questo non attesta il completamento della storia.
+Versione **0.3.93 pubblicata e verificata via HTTPS**: deploy Pages `39390958602`, contenuti 0.3.93 e cache v114. Il catalogo integrato contiene 40 mappe, 38 quest, 16 allenatori, 10 negozi, 254 asset registrati, 69 specie e 71 mosse supportate. Le otto medaglie sono presenti; questo non attesta il completamento della storia.
 
-Cinque prove browser sono passate in circa 3,5 minuti. Verificano percorso, dialoghi, scelta, acquisti, convergenza, lotta, medaglia, salvataggio, trasporto e regressioni pertinenti. La prova di Aurel usa un Dewgong di livello 75 preparato come checkpoint: dimostra l’integrazione della battaglia e della ricompensa, **non il bilanciamento della progressione naturale**. La verifica offline del nuovo capitolo resta pendente. Pubblicazione e CI della nuova revisione non sono ancora attestate qui.
+Cinque prove browser sono passate in circa 3,5 minuti. Verificano percorso, dialoghi, scelta, acquisti, convergenza, lotta, medaglia, salvataggio, trasporto e regressioni pertinenti. La prova di Aurel usa un Dewgong di livello 75 preparato come checkpoint: dimostra l’integrazione della battaglia e della ricompensa, **non il bilanciamento della progressione naturale**. Il primo accesso offline del nuovo capitolo è passato in 25,2 secondi (37,5 secondi inclusa build), con ambienti, artwork, Tiled, relè, reload e monorotaia. La suite browser CI completa `39390958641` risultava ancora in esecuzione all’ultimo controllo registrato; il dettaglio delle altre verifiche è in fondo al documento.
 
 ## Percorso e letture
 

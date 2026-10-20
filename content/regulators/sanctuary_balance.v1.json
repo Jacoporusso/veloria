@@ -1,0 +1,92 @@
+{
+  "id": "sanctuarybalance",
+  "name": "Nodo delle Due Luci",
+  "requiredFlags": [
+    "badge_drago_awarded",
+    "q_d06_nature_read",
+    "q_d06_network_read",
+    "q_d06_restore_authorized"
+  ],
+  "solvedFlag": "q_d06_balance_restored",
+  "solvedEvent": "d06/balance/restored",
+  "controls": [
+    {
+      "id": "water",
+      "label": "Flusso naturale",
+      "hint": "La stazione occidentale richiede un flusso graduale: lascia che il giardino continui a nutrire il nodo.",
+      "min": 0,
+      "max": 2,
+      "initial": 2,
+      "target": 1,
+      "levels": [
+        {
+          "value": 0,
+          "label": "Fermo",
+          "hint": "Il flusso naturale non raggiunge il nodo."
+        },
+        {
+          "value": 1,
+          "label": "Graduale",
+          "hint": "Il giardino alimenta il nodo con continuità."
+        },
+        {
+          "value": 2,
+          "label": "Intenso",
+          "hint": "Il flusso attraversa il nodo troppo rapidamente."
+        }
+      ]
+    },
+    {
+      "id": "gain",
+      "label": "Amplificazione",
+      "hint": "La stazione orientale richiede un’amplificazione controllata, conservando attiva la rete.",
+      "min": 0,
+      "max": 2,
+      "initial": 2,
+      "target": 1,
+      "levels": [
+        {
+          "value": 0,
+          "label": "Spenta",
+          "hint": "La rete non amplifica il segnale."
+        },
+        {
+          "value": 1,
+          "label": "Controllata",
+          "hint": "La rete sostiene il segnale senza sovrastarlo."
+        },
+        {
+          "value": 2,
+          "label": "Massima",
+          "hint": "La rete amplifica ogni variazione al massimo."
+        }
+      ]
+    },
+    {
+      "id": "synchrony",
+      "label": "Sincronia",
+      "hint": "Confronta entrambe le letture: il ritmo deve essere condiviso dalle due stazioni.",
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "target": 2,
+      "levels": [
+        {
+          "value": 0,
+          "label": "Sfasata",
+          "hint": "Le stazioni rispondono in momenti diversi."
+        },
+        {
+          "value": 1,
+          "label": "Parziale",
+          "hint": "Le stazioni condividono soltanto parte del ritmo."
+        },
+        {
+          "value": 2,
+          "label": "Condivisa",
+          "hint": "Le due stazioni rispondono insieme al ritmo naturale."
+        }
+      ]
+    }
+  ]
+}

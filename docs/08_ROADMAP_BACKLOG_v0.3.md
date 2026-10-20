@@ -1,3 +1,9 @@
+## Aggiornamento locale0.3.94
+
+Santuario delle Due Luci collegato dopo P8: ambiente originale, ricerca in ordine libero, consenso, tre controlli dichiarativi, verifica indipendente del ricevitore e rapporto finale unico. Nessun portale verso mappe assenti. Documentazione25 e CI_STATUS attestano integrazione e verifiche.
+
+Prossimo capitolo geografico: R16 Cammino dell’Equilibrio, Lega, conclusione sportiva ed epilogo. Rimangono bilanciamento naturale, catalogo251, abilità/effetti/evoluzioni mancanti e uniformità artistica iniziale. La ricerca conclusa non equivale alla partita completa.
+
 ## Aggiornamento locale 0.3.93
 
 R15, Concordia e P8 collegati: osservazioni, scelta esplicita con Elia, puzzle a due sorgenti, Aurel e ottava medaglia, Nilo facoltativo, cure/mercato/monorotaia. Catalogo69specie/71mosse; medicine importate dalle fonti locali. Contratto e limiti nel documento24. Sei prove browser riuscite; verifica offline e pubblicazione in corso nel CI_STATUS.
