@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.107 confermata — 21/10/2026
+
+Commit068711e su main. [Deploy39597092439](https://github.com/Jacoporusso/veloria/actions/runs/39597092439) SUCCESS: test, validazione e build riusciti su Linux. Sito HTTPS200, cache `veloria-shell-v128` e artwork Pidgeot200 verificati dopo il deploy. [Verify39597092448](https://github.com/Jacoporusso/veloria/actions/runs/39597092448) in attesa al controllo finale; suite completa non ancora attestata verde.
+
 ## 0.3.107 — Sei evoluzioni verificate localmente (21/10/2026)
 
 Catalogo79 specie e78 mosse,320 asset registrati. Passati509 test dominio/persistenza,103 Python, TypeScript, validazione delle fonti/import e build produzione. Sei prove browser verificano Pidgeot, Gloom, Poliwhirl, Weepinbell, Electrode e Ariados: soglia ufficiale, cerimonia, artwork nuovo e identità/HP/PP dopo reload IndexedDB. Il test produzione offline decodifica tutti15 artwork evolution alla prima richiesta senza rete (2,2s;15,3s inclusa build). Le tabelle incontri non cambiano: i precursori erano già disponibili. Cachev128; pubblicazione da confermare.
