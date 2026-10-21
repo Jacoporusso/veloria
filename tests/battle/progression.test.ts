@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import progressionData from '../../content/battle/progression.v1.json' with { type: 'json' };
+import progressionData from '../../content/battle/progression.v2.json' with { type: 'json' };
 import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';

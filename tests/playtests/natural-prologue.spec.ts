@@ -1,3 +1,4 @@
+import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
 
@@ -42,34 +43,40 @@ test('fresh trainer completes the prologue through real game controls', async ({
   async function record(label: string) {
     const state = await observe(page);
     const row = { label, contentVersion: state.save.contentVersion, mapId: state.mapId, x:state.x,y:state.y,
-      party: state.save.party, badges: state.save.badges, flags: state.save.flags, inventory:state.save.inventory };
+      party: state.save.party, badges: state.save.badges, flags: state.save.flags, inventory:state.save.inventory, money:state.save.player.money };
     report.push(row); console.log(label, JSON.stringify(row));
   }
   async function fight() {
     for (let action=0; action<600; action++) {
+      await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
       const state=await observe(page), battle=state.battle;
       if(!battle) return;
       if (battle.outcome.kind !== 'ongoing' && !observedBattles.has(battle.id)) {
         observedBattles.add(battle.id);
         report.push({ label: 'Battle result', id: battle.id, rulesetId: battle.rulesetId, turn: battle.turn, outcome: battle.outcome, player: battle.player, opponent: battle.opponent, events: battle.events });
       }
+      const celebration = page.locator('.battle-celebration, .evolution-celebration');
+      if (await celebration.isVisible()) {
+        const next = celebration.getByRole('button', { name: 'Continua', exact: true });
+        await expect(next).toBeVisible({timeout:15_000}); await next.click(); continue;
+      }
+      if (battle.mode === 'learning') { await tapBattleLabel(page, '__naturalGame', 'Tieni le mosse'); continue; }
       if(battle.mode==='message'||battle.mode==='party') {
         await page.keyboard.press('Enter',{delay:40}); continue;
       }
-      if(battle.mode!=='menu') throw Error('Unexpected battle mode: '+battle.mode);
+      if(battle.mode!=='menu' && battle.mode!=='moves') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
       const upgradeCompanion = prepareGym && state.mapId === 'veloria/r02_viale_fronde' && target.level >= 5
         && state.save.party.length < 3 && state.save.party.slice(1).every((member: any) => member.level < 5);
       if(battle.type==='wild' && (state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
-        await page.keyboard.press('ArrowDown',{delay:40});
-        await page.keyboard.press('ArrowRight',{delay:40});
+        await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
       } else if(own.hp/own.stats.maxHp<0.5 && battle.inventory?.potion>0) {
-        await page.keyboard.press('ArrowDown',{delay:40});
+        await tapBattleLabel(page, '__naturalGame', 'BORSA');
         await page.keyboard.press('Enter',{delay:40});
       } else {
-        await page.keyboard.press('Enter',{delay:40});
+        await tapBattleLabel(page, '__naturalGame', 'LOTTA');
         // Use visible setup effects once, then damage. Never inspect the pending opponent command.
         const slots = own.moves.map((slot: any, index: number) => ({ index, pp: slot.pp, move: battle.moves[slot.moveId] }));
         const displayedScore = (slot: any) => {
@@ -88,14 +95,9 @@ test('fresh trainer completes the prologue through real game controls', async ({
               && (target.statStages?.defense ?? 0) >= 0)
           : undefined;
         const preferred = usefulSetup ?? damageOption;
-        if (preferred) {
-          const enabled = slots.filter((slot: any) => slot.pp > 0);
-          const first = enabled[0].index;
-          if (Math.floor(preferred.index / 2) > Math.floor(first / 2)) await page.keyboard.press('ArrowDown',{delay:40});
-          if (preferred.index % 2 > first % 2) await page.keyboard.press('ArrowRight',{delay:40});
-        }
+        if (preferred) await tapBattleLabel(page, '__naturalGame', preferred.move.name);
+        else await page.keyboard.press('Enter',{delay:40}); // The normal emergency move when PP are exhausted.
       }
-      await page.keyboard.press('Enter',{delay:40});
     }
     throw Error('Battle exceeded 600 UI actions');
   }
@@ -130,6 +132,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
     if(!path)throw Error('No route in '+start.mapId+' to '+tx+','+ty);
     for(const label of path) {
       const before=await observe(page);
+      await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
       await page.getByRole('button',{name:label,exact:true}).tap();
       await expect.poll(async()=>{const s=await observe(page);return s.mapId+'|'+s.x+','+s.y}).not.toBe(before.mapId+'|'+before.x+','+before.y);
       await settle();
@@ -150,7 +153,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
   }
   try {
     await settle();
-    await walk(20,30);
+    await walk(21,25);
     await interact(12,7);
     await expect(page.getByRole('button',{name:starter,exact:true})).toBeVisible();
     await page.getByRole('button',{name:starter,exact:true}).click();
@@ -158,7 +161,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
     await expect.poll(async()=>(await observe(page)).save.party[0]?.speciesId).toBe(starterIds[starter]);
     await settle();await interact(12,7);
     await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_research_sample_received');
-    await walk(11,14);await walk(23,7);await record('R01 reached naturally');
+    await walk(11,14);await walk(22,0);await record('R01 reached naturally');
     await challenge(7,9,'Sera battle completed');
     await interact(15,9);
     await challenge(18,12,'Timo battle completed');

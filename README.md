@@ -1,8 +1,8 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.108:** quattro nuovi allenamenti facoltativi tra costa e montagna,31 allenatori e79 specie. Evoluzioni con artwork offline, carte mosse e barra azioni nella lotta. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.109:** curve XP ufficiali per tutte79 specie e nuovi playtest naturali fino alla prima medaglia/Radicelmo.31 allenatori, evoluzioni con artwork offline, carte mosse e barra azioni. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
 
-**Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
+**Data:** 21 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
 Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.96 collega Borgofonte al Campione e all’epilogo: 48 mappe, otto medaglie, 27 allenatori, 69 specie e 78 mosse da fonti locali PokéAPI. Il Santuario conclude la ricerca sulla Risonanza; la Lega propone cinque incontri consecutivi senza cure automatiche, con interruzione esplicita e premi unici. Cerimonia ed epilogo sono recuperabili dopo il ricaricamento. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale dell’intera avventura. Catalogo completo, ulteriori meccaniche e post-game restano aperti. Regole ed estensione: [Lega](docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md). `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 

@@ -3,7 +3,7 @@ import test from 'node:test';
 import battleData from '../../content/battle/moves.v1.json' with { type: 'json' };
 import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
 import importsData from '../../content/battle/species-imports.v1.json' with { type: 'json' };
-import progression from '../../content/battle/progression.v1.json' with { type: 'json' };
+import progression from '../../content/battle/progression.v2.json' with { type: 'json' };
 import evolutionReference from '../../content/battle/evolution-reference.v1.json' with { type: 'json' };
 import learnsets from '../../content/battle/level-up-moves.v1.json' with { type: 'json' };
 import sourceLearnsets from '../../content/sources/pokeapi/source-learnsets.json' with { type: 'json' };

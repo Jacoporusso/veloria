@@ -8,7 +8,7 @@ import type { BattleMoveRegistry, SpeciesBattleRegistry } from '../../core/battl
 import type { TrainerBattleDefinition } from './create-battle-state.ts';
 import type { ShopDefinition } from '../../core/services/shop.ts';
 import itemData from '../../../content/items/items.v1.json';
-import progressionData from '../../../content/battle/progression.v1.json';
+import progressionData from '../../../content/battle/progression.v2.json';
 import typeChartData from '../../../content/battle/type-chart.v1.json';
 import type { EvolutionRule, ExperienceCurve, TypeChart } from '../../core/battle/rules.ts';
 

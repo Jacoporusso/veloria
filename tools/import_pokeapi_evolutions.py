@@ -9,7 +9,7 @@ MAX_REFERENCE_GENERATION = 4
 def build_evolution_entries(registry, version_group, load):
     """Describe Gen-IV evolution methods without extending the runtime roster.
 
-    Reference targets may be outside Gen I–II. Only progression.v1.json enables
+    Reference targets may be outside Gen I–II. Only progression.v2.json enables
     actual evolutions; this catalog also explains official unavailable methods.
     """
     def key_of(reference):
@@ -126,7 +126,7 @@ def main(argv=None):
     version_group = load('version-group', 'heartgold-soulsilver')
     entries = build_evolution_entries(registry, version_group, load)
 
-    progression = json.loads((ROOT / 'content/battle/progression.v1.json').read_text(encoding='utf-8'))
+    progression = json.loads((ROOT / 'content/battle/progression.v2.json').read_text(encoding='utf-8'))
     for rule in progression['evolutions']:
         if not any(entry['targetSpeciesId'] == rule['toSpeciesId'] and entry['trigger'] == 'level-up'
                    and entry['minimumLevel'] == rule['minimumLevel']

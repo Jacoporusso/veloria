@@ -23,8 +23,12 @@ Urban imports use `artworkGroup: urban` in the species import configuration. `py
 
 ### Evoluzioni dei sentieri — 0.3.72
 
-La configurazione `species-imports.v1.json` dichiara altri sei import (17,20,162,164,180,195), ereditando soltanto la curva XP provvisoria dai rispettivi precursori. I parametri storici, learnset e condizioni evolutive restano dati della fonte. Eseguire in ordine gli importatori species, battle, evolution_art, evolutions; `--fetch` è necessario soltanto per risposte/artwork assenti. `--check` verifica poi tutti i manifest e hash senza rete. Gli artwork evolutivi sono WebP lossless dai PNG conservati; il gruppo conta ora nove immagini, separato dalle due urbane. Il runtime non chiama PokéAPI.
+La configurazione `species-imports.v1.json` dichiara altri sei import (17,20,162,164,180,195), usando la categoria di crescita ufficiale della specie. I parametri storici, learnset e condizioni evolutive restano dati della fonte. Eseguire in ordine gli importatori species, growth, battle, evolution_art, evolutions; `--fetch` è necessario soltanto per risposte/artwork assenti. `--check` verifica poi tutti i manifest e hash senza rete. Gli artwork evolutivi sono WebP lossless dai PNG conservati; il gruppo conta quindici immagini, separato dalle cinque urbane. Il runtime non chiama PokéAPI.
 
 ### Ferraluce catalog preparation — 0.3.78
 
 Imports 82/208/227 use the urban artwork group and inherited prototype XP curve only; parameters and learnsets come from HGSS sources. Rock Throw joins the supported ordinary physical attacks. These imports do not create trainer teams or encounter tables. Reference evolution locations accept only level-up triggers, reject unexplained extra conditions, and use the source Italian name or English fallback. Location conditions never enable runtime evolutions.
+
+## Curve XP ufficiali — 0.3.109
+
+`tools/import_pokeapi_growth.py --fetch` acquisisce gli endpoint growth-rate mancanti e genera le tabelle `progression.v2.json`, i curve ID per tutte le specie e `growth-manifest.json` con URL/path/SHA-256. `--check` non richiede rete e non scrive. La cache corrente contiene quattro tassi: slow1, medium2, fast3, medium-slow4. Ogni tabella ha esattamente100 totali per i livelli1–100, primo valore0 e crescita strettamente crescente. Il validatore controlla anche che le evoluzioni abilitate mantengano lo stesso tasso. Dopo nuovi import specie, eseguire growth prima della validazione finale. Nessuna formula o curva viene inventata per una categoria assente: serve il relativo endpoint ufficiale.

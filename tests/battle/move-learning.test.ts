@@ -17,7 +17,7 @@ function battleWithFullMoves() {
     criticalChance: 0,
     minimumDamageVariance: 1,
     maximumDamageVariance: 1,
-    experienceCurves: { veloria_medium_fast_v1: { exponent: 3, multiplier: 1 } },
+    experienceCurves: { [species[1].growthCurveId!]: { exponent: 3, multiplier: 1 } },
     levelUpMoves: { 1: [{ level: 6, moveId: 'vine-whip', maxPp: moves['vine-whip'].maxPp }] },
   };
   const player = createBattleCreature({

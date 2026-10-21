@@ -122,3 +122,7 @@ Il `itemId` del pickup Tiled identifica l’oggetto nella presentazione; non ass
 ### Evoluzioni: riferimenti e regole giocabili
 
 Il catalogo giocabile resta Gen I–II. Il riferimento informativo delle evoluzioni conserva i metodi ufficiali disponibili fino a HGSS/Gen IV, anche con target oltre 251; la UI li segnala come fuori catalogo e non disponibili. Il riferimento non abilita automaticamente regole runtime. Condizioni come mossa conosciuta, oggetto tenuto, amicizia, fascia oraria e luogo devono essere importate e descritte interamente; condizioni sconosciute fanno fallire l’import. Non trasformare uno scambio o un requisito speciale in un livello inventato.
+
+## Curve XP ufficiali — contratto progressionv2
+
+Dopo un import specie eseguire `tools/import_pokeapi_growth.py --fetch` (solo per fonti assenti) e poi `--check`. Le79 specie attuali sono verificate da pokemon-species e growth-rate locali; le tabelle di100 totali e le assegnazioni sono riproducibili dal growth-manifest con SHA-256. `progression.v2.json` conserva gli archi evolutivi già abilitati e cambia il formato delle curve; lo schema2 rifiuta formule, livelli mancanti o extra e categorie non registrate. Il controllo dell’importatore verifica anche ordine strettamente crescente, totale iniziale0 e coerenza della curva tra forme evolutive. Il runtime non chiama l’API.

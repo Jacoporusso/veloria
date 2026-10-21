@@ -10,7 +10,7 @@ const a=(page:Page)=>page.getByRole('button',{name:'Conferma e interagisci',exac
 async function dialogue(page:Page){for(let i=0;i<24&&await page.locator('#dialogue-box').isVisible();i++)await a(page).tap();await expect(page.locator('#dialogue-box')).toBeHidden();}
 async function untilChoices(page:Page){for(let i=0;i<24&&!await page.getByRole('button',{name:'Ripristiniamo l’equilibrio',exact:true}).isVisible();i++)await a(page).tap();await expect(page.getByRole('button',{name:'Ripristiniamo l’equilibrio',exact:true})).toBeVisible();}
 async function checkpoint(page:Page,mapId:string,spawnPointId:string,x:number,y:number,flags:string[]){
- await page.route('**/src/main.ts*',async route=>{const response=await route.fetch();await route.fulfill({response,body:await response.text()+'\nglobalThis.concordiaGame=game;'});});
+ await page.route('**/src/main.ts*',async route=>{const response=await route.fetch({maxRetries:2});await route.fulfill({response,body:await response.text()+'\nglobalThis.concordiaGame=game;'});});
  await page.goto('/');await enterGame(page);const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected',...flags])];save.player={...save.player,mapId,spawnPointId,x,y,money:4000};await seedBrowserSave(page,save);await page.reload();await enterGame(page);
 }
 async function inspect(page:Page,map:string,x:number,y:number,direction='Vai in alto'){

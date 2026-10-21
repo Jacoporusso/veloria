@@ -1,3 +1,11 @@
+## 0.3.109 — Crescita ufficiale verificata localmente (21/10/2026)
+
+520 test dominio/persistenza e106 Python passati, TypeScript, validazione fonti/schema e build produzione riusciti. Tutte79 specie assegnate ai quattro tassi ufficiali con100 soglie ciascuno; progressionv2, rulesetv12, cachev130. Passate19 evoluzioni browser; Piloswine aggiunge il caso a crescita lenta, poi Piloswine e Nilo ripassati dopo la chiusura del contratto2. Tutte quattro le categorie coperte dalla presentazione di evoluzione e persistenza.
+
+Due nuove partite naturali Charmander fino a Mira/Radicelmo con ripresa: baseline0.3.108 in7,2min e curve ufficiali in4,7min. Nessun seed, squadra, risorsa, livello, XP o flag iniettato;0 errori JS. Resoconti completi e limiti in `playtests/2026-10-21-official-growth.md`. Ultima build compilata: E2E06 cattura/tre medaglie senza rete passato in5,2min (5,4min con build), progressi salvati. Non certifica altri starter, campagna completa o telefoni fisici.
+
+[Verify39597338393](https://github.com/Jacoporusso/veloria/actions/runs/39597338393) del codice0.3.107 è SUCCESS su tutti i job, prima suite completa verde dopo la stabilizzazione. La successiva39599123971 del codice0.3.108 ha registrato ECONNRESET in route.fetch del test Nilo prima della partita; aggiunto maxRetries2 per i soli reset di trasporto del fetch locale, senza retry degli asserti o cambi al gioco. Nuova pubblicazione/CI da confermare.
+
 ## Pubblicazione 0.3.108 confermata — 21/10/2026
 
 Commit6796375 su main. [Deploy39599123864](https://github.com/Jacoporusso/veloria/actions/runs/39599123864) SUCCESS: test, validatore e build riusciti su Linux. Sito HTTPS200, cache `veloria-shell-v129` e trainer Ruben nel TMJ pubblico verificati dopo il deploy. [Verify39599123971](https://github.com/Jacoporusso/veloria/actions/runs/39599123971) in attesa al controllo del deploy, dietro la suite precedente. Nessuna attestazione di CI completa verde prima del suo esito.

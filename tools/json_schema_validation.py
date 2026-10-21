@@ -11,7 +11,7 @@ from typing import Any
 SUPPORTED_KEYWORDS = {
     "$schema", "title", "type", "additionalProperties", "required", "properties",
     "pattern", "minLength", "const", "enum", "minimum", "maximum", "minItems",
-    "items", "oneOf", "uniqueItems",
+    "items", "oneOf", "uniqueItems", "minProperties", "maxItems",
 }
 SUPPORTED_TYPES = {"object", "array", "string", "integer", "number", "boolean", "null"}
 
@@ -31,11 +31,11 @@ def _check_supported_keywords(schema: dict[str, Any], path: str = "#") -> None:
     required = schema.get("required", [])
     if not isinstance(required, list) or not all(isinstance(name, str) for name in required):
         raise AssertionError(f"Invalid required declaration at {path}")
-    for keyword in ("minLength", "minItems", "minimum", "maximum"):
+    for keyword in ("minLength", "minItems", "minProperties", "maxItems", "minimum", "maximum"):
         bound = schema.get(keyword)
         if bound is not None and (not isinstance(bound, (int, float)) or isinstance(bound, bool)):
             raise AssertionError(f"Invalid {keyword} declaration at {path}")
-    for keyword in ("minLength", "minItems"):
+    for keyword in ("minLength", "minItems", "minProperties", "maxItems"):
         bound = schema.get(keyword)
         if bound is not None and (not isinstance(bound, int) or isinstance(bound, bool) or bound < 0):
             raise AssertionError(f"Invalid {keyword} declaration at {path}")
@@ -104,6 +104,8 @@ def _validate(value: Any, schema: dict[str, Any], path: str, errors: list[str]) 
         errors.append(f"{path}: expected one of {schema['enum']!r}")
 
     if isinstance(value, dict):
+        if len(value) < schema.get("minProperties", 0):
+            errors.append(f"{path}: object has fewer than minProperties {schema['minProperties']}")
         missing = [key for key in schema.get("required", []) if key not in value]
         errors.extend(f"{path}: missing required property {key!r}" for key in missing)
         properties = schema.get("properties", {})
@@ -131,6 +133,8 @@ def _validate(value: Any, schema: dict[str, Any], path: str, errors: list[str]) 
             errors.append(f"{path}: number is above maximum {schema['maximum']}")
 
     if isinstance(value, list):
+        if "maxItems" in schema and len(value) > schema["maxItems"]:
+            errors.append(f"{path}: array has more than maxItems {schema['maxItems']}")
         if len(value) < schema.get("minItems", 0):
             errors.append(f"{path}: array has fewer than minItems {schema['minItems']}")
         if schema.get("uniqueItems") and len(value) != len({json.dumps(item, sort_keys=True, separators=(",", ":")) for item in value}):

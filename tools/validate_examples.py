@@ -24,6 +24,7 @@ from import_pokeapi_battle import main as verify_pokeapi_import
 from import_pokeapi_items import main as verify_item_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
+from import_pokeapi_growth import main as verify_growth_import
 from import_pokeapi_evolution_art import main as verify_evolution_art
 from import_pokeapi_species_art import main as verify_species_art
 from import_item_evolutions import main as verify_item_evolutions
@@ -39,7 +40,7 @@ SPECIES_FILE = ROOT / "content" / "battle" / "species.v1.json"
 MOVE_FILE = ROOT / "content" / "battle" / "moves.v1.json"
 TYPE_CHART_FILE = ROOT / "content" / "battle" / "type-chart.v1.json"
 OPPONENT_POLICIES_FILE = ROOT / "content" / "battle" / "opponent-policies.v1.json"
-PROGRESSION_FILE = ROOT / "content" / "battle" / "progression.v1.json"
+PROGRESSION_FILE = ROOT / "content" / "battle" / "progression.v2.json"
 ENCOUNTERS = ROOT / "content" / "encounters"
 QUESTS = ROOT / "content" / "quests"
 TRAINERS = ROOT / "content" / "trainers"
@@ -53,6 +54,7 @@ verify_pokeapi_import(['--check'])
 verify_item_import(['--check'])
 verify_evolution_import(['--check'])
 verify_species_import(['--check'])
+verify_growth_import(['--check'])
 verify_evolution_art(['--check'])
 verify_item_evolutions(['--check'])
 artwork_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
@@ -120,6 +122,7 @@ starter_data = json.loads(STARTER_FILE.read_text(encoding="utf-8"))
 starters = starter_data["starters"]
 species_registry = json.loads(SPECIES_FILE.read_text(encoding="utf-8"))["species"]
 progression = json.loads(PROGRESSION_FILE.read_text(encoding="utf-8"))
+validate_json_schema(progression, json.loads((SCHEMAS / "progression.v2.schema.json").read_text(encoding="utf-8")), "Runtime progression")
 content_manifest = json.loads(CONTENT_MANIFEST.read_text(encoding="utf-8"))
 check(content_manifest.get("manifestVersion") == 1, "Unsupported content manifest schema version")
 check(content_manifest.get("status") == "prototype", "Content manifest must remain explicitly marked as prototype")
@@ -127,7 +130,9 @@ check(re.fullmatch(r"veloria-content-[a-z0-9.-]+", content_manifest.get("content
 growth_curves = progression["growthCurves"]
 check(progression.get("status") == "prototype", "Progression rules must remain explicitly marked as prototype")
 for curve_id, curve in growth_curves.items():
-    check(curve.get("exponent", 0) > 0 and curve.get("multiplier", 0) > 0, f"Invalid growth curve: {curve_id}")
+    totals = curve.get("totalExperience", [])
+    check(len(totals) == 100 and totals[0] == 0 and all(type(value) is int and value >= 0 for value in totals)
+          and all(a < b for a, b in zip(totals, totals[1:])), f"Invalid growth curve: {curve_id}")
 for species in species_registry.values():
     check(species.get("growthCurveId") in growth_curves, f"Unknown growth curve for species {species.get('speciesId')}")
 evolution_entries = progression.get("evolutions", [])

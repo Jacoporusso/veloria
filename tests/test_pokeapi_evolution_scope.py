@@ -86,7 +86,7 @@ class EvolutionScopeTests(unittest.TestCase):
     def test_cached_official_reference_restores_magnezone_and_eevee_without_runtime_expansion(self):
         import json
         from import_pokeapi_battle import resource
-        progression_path = ROOT / 'content/battle/progression.v1.json'
+        progression_path = ROOT / 'content/battle/progression.v2.json'
         before = progression_path.read_bytes()
         registry = json.loads((ROOT / 'content/battle/species.v1.json').read_text(encoding='utf-8'))['species']
         entries = build_evolution_entries(registry, resource('version-group', 'heartgold-soulsilver')[0], lambda kind, key: resource(kind, key)[0])

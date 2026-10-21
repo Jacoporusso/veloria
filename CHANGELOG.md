@@ -1,3 +1,10 @@
+## 0.3.109 — Curve XP ufficiali per specie (21/10/2026)
+
+- Tutte79 specie usano la propria categoria di crescita PokéAPI: quattro tabelle locali con le soglie dei livelli1–100, fonti e checksum riproducibili senza rete. Eliminata la curva unica provvisoria dal catalogo runtime.
+- Contratto progressionv2 e rulesetv12; il motore calcola i delta ufficiali, mantiene XP residui, livelli, mosse ed evoluzioni. La barra XP usa la stessa curva. Nessun moltiplicatore di ricompensa aggiunto.
+- Riallineata la prova naturale ai controlli moderni e ai passaggi di Borgofonte: due nuove partite fino a Mira/Radicelmo prima e dopo la modifica, senza preparare squadra, seed, risorse o flag. Risultati e limiti nel resoconto21/10; campagna completa e tutti gli starter restano da verificare.
+- Retry limitato dei reset di trasporto nel caricamento del test di Nilo; invariati gli asserti di lotta, premio e persistenza. Cache PWA v130.
+
 ## 0.3.108 — Allenamenti sulla costa e in montagna (21/10/2026)
 
 - Quattro sfide facoltative: Noemi nelle Dune Salmastre, Bruno nelle Canne, Ruben nella Valle del Vento e Alma sui Tornanti Bianchi. Squadre da tre membri con mosse ufficiali HGSS valide al livello indicato.

@@ -16,10 +16,9 @@ export interface CaptureItemRule {
   readonly statusBonus?: number;
 }
 
-export interface ExperienceCurve {
-  readonly exponent: number;
-  readonly multiplier: number;
-}
+export type ExperienceCurve =
+  | { readonly totalExperience: readonly number[] }
+  | { readonly exponent: number; readonly multiplier: number };
 
 export interface EvolutionTarget {
   readonly speciesId: number;
@@ -70,7 +69,7 @@ export interface BattleRules {
  * yet approved a canonical chart/split for the full game.
  */
 export const prototypeBattleRules: BattleRules = {
-  id: 'veloria-battle-prototype-v11',
+  id: 'veloria-battle-prototype-v12',
   maxPartySize: 6,
   maxMoves: 4,
   maxLevel: 100,

@@ -13,8 +13,11 @@ async function json(path: string): Promise<any> {
   return JSON.parse(await readFile(new URL(path, root), 'utf8'));
 }
 const species = (await json('content/battle/species.v1.json')).species;
-const growth = (await json('content/battle/progression.v1.json')).growthCurves;
-const curve = growth.veloria_medium_fast_v1;
+const growth = (await json('content/battle/progression.v2.json')).growthCurves;
+const benchmarkSpeciesId = Number(process.env.AUDIT_STARTER_SPECIES_ID ?? 4);
+if (![1,4,7,25].includes(benchmarkSpeciesId)) throw new Error('Choose an available starter for the XP benchmark.');
+const benchmarkGrowthCurveId = species[benchmarkSpeciesId].growthCurveId;
+const curve = growth[benchmarkGrowthCurveId];
 const trainers = new Map<string, Trainer>();
 for (const file of (await readdir(new URL('content/trainers/', root))).filter(f => f.endsWith('.json'))) {
   const trainer: Trainer = await json(`content/trainers/${file}`);
@@ -93,11 +96,12 @@ for (const [bossId, optionalIds, habitat] of stages) {
   cumulative += xpForTrainer(boss);
 }
 console.log(JSON.stringify({
+  benchmarkSpeciesId, benchmarkGrowthCurveId,
   contentVersion: (await json('content/manifest.json')).contentVersion,
   ruleset: prototypeBattleRules.id,
   assumptions: [
     'All optional trainers defeated once before the next boss; current boss XP excluded.',
-    'Starts at level 5 with zero residual XP; cubic prototype curve for all species.',
+    'Starts at level 5 with zero residual XP; official curve of the explicitly selected benchmark starter. Three-member diagnostic uses three hypothetical members of that same curve.',
     'Perfect victories and freely assignable XP are optimistic; runtime rewards only the KO recipient.',
     'Wild KO estimate uses the BEST current habitat time band at its actual weighted levels.',
     'Late habitat yields applied to the entire deficit: lower-bound budget, not a reachable itinerary.',

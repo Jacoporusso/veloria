@@ -50,7 +50,7 @@ def main(argv=None):
             'types': types,
             'baseStats': base_stats,
             'experienceYield': raw['base_experience'],
-            'growthCurveId': parent['growthCurveId'],
+            'growthCurveId': f"pokeapi_growth_{names['growth_rate']['name']}_v1",
         }
         current = data['species'].get(str(species_id), {})
         if args.check:

@@ -217,3 +217,7 @@ La priorità corrente è chiudere la suite GitHub completa e verificare progress
 ## Aggiornamento 21/10/2026 — 0.3.108
 
 Catalogo79 specie dopo sei evoluzioni ufficiali;31 allenatori e53 missioni dopo Noemi/Bruno/Ruben/Alma, sfide facoltative costiere e montane. Budget XP e prove nel resoconto `playtests/2026-10-21-route-training.md`. La misura riduce il deficit ma non certifica crescita naturale o partita completa: restano aperti CI completa, QA fisico iOS/Android, bilanciamento dall’inizio al finale, roster251 e mosse/effetti mancanti. Non introdurre condivisione XP implicita per correggere il solo report.
+
+## Aggiornamento 21/10/2026 — 0.3.109
+
+Sostituita la curva XP unica provvisoria con quattro tabelle ufficiali assegnate a tutte79 specie, contratto progressionv2 e rulesetv12. Ripetute due partite naturali Charmander fino a Mira e Radicelmo prima/dopo, con salvataggi e nessuna preparazione di squadra/seed/risorse. Resoconti e limiti in `playtests/2026-10-21-official-growth.md`. La suite GitHub completa0.3.107 è verde (39597338393); il successivo run0.3.108 ha registrato un reset HTTP del test Nilo, quindi non è dichiarato verde. Restano campagna naturale completa, altri starter, telefono fisico, roster251 e mosse/effetti mancanti.

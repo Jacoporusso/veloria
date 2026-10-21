@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
 import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
-import progression from '../../content/battle/progression.v1.json' with { type: 'json' };
+import progression from '../../content/battle/progression.v2.json' with { type: 'json' };
 import evolutionReference from '../../content/battle/evolution-reference.v1.json' with { type: 'json' };
 import learnsets from '../../content/battle/level-up-moves.v1.json' with { type: 'json' };
 import sourceLearnsets from '../../content/sources/pokeapi/source-learnsets.json' with { type: 'json' };
@@ -78,12 +78,9 @@ test('mountain evolution thresholds match the source reference and stay within t
   for (const [from, to, level] of [[220, 221, 33], [86, 87, 34]]) {
     assert.ok(reference[String(from)].evolutions.some(entry => entry.targetSpeciesId === to && entry.trigger === 'level-up' && entry.minimumLevel === level));
   }
-  assert.equal(species['220'].growthCurveId, species['194'].growthCurveId);
-  assert.equal(species['221'].growthCurveId, species['195'].growthCurveId);
-  assert.equal(species['215'].growthCurveId, species['19'].growthCurveId);
-  assert.equal(species['86'].growthCurveId, species['7'].growthCurveId);
-  assert.equal(species['87'].growthCurveId, species['80'].growthCurveId);
-  assert.equal(species['124'].growthCurveId, species['96'].growthCurveId);
+  for (const [id, group] of [[220, 'slow'], [221, 'slow'], [215, 'medium-slow'], [86, 'medium'], [87, 'medium'], [124, 'medium']]) {
+    assert.equal(species[String(id)].growthCurveId, `pokeapi_growth_${group}_v1`);
+  }
   assert.equal(species['473'], undefined);
   assert.equal(species['461'], undefined);
 });

@@ -2,16 +2,17 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
-import progression from '../../content/battle/progression.v1.json' with { type: 'json' };
+import progression from '../../content/battle/progression.v2.json' with { type: 'json' };
 import learnsets from '../../content/battle/level-up-moves.v1.json' with { type: 'json' };
 import { createBattleCreature, createBattleCreatureFromSave, type SpeciesBattleRegistry, type BattleMoveRegistry } from '../../src/core/battle/create-creature.ts';
 import { createBattleState, resolveBattleTurn } from '../../src/core/battle/engine.ts';
-import { prototypeBattleRules, type BattleRules, type EvolutionRule } from '../../src/core/battle/rules.ts';
+import { prototypeBattleRules, type BattleRules, type EvolutionRule, type ExperienceCurve } from '../../src/core/battle/rules.ts';
 import { experienceToNextLevel } from '../../src/core/battle/progression.ts';
 import { mergeBattlePlayerState } from '../../src/game/battle/create-battle-state.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 
 const species = speciesData.species as SpeciesBattleRegistry;
+const growthCurves: Readonly<Record<string, ExperienceCurve>> = progression.growthCurves;
 const moves = moveData.moves as BattleMoveRegistry;
 const evolutions: Record<number, EvolutionRule[]> = {};
 for (const rule of progression.evolutions) (evolutions[rule.fromSpeciesId] ??= []).push({ minimumLevel: rule.minimumLevel, target: species[rule.toSpeciesId] });
@@ -32,7 +33,7 @@ function defeatWild(speciesId: number, experience: number, level = 15, moveIds?:
 
 for (const [fromId, toId, threshold] of [[17, 18, 36], [43, 44, 21], [60, 61, 25], [69, 70, 21], [100, 101, 30], [167, 168, 22], [1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25], [2, 3, 32], [5, 6, 36], [8, 9, 36], [180, 181, 30]]) {
   test(`${species[fromId].name} evolves at level ${threshold} and preserves identity, injury and spent PP through saving`, () => {
-    const required = experienceToNextLevel(threshold - 1, progression.growthCurves.veloria_medium_fast_v1);
+    const required = experienceToNextLevel(threshold - 1, growthCurves[species[fromId].growthCurveId!]);
     const { injured, moveSlot, state, events } = defeatWild(fromId, required - 1, threshold - 1);
     const evolved = state.player.creatures[0];
     assert.equal(evolved.speciesId, toId);
@@ -66,7 +67,7 @@ for (const [fromId, toId, threshold] of [[17, 18, 36], [43, 44, 21], [60, 61, 25
 
 for(const [fromId,toId,level,moveId]of [[5,6,36,'wing-attack'],[180,181,30,'thunder-punch']]as const){
   test(`${species[toId].name} offers its new form move in the same evolution turn`,()=>{
-    const required=experienceToNextLevel(level-1,progression.growthCurves.veloria_medium_fast_v1);
+    const required=experienceToNextLevel(level-1,growthCurves[species[fromId].growthCurveId!]);
     const result=defeatWild(fromId,required-1,level-1);
     assert.equal(result.state.player.creatures[0].speciesId,toId);
     const evolutionIndex=result.events.findIndex(event=>event.type==='creatureEvolved'&&event.toSpeciesId===toId);
@@ -76,7 +77,7 @@ for(const [fromId,toId,level,moveId]of [[5,6,36,'wing-attack'],[180,181,30,'thun
 }
 
 test('evolution preserves forgotten older moves instead of automatically teaching them again',()=>{
-  const required=experienceToNextLevel(31,progression.growthCurves.veloria_medium_fast_v1);
+  const required=experienceToNextLevel(31,growthCurves[species[2].growthCurveId!]);
   const result=defeatWild(2,required-1,31,['vine-whip']);
   assert.equal(result.state.player.creatures[0].speciesId,3);
   const oldMoves=new Set(rules.levelUpMoves[3].filter(entry=>entry.level<=31).map(entry=>entry.moveId));

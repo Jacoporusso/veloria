@@ -32,7 +32,7 @@
         "tackle",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -83,7 +83,7 @@
         "scratch",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -134,7 +134,7 @@
         "tackle",
         "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -189,7 +189,7 @@
         "tackle",
         "string-shot"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -219,7 +219,7 @@
       "defaultMoveIds": [
         "harden"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -250,7 +250,7 @@
       "defaultMoveIds": [
         "confusion"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -310,7 +310,7 @@
         "poison-sting",
         "string-shot"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -341,7 +341,7 @@
       "defaultMoveIds": [
         "harden"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -372,7 +372,7 @@
       "defaultMoveIds": [
         "fury-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -412,7 +412,7 @@
         "tackle",
         "sand-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -460,7 +460,7 @@
         "tail-whip",
         "quick-attack"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -500,7 +500,7 @@
         "growl",
         "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -556,7 +556,7 @@
         "absorb",
         "sweet-scent"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -602,7 +602,7 @@
       "defaultMoveIds": [
         "bubble"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 5,
@@ -657,7 +657,7 @@
       "defaultMoveIds": [
         "vine-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -708,7 +708,7 @@
         "scratch",
         "defense-curl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -757,7 +757,7 @@
         "growl",
         "hypnosis"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -802,7 +802,7 @@
         "string-shot",
         "scary-face"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_fast_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -861,7 +861,7 @@
         "tackle",
         "growl"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -905,7 +905,7 @@
         "water-gun",
         "tail-whip"
       ],
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "officialLearnset": [
         {
           "level": 1,
@@ -949,7 +949,7 @@
         "speed": 60
       },
       "experienceYield": 142,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "growl",
@@ -1009,7 +1009,7 @@
         "speed": 80
       },
       "experienceYield": 142,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "scratch",
         "growl",
@@ -1065,7 +1065,7 @@
         "speed": 58
       },
       "experienceYield": 142,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "tail-whip",
@@ -1130,7 +1130,7 @@
         "speed": 45
       },
       "experienceYield": 65,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "metal-sound",
         "tackle"
@@ -1189,7 +1189,7 @@
         "speed": 100
       },
       "experienceYield": 66,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle"
       ],
@@ -1232,7 +1232,7 @@
         "speed": 71
       },
       "experienceYield": 122,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "sand-attack",
@@ -1288,7 +1288,7 @@
         "speed": 97
       },
       "experienceYield": 145,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "tail-whip",
@@ -1336,7 +1336,7 @@
         "speed": 90
       },
       "experienceYield": 145,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "scratch",
         "defense-curl",
@@ -1393,7 +1393,7 @@
         "speed": 70
       },
       "experienceYield": 158,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "growl",
@@ -1441,7 +1441,7 @@
         "speed": 45
       },
       "experienceYield": 128,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "growl",
@@ -1494,7 +1494,7 @@
         "speed": 35
       },
       "experienceYield": 151,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "water-gun",
         "tail-whip"
@@ -1542,7 +1542,7 @@
         "speed": 70
       },
       "experienceYield": 163,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "metal-sound",
         "tackle",
@@ -1612,7 +1612,7 @@
         "speed": 30
       },
       "experienceYield": 179,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "harden"
@@ -1664,7 +1664,7 @@
         "speed": 70
       },
       "experienceYield": 163,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "peck"
       ],
@@ -1711,7 +1711,7 @@
         "speed": 70
       },
       "experienceYield": 67,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "poison-sting",
         "supersonic"
@@ -1775,7 +1775,7 @@
         "speed": 100
       },
       "experienceYield": 180,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "poison-sting",
         "supersonic",
@@ -1847,7 +1847,7 @@
         "speed": 50
       },
       "experienceYield": 65,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "bubble",
         "vice-grip"
@@ -1894,7 +1894,7 @@
         "speed": 75
       },
       "experienceYield": 166,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "bubble",
         "vice-grip"
@@ -1946,7 +1946,7 @@
         "speed": 67
       },
       "experienceYield": 66,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "bubble",
         "supersonic"
@@ -2006,7 +2006,7 @@
         "speed": 67
       },
       "experienceYield": 161,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "bubble",
         "supersonic",
@@ -2071,7 +2071,7 @@
         "speed": 15
       },
       "experienceYield": 63,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle"
       ],
@@ -2122,7 +2122,7 @@
         "speed": 30
       },
       "experienceYield": 172,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "growl"
@@ -2181,7 +2181,7 @@
         "speed": 42
       },
       "experienceYield": 66,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "pound",
         "hypnosis"
@@ -2228,7 +2228,7 @@
         "speed": 67
       },
       "experienceYield": 169,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "pound",
         "hypnosis",
@@ -2280,7 +2280,7 @@
         "speed": 55
       },
       "experienceYield": 65,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tail-whip",
         "tackle"
@@ -2324,7 +2324,7 @@
         "speed": 70
       },
       "experienceYield": 64,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "peck"
       ],
@@ -2359,7 +2359,7 @@
         "speed": 95
       },
       "experienceYield": 165,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "peck"
       ],
@@ -2393,7 +2393,7 @@
         "speed": 110
       },
       "experienceYield": 184,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tail-whip",
         "tackle"
@@ -2449,7 +2449,7 @@
         "speed": 80
       },
       "experienceYield": 236,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "growl",
@@ -2515,7 +2515,7 @@
         "speed": 100
       },
       "experienceYield": 240,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "scratch",
         "growl",
@@ -2580,7 +2580,7 @@
         "speed": 78
       },
       "experienceYield": 239,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "tail-whip",
@@ -2649,7 +2649,7 @@
         "speed": 55
       },
       "experienceYield": 230,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "growl",
@@ -2711,7 +2711,7 @@
         "speed": 50
       },
       "experienceYield": 50,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "tackle"
       ],
@@ -2758,7 +2758,7 @@
         "speed": 50
       },
       "experienceYield": 158,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "peck",
         "powder-snow"
@@ -2810,7 +2810,7 @@
         "speed": 115
       },
       "experienceYield": 86,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "scratch"
       ],
@@ -2864,7 +2864,7 @@
         "speed": 45
       },
       "experienceYield": 65,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "growl"
       ],
@@ -2911,7 +2911,7 @@
         "speed": 70
       },
       "experienceYield": 166,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "growl",
         "icy-wind"
@@ -2967,7 +2967,7 @@
         "speed": 95
       },
       "experienceYield": 159,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "pound",
         "powder-snow"
@@ -3007,7 +3007,7 @@
         "speed": 20
       },
       "experienceYield": 60,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "defense-curl"
@@ -3043,7 +3043,7 @@
         "speed": 35
       },
       "experienceYield": 137,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "defense-curl"
@@ -3079,7 +3079,7 @@
         "speed": 70
       },
       "experienceYield": 77,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "harden"
@@ -3127,7 +3127,7 @@
         "speed": 55
       },
       "experienceYield": 49,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "leech-life",
         "supersonic"
@@ -3167,7 +3167,7 @@
         "speed": 90
       },
       "experienceYield": 159,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "screech",
         "leech-life",
@@ -3215,7 +3215,7 @@
         "speed": 50
       },
       "experienceYield": 60,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "thunder-wave"
       ],
@@ -3265,7 +3265,7 @@
         "speed": 70
       },
       "experienceYield": 147,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "thunder-wave"
       ],
@@ -3320,7 +3320,7 @@
         "speed": 80
       },
       "experienceYield": 270,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_slow_v1",
       "defaultMoveIds": [
         "thunder-punch",
         "thunder-wave"
@@ -3383,7 +3383,7 @@
         "speed": 60
       },
       "experienceYield": 59,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "bubble",
         "smokescreen"
@@ -3438,7 +3438,7 @@
         "speed": 85
       },
       "experienceYield": 154,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "bubble",
         "smokescreen",
@@ -3503,7 +3503,7 @@
         "speed": 85
       },
       "experienceYield": 243,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "bubble",
         "smokescreen",
@@ -3567,7 +3567,7 @@
         "speed": 100
       },
       "experienceYield": 218,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "thunder-shock",
         "tail-whip",
@@ -3603,7 +3603,7 @@
         "speed": 65
       },
       "experienceYield": 184,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tail-whip",
         "tackle"
@@ -3654,7 +3654,7 @@
         "speed": 130
       },
       "experienceYield": 184,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tail-whip",
         "tackle"
@@ -3709,7 +3709,7 @@
         "speed": 65
       },
       "experienceYield": 184,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tail-whip",
         "tackle"
@@ -3757,7 +3757,7 @@
         "speed": 91
       },
       "experienceYield": 216,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "tackle",
         "sand-attack",
@@ -3819,7 +3819,7 @@
         "speed": 40
       },
       "experienceYield": 138,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "absorb",
         "sweet-scent",
@@ -3875,7 +3875,7 @@
         "speed": 90
       },
       "experienceYield": 135,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "bubble",
         "hypnosis"
@@ -3939,7 +3939,7 @@
         "speed": 55
       },
       "experienceYield": 137,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
       "defaultMoveIds": [
         "vine-whip"
       ],
@@ -3989,7 +3989,7 @@
         "speed": 140
       },
       "experienceYield": 172,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
         "tackle",
         "sonic-boom",
@@ -4046,7 +4046,7 @@
         "speed": 40
       },
       "experienceYield": 140,
-      "growthCurveId": "veloria_medium_fast_v1",
+      "growthCurveId": "pokeapi_growth_fast_v1",
       "defaultMoveIds": [
         "poison-sting",
         "string-shot",

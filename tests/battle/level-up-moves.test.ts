@@ -1,3 +1,4 @@
+import progression from '../../content/battle/progression.v2.json' with {type:'json'};
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import speciesData from '../../content/battle/species.v1.json' with {type:'json'};
@@ -5,10 +6,11 @@ import moveData from '../../content/battle/moves.v1.json' with {type:'json'};
 import learningData from '../../content/battle/level-up-moves.v1.json' with {type:'json'};
 import {createBattleCreature, createBattleCreatureFromSave, type SpeciesBattleRegistry, type BattleMoveRegistry} from '../../src/core/battle/create-creature.ts';
 import {createBattleState,resolveBattleTurn} from '../../src/core/battle/engine.ts';
-import {prototypeBattleRules} from '../../src/core/battle/rules.ts';
+import {prototypeBattleRules, type ExperienceCurve} from '../../src/core/battle/rules.ts';
 import {experienceToNextLevel} from '../../src/core/battle/progression.ts';
 const species=speciesData.species as SpeciesBattleRegistry, moves=moveData.moves as BattleMoveRegistry;
-const rules={...prototypeBattleRules,criticalChance:0,levelUpMoves:Object.fromEntries(Object.entries(learningData.species).map(([id,entries])=>[id,entries.map(entry=>({...entry,maxPp:moves[entry.moveId].maxPp}))]))};
+const growthCurves: Readonly<Record<string, ExperienceCurve>> = progression.growthCurves;
+const rules={...prototypeBattleRules,experienceCurves:growthCurves,criticalChance:0,levelUpMoves:Object.fromEntries(Object.entries(learningData.species).map(([id,entries])=>[id,entries.map(entry=>({...entry,maxPp:moves[entry.moveId].maxPp}))]))};
 function award(speciesId:number, targetLevel:number, mode:'normal'|'known'|'full'='normal') {
   const base=createBattleCreature({species,moves,speciesId,level:5,instanceId:'own'});
   let experience=0;
@@ -69,7 +71,7 @@ test('Butterfree learns its three level-12 powders in source order', () => {
 
 test('a later level does not offer a forgotten move from an earlier level again',()=>{
   const player=createBattleCreature({species,moves,speciesId:4,level:10,instanceId:'forgotten-smokescreen',moveIds:['ember'],
-    experience:experienceToNextLevel(10,rules.experienceCurves.veloria_medium_fast_v1)-1});
+    experience:experienceToNextLevel(10,growthCurves[species[4].growthCurveId!])-1});
   const enemy={...createBattleCreature({species,moves,speciesId:19,level:7,instanceId:'one-xp'}),hp:1,experienceYield:1};
   const state=createBattleState({battleId:'no-relearning',battleType:'wild',seed:321,rules,playerTeam:[player],opponentTeam:[enemy]});
   const result=resolveBattleTurn(state,{player:{kind:'useMove',moveSlot:0},opponent:{kind:'useMove',moveSlot:0}},moves,rules);
