@@ -1,3 +1,9 @@
+## Pubblicazione0.3.112 confermata — 21/10/2026
+
+Commit9878a22 su main. [Deploy39676474365](https://github.com/Jacoporusso/veloria/actions/runs/39676474365) SUCCESS: test, validatore e build Linux riusciti. Sito HTTPS200 e cache `veloria-shell-v133` verificati dopo il deploy. [Verify39676474294](https://github.com/Jacoporusso/veloria/actions/runs/39676474294) in coda al controllo; la suite completa della nuova versione resta da confermare.
+
+La suite completa [Verify39674200882](https://github.com/Jacoporusso/veloria/actions/runs/39674200882) del commit ebbdc8f è SUCCESS su tutti i job: conferma le correzioni dei percorsi di Ada, il caricamento della Lega e le altre verifiche della0.3.111. Questa evidenza aggiorna i precedenti stati in esecuzione/in integrazione riportati sotto; non viene estesa automaticamente alle modifiche0.3.112.
+
 ## 0.3.112 — Contraccolpo verificato localmente (21/10/2026)
 
 Riduttore importata senza rete dai dati HGSS locali e resa disponibile nei12 learnset ufficiali.79 specie/79 mosse, movesv11, rulesetv13, cachev133. Importer --check, validatore, TypeScript e build produzione riusciti.537 prove dominio/persistenza e106 Python passate: danni effettivi/overkill, arrotondamento, minimo1HP, mancata/immunità/sonno, PP, KO simultaneo, ordine contraccolpo→XP e ricompensa al giocatore sopravvissuto al KO avversario da contraccolpo (anche emergenza). Importazioni future di effetti negativi restano bloccate fino a verifica specifica.
