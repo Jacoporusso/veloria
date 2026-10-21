@@ -1,3 +1,24 @@
+## Stato corrente — 0.3.111, 21/10/2026
+
+Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 78 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
+
+### Evidenze recenti
+
+- Tutte le specie runtime usano la propria curva XP ufficiale locale. Evoluzioni di livello e con oggetti supportate sono dichiarative; Magnemite → Magneton al30 è abilitata in0.3.111. Condizioni non supportate restano informative, senza sostituzioni inventate.
+- Partita naturale con Charmander verificata dall'inizio alla terza medaglia, con catture/risorse guadagnate, cure, acquisti, evoluzione, salvataggio e ripresa (report21/10). Un tentativo precedente aveva perso contro Oren: la nuova vittoria non cancella quel risultato. Nila lascia la squadra quasi esausta in più prove: preparazione, indicazioni e difficoltà vanno rivalutate con altre strategie e starter.
+- Le14 collisioni NPC mancanti sono corrette e verificate per percorsi e interazione. I clic mouse su A di Elia/Ada passano nella finestra PC con comandi visibili; la segnalazione dell'utente resta da riprodurre nella sua circostanza.
+- La suite0.3.109 è completamente verde. La suite0.3.110 ha fallito un vecchio percorso di test che attraversava Ada e un caricamento HTTP del test Lega; le correzioni sono state provate localmente e sono in integrazione. Non dichiarare verde la CI0.3.111 prima della conclusione.
+
+### Requisiti ancora aperti
+
+1. Verificare e bilanciare una partita naturale dall'inizio al finale, con tutti e quattro gli starter, risorse, catture, sconfitte, ritorni e progressi persistenti. I checkpoint preparati restano prove d'integrazione separate.
+2. Completare il roster #001–#251 con fonti ufficiali, mosse/effetti realmente implementati, evoluzioni ottenibili e artwork registrati/offline. Il roster79 non sostituisce questo requisito.
+3. Completare le aree documentate oltre i primi distretti cittadini, inclusi quartieri e tetti esplorabili di Vetracielo, e rivedere continuità narrativa, orientamento, transizioni e coerenza artistica lungo tutta la regione.
+4. Chiudere la suite Linux e le verifiche offline, quindi QA fisico iOS/Android/PWA in portrait e landscape, compresi controlli, camera, leggibilità e ripresa. Il browser emulato non attesta questi dispositivi.
+5. Proseguire le meccaniche ufficiali e i contenuti previsti, conservando l'architettura dati estendibile e i limiti espliciti del motore. Il post-game resta aperto.
+
+Prossimo passo operativo: confermare la CI delle correzioni e proseguire la campagna naturale oltre Vetracielo, confrontando anche altri starter e scelte di squadra. Esiti autorevoli, commit e deploy: `CI_STATUS.md`; report riproducibili: `playtests/`.
+
 ## Aggiornamento 0.3.98
 
 Iris/R06, Dario/R07, Viola/R08 e Celia/R11 ora giocabili: scelta esplicita, squadre legali, premi unici, consigli e uscite verificati. Report di integrazione in `docs/playtests/2026-10-20-route-training.md`. Audit prima di Selene125→108 KO equivalenti ottimistici: miglioramento parziale, deficit ancora elevato. Proseguire con distribuzione degli allenamenti e verifica di catture, squadra naturale, risorse e curva completa. Catalogo251, meccaniche/evoluzioni mancanti, uniformità artistica e post-game restano aperti.

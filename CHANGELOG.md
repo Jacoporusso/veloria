@@ -1,5 +1,7 @@
 ## 0.3.111 — Evoluzione di Magneton e controlli PC (21/10/2026)
 
+Verifica successiva: partita naturale Charmander completata fino alla terza medaglia in13min automatizzati,29 battaglie,2 catture, evoluzione in Charmeleon, nessun errore JS e ripresa corretta. Report e limiti in `docs/playtests/2026-10-21-third-medal.md`. La prima sconfitta contro Oren resta documentata; altri starter e finale restano aperti.
+
 - Abilitata Magnemite → Magneton al livello 30, condizione ufficiale già nelle fonti locali: catalogo e artwork urbano erano presenti, mancava la regola evolutiva. Nessuna soglia o statistica inventata.
 - Prove di soglia/sotto soglia, identità, HP/PP, cerimonia e salvataggio per Magneton. Regressioni mouse sul pulsante A per Elia e Ada in finestra PC con comandi visibili.
 - Estesa la prova naturale verso Vetracielo: il primo tentativo ha perso contro Oren dopo Dalia. Preparazione e rivincita aggiunte al percorso di test; terza medaglia ancora da confermare. Aggiornata la documentazione storica di Vetracielo. Cache PWA v132.

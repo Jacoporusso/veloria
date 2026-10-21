@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.111:** Magnemite evolve in Magneton al livello 30; aggiunte verifiche del pulsante A con mouse su PC. Partita naturale verificata fino alla seconda medaglia con Charmander; il primo tentativo contro Oren ha perso e la prosecuzione resta in verifica. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.111:** Magnemite evolve in Magneton al livello 30; aggiunte verifiche del pulsante A con mouse su PC. Partita naturale Charmander verificata fino alla terza medaglia, con evoluzione, risorse guadagnate e ripresa; il precedente tentativo perso contro Oren resta documentato. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 21 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 

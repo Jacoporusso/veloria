@@ -37,3 +37,7 @@ Il catalogo attuale contiene 79 specie e 78 mosse runtime. Il parco urbano inclu
 Il fondale `veloria-gym03-rooftop-v1` è generato con ImageGen integrato; prompt, riferimento architettonico e percorsi in `assets/prompts/gym03-rooftop-v1.md`. Le console sono geometrie originali condivise (`rail-console`), con collisioni indipendenti in Tiled. La Medaglia Circuito estende il sistema SVG esistente.
 
 Restano da implementare i quartieri, lo skyline esplorabile e i tetti di Vetracielo oltre questa terrazza. Charge/Rollout e le altre mosse non supportate restano esplicite nel report sorgente. Il motore usa ruleset 12, che resta un sistema prototipale e non una simulazione HGSS completa. La prova con Wooper 20 documentata sopra verifica l’integrazione, non il bilanciamento naturale: servono prove naturali con tutti gli starter e QA su dispositivi fisici. Esiti tecnici e limiti sono registrati in `CI_STATUS.md`.
+
+## Partita naturale — verifica 21/10/2026
+
+Nuova partita Charmander fino ad Aster completata con risorse guadagnate, nove incontri di preparazione nel parco e evoluzione in Charmeleon17. Terza medaglia, cerimonie e ripresa dal titolo verificate; resoconto e limiti in `playtests/2026-10-21-third-medal.md`. Non chiude gli altri starter, le altre strategie o il QA fisico. La prova precedente con Wooper20 resta una fixture separata.

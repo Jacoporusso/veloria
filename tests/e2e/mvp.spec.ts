@@ -200,7 +200,9 @@ async function completeAdaForestQuest(page: Page) {
   await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();
 
-  await walkToTile(page, 'destra', 4);
+  // Ada owns a solid tile: follow authored geometry around her, then face the sensor.
+  await walkToMapTile(page, 'd01_bosco_veli.tmj', 15, 10);
+  await walkToTile(page, 'destra', 1);
   await tapConfirm(page);
   await expect.poll(async () => (await readCurrentSave(page))?.flags).toContain('q_forest_signal_found');
   await walkToTile(page, 'sinistra', 2);
@@ -928,7 +930,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await walkToTile(page, 'sinistra', 26, 'veloria/d01_bosco_veli');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/d01_bosco_veli');
   await expect.poll(async () => (await readCurrentSave(page))?.player).toMatchObject({ spawnPointId: 'to_r02', x: 29, y: 10 });
-  await walkToTile(page, 'sinistra', 23);
+  await walkToMapTile(page, 'd01_bosco_veli.tmj', 6, 10);
   await walkToTile(page, 'alto', 2);
   save = await readCurrentSave(page);
   expect(save.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 6, y: 8 });
@@ -945,7 +947,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
 
   // Enter Brumalta's storage service and verify the stored wild instance is listed for withdrawal.
   await walkToTile(page, 'basso', 2);
-  await walkToTile(page, 'destra', 24);
+  await walkToMapTile(page, 'd01_bosco_veli.tmj', 29, 10, 'veloria/r02_viale_fronde');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r02_viale_fronde');
   await walkToTile(page, 'destra', 26);
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/brumalta');

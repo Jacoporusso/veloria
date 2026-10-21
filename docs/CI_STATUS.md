@@ -1,3 +1,11 @@
+## Progressione naturale fino ad Aster e correzioni CI — 21/10/2026
+
+Nuova partita0.3.111 con Charmander completata fino alla terza medaglia:13min automatizzati,29 battaglie (27 vittorie,2 catture), evoluzione in Charmeleon17, nessun errore JS, ripresa dal titolo corretta. Risorse e livelli guadagnati nel gioco,9 incontri preparatori prima di Dalia e9 prima di Aster. Dopo Aster:14/46HP del primo membro,1490monete, una pozione. [Report e limiti](playtests/2026-10-21-third-medal.md). La sconfitta del tentativo precedente contro Oren rimane registrata; il ramo di rivincita ora previsto dal test non è stato eseguito perché questa volta Oren è stato battuto subito. Altri starter, strategie e seguito della campagna restano aperti.
+
+Corrette le tre tratte del test E2E04 che attraversavano Ada: percorso al sensore, ritorno verso l'habitat e ritorno al Centro. Usano la geometria Tiled senza rimuovere collisioni. Prova completa cattura con squadra piena/Box/cure/reload passata in2,5min (2,6min complessivi). Test Lega reload in battaglia pendente passato in10,2s dopo maxRetries2 sui soli reset HTTP di route.fetch. Nessun retry degli asserti o modifica alla progressione runtime.
+
+Questa integrazione cambia test e documentazione, non contenuti o cache della0.3.111. La nuova CI va confermata separatamente prima di dichiararla verde.
+
 ## Pubblicazione 0.3.111 confermata — 21/10/2026
 
 Commit a14ed39 su main. [Deploy 39671428349](https://github.com/Jacoporusso/veloria/actions/runs/39671428349) SUCCESS: test, validatore e build Linux riusciti. HTTPS200 e cache `veloria-shell-v132` verificati. [Verify 39671428372](https://github.com/Jacoporusso/veloria/actions/runs/39671428372) in esecuzione al controllo; suite completa non ancora attestata verde.
