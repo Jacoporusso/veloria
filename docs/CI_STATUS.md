@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.109 confermata — 21/10/2026
+
+Commit 6b57e82 su main. [Deploy 39604035772](https://github.com/Jacoporusso/veloria/actions/runs/39604035772) SUCCESS: test, validatore e build riusciti su Linux. Sito pubblico HTTPS 200 e cache `veloria-shell-v130` verificati dopo la pubblicazione. [Verify 39604036113](https://github.com/Jacoporusso/veloria/actions/runs/39604036113) in esecuzione al controllo finale; un secondo evento push dello stesso commit ha generato il run 39604036498 ancora in attesa. Nessun esito verde complessivo dichiarato per la nuova versione prima della conclusione della suite.
+
 ## 0.3.109 — Crescita ufficiale verificata localmente (21/10/2026)
 
 520 test dominio/persistenza e106 Python passati, TypeScript, validazione fonti/schema e build produzione riusciti. Tutte79 specie assegnate ai quattro tassi ufficiali con100 soglie ciascuno; progressionv2, rulesetv12, cachev130. Passate19 evoluzioni browser; Piloswine aggiunge il caso a crescita lenta, poi Piloswine e Nilo ripassati dopo la chiusura del contratto2. Tutte quattro le categorie coperte dalla presentazione di evoluzione e persistenza.
