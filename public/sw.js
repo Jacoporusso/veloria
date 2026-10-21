@@ -1,5 +1,11 @@
-const CACHE = 'veloria-shell-v127';
+const CACHE = 'veloria-shell-v128';
 const SHELL = [
+  './assets/creatures/pokeapi-evolution-18-v1.webp',
+  './assets/creatures/pokeapi-evolution-44-v1.webp',
+  './assets/creatures/pokeapi-evolution-61-v1.webp',
+  './assets/creatures/pokeapi-evolution-70-v1.webp',
+  './assets/creatures/pokeapi-evolution-101-v1.webp',
+  './assets/creatures/pokeapi-evolution-168-v1.webp',
   './assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp',
   './assets/scenery/veloria-c01_brumalta-illustrated-v2.webp',
   './assets/scenery/veloria-gym01_brumalta-illustrated-v2.webp',

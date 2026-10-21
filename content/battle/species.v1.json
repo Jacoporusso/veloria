@@ -3740,6 +3740,365 @@
           "moveId": "scary-face"
         }
       ]
+    },
+    "18": {
+      "speciesId": 18,
+      "name": "Pidgeot",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "baseStats": {
+        "hp": 83,
+        "attack": 80,
+        "defense": 75,
+        "specialAttack": 70,
+        "specialDefense": 70,
+        "speed": 91
+      },
+      "experienceYield": 216,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "sand-attack",
+        "gust",
+        "quick-attack"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 1,
+          "moveId": "gust"
+        },
+        {
+          "level": 1,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 5,
+          "moveId": "sand-attack"
+        },
+        {
+          "level": 9,
+          "moveId": "gust"
+        },
+        {
+          "level": 13,
+          "moveId": "quick-attack"
+        },
+        {
+          "level": 32,
+          "moveId": "agility"
+        },
+        {
+          "level": 38,
+          "moveId": "wing-attack"
+        }
+      ]
+    },
+    "44": {
+      "speciesId": 44,
+      "name": "Gloom",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 70,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "speed": 40
+      },
+      "experienceYield": 138,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "absorb",
+        "sweet-scent",
+        "acid"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "absorb"
+        },
+        {
+          "level": 1,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 1,
+          "moveId": "acid"
+        },
+        {
+          "level": 5,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 9,
+          "moveId": "acid"
+        },
+        {
+          "level": 13,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 17,
+          "moveId": "sleep-powder"
+        }
+      ]
+    },
+    "61": {
+      "speciesId": 61,
+      "name": "Poliwhirl",
+      "types": [
+        "water"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 65,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "speed": 90
+      },
+      "experienceYield": 135,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "bubble",
+        "hypnosis"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble"
+        },
+        {
+          "level": 1,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 5,
+          "moveId": "bubble"
+        },
+        {
+          "level": 8,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 11,
+          "moveId": "water-gun"
+        },
+        {
+          "level": 15,
+          "moveId": "double-slap"
+        },
+        {
+          "level": 27,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 32,
+          "moveId": "mud-shot"
+        },
+        {
+          "level": 48,
+          "moveId": "hydro-pump"
+        },
+        {
+          "level": 53,
+          "moveId": "mud-bomb"
+        }
+      ]
+    },
+    "70": {
+      "speciesId": 70,
+      "name": "Weepinbell",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 50,
+        "specialAttack": 85,
+        "specialDefense": 45,
+        "speed": 55
+      },
+      "experienceYield": 137,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "vine-whip"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "vine-whip"
+        },
+        {
+          "level": 13,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "poison-powder"
+        },
+        {
+          "level": 17,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 23,
+          "moveId": "acid"
+        },
+        {
+          "level": 29,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 41,
+          "moveId": "slam"
+        }
+      ]
+    },
+    "101": {
+      "speciesId": 101,
+      "name": "Electrode",
+      "types": [
+        "electric"
+      ],
+      "baseStats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 70,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "speed": 140
+      },
+      "experienceYield": 172,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "tackle",
+        "sonic-boom",
+        "spark"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "tackle"
+        },
+        {
+          "level": 1,
+          "moveId": "sonic-boom"
+        },
+        {
+          "level": 1,
+          "moveId": "spark"
+        },
+        {
+          "level": 5,
+          "moveId": "tackle"
+        },
+        {
+          "level": 8,
+          "moveId": "sonic-boom"
+        },
+        {
+          "level": 12,
+          "moveId": "spark"
+        },
+        {
+          "level": 19,
+          "moveId": "screech"
+        },
+        {
+          "level": 35,
+          "moveId": "swift"
+        }
+      ]
+    },
+    "168": {
+      "speciesId": 168,
+      "name": "Ariados",
+      "types": [
+        "bug",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 70,
+        "attack": 90,
+        "defense": 70,
+        "specialAttack": 60,
+        "specialDefense": 60,
+        "speed": 40
+      },
+      "experienceYield": 140,
+      "growthCurveId": "veloria_medium_fast_v1",
+      "defaultMoveIds": [
+        "poison-sting",
+        "string-shot",
+        "scary-face",
+        "constrict"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "poison-sting"
+        },
+        {
+          "level": 1,
+          "moveId": "string-shot"
+        },
+        {
+          "level": 1,
+          "moveId": "scary-face"
+        },
+        {
+          "level": 1,
+          "moveId": "constrict"
+        },
+        {
+          "level": 5,
+          "moveId": "scary-face"
+        },
+        {
+          "level": 8,
+          "moveId": "constrict"
+        },
+        {
+          "level": 12,
+          "moveId": "leech-life"
+        },
+        {
+          "level": 23,
+          "moveId": "fury-swipes"
+        },
+        {
+          "level": 37,
+          "moveId": "agility"
+        },
+        {
+          "level": 46,
+          "moveId": "psychic"
+        },
+        {
+          "level": 50,
+          "moveId": "poison-jab"
+        }
+      ]
     }
   },
   "moveSource": {

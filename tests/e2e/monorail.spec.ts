@@ -60,9 +60,9 @@ test('Circuito gates the station; only visited cities are listed and cancel rele
 });
 
 test('four visited monorail stations persist with keyboard boarding and both phone orientations', async ({page},info)=>{
-  // Hosted trace 39360342220 reached every station and final reload assertions;
-  // the shared 90s budget expired during browser fixture cleanup.
-  test.setTimeout(process.env.CI ? 120_000 : 90_000);
+  // CI 39594789385 reaches all four stations and the final title-screen reload at 120s.
+  // Keep both orientations, keyboard boarding, resource invariance and persistence checks.
+  test.setTimeout(process.env.CI ? 180_000 : 90_000);
   const errors:string[]=[];
   page.on('pageerror',error=>errors.push(error.message));
   await prepareMonorailTraveler(page);

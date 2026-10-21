@@ -188,6 +188,42 @@
       "toSpeciesId": 117,
       "minimumLevel": 32,
       "assetId": "pokeapi-dragon-117-v1-webp"
+    },
+    {
+      "fromSpeciesId": 17,
+      "toSpeciesId": 18,
+      "minimumLevel": 36,
+      "assetId": "pokeapi-evolution-18-v1-webp"
+    },
+    {
+      "fromSpeciesId": 43,
+      "toSpeciesId": 44,
+      "minimumLevel": 21,
+      "assetId": "pokeapi-evolution-44-v1-webp"
+    },
+    {
+      "fromSpeciesId": 60,
+      "toSpeciesId": 61,
+      "minimumLevel": 25,
+      "assetId": "pokeapi-evolution-61-v1-webp"
+    },
+    {
+      "fromSpeciesId": 69,
+      "toSpeciesId": 70,
+      "minimumLevel": 21,
+      "assetId": "pokeapi-evolution-70-v1-webp"
+    },
+    {
+      "fromSpeciesId": 100,
+      "toSpeciesId": 101,
+      "minimumLevel": 30,
+      "assetId": "pokeapi-evolution-101-v1-webp"
+    },
+    {
+      "fromSpeciesId": 167,
+      "toSpeciesId": 168,
+      "minimumLevel": 22,
+      "assetId": "pokeapi-evolution-168-v1-webp"
     }
   ]
 }

@@ -151,6 +151,9 @@
         }
       ]
     },
+    "18": {
+      "evolutions": []
+    },
     "19": {
       "evolutions": [
         {
@@ -213,6 +216,24 @@
         }
       ]
     },
+    "44": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 45,
+          "targetName": "Vileplume",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafoglia"
+        },
+        {
+          "targetSpeciesId": 182,
+          "targetName": "Bellossom",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrasolare"
+        }
+      ]
+    },
     "60": {
       "evolutions": [
         {
@@ -224,6 +245,25 @@
         }
       ]
     },
+    "61": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 62,
+          "targetName": "Poliwrath",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietraidrica"
+        },
+        {
+          "targetSpeciesId": 186,
+          "targetName": "Politoed",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Roccia di Re"
+        }
+      ]
+    },
     "69": {
       "evolutions": [
         {
@@ -232,6 +272,17 @@
           "trigger": "level-up",
           "minimumLevel": 21,
           "itemName": null
+        }
+      ]
+    },
+    "70": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 71,
+          "targetName": "Victreebel",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafoglia"
         }
       ]
     },
@@ -380,6 +431,9 @@
           "itemName": null
         }
       ]
+    },
+    "101": {
+      "evolutions": []
     },
     "116": {
       "evolutions": [
@@ -540,6 +594,9 @@
           "itemName": null
         }
       ]
+    },
+    "168": {
+      "evolutions": []
     },
     "170": {
       "evolutions": [

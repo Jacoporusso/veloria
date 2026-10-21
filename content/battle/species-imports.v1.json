@@ -258,6 +258,36 @@
       "artworkGroup": "stone-evolutions",
       "speciesId": 136,
       "templateSpeciesId": 133
+    },
+    {
+      "speciesId": 18,
+      "templateSpeciesId": 17,
+      "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 44,
+      "templateSpeciesId": 43,
+      "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 61,
+      "templateSpeciesId": 60,
+      "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 70,
+      "templateSpeciesId": 69,
+      "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 101,
+      "templateSpeciesId": 100,
+      "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 168,
+      "templateSpeciesId": 167,
+      "artworkGroup": "evolution"
     }
   ],
   "deferredImports": [

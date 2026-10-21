@@ -56,7 +56,7 @@ verify_species_import(['--check'])
 verify_evolution_art(['--check'])
 verify_item_evolutions(['--check'])
 artwork_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
-for artwork_group in sorted({entry['artworkGroup'] for entry in artwork_imports if entry.get('artworkGroup')}):
+for artwork_group in sorted({entry['artworkGroup'] for entry in artwork_imports if entry.get('artworkGroup') and entry['artworkGroup'] != 'evolution'}):
     verify_species_art(['--group', artwork_group, '--check'])
 
 def read(name):

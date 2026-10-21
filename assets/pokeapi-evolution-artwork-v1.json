@@ -85,6 +85,60 @@
       "sourcePath": "assets/sources/pokeapi/evolutions/195.png",
       "sourceSha256": "20433eb75bbed9a1d113ae24ba2b60b5ed5241026ae61cbc75ceaaaf448e76f6",
       "sha256": "62c0327cbbae77ef1b415052ef7e4ce3952318aa85153f7f757a1319f00ce6ce"
+    },
+    {
+      "speciesId": 18,
+      "name": "Pidgeot",
+      "path": "assets/creatures/pokeapi-evolution-18-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/18.png",
+      "sourceSha256": "0f2cf5f30ee821f867cdced8d64fa87a11ae01643bb48c10296ee1ffdc18ca14",
+      "sha256": "096b597a056b27fee93e45687fd025fbb7076d546c74bbe55b8406b47f284674"
+    },
+    {
+      "speciesId": 44,
+      "name": "Gloom",
+      "path": "assets/creatures/pokeapi-evolution-44-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/44.png",
+      "sourceSha256": "bc4fdbeac96c93a0c71db866853492e251e81daedf328ed5f4f9aa1d175abb3a",
+      "sha256": "c414b160ff655961599e14b4e74e5030fc611b03fe61b118aa1d9f2a287ec1b6"
+    },
+    {
+      "speciesId": 61,
+      "name": "Poliwhirl",
+      "path": "assets/creatures/pokeapi-evolution-61-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/61.png",
+      "sourceSha256": "06f1cf555b609f982d61f323323c71fa4e3c8f5de75460f167a63649446ad7b4",
+      "sha256": "086ce2e41462fff5be8051361c98334d178e670de05c4da278dbdefb9da3065f"
+    },
+    {
+      "speciesId": 70,
+      "name": "Weepinbell",
+      "path": "assets/creatures/pokeapi-evolution-70-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/70.png",
+      "sourceSha256": "3de54d7cef95195180846770efbc71c237babf3de8da44d7a4350ab008f665f1",
+      "sha256": "c80a0a06247c70e1ecdccee9b11ea3463140a6fcd3b8fe9f5bf133ef72701a97"
+    },
+    {
+      "speciesId": 101,
+      "name": "Electrode",
+      "path": "assets/creatures/pokeapi-evolution-101-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/101.png",
+      "sourceSha256": "53ba2223c23ef051a83f7ee4849754be796dc88835036f853e3949bac28ef5d0",
+      "sha256": "080fbaa5a60f3629d4cab18a969117a2af3db6640329d5a524e7137b4abace35"
+    },
+    {
+      "speciesId": 168,
+      "name": "Ariados",
+      "path": "assets/creatures/pokeapi-evolution-168-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/168.png",
+      "sourcePath": "assets/sources/pokeapi/evolutions/168.png",
+      "sourceSha256": "7f84c37209cbd24f5bb894359172669102cd297d87dfa6f2d8efe3c711c5657f",
+      "sha256": "b8ff2a13946eb9b696053f5d7a3ba419e499fad0aa37dcf805199b43b8079fb5"
     }
   ]
 }

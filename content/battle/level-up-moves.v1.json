@@ -1583,6 +1583,162 @@
         "level": 64,
         "moveId": "scary-face"
       }
+    ],
+    "18": [
+      {
+        "level": 5,
+        "moveId": "sand-attack"
+      },
+      {
+        "level": 9,
+        "moveId": "gust"
+      },
+      {
+        "level": 13,
+        "moveId": "quick-attack"
+      },
+      {
+        "level": 32,
+        "moveId": "agility"
+      },
+      {
+        "level": 38,
+        "moveId": "wing-attack"
+      }
+    ],
+    "44": [
+      {
+        "level": 5,
+        "moveId": "sweet-scent"
+      },
+      {
+        "level": 9,
+        "moveId": "acid"
+      },
+      {
+        "level": 13,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 15,
+        "moveId": "stun-spore"
+      },
+      {
+        "level": 17,
+        "moveId": "sleep-powder"
+      }
+    ],
+    "61": [
+      {
+        "level": 5,
+        "moveId": "bubble"
+      },
+      {
+        "level": 8,
+        "moveId": "hypnosis"
+      },
+      {
+        "level": 11,
+        "moveId": "water-gun"
+      },
+      {
+        "level": 15,
+        "moveId": "double-slap"
+      },
+      {
+        "level": 27,
+        "moveId": "bubble-beam"
+      },
+      {
+        "level": 32,
+        "moveId": "mud-shot"
+      },
+      {
+        "level": 48,
+        "moveId": "hydro-pump"
+      },
+      {
+        "level": 53,
+        "moveId": "mud-bomb"
+      }
+    ],
+    "70": [
+      {
+        "level": 13,
+        "moveId": "sleep-powder"
+      },
+      {
+        "level": 15,
+        "moveId": "poison-powder"
+      },
+      {
+        "level": 17,
+        "moveId": "stun-spore"
+      },
+      {
+        "level": 23,
+        "moveId": "acid"
+      },
+      {
+        "level": 29,
+        "moveId": "sweet-scent"
+      },
+      {
+        "level": 41,
+        "moveId": "slam"
+      }
+    ],
+    "101": [
+      {
+        "level": 5,
+        "moveId": "tackle"
+      },
+      {
+        "level": 8,
+        "moveId": "sonic-boom"
+      },
+      {
+        "level": 12,
+        "moveId": "spark"
+      },
+      {
+        "level": 19,
+        "moveId": "screech"
+      },
+      {
+        "level": 35,
+        "moveId": "swift"
+      }
+    ],
+    "168": [
+      {
+        "level": 5,
+        "moveId": "scary-face"
+      },
+      {
+        "level": 8,
+        "moveId": "constrict"
+      },
+      {
+        "level": 12,
+        "moveId": "leech-life"
+      },
+      {
+        "level": 23,
+        "moveId": "fury-swipes"
+      },
+      {
+        "level": 37,
+        "moveId": "agility"
+      },
+      {
+        "level": 46,
+        "moveId": "psychic"
+      },
+      {
+        "level": 50,
+        "moveId": "poison-jab"
+      }
     ]
   }
 }

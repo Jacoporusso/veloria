@@ -1,6 +1,8 @@
 # Piano di espansione roster — sei evoluzioni da incontri esistenti
 
-**Stato:** piano dati, non contenuto runtime. Aggiornato il 21/10/2026.
+**Stato:** batch implementato e verificato localmente per la versione 0.3.107. Aggiornato il 21/10/2026.
+
+I sei target, i learnset supportati, gli artwork e gli archi ufficiali sono ora nel runtime. Passati i controlli delle fonti, 509 test dominio/persistenza, sei battaglie evolutive con cerimonia e reload, e la decodifica offline dei quindici artwork del gruppo evolution. Le sezioni seguenti conservano il piano e i limiti rilevati prima dell’importazione; non descrivono più l’assenza attuale dei target.
 
 ## Obiettivo e limite delle fonti locali
 

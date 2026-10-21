@@ -1,3 +1,9 @@
+## 0.3.107 — Sei evoluzioni verificate localmente (21/10/2026)
+
+Catalogo79 specie e78 mosse,320 asset registrati. Passati509 test dominio/persistenza,103 Python, TypeScript, validazione delle fonti/import e build produzione. Sei prove browser verificano Pidgeot, Gloom, Poliwhirl, Weepinbell, Electrode e Ariados: soglia ufficiale, cerimonia, artwork nuovo e identità/HP/PP dopo reload IndexedDB. Il test produzione offline decodifica tutti15 artwork evolution alla prima richiesta senza rete (2,2s;15,3s inclusa build). Le tabelle incontri non cambiano: i precursori erano già disponibili. Cachev128; pubblicazione da confermare.
+
+La CI39594789385 della versione precedente ha segnalato timeout E2E04 al ritorno finale dopo sei catture, e monorotaia alla schermata iniziale del reload dopo quattro stazioni. Budget CI mirati estesi mantenendo ogni verifica e i gate per passo; E2E04 completo ripassato localmente in2,5min e monorotaia in12,5s. Suite Linux completa ancora da attestare, nessun esito verde complessivo dichiarato.
+
 ## Pubblicazione 0.3.106 confermata — 21/10/2026
 
 Commit d22f27b su main. [Deploy39594789374](https://github.com/Jacoporusso/veloria/actions/runs/39594789374) SUCCESS: test, validatore e build riusciti su Linux. Sito pubblico HTTPS200 e cache `veloria-shell-v127` confermati dopo il deploy. [Verify39594789385](https://github.com/Jacoporusso/veloria/actions/runs/39594789385) in esecuzione al controllo finale; suite completa non ancora attestata verde.

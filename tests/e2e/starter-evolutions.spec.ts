@@ -48,7 +48,7 @@ async function tapText(page: Page, text: string) {
   await page.touchscreen.tap(point.x, point.y);
 }
 
-for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20], [2, 3, 'Venusaur', 32, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals'], [8, 9, 'Blastoise', 36, 'starter-finals'], [180, 181, 'Ampharos', 30, 'starter-finals']] as const) {
+for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[17, 18, 'Pidgeot', 36], [43, 44, 'Gloom', 21], [60, 61, 'Poliwhirl', 25], [69, 70, 'Weepinbell', 21], [100, 101, 'Electrode', 30], [167, 168, 'Ariados', 22], [1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20], [2, 3, 'Venusaur', 32, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals'], [8, 9, 'Blastoise', 36, 'starter-finals'], [180, 181, 'Ampharos', 30, 'starter-finals']] as const) {
   test(`${name} evolves in a real battle and survives IndexedDB reload with artwork`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));

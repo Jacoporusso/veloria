@@ -1,3 +1,10 @@
+## 0.3.107 — Sei evoluzioni dai sentieri (21/10/2026)
+
+- Pidgeotto→Pidgeot al36, Oddish→Gloom al21, Poliwag→Poliwhirl al25, Bellsprout→Weepinbell al21, Voltorb→Electrode al30 e Spinarak→Ariados al22. Condizioni ufficiali da fonti PokéAPI locali; nessuna modifica alle zone incontri.
+- Catalogo a79 specie: statistiche HGSS, learnset supportati e artwork lossless con fonti/checksum. Le mosse non implementate restano esplicitamente escluse; nessuna mossa sostitutiva inventata.
+- Cerimonia, scheda Squadra, identità/HP/PP e persistenza verificati per tutte sei le forme. Immagini incluse nella cache PWA v128 e decodificate senza rete.
+- Validatore: il gruppo evolution usa la propria pipeline dedicata, evitando una seconda validazione con percorsi generici incompatibili. Tempo CI del percorso catture/box adeguato al ritorno finale misurato, senza eliminare verifiche.
+
 ## 0.3.106 — Stabilizzazione della lotta e dei percorsi (21/10/2026)
 
 - La regione di gioco segnala il caricamento della lotta fino alla creazione dei controlli interattivi; il segnale viene pulito anche in caso di errore o uscita.

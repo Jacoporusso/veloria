@@ -861,7 +861,9 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
 });
 
 test('E2E-04: capture with a full party stores a unique creature visible at the Pokémon Center after reload', async ({ page }) => {
-  test.setTimeout(process.env.CI ? 360_000 : 240_000);
+  // CI 39594789385 completes six captures and reaches the final return to Brumalta at 360s.
+  // Preserve the Center healing, storage, reload and unique-instance checks.
+  test.setTimeout(process.env.CI ? 480_000 : 240_000);
   await page.route('**/src/main.ts*', async route => {
     const response = await route.fetch();
     await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });

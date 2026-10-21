@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.106:** lotta con carte mosse e barra azioni persistente, caricamento esplicito e percorso offline fino a tre medaglie verificato. Stima danno nei soli dettagli; Bosco con lettura libera del sensore e mappe illustrate. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.107:** sei nuove evoluzioni ufficiali dai Pokémon dei sentieri, catalogo a79 specie e artwork disponibili offline. Lotta con carte mosse, barra azioni e stima danno nei soli dettagli. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
