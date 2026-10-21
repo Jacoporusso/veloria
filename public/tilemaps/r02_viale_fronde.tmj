@@ -1372,6 +1372,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1394,6 +1399,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1416,6 +1426,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1438,6 +1453,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1460,6 +1480,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1482,6 +1507,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1504,6 +1534,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1526,6 +1561,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1548,6 +1588,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1627,6 +1672,11 @@
               "name": "renderDepth",
               "type": "float",
               "value": -4
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ],
           "rotation": 0,
@@ -1915,6 +1965,34 @@
               "value": 2
             }
           ]
+        },
+        {
+          "id": 125,
+          "name": "Sfondi illustrato — r02_viale_fronde",
+          "class": "scenery-image",
+          "x": 0,
+          "y": 0,
+          "width": 896,
+          "height": 640,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r02_viale_fronde-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -2057,7 +2135,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 125,
+  "nextobjectid": 126,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

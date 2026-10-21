@@ -2464,6 +2464,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2486,6 +2491,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2508,6 +2518,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2530,6 +2545,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2552,6 +2572,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2574,6 +2599,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2596,6 +2626,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2618,6 +2653,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -3187,6 +3227,34 @@
               "value": "gym02_irrigation_solved"
             }
           ]
+        },
+        {
+          "height": 832,
+          "id": 45,
+          "name": "gym02_petalora illustrated environment v2",
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-gym02_petalora-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ],
+          "rotation": 0,
+          "type": "",
+          "visible": true,
+          "width": 832,
+          "x": 0,
+          "y": 0
         }
       ],
       "opacity": 1,
@@ -3197,7 +3265,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 45,
+  "nextobjectid": 46,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

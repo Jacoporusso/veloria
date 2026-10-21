@@ -19,6 +19,7 @@ type RenderedMap = {
   interactables: MapInteractable[];
   triggers: MapTrigger[];
   updateExitMarkers: (flags: readonly string[]) => void;
+  updateInteractionFocus: (target?: MapInteractable) => void;
   width: number;
   height: number;
 };
@@ -198,10 +199,28 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   });
   const updateExitMarkers = (flags: readonly string[]) => exitMarkers.forEach(update => update(flags));
   updateExitMarkers(collectedFlags);
-  return { container, occupied, iceTiles, interactables, triggers, updateExitMarkers, width: tilemap.width, height: tilemap.height };
+  const focus = attach(container, scene.add.graphics().setName('interaction-focus').setVisible(false));
+  let focusedId: string | undefined;
+  const updateInteractionFocus = (target?: MapInteractable) => {
+    if (target?.id === focusedId) return;
+    focusedId = target?.id;
+    focus.clear().setVisible(Boolean(target));
+    if (!target) return;
+    const x = target.x + target.width / 2, y = target.y + target.height - 1;
+    const width = Math.min(58, Math.max(30, target.width));
+    // A local contact highlight keeps active objects readable on detailed art.
+    // It appears only for the same adjacent target as the existing action prompt.
+    focus.fillStyle(0x173c49, .3).fillEllipse(x, y + 3, width + 8, 17);
+    focus.fillStyle(0xafffe3, .12).fillEllipse(x, y, width, 13);
+    focus.lineStyle(1.6, 0xc5fff0, .95).strokeEllipse(x, y, width, 13);
+  };
+  return { container, occupied, iceTiles, interactables, triggers, updateExitMarkers, updateInteractionFocus, width: tilemap.width, height: tilemap.height };
 }
 
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
+  // Full-map paintings can own a static object's appearance while Tiled keeps
+  // its collision, service, dialogue and interaction coordinates authoritative.
+  if (item.properties.visualBaked === true) return;
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
     case 'sluice-gate': {

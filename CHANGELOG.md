@@ -1,3 +1,10 @@
+## 0.3.103 — Continuità grafica delle mappe (21/10/2026)
+
+- Quattordici fondali illustrati completi da Sentiero dell’Alba a Ferraluce, comprese Brumalta, Radicelmo, Petalora e le prime due palestre. Materiali, vegetazione e luce coerenti con gli scenari avanzati.
+- Decorazioni già dipinte escluse dal rendering duplicato; personaggi, incontri, puzzle e servizi restano elementi indipendenti.
+- Indicatore discreto sul bersaglio interagibile vicino al personaggio. Geometria di collisioni e passaggi verificata identica.
+- Provenienza, prompt, revisioni e checksum di ogni immagine registrati; nuove risorse incluse nella cache PWA v124.
+
 ## 0.3.102 — Animazioni di lotta e cerimonie (20/10/2026)
 
 - Attacchi fisici con preparazione/affondo, graffi distinti dalle scie; scariche elettriche, getti, foglie, cristalli e anelli secondo il tipo della mossa.

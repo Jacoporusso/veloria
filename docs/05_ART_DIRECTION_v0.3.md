@@ -129,3 +129,10 @@ La v4 non ha ridotto abbastanza il rumore visivo a scala di gioco. Borgofonte, S
 Bosco dei Veli, Viale delle Fronde, Terrazze del Muschio e Radicelmo dichiarano `terrainBase` con l’illustrazione originale `veloria-forest-floor-v1.png`, mostrata una volta e scalata ai limiti della mappa: così il sottosuolo non ripete la stessa tile. La base contiene solo campiture di terreno: non deve includere sentieri, alberi o altri elementi che appartengono ai dati Tiled. `terrainBase.tileIndex` identifica il materiale Tiled che il fondale sostituisce; il renderer rifiuta layer `ground` con materiali diversi. `terrain_detail` mantiene sentieri e superfici locali sopra il fondale; oggetti, collisioni e passaggi restano indipendenti. Prompt e checksum in `assets/prompts/forest-floor-v1.md`.
 
 Con una base continua, `terrain_detail` deve contenere percorsi e dettagli locali; rimuovere le tile di prato scuro usate come riempimento a blocchi, che producono rettangoli visibili sopra il fondo illustrato. Nel Bosco sono state eliminate 91 celle GID 10; i GID di sentiero e acqua sono conservati.
+
+
+### Continuità illustrata delle prime mappe — 21 ottobre 2026
+
+Quattordici fondali completi sostituiscono composizioni a tile e fondali parziali dal Sentiero dell’Alba a Ferraluce. Riferimento qualitativo: Centrale Risonante, mantenendo identità forestale, floreale e tecnologica dei luoghi. Gli oggetti statici già dipinti usano `visualBaked`; le interazioni rimangono dati indipendenti. Un anello di prossimità aiuta a riconoscere il bersaglio attivo. Collisioni e uscite restano identiche: confronto normalizzato documentato nell’audit31. Prompt e fonti di tutte le varianti selezionate sono in `assets/map-parity-v2.json`.
+
+Le chiome dipinte nel fondale non forniscono occlusione dinamica del personaggio. Un eventuale livello separato per fronde e tetti richiederà artwork dedicati e verifica della leggibilità; non è compreso in questa revisione.

@@ -267,6 +267,7 @@ export class WorldScene extends Phaser.Scene {
 
     const adjacent = adjacentGridPoint(this.playerTile, this.facing);
     const target = !blocked && (this.interactableAtTile(adjacent.x, adjacent.y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y));
+    this.renderedMap.updateInteractionFocus(target || undefined);
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
       const verb = target.properties.serviceId === 'monorail' ? 'Usa' : target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';

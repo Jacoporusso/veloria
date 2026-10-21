@@ -5864,6 +5864,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5886,6 +5891,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5908,6 +5918,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5930,6 +5945,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5952,6 +5972,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5974,6 +5999,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -5996,6 +6026,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6018,6 +6053,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6040,6 +6080,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6062,6 +6107,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6084,6 +6134,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6106,6 +6161,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-cherry-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -6155,6 +6215,11 @@
               "name": "message",
               "type": "string",
               "value": "Petalora · cure gratuite per la tua squadra."
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6192,6 +6257,11 @@
               "name": "message",
               "type": "string",
               "value": "Rimedi e Sfere per i sentieri in fiore."
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -6653,6 +6723,34 @@
               "value": 0
             }
           ]
+        },
+        {
+          "height": 896,
+          "id": 186,
+          "name": "petalora illustrated environment v2",
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-petalora-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ],
+          "rotation": 0,
+          "type": "",
+          "visible": true,
+          "width": 1216,
+          "x": 0,
+          "y": 0
         }
       ],
       "opacity": 1,
@@ -6663,7 +6761,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 186,
+  "nextobjectid": 187,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

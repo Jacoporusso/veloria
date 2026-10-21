@@ -2929,6 +2929,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2951,6 +2956,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2973,6 +2983,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2995,6 +3010,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3017,6 +3037,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3039,6 +3064,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3061,6 +3091,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3083,6 +3118,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3105,6 +3145,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -3149,6 +3194,11 @@
               "name": "message",
               "type": "string",
               "value": "Casa della Comunità · riposa e recupera la squadra prima della salita."
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3181,6 +3231,11 @@
               "name": "message",
               "type": "string",
               "value": "Erboristeria delle Fronde · rimedi raccolti lungo i sentieri."
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3208,6 +3263,11 @@
               "name": "message",
               "type": "string",
               "value": "Serra di Radicelmo · i custodi catalogano semi e memorie ecologiche."
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3535,7 +3595,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 35,
+          "name": "Sfondi illustrato — radicelmo",
+          "class": "scenery-image",
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 768,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-radicelmo-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -3544,7 +3633,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 35,
+  "nextobjectid": 36,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

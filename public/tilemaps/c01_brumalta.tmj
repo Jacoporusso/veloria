@@ -2635,6 +2635,46 @@
       ]
     },
     {
+      "id": 9,
+      "name": "decorations",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 63,
+          "name": "Sfondi illustrato — c01_brumalta",
+          "class": "scenery-image",
+          "x": 0,
+          "y": 0,
+          "width": 1152,
+          "height": 768,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-c01_brumalta-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": 4,
       "name": "collision",
       "type": "objectgroup",
@@ -3388,6 +3428,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3411,6 +3456,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3434,6 +3484,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3457,6 +3512,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3480,6 +3540,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3503,6 +3568,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3526,6 +3596,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3549,6 +3624,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3572,6 +3652,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3595,6 +3680,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3618,6 +3708,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -3663,6 +3758,11 @@
               "name": "houseSprite",
               "type": "string",
               "value": "brumalta-center"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3701,6 +3801,11 @@
               "name": "houseSprite",
               "type": "string",
               "value": "brumalta-shop"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3729,6 +3834,11 @@
               "name": "houseSprite",
               "type": "string",
               "value": "brumalta-gym"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3995,8 +4105,8 @@
       ]
     }
   ],
-  "nextlayerid": 9,
-  "nextobjectid": 63,
+  "nextlayerid": 10,
+  "nextobjectid": 64,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

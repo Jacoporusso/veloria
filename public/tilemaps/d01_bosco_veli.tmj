@@ -2771,6 +2771,11 @@
               "name": "renderDepth",
               "type": "int",
               "value": -4
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3053,6 +3058,34 @@
               "value": 2
             }
           ]
+        },
+        {
+          "id": 89,
+          "name": "Sfondi illustrato — d01_bosco_veli",
+          "class": "scenery-image",
+          "x": 0,
+          "y": 0,
+          "width": 960,
+          "height": 640,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-d01_bosco_veli-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
         }
       ]
     },
@@ -3146,6 +3179,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3169,6 +3207,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3192,6 +3235,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3215,6 +3263,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3238,6 +3291,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3261,6 +3319,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3284,6 +3347,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3307,6 +3375,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3330,6 +3403,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3353,6 +3431,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3376,6 +3459,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3399,6 +3487,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3422,6 +3515,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3445,6 +3543,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3468,6 +3571,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3491,6 +3599,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3514,6 +3627,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -3537,6 +3655,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-canopy-v2"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -3850,7 +3973,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 89,
+  "nextobjectid": 90,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

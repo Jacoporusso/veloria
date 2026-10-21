@@ -8,6 +8,7 @@ import re
 from math import ceil
 from pathlib import Path
 from map_render_validation import validate_map_render_assets
+from validate_map_parity_art import validate_map_parity_art
 from asset_register_validation import validate_asset_register
 from dependency_license_validation import validate_dependency_register
 from json_schema_validation import validate_json_schema
@@ -240,6 +241,7 @@ shop_files = sorted(SHOPS.glob("*.shop.json"))
 shops = [json.loads(file.read_text(encoding="utf-8")) for file in shop_files]
 shop_registry = {shop["id"]: shop for shop in shops}
 asset_rows, registered_asset_paths = validate_asset_register(ASSET_REGISTER, ROOT, PUBLIC)
+map_parity_art_count = validate_map_parity_art(ROOT)
 starter_art = json.loads((ROOT / "assets" / "pokeapi-starter-artwork-v1.json").read_text(encoding="utf-8"))
 check({entry["speciesId"] for entry in starter_art["artworks"]} == {1, 4, 7, 25}, "Starter artwork IDs are incomplete")
 for entry in starter_art["artworks"]:
@@ -665,5 +667,6 @@ check(set(region["primaryProgression"]) <= set(by_id.keys()), "Region route refe
 check(len(region["gymOrder"]) == 8, "Gym order count invalid")
 check(save["contentVersion"] == region["contentVersion"], "Content version mismatch")
 print(f"OK: {len(asset_rows)} registered assets; all public media files are accounted for.")
+print(f"OK: {map_parity_art_count} illustrated full-map assets have valid provenance and map bindings.")
 print(f"OK: {len(dependency_rows)} locked npm dependencies have a current license/source inventory.")
 print(f"OK: {len(files)} example JSON files, {len(maps)} example maps, {len(runtime_maps)} Tiled runtime maps, {len(quests)} runtime quests, {len(trainers)} runtime trainers, {len(shops)} shops, content links, encounter, region and save validated")

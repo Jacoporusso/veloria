@@ -1466,7 +1466,7 @@ test('DEV: map picker opens every registered map without reading or saving the p
 });
 
 test('E2E-13: Borgofonte interiors have reciprocal doors, persistent location and a working resting bed', async ({ page }, testInfo) => {
-  test.setTimeout(120_000);
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
   await page.setViewportSize({ width: 390, height: 844 });
   await chooseCharmander(page);
   await finishOpenDialogue(page);

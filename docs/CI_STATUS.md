@@ -1,3 +1,13 @@
+## 0.3.103 — verifica locale mappe illustrate (21/10/2026)
+
+Quattordici nuovi fondali,308 asset registrati, cachev124. Passati489 test dominio/persistenza e103 Python, TypeScript, validatore contenuti/provenienza e build produzione. Due prove browser inventario coprono tutte14 mappe in390×844 e844×390 e identità NPC/uscite. Percorso touch al Bosco con reload e vittoria Mira con medaglia persistente passati (1,5min). Tutti14 nuovi fondali decodificati alla prima richiesta offline senza visitarne le mappe (2,2s;15,6s inclusa build). Confronto geometria normalizzata14/14 identico.
+
+CI: shard capitoli da6 a12 dopo timeout misurato; E2E13 ha240s in CI per completare la ricarica finale già raggiunta nel run precedente. Nessun asserto rimosso. Pubblicazione e nuovaCI da confermare.
+
+## Pubblicazione 0.3.102 confermata — 21/10/2026
+
+Commit d46aeb3 su main. Deploy39550975449 SUCCESS, HTTPS200 e cachev123 confermati. Verify39550975282 FAILURE: timeout cumulativo shard capitoli4 dopo23 test passati e timeout Borgofonte alla ricarica finale. Nessuna attestazione di suite Linux interamente verde.
+
 ## 0.3.102 — animazioni verificate (20/10/2026)
 
 29 prove browser locali passate:25 lotta/pietre (incluse6 animazioni reali elettrico/immunità/Ruggito in portrait e landscape, resize/skip senza nuovi PP o turni),4 cerimonie a movimento completo/ridotto con verifica del movimento CSS tra fotogrammi, reveal automatico e salto senza doppia chiusura.464 test dominio e25 persistenza passati; TypeScript, validatore e build produzione riusciti. Modulo vettoriale BattleEffects separato dalle regole; cattura con traiettoria arcuata e presentazione dopo confine di salvataggio. Cachev123. Deploy e nuova CI da registrare.

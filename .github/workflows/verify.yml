@@ -23,12 +23,18 @@ jobs:
         # Isolate the measured DPR3 canvas journeys and the championship. Run
         # 39419114192 exhausted a 24-minute chapter shard after 20 passing cases.
         include:
-          - {suite: chapters, shard: 1, total: 6}
-          - {suite: chapters, shard: 2, total: 6}
-          - {suite: chapters, shard: 3, total: 6}
-          - {suite: chapters, shard: 4, total: 6}
-          - {suite: chapters, shard: 5, total: 6}
-          - {suite: chapters, shard: 6, total: 6}
+          - {suite: chapters, shard: 1, total: 12}
+          - {suite: chapters, shard: 2, total: 12}
+          - {suite: chapters, shard: 3, total: 12}
+          - {suite: chapters, shard: 4, total: 12}
+          - {suite: chapters, shard: 5, total: 12}
+          - {suite: chapters, shard: 6, total: 12}
+          - {suite: chapters, shard: 7, total: 12}
+          - {suite: chapters, shard: 8, total: 12}
+          - {suite: chapters, shard: 9, total: 12}
+          - {suite: chapters, shard: 10, total: 12}
+          - {suite: chapters, shard: 11, total: 12}
+          - {suite: chapters, shard: 12, total: 12}
           - {suite: mvp, shard: 1, total: 4}
           - {suite: mvp, shard: 2, total: 4}
           - {suite: mvp, shard: 3, total: 4}

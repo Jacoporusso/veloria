@@ -1050,3 +1050,42 @@ test('illustrated Borgofonte decodes on its first offline request', async ({ pag
     await image.decode(); return image.naturalWidth > 0 && image.naturalHeight > 0;
   })).toBe(true);
 });
+
+test('fourteen illustrated early-map environments decode on their first offline request', async ({ page, context }) => {
+  test.setTimeout(120_000);
+  const stems = [
+    'r01_sentiero_alba', 'd01_bosco_veli', 'r02_viale_fronde', 'c01_brumalta',
+    'gym01_brumalta', 'r03_terrazze_muschio', 'radicelmo', 'r04_salita_petali',
+    'petalora', 'gym02_petalora', 'r05_viadotto_ciliegi', 'vetracielo',
+    'r06_anello_magnetico', 'ferraluce',
+  ];
+  const errors: string[] = [];
+  const failures: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  expect((await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
+  // Only the initial town has rendered. None of these environments may be warmed by visiting its map.
+  const warmed = await page.evaluate(names => {
+    const resources = performance.getEntriesByType('resource').map(entry => entry.name);
+    return names.filter(stem => resources.some(url => url.includes(`/assets/scenery/veloria-${stem}-illustrated-v2.webp`)));
+  }, stems);
+  expect(warmed).toEqual([]);
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true);
+  const decoded = await page.evaluate(async names => Promise.all(names.map(async stem => {
+    const image = new Image();
+    const path = `assets/scenery/veloria-${stem}-illustrated-v2.webp`;
+    image.src = new URL(path, location.href).href;
+    await image.decode();
+    return { stem, width: image.naturalWidth, height: image.naturalHeight };
+  })), stems);
+  expect(decoded.map(image => image.stem)).toEqual(stems);
+  for (const image of decoded) {
+    expect(image.width, `${image.stem} image width`).toBeGreaterThanOrEqual(1000);
+    expect(image.height, `${image.stem} image height`).toBeGreaterThanOrEqual(700);
+  }
+  expect((await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
+  expect(failures).toEqual([]);
+  expect(errors).toEqual([]);
+});

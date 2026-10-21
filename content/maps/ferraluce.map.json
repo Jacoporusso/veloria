@@ -64,6 +64,11 @@
       "kind": "image",
       "key": "veloria-industrial-floor-v1",
       "path": "assets/tilesets/veloria-industrial-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-illustrated-v2",
+      "path": "assets/scenery/veloria-ferraluce-illustrated-v2.webp"
     }
   ],
   "spawns": [

@@ -69,6 +69,11 @@
       "kind": "image",
       "key": "veloria-monorail-station-v1",
       "path": "assets/sprites/veloria-monorail-station-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-vetracielo-illustrated-v2",
+      "path": "assets/scenery/veloria-vetracielo-illustrated-v2.webp"
     }
   ],
   "spawns": [

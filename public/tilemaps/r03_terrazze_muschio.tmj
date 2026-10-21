@@ -2698,6 +2698,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2720,6 +2725,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2742,6 +2752,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2764,6 +2779,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2786,6 +2806,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2808,6 +2833,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2830,6 +2860,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2852,6 +2887,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2874,6 +2914,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2896,6 +2941,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2918,6 +2968,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         },
@@ -2940,6 +2995,11 @@
               "name": "sprite",
               "type": "string",
               "value": "veloria-bosco-ancient-tree-v1"
+            },
+            {
+              "name": "visualBaked",
+              "type": "bool",
+              "value": true
             }
           ]
         }
@@ -3293,7 +3353,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 40,
+          "name": "Sfondi illustrato — r03_terrazze_muschio",
+          "class": "scenery-image",
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 768,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r03_terrazze_muschio-illustrated-v2"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -3302,7 +3391,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 40,
+  "nextobjectid": 41,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

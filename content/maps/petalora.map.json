@@ -64,6 +64,11 @@
       "kind": "image",
       "key": "veloria-npc-rami-v1",
       "path": "assets/sprites/veloria-npc-rami-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-illustrated-v2",
+      "path": "assets/scenery/veloria-petalora-illustrated-v2.webp"
     }
   ],
   "spawns": [

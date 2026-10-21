@@ -59,6 +59,11 @@
       "kind": "image",
       "key": "veloria-industrial-floor-v1",
       "path": "assets/tilesets/veloria-industrial-floor-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r06_anello_magnetico-illustrated-v2",
+      "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp"
     }
   ],
   "spawns": [

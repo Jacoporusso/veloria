@@ -1,5 +1,20 @@
-const CACHE = 'veloria-shell-v123';
+const CACHE = 'veloria-shell-v124';
 const SHELL = [
+  './assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp',
+  './assets/scenery/veloria-c01_brumalta-illustrated-v2.webp',
+  './assets/scenery/veloria-gym01_brumalta-illustrated-v2.webp',
+  './assets/scenery/veloria-radicelmo-illustrated-v2.webp',
+  './assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp',
+  './assets/scenery/veloria-vetracielo-illustrated-v2.webp',
+  './assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp',
+  './assets/scenery/veloria-ferraluce-illustrated-v2.webp',
+  './assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp',
+  './assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp',
+  './assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp',
+  './assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp',
+  './assets/scenery/veloria-petalora-illustrated-v2.webp',
+  './assets/scenery/veloria-gym02_petalora-illustrated-v2.webp',
+
   './assets/scenery/veloria-borgofonte-v2.webp',
   './assets/creatures/pokeapi-stone-evolutions-26-v1.webp',
   './assets/creatures/pokeapi-stone-evolutions-134-v1.webp',
