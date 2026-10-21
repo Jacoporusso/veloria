@@ -59,7 +59,8 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[81, 82, 
     for (let action = 0; action < 20; action++) {
       await expect.poll(() => page.evaluate(() => {
         const scene = (window as any).evolutionGame.scene.keys.battle;
-        return scene.mode === 'learning' || scene.terminalShown || Boolean(document.querySelector('.evolution-celebration'));
+        return scene.mode === 'learning' || scene.mode === 'message' && scene.pendingMessages[0]?.event?.type === 'moveLearned'
+          || scene.terminalShown || Boolean(document.querySelector('.evolution-celebration'));
       })).toBe(true);
       if (await page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.terminalShown)) break;
       const ceremony = page.locator('.evolution-celebration');
@@ -67,6 +68,9 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[81, 82, 
         await expect(ceremony).toBeVisible();
         await expect(ceremony).toContainText(`Ora è ${name}!`);
         await ceremony.getByRole('button', { name: 'Continua', exact: true }).click();
+      } else if (await page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.mode === 'message')) {
+        // Automatic learning now waits for the player to acknowledge its information card.
+        await tapText(page, 'Continua');
       } else {
         await tapText(page, 'Tieni le mosse');
       }

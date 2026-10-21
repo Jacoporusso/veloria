@@ -9,6 +9,8 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 - Le14 collisioni NPC mancanti sono corrette e verificate per percorsi e interazione. I clic mouse su A di Elia/Ada passano nella finestra PC con comandi visibili; la segnalazione dell'utente resta da riprodurre nella sua circostanza.
 - La suite completa0.3.112 è verde (Verify39676474294), incluse le correzioni precedenti dei percorsi Ada e caricamento Lega. La0.3.113 aggiunge confronto e dettagli condivisi con la lotta durante l’apprendimento: nove prove mirate passate; CI e pubblicazione riportate separatamente in CI_STATUS.
 
+- Prologo naturale Bulbasaur passato fino alla prima medaglia in4,4min automatizzati: sette vittorie, due sconfitte selvatiche, una cattura e ripresa verificata. Scorte esaurite e arrivo a Brumalta quasi KO: confronto degli starter/bilanciamento ancora aperto. Report in `playtests/2026-10-21-first-medal-bulbasaur.md`.
+
 ### Requisiti ancora aperti
 
 1. Verificare e bilanciare una partita naturale dall'inizio al finale, con tutti e quattro gli starter, risorse, catture, sconfitte, ritorni e progressi persistenti. I checkpoint preparati restano prove d'integrazione separate.

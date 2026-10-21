@@ -1,3 +1,9 @@
+## Prologo Bulbasaur e aggiornamento test evoluzioni — 21/10/2026
+
+Nuova partita0.3.113 completata fino alla prima medaglia con Bulbasaur:10 battaglie,7 vittorie del giocatore,2 sconfitte selvatiche e1 cattura. Nuovi apprendimenti Parassiseme/Frustata, Ada, Centro, acquisti, puzzle Mira e ripresa dal titolo verificati; nessun errore JS. Bulbasaur9 a5/27HP e Hoothoot5,850monete, scorte esaurite. Report e limiti in [playtests/2026-10-21-first-medal-bulbasaur.md](playtests/2026-10-21-first-medal-bulbasaur.md): il risultato non chiude il bilanciamento o gli altri starter.
+
+La shard11 di [Verify39678891474](https://github.com/Jacoporusso/veloria/actions/runs/39678891474) ha fallito su Raticate: il test attendeva automaticamente la cerimonia, ignorando la nuova conferma della carta per una mossa appresa in uno slot libero. Aggiornato il solo driver della prova per riconoscere e confermare quel passaggio. Tutte21 evoluzioni passate localmente in2,3min, con artwork, cerimonia, HP/PP e reload IndexedDB; TypeScript passato. Nessuna modifica runtime. La CI della correzione va confermata; non dichiarata verde la suite0.3.113.
+
 ## Pubblicazione0.3.113 confermata e suite lotta — 21/10/2026
 
 Commit95774e7 su main. [Deploy39678891497](https://github.com/Jacoporusso/veloria/actions/runs/39678891497) SUCCESS; sito HTTPS200 e cache `veloria-shell-v134` verificati. [Verify39678891474](https://github.com/Jacoporusso/veloria/actions/runs/39678891474) in esecuzione all’ultimo controllo. La suite completa precedente [Verify39676474294](https://github.com/Jacoporusso/veloria/actions/runs/39676474294) è SUCCESS.
