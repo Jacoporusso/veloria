@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.113:** apprendimento con carte e dettagli delle mosse come nella lotta;79 specie e79 mosse ufficiali supportate. Partita naturale Charmander verificata fino alla terza medaglia, con evoluzione, risorse guadagnate e ripresa. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.114:** indicazioni sul riposo gratuito iniziale e apprendimento con dettagli delle mosse;79 specie e79 mosse ufficiali supportate. Partita naturale Charmander verificata fino alla terza medaglia, con evoluzione, risorse guadagnate e ripresa. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 21 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 

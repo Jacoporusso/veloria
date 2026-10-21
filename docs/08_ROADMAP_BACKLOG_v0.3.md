@@ -1,4 +1,4 @@
-## Stato corrente — 0.3.113, 21/10/2026
+## Stato corrente — 0.3.114, 21/10/2026
 
 Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 79 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
 
@@ -10,6 +10,10 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 - La suite completa0.3.112 è verde (Verify39676474294), incluse le correzioni precedenti dei percorsi Ada e caricamento Lega. La0.3.113 aggiunge confronto e dettagli condivisi con la lotta durante l’apprendimento: nove prove mirate passate; CI e pubblicazione riportate separatamente in CI_STATUS.
 
 - Prologo naturale Bulbasaur passato fino alla prima medaglia in4,4min automatizzati: sette vittorie, due sconfitte selvatiche, una cattura e ripresa verificata. Scorte esaurite e arrivo a Brumalta quasi KO: confronto degli starter/bilanciamento ancora aperto. Report in `playtests/2026-10-21-first-medal-bulbasaur.md`.
+
+- Prologo naturale Squirtle passato fino alla prima medaglia e ripresa: cinque vittorie e due catture, nessuna sconfitta completa; due KO nella squadra contro Mira. Dal0.3.114 Elia/Sera rendono esplicito il letto gratuito già presente a Borgofonte. Report in `playtests/2026-10-21-first-medal-squirtle.md`; il test non usava quel riposo, quindi non dimostra una mancanza assoluta di cure.
+
+- Prologo Pikachu verificato fino a Mira e ripresa: dodici vittorie, una cattura, nessuna sconfitta completa. I quattro starter hanno almeno una prova del prologo, su versioni e incontri diversi: questo non certifica campagne complete o bilanciamento statistico. Report in `playtests/2026-10-21-first-medal-pikachu.md`.
 
 ### Requisiti ancora aperti
 

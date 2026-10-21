@@ -1,3 +1,8 @@
+## 0.3.114 — Riposo iniziale più chiaro (21/10/2026)
+
+- Elia e Sera indicano il letto gratuito di Borgofonte, dove si trova e come recuperare HP, PP e stati alterati. Il consiglio compare anche nel feedback dopo Sera. Il servizio era già disponibile; nessun cambiamento a squadre, regole o ricompense.
+- Prologhi naturali Squirtle e Pikachu fino alla prima medaglia e ripresa verificati, con catture e nessun errore JS. Report separato da Bulbasaur: incontri/seed diversi, nessuna conclusione statistica sulla forza degli starter. Cache PWA v135.
+
 ## 0.3.113 — Studiare le nuove mosse (21/10/2026)
 
 - Apprendimento con le stesse carte della lotta: tipo, categoria, potenza, precisione, PP ed effetti. Confronto della candidata con le mosse conosciute e dettaglio completo apribile tramite ⓘ.

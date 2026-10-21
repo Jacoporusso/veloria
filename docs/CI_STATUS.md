@@ -1,3 +1,11 @@
+## 0.3.114 — Indicazioni sul riposo e confronto del prologo (21/10/2026)
+
+Elia e Sera indicano il letto gratuito di Borgofonte e il recupero di HP/PP/stati, anche nel feedback della prima sfida. Nessuna modifica a squadre, regole o ricompense. E2E13 passato in46,6s: porte reciproche, letto su HP1/PP0/veleno, posizione e reload. Validatore e build passati; cachev135.
+
+Squirtle0.3.113 e Pikachu0.3.114 hanno completato naturalmente il prologo e la ripresa, rispettivamente in3,6/4,7min automatizzati: Squirtle5 vittorie+2 catture, Pikachu12 vittorie+1 cattura, nessuna sconfitta completa o errore JS. Due KO contro Mira per Squirtle, uno per Pikachu; entrambi senza pozioni residue. Report/limiti in playtests/2026-10-21-first-medal-{squirtle,pikachu}.md e rispettivi JSON. Tutti quattro starter hanno almeno una prova naturale del prologo, non della campagna completa. La politica non usa il letto: i consigli sono una correzione di orientamento, non una prova di bilanciamento risolto.
+
+[Verify39678891474](https://github.com/Jacoporusso/veloria/actions/runs/39678891474) conclusa FAILURE, sola shard11 su test Raticate già corretto e passato localmente insieme alle21 evoluzioni. [Verify39680726652](https://github.com/Jacoporusso/veloria/actions/runs/39680726652) della correzione è in esecuzione,8 job conclusi senza fallimenti al controllo. Pubblicazione e CI0.3.114 da confermare.
+
 ## Prologo Bulbasaur e aggiornamento test evoluzioni — 21/10/2026
 
 Nuova partita0.3.113 completata fino alla prima medaglia con Bulbasaur:10 battaglie,7 vittorie del giocatore,2 sconfitte selvatiche e1 cattura. Nuovi apprendimenti Parassiseme/Frustata, Ada, Centro, acquisti, puzzle Mira e ripresa dal titolo verificati; nessun errore JS. Bulbasaur9 a5/27HP e Hoothoot5,850monete, scorte esaurite. Report e limiti in [playtests/2026-10-21-first-medal-bulbasaur.md](playtests/2026-10-21-first-medal-bulbasaur.md): il risultato non chiude il bilanciamento o gli altri starter.

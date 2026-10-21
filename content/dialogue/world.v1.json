@@ -15,13 +15,15 @@
         "questEvent": "interaction/prof_elia/readings",
         "lines": [
           "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
+          "Se la squadra è stanca, torna a casa: usa il letto e scegli RIPOSA. Recupererai gratuitamente HP, PP e stati alterati. La casa è a nord-ovest della piazza.",
           "Ti affido le rilevazioni per Ada. Esci dalla porta in basso del laboratorio. Nel paese, gira intorno all’edificio e raggiungi il passaggio segnato «Sentiero dell’Alba» a nord."
         ]
       },
       {
         "lines": [
           "Le rilevazioni sono pronte. Ada ti aspetta nel Bosco dei Veli.",
-          "Il Sentiero dell’Alba si trova a nord della piazza."
+          "Il Sentiero dell’Alba si trova a nord della piazza.",
+          "Prima di ripartire puoi riposare nel letto di casa, a nord-ovest della piazza: è gratuito e cura tutta la squadra."
         ]
       }
     ]
@@ -52,7 +54,8 @@
       },
       {
         "lines": [
-          "Buona fortuna per la Palestra. Ricorda di tenere in forma la squadra."
+          "Se la squadra è stanca, puoi tornare al letto di casa a Borgofonte e scegliere RIPOSA: è gratuito e recupera anche i PP e gli stati alterati.",
+          "Puoi sempre tornare qui per continuare il viaggio verso il bosco."
         ]
       }
     ]

@@ -1,0 +1,3832 @@
+{
+  "starter": "Squirtle",
+  "prepareGym": true,
+  "continueRadicelmo": false,
+  "continuePetalora": false,
+  "continueVetracielo": false,
+  "report": [
+    {
+      "label": "R01 reached naturally",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/r01_sentiero_alba",
+      "x": 1,
+      "y": 10,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 5,
+          "experience": 0,
+          "hp": 20,
+          "maxHp": 20,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "tail-whip",
+              "pp": 30
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 5
+      },
+      "money": 300
+    },
+    {
+      "label": "Battle result",
+      "id": "09906304-7a77-41bd-82e6-6ec28847bc52",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 5,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 5,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 20,
+              "attack": 9,
+              "defense": 11,
+              "specialAttack": 10,
+              "specialDefense": 11,
+              "speed": 9
+            },
+            "hp": 16,
+            "experience": 31,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 32
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 29
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "veloria/trainer_route01_sera:1",
+            "speciesId": 16,
+            "name": "Pidgey",
+            "level": 3,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 45,
+              "defense": 40,
+              "specialAttack": 35,
+              "specialDefense": 35,
+              "speed": 56
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 15,
+              "attack": 7,
+              "defense": 7,
+              "specialAttack": 7,
+              "specialDefense": 7,
+              "speed": 8
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 31
+              }
+            ],
+            "statStages": {
+              "defense": -1
+            }
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tail-whip"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1",
+          "stat": "defense",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": true
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 14
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 3,
+          "effectiveness": 1,
+          "critical": true
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_sera:1"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 31,
+          "sourceCreatureId": "veloria/trainer_route01_sera:1"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Sera battle completed",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/r01_sentiero_alba",
+      "x": 7,
+      "y": 10,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 5,
+          "experience": 31,
+          "hp": 16,
+          "maxHp": 20,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 32
+            },
+            {
+              "id": "tail-whip",
+              "pp": 29
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated"
+      ],
+      "inventory": {
+        "potion": 1,
+        "poke-ball": 5
+      },
+      "money": 400
+    },
+    {
+      "label": "Battle result",
+      "id": "98e71bcc-6045-4d88-91e1-8ff6472dd398",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 10,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 7,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 23,
+              "attack": 11,
+              "defense": 14,
+              "specialAttack": 12,
+              "specialDefense": 13,
+              "speed": 11
+            },
+            "hp": 15,
+            "experience": 21,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 27
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 26
+              },
+              {
+                "moveId": "bubble",
+                "pp": 30
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "veloria/trainer_route01_timo:1",
+            "speciesId": 161,
+            "name": "Sentret",
+            "level": 4,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 35,
+              "attack": 46,
+              "defense": 34,
+              "specialAttack": 35,
+              "specialDefense": 45,
+              "speed": 20
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 16,
+              "attack": 8,
+              "defense": 7,
+              "specialAttack": 7,
+              "specialDefense": 8,
+              "speed": 6
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 57,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 32
+              },
+              {
+                "moveId": "defense-curl",
+                "pp": 38
+              }
+            ]
+          },
+          {
+            "instanceId": "veloria/trainer_route01_timo:2",
+            "speciesId": 19,
+            "name": "Rattata",
+            "level": 4,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 30,
+              "attack": 56,
+              "defense": 35,
+              "specialAttack": 25,
+              "specialDefense": 35,
+              "speed": 72
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 16,
+              "attack": 9,
+              "defense": 7,
+              "specialAttack": 7,
+              "specialDefense": 7,
+              "speed": 10
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 51,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 33
+              },
+              {
+                "moveId": "quick-attack",
+                "pp": 28
+              }
+            ],
+            "statStages": {
+              "defense": -1
+            }
+          }
+        ],
+        "activeIndex": 1
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tail-whip"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "stat": "defense",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "moveId": "defense-curl"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "stat": "defense",
+          "change": 1,
+          "stage": 0
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tail-whip"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "stat": "defense",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 7,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 14
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 7,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "moveId": "defense-curl"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1",
+          "stat": "defense",
+          "change": 1,
+          "stage": 0
+        },
+        {
+          "type": "turnStarted",
+          "turn": 6
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 2,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:1"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 48,
+          "sourceCreatureId": "veloria/trainer_route01_timo:1"
+        },
+        {
+          "type": "levelUp",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "previousLevel": 5,
+          "level": 6
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "opponent",
+          "fromId": "veloria/trainer_route01_timo:1",
+          "toId": "veloria/trainer_route01_timo:2"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 7
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tail-whip"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2",
+          "stat": "defense",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "turnStarted",
+          "turn": 8
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 8,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 9
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 14
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 3,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 10
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 8,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_route01_timo:2"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 43,
+          "sourceCreatureId": "veloria/trainer_route01_timo:2"
+        },
+        {
+          "type": "levelUp",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "previousLevel": 6,
+          "level": 7
+        },
+        {
+          "type": "moveLearned",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Timo battle completed",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/r01_sentiero_alba",
+      "x": 18,
+      "y": 13,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 7,
+          "experience": 21,
+          "hp": 15,
+          "maxHp": 23,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 27
+            },
+            {
+              "id": "tail-whip",
+              "pp": 26
+            },
+            {
+              "id": "bubble",
+              "pp": 30
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 5
+      },
+      "money": 550
+    },
+    {
+      "label": "Battle result",
+      "id": "ff2530e5-6f7d-4549-9b33-317fe161b63e",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 4,
+      "outcome": {
+        "kind": "captured",
+        "creatureId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+        "destination": "party"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 7,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 23,
+              "attack": 11,
+              "defense": 14,
+              "specialAttack": 12,
+              "specialDefense": 13,
+              "speed": 11
+            },
+            "hp": 5,
+            "experience": 21,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 26
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 26
+              },
+              {
+                "moveId": "bubble",
+                "pp": 30
+              }
+            ],
+            "status": {
+              "status": "poison"
+            },
+            "statStages": {
+              "speed": -1
+            }
+          },
+          {
+            "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 6,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 33
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 39
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 6,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 33
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 39
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 7,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "moveId": "string-shot"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "stat": "speed",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "captureAttempted",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "chance": 0.5461538461538462,
+          "roll": 0.8678626588080078
+        },
+        {
+          "type": "captureFailed",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "chance": 0.5461538461538462,
+          "roll": 0.8678626588080078
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 2,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "statusApplied",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison"
+        },
+        {
+          "type": "statusTick",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison",
+          "damage": 2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "captureAttempted",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "chance": 0.5461538461538462,
+          "roll": 0.6614633786957711
+        },
+        {
+          "type": "captureFailed",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "chance": 0.5461538461538462,
+          "roll": 0.6614633786957711
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": true
+        },
+        {
+          "type": "statusTick",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison",
+          "damage": 2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "captureAttempted",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "chance": 0.5461538461538462,
+          "roll": 0.031351021490991116
+        },
+        {
+          "type": "creatureCaptured",
+          "side": "player",
+          "wildCreatureId": "ff2530e5-6f7d-4549-9b33-317fe161b63e:wild",
+          "creatureId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "destination": "party"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "captured",
+            "creatureId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "destination": "party"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Natural grass encounters",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/r01_sentiero_alba",
+      "x": 8,
+      "y": 7,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 7,
+          "experience": 21,
+          "hp": 5,
+          "maxHp": 23,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 26
+            },
+            {
+              "id": "tail-whip",
+              "pp": 26
+            },
+            {
+              "id": "bubble",
+              "pp": 30
+            }
+          ],
+          "status": {
+            "status": "poison"
+          }
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 6,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 33
+            },
+            {
+              "id": "string-shot",
+              "pp": 39
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 2
+      },
+      "money": 550
+    },
+    {
+      "label": "Brumalta reached naturally",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/brumalta",
+      "x": 1,
+      "y": 12,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 7,
+          "experience": 21,
+          "hp": 5,
+          "maxHp": 23,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 26
+            },
+            {
+              "id": "tail-whip",
+              "pp": 26
+            },
+            {
+              "id": "bubble",
+              "pp": 30
+            }
+          ],
+          "status": {
+            "status": "poison"
+          }
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 6,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 33
+            },
+            {
+              "id": "string-shot",
+              "pp": 39
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 2
+      },
+      "money": 750
+    },
+    {
+      "label": "Battle result",
+      "id": "0da99469-c094-4237-9f44-c02f0f3f8ebd",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 3,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 7,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 23,
+              "attack": 11,
+              "defense": 14,
+              "specialAttack": 12,
+              "specialDefense": 13,
+              "speed": 11
+            },
+            "hp": 18,
+            "experience": 50,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 30
+              },
+              {
+                "moveId": "bubble",
+                "pp": 27
+              }
+            ],
+            "statStages": {
+              "defense": -1
+            }
+          },
+          {
+            "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 13,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 35
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 40
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "0da99469-c094-4237-9f44-c02f0f3f8ebd:wild",
+            "speciesId": 19,
+            "name": "Rattata",
+            "level": 4,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 30,
+              "attack": 56,
+              "defense": 35,
+              "specialAttack": 25,
+              "specialDefense": 35,
+              "speed": 72
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 16,
+              "attack": 9,
+              "defense": 7,
+              "specialAttack": 7,
+              "specialDefense": 7,
+              "speed": 10
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 51,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 29
+              },
+              {
+                "moveId": "quick-attack",
+                "pp": 29
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "0da99469-c094-4237-9f44-c02f0f3f8ebd:wild",
+          "moveId": "tail-whip"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "stat": "defense",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "0da99469-c094-4237-9f44-c02f0f3f8ebd:wild",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "0da99469-c094-4237-9f44-c02f0f3f8ebd:wild"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 29,
+          "sourceCreatureId": "0da99469-c094-4237-9f44-c02f0f3f8ebd:wild"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 3,
+      "outcome": {
+        "kind": "captured",
+        "creatureId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+        "destination": "party"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 7,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 23,
+              "attack": 11,
+              "defense": 14,
+              "specialAttack": 12,
+              "specialDefense": 13,
+              "speed": 11
+            },
+            "hp": 15,
+            "experience": 50,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 30
+              },
+              {
+                "moveId": "bubble",
+                "pp": 25
+              }
+            ],
+            "statStages": {
+              "attack": -1
+            }
+          },
+          {
+            "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 13,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 35
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 40
+              }
+            ]
+          },
+          {
+            "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+            "speciesId": 163,
+            "name": "Hoothoot",
+            "level": 5,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 30,
+              "defense": 30,
+              "specialAttack": 36,
+              "specialDefense": 56,
+              "speed": 50
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 21,
+              "attack": 8,
+              "defense": 8,
+              "specialAttack": 8,
+              "specialDefense": 10,
+              "speed": 10
+            },
+            "hp": 11,
+            "experience": 0,
+            "experienceYield": 52,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "growl",
+                "pp": 39
+              },
+              {
+                "moveId": "hypnosis",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76:wild",
+            "speciesId": 163,
+            "name": "Hoothoot",
+            "level": 5,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 30,
+              "defense": 30,
+              "specialAttack": 36,
+              "specialDefense": 56,
+              "speed": 50
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 21,
+              "attack": 8,
+              "defense": 8,
+              "specialAttack": 8,
+              "specialDefense": 10,
+              "speed": 10
+            },
+            "hp": 11,
+            "experience": 0,
+            "experienceYield": 52,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "growl",
+                "pp": 39
+              },
+              {
+                "moveId": "hypnosis",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76:wild",
+          "moveId": "growl"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "stat": "attack",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76:wild",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 3,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "captureAttempted",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76:wild",
+          "chance": 0.5119047619047619,
+          "roll": 0.0758323052432388
+        },
+        {
+          "type": "creatureCaptured",
+          "side": "player",
+          "wildCreatureId": "1869232c-e16d-400f-b2cf-2b7c3ecf3e76:wild",
+          "creatureId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "destination": "party"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "captured",
+            "creatureId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+            "destination": "party"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "3185691b-f854-41e1-8060-063a72341a8b",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 6,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 8,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 25,
+              "attack": 12,
+              "defense": 15,
+              "specialAttack": 13,
+              "specialDefense": 15,
+              "speed": 11
+            },
+            "hp": 16,
+            "experience": 14,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 30
+              },
+              {
+                "moveId": "bubble",
+                "pp": 21
+              }
+            ],
+            "status": {
+              "status": "poison"
+            },
+            "statStages": {
+              "speed": -2
+            }
+          },
+          {
+            "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 13,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 35
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 40
+              }
+            ]
+          },
+          {
+            "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+            "speciesId": 163,
+            "name": "Hoothoot",
+            "level": 5,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 30,
+              "defense": 30,
+              "specialAttack": 36,
+              "specialDefense": 56,
+              "speed": 50
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 21,
+              "attack": 8,
+              "defense": 8,
+              "specialAttack": 8,
+              "specialDefense": 10,
+              "speed": 10
+            },
+            "hp": 11,
+            "experience": 0,
+            "experienceYield": 52,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "growl",
+                "pp": 39
+              },
+              {
+                "moveId": "hypnosis",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 6,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 20,
+              "attack": 12,
+              "defense": 9,
+              "specialAttack": 9,
+              "specialDefense": 9,
+              "speed": 8
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 30
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 40
+              },
+              {
+                "moveId": "scary-face",
+                "pp": 9
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "scary-face"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "stat": "speed",
+          "change": -2,
+          "stage": -2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 12
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": true
+        },
+        {
+          "type": "statusApplied",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison"
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "statusTick",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison",
+          "damage": 2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 12
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 4,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "statusPrevented",
+          "side": "player",
+          "status": "poison",
+          "reason": "alreadyAfflicted"
+        },
+        {
+          "type": "statusTick",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "status": "poison",
+          "damage": 2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 6
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild",
+          "moveId": "poison-sting"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "poison-sting",
+          "amount": 3,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 42,
+          "sourceCreatureId": "3185691b-f854-41e1-8060-063a72341a8b:wild"
+        },
+        {
+          "type": "levelUp",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "previousLevel": 7,
+          "level": 8
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Natural preparation in R02",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/r02_viale_fronde",
+      "x": 6,
+      "y": 7,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 8,
+          "experience": 14,
+          "hp": 16,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "tail-whip",
+              "pp": 30
+            },
+            {
+              "id": "bubble",
+              "pp": 21
+            }
+          ],
+          "status": {
+            "status": "poison"
+          }
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 35
+            },
+            {
+              "id": "string-shot",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "speciesId": 163,
+          "level": 5,
+          "experience": 0,
+          "hp": 11,
+          "maxHp": 21,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 39
+            },
+            {
+              "id": "hypnosis",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_163"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 1
+      },
+      "money": 750
+    },
+    {
+      "label": "Supplies purchased before Mira",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/brumalta",
+      "x": 6,
+      "y": 20,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 8,
+          "experience": 14,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "tail-whip",
+              "pp": 30
+            },
+            {
+              "id": "bubble",
+              "pp": 30
+            }
+          ]
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 35
+            },
+            {
+              "id": "string-shot",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "speciesId": 163,
+          "level": 5,
+          "experience": 0,
+          "hp": 21,
+          "maxHp": 21,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "hypnosis",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_163"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 1
+      },
+      "money": 350
+    },
+    {
+      "label": "Battle result",
+      "id": "4d8f5507-53c0-4f79-b3eb-6b5c7933bb51",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 14,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+            "speciesId": 7,
+            "name": "Squirtle",
+            "level": 8,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 44,
+              "attack": 48,
+              "defense": 65,
+              "specialAttack": 50,
+              "specialDefense": 64,
+              "speed": 43
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 25,
+              "attack": 12,
+              "defense": 15,
+              "specialAttack": 13,
+              "specialDefense": 15,
+              "speed": 11
+            },
+            "hp": 0,
+            "experience": 99,
+            "experienceYield": 63,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "tail-whip",
+                "pp": 30
+              },
+              {
+                "moveId": "bubble",
+                "pp": 21
+              }
+            ]
+          },
+          {
+            "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+            "speciesId": 167,
+            "name": "Spinarak",
+            "level": 2,
+            "types": [
+              "bug",
+              "poison"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 40,
+              "specialAttack": 40,
+              "specialDefense": 40,
+              "speed": 30
+            },
+            "growthCurveId": "pokeapi_growth_fast_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 6
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 50,
+            "moves": [
+              {
+                "moveId": "poison-sting",
+                "pp": 35
+              },
+              {
+                "moveId": "string-shot",
+                "pp": 40
+              }
+            ]
+          },
+          {
+            "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+            "speciesId": 163,
+            "name": "Hoothoot",
+            "level": 5,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 30,
+              "defense": 30,
+              "specialAttack": 36,
+              "specialDefense": 56,
+              "speed": 50
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 21,
+              "attack": 8,
+              "defense": 8,
+              "specialAttack": 8,
+              "specialDefense": 10,
+              "speed": 10
+            },
+            "hp": 10,
+            "experience": 87,
+            "experienceYield": 52,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "hypnosis",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 2
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "veloria/trainer_mira_gym01:1",
+            "speciesId": 161,
+            "name": "Sentret",
+            "level": 7,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 35,
+              "attack": 46,
+              "defense": 34,
+              "specialAttack": 35,
+              "specialDefense": 45,
+              "speed": 20
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 21,
+              "attack": 11,
+              "defense": 9,
+              "specialAttack": 9,
+              "specialDefense": 11,
+              "speed": 7
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 57,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 31
+              },
+              {
+                "moveId": "defense-curl",
+                "pp": 39
+              }
+            ]
+          },
+          {
+            "instanceId": "veloria/trainer_mira_gym01:2",
+            "speciesId": 19,
+            "name": "Rattata",
+            "level": 8,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 30,
+              "attack": 56,
+              "defense": 35,
+              "specialAttack": 25,
+              "specialDefense": 35,
+              "speed": 72
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 22,
+              "attack": 13,
+              "defense": 10,
+              "specialAttack": 9,
+              "specialDefense": 10,
+              "speed": 16
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 51,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "quick-attack",
+                "pp": 22
+              }
+            ]
+          }
+        ],
+        "activeIndex": 1
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "stat": "speed",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "moveId": "defense-curl"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "stat": "defense",
+          "change": 1,
+          "stage": 1
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 15
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "scratch",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 6
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 1,
+          "effectiveness": 1,
+          "critical": true
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:1"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "amount": 85,
+          "sourceCreatureId": "veloria/trainer_mira_gym01:1"
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "opponent",
+          "fromId": "veloria/trainer_mira_gym01:1",
+          "toId": "veloria/trainer_mira_gym01:2"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 7
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 8
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 9
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "healed": 17
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 10
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 11
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 7,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "moveId": "bubble"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "bubble",
+          "amount": 5,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 12
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 6,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "player",
+          "creatureId": "8f8c9264-472f-4664-9475-7d2e8a26dbba"
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "player",
+          "fromId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "toId": "12263ccd-918f-4948-9c27-52f56b931e1d"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 13
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 13,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "player",
+          "creatureId": "12263ccd-918f-4948-9c27-52f56b931e1d"
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "player",
+          "fromId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "toId": "ea99728d-3a56-474a-b352-aa8925c7a8d7"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 14
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 11,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "tackle",
+          "amount": 2,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_mira_gym01:2"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "amount": 87,
+          "sourceCreatureId": "veloria/trainer_mira_gym01:2"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Mira battle completed",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/gym01_brumalta",
+      "x": 14,
+      "y": 3,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 8,
+          "experience": 99,
+          "hp": 0,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "tail-whip",
+              "pp": 30
+            },
+            {
+              "id": "bubble",
+              "pp": 21
+            }
+          ]
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 0,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 35
+            },
+            {
+              "id": "string-shot",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "speciesId": 163,
+          "level": 5,
+          "experience": 87,
+          "hp": 10,
+          "maxHp": 21,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "hypnosis",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 1
+      },
+      "money": 850
+    },
+    {
+      "label": "Final observed state",
+      "contentVersion": "veloria-content-0.3.113",
+      "mapId": "veloria/gym01_brumalta",
+      "x": 14,
+      "y": 3,
+      "party": [
+        {
+          "instanceId": "8f8c9264-472f-4664-9475-7d2e8a26dbba",
+          "speciesId": 7,
+          "level": 8,
+          "experience": 99,
+          "hp": 0,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "tail-whip",
+              "pp": 30
+            },
+            {
+              "id": "bubble",
+              "pp": 21
+            }
+          ]
+        },
+        {
+          "instanceId": "12263ccd-918f-4948-9c27-52f56b931e1d",
+          "speciesId": 167,
+          "level": 2,
+          "experience": 0,
+          "hp": 0,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "poison-sting",
+              "pp": 35
+            },
+            {
+              "id": "string-shot",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "ea99728d-3a56-474a-b352-aa8925c7a8d7",
+          "speciesId": 163,
+          "level": 5,
+          "experience": 87,
+          "hp": 10,
+          "maxHp": 21,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "hypnosis",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_7",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 1
+      },
+      "money": 850
+    }
+  ],
+  "errors": []
+}
