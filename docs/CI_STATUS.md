@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.108 confermata — 21/10/2026
+
+Commit6796375 su main. [Deploy39599123864](https://github.com/Jacoporusso/veloria/actions/runs/39599123864) SUCCESS: test, validatore e build riusciti su Linux. Sito HTTPS200, cache `veloria-shell-v129` e trainer Ruben nel TMJ pubblico verificati dopo il deploy. [Verify39599123971](https://github.com/Jacoporusso/veloria/actions/runs/39599123971) in attesa al controllo del deploy, dietro la suite precedente. Nessuna attestazione di CI completa verde prima del suo esito.
+
 ## 0.3.108 — Allenamenti costieri e montani verificati (21/10/2026)
 
 Passati513 test dominio/persistenza, TypeScript e validatore (48 mappe,53 missioni,31 allenatori,79 specie,320 asset). Quattro prove browser in1,9min: rifiuto, lotta touch, premio unico, reload e uscita percorribile per Noemi/Bruno/Ruben/Alma. Quattro test geometrici controllano entrambi gli spawn, approccio e aggiramento dei personaggi senza habitat o uscite intermedie. Noemi verificata anche senza rete sulla build produzione: dati dei quattro nuovi NPC, lotta, premio persistente, reload e ritorno al Delta (11,9s;25,3s con build).
