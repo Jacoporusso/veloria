@@ -1,4 +1,4 @@
-## Stato corrente — 0.3.112, 21/10/2026
+## Stato corrente — 0.3.113, 21/10/2026
 
 Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 79 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
 
@@ -7,7 +7,7 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 - Tutte le specie runtime usano la propria curva XP ufficiale locale. Evoluzioni di livello e con oggetti supportate sono dichiarative; Magnemite → Magneton al30 è abilitata in0.3.111. Condizioni non supportate restano informative, senza sostituzioni inventate.
 - Partita naturale con Charmander verificata dall'inizio alla terza medaglia, con catture/risorse guadagnate, cure, acquisti, evoluzione, salvataggio e ripresa (report21/10). Un tentativo precedente aveva perso contro Oren: la nuova vittoria non cancella quel risultato. Nila lascia la squadra quasi esausta in più prove: preparazione, indicazioni e difficoltà vanno rivalutate con altre strategie e starter.
 - Le14 collisioni NPC mancanti sono corrette e verificate per percorsi e interazione. I clic mouse su A di Elia/Ada passano nella finestra PC con comandi visibili; la segnalazione dell'utente resta da riprodurre nella sua circostanza.
-- La suite0.3.109 è completamente verde. La suite0.3.110 ha fallito un vecchio percorso di test che attraversava Ada e un caricamento HTTP del test Lega; le correzioni sono state provate localmente e sono in integrazione. Non dichiarare verde la CI0.3.111 prima della conclusione.
+- La suite completa0.3.112 è verde (Verify39676474294), incluse le correzioni precedenti dei percorsi Ada e caricamento Lega. La0.3.113 aggiunge confronto e dettagli condivisi con la lotta durante l’apprendimento: nove prove mirate passate; CI e pubblicazione riportate separatamente in CI_STATUS.
 
 ### Requisiti ancora aperti
 

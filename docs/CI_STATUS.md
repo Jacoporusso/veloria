@@ -1,3 +1,9 @@
+## Pubblicazione0.3.113 confermata e suite lotta — 21/10/2026
+
+Commit95774e7 su main. [Deploy39678891497](https://github.com/Jacoporusso/veloria/actions/runs/39678891497) SUCCESS; sito HTTPS200 e cache `veloria-shell-v134` verificati. [Verify39678891474](https://github.com/Jacoporusso/veloria/actions/runs/39678891474) in esecuzione all’ultimo controllo. La suite completa precedente [Verify39676474294](https://github.com/Jacoporusso/veloria/actions/runs/39676474294) è SUCCESS.
+
+Verifica locale estesa della lotta:29 prove passate in1,5min. Le prime esecuzioni avevano evidenziato conferme accodate dai test prima dell’elaborazione Phaser (salti messaggi/selezione): gli input della fixture ora attendono due frame e l’avanzamento osservato, senza modificare il motore o ritentare gli asserti. Anche i dettagli di apprendimento, touch, tastiera, effetti, rotazione e sostituzioni passano insieme. Il seguito integra solo test e documentazione; la nuova CI resta da confermare separatamente. Avviato un playtest naturale Bulbasaur, esito non ancora attestato.
+
 ## 0.3.113 — Apprendimento verificato localmente (21/10/2026)
 
 Confronto con le carte condivise della lotta e dettagli completi per candidata e mosse conosciute. Apprendimento automatico e scelta con quattro slot coperti; il ritorno dai dettagli preserva stato e selezione. Nove prove browser passate in40,6s: portrait320×568/390×844, landscape844×390/667×320, touch e tastiera, sostituzione/rifiuto e regressioni dettagli normali.537 prove dominio/persistenza, validatore e build produzione passati. Cachev134. Test con fixture browser; non attestano telefoni fisici o nuovo bilanciamento naturale. Pubblicazione e CI da confermare.

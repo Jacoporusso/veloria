@@ -13,6 +13,12 @@ test.afterEach(async ({page},info)=>{
   await info.attach('battle-state',{body:JSON.stringify(state,null,2),contentType:'application/json'});
 });
 
+// Phaser queues DOM key events until its frame; flush them before observing or sending another command.
+async function pressBattleKey(page: Page, key: string, options?: { delay?: number }): Promise<void> {
+  await page.keyboard.press(key, options);
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+}
+
 async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string[]> {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -132,9 +138,9 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
 }
 
 async function chooseFirstMove(page: Page): Promise<void> {
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
 }
 
@@ -142,7 +148,7 @@ async function advanceMessages(page: Page): Promise<void> {
   for (let index = 0; index < 16; index += 1) {
     const mode = await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode);
     if (mode !== 'message') break;
-    await page.keyboard.press('Enter', { delay: 40 });
+    await pressBattleKey(page, 'Enter', { delay: 40 });
   }
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('menu');
 }
@@ -193,7 +199,7 @@ test('move cards explain their values and the turn resolves without a continue c
   await page.setViewportSize({ width: 390, height: 844 });
   const errors = await mountBattle(page, 'super-effective');
 
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
   const cards = await page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
@@ -233,16 +239,16 @@ test('move cards explain their values and the turn resolves without a continue c
   expect(details).toContain('Danno stimato:');
   expect(details).toContain('↑ Super efficace ×2');
   await page.screenshot({ path: testInfo.outputPath('battle-damage-details.png') });
-  await page.keyboard.press('Escape', { delay: 40 });
+  await pressBattleKey(page, 'Escape', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
   await tapZone('battle-move-details', 'Ruggito');
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
   details = await detailText();
   expect(details).toContain('Riduce Attacco dell’avversario di 1 grado');
-  await page.keyboard.press('Escape', { delay: 40 });
+  await pressBattleKey(page, 'Escape', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
 
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode), { timeout: 8000 }).toBe('menu');
   expect(errors).toEqual([]);
@@ -250,7 +256,7 @@ test('move cards explain their values and the turn resolves without a continue c
 
 test('touching the battle message skips its timer without changing the resolved turn',async({page})=>{
   const errors=await mountBattle(page,'super-effective');
-  await page.keyboard.press('Enter');await page.keyboard.press('Enter');
+  await pressBattleKey(page, 'Enter');await pressBattleKey(page, 'Enter');
   await expect.poll(()=>page.evaluate(()=>(window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
   const before=await page.evaluate(()=>{
     const scene=(window as any).battleRulesFixture.scene.getScene('battle');
@@ -312,7 +318,7 @@ test('battle reveals evolution through a ceremony before showing the new sprite'
     };
   })).toEqual({ speciesId: 11, terminalEvolution: true, instantAnnouncement: false, spriteTexture: 'veloria-creatures-3-v1', spriteFrame: 'species-10' });
   for (let index = 0; index < 20 && !await page.locator('.evolution-celebration').count(); index++) {
-    await page.keyboard.press('Enter', { delay: 40 });
+    await pressBattleKey(page, 'Enter', { delay: 40 });
   }
   const ceremony = page.getByRole('dialog', { name: 'Sta succedendo qualcosa…' });
   await expect(ceremony).toBeVisible({ timeout: 15_000 });
@@ -347,7 +353,7 @@ test('level-up move choice supports replacement and decline in sequence before c
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').moveLearningPrompt())).toContain('Attacco Rapido');
 
   // Move to row two, first column: replace Tackle with Quick Attack.
-  await page.keyboard.press('ArrowDown', {delay:40});
+  await pressBattleKey(page, 'ArrowDown', {delay:40});
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
   // Rotation must retain the selected move slot before confirmation.
   for (const size of [{width:844,height:390},{width:390,height:844}]) {
@@ -355,7 +361,7 @@ test('level-up move choice supports replacement and decline in sequence before c
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').viewport.width)).toBe(size.width);
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
   }
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return {moves:scene.state.player.creatures[0].moves.map((slot:any)=>slot.moveId),
@@ -365,11 +371,11 @@ test('level-up move choice supports replacement and decline in sequence before c
 
   await advanceToMoveLearning(page);
   // The fifth option is on row three, first column: keep the current moveset.
-  await page.keyboard.press('ArrowDown', { delay: 40 });
+  await pressBattleKey(page, 'ArrowDown', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(2);
-  await page.keyboard.press('ArrowDown', { delay: 40 });
+  await pressBattleKey(page, 'ArrowDown', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(4);
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return scene.eventLog.some((event: any) => event.type === 'moveLearningDeclined' && event.moveId === 'gust')
@@ -378,7 +384,7 @@ test('level-up move choice supports replacement and decline in sequence before c
   expect(await page.evaluate(() => (window as any).battleCompletionCount)).toBe(0);
 
   for (let index = 0; index < 8 && await page.evaluate(() => (window as any).battleCompletionCount === 0); index += 1) {
-    await page.keyboard.press('Enter', { delay: 40 });
+    await pressBattleKey(page, 'Enter', { delay: 40 });
   }
   await expect.poll(() => page.evaluate(() => (window as any).battleCompletionCount)).toBe(1);
   expect(errors).toEqual([]);
@@ -386,10 +392,11 @@ test('level-up move choice supports replacement and decline in sequence before c
 
 test('keyboard reaches capture with bag and party disabled', async ({ page }) => {
   const errors = await mountBattle(page, 'sparse-capture');
-  await page.keyboard.press('ArrowRight', { delay: 40 });
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'ArrowRight', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').selectionIndex)).toBe(1);
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('captures');
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return scene.eventLog.some((event: any) => event.type === 'captureAttempted') && scene.remainingInventory['poke-ball'] === 0;
@@ -415,7 +422,7 @@ test('Leech Seed presents residual damage and healing then returns to move selec
       return labels.includes(`${creature.hp}/${creature.stats.maxHp}`);
     }) && labels.some((label: string) => label.includes('PARASSISEME'));
   })).toBe(true);
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
   await page.screenshot({ path: testInfo.outputPath('leech-seed-moves.png') });
   expect(errors).toEqual([]);
@@ -429,7 +436,7 @@ test('player forced replacement enters at full HP without giving the opponent an
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return { turn: scene.state.turn, pp: scene.state.opponent.creatures[0].moves[0].pp, hp: scene.state.player.creatures[1].hp };
   });
-  await page.keyboard.press('Enter', { delay: 40 });
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode), { timeout: 8000 }).toBe('menu');
   expect(await page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
@@ -460,7 +467,7 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
   test(`move strategy inspection uses touch and keyboard without consuming a turn ${viewport.width}`, async ({ page }, testInfo) => {
     await page.setViewportSize(viewport);
     const errors = await mountBattle(page, 'super-effective');
-    await page.keyboard.press('Enter');
+    await pressBattleKey(page, 'Enter');
     const before = await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state));
     // Inspect Growl through its per-card details zone.
     const tapDetails = async (moveName: string) => {
@@ -494,12 +501,12 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
     expect(pages.map(item => item.text).join(' ').replace(/\s+/g, ' ')).toContain('Riduce Attacco dell’avversario di 1 grado');
     for (const layout of pages) { expect(layout.outside).toEqual([]); expect(layout.state).toBe(before); }
     await page.screenshot({ path: testInfo.outputPath('move-strategy-details.png') });
-    await page.keyboard.press('ArrowLeft', { delay: 40 });
-    await page.keyboard.press('Escape', { delay: 40 });
+    await pressBattleKey(page, 'ArrowLeft', { delay: 40 });
+    await pressBattleKey(page, 'Escape', { delay: 40 });
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
     await tapDetails('Ruggito');
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
-    await page.keyboard.press('Escape', { delay: 40 });
+    await pressBattleKey(page, 'Escape', { delay: 40 });
     expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
     const catalogLayouts = await page.evaluate(async () => {
       const { describeMoveEffects } = await import('/src/game/battle/move-description.ts' as string);
@@ -585,11 +592,16 @@ async function showResolvedEvent(page: Page, type: string, side?: string) {
     await holdBattleMessage(page);
     const current = await page.evaluate(() => {
       const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-      return { mode: scene.mode, event: scene.pendingMessages[0]?.event };
+      return { mode: scene.mode, event: scene.pendingMessages[0]?.event, remaining: scene.pendingMessages.length };
     });
     if (current.event?.type === type && (!side || current.event.side === side || current.event.sourceSide === side)) return;
     if (current.mode !== 'message') throw new Error(`Reached ${current.mode} before ${type}`);
-    await page.keyboard.press('Enter', { delay: 20 });
+    await pressBattleKey(page, 'Enter', { delay: 20 });
+    // Phaser consumes keyboard events on its next frame: observe advancement before queuing another skip.
+    await expect.poll(() => page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      return scene.pendingMessages.length;
+    })).not.toBe(current.remaining);
   }
   throw new Error(`Resolved event ${type} was not presented`);
 }
@@ -604,10 +616,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
         scene.reducedAnimations = false;
         return structuredClone(scene.state);
       });
-      await page.keyboard.press('Enter', { delay: 20 });
+      await pressBattleKey(page, 'Enter', { delay: 20 });
       await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
-      if (effect === 'growl') await page.keyboard.press('ArrowRight', { delay: 20 });
-      await page.keyboard.press('Enter', { delay: 20 });
+      if (effect === 'growl') await pressBattleKey(page, 'ArrowRight', { delay: 20 });
+      await pressBattleKey(page, 'Enter', { delay: 20 });
       await holdBattleMessage(page);
       const resolved = await page.evaluate(() => {
         const scene = (window as any).battleRulesFixture.scene.getScene('battle');
@@ -663,7 +675,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       for (let index = 0; index < 20; index++) {
         await holdBattleMessage(page);
         if (await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode !== 'message')) break;
-        await page.keyboard.press('Enter', { delay: 20 });
+        await pressBattleKey(page, 'Enter', { delay: 20 });
       }
       await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('menu');
       expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(resolved.json);
@@ -696,10 +708,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }
       const scene = (window as any).battleRulesFixture.scene.getScene('battle');
       return { mode: scene.mode, selectable: scene.selectableButtons.length, state: JSON.stringify(scene.state) };
     })).toEqual({ mode: 'moveDetails', selectable: 0, state: before });
-    await page.keyboard.press('Escape');
+    await pressBattleKey(page, 'Escape');
     await tap('battle-tab-flee');
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('flee');
-    await page.keyboard.press('Escape');
+    await pressBattleKey(page, 'Escape');
     expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
     await tap('battle-move-details', 'Ruggito');
     const use = await page.evaluate(() => {
@@ -740,7 +752,7 @@ for (const size of [{width:320,height:568},{width:390,height:844},{width:844,hei
       expect(card.card.typeLabel).toBeTruthy(); expect(card.card.ppLabel).toContain('PP');
     }
     await page.screenshot({path:info.outputPath('learning-comparison.png')});
-    await page.keyboard.press('ArrowDown',{delay:40});
+    await pressBattleKey(page, 'ArrowDown',{delay:40});
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.selectionIndex)).toBe(2);
     for (const name of [moveRegistry.moves['quick-attack'].name, moveRegistry.moves.growl.name]) {
       await tapLearningZone(page, 'battle-move-details', name);
@@ -769,17 +781,17 @@ test('automatic learning shows the new battle card and keeps details read-only',
   for(let i=0;i<30;i++) {
     const ready=await page.evaluate(() => { const s=(window as any).battleRulesFixture.scene.keys.battle; return s.learningEvent()?.type==='moveLearned' && s.ui.list.some((x:any)=>x.name==='battle-move-use'); });
     if(ready)break;
-    await page.keyboard.press('Enter',{delay:40});
+    await pressBattleKey(page, 'Enter',{delay:40});
     await page.waitForTimeout(100); await holdBattleMessage(page);
   }
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.learningEvent()?.moveId)).toBe('quick-attack');
-  await page.keyboard.press('i',{delay:40});
+  await pressBattleKey(page, 'i',{delay:40});
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('moveDetails');
   const before=await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state));
   await tapLearningZone(page,'move-details-back');
   expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('message');
   expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state))).toBe(before);
-  await page.keyboard.press('Enter',{delay:40});
+  await pressBattleKey(page, 'Enter',{delay:40});
   expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.eventLog.filter((e:any)=>e.type==='moveReplaced').length)).toBe(0);
 });
 
