@@ -206,3 +206,10 @@ La prossima espansione geografica è **R12 Valle del Vento → Passobrina → R1
 Preparazione locale 0.3.90: documento 22, movimento sul ghiaccio riusabile con salvataggio soltanto sulle fermate e geometria draft P7 verificata per soluzione e ritorni. Non sono ancora disponibili mappe montane, sigilli runtime, capopalestra Nives, Medaglia Brina o funivia; la prossima integrazione deve completare tutti questi contenuti e la loro arte illustrata coerente.
 
 Il gate S6 dell'MVP e l'obiettivo dell'avventura completa restano aperti: né il deploy riuscito né i checkpoint preparati dimostrano la fine del gioco o la qualità su telefono reale.
+
+
+## Aggiornamento 21/10/2026 — stato dopo 0.3.104
+
+Le fotografie storiche sopra conservano il contesto delle prime espansioni. Attualmente sono presenti48 mappe,49 missioni,27 allenatori,12 botteghe,73 specie e78 mosse supportate, otto Palestre e sequenza Lega con epilogo; sono funzionalità integrate, non una certificazione del bilanciamento naturale dell’intera avventura. Quattordici fondali iniziali sono stati ridisegnati e aggiunti ai34 fondali completi già presenti.
+
+La priorità corrente è chiudere la suite GitHub completa e verificare progressione naturale e dispositivi fisici. Il bug del sensore del Bosco senza briefing di Elia è corretto con regressioni in entrambi gli ordini e recupero senza azzerare il salvataggio. Restano QA iOS/Android reale, bilanciamento dall’inizio al finale e ampliamento del catalogo ufficiale (roster251 e mosse/effetti attualmente non supportati); nessuna dichiarazione di completamento di questi gate.

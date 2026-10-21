@@ -2,14 +2,22 @@ import {expect,type Page} from '@playwright/test';
 
 /** Inspect presentation state; every battle command still goes through a real touch target. */
 export async function tapBattleLabel(page:Page,gameKey:string,prefix:string){
-  const point=await page.evaluate(({gameKey,prefix})=>{
-    const scene=(window as any)[gameKey].scene.keys.battle;
-    const label=scene.ui.list.find((item:any)=>item.type==='Text'&&item.text.startsWith(prefix));
-    if(!label)throw new Error(`Missing battle command ${prefix}`);
-    const b=label.getBounds(),c=scene.game.canvas.getBoundingClientRect();
-    return{x:c.x+b.centerX*scene.scale.zoom,y:c.y+b.centerY*scene.scale.zoom};
-  },{gameKey,prefix});
-  await page.touchscreen.tap(point.x,point.y);
+  let point:{x:number;y:number}|null=null;
+  // The world marks the battle active before Phaser has finished creating its UI.
+  // Wait for the requested target itself instead of treating the body class as readiness.
+  await expect.poll(async()=>{
+    point=await page.evaluate(({gameKey,prefix})=>{
+      const scene=(window as any)[gameKey]?.scene?.keys?.battle;
+      if(!scene?.sys?.isActive()||!scene.ui?.list)return null;
+      const label=scene.ui.list.find((item:any)=>item.type==='Text'&&item.active&&item.visible&&item.text.startsWith(prefix));
+      if(!label)return null;
+      const b=label.getBounds(),c=scene.game.canvas.getBoundingClientRect();
+      if(b.width<=0||b.height<=0||c.width<=0||c.height<=0)return null;
+      return{x:c.x+b.centerX*scene.scale.zoom,y:c.y+b.centerY*scene.scale.zoom};
+    },{gameKey,prefix});
+    return point!==null;
+  },{timeout:15_000,intervals:[50,100,250],message:`Active battle exposes the touch target: ${prefix}`}).toBe(true);
+  await page.touchscreen.tap(point!.x,point!.y);
 }
 
 export async function fightWithTouch(page:Page,gameKey:string,moveLabels:Record<number,string>,maxTurns=45){

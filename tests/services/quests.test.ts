@@ -3,6 +3,7 @@ import test from 'node:test';
 import { applyQuestEvent, type QuestDefinition } from '../../src/core/quests/apply-quest-event.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 import seedQuest from '../../content/quests/radicelmo_seed_archive.quest.json' with { type: 'json' };
+import forestQuest from '../../content/quests/ada_forest.quest.json' with { type: 'json' };
 
 const quest: QuestDefinition = {
   id: 'veloria/test-badge', completionFlag: 'badge_aurora_awarded',
@@ -34,6 +35,26 @@ test('quest does not advance before prerequisites are met', () => {
   const result = applyQuestEvent({ ...save, flags: [] }, 'battle/trainer_mira/defeated', [quest]);
   assert.equal(result.progressed, false);
   assert.deepEqual(result.save.badges, []);
+});
+
+for (const reportsFirst of [false, true]) test(`forest reading is retained without Elia's briefing, Ada first: ${reportsFirst}`, () => {
+  const initial = { ...save, flags: ['q_starter_selected'], inventory: { potion: 1 } };
+  const beforeReading = reportsFirst ? applyQuestEvent(initial, 'interaction/ada/report', [forestQuest]).save : initial;
+  assert.ok(!beforeReading.flags.includes('q_ada_helped'));
+  const reading = applyQuestEvent(beforeReading, 'event/forest_signal/read', [forestQuest]);
+  assert.ok(reading.save.flags.includes('q_forest_signal_found'));
+  assert.equal(reading.save.player.money, 0);
+  // A reload between reading and reporting must preserve the independent observation.
+  const report = applyQuestEvent(structuredClone(reading.save), 'interaction/ada/report', [forestQuest]);
+  assert.ok(report.save.flags.includes('q_ada_helped'));
+  assert.equal(report.save.player.money, 100);
+  assert.equal(report.save.inventory.potion, 3);
+  const repeatedReading = applyQuestEvent(report.save, 'event/forest_signal/read', [forestQuest]);
+  const repeatedReport = applyQuestEvent(repeatedReading.save, 'interaction/ada/report', [forestQuest]);
+  assert.equal(repeatedReport.save.player.money, 100);
+  assert.equal(repeatedReport.save.inventory.potion, 3);
+  assert.equal(repeatedReport.progressed, false);
+  assert.deepEqual(initial.flags, ['q_starter_selected']);
 });
 
 test('Radicelmo pickup grants its real item, delivery consumes it and rewards only once after reload', () => {

@@ -1,3 +1,9 @@
+## 0.3.104 — Bosco e regressioni locali (21/10/2026)
+
+Riprodotta la perdita della lettura se mancava q_research_sample_received: il sensore mostrava successo ma il requisito della missione ignorava l’evento. La lettura ora è indipendente da Elia/Ada; ricompensa solo al rapporto e passaggio ancora subordinato a q_ada_helped. Diario adattato senza assegnare il briefing saltato. I vecchi salvataggi senza flag lettura si recuperano rileggendo il sensore; non esiste una precedente ricevuta da ricostruire automaticamente.
+
+Passati2 browser missione (sensore→reload→Ada→uscita/ritorno senza doppio premio; Ada→sensore→Ada),18 unit mirati. Stabilizzazione:9 browser catture/pietre/mosse,15 evoluzioni+Petalora,1 Borgofonte e1 catture fino al box (2,6min). Atlante passato nella riproduzione locale. Verify39554346058 FAILURE: aspettative grafiche/cerimonie superate, readiness UI cattura, fixture pietra sopra l’oggetto e budget CI esauriti con avanzamento confermato dalle tracce. Correzioni dei soli test per queste cause; nessun asserto di esito rimosso. Cachev125. Nuovo deploy/CI da confermare.
+
 ## Pubblicazione 0.3.103 confermata — 21/10/2026
 
 Commit97aa60c su main. [Deploy39554345901](https://github.com/Jacoporusso/veloria/actions/runs/39554345901) SUCCESS: dominio/persistenza, validatore e build riusciti su Linux. HTTPS200, cachev124 e nuovi artwork Sentiero dell’Alba/Ferraluce200 verificati. [Verify39554346058](https://github.com/Jacoporusso/veloria/actions/runs/39554346058) in corso al controllo finale; suite browser Linux completa non ancora attestata verde.

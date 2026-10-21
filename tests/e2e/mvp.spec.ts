@@ -718,7 +718,9 @@ test('E2E save recovery: a checksum mismatch restores the previous valid record'
 });
 
 test('E2E-02: touch navigation reaches the forest and restores its spawn after reload', async ({ page }) => {
-  test.setTimeout(120_000);
+  // Linux trace 39554346058 still advances through R01 (x20→24, revisions91→95)
+  // at the overall120s deadline; preserve per-step checks while allowing the full journey.
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
   await chooseCharmander(page);
   await finishOpenDialogue(page);
   await expect(page.locator('#dialogue-box')).toBeHidden();

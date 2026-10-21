@@ -632,7 +632,8 @@ export class BattleScene extends Phaser.Scene {
     const category = move.category === 'status' ? 'STATO' : move.category === 'physical' ? 'FISICA' : 'SPECIALE';
     const typeEffectiveness = effectivenessFor(this.activeCreature('opponent').types, move.type, this.rules.typeChart);
     const effectiveness = move.fixedDamage && typeEffectiveness !== 0 ? 1 : typeEffectiveness;
-    const matchup = describeMoveMatchup(move, this.activeCreature('opponent'), this.rules).label.toLocaleUpperCase('it-IT');
+    const matchupInfo = describeMoveMatchup(move, this.activeCreature('opponent'), this.rules);
+    const matchup = matchupInfo.label.toLocaleUpperCase('it-IT');
     const detail = move.category === 'status'
       ? `${category} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`
       : `${move.fixedDamage ? `DANNO FISSO ${move.fixedDamage} HP` : `POTENZA ${move.power}`} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`;
@@ -649,8 +650,10 @@ export class BattleScene extends Phaser.Scene {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '12px', fontStyle: 'bold', color: '#d6e9f5',
       wordWrap: { width: width - 54 },
     });
-    const extra = this.moveTacticLabel(move);
-    const tactic = this.text(x + 30, y + 54, `${matchup}  ·  ${extra ?? this.activeCreature('opponent').types.map(battleTypeLabel).join(' / ')}`, {
+    // A blocked move must not promise its normal status chance against this target.
+    const extra = matchupInfo.blocked ? (typeEffectiveness === 0 ? 'IMMUNITÀ DI TIPO' : undefined) : this.moveTacticLabel(move);
+    const tacticLabel = matchupInfo.blocked ? `${matchup}${extra ? ` · ${extra}` : ''}` : `${matchup}  ·  ${extra ?? this.activeCreature('opponent').types.map(battleTypeLabel).join(' / ')}`;
+    const tactic = this.text(x + 30, y + 54, tacticLabel, {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '10px', fontStyle: 'bold', color: effectiveness > 1 ? '#ffe08a' : effectiveness === 0 ? '#ffb6a4' : '#bdd3df',
       wordWrap: { width: width - 54 },
     });

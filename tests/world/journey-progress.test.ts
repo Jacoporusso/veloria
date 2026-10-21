@@ -15,6 +15,16 @@ test('journey objective follows existing flags without mutating the save', () =>
   assert.deepEqual(save.flags, []);
 });
 
+test('an independent forest reading guides back to Ada without inventing Elia progress', () => {
+  const save = { flags: ['q_starter_selected', 'q_forest_signal_found'], party: [], storage: [], badges: [] };
+  const reading = selectJourneyProgress(save);
+  assert.match(reading.objective, /torna da Ada/i);
+  assert.equal(reading.milestones.find(step => step.flag === 'q_research_sample_received')?.complete, false);
+  const reported = selectJourneyProgress({ ...save, flags: [...save.flags, 'q_ada_helped'] });
+  assert.match(reported.objective, /Viale delle Fronde/);
+  assert.deepEqual(save.flags, ['q_starter_selected', 'q_forest_signal_found']);
+});
+
 test('collection counts unique species and uses earned badges', () => {
   const progress = selectJourneyProgress({
     flags: ['badge_aurora_awarded'], badges: ['badge_aurora'],

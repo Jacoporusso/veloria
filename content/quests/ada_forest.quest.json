@@ -1,21 +1,28 @@
 {
   "id": "veloria/q_ada_forest_signal",
-  "version": 1,
+  "version": 2,
   "displayName": "Le rilevazioni nel Bosco dei Veli",
   "steps": [
     {
       "id": "read_forest_signal",
       "trigger": "event/forest_signal/read",
       "setFlag": "q_forest_signal_found",
-      "requiresFlags": ["q_research_sample_received"]
+      "requiresFlags": []
     },
     {
       "id": "report_to_ada",
       "trigger": "interaction/ada/report",
       "setFlag": "q_ada_helped",
-      "requiresFlags": ["q_forest_signal_found"]
+      "requiresFlags": [
+        "q_forest_signal_found"
+      ]
     }
   ],
   "completionFlag": "q_ada_helped",
-  "reward": { "money": 100, "items": { "potion": 2 } }
+  "reward": {
+    "money": 100,
+    "items": {
+      "potion": 2
+    }
+  }
 }

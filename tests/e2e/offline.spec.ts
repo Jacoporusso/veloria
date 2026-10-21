@@ -262,9 +262,10 @@ async function captureWildOffline(page: import('@playwright/test').Page) {
 }
 
 test('E2E-06: the cached adventure reaches three badges offline', async ({ page, context }, testInfo) => {
-  // Hosted software rendering reaches the second gym near eight minutes.
-  // Keep each interaction bounded while allowing the complete three-badge route.
-  test.setTimeout(process.env.CI ? 900_000 : 480_000);
+  // CI 39554346058 reaches the final Aster battle at 900s (Magnemite is
+  // already on the field). Allow its remaining turns and durable third medal
+  // within the existing 20-minute workflow step; keep every offline assertion.
+  test.setTimeout(process.env.CI ? 1_080_000 : 480_000);
   const runtimeErrors: string[] = [];
   page.on('pageerror', error => runtimeErrors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') runtimeErrors.push(message.text()); });

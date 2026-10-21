@@ -56,14 +56,22 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[1, 2, 'I
     await page.keyboard.press('Enter', { delay: 40 });
     await tapText(page, await page.evaluate(() => (window as any).evolutionMove));
     await expect.poll(() => page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.state.player.creatures[0].speciesId)).toBe(toId);
-    for (let action = 0; action < 10; action++) {
+    for (let action = 0; action < 20; action++) {
       await expect.poll(() => page.evaluate(() => {
         const scene = (window as any).evolutionGame.scene.keys.battle;
-        return scene.mode === 'learning' || scene.terminalShown;
+        return scene.mode === 'learning' || scene.terminalShown || Boolean(document.querySelector('.evolution-celebration'));
       })).toBe(true);
       if (await page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.terminalShown)) break;
-      await tapText(page, 'Tieni le mosse');
+      const ceremony = page.locator('.evolution-celebration');
+      if (await ceremony.count()) {
+        await expect(ceremony).toBeVisible();
+        await expect(ceremony).toContainText(`Ora è ${name}!`);
+        await ceremony.getByRole('button', { name: 'Continua', exact: true }).click();
+      } else {
+        await tapText(page, 'Tieni le mosse');
+      }
     }
+    await expect.poll(() => page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.terminalShown)).toBe(true);
     await expect(page.locator('.battle-celebration')).toBeVisible();
     const observed = await page.evaluate(async () => {
       await (window as any).evolutionSavePromise;

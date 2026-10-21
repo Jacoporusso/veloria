@@ -48,6 +48,9 @@ test('greenhouse discovery grants its first Fire Stone once, only after the rese
   // Set up the explicitly completed research; collection itself remains a real interaction.
   const eligible = await readBrowserSave(page);
   eligible.flags.push('q_radicelmo_greenhouse_complete');
+  // The first north tap steps onto this walkable pickup (26,14). Reset only
+  // fixture setup to its southern approach before repeating the real action.
+  eligible.player = { ...eligible.player, x: 26, y: 15 };
   await seedBrowserSave(page, eligible);
   await page.reload();
   await enterGame(page);

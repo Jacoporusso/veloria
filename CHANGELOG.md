@@ -1,3 +1,10 @@
+## 0.3.104 — Lettura libera del sensore e stabilizzazione (21/10/2026)
+
+- Bosco dei Veli: il sensore registra la lettura prima di parlare con Ada e anche senza il secondo briefing di Elia. Ada riconosce i dati dopo il reload; premio e uscita conservano il requisito della lettura e non si duplicano.
+- Diario: dopo una lettura indipendente indica Ada e poi Brumalta; il briefing saltato resta facoltativo, senza assegnare flag mai guadagnati.
+- Anteprima mosse: un bersaglio immune non mostra più una probabilità di stato impossibile.
+- Test di cattura/evoluzione riallineati alle cerimonie e ai dettagli espandibili; comandi touch attesi fino alla creazione della scena. Scenari grafici riallineati ai fondali illustrati. Limiti CI mirati ai tempi misurati, senza togliere controlli.
+
 ## 0.3.103 — Continuità grafica delle mappe (21/10/2026)
 
 - Quattordici fondali illustrati completi da Sentiero dell’Alba a Ferraluce, comprese Brumalta, Radicelmo, Petalora e le prime due palestre. Materiali, vegetazione e luce coerenti con gli scenari avanzati.

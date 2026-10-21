@@ -65,16 +65,28 @@ for (const [kind, reduced, width, height] of [['capture', false, 390, 844], ['bo
     await expect(dialog).toBeVisible({ timeout: 12_000 });
     await expect(dialog).toContainText('ACQUA · Livello 8');
     await expect(dialog).toContainText(kind === 'box' ? 'ti aspetta nel box' : 'Aggiunto alla tua squadra');
+    await dialog.getByText('Vedi Pokémon', { exact: true }).click();
+    await expect(dialog.locator('.battle-capture-details')).toHaveAttribute('open', '');
     await expect(dialog).toContainText('Bolla');
     await expect(dialog.locator('.creature-portrait')).toBeVisible();
+    await expect(dialog.getByRole('button', { name: 'Continua', exact: true })).toBeVisible();
     const closeBounds = await dialog.getByRole('button', { name: 'Continua', exact: true }).boundingBox();
     expect(closeBounds!.y + closeBounds!.height).toBeLessThanOrEqual(height - 10);
     if (width > height) {
-      const skillsFit = await dialog.locator('.battle-celebration-content').evaluate(contents => {
-        const last = contents.querySelector('.battle-capture-moves')!.getBoundingClientRect();
-        return last.bottom <= contents.getBoundingClientRect().bottom;
+      // Optional details intentionally scroll in landscape; every move remains reachable
+      // without pushing the independent confirmation footer outside the viewport.
+      const lastMove = dialog.locator('.battle-capture-moves span').last();
+      await lastMove.scrollIntoViewIfNeeded();
+      await expect(lastMove).toBeVisible();
+      const skillsReachable = await lastMove.evaluate(move => {
+        const bounds = move.getBoundingClientRect();
+        const region = move.closest('.battle-celebration-content')!.getBoundingClientRect();
+        return bounds.top >= region.top - 1 && bounds.bottom <= region.bottom + 1;
       });
-      expect(skillsFit).toBe(true);
+      expect(skillsReachable).toBe(true);
+      const footer = await dialog.getByRole('button', { name: 'Continua', exact: true }).boundingBox();
+      expect(footer!.height).toBeGreaterThanOrEqual(44);
+      expect(footer!.y + footer!.height).toBeLessThanOrEqual(height - 10);
     }
     if (reduced) expect(await dialog.evaluate(element => getComputedStyle(element).animationName)).toBe('none');
     await page.screenshot({ path: testInfo.outputPath('capture-receipt.png'), animations: 'disabled' });

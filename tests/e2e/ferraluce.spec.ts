@@ -12,9 +12,9 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 test('Circuito opens R06, the reading reaches Ivo once, and Ferraluce services survive reload', async ({ page }, info) => {
-  // Trace 39357925973 reaches the final walking return at the old 240s limit.
-  // Retain the complete journey and its short per-step assertions on hosted CI.
-  test.setTimeout(process.env.CI ? 360_000 : 240_000);
+  // CI 39554346058 reaches the final R06 return at 360s: the next save poll
+  // confirms movement after the global deadline. Keep every walking assertion.
+  test.setTimeout(process.env.CI ? 480_000 : 240_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {

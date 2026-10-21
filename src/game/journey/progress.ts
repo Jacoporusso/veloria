@@ -15,7 +15,7 @@ import type { QuestDefinition } from '../../core/quests/apply-quest-event.ts';
 /** Presentation copy follows existing flags; it never grants progress or rewards. */
 export const journeyMilestones = [
   { flag: 'q_starter_selected', title: 'Un compagno di viaggio', objective: 'Entra nel laboratorio a sud di Borgofonte e parla con Elia.' },
-  { flag: 'q_research_sample_received', title: 'La prima ricerca', objective: 'Parla ancora con Elia: ti affiderà la sua ricerca.' },
+  { flag: 'q_research_sample_received', optionalAfterFlag: 'q_forest_signal_found', title: 'La prima ricerca', objective: 'Parla ancora con Elia: ti affiderà la sua ricerca.' },
   { flag: 'q_forest_signal_found', title: 'Le rilevazioni nel Bosco dei Veli', objective: 'Segui il Sentiero dell’Alba fino al bosco. Esamina il misuratore di risonanza nella radura del Bosco dei Veli, a destra di Ada: avvicinati e premi A.' },
   { flag: 'q_ada_helped', title: 'Riferisci ad Ada', objective: 'Torna da Ada nel Bosco dei Veli, sul sentiero a sinistra del misuratore, e premi A per riferire le rilevazioni.' },
   { flag: 'q_brumalta_visited', title: 'Le porte di Brumalta', objective: 'Segui il sentiero a destra fino all’uscita per il Viale delle Fronde, poi raggiungi Brumalta.' },
@@ -112,7 +112,9 @@ export const journeyMilestones = [
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {
   const flags = new Set(save.flags);
-  const milestones = journeyMilestones.map(milestone => ({ ...milestone, optional: 'optional' in milestone && milestone.optional, complete: flags.has(milestone.flag) }));
+  const milestones = journeyMilestones.map(milestone => ({ ...milestone,
+    optional: ('optional' in milestone && milestone.optional) || ('optionalAfterFlag' in milestone && flags.has(milestone.optionalAfterFlag)),
+    complete: flags.has(milestone.flag) }));
   const completed = milestones.filter(milestone => milestone.complete).length;
   const current = milestones.find(milestone => !milestone.complete && !milestone.optional)
     ?? milestones.find(milestone => !milestone.complete);

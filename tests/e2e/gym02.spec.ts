@@ -8,7 +8,9 @@ import {readBrowserSave,seedBrowserSave,walkDirection,walkTo} from './helpers/wo
 // and camera/presentation tests cover high-density rendering and orientation.
 test.use({deviceScaleFactor:1,reducedMotion:'reduce'});
 test('Petalora irrigation, Dalia, Corolla banner and medal case persist',async({page},testInfo)=>{
-  test.setTimeout(180_000);
+  // CI 39554346058 completes the medal/reward checks and runs out of time
+  // during the final walking exit. Preserve that return and its per-step gates.
+  test.setTimeout(process.env.CI ? 240_000 : 180_000);
   const errors:string[]=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/src/main.ts*',async route=>{

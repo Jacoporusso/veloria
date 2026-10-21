@@ -4,6 +4,9 @@ import { readBrowserSave, walkDirection } from './helpers/world-navigation';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
 test('the atlas shows current position, visited places, unexplored destinations and preserves movement and visits', async ({ page }, info) => {
+  // CI 39554346058 passes the final R06/current-position and error assertions
+  // at the 60s deadline. Preserve DPR3, both orientations and the reload checks.
+  test.setTimeout(process.env.CI ? 120_000 : 60_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/'); await enterGame(page);
