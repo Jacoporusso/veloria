@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.104 confermata — 21/10/2026
+
+Commit5dc371f su main. [Deploy39569766681](https://github.com/Jacoporusso/veloria/actions/runs/39569766681) SUCCESS: test, validatore e build riusciti su Linux. HTTPS200 e cachev125 confermati. [Verify39569766749](https://github.com/Jacoporusso/veloria/actions/runs/39569766749) ancora in corso al controllo finale. Localmente492 test dominio/persistenza passati, oltre alle prove browser descritte sotto.
+
 ## 0.3.104 — Bosco e regressioni locali (21/10/2026)
 
 Riprodotta la perdita della lettura se mancava q_research_sample_received: il sensore mostrava successo ma il requisito della missione ignorava l’evento. La lettura ora è indipendente da Elia/Ada; ricompensa solo al rapporto e passaggio ancora subordinato a q_ada_helped. Diario adattato senza assegnare il briefing saltato. I vecchi salvataggi senza flag lettura si recuperano rileggendo il sensore; non esiste una precedente ricevuta da ricostruire automaticamente.
