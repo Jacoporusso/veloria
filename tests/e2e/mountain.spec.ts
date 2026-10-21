@@ -82,7 +82,9 @@ test('Brina cable is locked before badge and makes both trips without consuming 
  const after=await readBrowserSave(page);expect(after.player.money).toBe(before.player.money);expect(after.party).toEqual(before.party);expect(after.inventory).toEqual(before.inventory);
 });
 test('Riflesso mountain path, three readings, report, Biancavetta and every walking return persist',async({page},info)=>{
- test.setTimeout(process.env.CI?480_000:300_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ // CI 39579019618 completes research/Biancavetta and all but the last 36
+ // R12 return steps at 480s (1.1s per progressing step). Preserve the full round trip.
+ test.setTimeout(process.env.CI?600_000:300_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await checkpoint(page,'veloria/acquariva','from_r12',13,1,['badge_riflesso_awarded']);
  const initial=await readBrowserSave(page);
  await walkTo(page,'acquariva.tmj',13,0,{avoidEncounters:true});

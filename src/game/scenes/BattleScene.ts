@@ -11,7 +11,7 @@ import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState, MoveDefinition } from '../../core/battle/types.ts';
 import { createCreatureImage, preloadCreatureArt } from '../battle/creature-art.ts';
 import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatFlinched, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
-import { battleCommandLayout } from '../battle/battle-command-layout';
+import { battleCommandLayout, battleMoveGrid } from '../battle/battle-command-layout';
 import { drawBattleMoveCard } from '../battle/BattleMoveCard';
 import { createMoveCard, MOVE_TYPE_ICONS } from '../battle/move-card';
 import { drawBattleCommandNavigation, type BattleCommandTab } from '../battle/BattleCommandNavigation';
@@ -33,6 +33,8 @@ export interface BattleSceneInit {
   readonly beforeCelebration?: (state: BattleState, events: readonly BattleEvent[], signal: AbortSignal) => Promise<void>;
   readonly capturedIsNew?: boolean;
   readonly onDismiss?: (event?: KeyboardEvent) => void;
+  /** The owner may expose readiness after preload and interactive controls are complete. */
+  readonly onReady?: () => void;
   readonly victoryPresentation?: () => VictoryPresentation;
   /** Optional game-level UUID source for newly captured creatures. */
   readonly createInstanceId?: () => string;
@@ -74,6 +76,7 @@ export class BattleScene extends Phaser.Scene {
   private opponentPolicy!: OpponentPolicy;
   private onComplete!: BattleSceneInit['onComplete'];
   private onDismiss?: BattleSceneInit['onDismiss'];
+  private onReady?: BattleSceneInit['onReady'];
   private createInstanceId?: BattleSceneInit['createInstanceId'];
   private arenaTextureKey?: string;
   private ui!: Phaser.GameObjects.Container;
@@ -139,6 +142,7 @@ export class BattleScene extends Phaser.Scene {
     this.terminalPreparing = false;
     this.unrevealedEvolutions.clear();
     this.onDismiss = data.onDismiss;
+    this.onReady = data.onReady;
     this.celebration?.destroy();
     this.celebration = undefined;
     this.victoryPresentation = data.victoryPresentation;
@@ -199,6 +203,7 @@ export class BattleScene extends Phaser.Scene {
       this.mode = 'party';
     }
     this.render();
+    this.onReady?.();
   }
 
   private confirm(event?: KeyboardEvent): void {
@@ -265,7 +270,7 @@ export class BattleScene extends Phaser.Scene {
     this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', fieldWidth - cardWidth - 12, 12, cardWidth, 79);
     this.drawCreatureInfo(this.displayedCreature('player'), 'player', 12, fieldHeight - 102, cardWidth, 92);
     if (fieldHeight > 350) this.drawPartyPips(fieldWidth, fieldHeight);
-    this.drawMessagePanel(fieldWidth, fieldHeight);
+    this.drawMessagePanel(fieldWidth);
     this.drawCommandPanel();
     this.drawCommandNavigation();
     this.selectionIndex = Math.min(this.selectionIndex, Math.max(0, this.selectableButtons.length - 1));
@@ -366,13 +371,13 @@ export class BattleScene extends Phaser.Scene {
     }
   }
 
-  private drawMessagePanel(width: number, height: number): void {
+  private drawMessagePanel(width: number): void {
     // Move information belongs to its card. Only actual turn feedback overlays the arena.
     if (this.mode !== 'message' && this.mode !== 'learning' && !this.playerForcedToSwitch) return;
     const message = this.mode === 'learning' ? this.moveLearningPrompt()
       : this.mode === 'message' ? this.pendingMessages[0]?.text ?? this.outcomeMessage()
       : 'Scegli chi mandare in campo.';
-    const x = 12, y = Math.max(108, height - 172);
+    const { x, y } = this.commandLayout.message;
     this.panel(x, y, width - 24, 61, COLORS.panel, COLORS.line, .96);
     const text = this.text(x + 12, y + 10, message, {
       fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', color: COLORS.paper,
@@ -464,11 +469,8 @@ export class BattleScene extends Phaser.Scene {
       this.drawMoveDetailsLink(x, y);
       return;
     }
-    const deck = this.commandLayout.deck;
-    const gap = 8, columns = 2;
-    const cardWidth = (width - gap) / columns;
-    const cardHeight = Math.min(100, (deck.height - 42) / 2);
-    const top = y + Math.max(0, (deck.height - 230) / 2);
+    const grid = battleMoveGrid(this.commandLayout.deck);
+    const { columns, gap, height: cardHeight, y: top } = grid;
     creature.moves.forEach((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
       if (!move) return;
@@ -478,7 +480,7 @@ export class BattleScene extends Phaser.Scene {
       const selectionIndex = this.selectableButtons.length;
       const use = () => { this.selectionIndex = selectionIndex; this.act({ kind: 'useMove', moveSlot: index }); };
       const paint = drawBattleMoveCard(this, this.ui,
-        { x: x + column * (cardWidth + gap), y: top + row * (cardHeight + gap), width: cardWidth, height: cardHeight },
+        grid.card(index),
         card, this.typeColor(move.type), enabled, this.viewport.density, use,
         () => { this.detailMoveIndex = index; this.detailPage = 0; this.mode = 'moveDetails'; this.render(); });
       if (enabled && this.mode === 'moves') {

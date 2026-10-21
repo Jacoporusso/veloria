@@ -1112,6 +1112,8 @@ export class WorldScene extends Phaser.Scene {
   private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }) {
     if (this.battleActive) return;
     this.battleActive = true;
+    const gameRegion = document.querySelector<HTMLElement>('#game');
+    gameRegion?.setAttribute('aria-busy', 'true');
     this.onMusicThemeChange(this.map.metadata.id === 'veloria/gym01_brumalta' ? 'battle_gym' : trainer ? 'battle_trainer' : 'battle_wild');
     let dismissMessage = 'Lo scontro è terminato.';
     let earnedMoney = 0;
@@ -1126,6 +1128,7 @@ export class WorldScene extends Phaser.Scene {
       document.body.classList.add('battle-active');
       document.querySelector<HTMLElement>('#save-menu')!.hidden = true;
       this.scene.launch('battle', {
+        onReady: () => gameRegion?.removeAttribute('aria-busy'),
         opponentPolicy: getOpponentPolicy(trainer?.aiProfileId),
         state,
         moveCatalog: battleMoves,
@@ -1206,6 +1209,7 @@ export class WorldScene extends Phaser.Scene {
           this.battleActive = false;
           this.onMusicThemeChange(this.map.metadata.musicId);
           document.body.classList.remove('battle-active');
+          gameRegion?.removeAttribute('aria-busy');
           if (challenge) {
             this.challengeOperationActive = true;
             const finish = async () => {
@@ -1231,6 +1235,7 @@ export class WorldScene extends Phaser.Scene {
       });
       this.scene.pause('world');
     }).catch(error => {
+      gameRegion?.removeAttribute('aria-busy');
       this.battleActive = false;
       this.onMusicThemeChange(this.map.metadata.musicId);
       this.showToast('Non è stato possibile caricare la battaglia. Riprova.');

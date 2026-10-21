@@ -1,3 +1,4 @@
+import { battleCommandLayout, battleMoveGrid } from '../../src/game/battle/battle-command-layout';
 import leagueSequence from '../../content/challenges/veloria_league.sequence.json' with {type:'json'};
 import { expect, test } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
@@ -229,15 +230,16 @@ async function seedOfflineHealing(page: import('@playwright/test').Page) {
   }), prepared);
 }
 
-async function tapBattleCanvas(page: import('@playwright/test').Page, xRatio: number, bottomOffset: number) {
-  const canvas = page.locator('#game canvas');
-  await expect.poll(async () => canvas.evaluate(element => {
-    const rect = element.getBoundingClientRect();
-    return Math.abs(element.width - rect.width) <= 1 && Math.abs(element.height - rect.height) <= 1;
-  })).toBe(true);
-  const box = await canvas.boundingBox();
+/** Production journey: use the authored responsive geometry and actual touch input, no debug globals. */
+async function tapBattleControl(page: import('@playwright/test').Page, control: 'moves' | 'captures' | 'message' | number) {
+  const box = await page.locator('#game canvas').boundingBox();
   if (!box) throw new Error('Battle canvas is not visible offline.');
-  await page.touchscreen.tap(box.x + box.width * xRatio, box.y + box.height - bottomOffset);
+  const layout = battleCommandLayout(box.width, box.height);
+  const target = typeof control === 'number' ? battleMoveGrid(layout.deck).card(control)
+    : control === 'message' ? layout.message
+    : { x: layout.navigation.x + (control === 'moves' ? 0 : 2) * layout.navigation.width / 5,
+        y: layout.navigation.y, width: layout.navigation.width / 5, height: layout.navigation.height };
+  await page.touchscreen.tap(box.x + target.x + target.width / 2, box.y + target.y + target.height / 2);
 }
 
 async function advanceBattleMessages(page: import('@playwright/test').Page) {
@@ -247,16 +249,17 @@ async function advanceBattleMessages(page: import('@playwright/test').Page) {
       await page.getByRole('button', { name: 'Continua', exact: true }).click();
       return;
     }
-    await tapBattleCanvas(page, 0.5, 132);
+    await tapBattleControl(page, 'message');
     await page.waitForTimeout(90);
   }
 }
 
 async function captureWildOffline(page: import('@playwright/test').Page) {
   await expect(page.locator('body')).toHaveClass(/battle-active/);
+  await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
   // This suite runs the compiled production bundle: confirm the first ball with
-  // the real keyboard command. Dynamic touch bounds are covered by MVP-04.
-  await tapBattleCanvas(page, 0.75, 93);
+  // the real keyboard command. The tab uses the same responsive layout as the game.
+  await tapBattleControl(page, 'captures');
   await page.keyboard.press('Enter', { delay: 40 });
   await advanceBattleMessages(page);
 }
@@ -533,8 +536,8 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   for (let turn = 0; turn < 10; turn += 1) {
     if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 144);
-    await tapBattleCanvas(page, 0.25, 140);
+    await tapBattleControl(page, 'moves');
+    await tapBattleControl(page, 0);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
@@ -610,8 +613,8 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   for(let turn=0;turn<10;turn++) {
     if(!(await page.locator('body').evaluate(el=>el.classList.contains('battle-active'))))break;
-    await tapBattleCanvas(page,.25,144);
-    await tapBattleCanvas(page,.25,140);
+    await tapBattleControl(page, 'moves');
+    await tapBattleControl(page, 0);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
@@ -668,9 +671,9 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   for(let turn=0;turn<10;turn++) {
     if(!(await page.locator('body').evaluate(el=>el.classList.contains('battle-active'))))break;
-    await tapBattleCanvas(page,.25,144);
+    await tapBattleControl(page, 'moves');
     // The prepared Charmeleon's third slot is Ember: use its Fire coverage against Steel.
-    await tapBattleCanvas(page,.25,80);
+    await tapBattleControl(page, 2);
     await advanceBattleMessages(page);
   }
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);

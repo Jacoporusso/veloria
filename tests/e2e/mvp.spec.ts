@@ -1,3 +1,4 @@
+import { battleCommandLayout } from '../../src/game/battle/battle-command-layout';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
@@ -568,20 +569,12 @@ async function seedBackupRoundtripScenario(page: Page) {
   }));
 }
 
-async function tapBattleCanvas(page: Page, xRatio: number, bottomOffset: number) {
-  const canvas = page.locator('#game canvas');
-  let box: { x: number; y: number; width: number; height: number } | null = null;
-  await expect.poll(async () => {
-    box = await canvas.evaluate(element => {
-      const rect = element.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0 || Math.abs(element.width - rect.width) > 1 || Math.abs(element.height - rect.height) > 1) return null;
-      return { x: rect.x, y: rect.y, width: rect.width, height: rect.height };
-    });
-    return box !== null;
-  }).toBe(true);
+async function tapBattleMessage(page: Page) {
+  const box = await page.locator('#game canvas').boundingBox();
   if (!box) throw new Error('Battle canvas is not visible.');
-  const readyBox = box as { x: number; y: number; width: number; height: number };
-  await page.touchscreen.tap(readyBox.x + readyBox.width * xRatio, readyBox.y + readyBox.height - bottomOffset);
+  const message = battleCommandLayout(box.width, box.height).message;
+  // The feedback region is non-interactive once the menu returns, so repeated skips cannot select a move.
+  await page.touchscreen.tap(box.x + message.x + message.width / 2, box.y + message.y + message.height / 2);
 }
 
 async function advanceBattleMessages(page: Page, stopAtCelebration = false) {
@@ -592,8 +585,8 @@ async function advanceBattleMessages(page: Page, stopAtCelebration = false) {
       await page.getByRole('button', { name: 'Continua', exact: true }).click();
       return;
     }
-    // The battle message button is centered; this coordinate falls between command columns when a menu is open.
-    await tapBattleCanvas(page, 0.5, 132);
+    // Read the authored feedback bounds; they never overlap the move selector.
+    await tapBattleMessage(page);
     await page.waitForTimeout(90);
   }
 }
@@ -630,7 +623,7 @@ async function advanceBattleToMenu(page: Page) {
     }
     if (mode === 'menu' || mode === 'inactive') return;
     if (mode === 'message') {
-      await tapBattleCanvas(page, 0.5, 132);
+      await tapBattleMessage(page);
       await page.waitForTimeout(90);
     } else if (mode === 'learning' || mode === 'moves') await page.keyboard.press('Enter', { delay: 40 });
     else await page.waitForTimeout(40);
@@ -789,6 +782,10 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   // This scenario includes the full indoor prologue, route traversal and several turns.
   // Allow slower CI input while retaining every step, including the final reload.
   test.setTimeout(process.env.CI ? 240_000 : 120_000);
+  await page.route('**/src/main.ts*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: `${await response.text()}\nglobalThis.__mvpGame = game;` });
+  });
   // The smallest supported portrait candidate catches battle UI overflow before device QA.
   await page.setViewportSize({ width: 320, height: 568 });
   await page.addInitScript(() => {
@@ -824,21 +821,20 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   before = await readCurrentSave(page);
   const initialCreature = before.party[0];
   expect(initialCreature.moves.find((move: any) => move.id === 'growl').pp).toBe(1);
-  const canvas = page.locator('#game canvas');
+  // Resolve real command bounds: the persistent tabs and move cards replaced the old menu cells.
+  await tapBattleLabel(page, '__mvpGame', 'LOTTA');
+  await tapBattleLabel(page, '__mvpGame', 'Ruggito');
+  await advanceBattleToMenuWithTouch(page);
 
-  // LOTTA (first menu cell), then Growl (second move cell).
-  await tapBattleCanvas(page, 0.25, 144);
-  await tapBattleCanvas(page, 0.75, 140);
-  await advanceBattleMessages(page);
-
-  // Scratch is the first move cell. Repeat until the battle closes; centered message taps are harmless on menus.
+  // Repeat real Scratch commands; wait for each resolved turn before selecting the next.
   for (let turn = 0; turn < 6; turn += 1) {
-    if (!(await page.locator('body').evaluate(element => element.classList.contains('battle-active')))) break;
-    await tapBattleCanvas(page, 0.25, 144);
-    await tapBattleCanvas(page, 0.25, 140);
-    await advanceBattleMessages(page);
+    if ((await battleStatus(page)).terminalShown) break;
+    await tapBattleLabel(page, '__mvpGame', 'LOTTA');
+    await tapBattleLabel(page, '__mvpGame', 'Graffio');
+    await advanceBattleToMenuWithTouch(page);
   }
-  await advanceBattleMessages(page);
+  await expect(page.getByRole('dialog', { name: 'Vittoria!', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Continua', exact: true }).click();
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
 
   await expect.poll(async () => {
@@ -1091,7 +1087,9 @@ test('R02: the Viale vista loads Brumalta and its sign explains the route ahead'
 });
 
 test('R04: the petal ascent reaches Petalora, services work, and Nila rewards only once', async ({page}, testInfo) => {
-  test.setTimeout(240_000);
+  // CI 39579019618 walks the final return toward Nila at 240s; successive
+  // save polls confirm movement. Retain the battle, reload and unique-reward checks.
+  test.setTimeout(process.env.CI ? 360_000 : 240_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {
@@ -1165,8 +1163,12 @@ test('R04: the petal ascent reaches Petalora, services work, and Nila rewards on
   await expect(page.locator('body')).toHaveClass(/battle-active/);
   for(let turn=0;turn<12;turn++) {
     if(await page.locator('.battle-celebration').isVisible())break;
-    await tapBattleCanvas(page,.25,144);
-    await tapBattleCanvas(page,.25,140);
+    await tapBattleLabel(page, '__mvpGame', 'LOTTA');
+    const moveName = await page.evaluate(() => {
+      const scene = (window as any).__mvpGame.scene.keys.battle;
+      return scene.ui.list.find((item: any) => item.name === 'battle-move-use' && item.getData('enabled')).getData('moveName');
+    });
+    await tapBattleLabel(page, '__mvpGame', moveName);
     await advanceBattleToMenuWithTouch(page);
   }
   const banner=page.locator('.battle-celebration');
@@ -1188,7 +1190,9 @@ test('R04: the petal ascent reaches Petalora, services work, and Nila rewards on
 });
 
 test('E2E-12: the Aurora Badge opens the moss terraces and Radicelmo archive and greenhouse persist', async ({ page }, testInfo) => {
-  test.setTimeout(180_000);
+  // CI 39579019618 reaches Leda's final greenhouse-report dialogue at 180s.
+  // Leave time for its reward, reload and no-duplicate assertions; per-step gates remain short.
+  test.setTimeout(process.env.CI ? 240_000 : 180_000);
   await chooseCharmander(page);
 
   // The visible Brumalta road remains closed until the persistent badge flag is awarded.
