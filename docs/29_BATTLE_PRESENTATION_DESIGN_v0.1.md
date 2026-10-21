@@ -37,3 +37,12 @@ Cerimonia evoluzione6,2s con salto dopo1s; cattura2,8s con rivelazione anticipab
 `BattleEffects` separa la presentazione delle mosse dalle regole. Fisiche: preparazione/affondo e scie, tre graffi per mosse con artigli. Speciali: fulmini, getti luminosi, foglie, cristalli e anelli secondo tipo; colori funzionali del tipo. Un tentativo di mossa non genera un impatto di danno: colpo, immunità, schivata, cura e cambi di stato/statistiche seguono i rispettivi eventi risolti. La modalità ridotta mantiene indicatori fermi e testo.
 
 Effetti vettoriali nel container della UI: ridimensionamento, salto messaggi e chiusura eliminano anche i tween dei figli. Il lancio della sfera segue un arco. Le cerimonie mantengono i tempi e il salto approvati, aggiungendo orbite, raggi morbidi e particelle con una rivelazione progressiva. Nessun esito o premio dipende dall'animazione.
+
+
+## Layout approvato e integrato — 0.3.105
+
+Riferimento approvato: `battle-layout-prototype.html`. La barra sopra le mosse è eliminata. Il selettore mostra nome, icona del tipo, categoria, potenza/danno fisso, precisione attuale, PP e risultato del confronto col bersaglio; per il supporto indica il cambiamento o lo stato, senza promettere effetti impediti. La previsione numerica del danno è riservata ai dettagli ⓘ di ciascuna mossa, con spiegazioni complete paginate e pulsante Usa. L’ispezione rimane disponibile a zero PP; l’utilizzo resta disabilitato.
+
+La barra inferiore contiene Lotta, Borsa, Cattura, Squadra e Fuga. La navigazione non esegue turni; Fuga apre la conferma. Tab non utilizzabili restano visibili e disabilitate, comprese tutte quelle durante la risoluzione o il cambio obbligatorio. Tastiera: Invio apre Lotta dal menu, frecce scelgono mosse o azioni, I ispeziona, B/Esc torna. Il tocco su una carta usa direttamente la mossa.
+
+Responsabilità separate: `battle-command-layout` calcola campo/pannelli; `move-card` deriva i dati esclusivamente dal catalogo e dalle regole; `BattleMoveCard` e `BattleCommandNavigation` disegnano e notificano i comandi; `BattleScene` conserva flusso e input. Il motore non cambia. Layout verificati a320×568,390×844,568×320,844×390; densità dei testi preservata anche nel renderer Canvas.

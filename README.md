@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.104:** sensore del Bosco indipendente dall’ordine dei dialoghi; anteprime delle immunità corrette; 14 scenari iniziali ridisegnati in 2D illustrato, interazioni evidenziate in prossimità; animazioni delle mosse e cerimonie di cattura/evoluzione. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.105:** lotta con carte mosse, icone e barra azioni persistente; stima danno nei soli dettagli. Bosco con lettura libera del sensore e mappe illustrate. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 20 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 

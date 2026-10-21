@@ -22,7 +22,7 @@ test('journey journal shows real progress and returns focus without moving the p
   await page.screenshot({ path: testInfo.outputPath('world-modernized-mobile.png') });
 });
 
-for (const [width, height] of [[390, 844], [320, 568], [844, 390]]) {
+for (const [width, height] of [[390, 844], [320, 568], [844, 390], [568, 320]]) {
 test(`illustrated battle remains usable at ${width}x${height}`, async ({ page }, testInfo) => {
   await page.setViewportSize({ width, height });
   const errors: string[] = [];
@@ -60,6 +60,16 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     observeGameSize((window as any).battleFixture,document.querySelector<HTMLElement>('#battle-fixture')!);
   });
   await expect.poll(async () => ({ active: await page.evaluate(() => Boolean((window as any).battleFixture?.scene.isActive('battle'))), errors })).toEqual({ active: true, errors: [] });
+  const tapBattleZone = async (name: string) => {
+    const point = await page.evaluate(name => {
+      const scene = (window as any).battleFixture.scene.getScene('battle');
+      const zone = scene.ui.list.find((child: any) => child.name === name);
+      if (!zone) throw new Error(`Missing battle zone ${name}`);
+      const bounds = zone.getBounds(), canvas = scene.game.canvas.getBoundingClientRect();
+      return { x: canvas.x + bounds.centerX * scene.scale.zoom, y: canvas.y + bounds.centerY * scene.scale.zoom };
+    }, name);
+    await page.touchscreen.tap(point.x, point.y);
+  };
   {
     await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scale.width)).toBe(width);
     const actors = await page.evaluate(() => {
@@ -70,30 +80,35 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     await page.screenshot({ path: testInfo.outputPath(`battle-${width}x${height}.png`) });
   }
   if (width !== 390) {
-    await page.keyboard.press('Enter', { delay: 40 });
+    await tapBattleZone('battle-tab-moves');
     await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
-    const overflow = await page.evaluate(() => {
+    const layout = await page.evaluate(() => {
       const scene = (window as any).battleFixture.scene.getScene('battle');
-      const top = scene.scale.height - scene.commandHeight();
-      // Compare labels to the real interactive card rectangles, independent of
-      // how many rows the responsive layout chooses.
-      const cards = scene.ui.list.filter((child: any) => child.type === 'Graphics' && child.input?.hitArea)
-        .map((child: any) => child.input.hitArea);
-      return scene.ui.list.filter((child: any) => child.type === 'Text' && child.y >= top && !child.text.includes('INDIETRO') && !child.text.includes('DETTAGLI MOSSE'))
-        .filter((child: any) => {
-          const bounds = child.getBounds();
-          return !cards.some((card: any) => bounds.left >= card.x && bounds.right <= card.right
-            && bounds.top >= card.y && bounds.bottom <= card.bottom);
-        }).map((child: any) => child.text);
+      const inside = (bounds: any) => bounds.left >= -.5 && bounds.top >= -.5 && bounds.right <= scene.scale.width + .5 && bounds.bottom <= scene.scale.height + .5;
+      const cards = scene.ui.list.filter((child: any) => child.name === 'battle-move-use');
+      const tabs = scene.ui.list.filter((child: any) => /^battle-tab-(moves|items|captures|party|flee)$/.test(child.name));
+      const cardBounds = cards.map((card: any) => card.getBounds());
+      const cardText = scene.ui.list.filter((child: any) => child.type === 'Text' && cardBounds.some((card: any) => {
+        const bounds = child.getBounds();
+        return bounds.left >= card.left && bounds.right <= card.right && bounds.top >= card.top && bounds.bottom <= card.bottom;
+      })).map((child: any) => child.text).join('\n');
+      return {
+        cardCount: cards.length,
+        cardData: cards.map((card: any) => JSON.stringify(card.getData?.('presentation') ?? {})),
+        cardText,
+        cardsInside: cards.every((card: any) => inside(card.getBounds())),
+        tabs: tabs.map((tab: any) => ({ name: tab.name, bounds: tab.getBounds(), inside: inside(tab.getBounds()) })),
+        labelsInside: scene.ui.list.filter((child: any) => child.type === 'Text').filter((child: any) => !inside(child.getBounds())).map((child: any) => child.text),
+      };
     });
-    expect(overflow).toEqual([]);
-    const footer = await page.evaluate(() => {
-      const scene = (window as any).battleFixture.scene.getScene('battle');
-      const text = scene.ui.list.find((child: any) => child.type === 'Text' && child.text.includes('DETTAGLI MOSSE'));
-      const bounds = text.getBounds();
-      return { inside: bounds.left >= 14 && bounds.right <= innerWidth - 14 && bounds.bottom <= innerHeight, belowCards: bounds.top >= innerHeight - 47 };
-    });
-    expect(footer).toEqual({ inside: true, belowCards: true });
+    expect(layout.cardCount).toBeGreaterThan(0);
+    expect(layout.cardsInside).toBe(true);
+    expect(`${layout.cardData.join('\n')}\n${layout.cardText}`).not.toContain('Danno stimato:');
+    expect(layout.tabs.map(tab => tab.name)).toEqual(expect.arrayContaining([
+      'battle-tab-moves', 'battle-tab-items', 'battle-tab-captures', 'battle-tab-party', 'battle-tab-flee',
+    ]));
+    expect(layout.tabs.every(tab => tab.inside && tab.bounds.y >= height * 0.65)).toBe(true);
+    expect(layout.labelsInside).toEqual([]);
     await page.screenshot({ path: testInfo.outputPath(`battle-moves-${width}x${height}.png`) });
     expect(errors).toEqual([]);
     return;
@@ -104,16 +119,15 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('items');
   await page.keyboard.press('Escape', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('menu');
-  await page.waitForTimeout(180);
-  await page.touchscreen.tap(100, 844 - 144); // Lotta.
+  await tapBattleZone('battle-tab-moves');
+  await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
   await page.screenshot({ path: testInfo.outputPath('battle-moves-mobile.png') });
-  await page.touchscreen.tap(100, 844 - 140); // Tuonoshock.
+  await tapBattleZone('battle-move-use');
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('message');
-  await page.touchscreen.tap(195, 844 - 132);
-  await page.waitForTimeout(180);
+  await page.keyboard.press('Enter', { delay: 50 });
   await page.screenshot({ path: testInfo.outputPath('battle-impact-mobile.png') });
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode), {timeout:15_000}).toBe('menu');
-  await page.keyboard.press('Enter', { delay: 50 }); // Lotta.
+  await tapBattleZone('battle-tab-moves');
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').mode)).toBe('moves');
   await page.keyboard.press('ArrowRight', {delay:40}); // Growl, second slot.
   await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scene.getScene('battle').selectionIndex)).toBe(1);

@@ -1,3 +1,10 @@
+## 0.3.105 — Nuovo selettore della lotta (21/10/2026)
+
+- Integrato il mockup approvato: carte mosse con icona del tipo, categoria, potenza o danno fisso, precisione attuale, PP, efficacia ed effetti di supporto. Eliminata la barra di anteprima.
+- Stima danno solo nei dettagli individuali ⓘ, con pulsante Usa; dati e regole reali del catalogo locale, nessuna previsione inventata dal mockup.
+- Barra inferiore Lotta/Borsa/Cattura/Squadra/Fuga: passaggio fra pannelli senza turno, azioni disabilitate durante la risoluzione, conferma della fuga. Interfaccia laterale nei landscape corti, compreso 568×320.
+- Navigazione da tastiera, mosse esaurite, sostituzione obbligatoria e cerimonie conservate. Test aggiornati ai target reali; il mockup HTML resta come riferimento separato.
+
 ## 0.3.104 — Lettura libera del sensore e stabilizzazione (21/10/2026)
 
 - Bosco dei Veli: il sensore registra la lettura prima di parlare con Ada e anche senza il secondo briefing di Elia. Ada riconosce i dati dopo il reload; premio e uscita conservano il requisito della lettura e non si duplicano.

@@ -23,7 +23,7 @@ for (const moveId of ['sonic-boom', 'thunder-wave']) test(`${moveId} shows its r
     const scene = (window as any).__urbanGame.scene.keys.battle;
     return Boolean(scene?.sys.isActive() && scene.ui?.list.length);
   })).toBe(true);
-  async function tapLabel(prefix: string) {
+  async function tapText(prefix: string) {
     const point = await page.evaluate(prefix => {
       const scene = (window as any).__urbanGame.scene.keys.battle;
       const text = scene.ui.list.find((item: any) => item.type === 'Text' && item.text.startsWith(prefix));
@@ -32,18 +32,61 @@ for (const moveId of ['sonic-boom', 'thunder-wave']) test(`${moveId} shows its r
     }, prefix);
     await page.touchscreen.tap(point.x, point.y);
   }
-  await tapLabel('LOTTA');
-  const preview = await page.evaluate(() => {
+  async function tapNamedZone(name: string, moveName?: string) {
+    const point = await page.evaluate(({ name, moveName }) => {
+      const scene = (window as any).__urbanGame.scene.keys.battle;
+      const zone = scene.ui.list.find((item: any) => item.name === name &&
+        (moveName === undefined || item.getData?.('moveName') === moveName));
+      if (!zone) throw new Error(`Missing battle zone ${name}${moveName ? ` for ${moveName}` : ''}`);
+      const bounds = zone.getBounds(), rect = scene.game.canvas.getBoundingClientRect();
+      return { x: rect.x + bounds.centerX * scene.scale.zoom, y: rect.y + bounds.centerY * scene.scale.zoom };
+    }, { name, moveName });
+    await page.touchscreen.tap(point.x, point.y);
+  }
+  await tapText('LOTTA');
+  const card = await page.evaluate(() => {
     const scene = (window as any).__urbanGame.scene.keys.battle;
-    return scene.movePreview.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text).join('\n');
+    const zones = scene.ui.list.filter((item: any) => item.name === 'battle-move-use');
+    const bounds = zones.map((zone: any) => zone.getBounds());
+    const text = scene.ui.list.filter((item: any) => item.type === 'Text' && bounds.some((card: any) => {
+      const label = item.getBounds();
+      return label.left >= card.left && label.right <= card.right && label.top >= card.top && label.bottom <= card.bottom;
+    })).map((item: any) => item.text).join('\n');
+    const model = zones.map((item: any) => JSON.stringify(item.getData?.('presentation') ?? item.data?.get?.('presentation') ?? {})).join('\n');
+    return `${text}\n${model}`;
   });
   if (moveId === 'sonic-boom') {
-    expect(preview).toContain('DANNO FISSO 20 HP');
-    expect(preview).toContain('STIMA DANNI: 20 HP');
-    expect(preview).not.toContain('POTENZA 0');
-  } else expect(preview).toContain('NESSUN EFFETTO · IMMUNITÀ DI TIPO');
-  await page.screenshot({ path: info.outputPath(`${moveId}-preview.png`) });
-  await tapLabel(moveId === 'sonic-boom' ? 'Sonicboom' : 'Tuononda');
+    expect(card).toContain('20 HP fissi');
+    expect(card).toContain('"effectiveness":"fixed"');
+  } else expect(card).toContain('"effectiveness":"immune"');
+  expect(card).not.toContain('Danno stimato:');
+
+  const moveName = moveId === 'sonic-boom' ? 'Sonicboom' : 'Tuononda';
+  await tapNamedZone('battle-move-details', moveName);
+  await expect.poll(() => page.evaluate(() => (window as any).__urbanGame.scene.keys.battle.mode)).toBe('moveDetails');
+  const details = await page.evaluate(() => {
+    const scene = (window as any).__urbanGame.scene.keys.battle;
+    const pages: string[] = [];
+    for (let index = 0; index < scene.detailPageCount; index++) {
+      scene.detailPage = index; scene.render();
+      pages.push(scene.ui.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text).join(' '));
+    }
+    scene.detailPage = 0; scene.render();
+    return pages.join(' ').replace(/\s+/g, ' ');
+  });
+  if (moveId === 'sonic-boom') {
+    expect(details).toContain('Danno fisso: 20 HP');
+    expect(details).toContain('Danno stimato: 20–20 HP');
+    expect(details).not.toContain('Potenza: 0');
+  } else {
+    expect(details).toContain('Ø Nessun effetto');
+    expect(details).toContain('ELETTRO contro TERRA: ×0');
+    expect(details).toContain('Non funziona sui Pokémon immuni');
+  }
+  await page.screenshot({ path: info.outputPath(`${moveId}-details.png`) });
+  await page.keyboard.press('Escape', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).__urbanGame.scene.keys.battle.mode)).toBe('moves');
+  await tapNamedZone('battle-move-use');
   await expect.poll(() => page.evaluate(() => (window as any).__urbanGame.scene.keys.battle.eventLog.some((event: any) => event.type === 'moveUsed'))).toBe(true);
   const result = await page.evaluate(() => {
     const scene = (window as any).__urbanGame.scene.keys.battle;

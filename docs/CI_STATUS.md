@@ -1,3 +1,9 @@
+## 0.3.105 — layout lotta verificato localmente (21/10/2026)
+
+Nuove carte e navigazione dal mockup approvato. TypeScript, build produzione, validatore e497 test dominio/persistenza passati. Passate37 prove browser di lotta/presentazione/catture/pietre; ulteriori9 verifiche mirate includono landscape568×320 e tutti78 dettagli del catalogo. Altre2 prove verificano info a zeroPP, fuga annullata senza turno, Uso dai dettagli con un solo consumoPP e navigazione disabilitata durante l’azione. Molte prove della seconda selezione sono ripetizioni mirate dopo le correzioni, non48 casi distinti. Il test delle schede esclude qualsiasi previsione e richiede il danno stimato nei soli dettagli. Nessuna modifica alle regole o ai salvataggi.
+
+Baseline Verify39569766749 FAILURE: tre lunghi percorsi MVP terminati per budget complessivo (catture/box, R04/Petalora, Radicelmo); non attestata verde. La nuova presentazione non risolve né nasconde questi gate. Cachev126. Pubblicazione/nuovaCI da confermare.
+
 ## Pubblicazione 0.3.104 confermata — 21/10/2026
 
 Commit5dc371f su main. [Deploy39569766681](https://github.com/Jacoporusso/veloria/actions/runs/39569766681) SUCCESS: test, validatore e build riusciti su Linux. HTTPS200 e cachev125 confermati. [Verify39569766749](https://github.com/Jacoporusso/veloria/actions/runs/39569766749) ancora in corso al controllo finale. Localmente492 test dominio/persistenza passati, oltre alle prove browser descritte sotto.

@@ -6,12 +6,15 @@ import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { resolveBattleTurn, type BattleCommands, type MoveCatalog } from '../../core/battle/engine.ts';
 import { replaceLearnedMove } from '../../core/battle/move-learning.ts';
-import { effectivenessFor } from '../../core/battle/rules.ts';
 import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from '../../core/battle/emergency-move.ts';
 import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState, MoveDefinition } from '../../core/battle/types.ts';
 import { createCreatureImage, preloadCreatureArt } from '../battle/creature-art.ts';
 import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatFlinched, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
+import { battleCommandLayout } from '../battle/battle-command-layout';
+import { drawBattleMoveCard } from '../battle/BattleMoveCard';
+import { createMoveCard, MOVE_TYPE_ICONS } from '../battle/move-card';
+import { drawBattleCommandNavigation, type BattleCommandTab } from '../battle/BattleCommandNavigation';
 import { BattleEffects } from '../battle/BattleEffects.ts';
 import { describeMoveMatchup } from '../battle/move-matchup.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
@@ -42,7 +45,7 @@ export interface BattleSceneInit {
   readonly onSpeciesSeen?: (speciesId: number) => void;
 }
 
-type ViewMode = 'menu' | 'moves' | 'moveDetails' | 'party' | 'items' | 'captures' | 'message' | 'learning';
+type ViewMode = 'menu' | 'moves' | 'moveDetails' | 'party' | 'items' | 'captures' | 'flee' | 'message' | 'learning';
 type SelectableButton = { row: number; column: number; callback: () => void; paint: (selected: boolean) => void };
 
 const COLORS = {
@@ -96,7 +99,6 @@ export class BattleScene extends Phaser.Scene {
   private victoryPresentation?: BattleSceneInit['victoryPresentation'];
   private pendingMoveLearning?: Extract<BattleEvent, { type: 'moveLearningSkipped' }>;
   private messageTimer?: Phaser.Time.TimerEvent;
-  private movePreview?: Phaser.GameObjects.Container;
   private captureCounter = 0;
   private playerForcedToSwitch = false;
   private selectableButtons: SelectableButton[] = [];
@@ -150,7 +152,6 @@ export class BattleScene extends Phaser.Scene {
     this.pendingMessages = [];
     this.messageTimer?.remove(false);
     this.messageTimer = undefined;
-    this.movePreview = undefined;
     this.eventLog = [];
     this.completionReported = false;
     this.terminalShown = false;
@@ -246,7 +247,6 @@ export class BattleScene extends Phaser.Scene {
     this.selectableButtons = [];
     this.moveSlotIndexes = [];
     if (!preserveSelection) this.selectionIndex = 0;
-    this.movePreview = undefined;
     const width = this.viewport.width;
     const height = this.viewport.height;
     this.drawArena(width, height);
@@ -256,32 +256,18 @@ export class BattleScene extends Phaser.Scene {
       this.onSpeciesSeen?.(opponent.speciesId);
     }
     if (this.mode === 'moveDetails') { this.drawMoveDetails(width, height); return; }
-    const fieldHeight = Math.max(180, height - this.commandHeight() - 115);
-    const landscape = height < 520 && width > 600;
-    const compact = !landscape && height < 700;
-    if (landscape) {
-      // Put cards beside the stage: a portrait stack cannot fit a short phone screen.
-      const size = Math.min(118, fieldHeight * 0.62);
-      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', width * 0.72, 16, width * 0.28 - 14, 79);
-      this.drawCreatureInfo(this.displayedCreature('player'), 'player', 14, 16, width * 0.28 - 14, 92);
-      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.61, fieldHeight * 0.56, size);
-      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.39, fieldHeight * 0.61, size);
-    } else if (compact) {
-      const size = Math.min(128, width * 0.30);
-      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', 14, 12, width - 28, 70);
-      this.drawCreatureInfo(this.displayedCreature('player'), 'player', width * 0.35, fieldHeight - 92, width * 0.65 - 14, 92);
-      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.73, 90 + size / 2, size);
-      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.175, fieldHeight - 44, Math.min(112, width * 0.30));
-    } else {
-      const opponentCardWidth = width > 600 ? width * 0.47 : width - 28;
-      this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', 14, 16, opponentCardWidth, 79);
-      this.drawCreatureInfo(this.displayedCreature('player'), 'player', width * 0.35, fieldHeight * 0.54, width * 0.65 - 14, 92);
-      this.drawCreature(this.displayedCreature('opponent'), 'opponent', width * 0.73, Math.max(145, fieldHeight * 0.35), Math.min(150, width * 0.38));
-      this.drawCreature(this.displayedCreature('player'), 'player', width * 0.23, fieldHeight * 0.78, Math.min(170, width * 0.42));
-    }
-    if (!compact) this.drawPartyPips(width, height);
-    this.drawMessagePanel(width, height);
-    this.drawCommandPanel(width, height);
+    const arena = this.commandLayout.arena;
+    const fieldWidth = arena.width, fieldHeight = arena.height;
+    const size = Math.min(170, fieldWidth * .38, fieldHeight * .37);
+    this.drawCreature(this.displayedCreature('opponent'), 'opponent', fieldWidth * .73, Math.max(124, fieldHeight * .36), size * .88);
+    this.drawCreature(this.displayedCreature('player'), 'player', fieldWidth * .24, fieldHeight * .66, size);
+    const cardWidth = Math.min(194, fieldWidth * .48);
+    this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', fieldWidth - cardWidth - 12, 12, cardWidth, 79);
+    this.drawCreatureInfo(this.displayedCreature('player'), 'player', 12, fieldHeight - 102, cardWidth, 92);
+    if (fieldHeight > 350) this.drawPartyPips(fieldWidth, fieldHeight);
+    this.drawMessagePanel(fieldWidth, fieldHeight);
+    this.drawCommandPanel();
+    this.drawCommandNavigation();
     this.selectionIndex = Math.min(this.selectionIndex, Math.max(0, this.selectableButtons.length - 1));
     this.updateSelectionStyle();
     if (newEvent) this.animateEvent(newEvent);
@@ -301,14 +287,9 @@ export class BattleScene extends Phaser.Scene {
       this.rect(0, height * 0.47, width, height * 0.53, 0xdbedc3);
       this.rect(0, height * 0.59, width, height * 0.41, 0xc4dfa8);
     }
-    const field = this.add.graphics();
-    field.fillStyle(0xffedb2, 0.46);
-    field.fillEllipse(width * 0.72, height * 0.43, width * 0.42, height * 0.09);
-    field.fillStyle(0xffedb2, 0.42);
-    field.fillEllipse(width * 0.25, height * 0.68, width * 0.44, height * 0.075);
-    field.lineStyle(1, 0xfffdf5, 0.22);
-    field.lineBetween(0, height * 0.55, width, height * 0.55);
-    this.ui.add(field);
+    this.label(14, 16, 'VELORIA', '#b1f5df', 13);
+    this.label(14, 39, this.state.battleType === 'wild' ? 'INCONTRO SELVATICO' : 'SFIDA ALLENATORE', '#e0eee8', 8);
+    this.label(14, 55, `TURNO ${this.state.turn + 1}`, '#c6ddd9', 9);
   }
 
   private drawCreatureInfo(creature: BattleCreature, side: BattleSide, x: number, y: number, width: number, height: number): void {
@@ -316,13 +297,14 @@ export class BattleScene extends Phaser.Scene {
     const name = this.text(x + 12, y + 9, creature.name, {
       fontFamily: 'system-ui, Segoe UI, sans-serif', fontSize: '18px', fontStyle: 'bold', color: COLORS.paper,
     });
+    if (name.width > width - 70) name.setFontSize(Math.max(11, Math.floor(18 * (width - 70) / name.width)));
     this.ui.add(name);
     this.label(x + width - 12, y + 13, `LV ${creature.level}`, COLORS.paper, 10).setOrigin(1, 0);
     const hpLabel = this.text(x + 12, y + 34, 'HP', { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '11px', fontStyle: 'bold', color: COLORS.muted });
     this.ui.add(hpLabel);
     const barX = x + 35;
     const barY = y + 36;
-    const barWidth = Math.max(42, width - 92);
+    const barWidth = Math.max(12, width - 92);
     this.rect(barX, barY, barWidth, 7, 0xdce6e8);
     const hp = this.visualHp.get(creature.instanceId) ?? creature.hp;
     const ratio = Phaser.Math.Clamp(hp / creature.stats.maxHp, 0, 1);
@@ -341,7 +323,7 @@ export class BattleScene extends Phaser.Scene {
     if (creature.status || creature.confusionTurnsRemaining || creature.leechSeed) {
       this.label(x + 12, y + 53, [creature.status ? this.statusName(creature.status.status).toUpperCase() : '', creature.confusionTurnsRemaining ? 'CONFUSIONE' : '', creature.leechSeed ? 'PARASSISEME' : ''].filter(Boolean).join(' · '), '#ffb6a4', 10);
     } else {
-      this.label(x + 12, y + 53, creature.types.map(battleTypeLabel).join(' · '), COLORS.muted, 10);
+      this.label(x + 12, y + 53, creature.types.map(type => `${MOVE_TYPE_ICONS[type]} ${battleTypeLabel(type)}`).join(' · '), COLORS.muted, 10);
     }
     if (side === 'player') {
       const progress = battleExperienceProgress(creature, this.rules);
@@ -375,7 +357,7 @@ export class BattleScene extends Phaser.Scene {
   private drawPartyPips(width: number, height: number): void {
     const ownParty = this.state.player.creatures;
     const opponentParty = this.state.opponent.creatures;
-    const y = height - this.commandHeight() - 111;
+    const y = height - 119;
     this.label(24, y, 'SQUADRA', COLORS.paper, 9);
     ownParty.forEach((creature, index) => this.pip(91 + index * 15, y + 4, creature.hp > 0, index === this.state.player.activeIndex));
     if (this.state.battleType === 'trainer') {
@@ -385,45 +367,33 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private drawMessagePanel(width: number, height: number): void {
-    const x = 14;
-    const y = height - this.commandHeight() - 92;
-    const panelWidth = width - 28;
-    this.panel(x, y, panelWidth, 82, COLORS.panel, COLORS.line, 0.99);
-    if (this.mode === 'moves') {
-      this.drawMovePreview(x, y, panelWidth);
-      return;
-    }
-    const message = this.mode === 'learning'
-      ? this.moveLearningPrompt()
-      : this.mode === 'message'
-      ? this.pendingMessages[0]?.text ?? this.outcomeMessage()
-      : this.mode === 'party' && this.playerForcedToSwitch
-        ? 'Scegli chi mandare in campo.'
-        : 'Cosa vuoi fare?';
-    const text = this.text(x + 14, y + 13, message, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '17px', color: COLORS.paper,
-      wordWrap: { width: panelWidth - 28 }, lineSpacing: 3,
+    // Move information belongs to its card. Only actual turn feedback overlays the arena.
+    if (this.mode !== 'message' && this.mode !== 'learning' && !this.playerForcedToSwitch) return;
+    const message = this.mode === 'learning' ? this.moveLearningPrompt()
+      : this.mode === 'message' ? this.pendingMessages[0]?.text ?? this.outcomeMessage()
+      : 'Scegli chi mandare in campo.';
+    const x = 12, y = Math.max(108, height - 172);
+    this.panel(x, y, width - 24, 61, COLORS.panel, COLORS.line, .96);
+    const text = this.text(x + 12, y + 10, message, {
+      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', color: COLORS.paper,
+      wordWrap: { width: width - 48 }, lineSpacing: 2,
     });
     this.ui.add(text);
-    if (this.mode === 'message' || this.mode === 'learning') {
-      const hintLabel = this.mode === 'learning' ? '↑ ↓ · SCEGLI' : this.terminalShown ? 'A · CHIUDI' : 'TOCCA / A · SALTA';
-      const hint = this.text(x + panelWidth - 12, y + 66, hintLabel, {
-        fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '9px', fontStyle: 'bold', color: COLORS.muted,
-      }).setOrigin(1, 0);
-      this.ui.add(hint);
-      if (this.mode === 'message' && !this.terminalShown) {
-        const skip = this.add.zone(x, y, panelWidth, 82).setOrigin(0).setInteractive({ useHandCursor: true });
-        skip.on('pointerdown', () => this.advanceMessage());
-        this.ui.add(skip);
-      }
+    if (this.mode === 'message' && !this.terminalShown) {
+      const skip = this.add.zone(x, y, width - 24, 61).setOrigin(0).setName('battle-message-skip').setInteractive({ useHandCursor: true });
+      skip.on('pointerdown', () => this.advanceMessage());
+      this.ui.add(skip);
     }
   }
 
-  private drawCommandPanel(width: number, height: number): void {
-    const x = 14;
-    const y = height - this.commandHeight();
-    const panelWidth = width - 28;
-    this.panel(x, y, panelWidth, this.commandHeight(), COLORS.panel, COLORS.line, 0.99);
+  private drawCommandPanel(): void {
+    const deck = this.commandLayout.deck;
+    const x = deck.x + 12;
+    const y = deck.y + 10;
+    const panelWidth = deck.width - 24;
+    const surface = this.add.graphics();
+    this.gradientSurface(surface, deck.x, deck.y, deck.width, deck.height, 0, 0x204955, 0x142d40);
+    this.ui.add(surface);
     if (this.mode === 'learning') {
       this.drawMoveLearningChoices(x, y, panelWidth);
       return;
@@ -436,11 +406,14 @@ export class BattleScene extends Phaser.Scene {
       }
       return;
     }
-    if (this.mode === 'menu') {
-      this.drawMenu(x, y, panelWidth);
+    if (this.mode === 'flee') {
+      this.drawGridButtons(x, y, panelWidth, [
+        { label: '💨 FUGGI', enabled: true, callback: () => this.act({ kind: 'attemptFlee' }) },
+        { label: 'RESTA IN LOTTA', enabled: true, callback: () => this.open('moves') },
+      ], 2, 2);
       return;
     }
-    if (this.mode === 'moves') {
+    if (this.mode === 'moves' || this.mode === 'menu') {
       this.drawMoveChoices(x, y, panelWidth);
       return;
     }
@@ -453,43 +426,67 @@ export class BattleScene extends Phaser.Scene {
     }
   }
 
-  private drawMenu(x: number, y: number, width: number): void {
-    const options = [
-      { label: 'LOTTA', callback: () => this.open('moves'), enabled: this.activeCreature('player').hp > 0 },
-      { label: 'SQUADRA', callback: () => this.open('party'), enabled: this.state.player.creatures.length > 1 },
-      { label: 'BORSA', callback: () => this.open('items'), enabled: this.availableItemIds().length > 0 },
-      { label: 'CATTURA', callback: () => this.open('captures'), enabled: this.availableCaptureIds().length > 0 && this.state.battleType === 'wild' },
-      ...(this.state.battleType === 'wild' ? [{ label: 'FUGA', callback: () => this.act({ kind: 'attemptFlee' }), enabled: true }] : []),
-    ];
-    this.drawGridButtons(x, y, width, options, 2, 3);
+  private get commandLayout() { return battleCommandLayout(this.viewport.width, this.viewport.height); }
+
+  private drawCommandNavigation(): void {
+    const locked = this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch || this.terminalPreparing;
+    const tabs: BattleCommandTab[] = [
+      { id: 'moves', label: 'LOTTA', icon: '⚔️', enabled: this.activeCreature('player').hp > 0, selected: this.mode === 'moves' || this.mode === 'menu', onSelect: () => this.open('moves') },
+      { id: 'items', label: 'BORSA', icon: '🎒', enabled: this.availableItemIds().length > 0, selected: this.mode === 'items', onSelect: () => this.open('items') },
+      { id: 'captures', label: 'CATTURA', icon: '◉', enabled: this.availableCaptureIds().length > 0 && this.state.battleType === 'wild', selected: this.mode === 'captures', onSelect: () => this.open('captures') },
+      { id: 'party', label: 'SQUADRA', icon: '🐾', enabled: this.state.player.creatures.some((creature, index) => creature.hp > 0 && index !== this.state.player.activeIndex), selected: this.mode === 'party', onSelect: () => this.open('party') },
+      { id: 'flee', label: 'FUGA', icon: '💨', enabled: this.state.battleType === 'wild', selected: this.mode === 'flee', onSelect: () => this.open('flee') },
+    ].map(tab => ({ ...tab, enabled: tab.enabled && !locked }));
+    const nav = this.commandLayout.navigation;
+    drawBattleCommandNavigation(this, this.ui, nav, tabs, this.viewport.density);
+    if (this.mode === 'menu') tabs.forEach((tab, index) => {
+      if (!tab.enabled) return;
+      const focus = this.add.graphics(); this.ui.add(focus);
+      const paint = (selected: boolean) => {
+        focus.clear();
+        if (selected) focus.lineStyle(2, 0xb1f5df, .95).strokeRoundedRect(nav.x + index * nav.width / 5 + 5, nav.y + 5, nav.width / 5 - 10, nav.height - 10, 13);
+      };
+      this.selectableButtons.push({ row: 0, column: index, callback: tab.onSelect, paint });
+    });
   }
 
   private drawMoveChoices(x: number, y: number, width: number): void {
     const creature = this.activeCreature('player');
     if (!hasUsableBattleMove(creature, this.moveCatalog)) {
+      const selectableCount = this.selectableButtons.length;
       this.drawGridButtons(x, y, width, [{
         label: `${EMERGENCY_MOVE_NAME.toUpperCase()}\nSenza PP · causa contraccolpo`,
         enabled: true,
         accent: COLORS.orange,
         callback: () => this.act({ kind: 'struggle' }),
       }], 1, 2);
+      if (this.mode === 'menu') this.selectableButtons.length = selectableCount;
       this.drawMoveDetailsLink(x, y);
       return;
     }
-    const options = creature.moves.map((slot, index) => {
+    const deck = this.commandLayout.deck;
+    const gap = 8, columns = 2;
+    const cardWidth = (width - gap) / columns;
+    const cardHeight = Math.min(100, (deck.height - 42) / 2);
+    const top = y + Math.max(0, (deck.height - 230) / 2);
+    creature.moves.forEach((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
-      const type = move ? battleTypeLabel(move.type).toLocaleUpperCase('it-IT') : '';
-      return {
-        label: move ? `${move.name}\n${describeMoveMatchup(move, this.activeCreature('opponent'), this.rules).label}\n${type} · PP ${slot.pp}/${move.maxPp}` : `${slot.moveId}\nPP ${slot.pp}`,
-        enabled: slot.pp > 0,
-        accent: move ? this.typeColor(move.type) : COLORS.blue,
-        callback: () => this.act({ kind: 'useMove', moveSlot: index }),
-      };
+      if (!move) return;
+      const row = Math.floor(index / columns), column = index % columns;
+      const enabled = slot.pp > 0;
+      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp, this.moveAccuracyLabel(move));
+      const selectionIndex = this.selectableButtons.length;
+      const use = () => { this.selectionIndex = selectionIndex; this.act({ kind: 'useMove', moveSlot: index }); };
+      const paint = drawBattleMoveCard(this, this.ui,
+        { x: x + column * (cardWidth + gap), y: top + row * (cardHeight + gap), width: cardWidth, height: cardHeight },
+        card, this.typeColor(move.type), enabled, this.viewport.density, use,
+        () => { this.detailMoveIndex = index; this.detailPage = 0; this.mode = 'moveDetails'; this.render(); });
+      if (enabled && this.mode === 'moves') {
+        this.moveSlotIndexes.push(index);
+        this.selectableButtons.push({ row, column, callback: use, paint });
+      }
     });
-    options.forEach((option, index) => { if (option.enabled) this.moveSlotIndexes.push(index); });
-    if (!options.length) options.push({ label: 'Nessuna mossa', enabled: false, accent: COLORS.blue, callback: () => undefined });
-    this.drawGridButtons(x, y, width, options, 2, 2);
-    this.drawMoveDetailsLink(x, y);
+    this.label(x + width / 2, top + 2 * (cardHeight + gap) + 1, '💥 Potenza   🎯 Precisione   PP Utilizzi   ⓘ Dettagli', COLORS.muted, 9).setOrigin(.5, 0);
   }
 
   private drawMoveDetailsLink(x: number, y: number): void {
@@ -501,7 +498,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private openMoveDetails(): void {
-    if (this.mode !== 'moves') return;
+    if (this.mode !== 'moves' && this.mode !== 'menu') return;
     this.detailMoveIndex = this.moveSlotIndexes[this.selectionIndex] ?? 0;
     this.detailPage = 0;
     this.mode = 'moveDetails';
@@ -513,7 +510,7 @@ export class BattleScene extends Phaser.Scene {
     this.panel(10, 10, width - 20, height - 20, COLORS.panel, COLORS.line, 0.99);
     this.label(26, 24, 'MOSSE · STUDIA LA STRATEGIA', '#fff7df', 15);
     const slots = this.activeCreature('player').moves;
-    const landscape = width > 600 && height < 520;
+    const landscape = width > height && height < 520;
     const selectorWidth = landscape ? 190 : width - 52;
     const columns = landscape ? 1 : 2;
     const itemWidth = (selectorWidth - 8 * (columns - 1)) / columns;
@@ -532,7 +529,7 @@ export class BattleScene extends Phaser.Scene {
     const textX = landscape ? 240 : 26;
     const textY = landscape ? 60 : 168;
     if (move && slot) {
-      this.label(textX, textY, move.name, '#afffe3', 19);
+      this.label(textX, textY, `${MOVE_TYPE_ICONS[move.type]} ${move.name}`, '#afffe3', 19);
       const target = this.activeCreature('opponent');
       const matchup = describeMoveMatchup(move, target, this.rules);
       const forecast = this.moveForecast(move);
@@ -544,7 +541,7 @@ export class BattleScene extends Phaser.Scene {
       ];
       // Measure actual wrapped text before paging; no effect or probability is cut off on short screens.
       const pages: string[] = [];
-      const availableHeight = Math.max(50, height - textY - 114);
+      const availableHeight = Math.max(50, height - (textY + 32) - 124);
       const availableWidth = width - textX - 30;
       let current = '';
       const measure = this.text(0, 0, '', { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', lineSpacing: 3, wordWrap: { width: availableWidth } });
@@ -566,7 +563,9 @@ export class BattleScene extends Phaser.Scene {
         fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '13px', color: COLORS.paper,
         lineSpacing: 3, wordWrap: { width: availableWidth },
       });
+      description.setName('battle-move-description');
       this.ui.add(description);
+      this.button(landscape ? textX : 26, height - 116, landscape ? width - textX - 26 : width - 52, 44, `USA ${move.name}`, () => this.act({ kind: 'useMove', moveSlot: this.detailMoveIndex }), this.typeColor(move.type), slot.pp > 0);
       if (pages.length > 1) {
         const pageTarget = this.add.zone(textX, height - 62, 140, 44).setOrigin(0).setInteractive({ useHandCursor: true });
         pageTarget.setName('move-details-page');
@@ -623,53 +622,6 @@ export class BattleScene extends Phaser.Scene {
     this.drawGridButtons(x, y, width, options, 2, 3);
   }
 
-  private drawMovePreview(x: number, y: number, width: number): void {
-    const creature = this.activeCreature('player');
-    const slot = creature.moves[this.moveSlotIndexes[this.selectionIndex] ?? this.selectionIndex];
-    const move = slot ? this.moveCatalog[slot.moveId] : undefined;
-    if (!slot || !move) return;
-    const typeColor = this.typeColor(move.type);
-    const category = move.category === 'status' ? 'STATO' : move.category === 'physical' ? 'FISICA' : 'SPECIALE';
-    const typeEffectiveness = effectivenessFor(this.activeCreature('opponent').types, move.type, this.rules.typeChart);
-    const effectiveness = move.fixedDamage && typeEffectiveness !== 0 ? 1 : typeEffectiveness;
-    const matchupInfo = describeMoveMatchup(move, this.activeCreature('opponent'), this.rules);
-    const matchup = matchupInfo.label.toLocaleUpperCase('it-IT');
-    const detail = move.category === 'status'
-      ? `${category} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`
-      : `${move.fixedDamage ? `DANNO FISSO ${move.fixedDamage} HP` : `POTENZA ${move.power}`} · PRECISIONE ${this.moveAccuracyLabel(move)} · PP ${slot.pp}/${move.maxPp}`;
-    const preview = this.add.container(0, 0);
-    const badge = this.add.graphics();
-    badge.fillStyle(typeColor, 0.95);
-    badge.fillRoundedRect(x + 12, y + 10, 8, 59, 4);
-    preview.add(badge);
-    const title = this.text(x + 30, y + 8, `${move.name.toLocaleUpperCase('it-IT')}  ·  ${battleTypeLabel(move.type).toLocaleUpperCase('it-IT')}`, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '15px', fontStyle: 'bold', color: '#fff7df',
-      wordWrap: { width: width - 54 },
-    });
-    const values = this.text(x + 30, y + 31, detail, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '12px', fontStyle: 'bold', color: '#d6e9f5',
-      wordWrap: { width: width - 54 },
-    });
-    // A blocked move must not promise its normal status chance against this target.
-    const extra = matchupInfo.blocked ? (typeEffectiveness === 0 ? 'IMMUNITÀ DI TIPO' : undefined) : this.moveTacticLabel(move);
-    const tacticLabel = matchupInfo.blocked ? `${matchup}${extra ? ` · ${extra}` : ''}` : `${matchup}  ·  ${extra ?? this.activeCreature('opponent').types.map(battleTypeLabel).join(' / ')}`;
-    const tactic = this.text(x + 30, y + 54, tacticLabel, {
-      fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '10px', fontStyle: 'bold', color: effectiveness > 1 ? '#ffe08a' : effectiveness === 0 ? '#ffb6a4' : '#bdd3df',
-      wordWrap: { width: width - 54 },
-    });
-    const forecast = this.moveForecast(move);
-    if (forecast && tactic.height <= 14) {
-      const damage = forecast.minimum === forecast.maximum ? `${forecast.minimum}` : `${forecast.minimum}–${forecast.maximum}`;
-      const affinity = !move.fixedDamage && creature.types.includes(move.type) ? ' · TIPO +50%' : '';
-      preview.add(this.text(x + 30, y + 68, `STIMA DANNI: ${damage} HP${affinity}`, {
-        fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: '9px', fontStyle: 'bold', color: '#b6efc0',
-      }));
-    }
-    this.movePreview = preview;
-    preview.add([title, values, tactic]);
-    this.ui.add(preview);
-  }
-
   private drawTurnResolution(x: number, y: number, width: number): void {
     const badge = this.add.graphics();
     badge.fillStyle(0x79cfff, 0.16);
@@ -698,7 +650,7 @@ export class BattleScene extends Phaser.Scene {
       maxRows = singleMoveRow ? 1 : 2;
     }
     const buttonWidth = (width - gap * (columns - 1)) / columns;
-    const hasBack = this.mode !== 'menu' && this.mode !== 'learning' && !this.playerForcedToSwitch;
+    const hasBack = this.mode !== 'menu' && this.mode !== 'moves' && this.mode !== 'learning' && !this.playerForcedToSwitch;
     const buttonAreaHeight = this.commandHeight() - (hasBack ? 48 : 20);
     const buttonHeight = Math.min(this.mode === 'moves' ? 66 : 52, (buttonAreaHeight - gap * (maxRows - 1)) / maxRows);
     options.slice(0, columns * maxRows).forEach((option, index) => {
@@ -757,7 +709,7 @@ export class BattleScene extends Phaser.Scene {
       if (background.input) background.input.cursor = 'pointer';
       background.on('pointerdown', () => {
         this.selectionIndex = index;
-        this.activateSelected();
+        callback();
       });
     }
     const visibleLabel = enabled ? label : this.mode === 'menu' ? `${label}\nNon disponibile` : `× ${label}`;
@@ -796,12 +748,7 @@ export class BattleScene extends Phaser.Scene {
     this.selectableButtons[this.selectionIndex]?.callback();
   }
 
-  private commandHeight(): number {
-    const hasBack = this.mode !== 'menu' && this.mode !== 'message' && this.mode !== 'learning' && !this.playerForcedToSwitch;
-    const landscape = this.viewport.height < 520 && this.viewport.width > 600;
-    if (landscape) return hasBack ? 148 : 112;
-    return hasBack && this.mode !== 'moves' ? 204 : 166;
-  }
+  private commandHeight(): number { return this.commandLayout.deck.height - 20; }
 
   private navigate(rowDelta: number, columnDelta: number): void {
     if (this.terminalPreparing) return;
@@ -815,15 +762,6 @@ export class BattleScene extends Phaser.Scene {
     if (this.mode === 'message' || this.selectableButtons.length < 2) return;
     this.selectionIndex = navigateGrid(this.selectableButtons, this.selectionIndex, rowDelta, columnDelta);
     this.updateSelectionStyle();
-    if (this.mode === 'moves') {
-      if (this.movePreview) {
-        const x = 14;
-        const y = this.viewport.height - this.commandHeight() - 92;
-        this.movePreview.destroy();
-        this.movePreview = undefined;
-        this.drawMovePreview(x, y, this.viewport.width - 28);
-      }
-    }
   }
 
   private updateSelectionStyle(): void {
@@ -929,7 +867,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private label(x: number, y: number, text: string, color: string, size: number): Phaser.GameObjects.Text {
-    const label = this.text(x, y, text, { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: `${size}px`, fontStyle: 'bold', color, letterSpacing: 0.5 });
+    const label = this.text(x, y, text, { fontFamily: 'Nunito, Trebuchet MS, sans-serif', fontSize: `${size}px`, fontStyle: 'bold', color, letterSpacing: /[\uD800-\uDBFF]/.test(text) ? 0 : 0.5 });
     this.ui.add(label);
     return label;
   }
@@ -1400,24 +1338,6 @@ export class BattleScene extends Phaser.Scene {
 
   private statusName(status: NonNullable<BattleCreature['status']>['status']): string {
     return ({ burn: 'Scottatura', poison: 'Veleno', paralysis: 'Paralisi', sleep: 'Sonno', freeze: 'Gelo' })[status];
-  }
-
-  private moveTacticLabel(move: MoveDefinition): string | undefined {
-    if (move.leechSeedFraction) return `DRENA 1/${Math.round(1 / move.leechSeedFraction)} HP OGNI TURNO`;
-    if (move.drainPercent) return `ASSORBE ${move.drainPercent}% DEI DANNI`;
-    if (move.minHits) return `${move.minHits}–${move.maxHits} COLPI`;
-    if (move.inflictedConfusionChance) return `CONFUSIONE ${move.inflictedConfusionChance}%`;
-    if (move.inflictedStatus) {
-      return `${this.statusName(move.inflictedStatus).toLocaleUpperCase('it-IT')} ${move.statusChance ?? 100}%`;
-    }
-    if (move.priority > 0) return `PRIORITÀ +${move.priority}`;
-    if (move.statChanges?.length) {
-      const effect = move.statChanges[0];
-      const stat = ({ attack: 'ATT.', defense: 'DIF.', specialAttack: 'ATT. SPEC.', specialDefense: 'DIF. SPEC.', speed: 'VEL.', accuracy: 'PREC.', evasion: 'ELUS.' })[effect.stat];
-      const target = effect.target === 'self' ? 'TUA' : 'AVV.';
-      return `${stat} ${target} ${effect.stages > 0 ? '+' : ''}${effect.stages}${move.statChangeChance ? ` · ${move.statChangeChance}%` : ''}`;
-    }
-    return undefined;
   }
 
   private moveAccuracyLabel(move: MoveDefinition): string {

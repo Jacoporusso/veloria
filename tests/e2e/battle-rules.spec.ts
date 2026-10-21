@@ -194,32 +194,53 @@ test('move cards explain their values and the turn resolves without a continue c
   const errors = await mountBattle(page, 'super-effective');
 
   await page.keyboard.press('Enter', { delay: 40 });
-  await expect.poll(() => page.evaluate(() => {
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
+  const cards = await page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-    return scene.mode === 'moves' && scene.ui.list
-      .filter((child: any) => child.type === 'Container')
-      .flatMap((container: any) => container.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text))
-      .join(' ');
-  })).toContain('POTENZA');
-  const moveDetails = await page.evaluate(() => {
-    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-    return scene.ui.list
-      .filter((child: any) => child.type === 'Container')
-      .flatMap((container: any) => container.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text))
-      .join(' ');
+    const zones = scene.ui.list.filter((child: any) => child.name === 'battle-move-use');
+    const bounds = zones.map((zone: any) => zone.getBounds());
+    const labels = scene.ui.list.filter((item: any) => item.type === 'Text' && bounds.some((card: any) => {
+      const label = item.getBounds();
+      return label.left >= card.left && label.right <= card.right && label.top >= card.top && label.bottom <= card.bottom;
+    })).map((item: any) => item.text).join('\n');
+    return { count: zones.length, labels, models: zones.map((zone: any) => JSON.stringify(zone.getData?.('presentation') ?? {})).join('\n') };
   });
-  expect(moveDetails).toContain('PRECISIONE');
-  expect(moveDetails).toContain('PP');
-  expect(moveDetails).toContain('PARALISI 10%');
-  expect(moveDetails).toContain('STIMA DANNI:');
-  expect(moveDetails).toContain('TIPO +50%');
-  await page.screenshot({ path: testInfo.outputPath('battle-damage-forecast.png') });
-  await page.keyboard.press('ArrowRight', { delay: 40 });
-  await expect.poll(() => page.evaluate(() => {
+  expect(cards.count).toBe(2);
+  expect(cards.models).toContain('"powerLabel":"40"');
+  expect(`${cards.labels}\n${cards.models}`).not.toContain('Danno stimato:');
+
+  const tapZone = async (name: string, moveName?: string) => {
+    const point = await page.evaluate(({ name, moveName }) => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      const zone = scene.ui.list.find((item: any) => item.name === name &&
+        (moveName === undefined || item.getData?.('moveName') === moveName));
+      if (!zone) throw new Error(`Missing battle zone ${name}${moveName ? ` for ${moveName}` : ''}`);
+      const bounds = zone.getBounds(), canvas = scene.game.canvas.getBoundingClientRect();
+      return { x: canvas.x + bounds.centerX * scene.scale.zoom, y: canvas.y + bounds.centerY * scene.scale.zoom };
+    }, { name, moveName });
+    await page.touchscreen.tap(point.x, point.y);
+  };
+  const detailText = async () => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-    return scene.movePreview.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text).join(' ');
-  })).toContain('ATT. AVV. -1');
-  await page.keyboard.press('ArrowLeft', { delay: 40 });
+    return scene.ui.list.filter((item: any) => item.type === 'Text').map((item: any) => item.text).join(' ');
+  });
+  await tapZone('battle-move-details', 'Tuonoshock');
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
+  let details = await detailText();
+  expect(details).toContain('Precisione base:');
+  expect(details).toContain('PP');
+  expect(details).toMatch(/paralisi.*10% di probabilità/);
+  expect(details).toContain('Danno stimato:');
+  expect(details).toContain('↑ Super efficace ×2');
+  await page.screenshot({ path: testInfo.outputPath('battle-damage-details.png') });
+  await page.keyboard.press('Escape', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
+  await tapZone('battle-move-details', 'Ruggito');
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
+  details = await detailText();
+  expect(details).toContain('Riduce Attacco dell’avversario di 1 grado');
+  await page.keyboard.press('Escape', { delay: 40 });
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
 
   await page.keyboard.press('Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('message');
@@ -234,9 +255,11 @@ test('touching the battle message skips its timer without changing the resolved 
   const before=await page.evaluate(()=>{
     const scene=(window as any).battleRulesFixture.scene.getScene('battle');
     scene.messageTimer?.remove(false);scene.messageTimer=undefined;
-    const canvas=scene.game.canvas.getBoundingClientRect();
+    const zone=scene.ui.list.find((item:any)=>item.name==='battle-message-skip');
+    if(!zone)throw new Error('Missing battle-message-skip zone');
+    const bounds=zone.getBounds(),canvas=scene.game.canvas.getBoundingClientRect();
     return{state:JSON.stringify(scene.state),count:scene.pendingMessages.length,text:scene.pendingMessages[0]?.text,
-      x:canvas.x+canvas.width/2,y:canvas.y+(scene.viewport.height-scene.commandHeight()-51)*scene.scale.zoom};
+      x:canvas.x+bounds.centerX*scene.scale.zoom,y:canvas.y+bounds.centerY*scene.scale.zoom};
   });
   await page.touchscreen.tap(before.x,before.y);
   await expect.poll(()=>page.evaluate(previous=>{
@@ -363,7 +386,6 @@ test('level-up move choice supports replacement and decline in sequence before c
 
 test('keyboard reaches capture with bag and party disabled', async ({ page }) => {
   const errors = await mountBattle(page, 'sparse-capture');
-  await page.keyboard.press('ArrowDown', { delay: 40 });
   await page.keyboard.press('ArrowRight', { delay: 40 });
   await page.keyboard.press('Enter', { delay: 40 });
   await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('captures');
@@ -434,25 +456,31 @@ test('opponent replacement is automatic after KO and does not consume the next p
   expect(errors).toEqual([]);
 });
 
-for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }]) {
+for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }, { width: 568, height: 320 }]) {
   test(`move strategy inspection uses touch and keyboard without consuming a turn ${viewport.width}`, async ({ page }, testInfo) => {
     await page.setViewportSize(viewport);
     const errors = await mountBattle(page, 'super-effective');
     await page.keyboard.press('Enter');
     const before = await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state));
-    // Tap the visible details link, then inspect Growl by tapping its slot.
-    const tapText = async (text: string) => {
-      const point = await page.evaluate((label) => {
+    // Inspect Growl through its per-card details zone.
+    const tapDetails = async (moveName: string) => {
+      const point = await page.evaluate((moveName) => {
         const scene = (window as any).battleRulesFixture.scene.getScene('battle');
-        const item = scene.ui.list.find((entry: any) => entry.type === 'Text' && entry.text.includes(label));
-        const bounds = item.getBounds();
-        return { x: bounds.centerX, y: bounds.centerY };
-      }, text);
+        const item = scene.ui.list.find((entry: any) => entry.name === 'battle-move-details' && entry.getData?.('moveName') === moveName);
+        if (!item) throw new Error(`Missing details zone for ${moveName}`);
+        const bounds = item.getBounds(), canvas = scene.game.canvas.getBoundingClientRect();
+        return { x: canvas.x + bounds.centerX * scene.scale.zoom, y: canvas.y + bounds.centerY * scene.scale.zoom };
+      }, moveName);
       await page.touchscreen.tap(point.x, point.y);
     };
-    await tapText('DETTAGLI MOSSE');
+    await tapDetails('Ruggito');
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
-    await tapText('Ruggito');
+    expect(await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      const use = scene.ui.list.find((item: any) => item.type === 'Text' && item.text === 'USA Ruggito');
+      if (!use) throw new Error('Missing move use button in details');
+      return Math.abs(use.getBounds().centerY - (scene.scale.height - 94)) <= 12;
+    })).toBe(true);
     const pages = await page.evaluate(() => {
       const scene = (window as any).battleRulesFixture.scene.getScene('battle');
       const result = [];
@@ -469,7 +497,7 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
     await page.keyboard.press('ArrowLeft', { delay: 40 });
     await page.keyboard.press('Escape', { delay: 40 });
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
-    await page.keyboard.press('i', { delay: 40 });
+    await tapDetails('Ruggito');
     await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moveDetails');
     await page.keyboard.press('Escape', { delay: 40 });
     expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
@@ -493,8 +521,8 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
         for (let page = 0; page < scene.detailPageCount; page++) {
           scene.detailPage = page; scene.render();
           const texts = scene.ui.list.filter((item: any) => item.type === 'Text');
-          // The content block is the only text with a 13px font, independent of which paragraph begins this page.
-          const description = texts.find((item: any) => item.style.fontSize === '13px');
+          // The named content block remains independent of navigation and heading fonts.
+          const description = texts.find((item: any) => item.name === 'battle-move-description');
           if (!description) throw new Error(`Missing description for ${move.id}, page ${page}`);
           pages.push(description.text);
           overflow.push(...texts.filter((item: any) => { const b = item.getBounds(); return b.left < 0 || b.right > innerWidth || b.bottom > innerHeight; }).map((item: any) => item.text));
@@ -518,24 +546,29 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }
 
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
-  test(`mobile back target is reachable without using a turn at ${viewport.width}x${viewport.height}`, async ({ page }) => {
+  test(`battle tabs switch from captures to moves without a turn and remain touch-sized at ${viewport.width}x${viewport.height}`, async ({ page }) => {
     await page.setViewportSize(viewport);
-    await mountBattle(page, 'super-effective');
-    const before = await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').state);
-    await page.keyboard.press('Enter');
-    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
-    const target = await page.evaluate(() => {
+    await mountBattle(page, 'sparse-capture');
+    const before = await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state));
+    const tabTarget = async (name: 'battle-tab-captures' | 'battle-tab-moves') => page.evaluate(name => {
       const s = (window as any).battleRulesFixture.scene.getScene('battle');
-      const zone = s.ui.list.find((item: any) => item.name === 'battle-back');
-      const b = zone.getBounds(), canvas = s.game.canvas.getBoundingClientRect();
-      return { x: canvas.x + (b.left + 6) * s.scale.zoom, y: canvas.y + (b.top + 6) * s.scale.zoom,
-        width: b.width * s.scale.zoom, height: b.height * s.scale.zoom };
-    });
-    expect(target.width).toBeGreaterThanOrEqual(44);
-    expect(target.height).toBeGreaterThanOrEqual(44);
-    await page.touchscreen.tap(target.x, target.y);
-    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('menu');
-    expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').state)).toEqual(before);
+      const zone = s.ui.list.find((item: any) => item.name === name);
+      if (!zone) throw new Error(`Missing ${name}`);
+      const bounds = zone.getBounds(), canvas = s.game.canvas.getBoundingClientRect();
+      return { x: canvas.x + bounds.centerX * s.scale.zoom, y: canvas.y + bounds.centerY * s.scale.zoom,
+        width: bounds.width * s.scale.zoom, height: bounds.height * s.scale.zoom };
+    }, name);
+    const captures = await tabTarget('battle-tab-captures');
+    expect(captures.width).toBeGreaterThanOrEqual(44);
+    expect(captures.height).toBeGreaterThanOrEqual(44);
+    await page.touchscreen.tap(captures.x, captures.y);
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('captures');
+    const moves = await tabTarget('battle-tab-moves');
+    expect(moves.width).toBeGreaterThanOrEqual(44);
+    expect(moves.height).toBeGreaterThanOrEqual(44);
+    await page.touchscreen.tap(moves.x, moves.y);
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
+    expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
   });
 }
 
@@ -638,4 +671,55 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       expect(errors).toEqual([]);
     });
   }
+}
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }]) {
+  test(`individual inspection handles exhausted PP and detail use resolves one turn at ${viewport.width}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    const errors = await mountBattle(page, 'super-effective');
+    const tap = async (name: string, moveName?: string) => {
+      const point = await page.evaluate(({ name, moveName }) => {
+        const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+        const target = scene.ui.list.find((item: any) => item.name === name && (!moveName || item.getData?.('moveName') === moveName));
+        const b = target.getBounds(), c = scene.game.canvas.getBoundingClientRect();
+        return { x: c.x + b.centerX * scene.scale.zoom, y: c.y + b.centerY * scene.scale.zoom };
+      }, { name, moveName });
+      await page.touchscreen.tap(point.x, point.y);
+    };
+    const before = await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      scene.state.player.creatures[0].moves[0].pp = 0; scene.render();
+      return JSON.stringify(scene.state);
+    });
+    await tap('battle-move-details', 'Tuonoshock');
+    expect(await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      return { mode: scene.mode, selectable: scene.selectableButtons.length, state: JSON.stringify(scene.state) };
+    })).toEqual({ mode: 'moveDetails', selectable: 0, state: before });
+    await page.keyboard.press('Escape');
+    await tap('battle-tab-flee');
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('flee');
+    await page.keyboard.press('Escape');
+    expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(before);
+    await tap('battle-move-details', 'Ruggito');
+    const use = await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      const text = scene.ui.list.find((item: any) => item.type === 'Text' && item.text === 'USA Ruggito');
+      const b = text.getBounds(), c = scene.game.canvas.getBoundingClientRect();
+      return { x: c.x + b.centerX * scene.scale.zoom, y: c.y + b.centerY * scene.scale.zoom };
+    });
+    await page.touchscreen.tap(use.x, use.y);
+    await holdBattleMessage(page);
+    const resolved = await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      return { turn: scene.state.turn, pp: scene.state.player.creatures[0].moves.map((slot: any) => slot.pp),
+        stage: scene.state.opponent.creatures[0].statStages.attack,
+        disabled: scene.ui.list.filter((item: any) => /^battle-tab-(moves|items|captures|party|flee)$/.test(item.name)).every((item: any) => !item.input?.enabled),
+        state: JSON.stringify(scene.state) };
+    });
+    expect(resolved).toMatchObject({ turn: 1, pp: [0, 39], stage: -1, disabled: true });
+    await tap('battle-tab-moves');
+    expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(resolved.state);
+    expect(errors).toEqual([]);
+  });
 }
