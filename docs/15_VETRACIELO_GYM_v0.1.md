@@ -1,6 +1,6 @@
 # Palestra di Vetracielo — Terrazza delle Linee
 
-**Contenuti:** 0.3.70 · **Stato:** prima versione giocabile; bilanciamento naturale e revisione umana della grafica ancora da svolgere.
+**Contenuti palestra:** 0.3.70 · **Stato aggiornato:** 21 ottobre 2026. Palestra 3, R06, Ferraluce, le otto Palestre e la Lega sono presenti. Il runtime ha 79 specie, 78 mosse e ruleset 12. La progressione naturale con tutti gli starter e la verifica su dispositivi fisici restano aperte.
 
 ## Accesso e spazio
 
@@ -32,8 +32,8 @@ Le mosse e i livelli di apprendimento sono verificati nei learnset HGSS locali. 
 
 ## Dati, grafica e limiti
 
-25 specie e 44 mosse runtime. Il parco urbano include Magnemite e Voltorb (12–15); entrambi hanno artwork locali con provenienza, PNG sorgenti e WebP q88 registrati. Le evoluzioni ufficiali sono descritte come riferimento, ma Magneton ed Electrode non sono ancora specie runtime ottenibili.
+Il catalogo attuale contiene 79 specie e 78 mosse runtime. Il parco urbano include Magnemite e Voltorb (12–15); entrambi hanno artwork locali con provenienza, PNG sorgenti e WebP q88 registrati. Electrode è ottenibile da Voltorb al livello 30; Magnemite evolve in Magneton al livello 30 (correzione 0.3.111), con artwork urbano già registrato.
 
 Il fondale `veloria-gym03-rooftop-v1` è generato con ImageGen integrato; prompt, riferimento architettonico e percorsi in `assets/prompts/gym03-rooftop-v1.md`. Le console sono geometrie originali condivise (`rail-console`), con collisioni indipendenti in Tiled. La Medaglia Circuito estende il sistema SVG esistente.
 
-Rimangono da implementare: quartieri, skyline esplorabile e tetti di Vetracielo oltre questa terrazza; R06/Ferraluce; cinque Palestre successive, Lega e finale. Charge/Rollout e le altre mosse non supportate restano esplicite nel report sorgente. Il motore usa ancora le regole prototipali v7, non una simulazione HGSS completa. Esiti browser/offline e limiti aggiornati in `CI_STATUS.md`.
+Restano da implementare i quartieri, lo skyline esplorabile e i tetti di Vetracielo oltre questa terrazza. Charge/Rollout e le altre mosse non supportate restano esplicite nel report sorgente. Il motore usa ruleset 12, che resta un sistema prototipale e non una simulazione HGSS completa. La prova con Wooper 20 documentata sopra verifica l’integrazione, non il bilanciamento naturale: servono prove naturali con tutti gli starter e QA su dispositivi fisici. Esiti tecnici e limiti sono registrati in `CI_STATUS.md`.

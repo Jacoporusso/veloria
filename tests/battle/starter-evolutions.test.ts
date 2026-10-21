@@ -31,7 +31,7 @@ function defeatWild(speciesId: number, experience: number, level = 15, moveIds?:
   return { injured, moveSlot, ...transition };
 }
 
-for (const [fromId, toId, threshold] of [[17, 18, 36], [43, 44, 21], [60, 61, 25], [69, 70, 21], [100, 101, 30], [167, 168, 22], [1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25], [2, 3, 32], [5, 6, 36], [8, 9, 36], [180, 181, 30]]) {
+for (const [fromId, toId, threshold] of [[81, 82, 30], [17, 18, 36], [43, 44, 21], [60, 61, 25], [69, 70, 21], [100, 101, 30], [167, 168, 22], [1, 2, 16], [4, 5, 16], [7, 8, 16], [16, 17, 18], [19, 20, 20], [161, 162, 15], [163, 164, 20], [179, 180, 15], [194, 195, 20], [72, 73, 30], [98, 99, 28], [170, 171, 27], [79, 80, 37], [96, 97, 26], [177, 178, 25], [2, 3, 32], [5, 6, 36], [8, 9, 36], [180, 181, 30]]) {
   test(`${species[fromId].name} evolves at level ${threshold} and preserves identity, injury and spent PP through saving`, () => {
     const required = experienceToNextLevel(threshold - 1, growthCurves[species[fromId].growthCurveId!]);
     const { injured, moveSlot, state, events } = defeatWild(fromId, required - 1, threshold - 1);

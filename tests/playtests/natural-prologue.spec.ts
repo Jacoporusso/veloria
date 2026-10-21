@@ -23,9 +23,10 @@ test('fresh trainer completes the prologue through real game controls', async ({
   const report: any[] = [];
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
-  const continuePetalora = process.env.PLAYTEST_CONTINUE_PETALORA === '1';
+  const continueVetracielo = process.env.PLAYTEST_CONTINUE_VETRACIELO === '1';
+  const continuePetalora = process.env.PLAYTEST_CONTINUE_PETALORA === '1' || continueVetracielo;
   const continueRadicelmo = process.env.PLAYTEST_CONTINUE_RADICELMO === '1' || continuePetalora;
-  if (continuePetalora) test.setTimeout(1_200_000);
+  if (continuePetalora) test.setTimeout(continueVetracielo ? 1_800_000 : 1_200_000);
   const gym = JSON.parse(await readFile(new URL('../../content/trainers/gym01_mira.trainer.json', import.meta.url), 'utf8'));
   const preparationLevel = Math.max(...gym.team.map((member: { level: number }) => member.level));
   const observedBattles = new Set<string>();
@@ -307,11 +308,80 @@ test('fresh trainer completes the prologue through real game controls', async ({
       expect((await observe(page)).save.inventory).toEqual(secondMedal.inventory);
       await record('Second medal persists after title resume');
     }
+    if (continueVetracielo) {
+      await walk(13, 25);
+      await interact(10, 7);
+      await page.getByRole('button', { name: 'RIPOSA', exact: true }).click(); await settle();
+      await walk(37, 12);
+      expect((await observe(page)).mapId).toBe('veloria/r05_viadotto_ciliegi');
+      await challenge(18, 12, 'Oren battle completed naturally');
+      const orenWonFirstTry = (await observe(page)).save.flags.includes('trainer_r05_oren_defeated');
+      report.push({ label: 'Oren first attempt', won: orenWonFirstTry });
+      await walk(45, 6);
+      expect((await observe(page)).mapId).toBe('veloria/vetracielo');
+      await record('Vetracielo reached naturally');
+      await interact(22, 18);
+      expect((await observe(page)).save.flags).toContain('q_vetracielo_orientation');
+      async function restInVetracielo() {
+        await interact(15, 20);
+        await page.getByRole('button', { name: 'RIPOSA', exact: true }).click(); await settle();
+        expect((await observe(page)).save.party.every((member: any) => member.hp === member.maxHp && !member.status)).toBe(true);
+      }
+      await restInVetracielo();
+      const aster = JSON.parse(await readFile(new URL('../../content/trainers/gym03_aster.trainer.json', import.meta.url), 'utf8'));
+      const targetLevel = Math.max(...aster.team.map((member: { level: number }) => member.level));
+      const trainingStart = observedBattles.size;
+      await walk(4, 15);
+      for (let step = 0; step < 400 && (await observe(page)).save.party[0].level < targetLevel; step++) {
+        await walk(4, step % 2 === 0 ? 16 : 15);
+        const lead = (await observe(page)).save.party[0];
+        if (lead.hp < lead.maxHp / 2 || lead.moves.every((move: any) => move.pp === 0)) {
+          await restInVetracielo(); await walk(4, 15);
+        }
+      }
+      expect((await observe(page)).save.party[0].level, 'Aster preparation requires genuinely earned XP').toBeGreaterThanOrEqual(targetLevel);
+      report.push({ label: 'Vetracielo training encounters', battles: observedBattles.size - trainingStart, targetLevel });
+      await record('Natural preparation before Aster');
+      await restInVetracielo();
+      for (let purchase = 0; purchase < 5; purchase++) {
+        const save = (await observe(page)).save;
+        if ((save.inventory.potion ?? 0) >= 5 || save.player.money < 200) break;
+        await interact(27, 20);
+        await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+      }
+      if (!orenWonFirstTry) {
+        await walk(0, 25);
+        await challenge(18, 12, 'Oren rematch after natural preparation');
+        expect((await observe(page)).save.flags).toContain('trainer_r05_oren_defeated');
+        await walk(45, 6); await restInVetracielo();
+      }
+      await record('Supplies purchased before Aster');
+      await walk(19, 16);
+      expect((await observe(page)).mapId).toBe('veloria/gym03_vetracielo');
+      for (const [x, y, flag] of [[7, 23, 'gym03_line_gardens_active'], [23, 19, 'gym03_line_glass_active'], [15, 15, 'gym03_lines_connected']] as const) {
+        await interact(x, y);
+        expect((await observe(page)).save.flags).toContain(flag);
+      }
+      await challenge(15, 10, 'Aster battle completed naturally');
+      const thirdMedal = (await observe(page)).save;
+      expect(thirdMedal.flags).toContain('badge_circuito_awarded');
+      expect(thirdMedal.badges).toContain('badge_circuito');
+      await page.screenshot({ path: testInfo.outputPath('natural-third-medal.png') });
+      await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+      await page.getByRole('button', { name: 'Salva e torna al titolo' }).click();
+      await page.getByRole('button', { name: 'Continua partita' }).click();
+      await expect.poll(async () => Boolean(await observe(page))).toBe(true);
+      expect((await observe(page)).save.party).toEqual(thirdMedal.party);
+      expect((await observe(page)).save.badges).toEqual(thirdMedal.badges);
+      expect((await observe(page)).save.player.money).toBe(thirdMedal.player.money);
+      expect((await observe(page)).save.inventory).toEqual(thirdMedal.inventory);
+      await record('Third medal persists after title resume');
+    }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,continuePetalora,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

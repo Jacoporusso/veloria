@@ -232,3 +232,7 @@ L’evoluzione di livello viene risolta alla vittoria dopo un effettivo aumento 
 La curva unica provvisoria è sostituita da `progression.v2.json`: tabelle ufficiali PokéAPI dei totali XP per livelli1–100. `pokemon-species.growth_rate` seleziona la tabella di ogni specie; `experienceToNextLevel` calcola il delta e la stessa funzione alimenta livelli e barra XP. Nel roster attuale: medium43, medium-slow24, slow10, fast2. Formula della ricompensa KO invariata e ancora esplicitamente prototipale, senza ripartizione tra partecipanti.
 
 Importatore growth separato, fonti e checksum locali, schema v2 e controllo offline su tutte le specie. Nessuna migrazione del prototipo. Partita naturale Charmander fino a Mira/Radicelmo ripetuta prima e dopo; i dettagli e i limiti sono in `playtests/2026-10-21-official-growth.md`. Le note precedenti sulle curve cubiche descrivono le versioni storiche. Il bilanciamento dell’intera campagna e degli altri starter rimane aperto.
+
+## Magneton — 0.3.111
+
+Abilitata Magnemite (#81) → Magneton (#82) al livello 30. La condizione semplice di livello è verificata nella catena PokéAPI locale 34 e nel riferimento evolutivo; entrambe le specie e l'artwork urbano del target erano già registrati. Vale lo stesso controllo delle altre evoluzioni: vittoria, effettivo aumento di livello e Pokémon ancora in vita. Soglia/sotto soglia, identità, HP/PP, cerimonia e persistenza sono verificati. Non abilita scambi, amicizia o altre condizioni mancanti.

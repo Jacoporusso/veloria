@@ -1,14 +1,16 @@
 # Piano del capitolo di Vetracielo
 
 **Versione:** 0.1 — piano di contenuto implementabile  
-**Stato:** prima piazza e Palestra 3 giocabili in prototipo, contenuti 0.3.70; metropoli completa e bilanciamento naturale ancora da completare  
+**Stato aggiornato:** 21 ottobre 2026. La prima piazza, la Palestra 3, R06 e Ferraluce sono implementati. Il runtime contiene 79 specie, 78 mosse, ruleset 12, 48 mappe, otto Palestre e la Lega. La metropoli completa e i playtest naturali con tutti gli starter restano aperti; resta da verificare anche il gioco su dispositivi fisici.
 **Ambito:** espansione dopo la Palestra di Petalora (P2), con arrivo a Vetracielo e Palestra 3
 
 ## 1. Scopo e stato delle decisioni
 
 Questo documento traduce i requisiti del world design in un perimetro verificabile per il prossimo capitolo. Le indicazioni marcate **Requisito documentato** provengono dai documenti di progetto esistenti. Le indicazioni marcate **Scelta proposta** restringono il lavoro per renderlo consegnabile; vanno considerate decisioni di produzione proposte, non contenuti già approvati o presenti nel gioco.
 
-Il contenuto corrente si estende ora oltre Petalora: R05, prima Piazza della Monorotaia e terrazza della Palestra 3 sono implementati, con incontri, Oren, Lea, cure, deposito e rifornimenti. Gli altri quartieri e R06 non esistono ancora nel runtime. La prima versione giocabile termina alla Medaglia Circuito; il capitolo completo e il suo bilanciamento si considerano conclusi soltanto dopo le verifiche e i contenuti ancora richiesti qui.
+Le sezioni 2–9 conservano requisiti, proposte e criteri scritti prima che il capitolo fosse implementato. I riferimenti che lì dicono che R06, Ferraluce o altri capitoli non esistono descrivono il perimetro originale del piano e non lo stato attuale. Per lo stato della Palestra 3 usare anche `15_VETRACIELO_GYM_v0.1.md`; i gate di bilanciamento naturale e di QA fisico restano aperti.
+
+Questo piano conserva i requisiti e le decisioni della prima consegna di Vetracielo. R05, la prima Piazza della Monorotaia, la terrazza della Palestra 3, R06 e Ferraluce sono ora presenti nel runtime. La città completa, i quartieri e i tetti esplorabili, il bilanciamento naturale e la verifica con tutti gli starter restano attività aperte. Le liste di accettazione sotto sono gate di revisione e non vanno considerate chiuse dai soli controlli tecnici.
 
 ## 2. Requisiti documentati
 
@@ -105,7 +107,9 @@ Il capitolo è pronto quando tutte le condizioni seguenti sono soddisfatte:
 - `content/maps/petalora.map.json` e `public/tilemaps/petalora.tmj` — spawn, connessioni e trigger correnti verificati direttamente.
 - `content/sources/pokeapi/README.md`, `content/sources/pokeapi/manifest.json`, `tools/import_pokeapi_battle.py` — provenienza e import dei dati ufficiali locali.
 
-## 10. Prima consegna implementata — contenuti 0.3.68
+## 10. Prima consegna implementata — snapshot storico 0.3.68
+
+Questa sezione descrive lo stato al rilascio 0.3.68 e non il catalogo o la mappa correnti.
 
 - **Petalora:** nuovo varco est (37, 11–13), spawn `from_r05` (36,12), gate `badge_corolla_awarded`. Gli accessi a R04 e Palestra 2 sono conservati.
 - **R05:** `veloria/r05_viadotto_ciliegi`, 46×26 caselle. Spawn `from_petalora` (1,18) e `from_vetracielo` (44,6), sentiero con ponte e quattro habitat laterali. Binari orizzontali decorativi, collisi e riservati. Oren opzionale: Pikachu 13 / Wooper 14, 240 monete una sola volta. Mosse conformi ai learnset HGSS locali. Livelli, pesi e tassi sono scelte del prototipo, non dati canonici.
@@ -114,7 +118,9 @@ Il capitolo è pronto quando tutte le condizioni seguenti sono soddisfatte:
 - **Catalogo:** nessuna nuova specie o mossa: 23 specie e 38 mosse, dati offline esistenti. Magnemite, Voltorb e il roster della Palestra 3 restano da importare e implementare. Il quartiere non rappresenta ancora la metropoli completa prevista dal world design.
 - **Asset:** PNG sorgente e WebP q88 `veloria-monorail-station-v1`, registrati con prompt e provenienza in `assets/prompts/vetracielo-monorail-station-v1.md`. Generazione tramite ImageGen integrato. Cache PWA v87 include asset e mappe. Gli esiti verificati sono registrati in `CI_STATUS.md`.
 
-## 11. Palestra e specie urbane — contenuti 0.3.70
+## 11. Palestra e specie urbane — snapshot storico 0.3.70
+
+Questa sezione conserva i dettagli della prima implementazione della Palestra 3. Lo stato attuale e i limiti aggiornati sono documentati in `15_VETRACIELO_GYM_v0.1.md`.
 
 La scalinata della stazione ora collega la piazza alla Terrazza delle Linee dopo il dialogo di Lea. Le console Giardini → Vetro → Cielo abilitano la sfida di Aster (Voltorb 16 / Magnemite 17) e il premio unico Medaglia Circuito + 850 monete. Dettagli di mappe, collisioni, flag e limiti in `15_VETRACIELO_GYM_v0.1.md`.
 

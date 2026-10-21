@@ -1,3 +1,11 @@
+## 0.3.111 — Verifiche locali (21/10/2026)
+
+Magnemite → Magneton al30 aggiunta da fonte ufficiale locale; importer evoluzioni --check riuscito. 524 test dominio/persistenza, validatore e TypeScript passati. Tre prove browser passate in14,3s: cerimonia/artwork/IndexedDB di Magneton e clic del mouse sul pulsante A per Elia e Ada, viewport PC900×800 con comandi visibili. Il bug segnalato dall'utente non è riprodotto in queste condizioni; identificazione del personaggio/circostanza ancora richiesta. Non attesta altre dimensioni o la sessione dell'utente.
+
+Nuova partita naturale0.3.110 ha ripetuto Dalia, poi perso la prima sfida con Oren (8,8min, nessun errore JS). [Evidenza](playtests/2026-10-21-natural-oren-first-attempt.json). Il test ora prevede cure, preparazione e rivincita, ma la terza medaglia resta da verificare. Documenti Vetracielo riallineati allo stato attuale, senza chiudere metropoli completa, tutti gli starter o QA fisico.
+
+Build produzione riuscita. Pubblicazione0.3.111 da confermare.
+
 ## Pubblicazione 0.3.110 confermata — 21/10/2026
 
 Commit d8036fe su main. [Deploy 39608119064](https://github.com/Jacoporusso/veloria/actions/runs/39608119064) SUCCESS: test, validatore e build Linux riusciti. Sito pubblico HTTPS 200 e cache `veloria-shell-v131` verificati. [Verify 39608118962](https://github.com/Jacoporusso/veloria/actions/runs/39608118962) in attesa al controllo del deploy; non è ancora attestata verde la suite completa di questa versione.

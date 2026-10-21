@@ -636,6 +636,12 @@
       "toSpeciesId": 168,
       "minimumLevel": 22,
       "assetId": "pokeapi-evolution-168-v1-webp"
+    },
+    {
+      "fromSpeciesId": 81,
+      "toSpeciesId": 82,
+      "minimumLevel": 30,
+      "assetId": "pokeapi-urban-82-v1-webp"
     }
   ]
 }
