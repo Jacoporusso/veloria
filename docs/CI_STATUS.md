@@ -1,3 +1,9 @@
+## Pubblicazione 0.3.111 confermata — 21/10/2026
+
+Commit a14ed39 su main. [Deploy 39671428349](https://github.com/Jacoporusso/veloria/actions/runs/39671428349) SUCCESS: test, validatore e build Linux riusciti. HTTPS200 e cache `veloria-shell-v132` verificati. [Verify 39671428372](https://github.com/Jacoporusso/veloria/actions/runs/39671428372) in esecuzione al controllo; suite completa non ancora attestata verde.
+
+La suite precedente [39608118962](https://github.com/Jacoporusso/veloria/actions/runs/39608118962) è FAILURE: E2E04 tentava di attraversare la nuova collisione di Ada, mentre il test reload della Lega ha avuto ECONNRESET sul caricamento main.ts. Correzioni locali dei soli test preparate, da provare prima dell'integrazione. Tutte le altre shard, comprese le nuove collisioni NPC e l'offline, sono passate. La partita naturale verso Vetracielo è in esecuzione; nessuna terza medaglia dichiarata verificata.
+
 ## 0.3.111 — Verifiche locali (21/10/2026)
 
 Magnemite → Magneton al30 aggiunta da fonte ufficiale locale; importer evoluzioni --check riuscito. 524 test dominio/persistenza, validatore e TypeScript passati. Tre prove browser passate in14,3s: cerimonia/artwork/IndexedDB di Magneton e clic del mouse sul pulsante A per Elia e Ada, viewport PC900×800 con comandi visibili. Il bug segnalato dall'utente non è riprodotto in queste condizioni; identificazione del personaggio/circostanza ancora richiesta. Non attesta altre dimensioni o la sessione dell'utente.
