@@ -31,3 +31,9 @@ Fonti: [tipi](https://pokeapi.co/docs/v2#types), [evoluzioni](https://pokeapi.co
 Le evoluzioni per livello si applicano alla vittoria, dopo la conclusione della lotta; nessun cambio di specie durante lo scontro. Consumo della pietra, nuova creatura e ricevuta della cerimonia vengono salvati insieme. La cerimonia parte dopo il salvataggio; un errore offre un tentativo esplicito e blocca la prosecuzione. Ricaricare ripresenta le ricevute pendenti senza ripetere il consumo. La ricevuta viene rimossa dopo la chiusura e un nuovo salvataggio. Le evoluzioni mantengono livello, esperienza e mosse/PP; le mosse di livello1 della forma finale non vengono assegnate automaticamente.
 
 Cerimonia evoluzione6,2s con salto dopo1s; cattura2,8s con rivelazione anticipabile e dettagli. Movimento ridotto rispettato. Nessun suono aggiuntivo introdotto in questa iterazione.
+
+## Animazioni 0.3.102
+
+`BattleEffects` separa la presentazione delle mosse dalle regole. Fisiche: preparazione/affondo e scie, tre graffi per mosse con artigli. Speciali: fulmini, getti luminosi, foglie, cristalli e anelli secondo tipo; colori funzionali del tipo. Un tentativo di mossa non genera un impatto di danno: colpo, immunità, schivata, cura e cambi di stato/statistiche seguono i rispettivi eventi risolti. La modalità ridotta mantiene indicatori fermi e testo.
+
+Effetti vettoriali nel container della UI: ridimensionamento, salto messaggi e chiusura eliminano anche i tween dei figli. Il lancio della sfera segue un arco. Le cerimonie mantengono i tempi e il salto approvati, aggiungendo orbite, raggi morbidi e particelle con una rivelazione progressiva. Nessun esito o premio dipende dall'animazione.

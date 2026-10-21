@@ -1,3 +1,7 @@
+## 0.3.102 — animazioni verificate (20/10/2026)
+
+29 prove browser locali passate:25 lotta/pietre (incluse6 animazioni reali elettrico/immunità/Ruggito in portrait e landscape, resize/skip senza nuovi PP o turni),4 cerimonie a movimento completo/ridotto con verifica del movimento CSS tra fotogrammi, reveal automatico e salto senza doppia chiusura.464 test dominio e25 persistenza passati; TypeScript, validatore e build produzione riusciti. Modulo vettoriale BattleEffects separato dalle regole; cattura con traiettoria arcuata e presentazione dopo confine di salvataggio. Cachev123. Deploy e nuova CI da registrare.
+
 ## Pubblicazione 0.3.101 confermata —20/10/2026
 
 Commit9676c5d su main. [Deploy39490164790](https://github.com/Jacoporusso/veloria/actions/runs/39490164790) SUCCESS: test dominio/persistenza, validatore e build Pages riusciti anche su Linux. HTTPS conferma pagina200, cachev122, nuova Borgofonte e artwork Flareon200. [Verify39490164885](https://github.com/Jacoporusso/veloria/actions/runs/39490164885) ancora in esecuzione al controllo finale: suite browser completa non ancora attestata verde.

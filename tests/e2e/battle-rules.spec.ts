@@ -538,3 +538,104 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').state)).toEqual(before);
   });
 }
+
+/** Pause only presentation timers: the reducer has already resolved the real commands. */
+async function holdBattleMessage(page: Page) {
+  await page.evaluate(() => {
+    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+    scene.messageTimer?.remove(false); scene.messageTimer = undefined;
+  });
+}
+
+async function showResolvedEvent(page: Page, type: string, side?: string) {
+  for (let index = 0; index < 20; index++) {
+    await holdBattleMessage(page);
+    const current = await page.evaluate(() => {
+      const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+      return { mode: scene.mode, event: scene.pendingMessages[0]?.event };
+    });
+    if (current.event?.type === type && (!side || current.event.side === side || current.event.sourceSide === side)) return;
+    if (current.mode !== 'message') throw new Error(`Reached ${current.mode} before ${type}`);
+    await page.keyboard.press('Enter', { delay: 20 });
+  }
+  throw new Error(`Resolved event ${type} was not presented`);
+}
+
+for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+  for (const effect of ['electric', 'immune', 'growl'] as const) {
+    test(`resolved ${effect} effects survive inspection and clean up on resize ${viewport.width}`, async ({ page }, testInfo) => {
+      await page.setViewportSize(viewport);
+      const errors = await mountBattle(page, effect === 'immune' ? 'immune' : 'super-effective');
+      const initial = await page.evaluate(() => {
+        const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+        scene.reducedAnimations = false;
+        return structuredClone(scene.state);
+      });
+      await page.keyboard.press('Enter', { delay: 20 });
+      await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('moves');
+      if (effect === 'growl') await page.keyboard.press('ArrowRight', { delay: 20 });
+      await page.keyboard.press('Enter', { delay: 20 });
+      await holdBattleMessage(page);
+      const resolved = await page.evaluate(() => {
+        const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+        return { state: structuredClone(scene.state), json: JSON.stringify(scene.state), events: structuredClone(scene.eventLog) };
+      });
+      expect(resolved.state.turn).toBe(1);
+      const slot = effect === 'growl' ? 1 : 0;
+      expect(resolved.state.player.creatures[0].moves[slot].pp).toBe(initial.player.creatures[0].moves[slot].pp - 1);
+      await showResolvedEvent(page, 'moveUsed', 'player');
+      const cast = effect === 'growl' ? 'battle-vfx-cast-normal' : 'battle-vfx-cast-electric';
+      expect(await page.evaluate(name => {
+        const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+        return scene.ui.list.filter((item: any) => item.name === name).length;
+      }, cast)).toBe(1);
+      const oldCast = await page.evaluate(name => {
+        const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+        (window as any).effectOldLayer = scene.ui.list.find((item: any) => item.name === name);
+        return scene.ui.list.length;
+      }, cast);
+      // Rotation cancels the currently presented effect; it must never replay a command.
+      const opposite = viewport.width < viewport.height ? { width: 844, height: 390 } : { width: 390, height: 844 };
+      for (const size of [opposite, viewport, opposite, viewport]) {
+        await page.setViewportSize(size);
+        await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').viewport.width)).toBe(size.width);
+        await holdBattleMessage(page);
+        expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(resolved.json);
+        expect(await page.evaluate(() => {
+          const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+          return scene.ui.list.filter((item: any) => item.name?.startsWith('battle-vfx-')).length;
+        })).toBe(0);
+      }
+      expect(await page.evaluate(() => (window as any).effectOldLayer.scene == null)).toBe(true);
+      expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').ui.list.length)).toBeLessThanOrEqual(oldCast);
+      if (effect === 'growl') {
+        const stage = resolved.events.find((event: any) => event.type === 'statStageChanged' && event.side === 'opponent');
+        expect(stage).toMatchObject({ stat: 'attack', change: -1 });
+        await showResolvedEvent(page, 'statStageChanged', 'opponent');
+        expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').ui.list.some((item: any) => item.name === 'battle-vfx-aura-down'))).toBe(true);
+      } else {
+        const damage = resolved.events.find((event: any) => event.type === 'damageApplied' && event.sourceSide === 'player');
+        expect(damage).toBeTruthy();
+        expect(damage.effectiveness).toBe(effect === 'immune' ? 0 : 2);
+        if (effect === 'immune') expect(damage.amount).toBe(0);
+        else expect(damage.amount).toBeGreaterThan(0);
+        if (effect === 'immune') expect(resolved.state.opponent.creatures[0].hp).toBe(initial.opponent.creatures[0].hp);
+        await showResolvedEvent(page, 'damageApplied', 'player');
+        const layers = await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').ui.list.map((item: any) => item.name).filter(Boolean));
+        expect(layers).toContain(effect === 'immune' ? 'battle-vfx-immune' : 'battle-vfx-impact');
+        expect(layers).not.toContain(effect === 'immune' ? 'battle-vfx-impact' : 'battle-vfx-immune');
+      }
+      await page.screenshot({ path: testInfo.outputPath(`${effect}-effect-${viewport.width}.png`) });
+      // Skip all remaining real messages. Neither visual effects nor skip may spend another PP or turn.
+      for (let index = 0; index < 20; index++) {
+        await holdBattleMessage(page);
+        if (await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode !== 'message')) break;
+        await page.keyboard.press('Enter', { delay: 20 });
+      }
+      await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').mode)).toBe('menu');
+      expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(resolved.json);
+      expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.getScene('battle').ui.list.filter((item: any) => item.name?.startsWith('battle-vfx-')).length)).toBe(0);
+      expect(errors).toEqual([]);
+    });
+  }
+}

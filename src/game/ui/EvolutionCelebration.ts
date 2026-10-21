@@ -44,7 +44,15 @@ export function showEvolutionCelebration(args: EvolutionCelebrationArgs): Promis
     newArt.classList.add('evolution-celebration__after');
     const halo = node('span', 'evolution-celebration__halo');
     const light = node('span', 'evolution-celebration__light');
-    stage.append(halo, oldArt, newArt, light);
+    const rays = node('span', 'evolution-celebration__rays');
+    const pulse = node('span', 'evolution-celebration__pulse');
+    stage.append(halo, rays);
+    for (let i = 0; i < 3; i++) {
+      const orbit = node('span', 'evolution-celebration__orbit');
+      orbit.style.setProperty('--orbit', String(i));
+      stage.append(orbit);
+    }
+    stage.append(oldArt, newArt, light, pulse);
     for (let i = 0; i < 12; i++) {
       const spark = node('i', 'evolution-celebration__spark');
       spark.style.setProperty('--angle', `${i * 30}deg`);
@@ -107,6 +115,7 @@ export function showEvolutionCelebration(args: EvolutionCelebrationArgs): Promis
         action.textContent = 'Salta animazione';
       }, 1000));
       timers.push(window.setTimeout(() => overlay.classList.add('is-transforming'), 1700));
+      timers.push(window.setTimeout(() => overlay.classList.add('is-gathered'), 4400));
       timers.push(window.setTimeout(reveal, 6200));
     }
   });

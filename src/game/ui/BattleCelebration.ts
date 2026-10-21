@@ -40,7 +40,22 @@ export class BattleCelebration {
     const title = element('h2', '', badge ? `${badge.name} conquistata!` : creature ? `${creature.name} catturato!` : victory ? `Hai vinto contro ${victory.trainerName}!` : 'Vittoria!');
     title.id = 'battle-celebration-title';
     const visual = badge ? createBadgeEmblem(victory!.badgeId) : creature ? createCreaturePortrait(creature.speciesId) : element('span', 'battle-victory-star', '✦');
-    contents.append(kicker, visual, title);
+    if (creature) {
+      const captureStage = element('div', 'battle-capture-stage');
+      captureStage.setAttribute('aria-hidden', 'true');
+      const halo = element('span', 'battle-capture-halo');
+      const ring = element('span', 'battle-capture-ring');
+      const sphere = element('span', 'battle-capture-sphere');
+      sphere.append(element('i', 'battle-capture-sphere-lock'));
+      captureStage.append(halo, ring, visual, sphere);
+      for (let i = 0; i < 10; i++) {
+        const particle = element('i', 'battle-capture-particle');
+        particle.style.setProperty('--angle', `${i * 36}deg`);
+        particle.style.setProperty('--delay', `${i * 30}ms`);
+        captureStage.append(particle);
+      }
+      contents.append(kicker, captureStage, title);
+    } else contents.append(kicker, visual, title);
     if (creature && captured?.type === 'creatureCaptured') {
       if (capturedIsNew) contents.append(element('p', 'battle-capture-new', 'Prima cattura di questa specie'));
       contents.append(element('p', 'battle-celebration-subtitle', `${creature.types.map(battleTypeLabel).join(' / ')} · Livello ${creature.level} · HP ${creature.hp}/${creature.stats.maxHp}`));

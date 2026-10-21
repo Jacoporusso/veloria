@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v122';
+const CACHE = 'veloria-shell-v123';
 const SHELL = [
   './assets/scenery/veloria-borgofonte-v2.webp',
   './assets/creatures/pokeapi-stone-evolutions-26-v1.webp',

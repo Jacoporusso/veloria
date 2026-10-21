@@ -12,6 +12,7 @@ import type { BattleRules } from '../../core/battle/rules.ts';
 import type { BattleCommand, BattleCreature, BattleEvent, BattleSide, BattleState, MoveDefinition } from '../../core/battle/types.ts';
 import { createCreatureImage, preloadCreatureArt } from '../battle/creature-art.ts';
 import { battleExperienceProgress, battleRewardSummary, battleTypeLabel, formatFlinched, formatStatStageChanged, formatStatStageLimited } from '../battle/presentation.ts';
+import { BattleEffects } from '../battle/BattleEffects.ts';
 import { describeMoveMatchup } from '../battle/move-matchup.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
@@ -1005,7 +1006,7 @@ export class BattleScene extends Phaser.Scene {
       this.pendingMessages.shift();
       this.openNextMoveLearningIfNeeded();
       if (this.state.outcome.kind === 'captured' && this.pendingMessages[0]?.event?.type === 'creatureCaptured') {
-        this.showTerminalMessage();
+        void this.prepareTerminalPresentation();
         return;
       }
       this.render();
@@ -1176,28 +1177,35 @@ export class BattleScene extends Phaser.Scene {
 
   /** Effects consume resolved semantic events. Skipping text only cancels visuals. */
   private animateEvent(event: BattleEvent): void {
+    const effects = new BattleEffects(this, this.ui, this.reducedAnimations);
     if (event.type === 'moveUsed') {
       const actor = this.actors[event.side];
       const target = this.actors[event.side === 'player' ? 'opponent' : 'player'];
-      const move = this.moveCatalog[event.moveId];
-      if (actor && target && !this.reducedAnimations) {
-        if (move?.category === 'physical' || event.moveId === EMERGENCY_MOVE_ID) {
-          this.tweens.add({ targets: actor, x: actor.x + (target.x - actor.x) * 0.14, duration: 125, yoyo: true, ease: 'Cubic.easeOut' });
-        } else {
-          const orb = this.add.circle(actor.x, actor.y, 10, this.typeColor(move?.type), 0.9);
-          this.ui.add(orb);
-          this.tweens.add({ targets: orb, x: target.x, y: target.y, scale: 0.4, duration: 350, ease: 'Cubic.easeIn', onComplete: () => orb.destroy() });
+      if (actor && target) effects.cast(actor, target, this.moveCatalog[event.moveId]);
+    } else if (event.type === 'moveMissed') {
+      const actor = this.actors[event.side === 'player' ? 'opponent' : 'player'];
+      if (actor) {
+        this.floatingFeedback(actor, 'MANCATO', '#c7e8ef');
+        if (!this.reducedAnimations) {
+          this.tweens.killTweensOf(actor);
+          this.tweens.add({ targets: actor, x: actor.x + (event.side === 'player' ? 12 : -12), duration: 120, yoyo: true, ease: 'Sine.easeOut' });
         }
       }
     } else if (event.type === 'damageApplied') {
       const actor = this.actors[event.targetSide];
       if (actor) {
         this.floatingFeedback(actor, event.effectiveness === 0 ? 'IMMUNE' : `−${event.amount}${event.critical ? '  CRITICO' : ''}`, event.effectiveness > 1 ? '#ffd88e' : '#fff4e6');
-        if (!this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.2, duration: 85, yoyo: true, repeat: 2 });
+        effects.impact(actor, this.typeColor(this.moveCatalog[event.moveId]?.type), event.effectiveness === 0, event.critical);
       }
     } else if (event.type === 'healingApplied') {
       const actor = this.actors[event.side];
-      if (actor) this.floatingFeedback(actor, `+${event.amount} HP`, '#b6efc0');
+      if (actor) { effects.aura(actor, 'heal'); this.floatingFeedback(actor, `+${event.amount} HP`, '#b6efc0'); }
+    } else if (event.type === 'statStageChanged') {
+      const actor = this.actors[event.side];
+      if (actor) effects.aura(actor, event.change > 0 ? 'up' : 'down');
+    } else if (event.type === 'statusApplied') {
+      const actor = this.actors[event.side];
+      if (actor) effects.aura(actor, event.status);
     } else if (event.type === 'leechSeedTick') {
       const actor = this.actors[event.side];
       if (actor) this.floatingFeedback(actor, `−${event.damage} HP`, '#b6efc0');
@@ -1206,7 +1214,7 @@ export class BattleScene extends Phaser.Scene {
       if (actor) this.floatingFeedback(actor, 'PARASSISEME', '#b6efc0');
     } else if (event.type === 'confusionApplied') {
       const actor = this.actors[event.side];
-      if (actor) this.floatingFeedback(actor, 'CONFUSIONE', '#c6b1ff');
+      if (actor) { effects.aura(actor, 'confusion'); this.floatingFeedback(actor, 'CONFUSIONE', '#c6b1ff'); }
     } else if (event.type === 'recoilApplied' || event.type === 'confusionSelfHit') {
       const actor = this.actors[event.side];
       if (actor) this.floatingFeedback(actor, `−${event.amount} HP`, '#ffb6a4');
@@ -1221,7 +1229,7 @@ export class BattleScene extends Phaser.Scene {
       if (actor) this.floatingFeedback(actor, `+${event.amount} XP`, '#b2e2f1');
     } else if (event.type === 'itemUsed' && event.healed) {
       const actor = this.actors[event.side];
-      if (actor) this.floatingFeedback(actor, `+${event.healed} HP`, '#b6efc0');
+      if (actor) { effects.aura(actor, 'heal'); this.floatingFeedback(actor, `+${event.healed} HP`, '#b6efc0'); }
     } else if (event.type === 'captureAttempted') {
       const target = this.actors.opponent;
       const source = this.actors.player;
@@ -1234,7 +1242,10 @@ export class BattleScene extends Phaser.Scene {
         sphere.add([shell, top, this.add.rectangle(0, 0, 27, 3, 0x24384b), this.add.circle(0, 0, 6, 0x24384b), this.add.circle(0, 0, 3, 0xffffff)]);
         this.ui.add(sphere);
         if (this.reducedAnimations) target.alpha = 0.35;
-        else this.tweens.add({ targets: sphere, x: target.x, y: target.y - 16, angle: 360, duration: 400, ease: 'Sine.easeOut', onComplete: () => {
+        else this.tweens.add({ targets: sphere, x: target.x, y: target.y - 16, angle: 360, duration: 400, ease: 'Sine.easeOut',
+          onUpdate: tween => {
+            sphere.y = Phaser.Math.Linear(source.y - 12, target.y - 16, tween.progress) - Math.sin(tween.progress * Math.PI) * 48;
+          }, onComplete: () => {
           this.tweens.add({ targets: target, alpha: 0.1, scale: 0.5, duration: 150 });
           this.tweens.add({ targets: sphere, y: target.y + 14, duration: 130, ease: 'Bounce.easeOut', onComplete: () => {
             this.tweens.add({ targets: sphere, angle: { from: -18, to: 18 }, yoyo: true, repeat: 1, duration: 130, ease: 'Sine.easeInOut' });
@@ -1242,9 +1253,15 @@ export class BattleScene extends Phaser.Scene {
         } });
       }
     } else if (event.type === 'captureFailed') {
-      if (this.actors.opponent) this.floatingFeedback(this.actors.opponent, 'SI È LIBERATO!', '#ffb6a4');
+      if (this.actors.opponent) {
+        effects.impact(this.actors.opponent, 0xffb6a4);
+        this.floatingFeedback(this.actors.opponent, 'SI È LIBERATO!', '#ffb6a4');
+      }
     } else if (event.type === 'creatureCaptured') {
-      if (this.actors.opponent) this.floatingFeedback(this.actors.opponent, 'CATTURATO!', '#f4db9b');
+      if (this.actors.opponent) {
+        effects.aura(this.actors.opponent, 'up');
+        this.floatingFeedback(this.actors.opponent, 'CATTURATO!', '#f4db9b');
+      }
     } else if (event.type === 'creatureFainted') {
       const actor = this.actors[event.side];
       if (actor && !this.reducedAnimations) this.tweens.add({ targets: actor, alpha: 0.15, y: actor.y + 12, duration: 280 });

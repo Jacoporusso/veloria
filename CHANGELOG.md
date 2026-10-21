@@ -1,3 +1,11 @@
+## 0.3.102 — Animazioni di lotta e cerimonie (20/10/2026)
+
+- Attacchi fisici con preparazione/affondo, graffi distinti dalle scie; scariche elettriche, getti, foglie, cristalli e anelli secondo il tipo della mossa.
+- Impatti, immunità, schivata, cure, variazioni delle statistiche e simboli degli stati mostrati a partire dagli eventi risolti dal motore.
+- Lancio della sfera con traiettoria arcuata; cattura con sigillo, anello di luce, particelle e comparsa del Pokémon.
+- Evoluzione con ingresso della forma precedente, orbite, convergenza delle particelle, silhouette e rivelazione luminosa.
+- Salto, rotazione e chiusura della scena puliscono gli effetti; modalità ridotta mantenuta. Nessuna modifica a danni, probabilità, PP o turni.
+
 ## 0.3.101 — Strategia, evoluzioni e Borgofonte (20/10/2026)
 
 - Mosse: efficacia nelle carte e dettaglio contro l’avversario, fattori dei singoli tipi, effetti e probabilità, precisione base/attuale, PP e stima danni. Paginazione per gli schermi piccoli.
