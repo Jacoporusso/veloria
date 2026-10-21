@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.103 confermata — 21/10/2026
+
+Commit97aa60c su main. [Deploy39554345901](https://github.com/Jacoporusso/veloria/actions/runs/39554345901) SUCCESS: dominio/persistenza, validatore e build riusciti su Linux. HTTPS200, cachev124 e nuovi artwork Sentiero dell’Alba/Ferraluce200 verificati. [Verify39554346058](https://github.com/Jacoporusso/veloria/actions/runs/39554346058) in corso al controllo finale; suite browser Linux completa non ancora attestata verde.
+
 ## 0.3.103 — verifica locale mappe illustrate (21/10/2026)
 
 Quattordici nuovi fondali,308 asset registrati, cachev124. Passati489 test dominio/persistenza e103 Python, TypeScript, validatore contenuti/provenienza e build produzione. Due prove browser inventario coprono tutte14 mappe in390×844 e844×390 e identità NPC/uscite. Percorso touch al Bosco con reload e vittoria Mira con medaglia persistente passati (1,5min). Tutti14 nuovi fondali decodificati alla prima richiesta offline senza visitarne le mappe (2,2s;15,6s inclusa build). Confronto geometria normalizzata14/14 identico.
