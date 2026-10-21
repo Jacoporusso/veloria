@@ -59,6 +59,8 @@ export interface MoveDefinition {
   readonly minStatusTurns?: number;
   readonly maxStatusTurns?: number;
   readonly drainPercent?: number;
+  /** HGSS recoil: floor(percent of actual HP removed), minimum 1 after damage. */
+  readonly recoilPercent?: number;
   readonly statChangeChance?: number;
   /** Chance to cancel a target's still-pending move in this turn only (0..100). */
   readonly flinchChance?: number;

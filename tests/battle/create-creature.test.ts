@@ -133,7 +133,7 @@ test('rejects bad IDs, levels, unknown moves, and invalid save PP', () => {
 
 test('versioned move values form a usable, stable catalog without a global chart', () => {
   const catalog = moves as Record<string, MoveDefinition>;
-  assert.equal(movesData.version, 10);
+  assert.equal(movesData.version, 11);
   assert.equal(catalog['quick-attack'].priority, 1);
   assert.equal(catalog['thunder-shock'].inflictedStatus, 'paralysis');
   assert.deepEqual(catalog['string-shot'].statChanges, [{ target: 'opponent', stat: 'speed', stages: -1 }]);

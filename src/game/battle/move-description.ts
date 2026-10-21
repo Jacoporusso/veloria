@@ -22,6 +22,7 @@ export function describeMoveEffects(move: MoveDefinition): string[] {
   if (move.inflictedConfusionChance) effects.push(`Confonde l’avversario${chance(move.inflictedConfusionChance)}${move.minConfusionTurns ? ` per ${move.minConfusionTurns}–${move.maxConfusionTurns ?? move.minConfusionTurns} turni` : ''}: può colpirsi da solo.`);
   if (move.flinchChance) effects.push(`Può far tentennare l’avversario (${move.flinchChance}% di probabilità): perde la mossa di questo turno senza consumare PP, solo se colpisci prima che agisca e resta in campo.`);
   if (move.drainPercent) effects.push(`Recuperi HP pari al ${move.drainPercent}% dei danni inflitti.`);
+  if (move.recoilPercent) effects.push(`Dopo aver inflitto danni, il tuo Pokémon perde HP pari al ${move.recoilPercent}% dei danni inflitti (almeno 1 HP). Il contraccolpo può mandarlo KO e non si applica se la mossa manca o non danneggia per un’immunità.`);
   if (move.minHits) effects.push(`Colpisce ${move.minHits === move.maxHits ? move.minHits : `${move.minHits}–${move.maxHits ?? move.minHits}`} volte nello stesso turno.`);
   if (move.leechSeedFraction) effects.push(`Pianta un seme: a fine turno sottrae ${Number((move.leechSeedFraction * 100).toFixed(2))}% degli HP massimi avversari e cura il Pokémon attivo dalla tua parte. Non funziona sui Pokémon Erba o già seminati.`);
   if (move.priority > 0) effects.push(`Priorità +${move.priority}: agisce prima delle mosse con priorità inferiore, anche se sei più lento.`);

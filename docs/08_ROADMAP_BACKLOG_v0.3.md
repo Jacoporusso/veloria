@@ -1,6 +1,6 @@
-## Stato corrente — 0.3.111, 21/10/2026
+## Stato corrente — 0.3.112, 21/10/2026
 
-Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 78 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
+Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 79 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
 
 ### Evidenze recenti
 
@@ -242,3 +242,7 @@ Catalogo79 specie dopo sei evoluzioni ufficiali;31 allenatori e53 missioni dopo 
 ## Aggiornamento 21/10/2026 — 0.3.109
 
 Sostituita la curva XP unica provvisoria con quattro tabelle ufficiali assegnate a tutte79 specie, contratto progressionv2 e rulesetv12. Ripetute due partite naturali Charmander fino a Mira e Radicelmo prima/dopo, con salvataggi e nessuna preparazione di squadra/seed/risorse. Resoconti e limiti in `playtests/2026-10-21-official-growth.md`. La suite GitHub completa0.3.107 è verde (39597338393); il successivo run0.3.108 ha registrato un reset HTTP del test Nilo, quindi non è dichiarato verde. Restano campagna naturale completa, altri starter, telefono fisico, roster251 e mosse/effetti mancanti.
+
+## Aggiornamento0.3.112 — Riduttore
+
+Nuova mossa ufficiale e primo effetto ordinario di contraccolpo da danni inflitti, con apprendimento per12 specie e dettagli strategici anche offline.537 test dominio/persistenza e106 Python passati; non chiude le altre mosse mancanti, condizioni evolutive, abilità/strumenti o roster251. Prossime verifiche: CI, progressione naturale oltre Aster e confronto degli altri starter e delle scelte di apprendimento/squadra.

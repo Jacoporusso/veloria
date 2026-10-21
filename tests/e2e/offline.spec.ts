@@ -1094,6 +1094,52 @@ test('fourteen illustrated early-map environments decode on their first offline 
   expect(errors).toEqual([]);
 });
 
+test('Riduttore strategy, battle and HP/PP survive an offline reload', async ({ page, context }) => {
+  test.setTimeout(150_000);
+  const errors: string[] = [], failures: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  // Integration fixture with the official level-15 Bulbasaur move; not a natural playtest.
+  const save = await readBrowserSave(page);
+  const c = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 1, level: 15, instanceId: 'offline-recoil', moveIds: ['take-down'] });
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 2, y: 9 };
+  save.rngState = findPidgeyCaptureSeed();
+  save.party = [{ instanceId: c.instanceId, speciesId: 1, level: 15, experience: 0,
+    hp: c.hp, maxHp: c.stats.maxHp, moves: c.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
+  await seedBrowserSave(page, save);
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri la squadra' }).click();
+  const panel = page.getByRole('dialog', { name: 'Squadra' });
+  await panel.getByRole('button', { name: /Bulbasaur/ }).click();
+  await expect(panel).toContainText('Riduttore');
+  await expect(panel).toContainText('25% dei danni inflitti');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
+  await tapBattleControl(page, 'moves'); await tapBattleControl(page, 0);
+  for (let action = 0; action < 100 && await page.locator('body').evaluate(body => body.classList.contains('battle-active')); action++) {
+    if (await page.locator('.battle-celebration').isVisible()) {
+      await page.getByRole('button', { name: 'Continua', exact: true }).click(); break;
+    }
+    await page.keyboard.press('Enter', { delay: 40 }); await page.waitForTimeout(100);
+  }
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+  const result = (await readBrowserSave(page)).party[0];
+  expect(result.hp).toBeGreaterThan(0);
+  expect(result.hp).toBeLessThan(c.hp);
+  expect(result.experience).toBeGreaterThan(0);
+  expect(result.moves[0].pp).toBeLessThan(c.moves[0].pp);
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).party[0]).toEqual(result);
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
+});
+
 test('new dune training battle and reward persist offline', async ({ page, context }) => {
   test.setTimeout(process.env.CI ? 240_000 : 150_000);
   await page.goto('/'); await enterGame(page);

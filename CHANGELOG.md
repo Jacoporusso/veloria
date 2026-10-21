@@ -1,3 +1,10 @@
+## 0.3.112 — Riduttore e contraccolpo (21/10/2026)
+
+- Importata Riduttore (Take Down) dai dati HGSS locali: Normale fisica, potenza90, precisione85,20PP e contraccolpo del25% dei danni effettivamente inflitti. Learnset ufficiali per12 specie, incluso Bulbasaur al15;79 mosse supportate,79 specie invariate.
+- Nuovo effetto dichiarativo con minimo1HP, arrotondamento Gen4 per difetto, danni limitati agli HP sottratti, mancate/immunità senza contraccolpo e gestione dei KO. Il contraccolpo precede XP/evoluzione; il giocatore sopravvissuto riceve XP anche quando l'avversario va KO per il proprio contraccolpo.
+- Avviso nel selettore mosse, spiegazione nei dettagli e nelle schede Pokémon; feedback danno riutilizza l'animazione del motore. Nessuna stima aggiunta alla selezione iniziale.
+- Verifiche537 dominio/persistenza,106 Python, portrait/landscape, evoluzioni Venusaur/Piloswine e battaglia/reload senza rete sulla build produzione. Rulesetv13, catalogo mossev11, cache PWA v133. Il roster completo e le altre meccaniche restano aperti.
+
 ## 0.3.111 — Evoluzione di Magneton e controlli PC (21/10/2026)
 
 Verifica successiva: partita naturale Charmander completata fino alla terza medaglia in13min automatizzati,29 battaglie,2 catture, evoluzione in Charmeleon, nessun errore JS e ripresa corretta. Report e limiti in `docs/playtests/2026-10-21-third-medal.md`. La prima sconfitta contro Oren resta documentata; altri starter e finale restano aperti.

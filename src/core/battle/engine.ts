@@ -376,6 +376,7 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
   if (!Number.isFinite(move.accuracy) || move.accuracy < 0 || move.accuracy > 100 || !Number.isFinite(move.power) || move.power < 0 ||
       (move.fixedDamage !== undefined && (!Number.isInteger(move.fixedDamage) || move.fixedDamage <= 0 || move.category === 'status')) ||
       (move.drainPercent !== undefined && (move.drainPercent < 0 || move.drainPercent > 100)) ||
+      (move.recoilPercent !== undefined && (!Number.isInteger(move.recoilPercent) || move.recoilPercent <= 0 || move.recoilPercent > 100 || move.category === 'status' || (move.power <= 0 && move.fixedDamage === undefined) || move.drainPercent !== undefined)) ||
       (move.leechSeedFraction !== undefined && (!Number.isFinite(move.leechSeedFraction) || move.leechSeedFraction <= 0 || move.leechSeedFraction > 1)) ||
       ((move.minStatusTurns !== undefined || move.maxStatusTurns !== undefined) &&
         (!Number.isInteger(move.minStatusTurns) || !Number.isInteger(move.maxStatusTurns) || move.minStatusTurns! < 1 || move.maxStatusTurns! < move.minStatusTurns!)) ||
@@ -448,8 +449,22 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
       events.push({ type: 'damageApplied', sourceSide: side, targetSide, moveId: move.id, amount: actual, effectiveness, critical });
       if (hp === 0) {
         events.push({ type: 'creatureFainted', side: targetSide, creatureId: currentTarget.instanceId });
-        if (!emergency) state = awardExperience(state, side, user.instanceId, currentTarget, rules, events);
+        if (!emergency && !move.recoilPercent) state = awardExperience(state, side, user.instanceId, currentTarget, rules, events);
       }
+    }
+    // Ordinary recoil uses damage actually removed, including an overkill cap.
+    // Resolve it before XP so a recoil KO cannot level up or evolve the attacker.
+    if (!emergency && move.recoilPercent && dealt > 0) {
+      const latestUser = active(state, side);
+      const recoil = Math.min(latestUser.hp, Math.max(1, Math.floor(dealt * move.recoilPercent / 100)));
+      const hp = latestUser.hp - recoil;
+      state = setCreature(state, side, sideState(state, side).activeIndex, { ...latestUser, hp });
+      events.push({ type: 'recoilApplied', side, creatureId: latestUser.instanceId, moveId: move.id, amount: recoil });
+      if (hp === 0) {
+        events.push({ type: 'creatureFainted', side, creatureId: latestUser.instanceId });
+        const survivor = active(state, targetSide);
+        if (survivor.hp > 0) state = awardExperience(state, targetSide, survivor.instanceId, latestUser, rules, events);
+      } else if (active(state, targetSide).hp === 0) state = awardExperience(state, side, user.instanceId, target, rules, events);
     }
     if (!emergency && move.drainPercent && dealt > 0) {
       const latestUser = active(state, side);
@@ -467,8 +482,11 @@ function applyMove(state: BattleState, side: BattleSide, command: Extract<Battle
     const hp = Math.max(0, latestUser.hp - recoil);
     state = setCreature(state, side, sideState(state, side).activeIndex, { ...latestUser, hp });
     events.push({ type: 'recoilApplied', side, creatureId: user.instanceId, moveId: move.id, amount: latestUser.hp - hp });
-    if (hp === 0) events.push({ type: 'creatureFainted', side, creatureId: user.instanceId });
-    else if (active(state, targetSide).hp === 0) state = awardExperience(state, side, user.instanceId, target, rules, events);
+    if (hp === 0) {
+      events.push({ type: 'creatureFainted', side, creatureId: user.instanceId });
+      const survivor = active(state, targetSide);
+      if (survivor.hp > 0) state = awardExperience(state, targetSide, survivor.instanceId, latestUser, rules, events);
+    } else if (active(state, targetSide).hp === 0) state = awardExperience(state, side, user.instanceId, target, rules, events);
   }
 
   for (const effect of move.statChanges ?? []) {

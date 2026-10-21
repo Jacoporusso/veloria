@@ -113,6 +113,18 @@ test('recoil is ceil(max HP / 4), occurs after a hit even when it KOs the target
   assert.ok(bothFaint.events.some(event => event.type === 'recoilApplied' && event.amount === 1));
 });
 
+test('a surviving player gets XP when the opponent faints from emergency recoil', () => {
+  const state = battle({
+    playerTeam: [creature('player', { moves: [{ moveId: tackle.id, pp: 5 }] })],
+    opponentTeam: [creature('opponent', { hp: 1, stats: { maxHp: 4, attack: 1, defense: 40, specialAttack: 1, specialDefense: 40, speed: 100 } })],
+  });
+  const result = turn(state, useTackle, struggle);
+  assert.ok(result.state.player.creatures[0].hp > 0);
+  assert.equal(result.state.opponent.creatures[0].hp, 0);
+  assert.ok(result.state.player.creatures[0].experience > 0);
+  assert.equal(result.events.filter(event => event.type === 'experienceGained').length, 1);
+});
+
 test('blocked Struggle during sleep does not apply recoil', () => {
   const state = battle({
     playerTeam: [creature('player', { status: { status: 'sleep', turnsRemaining: 2 } })],

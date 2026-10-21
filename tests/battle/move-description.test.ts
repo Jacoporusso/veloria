@@ -33,6 +33,15 @@ test('seed explanation uses runtime fraction and support does not promise damage
   assert.deepEqual(describeMoveEffects(base), ['Nessun effetto aggiuntivo implementato.']);
 });
 
+test('recoil description explains HP loss from damage dealt and when it can occur', () => {
+  const description = formatMoveDescription({ ...base, category: 'physical', power: 100, recoilPercent: 25 });
+  assert.match(description, /perde HP pari al 25% dei danni inflitti/);
+  assert.match(description, /almeno 1 HP/);
+  assert.match(description, /può mandarlo KO/);
+  assert.doesNotMatch(description, /Recuperi HP/);
+  assert.match(description, /se la mossa manca o non danneggia per un’immunità/);
+});
+
 test('canonical move descriptions explain Sonicboom fixed damage and Thunder Wave type immunity', () => {
   const moves = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves as Record<string, MoveDefinition>;
   const sonic = formatMoveDescription(moves['sonic-boom']);

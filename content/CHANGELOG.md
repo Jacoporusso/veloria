@@ -1,3 +1,7 @@
+## veloria-content-0.3.112 — 21/10/2026
+
+Riduttore/Take Down da cache PokéAPI HGSS:90/85/20PP, recoilPercent25. Dodici learnset aggiornati dalla fonte;79 specie e79 mosse. Gli altri effetti negativi di drain restano rifiutati dall'importer. Core rulesetv13 e cachev133; risultati e limiti in docs/CI_STATUS.md. Per la cronologia0.3.89–0.3.111 vedere il CHANGELOG nella radice del repository; le sezioni sotto restano storiche.
+
 ## veloria-content-0.3.88 — integrazione locale, 20/10/2026
 
 - Ruleset v8: esperienza scalata con livello avversario e bonus allenatore esplicito. Eventi, overflow, livelli, mosse ed evoluzioni usano la ricompensa calcolata. Eliminata la resa costante che rallentava la progressione; bilanciamento naturale ancora in revisione.

@@ -59,6 +59,10 @@
           "moveId": "sleep-powder"
         },
         {
+          "level": 15,
+          "moveId": "take-down"
+        },
+        {
           "level": 21,
           "moveId": "sweet-scent"
         }
@@ -778,6 +782,10 @@
         {
           "level": 21,
           "moveId": "confusion"
+        },
+        {
+          "level": 25,
+          "moveId": "take-down"
         }
       ]
     },
@@ -987,6 +995,10 @@
         {
           "level": 13,
           "moveId": "sleep-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "take-down"
         },
         {
           "level": 23,
@@ -1423,6 +1435,10 @@
         {
           "level": 22,
           "moveId": "confusion"
+        },
+        {
+          "level": 27,
+          "moveId": "take-down"
         }
       ]
     },
@@ -1977,6 +1993,10 @@
           "moveId": "spark"
         },
         {
+          "level": 23,
+          "moveId": "take-down"
+        },
+        {
           "level": 28,
           "moveId": "bubble-beam"
         },
@@ -2040,6 +2060,10 @@
         {
           "level": 20,
           "moveId": "spark"
+        },
+        {
+          "level": 23,
+          "moveId": "take-down"
         },
         {
           "level": 30,
@@ -2305,6 +2329,10 @@
         {
           "level": 22,
           "moveId": "quick-attack"
+        },
+        {
+          "level": 43,
+          "moveId": "take-down"
         }
       ]
     },
@@ -2492,6 +2520,10 @@
         {
           "level": 13,
           "moveId": "sleep-powder"
+        },
+        {
+          "level": 15,
+          "moveId": "take-down"
         },
         {
           "level": 23,
@@ -2737,6 +2769,10 @@
           "moveId": "ice-shard"
         },
         {
+          "level": 32,
+          "moveId": "take-down"
+        },
+        {
           "level": 49,
           "moveId": "amnesia"
         }
@@ -2783,6 +2819,10 @@
         {
           "level": 25,
           "moveId": "icy-wind"
+        },
+        {
+          "level": 32,
+          "moveId": "take-down"
         },
         {
           "level": 33,
@@ -2886,6 +2926,10 @@
           "moveId": "aurora-beam"
         },
         {
+          "level": 37,
+          "moveId": "take-down"
+        },
+        {
           "level": 43,
           "moveId": "aqua-tail"
         },
@@ -2940,6 +2984,10 @@
         {
           "level": 27,
           "moveId": "aurora-beam"
+        },
+        {
+          "level": 37,
+          "moveId": "take-down"
         },
         {
           "level": 43,

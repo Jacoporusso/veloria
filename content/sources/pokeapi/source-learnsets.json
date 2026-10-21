@@ -5743,11 +5743,6 @@
   "unimplemented": {
     "1": [
       {
-        "level": 15,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 19,
         "moveId": "razor-leaf",
         "order": null
@@ -6173,11 +6168,6 @@
         "order": null
       },
       {
-        "level": 25,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 29,
         "moveId": "air-slash",
         "order": null
@@ -6305,11 +6295,6 @@
       }
     ],
     "2": [
-      {
-        "level": 15,
-        "moveId": "take-down",
-        "order": null
-      },
       {
         "level": 20,
         "moveId": "razor-leaf",
@@ -6624,11 +6609,6 @@
       {
         "level": 17,
         "moveId": "reflect",
-        "order": null
-      },
-      {
-        "level": 27,
-        "moveId": "take-down",
         "order": null
       },
       {
@@ -7017,11 +6997,6 @@
         "order": null
       },
       {
-        "level": 23,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 31,
         "moveId": "signal-beam",
         "order": null
@@ -7041,11 +7016,6 @@
       {
         "level": 9,
         "moveId": "flail",
-        "order": null
-      },
-      {
-        "level": 23,
-        "moveId": "take-down",
         "order": null
       },
       {
@@ -7289,11 +7259,6 @@
         "order": null
       },
       {
-        "level": 43,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 50,
         "moveId": "last-resort",
         "order": null
@@ -7466,11 +7431,6 @@
       }
     ],
     "3": [
-      {
-        "level": 15,
-        "moveId": "take-down",
-        "order": null
-      },
       {
         "level": 20,
         "moveId": "razor-leaf",
@@ -7645,11 +7605,6 @@
         "order": null
       },
       {
-        "level": 32,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 37,
         "moveId": "earthquake",
         "order": null
@@ -7699,11 +7654,6 @@
       {
         "level": 28,
         "moveId": "ice-fang",
-        "order": null
-      },
-      {
-        "level": 32,
-        "moveId": "take-down",
         "order": null
       },
       {
@@ -7786,11 +7736,6 @@
         "order": null
       },
       {
-        "level": 37,
-        "moveId": "take-down",
-        "order": null
-      },
-      {
         "level": 41,
         "moveId": "dive",
         "order": null
@@ -7845,11 +7790,6 @@
       {
         "level": 34,
         "moveId": "sheer-cold",
-        "order": null
-      },
-      {
-        "level": 37,
-        "moveId": "take-down",
         "order": null
       },
       {

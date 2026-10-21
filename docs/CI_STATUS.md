@@ -1,3 +1,11 @@
+## 0.3.112 — Contraccolpo verificato localmente (21/10/2026)
+
+Riduttore importata senza rete dai dati HGSS locali e resa disponibile nei12 learnset ufficiali.79 specie/79 mosse, movesv11, rulesetv13, cachev133. Importer --check, validatore, TypeScript e build produzione riusciti.537 prove dominio/persistenza e106 Python passate: danni effettivi/overkill, arrotondamento, minimo1HP, mancata/immunità/sonno, PP, KO simultaneo, ordine contraccolpo→XP e ricompensa al giocatore sopravvissuto al KO avversario da contraccolpo (anche emergenza). Importazioni future di effetti negativi restano bloccate fino a verifica specifica.
+
+Due prove browser portrait390×844 e landscape844×390 passate in13,1s: avviso rischio, tutte le pagine dettagli leggibili e cliccabili, risoluzione e reload IndexedDB HP/PP. Venusaur e Piloswine passati in15,3s dopo il cambiamento dei learnset, conservando anche gli HP persi per contraccolpo. Build produzione: scheda Squadra, battaglia e ripresa senza rete passate in5,9s (19,4s compresa build), nessuna richiesta fallita né errore JS. Fixture d'integrazione esplicite; non sono nuovi playtest di bilanciamento naturale o telefoni fisici.
+
+La suite [39674200882](https://github.com/Jacoporusso/veloria/actions/runs/39674200882) delle correzioni precedenti è ancora in esecuzione senza job falliti all'ultimo controllo. Pubblicazione e CI della0.3.112 da confermare.
+
 ## Progressione naturale fino ad Aster e correzioni CI — 21/10/2026
 
 Nuova partita0.3.111 con Charmander completata fino alla terza medaglia:13min automatizzati,29 battaglie (27 vittorie,2 catture), evoluzione in Charmeleon17, nessun errore JS, ripresa dal titolo corretta. Risorse e livelli guadagnati nel gioco,9 incontri preparatori prima di Dalia e9 prima di Aster. Dopo Aster:14/46HP del primo membro,1490monete, una pozione. [Report e limiti](playtests/2026-10-21-third-medal.md). La sconfitta del tentativo precedente contro Oren rimane registrata; il ramo di rivincita ora previsto dal test non è stato eseguito perché questa volta Oren è stato battuto subito. Altri starter, strategie e seguito della campagna restano aperti.

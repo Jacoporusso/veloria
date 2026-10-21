@@ -30,6 +30,7 @@ export interface MoveCard {
   readonly effectivenessShort: string;
   readonly effectiveness: 'immune' | 'super' | 'resisted' | 'normal' | 'support' | 'fixed';
   readonly supportEffect?: string;
+  readonly riskLabel?: string;
   readonly accessibleLabel: string;
 }
 
@@ -56,6 +57,7 @@ export function createMoveCard(move: MoveDefinition, target: BattleCreature, rul
   const accuracyLabel = actualAccuracyLabel ?? (move.alwaysHits ? 'Non fallisce per precisione' : `${move.accuracy}%`);
   const ppLabel = `${currentPp}/${move.maxPp} PP`;
   const supportEffect = matchup.blocked ? undefined : supportSummary(move);
+  const riskLabel = !matchup.blocked && move.recoilPercent ? `↩ Contraccolpo ${move.recoilPercent}%` : undefined;
   const typeImmunity = matchup.blocked && (
     ((move.category !== 'status' || move.statusAffectedByTypeImmunity && move.inflictedStatus)
       && effectivenessFor(target.types, move.type, rules.typeChart) === 0)
@@ -69,7 +71,7 @@ export function createMoveCard(move: MoveDefinition, target: BattleCreature, rul
     : effectiveness === 'fixed' ? `${move.fixedDamage} HP` : `${effectiveness === 'super' ? '↑' : effectiveness === 'resisted' ? '↓' : '●'} ${matchupMultiplierLabel(matchup.multiplier!)}`;
   return {
     name: move.name, typeIcon: MOVE_TYPE_ICONS[move.type], typeLabel: battleTypeLabel(move.type), categoryIcon, categoryLabel,
-    powerLabel, accuracyLabel, ppLabel, effectivenessLabel, effectivenessShort, effectiveness, supportEffect,
-    accessibleLabel: `${move.name}, ${battleTypeLabel(move.type)}, ${categoryLabel}, ${effectivenessLabel}, ${supportEffect ? `${supportEffect}, ` : ''}${move.fixedDamage ? 'Danno' : 'Potenza'} ${powerLabel}, precisione ${accuracyLabel}, ${ppLabel}`,
+    powerLabel, accuracyLabel, ppLabel, effectivenessLabel, effectivenessShort, effectiveness, supportEffect, riskLabel,
+    accessibleLabel: `${move.name}, ${battleTypeLabel(move.type)}, ${categoryLabel}, ${effectivenessLabel}, ${supportEffect ? `${supportEffect}, ` : ''}${riskLabel ? `Contraccolpo: perdi HP pari al ${move.recoilPercent}% dei danni inflitti, ` : ''}${move.fixedDamage ? 'Danno' : 'Potenza'} ${powerLabel}, precisione ${accuracyLabel}, ${ppLabel}`,
   };
 }

@@ -62,3 +62,14 @@ test('all supported types have icons; the eighteenth icon does not add a Fairy c
   assert.ok(!BATTLE_TYPES.includes('fairy' as never));
   assert.equal(createMoveCard({ ...move, alwaysHits: true }, target, rules, 10).accuracyLabel, 'Non fallisce per precisione');
 });
+
+
+test('recoil is visible on a damaging move card and its accessible label; immunity removes the HP risk', () => {
+  const recoilMove: MoveDefinition = { ...move, type: 'normal', recoilPercent: 25 };
+  const card = createMoveCard(recoilMove, target, rules, 10);
+  assert.equal(card.riskLabel, '↩ Contraccolpo 25%');
+  assert.match(card.accessibleLabel, /perdi HP pari al 25% dei danni inflitti/);
+  const immune = createMoveCard(recoilMove, { ...target, types: ['ghost'] }, rules, 10);
+  assert.equal(immune.riskLabel, undefined);
+  assert.doesNotMatch(immune.accessibleLabel, /Contraccolpo/);
+});

@@ -236,3 +236,15 @@ Importatore growth separato, fonti e checksum locali, schema v2 e controllo offl
 ## Magneton — 0.3.111
 
 Abilitata Magnemite (#81) → Magneton (#82) al livello 30. La condizione semplice di livello è verificata nella catena PokéAPI locale 34 e nel riferimento evolutivo; entrambe le specie e l'artwork urbano del target erano già registrati. Vale lo stesso controllo delle altre evoluzioni: vittoria, effettivo aumento di livello e Pokémon ancora in vita. Soglia/sotto soglia, identità, HP/PP, cerimonia e persistenza sono verificati. Non abilita scambi, amicizia o altre condizioni mancanti.
+
+## Riduttore e contraccolpo — 0.3.112, rulesetv13
+
+Riduttore (Take Down, diversa da Sdoppiatore) proviene da `content/sources/pokeapi/move-take-down.json`: Normale, fisica,90potenza,85precisione,20PP, meta.drain=-25. L'importer abilita questo effetto negativo soltanto per la semantica di Riduttore verificata nella fonte; altri drain negativi non vengono convertiti implicitamente. Il catalogo mossev11 contiene79 mosse. Tutti i learnset HGSS registrati vengono confrontati con i rispettivi pokemon-*.json:12 specie imparano Riduttore, Bulbasaur/Ivysaur/Venusaur al15, Chinchou/Lanturn al23, Hoothoot25, Noctowl27, Swinub/Piloswine32, Seel/Dewgong37, Eevee43.
+
+MoveDefinition.recoilPercent è una percentuale dei danni realmente sottratti agli HP del bersaglio. Per Riduttore: floor(dannoEffettivo*25/100), minimo1HP quando ha inflitto danni; un overkill non usa il danno teorico eccedente. L'arrotondamento riprende il [riferimento di implementazione Gen4 di Pokémon Showdown](https://github.com/smogon/pokemon-showdown/blob/master/data/mods/gen4/scripts.ts#L171-L184). Il rapporto e i parametri della mossa restano quelli di PokéAPI. Importazioni future con frazioni diverse richiedono verifica delle loro semantiche: il campo non abilita automaticamente tutti gli effetti di contraccolpo ufficiali.
+
+Mancata, immunità, sonno e mancata esecuzione non infliggono contraccolpo. Gli eventi di danno e KO precedono l'assegnazione XP: chi va KO per il proprio contraccolpo non riceve XP né evolve; se entrambi gli ultimi membri vanno KO vale il pareggio già previsto dal prototipo. Un giocatore ancora in vita riceve la ricompensa prototipale se l'avversario va KO per contraccolpo, anche per la mossa d'emergenza. Nessuna condivisione XP aggiunta.
+
+La mossa d'emergenza mantiene la sua regola prototipale separata sul massimo HP: questa versione non la converte al calcolo di Riduttore. Non sono introdotte abilità, strumenti tenuti o altre eccezioni ancora assenti dal motore. Non viene dichiarata una simulazione HGSS completa.
+
+Il selettore mostra il rischio, mentre dettagli e Squadra/Pokédex spiegano percentuale, minimo e possibilità di KO. Il feedback usa recoilApplied, già animato per entrambe le parti. Snapshot HP/PP e salvataggi mantengono le conseguenze; prove portrait/landscape, evoluzioni e build offline in CI_STATUS.

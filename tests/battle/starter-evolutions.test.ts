@@ -39,7 +39,8 @@ for (const [fromId, toId, threshold] of [[81, 82, 30], [17, 18, 36], [43, 44, 21
     assert.equal(evolved.speciesId, toId);
     assert.equal(evolved.level, threshold);
     assert.equal(evolved.instanceId, injured.instanceId);
-    assert.equal(evolved.hp, evolved.stats.maxHp - 5);
+    const recoil = events.reduce((sum, event) => sum + (event.type === 'recoilApplied' && event.side === 'player' ? event.amount : 0), 0);
+    assert.equal(evolved.hp, evolved.stats.maxHp - 5 - recoil);
     assert.equal(evolved.moves[moveSlot].pp, injured.moves[moveSlot].pp - 1);
     assert.deepEqual(evolved.types, species[toId].types);
     assert.equal(events.filter(event => event.type === 'creatureEvolved').length, 1);

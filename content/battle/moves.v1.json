@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "status": "prototype",
   "source": {
     "provider": "PokeAPI",
@@ -1088,6 +1088,17 @@
       "accuracy": 90,
       "priority": 0,
       "maxPp": 10
+    },
+    "take-down": {
+      "id": "take-down",
+      "name": "Riduttore",
+      "type": "normal",
+      "category": "physical",
+      "power": 90,
+      "accuracy": 85,
+      "priority": 0,
+      "maxPp": 20,
+      "recoilPercent": 25
     }
   }
 }

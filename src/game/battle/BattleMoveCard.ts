@@ -33,7 +33,7 @@ export function drawBattleMoveCard(scene: Phaser.Scene, container: Phaser.GameOb
   text(x + 12, y + 58, `💥 ${card.powerLabel.replace(' HP fissi', ' HP')}`, 10, width * .31, tint);
   text(x + width * .37, y + 58, `🎯 ${card.accuracyLabel}`, 10, width * .31, tint);
   text(x + width - 12, y + 58, card.ppLabel, 10, width * .31, tint).setOrigin(1, 0);
-  text(x + 12, y + 77, card.supportEffect ?? card.effectivenessLabel, 10, width - 24, card.effectiveness === 'immune' ? '#ffb6a4' : card.effectiveness === 'super' ? '#ffdc9b' : '#c7e9e3');
+  text(x + 12, y + 77, card.riskLabel ?? card.supportEffect ?? card.effectivenessLabel, 10, width - 24, card.effectiveness === 'immune' ? '#ffb6a4' : card.effectiveness === 'super' ? '#ffdc9b' : '#c7e9e3');
   const info = scene.add.zone(x + width - 44, y, 44, 44).setOrigin(0).setName('battle-move-details').setInteractive({ useHandCursor: true });
   info.setData({ moveName: card.name });
   info.on('pointerdown', (_pointer: unknown, _x: number, _y: number, event: Phaser.Types.Input.EventData) => { event.stopPropagation(); onDetails(); });
