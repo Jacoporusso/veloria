@@ -2733,6 +2733,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 90,
+          "name": "NPC footprint forest_ranger_ada",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 416,
+          "y": 320,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "forest_ranger_ada"
+            }
+          ]
         }
       ]
     },
@@ -3973,7 +3991,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 90,
+  "nextobjectid": 91,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

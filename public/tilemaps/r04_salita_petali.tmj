@@ -6648,6 +6648,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 205,
+          "name": "Nila collision",
+          "type": "",
+          "x": 320,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "nila_r04"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -7704,7 +7722,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 205,
+  "nextobjectid": 206,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

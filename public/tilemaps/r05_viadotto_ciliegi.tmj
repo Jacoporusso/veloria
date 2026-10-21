@@ -5844,6 +5844,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 166,
+          "name": "NPC footprint oren_r05",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 576,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "oren_r05"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -6821,7 +6839,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 166,
+  "nextobjectid": 167,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

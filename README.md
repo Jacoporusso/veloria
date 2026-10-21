@@ -1,6 +1,6 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.109:** curve XP ufficiali per tutte79 specie e nuovi playtest naturali fino alla prima medaglia/Radicelmo.31 allenatori, evoluzioni con artwork offline, carte mosse e barra azioni. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.110:** collisioni dei personaggi e playtest naturale fino alla seconda medaglia con Charmander. Curve XP ufficiali per tutte le 79 specie. Stato effettivo della pubblicazione e verifiche in [CI_STATUS](docs/CI_STATUS.md).
 
 **Data:** 21 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 

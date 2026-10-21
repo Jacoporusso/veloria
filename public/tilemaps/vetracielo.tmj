@@ -5363,6 +5363,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 217,
+          "name": "NPC footprint vetracielo_lea",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 704,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "vetracielo_lea"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -6261,7 +6279,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 217,
+  "nextobjectid": 218,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

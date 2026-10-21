@@ -5788,6 +5788,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 187,
+          "name": "NPC footprint petalora_ivo",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 608,
+          "y": 256,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "petalora_ivo"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -6761,7 +6779,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 187,
+  "nextobjectid": 188,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

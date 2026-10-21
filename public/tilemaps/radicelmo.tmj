@@ -2853,6 +2853,24 @@
           "height": 32,
           "rotation": 0,
           "visible": true
+        },
+        {
+          "id": 36,
+          "name": "NPC footprint radicelmo_keeper",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 800,
+          "y": 352,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "radicelmo_keeper"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -3633,7 +3651,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 36,
+  "nextobjectid": 37,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

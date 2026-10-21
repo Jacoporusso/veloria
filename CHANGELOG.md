@@ -1,3 +1,9 @@
+## 0.3.110 — Personaggi solidi e prova fino a Dalia (21/10/2026)
+
+- Collisioni esplicite per 14 NPC: non si attraversano più Ada, Nila e gli altri personaggi interessati. Test geometrici su tutte le mappe con cancelli chiusi/aperti preservano percorsi e accesso alle interazioni.
+- Estesa la prova naturale dal nuovo allenatore alla seconda medaglia, passando per Nila, Centro Pokémon, allenamento selvatico e acquisti con monete guadagnate. Salvataggio e ripresa verificati; altri starter e campagna completa restano da verificare.
+- Cache PWA v131. Evidenze e stato di pubblicazione in docs/CI_STATUS.md.
+
 ## 0.3.109 — Curve XP ufficiali per specie (21/10/2026)
 
 - Tutte79 specie usano la propria categoria di crescita PokéAPI: quattro tabelle locali con le soglie dei livelli1–100, fonti e checksum riproducibili senza rete. Eliminata la curva unica provvisoria dal catalogo runtime.

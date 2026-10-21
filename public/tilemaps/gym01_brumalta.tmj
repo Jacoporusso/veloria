@@ -2311,6 +2311,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 50,
+          "name": "NPC footprint mira",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 448,
+          "y": 64,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "mira"
+            }
+          ]
         }
       ]
     },
@@ -2908,7 +2926,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 50,
+  "nextobjectid": 51,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

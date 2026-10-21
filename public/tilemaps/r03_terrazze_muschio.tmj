@@ -2622,6 +2622,24 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 41,
+          "name": "NPC footprint r03_path_guide",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 192,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "r03_path_guide"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -3391,7 +3409,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 41,
+  "nextobjectid": 42,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

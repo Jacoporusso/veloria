@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { collectMapCollision } from '../../src/core/world/map-collision.ts';
 
 for (const [map, npc, x, y] of [
+  ['r04_salita_petali', 'nila_r04', 10, 16],
   ['r09_dune_salmastre', 'r09_noemi', 28, 9],
   ['r10_sentiero_canne', 'r10_bruno', 16, 13],
   ['r12_valle_vento', 'r12_ruben', 24, 7],

@@ -23,7 +23,9 @@ test('fresh trainer completes the prologue through real game controls', async ({
   const report: any[] = [];
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
-  const continueRadicelmo = process.env.PLAYTEST_CONTINUE_RADICELMO === '1';
+  const continuePetalora = process.env.PLAYTEST_CONTINUE_PETALORA === '1';
+  const continueRadicelmo = process.env.PLAYTEST_CONTINUE_RADICELMO === '1' || continuePetalora;
+  if (continuePetalora) test.setTimeout(1_200_000);
   const gym = JSON.parse(await readFile(new URL('../../content/trainers/gym01_mira.trainer.json', import.meta.url), 'utf8'));
   const preparationLevel = Math.max(...gym.team.map((member: { level: number }) => member.level));
   const observedBattles = new Set<string>();
@@ -246,11 +248,70 @@ test('fresh trainer completes the prologue through real game controls', async ({
       expect((await observe(page)).save.flags).toContain('q_radicelmo_seed_archived');
       expect((await observe(page)).mapId).toBe('veloria/radicelmo');
     }
+    if (continuePetalora) {
+      const dalia = JSON.parse(await readFile(new URL('../../content/trainers/gym02_dalia.trainer.json', import.meta.url), 'utf8'));
+      const targetLevel = Math.max(...dalia.team.map((member: { level: number }) => member.level));
+      async function restInPetalora() {
+        await interact(10, 7);
+        await page.getByRole('button', { name: 'RIPOSA', exact: true }).click(); await settle();
+        expect((await observe(page)).save.party.every((member: any) => member.hp === member.maxHp && !member.status)).toBe(true);
+      }
+      await walk(18, 0);
+      expect((await observe(page)).mapId).toBe('veloria/r04_salita_petali');
+      await challenge(10, 16, 'Nila battle completed naturally');
+      expect((await observe(page)).save.flags).toContain('trainer_r04_nila_defeated');
+      await walk(30, 0);
+      expect((await observe(page)).mapId).toBe('veloria/petalora');
+      await record('Petalora reached naturally');
+      await restInPetalora();
+      await walk(18, 27);
+      await walk(35, 18);
+      const trainingStart = observedBattles.size;
+      for (let step = 0; step < 280 && (await observe(page)).save.party[0].level < targetLevel; step++) {
+        await walk(35, step % 2 === 0 ? 19 : 18);
+        const lead = (await observe(page)).save.party[0];
+        if (lead.hp < lead.maxHp / 2 || lead.moves.every((move: any) => move.pp === 0)) {
+          await walk(30, 0); await restInPetalora();
+          await walk(18, 27); await walk(35, 18);
+        }
+      }
+      expect((await observe(page)).save.party[0].level, 'Dalia preparation requires genuinely earned XP').toBeGreaterThanOrEqual(targetLevel);
+      report.push({ label: 'Petalora training encounters', battles: observedBattles.size - trainingStart, targetLevel });
+      await record('Natural preparation before Dalia');
+      await walk(30, 0); await restInPetalora();
+      for (let purchase = 0; purchase < 3; purchase++) {
+        const save = (await observe(page)).save;
+        if ((save.inventory.potion ?? 0) >= 3 || save.player.money < 200) break;
+        await interact(27, 7);
+        await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+      }
+      await record('Supplies purchased before Dalia');
+      await walk(18, 0);
+      expect((await observe(page)).mapId).toBe('veloria/gym02_petalora');
+      for (const [x, y, flag] of [[5, 21, 'gym02_water_source_open'], [6, 15, 'gym02_water_west_open'], [20, 10, 'gym02_water_east_open'], [13, 6, 'gym02_irrigation_solved']] as const) {
+        await interact(x, y);
+        expect((await observe(page)).save.flags).toContain(flag);
+      }
+      await challenge(13, 3, 'Dalia battle completed naturally');
+      const secondMedal = (await observe(page)).save;
+      expect(secondMedal.flags).toContain('badge_corolla_awarded');
+      expect(secondMedal.badges).toContain('badge_corolla');
+      await page.screenshot({ path: testInfo.outputPath('natural-second-medal.png') });
+      await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+      await page.getByRole('button', { name: 'Salva e torna al titolo' }).click();
+      await page.getByRole('button', { name: 'Continua partita' }).click();
+      await expect.poll(async () => Boolean(await observe(page))).toBe(true);
+      expect((await observe(page)).save.party).toEqual(secondMedal.party);
+      expect((await observe(page)).save.badges).toEqual(secondMedal.badges);
+      expect((await observe(page)).save.player.money).toBe(secondMedal.player.money);
+      expect((await observe(page)).save.inventory).toEqual(secondMedal.inventory);
+      await record('Second medal persists after title resume');
+    }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,continuePetalora,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

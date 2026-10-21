@@ -1,3 +1,11 @@
+## 0.3.110 — Seconda medaglia e collisioni NPC (21/10/2026)
+
+Partita naturale con Charmander completata fino a Dalia e ripresa dal titolo: 7,9 minuti di prova automatizzata, due medaglie, nessuna risorsa o progresso iniettato. Preparazione reale tramite Centro, habitat selvatici e negozio. Esito e limiti in [resoconto](playtests/2026-10-21-second-medal.md). Gli altri starter e la campagna successiva restano da verificare.
+
+14 collisioni NPC aggiunte nei TMJ; verifica geometrica su tutte le mappe, con cancelli chiusi/aperti, conserva le celle raggiungibili e l'approccio alle interazioni. 522 test dominio/persistenza passati; validatore, TypeScript e build produzione riusciti. Passate tutte le 14 prove browser di movimento e interazione (49,5 secondi). Pubblicazione della nuova versione ancora da confermare.
+
+La suite completa [Verify 39604036113](https://github.com/Jacoporusso/veloria/actions/runs/39604036113) della versione 0.3.109 è SUCCESS, senza job falliti.
+
 ## Pubblicazione 0.3.109 confermata — 21/10/2026
 
 Commit 6b57e82 su main. [Deploy 39604035772](https://github.com/Jacoporusso/veloria/actions/runs/39604035772) SUCCESS: test, validatore e build riusciti su Linux. Sito pubblico HTTPS 200 e cache `veloria-shell-v130` verificati dopo la pubblicazione. [Verify 39604036113](https://github.com/Jacoporusso/veloria/actions/runs/39604036113) in esecuzione al controllo finale; un secondo evento push dello stesso commit ha generato il run 39604036498 ancora in attesa. Nessun esito verde complessivo dichiarato per la nuova versione prima della conclusione della suite.

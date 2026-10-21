@@ -2879,6 +2879,24 @@
               "value": "gym05_sluice_open"
             }
           ]
+        },
+        {
+          "id": 56,
+          "name": "NPC footprint nerea_gym",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 512,
+          "y": 96,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "npcCollisionFor",
+              "type": "string",
+              "value": "nerea_gym"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -3184,7 +3202,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 56,
+  "nextobjectid": 57,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",
