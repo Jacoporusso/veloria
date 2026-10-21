@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json' };
 
-type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner' | 'sparse-capture' | 'evolution' | 'move-learning' | 'leech-seed' | 'forced-player-switch' | 'forced-opponent-switch';
+type FixtureKind = 'super-effective' | 'immune' | 'gym-beginner' | 'sparse-capture' | 'evolution' | 'move-learning' | 'auto-learning' | 'leech-seed' | 'forced-player-switch' | 'forced-opponent-switch';
 
 test.afterEach(async ({page},info)=>{
   if(info.status===info.expectedStatus)return;
@@ -71,10 +71,10 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       ? { ...baseOpponent, hp: 1, experienceYield: 0 }
       : kind === 'evolution'
       ? { ...baseOpponent, level: 7, hp: 1, experienceYield: 218, stats: { ...baseOpponent.stats, speed: 1 } }
-      : kind === 'move-learning'
+      : ['move-learning', 'auto-learning'].includes(kind)
         ? { ...baseOpponent, hp: 1, experienceYield: 900, stats: { ...baseOpponent.stats, speed: 1 } }
       : baseOpponent;
-    const rules = kind === 'move-learning'
+    const rules = ['move-learning', 'auto-learning'].includes(kind)
       ? {
         ...veloriaBattleRules,
         levelUpMoves: {
@@ -722,4 +722,73 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 568, height: 320 }
     expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.getScene('battle').state))).toBe(resolved.state);
     expect(errors).toEqual([]);
   });
+}
+
+
+for (const size of [{width:320,height:568},{width:390,height:844},{width:844,height:390},{width:667,height:320}]) {
+  test(`learning compares five battle cards and inspects without replacing at ${size.width}x${size.height}`, async ({page}, info) => {
+    await page.setViewportSize(size);
+    const errors = await mountBattle(page, 'move-learning');
+    await chooseFirstMove(page); await advanceToMoveLearning(page);
+    const before = await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state));
+    const cards = await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.ui.list
+      .filter((item:any) => item.name === 'battle-move-use').map((item:any) => ({...item.getBounds(), name:item.getData('moveName'), card:item.getData('presentation')})));
+    expect(cards).toHaveLength(5);
+    for (const card of cards) {
+      expect(card.x).toBeGreaterThanOrEqual(0); expect(card.y).toBeGreaterThanOrEqual(0);
+      expect(card.x + card.width).toBeLessThanOrEqual(size.width); expect(card.y + card.height).toBeLessThanOrEqual(size.height - (size.width > size.height ? 12 : 60));
+      expect(card.card.typeLabel).toBeTruthy(); expect(card.card.ppLabel).toContain('PP');
+    }
+    await page.screenshot({path:info.outputPath('learning-comparison.png')});
+    await page.keyboard.press('ArrowDown',{delay:40});
+    await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.selectionIndex)).toBe(2);
+    for (const name of [moveRegistry.moves['quick-attack'].name, moveRegistry.moves.growl.name]) {
+      await tapLearningZone(page, 'battle-move-details', name);
+      await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('moveDetails');
+      const pages = await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.detailPageCount);
+      let text = '';
+      for (let index=0; index<pages; index++) {
+        text += await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.ui.list.find((item:any)=>item.name==='battle-move-description').text);
+        if(index+1<pages) await tapLearningZone(page,'move-details-page');
+      }
+      expect(text).toMatch(name === moveRegistry.moves.growl.name ? /Riduce Attacco/ : /Priorità/);
+      await tapLearningZone(page,'move-details-back');
+      await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('learning');
+      expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state))).toBe(before);
+      expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.selectionIndex)).toBe(2);
+    }
+    await tapLearningZone(page,'battle-move-use',moveRegistry.moves.tackle.name);
+    expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.state.player.creatures[0].moves[2].moveId)).toBe('quick-attack');
+    expect(errors).toEqual([]);
+  });
+}
+
+test('automatic learning shows the new battle card and keeps details read-only', async ({page}) => {
+  await mountBattle(page,'auto-learning'); await chooseFirstMove(page);
+  await holdBattleMessage(page);
+  for(let i=0;i<30;i++) {
+    const ready=await page.evaluate(() => { const s=(window as any).battleRulesFixture.scene.keys.battle; return s.learningEvent()?.type==='moveLearned' && s.ui.list.some((x:any)=>x.name==='battle-move-use'); });
+    if(ready)break;
+    await page.keyboard.press('Enter',{delay:40});
+    await page.waitForTimeout(100); await holdBattleMessage(page);
+  }
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.learningEvent()?.moveId)).toBe('quick-attack');
+  await page.keyboard.press('i',{delay:40});
+  await expect.poll(() => page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('moveDetails');
+  const before=await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state));
+  await tapLearningZone(page,'move-details-back');
+  expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.mode)).toBe('message');
+  expect(await page.evaluate(() => JSON.stringify((window as any).battleRulesFixture.scene.keys.battle.state))).toBe(before);
+  await page.keyboard.press('Enter',{delay:40});
+  expect(await page.evaluate(() => (window as any).battleRulesFixture.scene.keys.battle.eventLog.filter((e:any)=>e.type==='moveReplaced').length)).toBe(0);
+});
+
+async function tapLearningZone(page:Page,name:string,moveName?:string) {
+  const point=await page.evaluate(({name,moveName})=>{
+    const s=(window as any).battleRulesFixture.scene.keys.battle;
+    const z=s.ui.list.find((x:any)=>x.name===name && (!moveName || x.getData('moveName')===moveName));
+    if(!z)throw Error('Missing '+name+' '+moveName);
+    const b=z.getBounds(),r=s.game.canvas.getBoundingClientRect();return{x:r.x+b.centerX*s.scale.zoom,y:r.y+b.centerY*s.scale.zoom};
+  },{name,moveName});
+  await page.touchscreen.tap(point.x,point.y);
 }

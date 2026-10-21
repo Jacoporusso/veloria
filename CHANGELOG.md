@@ -1,3 +1,9 @@
+## 0.3.113 — Studiare le nuove mosse (21/10/2026)
+
+- Apprendimento con le stesse carte della lotta: tipo, categoria, potenza, precisione, PP ed effetti. Confronto della candidata con le mosse conosciute e dettaglio completo apribile tramite ⓘ.
+- Tornare dai dettagli conserva la selezione senza dimenticare mosse né consumare turni. Anche una mossa appresa in uno slot libero mostra la propria carta e attende Continua.
+- Nove prove browser passate, inclusi portrait320/390 e landscape844/667, navigazione touch/tastiera e sostituzione/rifiuto.537 prove dominio/persistenza, validatore e build passati. Cache PWA v134.
+
 ## 0.3.112 — Riduttore e contraccolpo (21/10/2026)
 
 - Importata Riduttore (Take Down) dai dati HGSS locali: Normale fisica, potenza90, precisione85,20PP e contraccolpo del25% dei danni effettivamente inflitti. Learnset ufficiali per12 specie, incluso Bulbasaur al15;79 mosse supportate,79 specie invariate.

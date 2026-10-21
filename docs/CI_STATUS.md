@@ -1,3 +1,7 @@
+## 0.3.113 — Apprendimento verificato localmente (21/10/2026)
+
+Confronto con le carte condivise della lotta e dettagli completi per candidata e mosse conosciute. Apprendimento automatico e scelta con quattro slot coperti; il ritorno dai dettagli preserva stato e selezione. Nove prove browser passate in40,6s: portrait320×568/390×844, landscape844×390/667×320, touch e tastiera, sostituzione/rifiuto e regressioni dettagli normali.537 prove dominio/persistenza, validatore e build produzione passati. Cachev134. Test con fixture browser; non attestano telefoni fisici o nuovo bilanciamento naturale. Pubblicazione e CI da confermare.
+
 ## Pubblicazione0.3.112 confermata — 21/10/2026
 
 Commit9878a22 su main. [Deploy39676474365](https://github.com/Jacoporusso/veloria/actions/runs/39676474365) SUCCESS: test, validatore e build Linux riusciti. Sito HTTPS200 e cache `veloria-shell-v133` verificati dopo il deploy. [Verify39676474294](https://github.com/Jacoporusso/veloria/actions/runs/39676474294) in coda al controllo; la suite completa della nuova versione resta da confermare.

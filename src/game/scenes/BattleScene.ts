@@ -107,6 +107,8 @@ export class BattleScene extends Phaser.Scene {
   private selectableButtons: SelectableButton[] = [];
   private moveSlotIndexes: number[] = [];
   private selectionIndex = 0;
+  private detailReturnMode: 'moves' | 'learning' | 'message' = 'moves';
+  private detailLearningSelection = 0;
   private detailMoveIndex = 0;
   private detailPage = 0;
   private detailPageCount = 1;
@@ -227,7 +229,11 @@ export class BattleScene extends Phaser.Scene {
 
   private back(): void {
     if (this.terminalPreparing) return;
-    if (this.mode === 'moveDetails') { this.mode = 'moves'; this.render(); return; }
+    if (this.mode === 'moveDetails') {
+      this.mode = this.detailReturnMode;
+      if (this.mode === 'learning') this.selectionIndex = this.detailLearningSelection;
+      this.render(this.mode === 'learning'); return;
+    }
     if (this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch) return;
     if (this.mode === 'menu') return;
     this.mode = 'menu';
@@ -261,6 +267,7 @@ export class BattleScene extends Phaser.Scene {
       this.onSpeciesSeen?.(opponent.speciesId);
     }
     if (this.mode === 'moveDetails') { this.drawMoveDetails(width, height); return; }
+    if (this.mode === 'learning' || this.mode === 'message' && this.learningEvent()?.type === 'moveLearned') { this.drawMoveLearningChoices(12, 10, width - 24); this.updateSelectionStyle(); return; }
     const arena = this.commandLayout.arena;
     const fieldWidth = arena.width, fieldHeight = arena.height;
     const size = Math.min(170, fieldWidth * .38, fieldHeight * .37);
@@ -399,10 +406,6 @@ export class BattleScene extends Phaser.Scene {
     const surface = this.add.graphics();
     this.gradientSurface(surface, deck.x, deck.y, deck.width, deck.height, 0, 0x204955, 0x142d40);
     this.ui.add(surface);
-    if (this.mode === 'learning') {
-      this.drawMoveLearningChoices(x, y, panelWidth);
-      return;
-    }
     if (this.mode === 'message') {
       if (this.terminalShown) {
         this.button(x + 8, y + 8, panelWidth - 16, 52, 'TORNA AL VIAGGIO', () => this.advanceMessage(), COLORS.yellow, true, 0, 0);
@@ -482,7 +485,7 @@ export class BattleScene extends Phaser.Scene {
       const paint = drawBattleMoveCard(this, this.ui,
         grid.card(index),
         card, this.typeColor(move.type), enabled, this.viewport.density, use,
-        () => { this.detailMoveIndex = index; this.detailPage = 0; this.mode = 'moveDetails'; this.render(); });
+        () => { this.detailReturnMode = 'moves'; this.detailMoveIndex = index; this.detailPage = 0; this.mode = 'moveDetails'; this.render(); });
       if (enabled && this.mode === 'moves') {
         this.moveSlotIndexes.push(index);
         this.selectableButtons.push({ row, column, callback: use, paint });
@@ -500,8 +503,16 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private openMoveDetails(): void {
-    if (this.mode !== 'moves' && this.mode !== 'menu') return;
-    this.detailMoveIndex = this.moveSlotIndexes[this.selectionIndex] ?? 0;
+    const learning = this.learningEvent();
+    if (learning && (this.mode === 'learning' || this.mode === 'message')) {
+      this.detailLearningSelection = this.selectionIndex;
+      this.detailReturnMode = this.mode;
+      this.detailMoveIndex = this.detailSlots().length - 1;
+    } else {
+      if (this.mode !== 'moves' && this.mode !== 'menu') return;
+      this.detailReturnMode = 'moves';
+      this.detailMoveIndex = this.moveSlotIndexes[this.selectionIndex] ?? 0;
+    }
     this.detailPage = 0;
     this.mode = 'moveDetails';
     this.render();
@@ -511,10 +522,12 @@ export class BattleScene extends Phaser.Scene {
   private drawMoveDetails(width: number, height: number): void {
     this.panel(10, 10, width - 20, height - 20, COLORS.panel, COLORS.line, 0.99);
     this.label(26, 24, 'MOSSE · STUDIA LA STRATEGIA', '#fff7df', 15);
-    const slots = this.activeCreature('player').moves;
+    const learningDetail = this.detailReturnMode !== 'moves' && this.learningEvent();
+    const learner = learningDetail ? this.creatureById('player', learningDetail.creatureId) : undefined;
+    const slots = this.detailSlots();
     const landscape = width > height && height < 520;
     const selectorWidth = landscape ? 190 : width - 52;
-    const columns = landscape ? 1 : 2;
+    const columns = landscape && !learningDetail ? 1 : 2;
     const itemWidth = (selectorWidth - 8 * (columns - 1)) / columns;
     slots.forEach((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
@@ -529,16 +542,16 @@ export class BattleScene extends Phaser.Scene {
     const slot = slots[this.detailMoveIndex];
     const move = this.moveCatalog[slot?.moveId ?? ''];
     const textX = landscape ? 240 : 26;
-    const textY = landscape ? 60 : 168;
+    const textY = landscape ? 60 : learningDetail ? 228 : 168;
     if (move && slot) {
       this.label(textX, textY, `${MOVE_TYPE_ICONS[move.type]} ${move.name}`, '#afffe3', 19);
       const target = this.activeCreature('opponent');
       const matchup = describeMoveMatchup(move, target, this.rules);
-      const forecast = this.moveForecast(move);
+      const forecast = learningDetail ? undefined : this.moveForecast(move);
       const category = move.category === 'status' ? 'Supporto' : move.category === 'physical' ? 'Fisica' : 'Speciale';
       const paragraphs = [
-        `CONTRO ${target.name.toLocaleUpperCase('it-IT')}\n${matchup.label}\n${matchup.explanation.join(' ')}`,
-        `${battleTypeLabel(move.type)} · ${category}\n${move.fixedDamage ? `Danno fisso: ${move.fixedDamage} HP` : `Potenza: ${move.power || '—'}`} · Precisione base: ${move.alwaysHits ? 'non verifica' : `${move.accuracy}%`}\nPrecisione attuale: ${this.moveAccuracyLabel(move)} · PP: ${slot.pp}/${move.maxPp}${forecast ? `\nDanno stimato: ${forecast.minimum}–${forecast.maximum} HP (non garantito)` : ''}`,
+        learningDetail ? `${this.detailMoveIndex === slots.length - 1 ? 'NUOVA MOSSA' : 'MOSSA CONOSCIUTA'} · ${learner?.name ?? 'Il tuo Pokémon'}\nStudia gli effetti prima di scegliere quale mossa dimenticare.` : `CONTRO ${target.name.toLocaleUpperCase('it-IT')}\n${matchup.label}\n${matchup.explanation.join(' ')}`,
+        `${battleTypeLabel(move.type)} · ${category}\n${move.fixedDamage ? `Danno fisso: ${move.fixedDamage} HP` : `Potenza: ${move.power || '—'}`} · Precisione base: ${move.alwaysHits ? 'non verifica' : `${move.accuracy}%`}\n${learningDetail ? 'Precisione base' : 'Precisione attuale'}: ${learningDetail ? (move.alwaysHits ? 'sempre' : `${move.accuracy}%`) : this.moveAccuracyLabel(move)} · PP: ${slot.pp}/${move.maxPp}${forecast ? `\nDanno stimato: ${forecast.minimum}–${forecast.maximum} HP (non garantito)` : ''}`,
         ...describeMoveEffects(move),
       ];
       // Measure actual wrapped text before paging; no effect or probability is cut off on short screens.
@@ -567,7 +580,7 @@ export class BattleScene extends Phaser.Scene {
       });
       description.setName('battle-move-description');
       this.ui.add(description);
-      this.button(landscape ? textX : 26, height - 116, landscape ? width - textX - 26 : width - 52, 44, `USA ${move.name}`, () => this.act({ kind: 'useMove', moveSlot: this.detailMoveIndex }), this.typeColor(move.type), slot.pp > 0);
+      this.button(landscape ? textX : 26, height - 116, landscape ? width - textX - 26 : width - 52, 44, learningDetail ? 'TORNA AL CONFRONTO' : `USA ${move.name}`, learningDetail ? () => this.back() : () => this.act({ kind: 'useMove', moveSlot: this.detailMoveIndex }), this.typeColor(move.type), Boolean(learningDetail) || slot.pp > 0);
       if (pages.length > 1) {
         const pageTarget = this.add.zone(textX, height - 62, 140, 44).setOrigin(0).setInteractive({ useHandCursor: true });
         pageTarget.setName('move-details-page');
@@ -606,22 +619,59 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private drawMoveLearningChoices(x: number, y: number, width: number): void {
-    const learning = this.pendingMoveLearning;
+    const learning = this.learningEvent();
     const creature = learning ? this.creatureById('player', learning.creatureId) : undefined;
     if (!learning || !creature) {
       this.drawGridButtons(x, y, width, [{ label: 'Continua', enabled: true, callback: () => this.finishMoveLearning() }], 1, 1);
       return;
     }
-    const options = creature.moves.map((slot, slotIndex) => {
+    const candidate = this.moveCatalog[learning.moveId];
+    if (!candidate) return;
+    const automatic = learning.type === 'moveLearned';
+    const knownMoves = automatic ? creature.moves.filter(slot => slot.moveId !== learning.moveId) : creature.moves;
+    const height = this.viewport.height;
+    const landscape = this.viewport.width > height;
+    this.rect(0, 0, this.viewport.width, height, COLORS.panel);
+    this.label(20, 18, `${creature.name} ${automatic ? 'ha imparato' : 'può imparare'} ${candidate.name}`, '#afffe3', 16).setWordWrapWidth(this.viewport.width - 40);
+    const leftWidth = landscape ? Math.min(300, Math.floor(this.viewport.width * .36)) : width;
+    const knownX = landscape ? leftWidth + 24 : x;
+    const knownWidth = landscape ? this.viewport.width - knownX - 12 : width;
+    const knownY = landscape ? 84 : 225;
+    this.label(x + 4, 64, 'NUOVA MOSSA · ⓘ PER STUDIARLA', COLORS.muted, 10);
+    this.label(knownX + 4, landscape ? 64 : 205, automatic ? 'LE ALTRE MOSSE · ⓘ DETTAGLI' : 'SCEGLI LA MOSSA DA DIMENTICARE', COLORS.muted, 10);
+    const openDetails = (index: number) => {
+      this.detailLearningSelection = this.selectionIndex;
+      this.detailReturnMode = automatic ? 'message' : 'learning'; this.detailMoveIndex = index;
+      this.detailPage = 0; this.mode = 'moveDetails'; this.render();
+    };
+    knownMoves.forEach((slot, index) => {
       const move = this.moveCatalog[slot.moveId];
-      return {
-        label: `${move?.name ?? slot.moveId}\n${move ? `${battleTypeLabel(move.type)} · ` : ''}PP ${slot.pp}${move ? `/${move.maxPp}` : ''}`,
-        enabled: true,
-        callback: () => this.resolveMoveLearning(slotIndex),
-      };
+      if (!move) return;
+      const bounds = { x: knownX + index % 2 * (knownWidth + 8) / 2, y: knownY + Math.floor(index / 2) * 108,
+        width: (knownWidth - 8) / 2, height: 100 };
+      const choose = automatic ? () => openDetails(index) : () => this.resolveMoveLearning(index);
+      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp);
+      const paint = drawBattleMoveCard(this, this.ui, bounds, card, this.typeColor(move.type), true, this.viewport.density, choose, () => openDetails(index));
+      this.selectableButtons.push({ row: 1 + Math.floor(index / 2), column: index % 2, callback: choose, paint });
     });
-    options.push({ label: 'Tieni le mosse', enabled: true, callback: () => this.resolveMoveLearning(null) });
-    this.drawGridButtons(x, y, width, options, 2, 3);
+    this.button(x, height - 60, landscape ? leftWidth : this.viewport.width - 24, 44, automatic ? 'Continua' : 'Tieni le mosse', automatic ? () => this.advanceMessage() : () => this.resolveMoveLearning(null), COLORS.blue, true, 3, 0);
+    const card = createMoveCard(candidate, this.activeCreature('opponent'), this.rules, candidate.maxPp);
+    const paint = drawBattleMoveCard(this, this.ui, { x, y: 84, width: leftWidth, height: 100 }, card,
+      this.typeColor(candidate.type), true, this.viewport.density, () => openDetails(knownMoves.length), () => openDetails(knownMoves.length));
+    this.selectableButtons.push({ row: 0, column: 0, callback: () => openDetails(knownMoves.length), paint });
+  }
+
+  private learningEvent(): Extract<BattleEvent, { type: 'moveLearned' | 'moveLearningSkipped' }> | undefined {
+    const event = this.pendingMessages[0]?.event;
+    return this.pendingMoveLearning ?? (event?.type === 'moveLearned' && event.side === 'player' ? event : undefined);
+  }
+
+  private detailSlots(): readonly { moveId: string; pp: number }[] {
+    const learning = this.detailReturnMode !== 'moves' ? this.learningEvent() : undefined;
+    const creature = learning ? this.creatureById('player', learning.creatureId) : undefined;
+    if (!learning || !creature) return this.activeCreature('player').moves;
+    const known = learning.type === 'moveLearned' ? creature.moves.filter(slot => slot.moveId !== learning.moveId) : creature.moves;
+    return [...known, { moveId: learning.moveId, pp: this.moveCatalog[learning.moveId]?.maxPp ?? 0 }];
   }
 
   private drawTurnResolution(x: number, y: number, width: number): void {
@@ -755,7 +805,7 @@ export class BattleScene extends Phaser.Scene {
   private navigate(rowDelta: number, columnDelta: number): void {
     if (this.terminalPreparing) return;
     if (this.mode === 'moveDetails') {
-      const count = this.activeCreature('player').moves.length;
+      const count = this.detailSlots().length;
       this.detailMoveIndex = (this.detailMoveIndex + rowDelta + columnDelta + count) % count;
       this.detailPage = 0;
       this.render();
@@ -936,6 +986,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private advanceMessage(event?: KeyboardEvent): void {
+    this.detailReturnMode = 'moves';
     if (this.terminalPreparing) return;
     this.messageTimer?.remove(false);
     this.messageTimer = undefined;
@@ -1004,6 +1055,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private finishMoveLearning(): void {
+    this.detailReturnMode = 'moves';
     this.mode = 'message';
     this.openNextMoveLearningIfNeeded();
     if (this.pendingMoveLearning) {
@@ -1083,7 +1135,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private scheduleMessageAdvance(): void {
-    if (this.mode !== 'message' || this.terminalShown || this.pendingMessages[0]?.event?.type === 'moveLearningSkipped') return;
+    if (this.mode !== 'message' || this.terminalShown || ['moveLearningSkipped', 'moveLearned'].includes(this.pendingMessages[0]?.event?.type ?? '')) return;
     this.messageTimer?.remove(false);
     const duration = this.pendingMessages[0]?.event?.type === 'captureAttempted' && !this.reducedAnimations ? 1250 : 720;
     this.messageTimer = this.time.delayedCall(duration, () => {
