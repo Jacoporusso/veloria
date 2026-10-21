@@ -1,3 +1,7 @@
+## Pubblicazione 0.3.105 confermata — 21/10/2026
+
+Commit4141abb su main. [Deploy39579019669](https://github.com/Jacoporusso/veloria/actions/runs/39579019669) SUCCESS: test, validatore e build riusciti su Linux. HTTPS200, cachev126 e bundle pubblico con nuove carte/tab verificati. [Verify39579019618](https://github.com/Jacoporusso/veloria/actions/runs/39579019618) ancora in corso al controllo finale; suite completa non attestata verde.
+
 ## 0.3.105 — layout lotta verificato localmente (21/10/2026)
 
 Nuove carte e navigazione dal mockup approvato. TypeScript, build produzione, validatore e497 test dominio/persistenza passati. Passate37 prove browser di lotta/presentazione/catture/pietre; ulteriori9 verifiche mirate includono landscape568×320 e tutti78 dettagli del catalogo. Altre2 prove verificano info a zeroPP, fuga annullata senza turno, Uso dai dettagli con un solo consumoPP e navigazione disabilitata durante l’azione. Molte prove della seconda selezione sono ripetizioni mirate dopo le correzioni, non48 casi distinti. Il test delle schede esclude qualsiasi previsione e richiede il danno stimato nei soli dettagli. Nessuna modifica alle regole o ai salvataggi.
