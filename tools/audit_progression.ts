@@ -66,8 +66,8 @@ const stages = [
   ['trainer_aster_gym03', ['trainer_r05_oren'], 'r05_cherry_viaduct'],
   ['trainer_rhea_gym04', ['trainer_r06_iris'], 'r06_magnetic_patch'],
   ['trainer_nerea_gym05', ['trainer_r07_dario', 'trainer_r08_viola'], 'r08_coastal_grass'],
-  ['trainer_selene_gym06', ['trainer_r09_lina', 'trainer_delta_teo', 'trainer_r10_maya', 'trainer_r11_celia'], 'r10_reed_patch'],
-  ['trainer_nives_gym07', [], 'r13_snow_patch'],
+  ['trainer_selene_gym06', ['trainer_r09_lina', 'trainer_delta_teo', 'trainer_r10_maya', 'trainer_r11_celia', 'trainer_r09_noemi', 'trainer_r10_bruno'], 'r10_reed_patch'],
+  ['trainer_nives_gym07', ['trainer_r12_ruben', 'trainer_r13_alma'], 'r13_snow_patch'],
   ['trainer_aurel_gym08', ['trainer_r15_nilo'], 'r15_garden_patch'],
   ['trainer_league_council1', ['trainer_r16_maia', 'trainer_r16_tobia'], 'r16_garden_patch'],
 ] as const;

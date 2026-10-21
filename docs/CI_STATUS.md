@@ -1,3 +1,9 @@
+## 0.3.108 — Allenamenti costieri e montani verificati (21/10/2026)
+
+Passati513 test dominio/persistenza, TypeScript e validatore (48 mappe,53 missioni,31 allenatori,79 specie,320 asset). Quattro prove browser in1,9min: rifiuto, lotta touch, premio unico, reload e uscita percorribile per Noemi/Bruno/Ruben/Alma. Quattro test geometrici controllano entrambi gli spawn, approccio e aggiramento dei personaggi senza habitat o uscite intermedie. Noemi verificata anche senza rete sulla build produzione: dati dei quattro nuovi NPC, lotta, premio persistente, reload e ritorno al Delta (11,9s;25,3s con build).
+
+Budget XP aggiornato nel resoconto21/10: miglioramento misurato, bilanciamento naturale ancora aperto. Nessuna condivisione XP, moltiplicatore o mossa sostitutiva introdotti. Cachev129; deploy da confermare. La CI39597338393 del codice0.3.107 è ancora in esecuzione, senza job falliti all’ultimo controllo. I soli commit che aggiornano esclusivamente questa ricevuta CI_STATUS non avviano più deploy/verifiche duplicate; modifiche al gioco, dati, test o workflow continuano ad avviarli.
+
 ## Pubblicazione 0.3.107 confermata — 21/10/2026
 
 Commit068711e su main. [Deploy39597092439](https://github.com/Jacoporusso/veloria/actions/runs/39597092439) SUCCESS: test, validazione e build riusciti su Linux. Sito HTTPS200, cache `veloria-shell-v128` e artwork Pidgeot200 verificati dopo il deploy. [Verify39597092448](https://github.com/Jacoporusso/veloria/actions/runs/39597092448) in attesa al controllo finale; suite completa non ancora attestata verde.

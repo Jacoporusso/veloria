@@ -1,0 +1,159 @@
+{
+  "contentVersion": "veloria-content-0.3.108",
+  "ruleset": "veloria-battle-prototype-v11",
+  "assumptions": [
+    "All optional trainers defeated once before the next boss; current boss XP excluded.",
+    "Starts at level 5 with zero residual XP; cubic prototype curve for all species.",
+    "Perfect victories and freely assignable XP are optimistic; runtime rewards only the KO recipient.",
+    "Wild KO estimate uses the BEST current habitat time band at its actual weighted levels.",
+    "Late habitat yields applied to the entire deficit: lower-bound budget, not a reachable itinerary.",
+    "Capturing higher-level party members, battle outcomes, healing, PP and travel are not simulated.",
+    "Three-member target is a diagnostic scenario, not an assertion that all three start at level 5."
+  ],
+  "stages": [
+    {
+      "boss": "veloria/trainer_mira_gym01",
+      "targetLevel": 7,
+      "optionalTrainerXp": 122,
+      "cumulativeTrainerXpBeforeBoss": 122,
+      "optimisticSoloLevelFromTrainers": 6,
+      "optimisticThreeMemberLevelFromTrainers": 5,
+      "habitat": "d01_woodland",
+      "expectedWildXpByTime": {
+        "morning": 39.40833333333333,
+        "day": 46.90833333333333,
+        "night": 33.075
+      },
+      "extraWildKosForSoloTarget": 3,
+      "extraWildKosForThreeTargets": 12
+    },
+    {
+      "boss": "veloria/trainer_dalia_gym02",
+      "targetLevel": 12,
+      "optionalTrainerXp": 216,
+      "cumulativeTrainerXpBeforeBoss": 510,
+      "optimisticSoloLevelFromTrainers": 8,
+      "optimisticThreeMemberLevelFromTrainers": 6,
+      "habitat": "r04_petal_ascent",
+      "expectedWildXpByTime": {
+        "morning": 89,
+        "day": 87.2,
+        "night": 76.9
+      },
+      "extraWildKosForSoloTarget": 13,
+      "extraWildKosForThreeTargets": 49
+    },
+    {
+      "boss": "veloria/trainer_aster_gym03",
+      "targetLevel": 16,
+      "optionalTrainerXp": 354,
+      "cumulativeTrainerXpBeforeBoss": 1297,
+      "optimisticSoloLevelFromTrainers": 11,
+      "optimisticThreeMemberLevelFromTrainers": 8,
+      "habitat": "r05_cherry_viaduct",
+      "expectedWildXpByTime": {
+        "morning": 99.05,
+        "day": 99.05,
+        "night": 86.56666666666666
+      },
+      "extraWildKosForSoloTarget": 27,
+      "extraWildKosForThreeTargets": 108
+    },
+    {
+      "boss": "veloria/trainer_rhea_gym04",
+      "targetLevel": 20,
+      "optionalTrainerXp": 402,
+      "cumulativeTrainerXpBeforeBoss": 2159,
+      "optimisticSoloLevelFromTrainers": 13,
+      "optimisticThreeMemberLevelFromTrainers": 9,
+      "habitat": "r06_magnetic_patch",
+      "expectedWildXpByTime": {
+        "morning": 135.55,
+        "day": 135.55,
+        "night": 133.3
+      },
+      "extraWildKosForSoloTarget": 43,
+      "extraWildKosForThreeTargets": 159
+    },
+    {
+      "boss": "veloria/trainer_nerea_gym05",
+      "targetLevel": 26,
+      "optionalTrainerXp": 1784,
+      "cumulativeTrainerXpBeforeBoss": 5796,
+      "optimisticSoloLevelFromTrainers": 18,
+      "optimisticThreeMemberLevelFromTrainers": 12,
+      "habitat": "r08_coastal_grass",
+      "expectedWildXpByTime": {
+        "day": 197.8,
+        "morning": 197.925,
+        "night": 197.925
+      },
+      "extraWildKosForSoloTarget": 59,
+      "extraWildKosForThreeTargets": 236
+    },
+    {
+      "boss": "veloria/trainer_selene_gym06",
+      "targetLevel": 35,
+      "optionalTrainerXp": 8641,
+      "cumulativeTrainerXpBeforeBoss": 16150,
+      "optimisticSoloLevelFromTrainers": 25,
+      "optimisticThreeMemberLevelFromTrainers": 17,
+      "habitat": "r10_reed_patch",
+      "expectedWildXpByTime": {
+        "morning": 258.11,
+        "day": 268.89,
+        "night": 251.47
+      },
+      "extraWildKosForSoloTarget": 99,
+      "extraWildKosForThreeTargets": 417
+    },
+    {
+      "boss": "veloria/trainer_nives_gym07",
+      "targetLevel": 41,
+      "optionalTrainerXp": 5204,
+      "cumulativeTrainerXpBeforeBoss": 25481,
+      "optimisticSoloLevelFromTrainers": 29,
+      "optimisticThreeMemberLevelFromTrainers": 20,
+      "habitat": "r13_snow_patch",
+      "expectedWildXpByTime": {
+        "morning": 388.95,
+        "day": 388.95,
+        "night": 560.7
+      },
+      "extraWildKosForSoloTarget": 78,
+      "extraWildKosForThreeTargets": 323
+    },
+    {
+      "boss": "veloria/trainer_aurel_gym08",
+      "targetLevel": 46,
+      "optionalTrainerXp": 4942,
+      "cumulativeTrainerXpBeforeBoss": 34126,
+      "optimisticSoloLevelFromTrainers": 32,
+      "optimisticThreeMemberLevelFromTrainers": 22,
+      "habitat": "r15_garden_patch",
+      "expectedWildXpByTime": {
+        "morning": 652.75,
+        "day": 652.75,
+        "night": 652.75
+      },
+      "extraWildKosForSoloTarget": 97,
+      "extraWildKosForThreeTargets": 395
+    },
+    {
+      "boss": "veloria/trainer_league_council1",
+      "targetLevel": 50,
+      "optionalTrainerXp": 11788,
+      "cumulativeTrainerXpBeforeBoss": 52956,
+      "optimisticSoloLevelFromTrainers": 37,
+      "optimisticThreeMemberLevelFromTrainers": 26,
+      "habitat": "r16_garden_patch",
+      "expectedWildXpByTime": {
+        "morning": 967.47,
+        "day": 967.47,
+        "night": 967.47
+      },
+      "extraWildKosForSoloTarget": 75,
+      "extraWildKosForThreeTargets": 333
+    }
+  ]
+}

@@ -2060,5 +2060,69 @@
         ]
       }
     ]
+  },
+  "r09_noemi": {
+    "speaker": "Noemi",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r09_noemi_defeated",
+        "lines": [
+          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+        ]
+      },
+      {
+        "lines": [
+          "Acqua, Veleno ed Elettro richiedono risposte diverse: controlla i doppi tipi nelle schede delle mosse. Al Centro di Portolume puoi recuperare HP e PP."
+        ]
+      }
+    ]
+  },
+  "r10_bruno": {
+    "speaker": "Bruno",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r10_bruno_defeated",
+        "lines": [
+          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+        ]
+      },
+      {
+        "lines": [
+          "Una mossa di stato può cambiare il ritmo della lotta. Controlla precisione ed effetti nei dettagli; il Centro di Acquariva è vicino."
+        ]
+      }
+    ]
+  },
+  "r12_ruben": {
+    "speaker": "Ruben",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r12_ruben_defeated",
+        "lines": [
+          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+        ]
+      },
+      {
+        "lines": [
+          "Ghiaccio, Terra e Buio non hanno le stesse debolezze. Leggi i tipi di ogni avversario e prepara la squadra al Centro di Passobrina."
+        ]
+      }
+    ]
+  },
+  "r13_alma": {
+    "speaker": "Alma",
+    "stages": [
+      {
+        "whenFlagMissing": "trainer_r13_alma_defeated",
+        "lines": [
+          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+        ]
+      },
+      {
+        "lines": [
+          "Non tutti i Pokémon della neve sono soltanto Ghiaccio: Seel è Acqua, Jynx è Ghiaccio/Psico e Piloswine è Ghiaccio/Terra. Recupera HP e PP a Biancavetta prima della palestra."
+        ]
+      }
+    ]
   }
 }

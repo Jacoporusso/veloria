@@ -4229,6 +4229,18 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 1055,
+          "name": "Alma collision",
+          "x": 800,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "type": "",
+          "properties": []
         }
       ],
       "opacity": 1,
@@ -4241,7 +4253,56 @@
       "draworder": "topdown",
       "id": 5,
       "name": "characters",
-      "objects": [],
+      "objects": [
+        {
+          "id": 1054,
+          "name": "Alma",
+          "type": "",
+          "x": 800,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r13_alma"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r13_alma"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 5
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r13_alma"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r13_alma_defeated"
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4426,7 +4487,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1054,
+  "nextobjectid": 1056,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

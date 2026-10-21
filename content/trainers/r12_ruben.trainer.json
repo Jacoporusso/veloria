@@ -1,0 +1,43 @@
+{
+  "id": "veloria/trainer_r12_ruben",
+  "name": "Ruben",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r12_ruben_defeated",
+  "defeatQuestEvent": "battle/r12_ruben/defeated",
+  "rewardMoney": 1700,
+  "victoryMessage": "Hai vinto contro Ruben. Ricevi 1700 ₿.",
+  "victoryFeedback": "Ghiaccio, Terra e Buio non hanno le stesse debolezze. Leggi i tipi di ogni avversario e prepara la squadra al Centro di Passobrina.",
+  "team": [
+    {
+      "speciesId": 220,
+      "level": 36,
+      "moveIds": [
+        "powder-snow",
+        "mud-bomb",
+        "icy-wind",
+        "ice-shard"
+      ]
+    },
+    {
+      "speciesId": 215,
+      "level": 36,
+      "moveIds": [
+        "quick-attack",
+        "screech",
+        "feint-attack",
+        "icy-wind"
+      ]
+    },
+    {
+      "speciesId": 17,
+      "level": 37,
+      "moveIds": [
+        "gust",
+        "quick-attack",
+        "agility",
+        "wing-attack"
+      ]
+    }
+  ]
+}

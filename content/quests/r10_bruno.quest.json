@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r10_bruno",
+  "version": 1,
+  "displayName": "Allenamento con Bruno",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r10_bruno/defeated",
+      "setFlag": "q_r10_bruno_helped",
+      "requiresFlags": []
+    }
+  ],
+  "completionFlag": "q_r10_bruno_helped",
+  "reward": {}
+}

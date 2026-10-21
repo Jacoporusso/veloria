@@ -64,9 +64,12 @@
   "encounterTableIds": [
     "veloria/r12_wind_patch"
   ],
-  "npcRefs": [],
+  "npcRefs": [
+    "r12_ruben"
+  ],
   "scriptRefs": [
-    "veloria/q_passobrina_report"
+    "veloria/q_passobrina_report",
+    "veloria/q_r12_ruben"
   ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-r12-wind-valley-v1"

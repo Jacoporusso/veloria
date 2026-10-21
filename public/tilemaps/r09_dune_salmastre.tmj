@@ -3999,6 +3999,18 @@
           "height": 32,
           "rotation": 0,
           "visible": true
+        },
+        {
+          "id": 64,
+          "name": "Noemi collision",
+          "x": 896,
+          "y": 288,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "type": "",
+          "properties": []
         }
       ],
       "opacity": 1,
@@ -4066,6 +4078,54 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Prima completa la prova di Nerea a Portolume."
+            }
+          ]
+        },
+        {
+          "id": 63,
+          "name": "Noemi",
+          "type": "",
+          "x": 896,
+          "y": 288,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r09_noemi"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r09_noemi"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r09_noemi"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r09_noemi_defeated"
             }
           ]
         }
@@ -4314,7 +4374,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 63,
+  "nextobjectid": 65,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -64,8 +64,12 @@
   "encounterTableIds": [
     "veloria/r13_snow_patch"
   ],
-  "npcRefs": [],
-  "scriptRefs": [],
+  "npcRefs": [
+    "r13_alma"
+  ],
+  "scriptRefs": [
+    "veloria/q_r13_alma"
+  ],
   "musicId": "ambient_brumalta",
   "battleBackgroundKey": "veloria-r13-white-switchbacks-v1"
 }

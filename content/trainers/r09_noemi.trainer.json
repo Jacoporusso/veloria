@@ -1,0 +1,41 @@
+{
+  "id": "veloria/trainer_r09_noemi",
+  "name": "Noemi",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r09_noemi_defeated",
+  "defeatQuestEvent": "battle/r09_noemi/defeated",
+  "rewardMoney": 1250,
+  "victoryMessage": "Hai vinto contro Noemi. Ricevi 1250 ₿.",
+  "victoryFeedback": "Acqua, Veleno ed Elettro richiedono risposte diverse: controlla i doppi tipi nelle schede delle mosse. Al Centro di Portolume puoi recuperare HP e PP.",
+  "team": [
+    {
+      "speciesId": 98,
+      "level": 28,
+      "moveIds": [
+        "vice-grip",
+        "bubble-beam",
+        "mud-shot"
+      ]
+    },
+    {
+      "speciesId": 72,
+      "level": 28,
+      "moveIds": [
+        "acid",
+        "bubble-beam",
+        "barrier"
+      ]
+    },
+    {
+      "speciesId": 170,
+      "level": 28,
+      "moveIds": [
+        "thunder-wave",
+        "water-gun",
+        "confuse-ray",
+        "spark"
+      ]
+    }
+  ]
+}

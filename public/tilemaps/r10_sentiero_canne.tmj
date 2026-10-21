@@ -4404,6 +4404,18 @@
           "height": 32,
           "rotation": 0,
           "visible": true
+        },
+        {
+          "id": 80,
+          "name": "Bruno collision",
+          "x": 512,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "type": "",
+          "properties": []
         }
       ],
       "opacity": 1,
@@ -4471,6 +4483,54 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Prima completa la prova di Nerea a Portolume."
+            }
+          ]
+        },
+        {
+          "id": 79,
+          "name": "Bruno",
+          "type": "",
+          "x": 512,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r10_bruno"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r10_bruno"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 4
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r10_bruno"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r10_bruno_defeated"
             }
           ]
         }
@@ -4766,7 +4826,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 79,
+  "nextobjectid": 81,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

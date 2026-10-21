@@ -1,0 +1,15 @@
+{
+  "id": "veloria/q_r13_alma",
+  "version": 1,
+  "displayName": "Allenamento con Alma",
+  "steps": [
+    {
+      "id": "trial",
+      "trigger": "battle/r13_alma/defeated",
+      "setFlag": "q_r13_alma_helped",
+      "requiresFlags": []
+    }
+  ],
+  "completionFlag": "q_r13_alma_helped",
+  "reward": {}
+}

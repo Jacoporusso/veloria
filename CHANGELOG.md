@@ -1,3 +1,9 @@
+## 0.3.108 — Allenamenti sulla costa e in montagna (21/10/2026)
+
+- Quattro sfide facoltative: Noemi nelle Dune Salmastre, Bruno nelle Canne, Ruben nella Valle del Vento e Alma sui Tornanti Bianchi. Squadre da tre membri con mosse ufficiali HGSS valide al livello indicato.
+- Diario, dialoghi e feedback strategico; rifiuto libero, premi unici e collisioni aggirabili. Nessun nuovo gate di percorso.
+- Misurato il miglioramento del budget XP, con limiti espliciti: il bilanciamento naturale resta aperto. Catalogo79 specie invariato;31 allenatori e53 missioni. Cache PWA v129.
+
 ## 0.3.107 — Sei evoluzioni dai sentieri (21/10/2026)
 
 - Pidgeotto→Pidgeot al36, Oddish→Gloom al21, Poliwag→Poliwhirl al25, Bellsprout→Weepinbell al21, Voltorb→Electrode al30 e Spinarak→Ariados al22. Condizioni ufficiali da fonti PokéAPI locali; nessuna modifica alle zone incontri.

@@ -1,0 +1,40 @@
+{
+  "id": "veloria/trainer_r10_bruno",
+  "name": "Bruno",
+  "version": 1,
+  "aiProfileId": "route_cautious",
+  "battleOnceFlag": "trainer_r10_bruno_defeated",
+  "defeatQuestEvent": "battle/r10_bruno/defeated",
+  "rewardMoney": 1450,
+  "victoryMessage": "Hai vinto contro Bruno. Ricevi 1450 ₿.",
+  "victoryFeedback": "Una mossa di stato può cambiare il ritmo della lotta. Controlla precisione ed effetti nei dettagli; il Centro di Acquariva è vicino.",
+  "team": [
+    {
+      "speciesId": 96,
+      "level": 31,
+      "moveIds": [
+        "confusion",
+        "meditate",
+        "psybeam"
+      ]
+    },
+    {
+      "speciesId": 133,
+      "level": 31,
+      "moveIds": [
+        "sand-attack",
+        "growl",
+        "quick-attack"
+      ]
+    },
+    {
+      "speciesId": 163,
+      "level": 31,
+      "moveIds": [
+        "hypnosis",
+        "peck",
+        "confusion"
+      ]
+    }
+  ]
+}

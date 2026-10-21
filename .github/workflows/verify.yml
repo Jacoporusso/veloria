@@ -3,6 +3,8 @@ name: Verify
 on:
   push:
     branches: [main]
+    # Deployment receipts do not change the game or its verification inputs.
+    paths-ignore: [docs/CI_STATUS.md]
   pull_request:
   workflow_dispatch:
 

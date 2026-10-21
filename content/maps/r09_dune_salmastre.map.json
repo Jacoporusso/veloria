@@ -75,9 +75,12 @@
     "veloria/r09_lagoon_fishing"
   ],
   "npcRefs": [
-    "r09_lina"
+    "r09_lina",
+    "r09_noemi"
   ],
-  "scriptRefs": [],
+  "scriptRefs": [
+    "veloria/q_r09_noemi"
+  ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-battle-forest-v1"
 }

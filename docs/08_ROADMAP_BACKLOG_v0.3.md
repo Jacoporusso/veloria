@@ -213,3 +213,7 @@ Il gate S6 dell'MVP e l'obiettivo dell'avventura completa restano aperti: né il
 Le fotografie storiche sopra conservano il contesto delle prime espansioni. Attualmente sono presenti48 mappe,49 missioni,27 allenatori,12 botteghe,73 specie e78 mosse supportate, otto Palestre e sequenza Lega con epilogo; sono funzionalità integrate, non una certificazione del bilanciamento naturale dell’intera avventura. Quattordici fondali iniziali sono stati ridisegnati e aggiunti ai34 fondali completi già presenti.
 
 La priorità corrente è chiudere la suite GitHub completa e verificare progressione naturale e dispositivi fisici. Il bug del sensore del Bosco senza briefing di Elia è corretto con regressioni in entrambi gli ordini e recupero senza azzerare il salvataggio. Restano QA iOS/Android reale, bilanciamento dall’inizio al finale e ampliamento del catalogo ufficiale (roster251 e mosse/effetti attualmente non supportati); nessuna dichiarazione di completamento di questi gate.
+
+## Aggiornamento 21/10/2026 — 0.3.108
+
+Catalogo79 specie dopo sei evoluzioni ufficiali;31 allenatori e53 missioni dopo Noemi/Bruno/Ruben/Alma, sfide facoltative costiere e montane. Budget XP e prove nel resoconto `playtests/2026-10-21-route-training.md`. La misura riduce il deficit ma non certifica crescita naturale o partita completa: restano aperti CI completa, QA fisico iOS/Android, bilanciamento dall’inizio al finale, roster251 e mosse/effetti mancanti. Non introdurre condivisione XP implicita per correggere il solo report.

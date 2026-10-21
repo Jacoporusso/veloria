@@ -69,9 +69,12 @@
     "veloria/r10_reed_patch"
   ],
   "npcRefs": [
-    "r10_maya"
+    "r10_maya",
+    "r10_bruno"
   ],
-  "scriptRefs": [],
+  "scriptRefs": [
+    "veloria/q_r10_bruno"
+  ],
   "musicId": "ambient_route02",
   "battleBackgroundKey": "veloria-r10-reeds-v1"
 }

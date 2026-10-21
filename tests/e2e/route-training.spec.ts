@@ -12,6 +12,10 @@ async function finishDialogue(page: Page) {
   await expect(page.locator('#dialogue-box')).toBeHidden();
 }
 for (const [map, key, name, x, y, reward, exitX, exitY, destination] of [
+  ['r09_dune_salmastre', 'r09_noemi', 'Noemi', 28, 9, 1250, 39, 17, 'd04_delta_specchi'],
+  ['r10_sentiero_canne', 'r10_bruno', 'Bruno', 16, 13, 1450, 39, 5, 'acquariva'],
+  ['r12_valle_vento', 'r12_ruben', 'Ruben', 24, 7, 1700, 39, 5, 'passobrina'],
+  ['r13_tornanti_bianchi', 'r13_alma', 'Alma', 25, 13, 1900, 39, 5, 'biancavetta'],
   ['r06_anello_magnetico', 'r06_iris', 'Iris', 21, 16, 650, 39, 24, 'ferraluce'],
   ['r07_condotto_risonante', 'r07_dario', 'Dario', 18, 18, 850, 39, 10, 'd03_centrale_risonante'],
   ['r08_costa_turbine', 'r08_viola', 'Viola', 20, 11, 1050, 39, 10, 'portolume'],
@@ -26,7 +30,7 @@ for (const [map, key, name, x, y, reward, exitX, exitY, destination] of [
     await page.goto('/'); await enterGame(page);
     const metadata = JSON.parse(await readFile(new URL(`../../content/maps/${map}.map.json`, import.meta.url), 'utf8'));
     const save = await readBrowserSave(page);
-    save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'badge_acciaio_awarded'])];
+    save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'badge_acciaio_awarded', 'badge_riflesso_awarded'])];
     save.player = { ...save.player, mapId: `veloria/${map}`, spawnPointId: metadata.spawns[0].id, x, y: y + 1, money: 2000 };
     // Strong, legal integration fixture; this does not attest naturally earned levels.
     const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any,

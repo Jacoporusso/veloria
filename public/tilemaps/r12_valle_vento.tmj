@@ -2697,6 +2697,18 @@
           "visible": true,
           "rotation": 0,
           "properties": []
+        },
+        {
+          "id": 1025,
+          "name": "Ruben collision",
+          "x": 768,
+          "y": 224,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "type": "",
+          "properties": []
         }
       ],
       "draworder": "topdown",
@@ -2709,7 +2721,56 @@
       "id": 4,
       "name": "characters",
       "type": "objectgroup",
-      "objects": [],
+      "objects": [
+        {
+          "id": 1024,
+          "name": "Ruben",
+          "type": "",
+          "x": 768,
+          "y": 224,
+          "width": 32,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "npc"
+            },
+            {
+              "name": "npcId",
+              "type": "string",
+              "value": "r12_ruben"
+            },
+            {
+              "name": "dialogueId",
+              "type": "string",
+              "value": "r12_ruben"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-npcs-v2"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "trainerId",
+              "type": "string",
+              "value": "veloria/trainer_r12_ruben"
+            },
+            {
+              "name": "battleOnceFlag",
+              "type": "string",
+              "value": "trainer_r12_ruben_defeated"
+            }
+          ]
+        }
+      ],
       "draworder": "topdown",
       "opacity": 1,
       "visible": true,
@@ -2944,7 +3005,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 1024,
+  "nextobjectid": 1026,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

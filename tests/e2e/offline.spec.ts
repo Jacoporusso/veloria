@@ -1093,3 +1093,46 @@ test('fourteen illustrated early-map environments decode on their first offline 
   expect(failures).toEqual([]);
   expect(errors).toEqual([]);
 });
+
+test('new dune training battle and reward persist offline', async ({ page, context }) => {
+  test.setTimeout(process.env.CI ? 240_000 : 150_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/r09_dune_salmastre', spawnPointId: 'from_portolume', x: 28, y: 10, money: 2000 };
+  const c = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 20, level: 80, instanceId: 'offline-noemi', moveIds: ['crunch'] });
+  save.party = [{ instanceId: c.instanceId, speciesId: 20, level: 80, experience: 0,
+    hp: c.hp, maxHp: c.stats.maxHp, moves: c.moves.map(m => ({ id: m.moveId, pp: m.pp })) }];
+  await seedBrowserSave(page, save);
+  const failures: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect(await page.evaluate(async () => Promise.all([
+    ['r09_dune_salmastre', 'r09_noemi'], ['r10_sentiero_canne', 'r10_bruno'],
+    ['r12_valle_vento', 'r12_ruben'], ['r13_tornanti_bianchi', 'r13_alma'],
+  ].map(async ([map, key]) => {
+    const r = await fetch(`/tilemaps/${map}.tmj`);
+    const tiled = await r.json();
+    return r.ok && tiled.layers.flatMap((l: any) => l.objects ?? []).some((o: any) =>
+      o.properties?.some((p: any) => p.name === 'trainerId' && p.value === `veloria/trainer_${key}`));
+  })))).toEqual([true, true, true, true]);
+  const a = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await a.tap();
+  for (let i = 0; i < 20 && !await page.getByRole('button', { name: 'SFIDA', exact: true }).isVisible(); i++) await a.tap();
+  await page.getByRole('button', { name: 'SFIDA', exact: true }).tap();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for (let input = 0; input < 400 && await page.locator('body').evaluate(b => b.classList.contains('battle-active')); input++) {
+    if (await page.locator('.battle-celebration').isVisible()) {
+      await page.getByRole('button', { name: 'Continua', exact: true }).tap(); break;
+    }
+    await page.keyboard.press('Enter'); await page.waitForTimeout(100);
+  }
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_r09_noemi_helped');
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player.money).toBe(3250);
+  await walkTo(page, 'r09_dune_salmastre.tmj', 39, 17);
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/d04_delta_specchi');
+  expect(failures).toEqual([]);
+});
