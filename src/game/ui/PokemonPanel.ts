@@ -22,13 +22,14 @@ function node<K extends keyof HTMLElementTagNameMap>(tag: K, text = '', classNam
   return result;
 }
 
-/** Read-only strategy browser: no team, combat or persistence mutations. */
+/** Strategy browser; team actions are delegated to the owner for persistence. */
 export class PokemonPanel {
   private readonly list = document.querySelector<HTMLOListElement>('#pokedex-list')!;
   private readonly title = document.querySelector<HTMLElement>('#pokedex-title')!;
   private readonly summary = document.querySelector<HTMLElement>('#pokedex-summary')!;
 
-  constructor(private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void) {}
+  constructor(private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void,
+    private readonly onMakeLeader?: (creatureId: string) => void) {}
 
   render(save: GameSave, view: 'team' | 'dex'): void {
     this.title.textContent = view === 'team' ? 'Squadra' : 'Pokédex';
@@ -38,7 +39,7 @@ export class PokemonPanel {
       ? `${save.party.length}/6 compagni · Seleziona un Pokémon per studiare statistiche e mosse.`
       : `${entries.filter(entry => entry.seen).length} viste · ${entries.filter(entry => entry.registered).length} catturate · ${entries.length} specie nel catalogo. Seleziona una specie per i dettagli.`;
     const rows = view === 'team'
-      ? save.party.map(creature => ({ speciesId: creature.speciesId, creature, label: `Lv.${creature.level} · HP ${creature.hp}/${creature.maxHp}` }))
+      ? save.party.map((creature, index) => ({ speciesId: creature.speciesId, creature, label: `${index === 0 ? 'IN TESTA · ' : ''}Lv.${creature.level} · HP ${creature.hp}/${creature.maxHp}` }))
       : entries.filter(entry => entry.seen).map(entry => ({ speciesId: entry.speciesId, creature: undefined, label: entry.registered ? 'CATTURATO' : 'VISTO' }));
     for (const row of rows) {
       const species = battleSpecies[row.speciesId];
@@ -64,6 +65,14 @@ export class PokemonPanel {
     hero.append(createCreaturePortrait(speciesId), node('h3', species.name), node('p', species.types.map(battleTypeLabel).join(' / ')));
     body.append(back, hero);
     if (creature) body.append(node('p', `Livello ${creature.level} · HP ${creature.hp}/${creature.maxHp}${creature.status ? ` · Stato: ${({ poison: 'Avvelenato', burn: 'Scottato', paralysis: 'Paralizzato', sleep: 'Addormentato', freeze: 'Congelato' })[creature.status.status]}` : ''}`));
+    if (view === 'team' && creature && this.onMakeLeader) {
+      const leading = save.party[0]?.instanceId === creature.instanceId;
+      const lead = node('button', leading ? '✓ Già in testa alla squadra' : '↑ Metti in testa', 'pokemon-back');
+      lead.type = 'button';
+      lead.disabled = leading;
+      lead.addEventListener('click', () => { lead.disabled = true; this.onMakeLeader?.(creature.instanceId); });
+      body.append(lead, node('p', 'Il primo Pokémon in grado di lottare entra all’inizio dell’incontro.', 'pokemon-note'));
+    }
     const evolutionSection = node('section', '', 'pokemon-evolution');
     evolutionSection.setAttribute('aria-label', 'Evoluzione');
     evolutionSection.append(node('h3', 'Evoluzione'));

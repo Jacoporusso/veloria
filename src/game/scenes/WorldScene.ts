@@ -18,6 +18,7 @@ import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { createUniqueId, saveGame, type GameSave } from '../../persistence/save-store';
 import { exportSave, importSave } from '../../persistence/save-backup';
+import { moveCreatureToFirstSlot } from '../../core/services/party-order.ts';
 import { getStarterName, selectStarter, starters } from '../../core/party/select-starter';
 import { applyQuestEvent } from '../../core/quests/apply-quest-event';
 import { questCatalog } from '../quests/catalog.ts';
@@ -425,7 +426,9 @@ export class WorldScene extends Phaser.Scene {
   private openPokedex(returnFocus: HTMLElement, view: 'team' | 'dex' = 'dex') {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
     if (!panel || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
-    new PokemonPanel((itemId, creatureId) => void this.openItemEvolution(itemId, creatureId)).render(this.save, view);
+    const browser = new PokemonPanel((itemId, creatureId) => void this.openItemEvolution(itemId, creatureId),
+      this.previewMode ? undefined : creatureId => void this.makePartyLeader(creatureId, browser));
+    browser.render(this.save, view);
     panel.hidden = false;
     this.pokedexOpen = true;
     this.pokedexReturnFocus = returnFocus.closest('.exploration-menu') ? document.querySelector<HTMLElement>('#menu-button') ?? returnFocus : returnFocus;
@@ -447,6 +450,22 @@ export class WorldScene extends Phaser.Scene {
     this.pokedexOpen = false;
     this.pokedexReturnFocus?.focus();
     this.pokedexReturnFocus = undefined;
+  }
+
+  private async makePartyLeader(creatureId: string, browser: PokemonPanel): Promise<void> {
+    if (this.battleActive || this.completionActive || !this.pokedexOpen) return;
+    const result = moveCreatureToFirstSlot(this.save, creatureId);
+    if (!result.ok) { browser.render(this.save, 'team'); return; }
+    this.save = result.save;
+    this.completionActive = true;
+    try {
+      if (!await ensureSavedProgress(() => this.persistProgress(), this.presentationAbort.signal)) return;
+      if (this.pokedexOpen) {
+        browser.render(this.save, 'team');
+        document.querySelector<HTMLButtonElement>('#pokedex-list button')?.focus();
+      }
+      this.showToast(`${battleSpecies[this.save.party[0].speciesId]?.name ?? 'Pokémon'} in testa alla squadra.`);
+    } finally { this.completionActive = false; }
   }
 
   private makePlayer() {

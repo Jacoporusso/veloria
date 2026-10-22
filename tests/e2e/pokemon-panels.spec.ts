@@ -1,4 +1,46 @@
 import { expect, test } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
+import { enterGame } from './helpers/enter-game';
+
+for (const [width, height] of [[390, 844], [844, 390]]) {
+  test(`team lead selection persists without changing earned creatures at ${width}x${height}`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    const backup = await readFile(new URL('../../docs/playtests/2026-10-22-natural-portolume-backup-charmander.json', import.meta.url), 'utf8');
+    await page.goto('/');
+    await expect(page.locator('.start-screen')).toBeVisible();
+    const before = await page.evaluate(async text => {
+      const { importSave } = await import('/src/persistence/save-backup.ts' as string);
+      const { saveGame } = await import('/src/persistence/save-store.ts' as string);
+      const save = importSave(text);
+      await saveGame(save);
+      return save;
+    }, backup);
+    await page.reload();
+    await enterGame(page);
+    await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+    await page.getByRole('button', { name: 'Apri la squadra' }).click();
+    const panel = page.getByRole('dialog', { name: 'Squadra', exact: true });
+    await panel.locator('.pokemon-select').nth(2).click();
+    await panel.getByRole('button', { name: '↑ Metti in testa', exact: true }).click();
+    await expect(panel.locator('.pokemon-select').first()).toContainText('Rattata');
+    await expect(panel.locator('.pokemon-select').first()).toContainText('IN TESTA');
+    await panel.locator('.pokemon-select').first().click();
+    await expect(panel.getByRole('button', { name: '✓ Già in testa alla squadra' })).toBeDisabled();
+    await page.reload();
+    await enterGame(page);
+    const after = await page.evaluate(async () => {
+      const { loadSave } = await import('/src/persistence/save-store.ts' as string);
+      return loadSave();
+    });
+    expect(after!.party).toEqual([before.party[2], before.party[0], before.party[1]]);
+    for (const key of ['storage', 'inventory', 'rngState', 'badges'] as const) expect(after![key]).toEqual(before[key]);
+    expect(after!.player.money).toBe(before.player.money);
+    await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+    await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
+    await page.locator('.pokemon-select').first().click();
+    await expect(page.getByRole('button', { name: '↑ Metti in testa', exact: true })).toHaveCount(0);
+  });
+}
 
 for (const [width, height] of [[390, 844], [844, 390], [320, 568]]) {
   test(`team and dex have strategy detail at ${width}x${height}`, async ({ page }, testInfo) => {
