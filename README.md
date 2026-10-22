@@ -1,8 +1,8 @@
 # VELORIA — Project Design & Development Pack (v0.3)
 
-**Versione 0.3.114:** indicazioni sul riposo gratuito iniziale e apprendimento con dettagli delle mosse;79 specie e79 mosse ufficiali supportate. Percorso naturale Charmander verificato fino alla quarta medaglia, con sconfitta e rivincita da checkpoint guadagnato, evoluzione e ripresa. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
+**Versione 0.3.115:** nuove avventure con seed casuale e cursore persistente alla ripresa;79 specie e79 mosse ufficiali supportate. Percorso naturale Charmander verificato fino alla quarta medaglia, con sconfitta e rivincita da checkpoint guadagnato, evoluzione e ripresa. Stato effettivo in [CI_STATUS](docs/CI_STATUS.md).
 
-**Data:** 21 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
+**Data:** 22 ottobre 2026 · **Stato:** avventura in sviluppo progressivo, otto Palestre in prototipo · **Piattaforma:** PWA mobile-first (iPhone/Android), Phaser 3, TypeScript, Vite · **Gioco:** RPG 2D di esplorazione e cattura, regione originale.
 
 Questo archivio contiene la documentazione e l’implementazione progressiva dell’avventura. La versione 0.3.96 collega Borgofonte al Campione e all’epilogo: 48 mappe, otto medaglie, 27 allenatori, 69 specie e 78 mosse da fonti locali PokéAPI. Il Santuario conclude la ricerca sulla Risonanza; la Lega propone cinque incontri consecutivi senza cure automatiche, con interruzione esplicita e premi unici. Cerimonia ed epilogo sono recuperabili dopo il ricaricamento. Le prove con squadre potenziate verificano i flussi ma non attestano il bilanciamento naturale dell’intera avventura. Catalogo completo, ulteriori meccaniche e post-game restano aperti. Regole ed estensione: [Lega](docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md). `content/examples` conserva esempi per validazione e non definisce il bilanciamento canonico.
 

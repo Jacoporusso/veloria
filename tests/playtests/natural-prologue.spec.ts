@@ -1,3 +1,4 @@
+import { runCentralePortolume } from './helpers/centrale-portolume';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -19,11 +20,14 @@ async function observe(page: Page): Promise<any> {
 }
 const directions = [[0,-1,'Vai in alto'],[1,0,'Vai a destra'],[0,1,'Vai in basso'],[-1,0,'Vai a sinistra']] as const;
 
-test('fresh trainer completes the prologue through real game controls', async ({ page }, testInfo) => {
+test('natural journey uses earned progress and real game controls', async ({ page }, testInfo) => {
   const report: any[] = [];
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
+  const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
+  const resumeBackupFile = resumePortolumeFile ?? resumeRheaFile;
+  expect(Boolean(resumePortolumeFile && resumeRheaFile), 'Choose one earned checkpoint').toBe(false);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const continueFerraluce = process.env.PLAYTEST_CONTINUE_FERRALUCE === '1' || Boolean(resumeRheaFile);
   const continueVetracielo = process.env.PLAYTEST_CONTINUE_VETRACIELO === '1' || continueFerraluce;
@@ -45,6 +49,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
   await page.getByRole('button',{name:'Inizia il viaggio'}).click();
   await expect.poll(async () => Boolean(await observe(page))).toBe(true);
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30000 });
+  let startingRngState = (await observe(page)).save.rngState;
 
   async function record(label: string) {
     const state = await observe(page);
@@ -168,15 +173,16 @@ test('fresh trainer completes the prologue through real game controls', async ({
   }
   try {
     await settle();
-    if (resumeRheaFile) {
-      const backup = JSON.parse(await readFile(resumeRheaFile, 'utf8'));
+    if (resumeBackupFile) {
+      const backup = JSON.parse(await readFile(resumeBackupFile, 'utf8'));
       expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
       expect(backup.save.flags).toContain('gym04_magnetic_aligned');
-      expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
+      if (resumePortolumeFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
+      else expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
       await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
       await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
       page.once('dialog', dialog => dialog.accept());
-      await Promise.all([page.waitForEvent('load'), page.locator('#save-file').setInputFiles(resumeRheaFile)]);
+      await Promise.all([page.waitForEvent('load'), page.locator('#save-file').setInputFiles(resumeBackupFile)]);
       await page.getByRole('button', { name: 'Continua partita', exact: true }).click();
       await expect.poll(async () => Boolean(await observe(page))).toBe(true);
       await expect.poll(async () => (await observe(page)).mapId).toBe(backup.save.player.mapId);
@@ -184,9 +190,10 @@ test('fresh trainer completes the prologue through real game controls', async ({
       expect((await observe(page)).save.inventory).toEqual(backup.save.inventory);
       expect((await observe(page)).save.player.money).toBe(backup.save.player.money);
       expect((await observe(page)).save.rngState).toBe(backup.save.rngState);
-      await record('Resumed unchanged earned Rhea checkpoint');
+      startingRngState = backup.save.rngState;
+      await record(resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
     }
-    if (!resumeRheaFile) {
+    if (!resumeBackupFile) {
       await walk(21,25);
       await interact(12,7);
       await expect(page.getByRole('button',{name:starter,exact:true})).toBeVisible();
@@ -411,7 +418,7 @@ test('fresh trainer completes the prologue through real game controls', async ({
         await exportCheckpoint('natural-third-medal-backup.json');
       }
     } // Fresh journey through Aster; a rematch imports only a recorded earned save.
-    if (continueFerraluce) {
+    if (continueFerraluce && !resumePortolumeFile) {
       if (!resumeRheaFile) {
         await walk(15, 29);
         expect((await observe(page)).mapId).toBe('veloria/vetracielo');
@@ -495,11 +502,12 @@ test('fresh trainer completes the prologue through real game controls', async ({
       await record('Fourth medal persists after title resume');
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
+    if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,damageFirst,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,damageFirst,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

@@ -1,3 +1,10 @@
+## 0.3.115 — Nuove avventure con seed casuale (22/10/2026)
+
+- Eliminato il seed iniziale fisso: una nuova partita legge una parola uint32 da Web Crypto. Lo zero viene normalizzato per xorshift32; incontri e lotte continuano a usare il cursore persistente esistente.
+- Titolo/ripresa, reload e importazione non ripescano il seed. Test deterministici verificano due nuove avventure distinte e la ripresa invariata; il driver naturale registra il cursore iniziale del tratto.
+- Continuazione del backup guadagnato P4 fino a Centrale e Portolume: ricerca, premi unici, traghetto, Amo Vecchio, cure e ripresa verificati; backup finale esportato. Nessuna battaglia in questo tratto, quinta medaglia ancora da verificare.
+- 539 prove dominio/persistenza, build e validatore passati. Avvio LAN con nome, starter e ripresa verificato nel browser; non sostituisce QA su telefono fisico. Cache PWA v136.
+
 ## Verifiche successive alla0.3.114 — 22/10/2026
 
 - Percorso naturale Charmander fino a Rhea con34 incontri aggiuntivi nell’Anello: prima sconfitta conservata, poi vittoria con attacchi diretti e due Pozioni acquistate dalle risorse rimaste. Checkpoint guadagnato importato via UI senza cambiare squadra/denaro/RNG; quarta medaglia, ripresa e backup completo verificati. Non è una campagna completa o una prova degli altri starter.

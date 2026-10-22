@@ -157,3 +157,37 @@ test('storage failure keeps new-game recovery and prevents leaving an unsaved ad
   await expect(page.getByRole('button', { name: 'Continua partita' })).toBeVisible();
   expect((await saved(page)).player.name).toBe('Aurora');
 });
+
+// Controlled entropy only for this test; the actual title/save flow must draw it once per new game.
+test('new adventures draw fresh entropy and resume keeps the saved RNG cursor', async ({ page }) => {
+  await page.addInitScript(() => {
+    const original = crypto.getRandomValues.bind(crypto);
+    Object.defineProperty(crypto, 'getRandomValues', { value: (buffer: ArrayBufferView) => {
+      if (buffer instanceof Uint32Array && buffer.length === 1) {
+        const draws = Number(sessionStorage.getItem('seed-test-draws') ?? 0);
+        buffer[0] = [0x11223344, 0x55667788][draws] ?? 0x99aabbcc;
+        sessionStorage.setItem('seed-test-draws', String(draws + 1));
+        return buffer;
+      }
+      return original(buffer);
+    } });
+  });
+  await page.goto('/'); await enterGame(page);
+  const first = await saved(page);
+  expect(first.rngState).toBe(0x11223344);
+  await page.reload(); await enterGame(page);
+  expect((await saved(page)).rngState).toBe(first.rngState);
+  expect(await page.evaluate(() => sessionStorage.getItem('seed-test-draws'))).toBe('1');
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Salva e torna al titolo' }).click();
+  await page.getByRole('button', { name: 'Nuova partita', exact: true }).click();
+  await page.getByRole('button', { name: 'Sì, continua', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Nome allenatore' }).fill('Sole');
+  await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+  await expect.poll(async () => (await saved(page))?.player.name).toBe('Sole');
+  expect((await saved(page)).rngState).toBe(0x55667788);
+  await enterGame(page);
+  await page.reload(); await enterGame(page);
+  expect((await saved(page)).rngState).toBe(0x55667788);
+  expect(await page.evaluate(() => sessionStorage.getItem('seed-test-draws'))).toBe('2');
+});

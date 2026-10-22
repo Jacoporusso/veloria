@@ -1,4 +1,4 @@
-## Stato corrente — 0.3.114, 21/10/2026
+## Stato di lavorazione — 0.3.115, 22/10/2026
 
 Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 79 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.
 
@@ -15,7 +15,9 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 
 - Prologo Pikachu verificato fino a Mira e ripresa: dodici vittorie, una cattura, nessuna sconfitta completa. I quattro starter hanno almeno una prova del prologo, su versioni e incontri diversi: questo non certifica campagne complete o bilanciamento statistico. Report in `playtests/2026-10-21-first-medal-pikachu.md`.
 
-Nota22/10: il seed iniziale di `newGameSave()` è ancora fisso a1234567. Le prove non lo iniettano, ma non sono campioni casuali indipendenti. Completare l’inizializzazione casuale delle nuove partite, conservando RNG persistente e seed espliciti nei test.
+Nota22/10: le prove fino alla0.3.114 partivano dal seed fisso1234567 e non sono campioni casuali indipendenti. Dal contenuto0.3.115 le nuove avventure usano Web Crypto; ripresa/importazione conservano il cursore.539 test dominio/persistenza e avvio LAN passati; QA fisico e varietà su più partite naturali restano aperti.
+
+- Continuazione guadagnata dopo P4 fino a Centrale e Portolume passata: quest, premi unici, traghetto, Amo Vecchio, cure, ripresa e backup. Nessun combattimento nel tratto; P5 e finale restano da verificare. Report in `playtests/2026-10-22-centrale-portolume.md`.
 
 ### Requisiti ancora aperti
 
@@ -25,7 +27,7 @@ Nota22/10: il seed iniziale di `newGameSave()` è ancora fisso a1234567. Le prov
 4. Chiudere la suite Linux e le verifiche offline, quindi QA fisico iOS/Android/PWA in portrait e landscape, compresi controlli, camera, leggibilità e ripresa. Il browser emulato non attesta questi dispositivi.
 5. Proseguire le meccaniche ufficiali e i contenuti previsti, conservando l'architettura dati estendibile e i limiti espliciti del motore. Il post-game resta aperto.
 
-Prossimo passo operativo: confermare la CI offline corretta e proseguire il percorso guadagnato oltre Rhea verso Centrale/Portolume; correggere il seed iniziale fisso e confrontare altri starter e scelte di squadra. Esiti autorevoli, commit e deploy: `CI_STATUS.md`; report riproducibili: `playtests/`.
+Prossimo passo operativo: confermare la CI offline corretta e proseguire dal backup guadagnato di Portolume verso P5, Delta e Acquariva; confrontare altri starter e scelte di squadra con i nuovi seed casuali. Esiti autorevoli, commit e deploy: `CI_STATUS.md`; report riproducibili: `playtests/`.
 
 ## Aggiornamento 0.3.98
 

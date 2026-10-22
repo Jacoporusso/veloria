@@ -226,3 +226,9 @@ R05 e Vetracielo riusano scoperta delle mappe v2, collegamenti, incontri, serviz
 ### Primo arrivo a Ferraluce — 0.3.73
 
 R06 e Ferraluce usano il registro mappe automatico e quest dichiarative: nessun ramo per città o formula nuova in WorldScene. `paved-walkway` disegna strisce continue nel renderer con profondità fissa sotto gli elementi di scenario; resta solo presentazione, mentre Tiled definisce la collisione. `terrainBase` riusa il contratto esistente per il nuovo suolo chiaro. Lo schema quest richiede `requiresFlags` per riflettere il tipo TypeScript e impedire passi non validi prima del runtime. Il pianificatore dei soli test touch può evitare gli habitat facoltativi, senza cambiare il gioco o i tassi di incontro.
+
+## Inizializzazione RNG — contenuti0.3.115
+
+Solo una nuova avventura genera un seed uint32 tramite Web Crypto getRandomValues. Lo zero viene normalizzato al valore nonzero già usato dallo xorshift32. Il cursore vive in GameSave.rngState: incontri e lotte lo consumano secondo le proprie regole deterministiche; titolo/ripresa, reload e importazione non lo ripescano. Nessun cambio di schema o riscrittura del seed nei salvataggi esistenti.
+
+I test unit e browser controllano esplicitamente la sorgente di entropia per verificare nuove partite distinte e ripresa invariata. Il driver naturale registra startingRngState e dichiara separatamente le continuazioni da backup guadagnati. Le prove storiche fino a0.3.114 partivano dal seed fisso1234567: non sono campioni casuali indipendenti.

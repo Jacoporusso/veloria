@@ -13,3 +13,5 @@ Bulbasaur aveva richiesto dieci battaglie con due sconfitte contro selvatici; Sq
 Restano Pikachu, strategie diverse e seguito della campagna con questi starter, oltre alla prova fisica mobile. Riproduzione: server5174, VELORIA_E2E_BASE_URL=http://127.0.0.1:5174, PLAYTEST_STARTER=Squirtle, nessuna variabile CONTINUE attiva; playwright.playtest.config.ts.
 
 Nota di audit22/10: `newGameSave()` inizializza rngState a1234567. Il test non lo sostituisce, ma questo non rende le prove campioni casuali indipendenti. L’inizializzazione casuale delle nuove partite resta un requisito da completare, mantenendo la riproducibilità dei salvataggi e dei test con seed esplicito.
+
+Aggiornamento0.3.115: l’inizializzazione casuale delle nuove avventure è implementata e verificata separatamente. I risultati storici di questo report conservano il seed fisso della loro versione e non diventano campioni indipendenti retroattivamente.

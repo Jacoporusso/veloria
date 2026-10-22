@@ -260,6 +260,13 @@ function persistRecovery(db: IDBDatabase, recovered: GameSave, backup: unknown, 
   });
 }
 
+/** Draw once when starting a new adventure; resume/import retain the persisted PRNG cursor. */
+function createGameSeed(): number {
+  const word = crypto.getRandomValues(new Uint32Array(1))[0];
+  // Xorshift32 cannot advance from zero; use its existing nonzero normalization value.
+  return word || 0x6d2b79f5;
+}
+
 export function newGameSave(): GameSave {
   return {
     schemaVersion: 2,
@@ -268,6 +275,6 @@ export function newGameSave(): GameSave {
     saveId: createUniqueId(),
     savedAt: new Date().toISOString(),
     player: { name: 'Allenatore', mapId: 'veloria/borgofonte', spawnPointId: 'start', money: 300, x: 20, y: 20 },
-    party: [], storage: [], flags: ['q_prologue_started'], badges: [], inventory: { potion: 2, 'poke-ball': 5 }, rngState: 1234567,
+    party: [], storage: [], flags: ['q_prologue_started'], badges: [], inventory: { potion: 2, 'poke-ball': 5 }, rngState: createGameSeed(),
   };
 }
