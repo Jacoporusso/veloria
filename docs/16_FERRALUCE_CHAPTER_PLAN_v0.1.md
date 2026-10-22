@@ -45,7 +45,7 @@ La consegna minima di questo capitolo comprende:
 4. **Gating di R07 e della Centrale:** dopo P4, `badge_acciaio_awarded` (ID da confermare con il catalogo delle medaglie) costituirà il prerequisito della prosecuzione verso R07 quando quella mappa sarà implementata. Questa consegna può predisporre segnaletica o un punto d'accesso visibile, ma **non implementa né rende attraversabile R07, la Centrale Risonante o D03**. Il dungeon e la quest che lo accompagna sono il capitolo successivo.
 5. **Limite cittadino dichiarato:** il primo distretto è una fetta di Ferraluce. Non soddisfa da solo il requisito della città completa del world design. Restano espansioni future di quartieri, passerelle, servizi e collegamenti urbani; registrarle nel backlog, non marcarle come completate.
 
-**Stato aggiornato:** R06 e il primo distretto di Ferraluce sono implementati (vedi §9). Restano assenti la mappa e la quest di P4, il puzzle magnetico, capopalestra e team, encounter table, missioni, dialoghi, nuovi flag, emblema, asset e relativi manifest. Le fonti di questo piano non approvano una squadra, un roster o una lista di mosse.
+**Stato aggiornato0.3.114:** R06, il primo distretto, P4 e R07/Centrale sono implementati. Il contratto di P4, il team, il puzzle, i premi e le relative fonti sono descritti nel documento18; il seguito nel19. Le proposte geometriche e gli elenchi di consegna di questo piano restano storici. Quartieri completi e bilanciamento naturale sono ancora aperti; il nuovo playtest fino a Rhea è in esecuzione, non ancora attestato.
 
 ## 5. Dati di specie, mosse e asset
 

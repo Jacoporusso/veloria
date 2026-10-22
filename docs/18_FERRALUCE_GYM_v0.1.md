@@ -2,7 +2,7 @@
 
 ## Ambito implementato localmente
 
-Quarta palestra Acciaio, dopo il rapporto a Ivo (`q_ferraluce_report`). Rhea è un personaggio originale di questa implementazione. La piazza e l'Officina costituiscono una fetta di Ferraluce; R07 e Centrale sono stati aggiunti nella consegna 0.3.82 descritta nel documento 19. Quartieri cittadini, quattro Palestre successive e Lega restano da realizzare. Questa consegna non conclude l'avventura.
+Quarta palestra Acciaio, dopo il rapporto a Ivo (`q_ferraluce_report`). Rhea è un personaggio originale di questa implementazione. La piazza e l'Officina costituiscono una fetta di Ferraluce; R07 e Centrale sono stati aggiunti nella consegna 0.3.82 descritta nel documento 19. I capitoli successivi, le altre quattro Palestre, la Lega e l’epilogo sono ora collegati (stato0.3.114); il documento conserva il contratto della consegna P4. Quartieri cittadini completi, bilanciamento naturale fino al finale e QA fisico restano aperti.
 
 ## Accesso e mappa
 
@@ -33,7 +33,7 @@ I livelli, il roster e il premio sono bilanciamento prototipale di Veloria. Para
 
 La sfida richiede il circuito completato. Vittoria unica: 1.100 monete, Medaglia Acciaio, feedback di Rhea. Il badge usa un emblema originale vettoriale a magnete, condiviso tra banner e medagliere. Flag e premio non si duplicano al ritorno o dopo reload.
 
-Le difese hanno risposte diverse: Skarmory è immune a Terra, Steelix a Elettro. Il Wooper catturabile sull'Anello offre un'opzione accessibile indipendentemente dallo starter; non è obbligatorio possedere una specie specifica per entrare. Non è ancora provato il bilanciamento di una partita naturale con tutti gli starter. Magnemite → Magneton al 30 e le condizioni speciali di Magneton restano riferimenti, non nuove evoluzioni abilitate in questa consegna.
+Le difese hanno risposte diverse: Skarmory è immune a Terra, Steelix a Elettro. Il Wooper catturabile sull'Anello offre un'opzione accessibile indipendentemente dallo starter; non è obbligatorio possedere una specie specifica per entrare. Non è ancora provato il bilanciamento di una partita naturale con tutti gli starter. Magnemite → Magneton al30 è stata abilitata in0.3.111 con fonti, artwork e test; le condizioni speciali successive di Magneton restano informative. Il riferimento originale della consegna P4 non descriveva ancora questa evoluzione giocabile.
 
 ## Verifiche e limiti
 

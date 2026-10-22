@@ -8,6 +8,8 @@ Mira battuta con Squirtle8 e Spinarak2 KO; Hoothoot5 a10/21HP.850monete, zero po
 
 ## Confronto e limiti
 
-Bulbasaur aveva richiesto dieci battaglie con due sconfitte contro selvatici; Squirtle sette senza sconfitte complete. Specie catturate, seed e incontri non sono uniformati artificialmente: non è un confronto statistico della forza degli starter. Entrambi consumano tutte le pozioni prima/durante la prima palestra. La politica del test non torna al letto gratuito di Borgofonte dopo Sera/Timo: questo limita ogni conclusione sulla disponibilità assoluta di cure. Dal contenuto0.3.114 Elia e Sera spiegano quel servizio esistente. Non si cambiano squadre, meccaniche o ricompense in base a queste due sole esecuzioni.
+Bulbasaur aveva richiesto dieci battaglie con due sconfitte contro selvatici; Squirtle sette senza sconfitte complete. Il gioco usa il seed iniziale fisso1234567; azioni, starter e orari producono sequenze e catture diverse: non è un confronto statistico della forza degli starter. Entrambi consumano tutte le pozioni prima/durante la prima palestra. La politica del test non torna al letto gratuito di Borgofonte dopo Sera/Timo: questo limita ogni conclusione sulla disponibilità assoluta di cure. Dal contenuto0.3.114 Elia e Sera spiegano quel servizio esistente. Non si cambiano squadre, meccaniche o ricompense in base a queste due sole esecuzioni.
 
 Restano Pikachu, strategie diverse e seguito della campagna con questi starter, oltre alla prova fisica mobile. Riproduzione: server5174, VELORIA_E2E_BASE_URL=http://127.0.0.1:5174, PLAYTEST_STARTER=Squirtle, nessuna variabile CONTINUE attiva; playwright.playtest.config.ts.
+
+Nota di audit22/10: `newGameSave()` inizializza rngState a1234567. Il test non lo sostituisce, ma questo non rende le prove campioni casuali indipendenti. L’inizializzazione casuale delle nuove partite resta un requisito da completare, mantenendo la riproducibilità dei salvataggi e dei test con seed esplicito.

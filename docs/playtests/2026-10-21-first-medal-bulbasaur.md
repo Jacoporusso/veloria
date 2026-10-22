@@ -13,3 +13,5 @@ Report completo: [dati della partita](2026-10-21-natural-first-medal-bulbasaur.j
 ## Limiti e prossimi passi
 
 La politica sceglie fra danni stimati ed effetti di preparazione disponibili, usa lo starter finché possibile, cattura con HP nemici ridotti e cura con pozioni sotto metà HP. Non pianifica una squadra ottimale o un bilancio prudente degli oggetti. Le due sconfitte e le scorte esaurite segnalano fragilità dell’inizio, da confrontare con Squirtle/Pikachu e strategie diverse prima di cambiare difficoltà o ricompense. Il test prepara il livello8 dalla squadra di Mira; non esiste un gate runtime di livello. Questa prova copre il prologo e la ripresa, non le altre sette medaglie, il finale o dispositivi fisici.
+
+Nota di audit22/10: `newGameSave()` inizializza rngState a1234567. Il test non lo sostituisce, ma questo non rende le prove campioni casuali indipendenti. L’inizializzazione casuale delle nuove partite resta un requisito da completare, mantenendo la riproducibilità dei salvataggi e dei test con seed esplicito.

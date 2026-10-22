@@ -5,7 +5,7 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 ### Evidenze recenti
 
 - Tutte le specie runtime usano la propria curva XP ufficiale locale. Evoluzioni di livello e con oggetti supportate sono dichiarative; Magnemite → Magneton al30 è abilitata in0.3.111. Condizioni non supportate restano informative, senza sostituzioni inventate.
-- Partita naturale con Charmander verificata dall'inizio alla terza medaglia, con catture/risorse guadagnate, cure, acquisti, evoluzione, salvataggio e ripresa (report21/10). Un tentativo precedente aveva perso contro Oren: la nuova vittoria non cancella quel risultato. Nila lascia la squadra quasi esausta in più prove: preparazione, indicazioni e difficoltà vanno rivalutate con altre strategie e starter.
+- Percorso naturale Charmander verificato fino alla quarta medaglia: prima sconfitta reale con Rhea, poi rivincita da checkpoint guadagnato e importato senza modifiche; dettagli e limiti nel report22/10. Catture, risorse, evoluzione, salvataggio e ripresa verificati. Un tentativo precedente aveva perso contro Oren: la nuova vittoria non cancella quel risultato. Nila lascia la squadra quasi esausta in più prove: preparazione, indicazioni e difficoltà vanno rivalutate con altre strategie e starter.
 - Le14 collisioni NPC mancanti sono corrette e verificate per percorsi e interazione. I clic mouse su A di Elia/Ada passano nella finestra PC con comandi visibili; la segnalazione dell'utente resta da riprodurre nella sua circostanza.
 - La suite completa0.3.112 è verde (Verify39676474294), incluse le correzioni precedenti dei percorsi Ada e caricamento Lega. La0.3.113 aggiunge confronto e dettagli condivisi con la lotta durante l’apprendimento: nove prove mirate passate; CI e pubblicazione riportate separatamente in CI_STATUS.
 
@@ -15,6 +15,8 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 
 - Prologo Pikachu verificato fino a Mira e ripresa: dodici vittorie, una cattura, nessuna sconfitta completa. I quattro starter hanno almeno una prova del prologo, su versioni e incontri diversi: questo non certifica campagne complete o bilanciamento statistico. Report in `playtests/2026-10-21-first-medal-pikachu.md`.
 
+Nota22/10: il seed iniziale di `newGameSave()` è ancora fisso a1234567. Le prove non lo iniettano, ma non sono campioni casuali indipendenti. Completare l’inizializzazione casuale delle nuove partite, conservando RNG persistente e seed espliciti nei test.
+
 ### Requisiti ancora aperti
 
 1. Verificare e bilanciare una partita naturale dall'inizio al finale, con tutti e quattro gli starter, risorse, catture, sconfitte, ritorni e progressi persistenti. I checkpoint preparati restano prove d'integrazione separate.
@@ -23,7 +25,7 @@ Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato de
 4. Chiudere la suite Linux e le verifiche offline, quindi QA fisico iOS/Android/PWA in portrait e landscape, compresi controlli, camera, leggibilità e ripresa. Il browser emulato non attesta questi dispositivi.
 5. Proseguire le meccaniche ufficiali e i contenuti previsti, conservando l'architettura dati estendibile e i limiti espliciti del motore. Il post-game resta aperto.
 
-Prossimo passo operativo: confermare la CI delle correzioni e proseguire la campagna naturale oltre Vetracielo, confrontando anche altri starter e scelte di squadra. Esiti autorevoli, commit e deploy: `CI_STATUS.md`; report riproducibili: `playtests/`.
+Prossimo passo operativo: confermare la CI offline corretta e proseguire il percorso guadagnato oltre Rhea verso Centrale/Portolume; correggere il seed iniziale fisso e confrontare altri starter e scelte di squadra. Esiti autorevoli, commit e deploy: `CI_STATUS.md`; report riproducibili: `playtests/`.
 
 ## Aggiornamento 0.3.98
 

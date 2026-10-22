@@ -1,3 +1,17 @@
+## Quarta medaglia guadagnata e regressione offline corretta — 22/10/2026
+
+La prima partita naturale Charmander arriva a Rhea in25,1min automatizzati:64 battaglie,58 vittorie,2 catture e4 sconfitte, ultima contro Rhea.34 incontri di preparazione nell’Anello, Charmeleon22 e Rattata3/7. Sensore/Ivo, cure, acquisti e circuito funzionanti; nessun errore JS. Sconfitta conservata nel report, non reinterpretata come vittoria. La continuazione importa via UI lo stato finale realmente guadagnato, verificando squadra/inventario/denaro/RNG immutati: attacchi diretti, due Pozioni acquistate con400monete, Rhea battuta in8turni. Charmeleon23 a27/59HP,1190monete, quattro medaglie e ripresa corretta. Una prova52,8s; report e provenienza in [playtests/2026-10-22-fourth-medal-charmander.md](playtests/2026-10-22-fourth-medal-charmander.md). Non certifica gli altri starter o l’intera campagna.
+
+[Verify39682163794](https://github.com/Jacoporusso/veloria/actions/runs/39682163794) è FAILURE, unico job Offline journey: E2E06 usava quattro conferme fisse per Elia, ora insufficienti dopo il consiglio sul riposo. Driver corretto fino alla chiusura del dialogo, mantenendo gli asserti di quest. E2E06 completo produzione senza rete passato localmente in5,2min (5,6min compresa build), fino a tre medaglie. Gli altri20 job della suite sono SUCCESS. TypeScript e diff-check passati. Questa integrazione non cambia runtime o cache; nuova CI da confermare.
+
+Audit aggiornato: nuove partite ancora con seed fisso1234567; i test non lo iniettano ma non sono campioni casuali indipendenti. Report di confronto corretti e requisito lasciato aperto. Piano Poliwrath nel documento34: nessun nuovo Pokémon dichiarato già implementato.
+
+## Pubblicazione0.3.114 e suite corretta confermate — 22/10/2026
+
+Commitf0e704c su main. [Deploy39682163898](https://github.com/Jacoporusso/veloria/actions/runs/39682163898) SUCCESS; HTTPS200 e cache `veloria-shell-v135` verificati. [Verify39682163794](https://github.com/Jacoporusso/veloria/actions/runs/39682163794) attende la suite precedente. [Verify39680726652](https://github.com/Jacoporusso/veloria/actions/runs/39680726652) delle correzioni apprendimento/evoluzioni è SUCCESS su tutti i job. Questa evidenza supera i precedenti stati in esecuzione; la suite della0.3.114 va confermata separatamente.
+
+Esteso il driver naturale con PLAYTEST_CONTINUE_FERRALUCE=1: include i capitoli precedenti, esporta tramite UI il vero backup dopo Aster e prosegue con sensore/Ivo, cure, XP selvatici, circuito e Rhea. Nuova esecuzione Charmander in corso: nessuna quarta medaglia dichiarata prima dell’esito. TypeScript passato; non modifica runtime o bilanciamento. Documenti16/18 riallineati a P4, seguito e Magneton realmente presenti; corretto il riferimento della bottega delle pietre a Dalia.
+
 ## 0.3.114 — Indicazioni sul riposo e confronto del prologo (21/10/2026)
 
 Elia e Sera indicano il letto gratuito di Borgofonte e il recupero di HP/PP/stati, anche nel feedback della prima sfida. Nessuna modifica a squadre, regole o ricompense. E2E13 passato in46,6s: porte reciproche, letto su HP1/PP0/veleno, posizione e reload. Validatore e build passati; cachev135.

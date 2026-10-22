@@ -427,11 +427,15 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   }
   await page.getByRole('button', { name: 'Charmander', exact: true }).click();
   await expect.poll(async () => (await readSave(page))?.party?.length).toBe(1);
-  for (let step = 0; step < 4; step += 1) await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
+  // Follow dialogue visibility rather than a fixed number of text pages.
+  for (let step = 0; step < 20 && await page.locator('#dialogue-box').isVisible(); step += 1)
+    await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect(page.locator('#dialogue-speaker')).toHaveText('Professoressa Elia');
-  for (let step = 0; step < 4; step += 1) await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
+  // Follow dialogue visibility rather than a fixed number of text pages.
+  for (let step = 0; step < 20 && await page.locator('#dialogue-box').isVisible(); step += 1)
+    await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect.poll(async () => (await readSave(page))?.flags).toContain('q_research_sample_received');
   await expect(page.locator('#dialogue-box')).toBeHidden();
 

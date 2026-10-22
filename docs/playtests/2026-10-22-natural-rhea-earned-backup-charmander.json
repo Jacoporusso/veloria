@@ -1,0 +1,179 @@
+{
+  "format": "veloria-save-backup",
+  "formatVersion": 1,
+  "exportedAt": "2026-10-22T05:15:34.996Z",
+  "save": {
+    "schemaVersion": 2,
+    "saveRevision": 1691,
+    "contentVersion": "veloria-content-0.3.114",
+    "saveId": "6a611e13-e701-44d3-af3e-422ebcab7cf6",
+    "savedAt": "2026-10-21T22:07:20.195Z",
+    "player": {
+      "name": "Aurora",
+      "mapId": "veloria/gym04_ferraluce",
+      "spawnPointId": "from_city",
+      "money": 490,
+      "x": 15,
+      "y": 11
+    },
+    "party": [
+      {
+        "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+        "speciesId": 5,
+        "level": 22,
+        "experience": 344,
+        "hp": 57,
+        "maxHp": 57,
+        "moves": [
+          {
+            "id": "scratch",
+            "pp": 35
+          },
+          {
+            "id": "growl",
+            "pp": 40
+          },
+          {
+            "id": "ember",
+            "pp": 25
+          },
+          {
+            "id": "smokescreen",
+            "pp": 20
+          }
+        ]
+      },
+      {
+        "instanceId": "c299f4be-7885-4482-bbb6-677995c7aaac",
+        "speciesId": 19,
+        "level": 3,
+        "experience": 0,
+        "hp": 14,
+        "maxHp": 14,
+        "moves": [
+          {
+            "id": "tackle",
+            "pp": 35
+          },
+          {
+            "id": "tail-whip",
+            "pp": 30
+          }
+        ]
+      },
+      {
+        "instanceId": "11e64cc2-9fc7-4220-b0d1-811be18d181c",
+        "speciesId": 19,
+        "level": 7,
+        "experience": 28,
+        "hp": 21,
+        "maxHp": 21,
+        "moves": [
+          {
+            "id": "tackle",
+            "pp": 35
+          },
+          {
+            "id": "tail-whip",
+            "pp": 30
+          },
+          {
+            "id": "quick-attack",
+            "pp": 30
+          }
+        ]
+      }
+    ],
+    "storage": [],
+    "flags": [
+      "q_prologue_started",
+      "intro_started",
+      "atlas_visited_veloria/borgofonte",
+      "intro_completed",
+      "atlas_visited_veloria/borgofonte_lab",
+      "q_starter_selected",
+      "pokedex_seen_4",
+      "q_research_sample_received",
+      "atlas_visited_veloria/r01_sentiero_alba",
+      "pokedex_seen_16",
+      "trainer_route01_sera_defeated",
+      "item_r01_potion_collected",
+      "pokedex_seen_161",
+      "pokedex_seen_19",
+      "trainer_route01_timo_defeated",
+      "pokedex_seen_163",
+      "atlas_visited_veloria/d01_bosco_veli",
+      "q_forest_signal_found",
+      "q_ada_helped",
+      "atlas_visited_veloria/r02_viale_fronde",
+      "atlas_visited_veloria/brumalta",
+      "q_brumalta_visited",
+      "pokedex_seen_167",
+      "atlas_visited_veloria/gym01_brumalta",
+      "gym01_resonance_south",
+      "gym01_resonance_middle",
+      "gym01_puzzle_solved",
+      "trainer_gym01_mira_defeated",
+      "badge_aurora_awarded",
+      "prologue_complete_seen",
+      "atlas_visited_veloria/r03_terrazze_muschio",
+      "q_radicelmo_seed_found",
+      "atlas_visited_veloria/radicelmo",
+      "q_radicelmo_seed_archived",
+      "atlas_visited_veloria/r04_salita_petali",
+      "pokedex_seen_179",
+      "trainer_r04_nila_defeated",
+      "atlas_visited_veloria/petalora",
+      "q_petalora_visited",
+      "pokedex_seen_43",
+      "atlas_visited_veloria/gym02_petalora",
+      "gym02_water_source_open",
+      "gym02_water_west_open",
+      "gym02_water_east_open",
+      "gym02_irrigation_solved",
+      "pokedex_seen_69",
+      "trainer_gym02_dalia_defeated",
+      "badge_corolla_awarded",
+      "atlas_visited_veloria/r05_viadotto_ciliegi",
+      "pokedex_seen_25",
+      "pokedex_seen_194",
+      "trainer_r05_oren_defeated",
+      "atlas_visited_veloria/vetracielo",
+      "q_vetracielo_visited",
+      "q_vetracielo_orientation",
+      "pokedex_seen_81",
+      "pokedex_seen_100",
+      "pokedex_seen_5",
+      "atlas_visited_veloria/gym03_vetracielo",
+      "gym03_line_gardens_active",
+      "gym03_line_glass_active",
+      "gym03_lines_connected",
+      "trainer_gym03_aster_defeated",
+      "badge_circuito_awarded",
+      "atlas_visited_veloria/r06_anello_magnetico",
+      "q_r06_measurement",
+      "atlas_visited_veloria/ferraluce",
+      "q_ferraluce_visited",
+      "q_ferraluce_report",
+      "atlas_visited_veloria/gym04_ferraluce",
+      "router_gym04magnetic_field_west",
+      "router_gym04magnetic_first_east",
+      "router_gym04magnetic_second_north",
+      "gym04_magnetic_aligned",
+      "pokedex_seen_227"
+    ],
+    "badges": [
+      "badge_aurora",
+      "badge_corolla",
+      "badge_circuito"
+    ],
+    "inventory": {
+      "potion": 0,
+      "poke-ball": 1,
+      "archive-note": 1,
+      "antidote": 1
+    },
+    "rngState": 1545303768
+  },
+  "checksum": "fnv1a32-add5cdaa"
+}

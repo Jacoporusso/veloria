@@ -15,7 +15,7 @@ La ricerca facoltativa della serra di Radicelmo rimane invariata: seme delle Ter
 
 Il banco **Bottega delle Pietre**, davanti alla serra e a est di Leda, è a **(28,11)**. Interagire da **(28,12)** guardando a nord. Il catalogo `veloria/radicelmo_stones` contiene Pietrafocaia, Pietraidrica e Pietratuono; ciascuna costa 3000 monete secondo l'economia di Veloria, senza attribuire questo prezzo a PokéAPI.
 
-Il banco usa `serviceRequiredFlag: badge_corolla_awarded` e un messaggio esplicito: prima superare la prova di Selene a Petalora. Nessuna modifica all'erboristeria o ai suoi rifornimenti.
+Il banco usa `serviceRequiredFlag: badge_corolla_awarded` e un messaggio esplicito: prima superare la prova di Dalia a Petalora. Nessuna modifica all'erboristeria o ai suoi rifornimenti.
 
 ## Accessibilità geometrica e verifica
 

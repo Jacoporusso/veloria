@@ -1,7 +1,13 @@
+## Verifiche successive alla0.3.114 — 22/10/2026
+
+- Percorso naturale Charmander fino a Rhea con34 incontri aggiuntivi nell’Anello: prima sconfitta conservata, poi vittoria con attacchi diretti e due Pozioni acquistate dalle risorse rimaste. Checkpoint guadagnato importato via UI senza cambiare squadra/denaro/RNG; quarta medaglia, ripresa e backup completo verificati. Non è una campagna completa o una prova degli altri starter.
+- Driver offline Elia segue la chiusura del dialogo anziché quattro clic fissi: tre medaglie sulla build senza rete passate. Aggiornati documenti storici e limiti dei report: il seed iniziale del gioco è ancora fisso, non casuale.
+- Nessuna modifica runtime o nuova cache in questa integrazione. Piano Poliwrath preparato con fonti e gate ancora da eseguire.
+
 ## 0.3.114 — Riposo iniziale più chiaro (21/10/2026)
 
 - Elia e Sera indicano il letto gratuito di Borgofonte, dove si trova e come recuperare HP, PP e stati alterati. Il consiglio compare anche nel feedback dopo Sera. Il servizio era già disponibile; nessun cambiamento a squadre, regole o ricompense.
-- Prologhi naturali Squirtle e Pikachu fino alla prima medaglia e ripresa verificati, con catture e nessun errore JS. Report separato da Bulbasaur: incontri/seed diversi, nessuna conclusione statistica sulla forza degli starter. Cache PWA v135.
+- Prologhi naturali Squirtle e Pikachu fino alla prima medaglia e ripresa verificati, con catture e nessun errore JS. Report separato da Bulbasaur: sequenze di incontri diverse a partire dal seed iniziale fisso del prototipo, nessuna conclusione statistica sulla forza degli starter. Cache PWA v135.
 
 ## 0.3.113 — Studiare le nuove mosse (21/10/2026)
 

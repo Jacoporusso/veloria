@@ -1,0 +1,16 @@
+{
+  "source": "Unmodified GameSave observed at the end of the failed natural Rhea run; not a prepared team. Export envelope generated with the game exportSave function.",
+  "traceSha256": "9c8ad680d00a21f2b07c2a6fcaa39727b3b98b882c8828255da69c3626c26f8a",
+  "traceEntry": "1-trace.trace",
+  "callId": "yuyu@98641",
+  "initialSeed": 1234567,
+  "finalSeed": 1545303768,
+  "matchesFinalReportFields": [
+    "party",
+    "flags",
+    "badges",
+    "inventory",
+    "money",
+    "mapId"
+  ]
+}

@@ -6,8 +6,10 @@ Tredici battaglie: dodici vittorie del giocatore e una cattura di Hoothoot5; nes
 
 ## Lettura dei risultati
 
-Con Charmander fino alla terza medaglia e i tre report fino a Mira esiste ora almeno una prova naturale del prologo per ogni starter. Non è una certificazione del bilanciamento per tutti: seed e catture non sono uniformati, il test privilegia lo starter, usa una soglia di cura fissa, sceglie gli effetti da un insieme limitato e mantiene le quattro mosse quando deve dimenticarne una. Tutti i report preservano sconfitte e risorse consumate.
+Con Charmander fino alla terza medaglia e i tre report fino a Mira esiste ora almeno una prova naturale del prologo per ogni starter. Non è una certificazione del bilanciamento per tutti: il seed iniziale è quello fisso del gioco (1234567), mentre azioni, orari e catture differiscono, il test privilegia lo starter, usa una soglia di cura fissa, sceglie gli effetti da un insieme limitato e mantiene le quattro mosse quando deve dimenticarne una. Tutti i report preservano sconfitte e risorse consumate.
 
 Il letto gratuito di Borgofonte esiste e supera la prova dedicata (HP, PP, veleno, porte e reload). I consigli di Elia/Sera aggiunti in0.3.114 lo rendono più esplicito; la politica di questa esecuzione ancora non ne usufruisce. Prima di cambiare squadre o premi servono strategie con riposo, cambi e apprendimenti diversi, poi il seguito della campagna. QA fisico mobile ancora aperto.
 
 Riproduzione: server5174, VELORIA_E2E_BASE_URL=http://127.0.0.1:5174, PLAYTEST_STARTER=Pikachu, nessuna variabile CONTINUE attiva; playwright.playtest.config.ts.
+
+Nota di audit22/10: `newGameSave()` inizializza rngState a1234567. Il test non lo sostituisce, ma questo non rende le prove campioni casuali indipendenti. L’inizializzazione casuale delle nuove partite resta un requisito da completare, mantenendo la riproducibilità dei salvataggi e dei test con seed esplicito.
