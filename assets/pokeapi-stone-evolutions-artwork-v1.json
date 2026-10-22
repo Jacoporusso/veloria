@@ -40,6 +40,15 @@
       "sourcePath": "assets/sources/pokeapi/stone-evolutions/136.png",
       "sourceSha256": "a11d3f021baf917f9106266d5fec5b6326a2850b130e4560e333fa9f481c41ec",
       "sha256": "4cc94054897c728e1976278cb535308a736954f2ecb52b0d059ec4962a8dc379"
+    },
+    {
+      "speciesId": 62,
+      "name": "Poliwrath",
+      "path": "assets/creatures/pokeapi-stone-evolutions-62-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "sourcePath": "assets/sources/pokeapi/stone-evolutions/62.png",
+      "sourceSha256": "955dd03af636f66f7283eb914a3dec6b7c340e300b5f67771b5af811c946dc9d",
+      "sha256": "d6198f928ad316b2d708d9ccf2da6c978a9b0c9fb1a097d146f1cfb9dba73492"
     }
   ]
 }

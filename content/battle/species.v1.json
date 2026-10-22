@@ -4147,6 +4147,43 @@
           "moveId": "poison-jab"
         }
       ]
+    },
+    "62": {
+      "speciesId": 62,
+      "name": "Poliwrath",
+      "types": [
+        "water",
+        "fighting"
+      ],
+      "baseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 95,
+        "specialAttack": 70,
+        "specialDefense": 90,
+        "speed": 70
+      },
+      "experienceYield": 230,
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
+      "defaultMoveIds": [
+        "bubble-beam",
+        "hypnosis",
+        "double-slap"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "bubble-beam"
+        },
+        {
+          "level": 1,
+          "moveId": "hypnosis"
+        },
+        {
+          "level": 1,
+          "moveId": "double-slap"
+        }
+      ]
     }
   },
   "moveSource": {

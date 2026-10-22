@@ -1,6 +1,12 @@
 # Prossima evoluzione ottenibile: Poliwrath
 
-Stato22/10/2026: audit delle fonti locali, non implementazione. Il roster runtime resta79 specie. Il playtest naturale fino alla quarta medaglia è in corso separatamente.
+Stato22/10/2026: implementato in content0.3.116; roster runtime80 specie. Poliwhirl evolve in Poliwrath con Pietraidrica. Parametri, crescita, learnset HGSS e artwork derivano dalle fonti PokéAPI locali; nessuna mossa inventata. Il test naturale della quinta palestra resta distinto.
+
+## Verifica dell’integrazione
+
+L’importer legge i rami dichiarati nel manifest e trova le catene ufficiali dai record delle specie. Abilita soltanto corrispondenze dichiarate con condizioni supportate. Test dedicati coprono il nuovo ramo, l’esclusione dei rami non dichiarati e il rifiuto di oggetti non supportati.
+
+Il test di dominio verifica consumo singolo, identità, livello, esperienza, PP, stato, deficit HP e ricevuta persistente dopo serializzazione. Il browser verifica anteprima, annullamento, conferma, cerimonia e decodifica dell’artwork; la suite esistente copre anche portrait/landscape e recupero dall’errore di salvataggio. Il nuovo artwork è nella cache PWA. Queste prove usano una squadra di integrazione e non dimostrano il bilanciamento naturale o un test offline completo.
 
 ## Scelta e fonti
 

@@ -5,12 +5,12 @@ test.use({ hasTouch: true, deviceScaleFactor: 2 });
 /** Isolated DOM fixture using the real chooser, immutable service and presentation.
  * Persistence failure is injected at the caller boundary; no save is written by this fixture.
  */
-async function mount(page: Page, failFirstSave = false) {
+async function mount(page: Page, failFirstSave = false, waterStone = false) {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', route => route.fulfill({ contentType: 'text/javascript', body: 'export {};' }));
   await page.goto('/');
-  await page.evaluate(async failFirst => {
+  await page.evaluate(async ({ failFirst, waterStone }) => {
     const { chooseItemEvolution } = await import('/src/game/ui/ItemEvolutionMenu.ts' as string);
     const { applyItemEvolution, pendingEvolutionReceipts, evolutionReceiptFlag } = await import('/src/core/services/item-evolution.ts' as string);
     const { ensureSavedProgress } = await import('/src/game/ui/SaveRetryDialog.ts' as string);
@@ -29,7 +29,20 @@ async function mount(page: Page, failFirstSave = false) {
       storage: [], flags: [], badges: [], inventory: { 'thunder-stone': 2 }, rngState: 17,
     };
     fixture.original = structuredClone(fixture.save);
-    for (const id of [26, 134, 135, 136]) {
+    if (waterStone) {
+      const creature = fixture.save.party[0];
+      creature.speciesId = 61;
+      creature.level = 25;
+      creature.experience = 11735;
+      creature.maxHp = calculateStats(battleSpecies[61].baseStats, 25).maxHp;
+      creature.hp = creature.maxHp - 7;
+      creature.moves = [{ id: 'water-gun', pp: 9 }, { id: 'hypnosis', pp: 4 }];
+      fixture.save.inventory = { 'water-stone': 1 };
+      fixture.original = structuredClone(fixture.save);
+      document.querySelector('#open-item')!.textContent = 'Usa Pietraidrica';
+    }
+    const itemId = waterStone ? 'water-stone' : 'thunder-stone';
+    for (const id of [26, 62, 134, 135, 136]) {
       const portrait = createCreaturePortrait(id);
       document.querySelector('#art-fixture')!.append(portrait);
       const url = portrait.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1];
@@ -39,10 +52,10 @@ async function mount(page: Page, failFirstSave = false) {
       fixture.decodedArt.push(id);
     }
     document.querySelector('#open-item')!.addEventListener('click', async () => {
-      const selected = await chooseItemEvolution({ save: fixture.save, itemId: 'thunder-stone', rules: itemEvolutionRules, species: battleSpecies, moves: battleMoves, itemName: 'Pietratuono' });
+      const selected = await chooseItemEvolution({ save: fixture.save, itemId, rules: itemEvolutionRules, species: battleSpecies, moves: battleMoves, itemName: waterStone ? 'Pietraidrica' : 'Pietratuono' });
       if (selected === null) { fixture.cancelled++; return; }
       fixture.applications++;
-      const result = applyItemEvolution(fixture.save, 'thunder-stone', selected, itemEvolutionRules, battleSpecies);
+      const result = applyItemEvolution(fixture.save, itemId, selected, itemEvolutionRules, battleSpecies);
       if (!result.ok) throw new Error(result.reason);
       fixture.save = result.save;
       const saved = await ensureSavedProgress(async () => {
@@ -58,15 +71,41 @@ async function mount(page: Page, failFirstSave = false) {
       }
       fixture.finished++;
     });
-  }, failFirstSave);
+  }, { failFirst: failFirstSave, waterStone });
   return errors;
 }
+
+test('Poliwhirl Water Stone preview, cancellation and ceremony preserve earned moves', async ({ page }) => {
+  const errors = await mount(page, false, true);
+  const open = page.getByRole('button', { name: 'Usa Pietraidrica' });
+  await open.tap();
+  const chooser = page.getByRole('dialog', { name: 'Pietraidrica', exact: true });
+  await chooser.getByRole('button', { name: /Poliwhirl/ }).tap();
+  await expect(chooser).toContainText('Poliwrath');
+  await chooser.getByRole('button', { name: 'Indietro', exact: true }).tap();
+  await chooser.getByRole('button', { name: 'Annulla', exact: true }).tap();
+  expect(await page.evaluate(() => JSON.stringify((window as any).itemFixture.save) === JSON.stringify((window as any).itemFixture.original))).toBe(true);
+  await open.tap();
+  await chooser.getByRole('button', { name: /Poliwhirl/ }).tap();
+  await chooser.getByRole('button', { name: 'Evolvi in Poliwrath' }).tap();
+  const ceremony = page.getByRole('dialog', { name: 'Ora è Poliwrath!' });
+  await expect(ceremony).toBeVisible();
+  await ceremony.getByRole('button', { name: 'Continua', exact: true }).tap();
+  await expect.poll(() => page.evaluate(() => (window as any).itemFixture.finished)).toBe(1);
+  const state = await page.evaluate(() => (window as any).itemFixture);
+  expect(state.applications).toBe(1);
+  expect(state.durable.party[0].speciesId).toBe(62);
+  expect(state.durable.inventory['water-stone'] ?? 0).toBe(0);
+  expect(state.durable.party[0].moves).toEqual(state.original.party[0].moves);
+  expect(state.decodedArt).toContain(62);
+  expect(errors).toEqual([]);
+});
 
 for (const [orientation, width, height] of [['portrait', 390, 844], ['landscape', 844, 390]] as const) {
   test(`item evolution preview and cancellation preserve all progress in ${orientation}`, async ({ page }) => {
     await page.setViewportSize({ width, height });
     const errors = await mount(page);
-    await expect.poll(() => page.evaluate(() => (window as any).itemFixture.decodedArt)).toEqual([26, 134, 135, 136]);
+    await expect.poll(() => page.evaluate(() => (window as any).itemFixture.decodedArt)).toEqual([26, 62, 134, 135, 136]);
     await page.getByRole('button', { name: 'Usa Pietratuono' }).tap();
     const dialog = page.getByRole('dialog', { name: 'Pietratuono', exact: true });
     await dialog.getByRole('button', { name: /Pikachu/ }).tap();

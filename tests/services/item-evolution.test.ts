@@ -62,6 +62,32 @@ test('fainted creatures remain fainted through a stone evolution', () => {
   if (result.ok) assert.equal(result.creature.hp, 0);
 });
 
+test('Poliwhirl evolves with one Water Stone while preserving its earned state', () => {
+  const maxHp = calculateStats(species['61'].baseStats, 25).maxHp;
+  const current = pikachu({ instanceId: 'poliwhirl-01', speciesId: 61, level: 25,
+    experience: 11735, maxHp, hp: maxHp - 12,
+    moves: [{ id: 'water-gun', pp: 9 }, { id: 'hypnosis', pp: 4 }] });
+  const original = saveWith(current, { inventory: { 'water-stone': 1 } });
+  const before = structuredClone(original);
+  const result = applyItemEvolution(original, 'water-stone', current.instanceId, rules, species);
+  assert.equal(result.ok, true);
+  if (!result.ok) return;
+  assert.equal(result.creature.speciesId, 62);
+  assert.equal(result.creature.instanceId, current.instanceId);
+  assert.equal(result.creature.level, 25);
+  assert.equal(result.creature.experience, current.experience);
+  assert.deepEqual(result.creature.moves, current.moves);
+  assert.deepEqual(result.creature.status, current.status);
+  assert.equal(result.creature.maxHp - result.creature.hp, 12);
+  assert.equal(result.save.inventory['water-stone'] ?? 0, 0);
+  assert.equal(result.save.rngState, original.rngState);
+  const reloaded = JSON.parse(JSON.stringify(result.save)) as GameSave;
+  assert.equal(reloaded.party[0].speciesId, 62);
+  assert.equal(pendingEvolutionReceipts(reloaded)[0].toSpeciesId, 62);
+  assert.equal(applyItemEvolution(reloaded, 'water-stone', current.instanceId, rules, species).ok, false);
+  assert.deepEqual(original, before);
+});
+
 test('cancelled selection performs no item evolution call', () => {
   const selectedCreatureId: string | null = null;
   const apply = (selection: string | null) => selection === null

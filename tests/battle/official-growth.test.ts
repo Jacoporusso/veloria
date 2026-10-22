@@ -31,7 +31,7 @@ test('every runtime species uses its own official growth category, never a templ
     assert.ok(curves[species.growthCurveId]);
     counts[category] = (counts[category] ?? 0) + 1;
   }
-  assert.deepEqual(counts, { 'medium-slow': 24, medium: 43, fast: 2, slow: 10 });
+  assert.deepEqual(counts, { 'medium-slow': 25, medium: 43, fast: 2, slow: 10 });
 });
 
 test('growth table rejects missing, decreasing, fractional and negative consecutive totals', () => {

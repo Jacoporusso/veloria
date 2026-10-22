@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v136';
+const CACHE = 'veloria-shell-v137';
 const SHELL = [
   './assets/creatures/pokeapi-evolution-18-v1.webp',
   './assets/creatures/pokeapi-evolution-44-v1.webp',
@@ -23,6 +23,7 @@ const SHELL = [
 
   './assets/scenery/veloria-borgofonte-v2.webp',
   './assets/creatures/pokeapi-stone-evolutions-26-v1.webp',
+  './assets/creatures/pokeapi-stone-evolutions-62-v1.webp',
   './assets/creatures/pokeapi-stone-evolutions-134-v1.webp',
   './assets/creatures/pokeapi-stone-evolutions-135-v1.webp',
   './assets/creatures/pokeapi-stone-evolutions-136-v1.webp',

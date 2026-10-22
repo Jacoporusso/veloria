@@ -203,7 +203,11 @@ item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
 item_evolution_catalog = json.loads((ROOT / "content" / "battle" / "item-evolutions.v1.json").read_text(encoding="utf-8"))
 check(item_evolution_catalog.get("versionGroup") == "heartgold-soulsilver", "Item evolutions must use the HGSS source version group")
 item_evolution_rules = item_evolution_catalog.get("rules", [])
-check(len(item_evolution_rules) == 4, "Expected the four supported Pikachu/Eevee stone branches")
+declared_stone_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
+declared_stone_edges = {(entry['templateSpeciesId'], entry['speciesId'], entry['evolutionItemId'])
+                        for entry in declared_stone_imports if 'evolutionItemId' in entry}
+check({(rule['fromSpeciesId'], rule['toSpeciesId'], rule['itemId']) for rule in item_evolution_rules} == declared_stone_edges,
+      'Item evolution catalog must match explicitly declared stone branches')
 item_evolution_keys = set()
 for rule in item_evolution_rules:
     source, target, item_id = rule.get("fromSpeciesId"), rule.get("toSpeciesId"), rule.get("itemId")

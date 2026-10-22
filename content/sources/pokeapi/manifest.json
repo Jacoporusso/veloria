@@ -891,6 +891,11 @@
       "path": "content/sources/pokeapi/pokemon-61.json",
       "sha256": "2ae722c03d523b0147da01af06a3068647d4d6196dc5d43e3fcfcd0c904fe458"
     },
+    "pokemon/62": {
+      "url": "https://pokeapi.co/api/v2/pokemon/62/",
+      "path": "content/sources/pokeapi/pokemon-62.json",
+      "sha256": "3f4dc4fc207560445e857f310cc253059466137461fc8d8e6cf848b9bb24149c"
+    },
     "pokemon/69": {
       "url": "https://pokeapi.co/api/v2/pokemon/69/",
       "path": "content/sources/pokeapi/pokemon-69.json",

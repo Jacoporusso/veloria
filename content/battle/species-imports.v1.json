@@ -242,22 +242,26 @@
     {
       "artworkGroup": "stone-evolutions",
       "speciesId": 26,
-      "templateSpeciesId": 25
+      "templateSpeciesId": 25,
+      "evolutionItemId": "thunder-stone"
     },
     {
       "artworkGroup": "stone-evolutions",
       "speciesId": 134,
-      "templateSpeciesId": 133
+      "templateSpeciesId": 133,
+      "evolutionItemId": "water-stone"
     },
     {
       "artworkGroup": "stone-evolutions",
       "speciesId": 135,
-      "templateSpeciesId": 133
+      "templateSpeciesId": 133,
+      "evolutionItemId": "thunder-stone"
     },
     {
       "artworkGroup": "stone-evolutions",
       "speciesId": 136,
-      "templateSpeciesId": 133
+      "templateSpeciesId": 133,
+      "evolutionItemId": "fire-stone"
     },
     {
       "speciesId": 18,
@@ -288,6 +292,12 @@
       "speciesId": 168,
       "templateSpeciesId": 167,
       "artworkGroup": "evolution"
+    },
+    {
+      "speciesId": 62,
+      "templateSpeciesId": 61,
+      "artworkGroup": "stone-evolutions",
+      "evolutionItemId": "water-stone"
     }
   ],
   "deferredImports": [

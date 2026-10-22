@@ -5738,6 +5738,38 @@
         "moveId": "poison-jab",
         "order": null
       }
+    ],
+    "62": [
+      {
+        "level": 1,
+        "moveId": "bubble-beam",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "hypnosis",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "double-slap",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "submission",
+        "order": 4
+      },
+      {
+        "level": 43,
+        "moveId": "dynamic-punch",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "mind-reader",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -8649,6 +8681,23 @@
       {
         "level": 41,
         "moveId": "pin-missile",
+        "order": null
+      }
+    ],
+    "62": [
+      {
+        "level": 1,
+        "moveId": "submission",
+        "order": 4
+      },
+      {
+        "level": 43,
+        "moveId": "dynamic-punch",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "mind-reader",
         "order": null
       }
     ]

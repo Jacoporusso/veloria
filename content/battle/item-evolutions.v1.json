@@ -8,6 +8,11 @@
       "itemId": "thunder-stone"
     },
     {
+      "fromSpeciesId": 61,
+      "toSpeciesId": 62,
+      "itemId": "water-stone"
+    },
+    {
       "fromSpeciesId": 133,
       "toSpeciesId": 134,
       "itemId": "water-stone"
@@ -28,6 +33,11 @@
       "url": "https://pokeapi.co/api/v2/evolution-chain/10/",
       "path": "content/sources/pokeapi/evolution-chain-10.json",
       "sha256": "15e7b538a392b4402a8065d2424f267d8f289a8520b97b18963b1e49d9dc0820"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/26/",
+      "path": "content/sources/pokeapi/evolution-chain-26.json",
+      "sha256": "8c19fb4b108ce0cd9a2ce76759b98e474ad0bbcc283a0104dfaf9212a7895499"
     },
     {
       "url": "https://pokeapi.co/api/v2/evolution-chain/67/",

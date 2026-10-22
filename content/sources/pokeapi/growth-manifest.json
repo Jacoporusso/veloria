@@ -315,6 +315,11 @@
       "path": "content/sources/pokeapi/pokemon-species-61.json",
       "sha256": "24b82a9a2e83f8c28b5d20b68dd711ca559601e95d398c27dc4dce78561c8720"
     },
+    "pokemon-species/62": {
+      "url": "https://pokeapi.co/api/v2/pokemon-species/62/",
+      "path": "content/sources/pokeapi/pokemon-species-62.json",
+      "sha256": "64f8028074d537032100638b6533a0bb758d2fdb96bbaa60d05e958b292fe456"
+    },
     "pokemon-species/69": {
       "url": "https://pokeapi.co/api/v2/pokemon-species/69/",
       "path": "content/sources/pokeapi/pokemon-species-69.json",
