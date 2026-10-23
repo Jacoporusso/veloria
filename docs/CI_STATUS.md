@@ -1,3 +1,9 @@
+## 0.3.122 — Microhabitat industriali (23/10/2026)
+
+Prima revisione della ripetitività documentata nell’audit38: Anello con due gruppi nord/sud e6 specie, Condotto con due gruppi ovest/est e8 specie. Nuove tabelle collegate ai trigger esistenti, Wooper mantenuto a ovest a tutte le ore, nessun cambio di collisioni o tasso per passo.550 test dominio/persistenza, validatore e build passati. Percorso Centrale e due viste Pokédex passati in1,3min. Dettagli e limiti in [39_INDUSTRIAL_MICROHABITATS_v0.1.md](39_INDUSTRIAL_MICROHABITATS_v0.1.md). Deploy e nuova suite completa da confermare dopo push.
+
+[Verify40012990597](https://github.com/Jacoporusso/veloria/actions/runs/40012990597) della120 terminata FAILURE:20 job riusciti, un fallimento Selene. Screenshot e log confermano sconfitta della fixture preparata contro Espeon, non medaglia mancante dopo una vittoria. Solo il driver ora controlla il seed e sceglie Scintilla già disponibile; prova isolata puzzle/medaglia/reload passata in54,9s. Nessun cambio alla difficoltà o ai seed delle partite reali.
+
 ## 0.3.121 — Memoria delle catture (23/10/2026)
 
 Le registrazioni del Pokédex sopravvivono all’evoluzione e al consumo della ricevuta della cerimonia. I conteggi dei Pokémon attualmente posseduti rimangono separati. 550 test dominio/persistenza passati, build passata; due prove browser isolate con IndexedDB e reload passate in portrait/landscape in2,4s. Dettagli in [37_POKEDEX_CAPTURE_HISTORY_v0.1.md](37_POKEDEX_CAPTURE_HISTORY_v0.1.md). Commit `a650c04` su main. [Deploy40013954428](https://github.com/Jacoporusso/veloria/actions/runs/40013954428) SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v142` verificati. [Verify40013954389](https://github.com/Jacoporusso/veloria/actions/runs/40013954389) in attesa della120: suite completa121 non ancora confermata.

@@ -1,31 +1,31 @@
 {
   "id": "veloria/r07_conduit_patch",
   "mapId": "veloria/r07_condotto_risonante",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 81,
-        "weight": 30,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 100,
-        "weight": 25,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 179,
-        "weight": 25,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
         "speciesId": 194,
+        "weight": 35,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 60,
+        "weight": 25,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 43,
+        "weight": 20,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 74,
         "weight": 20,
         "minLevel": 18,
         "maxLevel": 21
@@ -33,52 +33,52 @@
     ],
     "day": [
       {
-        "speciesId": 81,
-        "weight": 30,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 100,
-        "weight": 25,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 179,
-        "weight": 25,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
         "speciesId": 194,
+        "weight": 35,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 60,
         "weight": 20,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 43,
+        "weight": 15,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 74,
+        "weight": 30,
         "minLevel": 18,
         "maxLevel": 21
       }
     ],
     "night": [
       {
-        "speciesId": 81,
+        "speciesId": 194,
+        "weight": 35,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 60,
+        "weight": 30,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 41,
         "weight": 25,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 100,
-        "weight": 30,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 179,
-        "weight": 15,
-        "minLevel": 18,
-        "maxLevel": 21
-      },
-      {
-        "speciesId": 194,
-        "weight": 30,
+        "speciesId": 43,
+        "weight": 10,
         "minLevel": 18,
         "maxLevel": 21
       }

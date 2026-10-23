@@ -112,7 +112,7 @@ test('R06 and Ferraluce exits are reachable from every spawn and match reciproca
   }
 
   const route = maps.get(routeId)!;
-  assert.deepEqual(route.encounterTableIds, ['veloria/r06_magnetic_patch']);
+  assert.deepEqual(route.encounterTableIds, ['veloria/r06_magnetic_patch', 'veloria/r06_moss_patch']);
   const routeLayers = tiledMaps.get(routeId)!.layers;
   const sensor = (routeLayers.get('interactions') ?? []).find(object => properties(object).questEvent === 'r06/sensor/read');
   assert.ok(sensor, 'R06 declares the measurement sensor interaction');
@@ -122,7 +122,8 @@ test('R06 and Ferraluce exits are reachable from every spawn and match reciproca
   }
   const zones = (routeLayers.get('triggers') ?? []).filter(object => properties(object).kind === 'encounter-zone');
   assert.equal(zones.length, 4);
-  assert.ok(zones.every(zone => properties(zone).encounterTableId === 'veloria/r06_magnetic_patch'));
+  assert.equal(zones.filter(zone => properties(zone).encounterTableId === 'veloria/r06_magnetic_patch').length, 2);
+  assert.equal(zones.filter(zone => properties(zone).encounterTableId === 'veloria/r06_moss_patch').length, 2);
 });
 
 test('the Ferraluce hall landmark has a solid collider across its full footprint', () => {

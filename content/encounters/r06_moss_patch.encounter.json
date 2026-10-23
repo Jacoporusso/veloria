@@ -1,0 +1,87 @@
+{
+  "id": "veloria/r06_moss_patch",
+  "mapId": "veloria/r06_anello_magnetico",
+  "version": 1,
+  "status": "prototype",
+  "method": "tall-grass",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 74,
+        "weight": 25,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 43,
+        "weight": 20,
+        "minLevel": 16,
+        "maxLevel": 18
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 179,
+        "weight": 25,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 74,
+        "weight": 30,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 43,
+        "weight": 15,
+        "minLevel": 16,
+        "maxLevel": 18
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 194,
+        "weight": 40,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 74,
+        "weight": 30,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 43,
+        "weight": 20,
+        "minLevel": 16,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 179,
+        "weight": 10,
+        "minLevel": 16,
+        "maxLevel": 18
+      }
+    ]
+  }
+}

@@ -105,6 +105,8 @@ test('Selene reflections persist, award Riflesso once and show the original meda
   // Deliberately strong integration checkpoint; this does not verify natural progression balance.
   const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:82,level:55,instanceId:'p6-checkpoint',moveIds:['thunder-shock','spark']});
   const reserve=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:195,level:55,instanceId:'p6-reserve',moveIds:['mud-shot','water-gun']});
+  // This fixture checks puzzle/reward persistence, not random confusion outcomes.
+  save.rngState=0x12345678;
   save.player.money=500;
   save.party=[creature,reserve].map(member=>({instanceId:member.instanceId,speciesId:member.speciesId,level:55,experience:0,hp:member.hp,maxHp:member.stats.maxHp,moves:member.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}));
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
@@ -152,7 +154,7 @@ test('Selene reflections persist, award Riflesso once and show the original meda
     if(ready.mode==='party'){
       expect(ready.replacement).not.toBeNull();await tapLabel(ready.replacement!);continue;
     }
-    await tapLabel('LOTTA');await tapLabel(ready.active===82?'Tuonoshock':'Colpodifango');
+    await tapLabel('LOTTA');await tapLabel(ready.active===82?'Scintilla':'Colpodifango');
   }
   const banner=page.getByRole('dialog',{name:'Medaglia Riflesso conquistata!'});
   await expect(banner).toBeVisible();await expect(banner).toContainText('Selene');
