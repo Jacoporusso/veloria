@@ -1,9 +1,12 @@
 import type { CreatureSave, GameSave } from '../../persistence/save-types.ts';
 import { buildPokedexEntries, seenSpeciesFromFlags } from '../../core/party/pokedex.ts';
+import { findSpeciesHabitats } from '../../core/party/habitats.ts';
+import { listMaps } from '../maps/map-registry';
+import { areaForMap, visitedAreaIds } from '../../core/world/region-atlas.ts';
 import { BATTLE_TYPES, type MoveDefinition } from '../../core/battle/types.ts';
 import { effectivenessFor } from '../../core/battle/rules.ts';
 import { calculateStats } from '../../core/battle/create-creature.ts';
-import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, itemCatalog } from '../battle/catalog.ts';
+import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, itemCatalog, encounterCatalog } from '../battle/catalog.ts';
 import '../../evolution-item-actions.css';
 import '../management-dialog.css';
 import { battleTypeLabel } from '../battle/presentation.ts';
@@ -168,6 +171,24 @@ export class PokemonPanel {
       }
     }
     body.append(evolutionSection);
+    const habitats = node('section');
+    habitats.setAttribute('aria-label', 'Dove incontrarlo');
+    habitats.append(node('h3', 'Dove incontrarlo'));
+    const locations = findSpeciesHabitats(speciesId, listMaps().map(map => map.metadata), encounterCatalog);
+    const visited = new Set(visitedAreaIds(save.flags));
+    const priority = (mapId: string) => save.player.mapId === mapId ? 0 : visited.has(areaForMap(mapId)?.id ?? '') ? 1 : 2;
+    locations.sort((a, b) => priority(a.mapId) - priority(b.mapId) || a.mapName.localeCompare(b.mapName, 'it') || a.method.localeCompare(b.method));
+    const methods = { 'tall-grass': '🍃 Erba alta', 'woodland-understory': '🍃 Sottobosco', cave: '⛰ Grotta', surf: '🌊 Acqua', fishing: '🎣 Pesca', special: '✨ Incontro speciale' };
+    const periods = { morning: 'Mattino', day: 'Giorno', night: 'Notte' };
+    for (const location of locations) {
+      const card = node('article', '', 'pokemon-move');
+      const levels = location.minLevel === location.maxLevel ? String(location.minLevel) : `${location.minLevel}–${location.maxLevel}`;
+      card.append(node('h4', `${location.mapName}${save.player.mapId === location.mapId ? ' · 📍 Sei qui' : priority(location.mapId) === 2 ? ' · Da esplorare' : ''}`),
+        node('p', `${methods[location.method]} · Lv.${levels} · ${location.timeBands.length === 3 ? 'A ogni ora' : location.timeBands.map(band => periods[band]).join(' / ')}`));
+      habitats.append(card);
+    }
+    habitats.append(node('p', locations.length ? 'Cerca le zone segnate dalle foglie. Per pescare serve la canna; alcune zone si aprono proseguendo l’avventura.' : 'Nessun habitat selvatico segnalato.', 'pokemon-note'));
+    body.append(habitats);
     body.append(node('h3', 'Affinità difensive'));
     for (const [label, predicate] of [
       ['Debole a', (value: number) => value > 1],

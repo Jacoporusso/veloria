@@ -18,6 +18,9 @@ async function mountEvolution(page: Page, speciesId: number) {
     const player = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId, level, instanceId: `starter-${speciesId}`,
       experience: experienceToNextLevel(level, veloriaBattleRules.experienceCurves[battleSpecies[speciesId].growthCurveId]) - 1 });
     const save = newGameSave();
+    // This isolated fixture verifies evolution/art/persistence, not hit probability.
+    // New adventures remain random; a controlled battle cursor keeps this gate repeatable.
+    save.rngState = 0x12345678;
     save.flags.push('q_starter_selected');
     save.party = [{ instanceId: player.instanceId, speciesId, level, experience: player.experience, hp: player.hp, maxHp: player.stats.maxHp,
       moves: player.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];

@@ -1,6 +1,46 @@
 import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
+import { readBrowserSave } from './helpers/world-navigation';
+
+for (const [width, height] of [[390, 844], [844, 390]]) {
+  test(`Pokedex habitats guide the earned team without changing its save at ${width}x${height}`, async ({ page }, info) => {
+    await page.setViewportSize({ width, height });
+    const backup = await readFile(new URL('../../docs/playtests/2026-10-23-natural-iris-recovery-backup-charmander.json', import.meta.url), 'utf8');
+    await page.goto('/');
+    await expect(page.locator('.start-screen')).toBeVisible();
+    await page.evaluate(async text => {
+      const { importSave } = await import('/src/persistence/save-backup.ts' as string);
+      const { saveGame } = await import('/src/persistence/save-store.ts' as string);
+      await saveGame(importSave(text));
+    }, backup);
+    await page.reload(); await enterGame(page);
+    const before = await readBrowserSave(page);
+    await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+    await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
+    const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
+    await panel.getByRole('button', { name: /Wooper.*VISTO/ }).click();
+    const habitats = panel.getByRole('region', { name: 'Dove incontrarlo' });
+    await expect(habitats.getByRole('article').first()).not.toContainText('Da esplorare');
+    const conduit = habitats.getByRole('article').filter({ hasText: 'Condotto Risonante' });
+    await expect(conduit).toHaveCount(1);
+    await expect(conduit).toContainText('Erba alta · Lv.18–21 · A ogni ora');
+    await habitats.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: info.outputPath(`wooper-habitats-${width}.png`) });
+    await panel.getByRole('button', { name: '← Tutte le specie viste', exact: true }).click();
+    await panel.getByRole('button', { name: /Chinchou/ }).click();
+    const coast = habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Pesca' });
+    await expect(coast).toHaveCount(1);
+    await expect(coast).toContainText('Pesca · Lv.20–23 · A ogni ora');
+    await expect(habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Erba alta' })).toHaveCount(1);
+    const after = await readBrowserSave(page);
+    expect(after.party).toEqual(before.party);
+    expect(after.inventory).toEqual(before.inventory);
+    expect(after.rngState).toBe(before.rngState);
+    expect(after.player.money).toBe(before.player.money);
+    expect(after.flags).toEqual(before.flags);
+  });
+}
 
 for (const [width, height] of [[390, 844], [844, 390]]) {
   test(`team lead selection persists without changing earned creatures at ${width}x${height}`, async ({ page }) => {

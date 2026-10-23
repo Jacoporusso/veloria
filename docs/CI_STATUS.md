@@ -1,3 +1,11 @@
+## 0.3.120 — Habitat e recupero naturale dopo Viola (23/10/2026)
+
+Pokédex/Squadra mostrano habitat da tabelle collegate alle mappe runtime, livelli, metodo e periodo; precedenza alle zone già esplorate.549 test dominio/persistenza passati, due prove browser habitat su portrait/landscape con salvataggio invariato e una prova PWA offline con habitat, deposito, acquisti e reload passata in5,9s (19,4s inclusa build). Build e validatore passati. Dettagli in [36_POKEDEX_HABITATS_v0.1.md](36_POKEDEX_HABITATS_v0.1.md).
+
+Il checkpoint dopo Viola continua realmente fino a Iris: vittoria in cinque turni senza consumabili,402 XP e650 monete guadagnati, poi ritorno e cure a Portolume. Test passato in circa2min; backup esportato dall’app e verificato. Non è una vittoria su Viola o Nerea. Report in [playtests/2026-10-23-iris-recovery.md](playtests/2026-10-23-iris-recovery.md).
+
+[Deploy40010487593](https://github.com/Jacoporusso/veloria/actions/runs/40010487593) della119 SUCCESS; HTTPS200/cachev140 verificati. [Verify40010487596](https://github.com/Jacoporusso/veloria/actions/runs/40010487596) ancora in esecuzione al controllo:18 job completati e un fallimento, Raticate nella shard11. Diagnostica scaricata: turno2, Azione95% con PP consumato, Caterpie ancora a1 HP. Il test assumeva KO al primo attacco ma ereditava il nuovo seed casuale. Ora soltanto la fixture evoluzioni usa un seed controllato, senza cambiare probabilità o seed delle avventure reali. Tutte le21 prove evoluzione/artwork/IndexedDB passate in2,3min. Nuova verifica completa e deploy120 da confermare dopo il push.
+
 ## 0.3.119 — Borsa italiana e test dei negozi riallineati (23/10/2026)
 
 La borsa di lotta riceve i nomi italiani dal catalogo del proprietario e mostra quantità e recupero HP/cura dello stato. Sei prove browser borsa/icone/catture/ricompense passate, con controllo visivo portrait/landscape e consumo; build e validatore passati. Il playtest naturale registra una sconfitta contro Viola in14 turni, non una quinta medaglia: report e backup verificati in [playtests/2026-10-23-viola-first-attempt.md](playtests/2026-10-23-viola-first-attempt.md).
