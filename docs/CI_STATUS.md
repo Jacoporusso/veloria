@@ -1,8 +1,8 @@
 ## 0.3.121 — Memoria delle catture (23/10/2026)
 
-Le registrazioni del Pokédex sopravvivono all’evoluzione e al consumo della ricevuta della cerimonia. I conteggi dei Pokémon attualmente posseduti rimangono separati. 550 test dominio/persistenza passati, build passata; due prove browser isolate con IndexedDB e reload passate in portrait/landscape in2,4s. Dettagli in [37_POKEDEX_CAPTURE_HISTORY_v0.1.md](37_POKEDEX_CAPTURE_HISTORY_v0.1.md). Deploy e CI121 da confermare dopo push.
+Le registrazioni del Pokédex sopravvivono all’evoluzione e al consumo della ricevuta della cerimonia. I conteggi dei Pokémon attualmente posseduti rimangono separati. 550 test dominio/persistenza passati, build passata; due prove browser isolate con IndexedDB e reload passate in portrait/landscape in2,4s. Dettagli in [37_POKEDEX_CAPTURE_HISTORY_v0.1.md](37_POKEDEX_CAPTURE_HISTORY_v0.1.md). Commit `a650c04` su main. [Deploy40013954428](https://github.com/Jacoporusso/veloria/actions/runs/40013954428) SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v142` verificati. [Verify40013954389](https://github.com/Jacoporusso/veloria/actions/runs/40013954389) in attesa della120: suite completa121 non ancora confermata.
 
-[Deploy40012990609](https://github.com/Jacoporusso/veloria/actions/runs/40012990609) della120 SUCCESS. [Verify40012990597](https://github.com/Jacoporusso/veloria/actions/runs/40012990597) ancora in esecuzione al controllo: non attestata interamente verde.
+[Deploy40012990609](https://github.com/Jacoporusso/veloria/actions/runs/40012990609) della120 SUCCESS. [Verify40012990597](https://github.com/Jacoporusso/veloria/actions/runs/40012990597) ancora in esecuzione al controllo: quattro job completati senza fallimenti, non attestata interamente verde.
 
 ## 0.3.120 — Habitat e recupero naturale dopo Viola (23/10/2026)
 
