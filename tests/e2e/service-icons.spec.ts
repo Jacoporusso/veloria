@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import { expect, test } from '@playwright/test';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
@@ -38,7 +39,7 @@ test('healing and market show recognizable icons while their actions and names r
   for (const kind of ['potion', 'antidote', 'pokeball']) await expect(page.locator(`.service-option__icon--${kind}`)).toBeVisible();
   const previous = await page.evaluate(() => (window as any).__serviceIconGame.scene.keys.world.save.inventory.potion ?? 0);
   await page.screenshot({ path: info.outputPath('market-icons.png') });
-  await page.getByRole('button', { name: /^Pozione ·/ }).click();
+  await buyFromShop(page, 'Pozione');
   expect(await page.evaluate(() => (window as any).__serviceIconGame.scene.keys.world.save.inventory.potion)).toBe(previous + 1);
   expect(await page.evaluate(() => (window as any).__serviceIconGame.scene.keys.world.save.player.money)).toBe(300);
   expect(errors).toEqual([]);

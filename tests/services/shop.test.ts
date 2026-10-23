@@ -30,3 +30,22 @@ test('rejects unaffordable, unsold and full-stack purchases without changing the
   if (!result.ok) assert.equal(result.reason, 'stackFull');
   assert.equal(save.player.money, 300);
 });
+
+test('bulk purchase is atomic, with exact total cost and quantity', () => {
+  const original = { ...save, player: { ...save.player, money: 1000 } };
+  const result = purchaseShopItem(original, shop, 'potion', items, 4);
+  assert.equal(result.ok, true);
+  if (!result.ok) return;
+  assert.equal(result.save.player.money, 200);
+  assert.equal(result.save.inventory.potion, 5);
+  assert.equal(original.inventory.potion, 1);
+  for (const amount of [0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER]) {
+    const rejected = purchaseShopItem(original, shop, 'potion', items, amount);
+    assert.equal(rejected.ok, false);
+    assert.equal(rejected.save, original);
+  }
+  assert.equal(purchaseShopItem(original, shop, 'potion', items, 6).ok, false);
+  const almostFull = { ...original, inventory: { potion: 98 } };
+  assert.equal(purchaseShopItem(almostFull, shop, 'potion', items, 2).ok, false);
+  assert.equal(almostFull.inventory.potion, 98);
+});

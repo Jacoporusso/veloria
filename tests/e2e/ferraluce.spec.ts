@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import { expect, test } from '@playwright/test';
 import species from '../../content/battle/species.v1.json' with { type: 'json' };
 import moves from '../../content/battle/moves.v1.json' with { type: 'json' };
@@ -74,7 +75,7 @@ test('Circuito opens R06, the reading reaches Ivo once, and Ferraluce services s
   await page.getByRole('button', { name: 'RIPOSA', exact: true }).click();
   await expect.poll(async () => (await readBrowserSave(page)).party[0].hp).toBe(creature.stats.maxHp);
   await inspect('ferraluce.tmj', 30, 21);
-  await page.getByRole('button', { name: /^Pozione ·/ }).click();
+  await buyFromShop(page, 'Pozione');
   await expect.poll(async () => (await readBrowserSave(page)).player.money).toBe(300);
   await expect.poll(() => page.evaluate(() => (window as any).__ferraluceGame.textures.get('veloria-ferraluce-energy-hall-v1').getSourceImage().width)).toBe(1536);
   for (const [width, height] of [[390, 844], [844, 390]]) {

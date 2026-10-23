@@ -39,6 +39,25 @@ function toStoredCreature(creature: CreatureSave): StoredCreatureSave {
   return { ...creature };
 }
 
+/** Validate the whole selection before committing a simultaneous box/party exchange. */
+export function transferSelectedCreatures(save: GameSave, depositIds: readonly string[], withdrawIds: readonly string[]): PartyStorageResult {
+  const deposits = new Set(depositIds), withdrawals = new Set(withdrawIds);
+  if (deposits.size !== depositIds.length || withdrawals.size !== withdrawIds.length ||
+      [...deposits].some(id => !save.party.some(creature => creature.instanceId === id)) ||
+      [...withdrawals].some(id => !save.storage.some(creature => creature.instanceId === id))) return { ok: false, reason: 'notFound' };
+  const finalCount = save.party.length - deposits.size + withdrawals.size;
+  if (finalCount < 1) return { ok: false, reason: 'lastPartyMember' };
+  if (finalCount > 6) return { ok: false, reason: 'partyFull' };
+  const incoming = save.storage.filter(creature => withdrawals.has(creature.instanceId)).map(toPartyCreature);
+  if (incoming.some(creature => !creature)) return { ok: false, reason: 'invalidStoredCreature' };
+  if (!deposits.size && !withdrawals.size) return { ok: true, save };
+  return { ok: true, save: { ...save,
+    party: [...save.party.filter(creature => !deposits.has(creature.instanceId)), ...incoming as CreatureSave[]],
+    storage: [...save.storage.filter(creature => !withdrawals.has(creature.instanceId)),
+      ...save.party.filter(creature => deposits.has(creature.instanceId)).map(toStoredCreature)],
+  } };
+}
+
 function toPartyCreature(stored: StoredCreatureSave): CreatureSave | undefined {
   if (!Number.isInteger(stored.speciesId) || stored.speciesId < 1 ||
       !Number.isInteger(stored.level) || (stored.level as number) < 1 ||

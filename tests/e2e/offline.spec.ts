@@ -1,6 +1,7 @@
 import { battleCommandLayout, battleMoveGrid } from '../../src/game/battle/battle-command-layout';
 import leagueSequence from '../../content/challenges/veloria_league.sequence.json' with {type:'json'};
 import { expect, test } from '@playwright/test';
+import { buyFromShop } from './helpers/shop';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
@@ -826,7 +827,7 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101,162,164,168,180,195]],['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,134,135,136]]] as const) {
+for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101,162,164,168,180,195]],['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,62,134,135,136]]] as const) {
 test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
   const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;
@@ -1185,4 +1186,48 @@ test('new dune training battle and reward persist offline', async ({ page, conte
   await walkTo(page, 'r09_dune_salmastre.tmj', 39, 17);
   await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/d04_delta_specchi');
   expect(failures).toEqual([]);
+});
+
+
+test('bulk storage and market work offline and persist after reload', async ({ page, context }) => {
+  test.setTimeout(150_000);
+  const errors: string[] = [], failures: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.party = [25, 16].map((speciesId, index) => {
+    const c = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+      speciesId, level: 5, instanceId: `offline-service-${index}` });
+    return { instanceId: c.instanceId, speciesId, level: 5, experience: 0, hp: c.hp,
+      maxHp: c.stats.maxHp, moves: c.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) };
+  });
+  save.storage = [];
+  save.player = { ...save.player, mapId: 'veloria/portolume', spawnPointId: 'from_r08', x: 8, y: 15, money: 1000 };
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen'])];
+  save.inventory = { potion: 0 };
+  await seedBrowserSave(page, save);
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await action.tap();
+  await page.getByRole('button', { name: 'DEPOSITO', exact: true }).click();
+  const depot = page.getByRole('dialog', { name: 'Deposito Pokémon' });
+  await depot.getByRole('region', { name: 'Squadra', exact: true }).getByRole('button').nth(1).click();
+  await depot.getByRole('button', { name: 'Sposta selezionati' }).click();
+  await expect(depot).toHaveAttribute('aria-busy', 'false');
+  await depot.getByRole('region', { name: 'Box', exact: true }).getByRole('button').click();
+  await depot.getByRole('button', { name: 'Sposta selezionati' }).click();
+  await expect(depot).toHaveAttribute('aria-busy', 'false');
+  await depot.getByRole('button', { name: 'Chiudi', exact: true }).click();
+  await walkTo(page, 'portolume.tmj', 14, 15);
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await action.tap();
+  await buyFromShop(page, 'Pozione', 3);
+  await page.reload(); await enterGame(page);
+  const restored = await readBrowserSave(page);
+  expect(restored.party).toEqual(save.party);
+  expect(restored.storage).toEqual([]);
+  expect(restored.inventory.potion).toBe(3);
+  expect(restored.player.money).toBe(400);
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
 });

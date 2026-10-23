@@ -18,7 +18,9 @@ import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
 import { createUniqueId, saveGame, type GameSave } from '../../persistence/save-store';
 import { exportSave, importSave } from '../../persistence/save-backup';
-import { moveCreatureToFirstSlot } from '../../core/services/party-order.ts';
+import { moveCreatureToSlot } from '../../core/services/party-order.ts';
+import { showStorageManager } from '../ui/StorageMenu';
+import { showShopManager } from '../ui/ShopMenu';
 import { getStarterName, selectStarter, starters } from '../../core/party/select-starter';
 import { applyQuestEvent } from '../../core/quests/apply-quest-event';
 import { questCatalog } from '../quests/catalog.ts';
@@ -37,7 +39,6 @@ import { createAmbientEffectPoints, createGrassSwayPoints, createWaterShimmerPoi
 import { battleMoves, battleSpecies, encounterCatalog, trainerCatalog, veloriaBattleRules } from '../battle/catalog.ts';
 import { createTrainerBattle, createWildBattle, mergeBattlePlayerState } from '../battle/create-battle-state.ts';
 import { healParty } from '../../core/services/healing.ts';
-import { moveCreatureToStorage, withdrawCreatureFromStorage } from '../../core/services/party-storage.ts';
 import { recordSpeciesSeen } from '../../core/party/pokedex.ts';
 import { PokemonPanel } from '../ui/PokemonPanel.ts';
 import { applyItemEvolution, pendingEvolutionReceipts, queueEvolutionReceipts, evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
@@ -45,7 +46,6 @@ import { itemEvolutionRules } from '../battle/catalog.ts';
 import { chooseItemEvolution } from '../ui/ItemEvolutionMenu.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
 import { ensureSavedProgress } from '../ui/SaveRetryDialog.ts';
-import { purchaseShopItem } from '../../core/services/shop.ts';
 import { itemCatalog, shopCatalog } from '../battle/catalog.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
 import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
@@ -427,7 +427,8 @@ export class WorldScene extends Phaser.Scene {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
     if (!panel || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
     const browser = new PokemonPanel((itemId, creatureId) => void this.openItemEvolution(itemId, creatureId),
-      this.previewMode ? undefined : creatureId => void this.makePartyLeader(creatureId, browser));
+      this.previewMode ? undefined : creatureId => void this.reorderParty(creatureId, 0, browser),
+      this.previewMode ? undefined : (creatureId, index) => void this.reorderParty(creatureId, index, browser, true));
     browser.render(this.save, view);
     panel.hidden = false;
     this.pokedexOpen = true;
@@ -452,9 +453,9 @@ export class WorldScene extends Phaser.Scene {
     this.pokedexReturnFocus = undefined;
   }
 
-  private async makePartyLeader(creatureId: string, browser: PokemonPanel): Promise<void> {
+  private async reorderParty(creatureId: string, index: number, browser: PokemonPanel, focusHandle = false): Promise<void> {
     if (this.battleActive || this.completionActive || !this.pokedexOpen) return;
-    const result = moveCreatureToFirstSlot(this.save, creatureId);
+    const result = moveCreatureToSlot(this.save, creatureId, index);
     if (!result.ok) { browser.render(this.save, 'team'); return; }
     this.save = result.save;
     this.completionActive = true;
@@ -462,9 +463,10 @@ export class WorldScene extends Phaser.Scene {
       if (!await ensureSavedProgress(() => this.persistProgress(), this.presentationAbort.signal)) return;
       if (this.pokedexOpen) {
         browser.render(this.save, 'team');
-        document.querySelector<HTMLButtonElement>('#pokedex-list button')?.focus();
+        const moved = [...document.querySelectorAll<HTMLElement>('#pokedex-list [data-party-id]')].find(row => row.dataset.partyId === creatureId);
+        (focusHandle ? moved?.querySelector<HTMLButtonElement>('.party-drag') : document.querySelector<HTMLButtonElement>('#pokedex-list button'))?.focus();
       }
-      this.showToast(`${battleSpecies[this.save.party[0].speciesId]?.name ?? 'Pokémon'} in testa alla squadra.`);
+      this.showToast('Ordine della squadra salvato.');
     } finally { this.completionActive = false; }
   }
 
@@ -1408,65 +1410,33 @@ export class WorldScene extends Phaser.Scene {
     ]);
   }
 
-  private showStorageMenu(name: string) {
-    if (!this.challengeServicePermitted('storage')) return;
-    const speciesName = (speciesId: number) => battleSpecies[String(speciesId)]?.name ?? `Specie ${speciesId}`;
-    const options = [
-      ...this.save.party.map(creature => ({
-        icon: 'storage' as const,
-        label: `BOX · ${speciesName(creature.speciesId)} Lv.${creature.level}`,
-        action: () => {
-          if (!this.challengeServicePermitted('storage')) return;
-          const result = moveCreatureToStorage(this.save, creature.instanceId);
-          if (result.ok) {
-            this.save = result.save;
-            this.persistProgress();
-            this.showToast(`${speciesName(creature.speciesId)} depositato nel box.`);
-          } else this.showToast(result.reason === 'lastPartyMember' ? 'Devi lasciare almeno un Pokémon in squadra.' : 'Non riesco a spostare questo Pokémon.');
-        },
-      })),
-      ...this.save.storage.map(creature => ({
-        icon: 'storage' as const,
-        label: `RITIRA · ${speciesName(creature.speciesId)}${typeof creature.level === 'number' ? ` Lv.${creature.level}` : ''}`,
-        action: () => {
-          if (!this.challengeServicePermitted('storage')) return;
-          const result = withdrawCreatureFromStorage(this.save, creature.instanceId);
-          if (result.ok) {
-            this.save = result.save;
-            this.persistProgress();
-            this.showToast(`${speciesName(creature.speciesId)} aggiunto alla squadra.`);
-          } else this.showToast(result.reason === 'partyFull' ? 'La squadra è già al completo.' : 'Questo Pokémon non può essere ritirato.');
-        },
-      })),
-      { label: 'INDIETRO', icon: 'close' as const, action: () => this.showHealingMenu(name, true) },
-    ];
-    this.afterDialogue = null;
-    this.showServiceOptions(name, `Squadra: ${this.save.party.length}/6 · Box: ${this.save.storage.length}. Scegli un Pokémon.`, options);
+  private showStorageMenu(_name: string) {
+    if (!this.challengeServicePermitted('storage') || this.completionActive) return;
+    void this.runManagementService(signal => showStorageManager({
+      getSave: () => this.save, commit: save => this.commitManagementSave(save), signal,
+    }));
   }
 
   private showShopMenu(name: string, shopId: string) {
     const shop = shopCatalog[shopId];
     if (!shop) { this.showToast('Questa bottega non è ancora aperta.'); return; }
-    const options = shop.items.flatMap(itemId => {
-      const item = itemCatalog[itemId];
-      if (!item) return [];
-      return [{ icon: (item.battle?.healHp ? 'potion' : item.battle?.cures?.length ? 'antidote' : item.capture ? 'pokeball' : 'shop') as ServiceOptionIconKind, label: `${item.name} · ${item.price} ₿  (${this.save.inventory[itemId] ?? 0})`, action: () => {
-        const result = purchaseShopItem(this.save, shop, itemId, itemCatalog);
-        if (result.ok) {
-          this.save = result.save;
-          this.persistProgress();
-          this.showToast(`${item.name} acquistato.`);
-        } else {
-          const message = result.reason === 'insufficientFunds' ? 'Non hai abbastanza denaro.'
-            : result.reason === 'stackFull' ? 'Non puoi portare altri strumenti di questo tipo.'
-              : 'Questo articolo non è disponibile.';
-          this.showToast(message);
-        }
-      } }];
-    });
-    options.push({ label: 'CHIUDI', icon: 'close', action: () => undefined });
-    this.afterDialogue = null;
-    this.showServiceOptions(name, `Hai ${this.save.player.money} ₿. Scegli cosa acquistare.`, options);
+    if (this.completionActive) return;
+    void this.runManagementService(signal => showShopManager({
+      name, shop, catalog: itemCatalog, getSave: () => this.save,
+      commit: save => this.commitManagementSave(save), signal,
+    }));
+  }
+
+  private async runManagementService(open: (signal: AbortSignal) => Promise<void>): Promise<void> {
+    this.completionActive = true;
+    try { await open(this.presentationAbort.signal); }
+    finally { this.input.keyboard?.resetKeys(); this.completionActive = false; }
+  }
+
+  private async commitManagementSave(save: GameSave): Promise<boolean> {
+    this.save = save;
+    if (this.previewMode) return true;
+    return ensureSavedProgress(() => this.persistProgress(), this.presentationAbort.signal);
   }
 
   private showDialogueChoices(dialogue: Dialogue): void {

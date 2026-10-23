@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import { battleCommandLayout } from '../../src/game/battle/battle-command-layout';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
@@ -915,8 +916,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await walkToTile(page, 'destra', 5);
   await walkToTile(page, 'basso', 2);
   await tapConfirm(page);
-  await expect(page.locator('#starter-choices')).toBeVisible();
-  await page.getByRole('button', { name: /Sfera.*150/ }).click();
+  await buyFromShop(page, 'Sfera');
   await expect.poll(async () => (await readCurrentSave(page))?.inventory?.['poke-ball']).toBe(1);
   expect((await readCurrentSave(page)).player.money).toBe(350);
 
@@ -975,7 +975,8 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await tapConfirm(page);
   await expect(page.locator('#starter-choices')).toBeVisible();
   await page.getByRole('button', { name: 'DEPOSITO' }).click();
-  await expect(page.locator('#dialogue-text')).toContainText('Squadra: 6/6 · Box: 1.');
+  await expect(page.getByRole('dialog', { name: 'Deposito Pokémon' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Squadra · 6/6' })).toBeVisible();
   await expect(page.getByRole('button', { name: /RITIRA · Pidgey/ })).toHaveCount(1);
 
   await page.reload();
@@ -1150,7 +1151,7 @@ test('R04: the petal ascent reaches Petalora, services work, and Nila rewards on
   await walkToMapTile(page, 'petalora.tmj', 27, 9);
   await walkToTile(page, 'alto', 1);
   await tapConfirm(page);
-  await page.getByRole('button', {name:/^Pozione · 200/}).click();
+  await buyFromShop(page, 'Pozione');
   await expect.poll(async () => (await readCurrentSave(page)).player.money).toBe(beforeShop.player.money - 200);
   expect((await readCurrentSave(page)).inventory.potion).toBe((beforeShop.inventory.potion ?? 0) + 1);
   await page.screenshot({path: testInfo.outputPath('petalora-services.png')});

@@ -1,3 +1,4 @@
+import { buyFromShop } from '../e2e/helpers/shop';
 import { runCentralePortolume } from './helpers/centrale-portolume';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
@@ -236,7 +237,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
           const current = (await observe(page)).save;
           if ((current.inventory.potion ?? 0) >= 2 || current.player.money < 200) break;
           await interact(6,19);
-          await page.getByRole('button',{name:/^Pozione ·/}).click();await settle();
+          await buyFromShop(page, 'Pozione');await settle();
         }
         await record('Supplies purchased before Mira');
       }
@@ -322,7 +323,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
           const save = (await observe(page)).save;
           if ((save.inventory.potion ?? 0) >= 3 || save.player.money < 200) break;
           await interact(27, 7);
-          await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+          await buyFromShop(page, 'Pozione'); await settle();
         }
         await record('Supplies purchased before Dalia');
         await walk(18, 0);
@@ -385,7 +386,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
           const save = (await observe(page)).save;
           if ((save.inventory.potion ?? 0) >= 5 || save.player.money < 200) break;
           await interact(27, 20);
-          await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+          await buyFromShop(page, 'Pozione'); await settle();
         }
         if (!orenWonFirstTry) {
           await walk(0, 25);
@@ -456,7 +457,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         for (let purchase = 0; purchase < 5; purchase++) {
           const save = (await observe(page)).save;
           if ((save.inventory.potion ?? 0) >= 5 || save.player.money < 200) break;
-          await interact(30, 21); await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+          await interact(30, 21); await buyFromShop(page, 'Pozione'); await settle();
         }
         await record('Natural preparation before Rhea');
         await walk(34, 18);
@@ -469,7 +470,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         for (let purchase = 0; purchase < 2; purchase++) {
           const save = (await observe(page)).save;
           if ((save.inventory.potion ?? 0) >= 2 || save.player.money < 200) break;
-          await interact(30, 21); await page.getByRole('button', { name: /^Pozione ·/ }).click(); await settle();
+          await interact(30, 21); await buyFromShop(page, 'Pozione'); await settle();
         }
         await record('Rhea rematch supplies earned and purchased');
         await walk(34, 18);

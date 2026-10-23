@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import { expect, test } from '@playwright/test';
 import speciesData from '../../content/battle/species.v1.json' with { type: 'json' };
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
@@ -115,7 +116,7 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
   await expect.poll(async () => (await readBrowserSave(page)).party.every(p => p.hp === p.maxHp)).toBe(true);
   await walkTo(page, 'vetracielo.tmj', 27, 22); await walkDirection(page, 'up');
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
-  await page.getByRole('button', { name: /^Pozione ·/ }).click();
+  await buyFromShop(page, 'Pozione');
   await expect.poll(async () => (await readBrowserSave(page)).player.money).toBe(540);
   for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.setViewportSize({ width, height });

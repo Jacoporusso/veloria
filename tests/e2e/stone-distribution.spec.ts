@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import { expect, test, type Page } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpers/world-navigation';
@@ -87,7 +88,7 @@ test('Corolla unlocks the stone shop, purchases persist and bag evolution saves 
   await enterGame(page);
   for (const [id, name, balance] of [['fire-stone', 'Pietrafocaia', 12000], ['water-stone', 'Pietraidrica', 9000], ['thunder-stone', 'Pietratuono', 6000]] as const) {
     await interactNorth(page);
-    await page.getByRole('button', { name: new RegExp(`${name} · 3000`) }).tap();
+    await buyFromShop(page, name);
     await expect.poll(async () => (await readBrowserSave(page)).inventory[id]).toBe(1);
     expect((await readBrowserSave(page)).player.money).toBe(balance);
   }

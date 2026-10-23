@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { moveCreatureToStorage, withdrawCreatureFromStorage } from '../../src/core/services/party-storage.ts';
+import { moveCreatureToStorage, withdrawCreatureFromStorage, transferSelectedCreatures } from '../../src/core/services/party-storage.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 
 const createSave = (partyCount = 2): GameSave => ({
@@ -39,4 +39,28 @@ test('rejects legacy or malformed box entries that cannot form a party creature'
   const save = createSave(1);
   save.storage.push({ instanceId: 'legacy-1', speciesId: 16 });
   assert.deepEqual(withdrawCreatureFromStorage(save, 'legacy-1'), { ok: false, reason: 'invalidStoredCreature' });
+});
+
+
+test('batch exchange validates final size and preserves all records atomically', () => {
+  const save = createSave(6);
+  const boxed = { ...save.party[0], instanceId: 'boxed' };
+  save.storage = [boxed];
+  const before = structuredClone(save);
+  const result = transferSelectedCreatures(save, ['creature-1', 'creature-2'], ['boxed']);
+  assert.equal(result.ok, true);
+  if (!result.ok) return;
+  assert.deepEqual(result.save.party, [...save.party.slice(2), boxed]);
+  assert.deepEqual(result.save.storage, save.party.slice(0, 2));
+  assert.deepEqual(save, before);
+  assert.equal(transferSelectedCreatures(save, [], ['boxed']).ok, false);
+  assert.equal(transferSelectedCreatures(save, save.party.map(p => p.instanceId), []).ok, false);
+  assert.equal(transferSelectedCreatures(save, ['missing'], []).ok, false);
+  assert.equal(transferSelectedCreatures(save, ['creature-1', 'creature-1'], []).ok, false);
+  const replacement = transferSelectedCreatures(save, save.party.map(p => p.instanceId), ['boxed']);
+  assert.equal(replacement.ok, true);
+  if (replacement.ok) assert.deepEqual(replacement.save.party, [boxed]);
+  const invalid = { ...save, storage: [{ instanceId: 'bad', speciesId: 16 }] };
+  assert.equal(transferSelectedCreatures(invalid, ['creature-1'], ['bad']).ok, false);
+  assert.deepEqual(invalid.party, before.party);
 });

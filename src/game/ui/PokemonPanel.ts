@@ -5,6 +5,7 @@ import { effectivenessFor } from '../../core/battle/rules.ts';
 import { calculateStats } from '../../core/battle/create-creature.ts';
 import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, itemCatalog } from '../battle/catalog.ts';
 import '../../evolution-item-actions.css';
+import '../management-dialog.css';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
@@ -29,14 +30,15 @@ export class PokemonPanel {
   private readonly summary = document.querySelector<HTMLElement>('#pokedex-summary')!;
 
   constructor(private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void,
-    private readonly onMakeLeader?: (creatureId: string) => void) {}
+    private readonly onMakeLeader?: (creatureId: string) => void,
+    private readonly onReorder?: (creatureId: string, targetIndex: number) => void) {}
 
   render(save: GameSave, view: 'team' | 'dex'): void {
     this.title.textContent = view === 'team' ? 'Squadra' : 'Pokédex';
     this.list.replaceChildren();
     const entries = buildPokedexEntries(battleSpecies, save.party, save.storage, seenSpeciesFromFlags(save.flags));
     this.summary.textContent = view === 'team'
-      ? `${save.party.length}/6 compagni · Seleziona un Pokémon per studiare statistiche e mosse.`
+      ? `${save.party.length}/6 compagni · Seleziona un Pokémon per i dettagli.${this.onReorder ? ' Trascina la maniglia ⠿ per riordinare; da tastiera usa le frecce sulla maniglia.' : ''}`
       : `${entries.filter(entry => entry.seen).length} viste · ${entries.filter(entry => entry.registered).length} catturate · ${entries.length} specie nel catalogo. Seleziona una specie per i dettagli.`;
     const rows = view === 'team'
       ? save.party.map((creature, index) => ({ speciesId: creature.speciesId, creature, label: `${index === 0 ? 'IN TESTA · ' : ''}Lv.${creature.level} · HP ${creature.hp}/${creature.maxHp}` }))
@@ -50,6 +52,58 @@ export class PokemonPanel {
       button.append(createCreaturePortrait(row.speciesId), node('span', `N° ${String(row.speciesId).padStart(3, '0')}`, 'pokedex-number'), node('span', species.name, 'pokedex-name'), node('span', row.label, 'pokedex-count'));
       button.addEventListener('click', () => this.details(save, view, row.speciesId, row.creature));
       item.append(button);
+      if (view === 'team' && row.creature && this.onReorder) {
+        item.className = 'party-order-row';
+        item.dataset.partyId = row.creature.instanceId;
+        const handle = node('button', '⠿', 'party-drag');
+        handle.type = 'button';
+        handle.title = 'Trascina oppure usa Freccia su / Freccia giù';
+        const id = row.creature.instanceId;
+        const sourceIndex = save.party.findIndex(member => member.instanceId === id);
+        handle.setAttribute('aria-label', `Riordina posto ${sourceIndex + 1}`);
+        handle.setAttribute('aria-description', `${species.name}. Trascina o usa Freccia su e Freccia giù.`);
+        let pointer: number | undefined, targetIndex = sourceIndex;
+        let startX = 0, startY = 0, dragging = false;
+        const clear = () => {
+          pointer = undefined; dragging = false;
+          for (const row of this.list.querySelectorAll('.party-order-row')) row.classList.remove('is-dragging', 'is-drop-target');
+        };
+        handle.onpointerdown = event => {
+          if (!event.isPrimary || event.button !== 0) return;
+          pointer = event.pointerId; startX = event.clientX; startY = event.clientY;
+          targetIndex = sourceIndex;
+          handle.setPointerCapture(pointer);
+        };
+        handle.onpointermove = event => {
+          if (event.pointerId !== pointer) return;
+          if (!dragging && Math.hypot(event.clientX - startX, event.clientY - startY) < 6) return;
+          dragging = true;
+          item.classList.add('is-dragging');
+          const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>('[data-party-id]');
+          for (const row of this.list.querySelectorAll('.is-drop-target')) row.classList.remove('is-drop-target');
+          targetIndex = target ? save.party.findIndex(member => member.instanceId === target.dataset.partyId) : sourceIndex;
+          if (target && targetIndex !== sourceIndex) target.classList.add('is-drop-target');
+          const bounds = this.list.getBoundingClientRect();
+          if (event.clientY < bounds.top + 35) this.list.scrollTop -= 16;
+          else if (event.clientY > bounds.bottom - 35) this.list.scrollTop += 16;
+        };
+        handle.onpointerup = event => {
+          if (event.pointerId !== pointer) return;
+          const destination = targetIndex;
+          const changed = dragging && destination >= 0 && destination !== sourceIndex;
+          clear();
+          if (changed) this.onReorder?.(id, destination);
+        };
+        handle.onpointercancel = clear;
+        handle.onlostpointercapture = clear;
+        handle.onkeydown = event => {
+          if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+          event.preventDefault(); event.stopPropagation();
+          const destination = sourceIndex + (event.key === 'ArrowUp' ? -1 : 1);
+          if (destination >= 0 && destination < save.party.length) this.onReorder?.(id, destination);
+        };
+        item.append(handle);
+      }
       this.list.append(item);
     }
     if (!rows.length) this.list.append(node('li', view === 'team' ? 'Scegli il tuo primo compagno al laboratorio.' : 'Incontra Pokémon per iniziare il registro.', 'pokedex-empty'));

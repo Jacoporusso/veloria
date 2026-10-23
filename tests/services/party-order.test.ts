@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { moveCreatureToFirstSlot } from '../../src/core/services/party-order.ts';
+import { moveCreatureToFirstSlot, moveCreatureToSlot } from '../../src/core/services/party-order.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 
 const createSave = (): GameSave => ({
@@ -56,5 +56,19 @@ test('returns the same save when the requested creature is already first', () =>
 test('rejects an instance id that is not in the party without changing the save', () => {
   const save = createSave();
   assert.deepEqual(moveCreatureToFirstSlot(save, 'missing'), { ok: false, reason: 'notFound' });
+  assert.deepEqual(save, createSave());
+});
+
+
+test('inserts at either end or an intermediate slot without losing members', () => {
+  const save = createSave();
+  const moved = moveCreatureToSlot(save, 'one', 2);
+  assert.equal(moved.ok, true);
+  if (!moved.ok) return;
+  assert.deepEqual(moved.save.party.map(p => p.instanceId), ['two', 'three', 'one']);
+  const middle = moveCreatureToSlot(moved.save, 'one', 1);
+  assert.equal(middle.ok, true);
+  if (middle.ok) assert.deepEqual(middle.save.party.map(p => p.instanceId), ['two', 'one', 'three']);
+  for (const index of [-1, 3, 1.5, NaN]) assert.equal(moveCreatureToSlot(save, 'one', index).ok, false);
   assert.deepEqual(save, createSave());
 });

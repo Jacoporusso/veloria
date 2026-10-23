@@ -1,0 +1,33 @@
+.management-dialog { box-sizing:border-box; width:min(880px,calc(100% - 20px)); max-height:calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); padding:20px; border:1px solid #9de5e840; border-radius:24px; background:linear-gradient(145deg,#163347,#19233c); color:#edf8ff; box-shadow:0 20px 80px #0009; font-family:Nunito,'Trebuchet MS',sans-serif; }
+.management-overlay { position:fixed; inset:0; z-index:100; display:grid; place-items:center; box-sizing:border-box; padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); background:#071525b8; backdrop-filter:blur(7px); }
+.management-dialog { display:flex; flex-direction:column; overflow:hidden; overscroll-behavior:contain; }
+.management-dialog header,.management-dialog footer,.management-status { flex-shrink:0; }
+.management-content { overflow:auto; min-height:0; overscroll-behavior:contain; padding:3px; }
+.management-dialog header,.management-dialog footer { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.management-dialog h2 { margin:0; font-size:22px; }
+.management-dialog h3 { margin:12px 0; }
+.management-dialog button { min-height:44px; border:1px solid #a1d7e650; border-radius:12px; padding:10px 14px; color:inherit; background:#a1d7e618; font:inherit; cursor:pointer; }
+.management-dialog button:disabled { opacity:.45; cursor:default; }
+.management-dialog button:focus-visible,.management-dialog input:focus-visible { outline:3px solid #b5b2ff; outline-offset:2px; }
+.management-dialog footer { margin-top:12px; padding:12px 0 0; }
+.management-status { min-height:24px; color:#b8eedf; }
+.management-columns { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.management-roster { display:grid; gap:8px; align-content:start; }
+.management-dialog .storage-choice { display:flex; align-items:center; gap:10px; text-align:left; width:100%; }
+.storage-choice[aria-pressed=true] { border-color:#9affdc; background:#68dfbd30; box-shadow:inset 3px 0 #9affdc; }
+.storage-choice .creature-portrait { width:54px; height:54px; flex-shrink:0; }
+.storage-choice small { display:block; color:#c1d4e5; }
+.shop-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; align-items:center; padding:14px 0; border-bottom:1px solid #b0dcf020; }
+.shop-row h3 { margin:0 0 6px; }
+.shop-row small { display:block; color:#c1d4e5; }
+.shop-purchase { display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+.shop-purchase label { display:grid; gap:4px; font-size:12px; }
+.shop-purchase input { box-sizing:border-box; width:76px; min-height:44px; border:1px solid #a1d7e650; border-radius:10px; padding:8px; font:inherit; color:#edf8ff; background:#10243a; }
+.party-order-row { display:flex; align-items:stretch; gap:8px; }
+.party-order-row .pokemon-select { flex:1; min-width:0; }
+.party-drag { flex:0 0 44px; min-height:44px; touch-action:none; user-select:none; -webkit-user-select:none; border:1px solid #a1d7e640; border-radius:12px; background:#a1d7e615; color:#c5e9ff; cursor:grab; font-size:24px; }
+.party-drag:focus-visible { outline:3px solid #b5b2ff; }
+.party-order-row.is-dragging { opacity:.55; }
+.party-order-row.is-drop-target { outline:2px solid #9affdc; border-radius:14px; background:#68dfbd20; }
+@media(max-width:560px) { .management-dialog { padding:14px; border-radius:18px; } .management-columns { grid-template-columns:1fr; } .shop-row { grid-template-columns:1fr; } .shop-purchase { justify-content:space-between; } }
+@media(prefers-reduced-motion:no-preference) { .party-order-row { transition:background .15s,opacity .15s; } }
