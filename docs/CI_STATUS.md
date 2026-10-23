@@ -1,3 +1,9 @@
+## 0.3.118 — Servizi multipli pubblicati (23/10/2026)
+
+Commit259791e su main: deposito persistente con selezione multipla, acquisti con quantità e totale, ordine squadra con mouse/touch/tastiera.547 test dominio/persistenza,19 prove browser dei menu e dei percorsi esistenti,2 prove offline finali passate; validatore e build passati. La verifica offline artwork include ora Poliwrath62, correggendo la sola attesa obsoleta che aveva fatto fallire Verify0.3.117.
+
+[Deploy40006092397](https://github.com/Jacoporusso/veloria/actions/runs/40006092397) SUCCESS. HTTPS200 e cache `veloria-shell-v139` verificati sul sito pubblico; build-manifest pubblico disponibile. [Verify40006092416](https://github.com/Jacoporusso/veloria/actions/runs/40006092416) in esecuzione al controllo,10 job conclusi e nessun fallimento: non ancora dichiarata interamente verde.
+
 ## 0.3.115 — Seed iniziali verificati localmente (22/10/2026)
 
 Nuova avventura con uint32 da Web Crypto, normalizzazione dello zero, nessun nuovo seed in ripresa/importazione. Nessun cambio di schema o delle regole RNG per turno.539 test dominio/persistenza passati, inclusi sorgente controllata per due nuove partite e backup senza ulteriori estrazioni. Browser7,2s (8,1s totali): due avventure con entropia controllata distinta, due reload conservano il cursore e non estraggono altro. Browser LAN reale http://192.168.1.14:5174, senza mock di entropia: nome/starter/ripresa passati in38,7s (39,5s totali). Validatore e build produzione passati; cachev136. Nessuna attestazione di smartphone fisici.

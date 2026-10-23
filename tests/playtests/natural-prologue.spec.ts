@@ -1,5 +1,6 @@
 import { buyFromShop } from '../e2e/helpers/shop';
 import { runCentralePortolume } from './helpers/centrale-portolume';
+import { runCoastPreparation } from './helpers/coast-preparation';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -27,8 +28,9 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
   const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
-  const resumeBackupFile = resumePortolumeFile ?? resumeRheaFile;
-  expect(Boolean(resumePortolumeFile && resumeRheaFile), 'Choose one earned checkpoint').toBe(false);
+  const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
+  const resumeBackupFile = resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
+  expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const continueFerraluce = process.env.PLAYTEST_CONTINUE_FERRALUCE === '1' || Boolean(resumeRheaFile);
   const continueVetracielo = process.env.PLAYTEST_CONTINUE_VETRACIELO === '1' || continueFerraluce;
@@ -88,9 +90,15 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.mode!=='menu' && battle.mode!=='moves') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
+      const searchingCoast = Boolean(resumeNereaFile) && !state.save.party.some((member: any) => member.speciesId === 170 || member.speciesId === 171);
+      if (searchingCoast && battle.type === 'wild' && target.speciesId !== 170) {
+        await tapBattleLabel(page, '__naturalGame', 'FUGA');
+        await tapBattleLabel(page, '__naturalGame', '💨 FUGGI');
+        continue;
+      }
       const upgradeCompanion = prepareGym && state.mapId === 'veloria/r02_viale_fronde' && target.level >= 5
         && state.save.party.length < 3 && state.save.party.slice(1).every((member: any) => member.level < 5);
-      if(battle.type==='wild' && (state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
+      if(battle.type==='wild' && (searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
       } else if(own.hp/own.stats.maxHp<0.5 && battle.inventory?.potion>0) {
@@ -176,9 +184,11 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     await settle();
     if (resumeBackupFile) {
       const backup = JSON.parse(await readFile(resumeBackupFile, 'utf8'));
-      expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
+      if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine']).toContain(backup.save.player.mapId);
+      else expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
       expect(backup.save.flags).toContain('gym04_magnetic_aligned');
-      if (resumePortolumeFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
+      if (resumeNereaFile) expect(backup.save.flags).toContain('q_portolume_tide_report');
+      if (resumePortolumeFile || resumeNereaFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
       else expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
       await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
       await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
@@ -192,7 +202,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       expect((await observe(page)).save.player.money).toBe(backup.save.player.money);
       expect((await observe(page)).save.rngState).toBe(backup.save.rngState);
       startingRngState = backup.save.rngState;
-      await record(resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
+      await record(resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
     }
     if (!resumeBackupFile) {
       await walk(21,25);
@@ -419,7 +429,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         await exportCheckpoint('natural-third-medal-backup.json');
       }
     } // Fresh journey through Aster; a rematch imports only a recorded earned save.
-    if (continueFerraluce && !resumePortolumeFile) {
+    if (continueFerraluce && !resumePortolumeFile && !resumeNereaFile) {
       if (!resumeRheaFile) {
         await walk(15, 29);
         expect((await observe(page)).mapId).toBe('veloria/vetracielo');
@@ -504,11 +514,12 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
+    if (resumeNereaFile) await runCoastPreparation({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,damageFirst,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,damageFirst,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });
