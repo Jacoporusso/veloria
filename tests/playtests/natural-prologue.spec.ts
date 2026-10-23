@@ -4,6 +4,7 @@ import { runCoastPreparation } from './helpers/coast-preparation';
 import { runNereaAttempt } from './helpers/nerea-attempt';
 import { runIrisRecovery } from './helpers/iris-recovery';
 import { runDarioPreparation } from './helpers/dario-preparation';
+import { runWooperPreparation } from './helpers/wooper-preparation';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -35,7 +36,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
   const irisRecovery = process.env.PLAYTEST_RECOVER_IRIS === '1';
   const darioPreparation = process.env.PLAYTEST_PREPARE_DARIO === '1';
-  expect([nereaChallenge, irisRecovery, darioPreparation].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
+  const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
+  expect([nereaChallenge, irisRecovery, darioPreparation, wooperPreparation].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
   const resumeBackupFile = resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
@@ -102,15 +104,16 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
       const healingItem = battle.inventory?.['super-potion'] > 0 && (own.stats.maxHp - own.hp >= 35 || !(battle.inventory?.potion > 0))
         ? 'super-potion' : battle.inventory?.potion > 0 ? 'potion' : undefined;
-      const searchingCoast = Boolean(resumeNereaFile) && !state.save.party.some((member: any) => member.speciesId === 170 || member.speciesId === 171);
-      if (searchingCoast && battle.type === 'wild' && target.speciesId !== 170) {
+      const searchingWooper = wooperPreparation && !state.save.party.some((member: any) => member.speciesId === 194 || member.speciesId === 195);
+      const searchingCoast = !wooperPreparation && Boolean(resumeNereaFile) && !state.save.party.some((member: any) => member.speciesId === 170 || member.speciesId === 171);
+      if ((searchingWooper || searchingCoast) && battle.type === 'wild' && target.speciesId !== (searchingWooper ? 194 : 170)) {
         await tapBattleLabel(page, '__naturalGame', 'FUGA');
         await tapBattleLabel(page, '__naturalGame', '💨 FUGGI');
         continue;
       }
       const upgradeCompanion = prepareGym && state.mapId === 'veloria/r02_viale_fronde' && target.level >= 5
         && state.save.party.length < 3 && state.save.party.slice(1).every((member: any) => member.level < 5);
-      if(battle.type==='wild' && (searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
+      if(battle.type==='wild' && (searchingWooper ? target.speciesId === 194 : searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
       } else if(own.hp/own.stats.maxHp<healingThreshold && healingItem) {
@@ -527,14 +530,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     if (resumeNereaFile) {
-      const driver = darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
+      const driver = wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,damageFirst,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,damageFirst,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });
