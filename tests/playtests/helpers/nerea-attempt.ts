@@ -18,6 +18,11 @@ export async function runNereaAttempt(args: {
   await buyFromShop(page, 'Superpozione');
   expect((await observe()).save.player.money).toBe(initialMoney - 700);
   await record('Bought a Super Potion with coastal checkpoint money');
+  if (process.env.PLAYTEST_EXTRA_POTION === '1') {
+    await interact(14, 14); await buyFromShop(page, 'Pozione');
+    expect((await observe()).save.player.money).toBe(initialMoney - 900);
+    await record('Bought one additional Potion with earned preparation money');
+  }
   await walk(0, 17);
   await expect.poll(async () => (await observe()).mapId).toBe('veloria/r08_costa_turbine');
   await challenge(20, 11, 'Viola natural preparation attempt');
@@ -29,7 +34,7 @@ export async function runNereaAttempt(args: {
     await exportCheckpoint('natural-viola-attempt-backup.json');
     return;
   }
-  expect(afterViola.player.money).toBe(initialMoney - 700 + 1050);
+  expect(afterViola.player.money).toBe(initialMoney - (process.env.PLAYTEST_EXTRA_POTION === '1' ? 900 : 700) + 1050);
   await walk(39, 11);
   await expect.poll(async () => (await observe()).mapId).toBe('veloria/portolume');
   await interact(8, 14);

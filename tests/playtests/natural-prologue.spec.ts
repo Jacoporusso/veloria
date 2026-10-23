@@ -3,6 +3,7 @@ import { runCentralePortolume } from './helpers/centrale-portolume';
 import { runCoastPreparation } from './helpers/coast-preparation';
 import { runNereaAttempt } from './helpers/nerea-attempt';
 import { runIrisRecovery } from './helpers/iris-recovery';
+import { runDarioPreparation } from './helpers/dario-preparation';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -33,10 +34,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
   const irisRecovery = process.env.PLAYTEST_RECOVER_IRIS === '1';
-  expect(nereaChallenge && irisRecovery, 'Choose preparation or gym attempt').toBe(false);
+  const darioPreparation = process.env.PLAYTEST_PREPARE_DARIO === '1';
+  expect([nereaChallenge, irisRecovery, darioPreparation].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
   const resumeBackupFile = resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
+  const healingThreshold = Number(process.env.PLAYTEST_HEAL_THRESHOLD ?? '0.5');
+  expect(healingThreshold).toBeGreaterThan(0);
+  expect(healingThreshold).toBeLessThanOrEqual(0.9);
   const continueFerraluce = process.env.PLAYTEST_CONTINUE_FERRALUCE === '1' || Boolean(resumeRheaFile);
   const continueVetracielo = process.env.PLAYTEST_CONTINUE_VETRACIELO === '1' || continueFerraluce;
   const continuePetalora = process.env.PLAYTEST_CONTINUE_PETALORA === '1' || continueVetracielo;
@@ -108,7 +113,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.type==='wild' && (searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
-      } else if(own.hp/own.stats.maxHp<0.5 && healingItem) {
+      } else if(own.hp/own.stats.maxHp<healingThreshold && healingItem) {
         await tapBattleLabel(page, '__naturalGame', 'BORSA');
         await tapBattleLabel(page, '__naturalGame', (battle.itemNames?.[healingItem] ?? healingItem).toLocaleUpperCase('it-IT'));
       } else {
@@ -522,14 +527,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     if (resumeNereaFile) {
-      const driver = irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
+      const driver = darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,damageFirst,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,damageFirst,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });
