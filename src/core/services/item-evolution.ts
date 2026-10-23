@@ -1,3 +1,4 @@
+import { recordSpeciesCaught } from '../party/pokedex.ts';
 import type { CreatureSave, GameSave } from '../../persistence/save-types.ts';
 import type { SpeciesBattleRegistry } from '../battle/create-creature.ts';
 import { calculateStats } from '../battle/create-creature.ts';
@@ -31,7 +32,11 @@ export function pendingEvolutionReceipts(save: GameSave): EvolutionReceipt[] {
   });
 }
 export function queueEvolutionReceipts(save: GameSave, receipts: readonly EvolutionReceipt[]): GameSave {
-  return { ...save, flags: [...new Set([...save.flags, ...receipts.map(evolutionReceiptFlag), ...receipts.map(r => `pokedex_seen_${r.toSpeciesId}`)])] };
+  let flags = [...save.flags];
+  for (const receipt of receipts) {
+    flags = recordSpeciesCaught(recordSpeciesCaught(flags, receipt.fromSpeciesId), receipt.toSpeciesId);
+  }
+  return { ...save, flags: [...new Set([...flags, ...receipts.map(evolutionReceiptFlag)])] };
 }
 export type ItemEvolutionResult =
   | { readonly ok: false; readonly reason: 'missingItem' | 'notInParty' | 'incompatible' | 'unavailable'; readonly save: GameSave }

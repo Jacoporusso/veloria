@@ -39,7 +39,7 @@ import { createAmbientEffectPoints, createGrassSwayPoints, createWaterShimmerPoi
 import { battleMoves, battleSpecies, encounterCatalog, trainerCatalog, veloriaBattleRules } from '../battle/catalog.ts';
 import { createTrainerBattle, createWildBattle, mergeBattlePlayerState } from '../battle/create-battle-state.ts';
 import { healParty } from '../../core/services/healing.ts';
-import { recordSpeciesSeen } from '../../core/party/pokedex.ts';
+import { recordSpeciesSeen, recordSpeciesCaught } from '../../core/party/pokedex.ts';
 import { PokemonPanel } from '../ui/PokemonPanel.ts';
 import { applyItemEvolution, pendingEvolutionReceipts, queueEvolutionReceipts, evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
 import { itemEvolutionRules } from '../battle/catalog.ts';
@@ -1698,7 +1698,7 @@ export class WorldScene extends Phaser.Scene {
   private persistProgress(showToast=false): Promise<boolean> {
     this.save.flags = recordAreaVisited(this.save.flags, this.save.player.mapId);
     for (const creature of [...this.save.party, ...this.save.storage]) {
-      if (battleSpecies[creature.speciesId] && !this.save.flags.includes(`pokedex_seen_${creature.speciesId}`)) this.save.flags = recordSpeciesSeen(this.save.flags, creature.speciesId);
+      if (battleSpecies[creature.speciesId]) this.save.flags = recordSpeciesCaught(this.save.flags, creature.speciesId);
     }
     this.journey?.update(this.save);
     if (this.previewMode) {

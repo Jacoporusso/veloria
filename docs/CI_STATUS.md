@@ -1,3 +1,9 @@
+## 0.3.121 — Memoria delle catture (23/10/2026)
+
+Le registrazioni del Pokédex sopravvivono all’evoluzione e al consumo della ricevuta della cerimonia. I conteggi dei Pokémon attualmente posseduti rimangono separati. 550 test dominio/persistenza passati, build passata; due prove browser isolate con IndexedDB e reload passate in portrait/landscape in2,4s. Dettagli in [37_POKEDEX_CAPTURE_HISTORY_v0.1.md](37_POKEDEX_CAPTURE_HISTORY_v0.1.md). Deploy e CI121 da confermare dopo push.
+
+[Deploy40012990609](https://github.com/Jacoporusso/veloria/actions/runs/40012990609) della120 SUCCESS. [Verify40012990597](https://github.com/Jacoporusso/veloria/actions/runs/40012990597) ancora in esecuzione al controllo: non attestata interamente verde.
+
 ## 0.3.120 — Habitat e recupero naturale dopo Viola (23/10/2026)
 
 Pokédex/Squadra mostrano habitat da tabelle collegate alle mappe runtime, livelli, metodo e periodo; precedenza alle zone già esplorate.549 test dominio/persistenza passati, due prove browser habitat su portrait/landscape con salvataggio invariato e una prova PWA offline con habitat, deposito, acquisti e reload passata in5,9s (19,4s inclusa build). Build e validatore passati. Dettagli in [36_POKEDEX_HABITATS_v0.1.md](36_POKEDEX_HABITATS_v0.1.md).

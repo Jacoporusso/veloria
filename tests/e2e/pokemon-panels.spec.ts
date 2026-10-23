@@ -211,3 +211,39 @@ test('both panels show level evolutions and final forms near the top of the deta
     }
   }
 });
+
+for (const [width, height] of [[390, 844], [844, 390]]) {
+  test(`caught history remains visible after evolution and reload at ${width}x${height}`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await page.route('**/src/main.ts*', route => route.fulfill({ contentType: 'text/javascript', body: `
+      import '/src/style.css';
+      import '/src/settings.css';
+      import { PokemonPanel } from '/src/game/ui/PokemonPanel.ts';
+      import { newGameSave, loadSave, saveGame } from '/src/persistence/save-store.ts';
+      import { selectStarter } from '/src/core/party/select-starter.ts';
+      import { queueEvolutionReceipts } from '/src/core/services/item-evolution.ts';
+      let save = await loadSave();
+      if (!save) {
+        save = selectStarter(newGameSave(), 4, 'history-starter');
+        save.party[0].speciesId = 5;
+        save = queueEvolutionReceipts(save, [{ creatureId: 'history-starter', fromSpeciesId: 4, toSpeciesId: 5, level: 16 }]);
+        save.flags = save.flags.filter(flag => !flag.startsWith('presentation/'));
+        save.flags.push('pokedex_seen_7');
+        await saveGame(save);
+      }
+      new PokemonPanel().render(save, 'dex');
+      document.querySelector('#pokedex-panel').hidden = false;
+      document.querySelector('#game-loading').hidden = true;
+    ` })) ;
+    for (let load = 0; load < 2; load++) {
+      if (load === 0) await page.goto('/'); else await page.reload();
+      await expect(page.locator('#pokedex-summary')).toContainText('3 viste · 2 catturate');
+      await expect(page.getByRole('button', { name: /Charmander.*CATTURATO/ })).toBeVisible();
+      await expect(page.getByRole('button', { name: /Charmeleon.*CATTURATO/ })).toBeVisible();
+      await expect(page.getByRole('button', { name: /Squirtle.*VISTO/ })).toBeVisible();
+      const save = await readBrowserSave(page);
+      expect(save.party.map(creature => creature.speciesId)).toEqual([5]);
+      expect(save.flags.filter(flag => flag.startsWith('presentation/'))).toEqual([]);
+    }
+  });
+}

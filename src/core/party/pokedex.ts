@@ -20,6 +20,7 @@ export function buildPokedexEntries(
   party: readonly OwnedCreatureReference[],
   storage: readonly OwnedCreatureReference[],
   seenSpecies: readonly number[] = [],
+  caughtSpecies: readonly number[] = [],
 ): PokedexEntry[] {
   const partyCounts = countSpecies(party);
   const storageCounts = countSpecies(storage);
@@ -27,7 +28,7 @@ export function buildPokedexEntries(
     .map(species => {
       const partyCount = partyCounts.get(species.speciesId) ?? 0;
       const storageCount = storageCounts.get(species.speciesId) ?? 0;
-      const registered = partyCount + storageCount > 0;
+      const registered = partyCount + storageCount > 0 || caughtSpecies.includes(species.speciesId);
       return { ...species, partyCount, storageCount, registered, seen: registered || seenSpecies.includes(species.speciesId) };
     })
     .sort((first, second) => first.speciesId - second.speciesId);
@@ -46,4 +47,13 @@ function countSpecies(creatures: readonly OwnedCreatureReference[]): Map<number,
   const counts = new Map<number, number>();
   for (const creature of creatures) counts.set(creature.speciesId, (counts.get(creature.speciesId) ?? 0) + 1);
   return counts;
+}
+
+/** Durable ownership history, independent of the current party and box. */
+export function caughtSpeciesFromFlags(flags: readonly string[]): number[] {
+  return flags.filter(flag => /^pokedex_caught_[1-9]\d*$/.test(flag)).map(flag => Number(flag.slice('pokedex_caught_'.length)));
+}
+
+export function recordSpeciesCaught(flags: readonly string[], speciesId: number): string[] {
+  return [...new Set([...recordSpeciesSeen(flags, speciesId), `pokedex_caught_${speciesId}`])];
 }

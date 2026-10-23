@@ -1,5 +1,5 @@
 import type { CreatureSave, GameSave } from '../../persistence/save-types.ts';
-import { buildPokedexEntries, seenSpeciesFromFlags } from '../../core/party/pokedex.ts';
+import { buildPokedexEntries, seenSpeciesFromFlags, caughtSpeciesFromFlags } from '../../core/party/pokedex.ts';
 import { findSpeciesHabitats } from '../../core/party/habitats.ts';
 import { listMaps } from '../maps/map-registry';
 import { areaForMap, visitedAreaIds } from '../../core/world/region-atlas.ts';
@@ -39,7 +39,7 @@ export class PokemonPanel {
   render(save: GameSave, view: 'team' | 'dex'): void {
     this.title.textContent = view === 'team' ? 'Squadra' : 'Pokédex';
     this.list.replaceChildren();
-    const entries = buildPokedexEntries(battleSpecies, save.party, save.storage, seenSpeciesFromFlags(save.flags));
+    const entries = buildPokedexEntries(battleSpecies, save.party, save.storage, seenSpeciesFromFlags(save.flags), caughtSpeciesFromFlags(save.flags));
     this.summary.textContent = view === 'team'
       ? `${save.party.length}/6 compagni · Seleziona un Pokémon per i dettagli.${this.onReorder ? ' Trascina la maniglia ⠿ per riordinare; da tastiera usa le frecce sulla maniglia.' : ''}`
       : `${entries.filter(entry => entry.seen).length} viste · ${entries.filter(entry => entry.registered).length} catturate · ${entries.length} specie nel catalogo. Seleziona una specie per i dettagli.`;
