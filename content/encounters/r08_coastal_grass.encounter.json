@@ -1,37 +1,17 @@
 {
   "id": "veloria/r08_coastal_grass",
   "mapId": "veloria/r08_costa_turbine",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
-    "day": [
-      {
-        "speciesId": 72,
-        "weight": 35,
-        "minLevel": 20,
-        "maxLevel": 23
-      },
+    "morning": [
       {
         "speciesId": 98,
-        "weight": 35,
+        "weight": 30,
         "minLevel": 20,
         "maxLevel": 23
       },
-      {
-        "speciesId": 170,
-        "weight": 15,
-        "minLevel": 20,
-        "maxLevel": 23
-      },
-      {
-        "speciesId": 179,
-        "weight": 15,
-        "minLevel": 20,
-        "maxLevel": 23
-      }
-    ],
-    "morning": [
       {
         "speciesId": 72,
         "weight": 25,
@@ -39,46 +19,48 @@
         "maxLevel": 23
       },
       {
+        "speciesId": 170,
+        "weight": 45,
+        "minLevel": 20,
+        "maxLevel": 23
+      }
+    ],
+    "day": [
+      {
         "speciesId": 98,
-        "weight": 20,
+        "weight": 45,
+        "minLevel": 20,
+        "maxLevel": 23
+      },
+      {
+        "speciesId": 72,
+        "weight": 30,
         "minLevel": 20,
         "maxLevel": 23
       },
       {
         "speciesId": 170,
-        "weight": 40,
-        "minLevel": 20,
-        "maxLevel": 23
-      },
-      {
-        "speciesId": 179,
-        "weight": 15,
+        "weight": 25,
         "minLevel": 20,
         "maxLevel": 23
       }
     ],
     "night": [
       {
-        "speciesId": 72,
+        "speciesId": 98,
         "weight": 25,
         "minLevel": 20,
         "maxLevel": 23
       },
       {
-        "speciesId": 98,
+        "speciesId": 72,
         "weight": 20,
         "minLevel": 20,
         "maxLevel": 23
       },
       {
         "speciesId": 170,
-        "weight": 40,
-        "minLevel": 20,
-        "maxLevel": 23
-      },
-      {
-        "speciesId": 179,
-        "weight": 15,
+        "weight": 55,
         "minLevel": 20,
         "maxLevel": 23
       }

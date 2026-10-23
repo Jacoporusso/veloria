@@ -1,3 +1,4 @@
+import coastalFishing from '../../content/encounters/r08_shore_fishing.encounter.json' with { type: 'json' };
 import { expect, test, type Page } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkTo, walkDirection } from './helpers/world-navigation';
@@ -129,7 +130,7 @@ test('Ferraluce reaches Portolume by the coast and fishing starts a coastal wild
     return Boolean(s?.sys.isActive()&&s.ui&&s.state);
   })).toBe(true);
   const wild=await page.evaluate(()=>{const s=(window as any).__coastGame.scene.keys.battle.state;return s.opponent.creatures[0];});
-  expect([72,98,170]).toContain(wild.speciesId);expect(wild.level).toBeGreaterThanOrEqual(20);expect(wild.level).toBeLessThanOrEqual(23);
+  expect(Object.values(coastalFishing.timeBands).flat().map(entry => entry.speciesId)).toContain(wild.speciesId);expect(wild.level).toBeGreaterThanOrEqual(20);expect(wild.level).toBeLessThanOrEqual(23);
   expect((await readBrowserSave(page)).inventory['old-rod']).toBe(1);
   await page.screenshot({path:info.outputPath('coastal-fishing-battle.png')});
 });

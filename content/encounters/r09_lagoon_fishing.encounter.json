@@ -1,85 +1,85 @@
 {
   "id": "veloria/r09_lagoon_fishing",
   "mapId": "veloria/r09_dune_salmastre",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "fishing",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 72,
+        "speciesId": 98,
         "weight": 35,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
+        "speciesId": 116,
         "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 170,
-        "weight": 30,
+        "weight": 25,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 171,
-        "weight": 5,
-        "minLevel": 24,
+        "weight": 10,
+        "minLevel": 27,
         "maxLevel": 27
       }
     ],
     "day": [
       {
-        "speciesId": 72,
+        "speciesId": 98,
         "weight": 35,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
+        "speciesId": 116,
         "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 170,
-        "weight": 30,
+        "weight": 25,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 171,
-        "weight": 5,
-        "minLevel": 24,
+        "weight": 10,
+        "minLevel": 27,
         "maxLevel": 27
       }
     ],
     "night": [
       {
-        "speciesId": 72,
+        "speciesId": 98,
         "weight": 35,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
+        "speciesId": 116,
         "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 170,
-        "weight": 30,
+        "weight": 25,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 171,
-        "weight": 5,
-        "minLevel": 24,
+        "weight": 10,
+        "minLevel": 27,
         "maxLevel": 27
       }
     ]

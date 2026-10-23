@@ -1,32 +1,32 @@
 {
   "id": "veloria/d04_delta_fishing",
   "mapId": "veloria/d04_delta_specchi",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "fishing",
   "timeBands": {
     "morning": [
       {
         "speciesId": 60,
-        "weight": 35,
+        "weight": 40,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
         "speciesId": 194,
-        "weight": 30,
+        "weight": 35,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 170,
-        "weight": 25,
+        "speciesId": 79,
+        "weight": 20,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 98,
-        "weight": 10,
+        "speciesId": 61,
+        "weight": 5,
         "minLevel": 25,
         "maxLevel": 28
       }
@@ -34,25 +34,25 @@
     "day": [
       {
         "speciesId": 60,
-        "weight": 35,
+        "weight": 40,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
         "speciesId": 194,
-        "weight": 30,
+        "weight": 35,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 170,
-        "weight": 25,
+        "speciesId": 79,
+        "weight": 20,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 98,
-        "weight": 10,
+        "speciesId": 61,
+        "weight": 5,
         "minLevel": 25,
         "maxLevel": 28
       }
@@ -60,25 +60,25 @@
     "night": [
       {
         "speciesId": 60,
-        "weight": 35,
+        "weight": 40,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
         "speciesId": 194,
-        "weight": 30,
+        "weight": 35,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 170,
-        "weight": 25,
+        "speciesId": 79,
+        "weight": 20,
         "minLevel": 25,
         "maxLevel": 28
       },
       {
-        "speciesId": 98,
-        "weight": 10,
+        "speciesId": 61,
+        "weight": 5,
         "minLevel": 25,
         "maxLevel": 28
       }
