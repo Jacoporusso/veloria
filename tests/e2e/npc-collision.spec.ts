@@ -98,6 +98,6 @@ for (const [npcId, mapName] of npcCases) {
     expect(await readBrowserSave(page)).toMatchObject({ player: { mapId: metadata.id, x: before.x, y: before.y } });
 
     await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
-    await expect(page.locator('#dialogue-box')).toBeVisible();
+    await expect(page.locator(props(npc!).shopId ? '.management-dialog' : '#dialogue-box')).toBeVisible();
   });
 }

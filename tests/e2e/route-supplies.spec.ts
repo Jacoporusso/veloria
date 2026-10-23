@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { buyFromShop } from './helpers/shop';
 import { expect, test } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave } from './helpers/world-navigation';
@@ -27,7 +28,7 @@ for (const [map, x, y, hyper] of [
     let spent = 0;
     for (const [id, label, price] of purchases) {
       await confirm.tap();
-      await page.getByRole('button', { name: new RegExp(label) }).tap();
+      await buyFromShop(page, label);
       spent += price;
       await expect.poll(async () => (await readBrowserSave(page)).inventory[id]).toBe((save.inventory[id] ?? 0) + 1);
       expect((await readBrowserSave(page)).player.money).toBe(5000 - spent);

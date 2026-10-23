@@ -40,6 +40,8 @@ export interface BattleSceneInit {
   readonly createInstanceId?: () => string;
   /** If provided, consumables with a zero count are hidden from the battle bag. */
   readonly inventory?: Readonly<Record<string, number>>;
+  /** Localized catalog names supplied by the owning game, independent of item mechanics. */
+  readonly itemNames?: Readonly<Record<string, string>>;
   /** Optional image texture declared by the current MapDefinition. */
   readonly arenaTextureKey?: string;
   readonly reducedAnimations?: boolean;
@@ -90,6 +92,7 @@ export class BattleScene extends Phaser.Scene {
   private visualActiveIds = new Map<BattleSide, string>();
   private eventLog: BattleEvent[] = [];
   private remainingInventory?: Record<string, number>;
+  private itemNames: Readonly<Record<string, string>> = {};
   private completionReported = false;
   private terminalShown = false;
   private dismissalReported = false;
@@ -154,6 +157,7 @@ export class BattleScene extends Phaser.Scene {
     this.arenaTextureKey = data.arenaTextureKey;
     this.reducedAnimations = data.reducedAnimations ?? globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
     this.remainingInventory = data.inventory ? { ...data.inventory } : undefined;
+    this.itemNames = data.itemNames ?? {};
     this.mode = 'menu';
     this.pendingMessages = [];
     this.messageTimer?.remove(false);
@@ -609,7 +613,7 @@ export class BattleScene extends Phaser.Scene {
   private drawItemChoices(x: number, y: number, width: number): void {
     const ids = this.mode === 'items' ? this.availableItemIds() : this.availableCaptureIds();
     const options = ids.map(itemId => ({
-      label: this.prettyId(itemId),
+      label: `${this.prettyId(itemId)}${this.remainingInventory ? ` · ×${this.remainingInventory[itemId] ?? 0}` : ''}${this.mode === 'items' ? this.itemEffectLabel(itemId) : ''}`,
       enabled: true,
       callback: () => this.mode === 'items'
         ? this.act({ kind: 'useItem', itemId, targetIndex: this.state.player.activeIndex })
@@ -1387,7 +1391,16 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private prettyId(id: string): string {
-    return id.replace(/^item_/, '').replaceAll('_', ' ').toLocaleUpperCase('it-IT');
+    return (this.itemNames[id] ?? id.replace(/^item_/, '').replaceAll('_', ' ')).toLocaleUpperCase('it-IT');
+  }
+
+  private itemEffectLabel(id: string): string {
+    const item = this.rules.items[id];
+    const effects: string[] = [];
+    if (item?.healHp) effects.push(`♥ +${item.healHp} HP`);
+    const names = { poison: 'veleno', burn: 'scottatura', paralysis: 'paralisi', sleep: 'sonno', freeze: 'gelo' };
+    if (item?.cures?.length) effects.push(`✚ Cura ${item.cures.map(status => names[status]).join(', ')}`);
+    return effects.length ? `\n${effects.join(' · ')}` : '';
   }
 
   private statusName(status: NonNullable<BattleCreature['status']>['status']): string {

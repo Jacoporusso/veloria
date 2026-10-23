@@ -1,3 +1,4 @@
+import { buyFromShop } from './helpers/shop';
 import {expect,test,type Page} from '@playwright/test';
 import {enterGame} from './helpers/enter-game';
 import {readBrowserSave,seedBrowserSave,walkTo} from './helpers/world-navigation';
@@ -30,8 +31,8 @@ test('D05 opens R15 and Concordia; observations, explicit plan, medicine purchas
  await a(page).tap();await untilChoices(page);await page.getByRole('button',{name:'Ripristiniamo l’equilibrio',exact:true}).tap();await dialogue(page);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_concordia_restore_plan');
  await page.reload();await enterGame(page);await page.screenshot({path:info.outputPath('concordia-plan.png')});
  await walkTo(page,'concordia.tmj',13,12,{avoidEncounters:true});await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();
- await expect(page.getByRole('button',{name:/Superpozione/}).locator('.service-option__icon--potion')).toBeVisible();await page.getByRole('button',{name:/Superpozione/}).tap();
- await expect.poll(async()=>(await readBrowserSave(page)).inventory['super-potion']).toBe(1);await a(page).tap();await page.getByRole('button',{name:/Antiparalisi/}).tap();await expect.poll(async()=>(await readBrowserSave(page)).inventory['paralyze-heal']).toBe(1);expect((await readBrowserSave(page)).player.money).toBe(3100);
+ await expect(page.getByRole('article',{name:'Superpozione',exact:true}).locator('.service-option__icon--potion')).toBeVisible();await buyFromShop(page, 'Superpozione');
+ await expect.poll(async()=>(await readBrowserSave(page)).inventory['super-potion']).toBe(1);await a(page).tap();await buyFromShop(page, 'Antiparalisi');await expect.poll(async()=>(await readBrowserSave(page)).inventory['paralyze-heal']).toBe(1);expect((await readBrowserSave(page)).player.money).toBe(3100);
  await walkTo(page,'concordia.tmj',0,15,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r15_passo_due_luci');
  await walkTo(page,'r15_passo_due_luci.tmj',2,9,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/d05_grotte_cristallo');
  await page.reload();await enterGame(page);expect((await readBrowserSave(page)).flags).toContain('q_concordia_restore_plan');expect(errors).toEqual([]);

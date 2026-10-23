@@ -639,7 +639,7 @@ async function captureWildWithTouch(page: Page) {
   // Resolve actual text bounds from the current battle layout; fixed offsets drifted below the item button.
   await tapBattleLabel(page, '__mvpGame', 'CATTURA');
   await expect.poll(() => battleMode(page)).toBe('captures');
-  await tapBattleLabel(page, '__mvpGame', 'POKE-BALL');
+  await tapBattleLabel(page, '__mvpGame', 'SFERA');
   await expect.poll(() => battleMode(page)).toBe('message');
   await advanceBattleMessages(page);
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);

@@ -1,6 +1,7 @@
 import { buyFromShop } from '../e2e/helpers/shop';
 import { runCentralePortolume } from './helpers/centrale-portolume';
 import { runCoastPreparation } from './helpers/coast-preparation';
+import { runNereaAttempt } from './helpers/nerea-attempt';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -16,7 +17,7 @@ async function observe(page: Page): Promise<any> {
       moving: world.moving, loading: world.mapTransitionLoading, save: world.save,
       battle: battle ? { mode: battle.mode, turn: battle.state.turn, outcome: battle.state.outcome,
         id: battle.state.battleId, rulesetId: battle.state.rulesetId, events: battle.eventLog, type: battle.state.battleType, player: battle.state.player, opponent: battle.state.opponent,
-        inventory: battle.remainingInventory, moves: battle.moveCatalog,
+        inventory: battle.remainingInventory, itemNames: battle.itemNames, moves: battle.moveCatalog,
         forecasts: Object.fromEntries(battle.state.player.creatures[battle.state.player.activeIndex].moves.map((slot: any) => [slot.moveId, battle.moveForecast(battle.moveCatalog[slot.moveId])])) } : null };
   });
 }
@@ -29,6 +30,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
+  const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
   const resumeBackupFile = resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
@@ -90,6 +92,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.mode!=='menu' && battle.mode!=='moves') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
+      const healingItem = battle.inventory?.['super-potion'] > 0 && (own.stats.maxHp - own.hp >= 35 || !(battle.inventory?.potion > 0))
+        ? 'super-potion' : battle.inventory?.potion > 0 ? 'potion' : undefined;
       const searchingCoast = Boolean(resumeNereaFile) && !state.save.party.some((member: any) => member.speciesId === 170 || member.speciesId === 171);
       if (searchingCoast && battle.type === 'wild' && target.speciesId !== 170) {
         await tapBattleLabel(page, '__naturalGame', 'FUGA');
@@ -101,9 +105,9 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.type==='wild' && (searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
-      } else if(own.hp/own.stats.maxHp<0.5 && battle.inventory?.potion>0) {
+      } else if(own.hp/own.stats.maxHp<0.5 && healingItem) {
         await tapBattleLabel(page, '__naturalGame', 'BORSA');
-        await page.keyboard.press('Enter',{delay:40});
+        await tapBattleLabel(page, '__naturalGame', (battle.itemNames?.[healingItem] ?? healingItem).toLocaleUpperCase('it-IT'));
       } else {
         await tapBattleLabel(page, '__naturalGame', 'LOTTA');
         // Use visible setup effects once, then damage. Never inspect the pending opponent command.
@@ -514,12 +518,15 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
-    if (resumeNereaFile) await runCoastPreparation({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
+    if (resumeNereaFile) {
+      const driver = nereaChallenge ? runNereaAttempt : runCoastPreparation;
+      await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
+    }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,damageFirst,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,damageFirst,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

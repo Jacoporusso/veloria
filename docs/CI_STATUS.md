@@ -1,3 +1,9 @@
+## 0.3.119 — Borsa italiana e test dei negozi riallineati (23/10/2026)
+
+La borsa di lotta riceve i nomi italiani dal catalogo del proprietario e mostra quantità e recupero HP/cura dello stato. Sei prove browser borsa/icone/catture/ricompense passate, con controllo visivo portrait/landscape e consumo; build e validatore passati. Il playtest naturale registra una sconfitta contro Viola in14 turni, non una quinta medaglia: report e backup verificati in [playtests/2026-10-23-viola-first-attempt.md](playtests/2026-10-23-viola-first-attempt.md).
+
+[Verify40006092416](https://github.com/Jacoporusso/veloria/actions/runs/40006092416) della0.3.118 è terminata FAILURE in cinque job: nove casi cercavano ancora i vecchi pulsanti o il dialogo precedente dei negozi. Correzioni applicate ai driver, senza eliminare i controlli di acquisto, persistenza, icone, collisione o ritorno. Sei prove medicine/NPC passate in27,8s; Concordia e accesso Lega passati in2,2min; percorso Lega offline passato in50,5s (1,1min inclusa build). Sono tutti i nove casi indicati dal log. La nuova suite completa e il deploy119 vanno confermati dopo il push: nessuna attestazione anticipata di CI verde.
+
 ## 0.3.118 — Servizi multipli pubblicati (23/10/2026)
 
 Commit259791e su main: deposito persistente con selezione multipla, acquisti con quantità e totale, ordine squadra con mouse/touch/tastiera.547 test dominio/persistenza,19 prove browser dei menu e dei percorsi esistenti,2 prove offline finali passate; validatore e build passati. La verifica offline artwork include ora Poliwrath62, correggendo la sola attesa obsoleta che aveva fatto fallire Verify0.3.117.

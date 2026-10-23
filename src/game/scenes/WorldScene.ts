@@ -1155,6 +1155,7 @@ export class WorldScene extends Phaser.Scene {
         moveCatalog: battleMoves,
         rules: veloriaBattleRules,
         inventory: this.save.inventory,
+        itemNames: Object.fromEntries(Object.values(itemCatalog).map(item => [item.id, item.name])),
         createInstanceId: createUniqueId,
         arenaTextureKey: this.map.metadata.battleBackgroundKey,
         reducedAnimations: this.reducedAnimations,
