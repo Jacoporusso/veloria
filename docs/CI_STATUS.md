@@ -1,6 +1,8 @@
 ## 0.3.132 — Evoluzione durante la sfida al capopalestra
 
-Rulesetv15: trasformazione alla fine del turno con XP/livello, celebrazione prima del prossimo avversario e nessun duplicato a fine lotta.577 test dominio/persistenza, build e validatore passati. Quattro browser passati in45,8s: due nuove prove Mira portrait/landscape con medaglia/salvataggio/reload e due regressioni Charizard terminali. Screenshot controllati. [Contratto e limiti](49_MIDBATTLE_EVOLUTION_v0.1.md). Commit, CI132 e deploy ancora da attestare.
+Rulesetv15: trasformazione alla fine del turno con XP/livello, celebrazione prima del prossimo avversario e nessun duplicato a fine lotta.577 test dominio/persistenza, build e validatore passati. Quattro browser passati in45,8s: due nuove prove Mira portrait/landscape con medaglia/salvataggio/reload e due regressioni Charizard terminali. Screenshot controllati. [Contratto e limiti](49_MIDBATTLE_EVOLUTION_v0.1.md). Commit `6219bab` su main. [Deploy40094489720](https://github.com/Jacoporusso/veloria/actions/runs/40094489720) SUCCESS: test dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v153` verificati. [Verify40094489674](https://github.com/Jacoporusso/veloria/actions/runs/40094489674) pending; suite completa132 non ancora attestata.
+
+[Verify40092178731](https://github.com/Jacoporusso/veloria/actions/runs/40092178731) della130 conclusa SUCCESS. La131 era in corso all’ultimo controllo; non si attribuisce il suo esito alla132.
 
 ## 0.3.131 — Recupero evoluzione alla soglia già raggiunta
 
