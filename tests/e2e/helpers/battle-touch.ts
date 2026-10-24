@@ -25,11 +25,18 @@ export async function tapBattleLabel(page:Page,gameKey:string,prefix:string){
 export async function fightWithTouch(page:Page,gameKey:string,moveLabels:Record<number,string>,maxTurns=45){
   for(let turn=0;turn<maxTurns;turn++){
     await expect.poll(async()=>{
+      const evolution=page.locator('.evolution-celebration');
+      if(await evolution.isVisible()){
+        const next=evolution.getByRole('button',{name:'Continua',exact:true});
+        await expect(next).toBeVisible({timeout:15_000});await next.click();
+      }
       const mode=await page.evaluate(gameKey=>{
         const s=(window as any)[gameKey].scene.keys.battle;
-        return !s?.sys.isActive()||!s.ui||!s.state?'loading':s.terminalShown?'terminal':s.mode;
+        return !s?.sys.isActive()||!s.ui||!s.state?'loading':s.terminalShown?'terminal'
+          :s.mode==='message'&&s.pendingMessages[0]?.event?.type==='moveLearned'?'learned':s.mode;
       },gameKey);
       if(mode==='learning')await tapBattleLabel(page,gameKey,'Tieni le mosse');
+      if(mode==='learned')await tapBattleLabel(page,gameKey,'Continua');
       return mode==='menu'||mode==='party'||mode==='terminal';
     },{timeout:25_000}).toBe(true);
     const ready=await page.evaluate(gameKey=>{

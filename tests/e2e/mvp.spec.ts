@@ -618,6 +618,11 @@ async function advanceBattleToMenuWithTouch(page: Page) {
 
 async function advanceBattleToMenu(page: Page) {
   for (let step = 0; step < 60; step += 1) {
+    const evolution = page.locator('.evolution-celebration');
+    if (await evolution.isVisible()) {
+      await evolution.getByRole('button', { name: 'Continua', exact: true }).click();
+      continue;
+    }
     if (await page.locator('.battle-celebration').isVisible()) return;
     const { mode, terminalShown } = await battleStatus(page);
     if (terminalShown) {

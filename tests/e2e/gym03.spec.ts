@@ -3,6 +3,7 @@ import speciesData from '../../content/battle/species.v1.json' with { type: 'jso
 import moveData from '../../content/battle/moves.v1.json' with { type: 'json' };
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
 import { enterGame } from './helpers/enter-game';
+import { fightWithTouch } from './helpers/battle-touch';
 import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpers/world-navigation';
 
 // Full journeys keep every interaction at standard density; dedicated world-control
@@ -67,27 +68,7 @@ test('Vetracielo lines, Aster and the third medal persist without duplicate rewa
     await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect(page.locator('#dialogue-text')).toContainText('livello 16–17');
   await page.getByRole('button', { name: 'SFIDA', exact: true }).click();
-  async function tapBattleLabel(prefix: string) {
-    const point = await page.evaluate(prefix => {
-      const scene = (window as any).__gym03Game.scene.keys.battle;
-      const text = scene.ui.list.find((item: any) => item.type === 'Text' && item.text.startsWith(prefix));
-      const bounds = text.getBounds(), canvas = scene.game.canvas.getBoundingClientRect();
-      return { x: canvas.x + bounds.centerX * scene.scale.zoom, y: canvas.y + bounds.centerY * scene.scale.zoom };
-    }, prefix);
-    await page.touchscreen.tap(point.x, point.y);
-  }
-  for (let turn = 0; turn < 10; turn++) {
-    if (await page.locator('.battle-celebration').isVisible()) break;
-    await expect.poll(() => page.evaluate(() => {
-      const scene = (window as any).__gym03Game.scene.keys.battle;
-      return Boolean(scene?.sys.isActive() && scene.ui?.list.length && scene.mode === 'menu');
-    })).toBe(true);
-    await tapBattleLabel('LOTTA'); await tapBattleLabel('Colpodifango');
-    await expect.poll(() => page.evaluate(() => {
-      const scene = (window as any).__gym03Game.scene.keys.battle;
-      return scene.terminalShown || scene.mode === 'menu';
-    }), { timeout: 15_000 }).toBe(true);
-  }
+  await fightWithTouch(page, '__gym03Game', { 194: 'Colpodifango', 195: 'Colpodifango' }, 10);
   const banner = page.getByRole('dialog', { name: 'Medaglia Circuito conquistata!' });
   await expect(banner).toBeVisible(); await expect(banner).toContainText('+850 monete');
   await expect(banner.locator('[data-badge-id="badge_circuito"] svg')).toBeVisible();

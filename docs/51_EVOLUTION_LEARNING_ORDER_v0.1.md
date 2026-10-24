@@ -19,3 +19,7 @@ Quando un risultato terminale è già stato salvato, WorldScene consuma e salva 
 - Il primo avvio del nuovo scenario finale si è fermato prima dei test per un import del calcolo XP dal modulo errato; corretto al modulo rules senza modificare i calcoli.
 
 Nessun nuovo asset, effetto della mossa o livello importato. CI/deploy attestati in CI_STATUS; campagna completa, catalogo e QA fisico restano aperti.
+
+## Driver delle regressioni precedenti
+
+La CI131 ha mostrato due driver storici che aspettavano il menu senza premere Continua nella celebrazione evolutiva: Mira (fixture Charmander30) e Aster (fixture Wooper20). Il primo segue ora la celebrazione; Aster usa il driver touch condiviso che gestisce anche l'apprendimento automatico e la scelta di sostituzione. Nessun bypass dei controlli o cambiamento a squadra, difficoltà, medaglie o premi. I due casi sono passati sulla134 in1,6minuti, conservando le verifiche di persistenza e ricompensa unica. Gli adattamenti dei test sono integrati separatamente dal commit runtime.

@@ -1,6 +1,8 @@
 ## 0.3.134 — Ordine evoluzione/apprendimento
 
-582 test dominio/persistenza, build e validatore passati. Sei browser passati in1,2minuti: midbattle nei due orientamenti, ultimo avversario con WorldScene/ricevute, apprendimento della forma precedente e due regressioni Charizard. Rivelazione obbligatoria prima delle carte mossa, nessun duplicato e reload verificati. [Contratto](51_EVOLUTION_LEARNING_ORDER_v0.1.md). Commit, CI134 e deploy ancora da attestare.
+[Verify40093581781](https://github.com/Jacoporusso/veloria/actions/runs/40093581781) della131 conclusa FAILURE nei driver Mira/Aster, che non chiudevano la nuova celebrazione evolutiva. Driver aggiornati a usare Continua e la scelta reale delle mosse, senza rimuovere assert su medaglie/premi. Entrambi i casi passati sulla134 in1,6minuti; le fixture e il runtime non sono stati indeboliti. Questi adattamenti dei test richiedono la propria CI dopo push.
+
+582 test dominio/persistenza, build e validatore passati. Sei browser passati in1,2minuti: midbattle nei due orientamenti, ultimo avversario con WorldScene/ricevute, apprendimento della forma precedente e due regressioni Charizard. Rivelazione obbligatoria prima delle carte mossa, nessun duplicato e reload verificati. [Contratto](51_EVOLUTION_LEARNING_ORDER_v0.1.md). Commit `bc469cc` su main. [Deploy40095709440](https://github.com/Jacoporusso/veloria/actions/runs/40095709440) SUCCESS: test dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v155` verificati. [Verify40095709422](https://github.com/Jacoporusso/veloria/actions/runs/40095709422) avviata/in coda al controllo, suite completa134 non ancora attestata.
 
 ## 0.3.133 — Guida al recupero e regressione Drowzee31
 
