@@ -1,5 +1,6 @@
-const CACHE = 'veloria-shell-v157';
+const CACHE = 'veloria-shell-v158';
 const SHELL = [
+  './assets/sprites/veloria-npcs-v3.webp',
   './assets/avatars/trainer-short-v1.webp',
   './assets/avatars/trainer-curly-v1.webp',
   './assets/avatars/trainer-long-v1.webp',

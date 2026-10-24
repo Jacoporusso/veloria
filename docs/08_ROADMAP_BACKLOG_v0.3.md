@@ -1,3 +1,7 @@
+## Identità principali e uscite leggibili — 0.3.137 in verifica
+
+Elia/Ada/Nilo coerenti nelle sei apparizioni, atlante illustrato e ancoraggi espliciti; Elia corretta in professoressa secondo GDD/dialoghi. Otto soglie laterali ampliate alla strada conservando i gate; Brumalta con raccordi ai servizi/monorotaia. R01 conserva l’artwork originale perché i candidati non rispettavano la geometria; la soglia ampia copre la strada effettiva. [Contratto, verifiche e limiti](57_NPC_IDENTITIES_AND_EARLY_PASSAGES_v0.1.md). Cast restante e parità grafica regionale ancora aperti.
+
 ## Dettagli avatar — correzione 0.3.136
 
 Corretto l’allineamento di occhi, barba e zaino con maschere calibrate per posa. Rimossi i disegni a coordinate fisse e le componenti cromatiche isolate. 598 test dominio/persistenza, regressioni browser su dettagli/palette/orientamenti, validatore, build e PWA offline passati. [Evidenze e limiti](56_AVATAR_DETAIL_ALIGNMENT_v0.1.md). Rilascio in CI_STATUS; NPC e percorsi restano aperti.

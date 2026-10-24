@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "atlas": {
+    "key": "veloria-npcs-v3",
+    "path": "assets/sprites/veloria-npcs-v3.webp",
+    "columns": 3,
+    "rows": 2
+  },
+  "profiles": [
+    {
+      "id": "professor-elia",
+      "description": "Professoressa Elia, ricercatrice botanica anziana con occhiali e capelli argento",
+      "dialogueIds": [
+        "prof_elia",
+        "concordia_elia",
+        "d06_elia"
+      ],
+      "npcIds": [
+        "prof_elia",
+        "concordia_elia",
+        "d06_elia"
+      ],
+      "frame": 0,
+      "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:80",
+      "origin": {
+        "x": 0.6953,
+        "y": 0.9863
+      }
+    },
+    {
+      "id": "ranger-ada",
+      "description": "Ada, guardaboschi e ricercatrice sul campo; giacca prugna e misuratore",
+      "dialogueIds": [
+        "ada_quest"
+      ],
+      "npcIds": [
+        "forest_ranger_ada"
+      ],
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/ada_quest",
+      "origin": {
+        "x": 0.5332,
+        "y": 0.998
+      }
+    },
+    {
+      "id": "rival-nilo",
+      "description": "Nilo, giovane rivale e amico; felpa petrolio e borsa a tracolla",
+      "dialogueIds": [
+        "nilo",
+        "r15_nilo"
+      ],
+      "npcIds": [
+        "nilo",
+        "r15_nilo"
+      ],
+      "frame": 2,
+      "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81",
+      "origin": {
+        "x": 0.3672,
+        "y": 0.9883
+      }
+    }
+  ],
+  "unboundStudies": [
+    {
+      "role": "shopkeeper",
+      "frame": 3,
+      "origin": {
+        "x": 0.6816,
+        "y": 0.9609
+      }
+    },
+    {
+      "role": "gardener",
+      "frame": 4,
+      "origin": {
+        "x": 0.5186,
+        "y": 0.9512
+      }
+    },
+    {
+      "role": "rail-attendant",
+      "frame": 5,
+      "origin": {
+        "x": 0.4346,
+        "y": 0.9648
+      }
+    }
+  ]
+}

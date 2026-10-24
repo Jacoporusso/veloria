@@ -25,8 +25,8 @@
       "assetKey": "veloria-c01_brumalta-illustrated-v2",
       "sourcePath": "assets/sources/veloria-c01_brumalta-illustrated-v2.png",
       "runtimePath": "public/assets/scenery/veloria-c01_brumalta-illustrated-v2.webp",
-      "sourceSha256": "ee07529140cdb43612d449d82bbf429a979f10682891c94bf63b7285f95ec440",
-      "runtimeSha256": "cd5fb0d0360f7741b66a9b2ba371dac464bc3868e1aaef0351cf461c7317aa74",
+      "sourceSha256": "29dfa4187a90e80add2e005c907fccf5c56c2fa528086d08fb922573d64a5bda",
+      "runtimeSha256": "2d35259ad7644f02dc38eaf0d590e5a34d69649db05220922122a2e1e49c2d3c",
       "width": 1536,
       "height": 1024,
       "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Brumalta garden town aspect3:2. Preserve three buildings exactly: healing pavilion footprint x8–25%,y8–29%; marketx8–25%,y62–83%; gymx69–86%,y8–29%, gym entrancex79%,y31%. Refined glass and wood architectures with mint roofs, brass details, flowerbeds hugging existing building edges. Broad city axis across y46–58% fromwest toeast, plaza and continuous stone branches to each door. Fountain in footprintx36–50%,y17–29%, do not enlarge. Fill open plaza with refined varied ivory paving and soft dappled light, no massive green checker tiles, no objects that become new obstacles. Replace olddarkrectangularroads with elegantcontinuouspaving. Monorailterminal is runtime, OMIT fromimage.",
@@ -34,7 +34,13 @@
         "C:/Projects/Veloria/.tmp/map-art-before/c01_brumalta.png",
         "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
       ],
-      "revisions": []
+      "revisions": [
+        {
+          "id": "r03-monorail-approach",
+          "promptPath": "assets/prompts/c01_brumalta-boulevard-monorail-v1.md",
+          "description": "Raccordi pavimentati verso servizi e terminale (21,10), arrivo (21,11); collisioni e servizi invariati."
+        }
+      ]
     },
     {
       "mapId": "veloria/gym01_brumalta",

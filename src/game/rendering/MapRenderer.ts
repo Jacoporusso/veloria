@@ -11,6 +11,7 @@ import { renderSignalRouter } from './signal-router';
 import { collectMapCollision } from '../../core/world/map-collision';
 import { collectIceTiles } from '../../core/world/ice-movement';
 import { createEncounterHabitatMarkers } from './encounter-habitat-marker.ts';
+import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 
 const TILE = 32;
 type RenderedMap = {
@@ -437,8 +438,11 @@ function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
   if (!sprite) throw new Error('NPC ' + item.id + ' must declare a character sprite.');
   requireImageAsset(imageKeys, sprite, item);
   const frame = propNumber(item.properties, 'spriteFrame') ?? 0;
+  const origin = npcSpriteOrigin(item.properties);
   attach(container, scene.add.ellipse(x, y + 14, 21, 7, 0x142c35, .22).setDepth(y + 10));
-  attach(container, scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, imageAtlases, frame)).setOrigin(.5, 1).setDisplaySize(60, 60).setDepth(y + 22));
+  attach(container, scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, imageAtlases, frame))
+    .setOrigin(origin.x, origin.y).setDisplaySize(60, 60).setDepth(y + 22)
+    .setName('npc-sprite').setData('npcId', item.properties.npcId).setData('appearanceId', item.properties.characterAppearanceId));
   attach(container, scene.add.text(x, y - 43, item.name, {
     fontFamily: 'system-ui, sans-serif', fontSize: '8px', fontStyle: 'bold', color: '#effcff', stroke: '#153746', strokeThickness: 2, resolution: 4,
   }).setOrigin(.5).setDepth(y + 23));

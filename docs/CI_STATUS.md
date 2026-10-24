@@ -1,3 +1,9 @@
+## 0.3.137 — Identità NPC e primi passaggi (locale)
+
+615 test dominio/persistenza, 111 Python, validatore (339 asset, 14 fondali con provenienza/binding) e build passati. Tre casi browser passati per sei apparizioni NPC nei due orientamenti e dialoghi mouse Elia/Ada. Cinque transizioni su corsie aggiunte passate; gate Ada ripassato con toast reale e mappa invariata. Percorsi stazione/Centro/negozio Brumalta passati con comandi reali e screenshot ispezionati; caso offline atlante/fondale passato senza richieste fallite o perdita di progressi. [Contratto e limiti](57_NPC_IDENTITIES_AND_EARLY_PASSAGES_v0.1.md).
+
+Nessun fondale R01 errato integrato: originali ripristinati, soglie ampliate sulla strada reale. Il resto del cast e delle mappe resta aperto. Commit/deploy137 e suite remota completa non ancora attestati. La [Verify665cab2](https://github.com/Jacoporusso/veloria/actions/runs/40118009993) era ancora in corso all’ultimo controllo; Deploy40118010065 SUCCESS. La Verify50e9657, precedente ai driver corretti in665cab2, si è conclusa FAILURE.
+
 ## 0.3.136 — Allineamento occhi, barba e zaino
 
 598 test dominio/persistenza e validatore passati. Quattro casi browser iniziali passati: due orientamenti del wizard, dettagli su tutte le pose e palette. Due regressioni di rendering ripassate dopo la rifinitura delle maschere. Build e prova PWA offline (modifica, salvataggio e ripresa) passati. Confronto visivo fronte/profilo/retro ispezionato. [Causa, correzione e limiti](56_AVATAR_DETAIL_ALIGNMENT_v0.1.md). Commit `50e9657b13f00452dcb38265573b70292f1b8997` pubblicato. [Deploy40117616591](https://github.com/Jacoporusso/veloria/actions/runs/40117616591) SUCCESS; HTTPS200 e cache `veloria-shell-v157` verificati. [Verify40117616746](https://github.com/Jacoporusso/veloria/actions/runs/40117616746) in corso all’ultimo controllo. Nessuna dichiarazione di QA fisico o completamento delle mappe/NPC.

@@ -1,5 +1,8 @@
 # Vincoli grafici delle prime mappe — v0.1
 
+> Aggiornamento 0.3.137: le otto soglie laterali di R01/Bosco/R02/Brumalta sono ampliate alla larghezza stradale. R01 ovest y9–11, est y8–11; Bosco entrambi y9–11; R02 entrambi y8–10; Brumalta entrambi y11–13. Flag, destinazioni e spawn invariati. Le coordinate puntuali delle descrizioni storiche sotto sono ora incluse in questi corridoi, non rappresentano più l’unica casella di attivazione. Contratto e prove nel documento57.
+
+
 Audit dei file MapDefinition e Tiled correnti, 21/10/2026. Nessuna modifica a geometria o runtime. Coordinate in celle, origine in alto a sinistra; rettangoli `[x,y,w,h]`, estremi superiori esclusi. Per un punto centrale nel prompt: `100*(x+0.5)/width`, `100*(y+0.5)/height`. Le immagini devono rispettare questi rapporti, senza comprimere una mappa 3:2 in 4:3.
 
 ## Direzione comune

@@ -4018,9 +4018,9 @@
           "name": "Verso il Bosco dei Veli",
           "class": "map-exit",
           "x": 0,
-          "y": 384,
+          "y": 352,
           "width": 32,
-          "height": 32,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -4046,9 +4046,9 @@
           "name": "Sentiero per Radicelmo",
           "class": "message",
           "x": 1120,
-          "y": 384,
+          "y": 352,
           "width": 32,
-          "height": 32,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [

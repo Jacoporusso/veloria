@@ -1027,12 +1027,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-npcs-v3"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 1
+              "value": 0
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "professor-elia"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.6953
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9863
             }
           ]
         }

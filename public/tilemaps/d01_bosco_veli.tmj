@@ -3156,12 +3156,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-npcs-v3"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 2
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "ranger-ada"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5332
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.998
             }
           ]
         }
@@ -3847,9 +3862,9 @@
           "name": "Ritorno al Sentiero dell’Alba",
           "class": "map-exit",
           "x": 0,
-          "y": 320,
+          "y": 288,
           "width": 32,
-          "height": 32,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -3898,9 +3913,9 @@
           "name": "Verso Brumalta",
           "class": "map-exit",
           "x": 928,
-          "y": 320,
+          "y": 288,
           "width": 32,
-          "height": 32,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
