@@ -18,7 +18,7 @@ async function dialogue(page:Page){
  await expect(page.locator('#dialogue-box')).toBeHidden();
 }
 async function checkpoint(page:Page,mapId:string,spawnPointId:string,x:number,y:number,flags:string[]){
- await page.route('**/src/main.ts*',async route=>{const response=await route.fetch();await route.fulfill({response,body:await response.text()+'\nglobalThis.mountainGame=game;'});});
+ await page.route('**/src/main.ts*',async route=>{const response=await route.fetch({ maxRetries: 2 });await route.fulfill({response,body:await response.text()+'\nglobalThis.mountainGame=game;'});});
  await page.goto('/');await enterGame(page);const save=await readBrowserSave(page);
  save.flags=[...new Set([...save.flags,'q_starter_selected',...flags])];save.player={...save.player,mapId,spawnPointId,x,y};
  await seedBrowserSave(page,save);await page.reload();await enterGame(page);

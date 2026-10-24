@@ -9,7 +9,9 @@ export async function tapBattleLabel(page:Page,gameKey:string,prefix:string){
     point=await page.evaluate(({gameKey,prefix})=>{
       const scene=(window as any)[gameKey]?.scene?.keys?.battle;
       if(!scene?.sys?.isActive()||!scene.ui?.list)return null;
-      const label=scene.ui.list.find((item:any)=>item.type==='Text'&&item.active&&item.visible&&item.text.startsWith(prefix));
+      const candidates=scene.ui.list.filter((item:any)=>item.type==='Text'&&item.active&&item.visible&&item.text.startsWith(prefix));
+      // The decorative party HUD also says SQUADRA; prefer the actual command tab.
+      const label=candidates.find((item:any)=>item.name?.startsWith('battle-tab-label-'))??candidates[0];
       if(!label)return null;
       const b=label.getBounds(),c=scene.game.canvas.getBoundingClientRect();
       if(b.width<=0||b.height<=0||c.width<=0||c.height<=0)return null;
