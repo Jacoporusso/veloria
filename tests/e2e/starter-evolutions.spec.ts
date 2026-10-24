@@ -59,6 +59,7 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution', recover = fal
     await page.keyboard.press('Enter', { delay: 40 });
     await tapText(page, await page.evaluate(() => (window as any).evolutionMove));
     await expect.poll(() => page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.state.player.creatures[0].speciesId)).toBe(toId);
+    let evolutionRevealed = false;
     for (let action = 0; action < 20; action++) {
       await expect.poll(() => page.evaluate(() => {
         const scene = (window as any).evolutionGame.scene.keys.battle;
@@ -71,10 +72,13 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution', recover = fal
         await expect(ceremony).toBeVisible();
         await expect(ceremony).toContainText(`Ora è ${name}!`);
         await ceremony.getByRole('button', { name: 'Continua', exact: true }).click();
+        evolutionRevealed = true;
       } else if (await page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.mode === 'message')) {
+        expect(evolutionRevealed, 'Evolution must be revealed before automatic move learning').toBe(true);
         // Automatic learning now waits for the player to acknowledge its information card.
         await tapText(page, 'Continua');
       } else {
+        expect(evolutionRevealed, 'Evolution must be revealed before choosing a replacement move').toBe(true);
         await tapText(page, 'Tieni le mosse');
       }
     }
@@ -87,6 +91,7 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution', recover = fal
       return { completions: (window as any).evolutionCompletions, artwork: image.texture.key,
         levelUps: scene.eventLog.filter((event: any) => event.type === 'levelUp').length, events: scene.eventLog.filter((event: any) => event.type === 'creatureEvolved').length, creature: scene.state.player.creatures[0] };
     });
+    expect(evolutionRevealed).toBe(true);
     expect(observed.completions).toBe(1);
     expect(observed.events).toBe(1);
     if (recover) expect(observed.levelUps).toBe(0);

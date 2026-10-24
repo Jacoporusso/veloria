@@ -1169,6 +1169,12 @@ export class WorldScene extends Phaser.Scene {
         arenaTextureKey: this.map.metadata.battleBackgroundKey,
         reducedAnimations: this.reducedAnimations,
         capturedIsNew: state.opponent.creatures.some(creature => !ownedSpecies.has(creature.speciesId)),
+        onEvolutionPresented: async (receiptKey: string, battleSignal: AbortSignal) => {
+          if (!this.save.flags.includes(receiptKey)) return;
+          const signal = AbortSignal.any([this.presentationAbort.signal, battleSignal]);
+          this.save = { ...this.save, flags: this.save.flags.filter(flag => flag !== receiptKey) };
+          if (!await ensureSavedProgress(() => this.persistProgress(), signal)) throw new DOMException('Presentation cancelled', 'AbortError');
+        },
         beforeCelebration: async (_state: BattleState, _events: readonly BattleEvent[], battleSignal: AbortSignal) => {
           const signal = AbortSignal.any([this.presentationAbort.signal, battleSignal]);
           if (!await ensureSavedProgress(() => this.persistProgress(), signal)) throw new DOMException('Presentation cancelled', 'AbortError');

@@ -24,3 +24,7 @@ Il risultato viene persistito alla conclusione della lotta, come già previsto d
 - Screenshot portrait/landscape della celebrazione controllati visivamente; nessuna prova fisica Android/iOS dichiarata.
 
 Commit, CI e pubblicazione sono attestati separatamente in CI_STATUS. La campagna naturale resta dopo le Dune con cinque medaglie: questa correzione non prova P6–P8/Lega/finale.
+
+## Correzione successiva — runtime134
+
+La segnalazione sull'ordine delle mosse ha evidenziato il percorso terminale e gli apprendimenti emessi prima dell'evoluzione. Nella134 entrambe le sequenze mostrano prima la trasformazione e poi l'apprendimento, con regressioni esplicite e consumo delle ricevute già salvate. [Dettagli](51_EVOLUTION_LEARNING_ORDER_v0.1.md).

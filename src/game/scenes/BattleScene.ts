@@ -20,6 +20,7 @@ import { describeMoveMatchup } from '../battle/move-matchup.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
 import { evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
+import { evolutionPresentationEvents } from '../battle/evolution-event-order.ts';
 import { BattleCelebration, type VictoryPresentation } from '../ui/BattleCelebration.ts';
 import { gameViewport } from '../rendering/game-size.ts';
 
@@ -32,6 +33,7 @@ export interface BattleSceneInit {
   readonly onComplete: (state: BattleState, events: readonly BattleEvent[], presentedEvolutions: readonly string[]) => void;
   /** Owner commits the result and presents any durable ceremonies before the receipt. */
   readonly beforeCelebration?: (state: BattleState, events: readonly BattleEvent[], signal: AbortSignal) => Promise<void>;
+  readonly onEvolutionPresented?: (receiptKey: string, signal: AbortSignal) => Promise<void>;
   readonly capturedIsNew?: boolean;
   readonly onDismiss?: (event?: KeyboardEvent) => void;
   /** The owner may expose readiness after preload and interactive controls are complete. */
@@ -99,6 +101,7 @@ export class BattleScene extends Phaser.Scene {
   private dismissalReported = false;
   private celebration?: BattleCelebration;
   private beforeCelebration?: BattleSceneInit['beforeCelebration'];
+  private onEvolutionPresented?: BattleSceneInit['onEvolutionPresented'];
   private capturedIsNew = false;
   private terminalPreparing = false;
   private terminalController = new AbortController();
@@ -143,6 +146,7 @@ export class BattleScene extends Phaser.Scene {
     this.opponentPolicy = data.opponentPolicy ?? getOpponentPolicy();
     this.onComplete = data.onComplete;
     this.beforeCelebration = data.beforeCelebration;
+    this.onEvolutionPresented = data.onEvolutionPresented;
     this.capturedIsNew = data.capturedIsNew ?? false;
     this.terminalController.abort();
     this.terminalController = new AbortController();
@@ -972,7 +976,7 @@ export class BattleScene extends Phaser.Scene {
     this.eventLog.push(...transition.events);
     this.consumeInventoryForEvents(transition.events);
     this.playerForcedToSwitch = this.state.outcome.kind === 'ongoing' && this.activeCreature('player').hp <= 0;
-    this.pendingMessages = transition.events.flatMap(event => {
+    this.pendingMessages = evolutionPresentationEvents(transition.events).flatMap(event => {
       const text = this.describeEvent(event);
       return text ? [{ text, event }] : [];
     });
@@ -998,7 +1002,7 @@ export class BattleScene extends Phaser.Scene {
     this.messageTimer?.remove(false);
     this.messageTimer = undefined;
     const current = this.pendingMessages[0];
-    if (current?.event?.type === 'creatureEvolved' && this.state.outcome.kind === 'ongoing') {
+    if (current?.event?.type === 'creatureEvolved') {
       void this.presentTurnEvolution(current.event);
       return;
     }
@@ -1033,9 +1037,12 @@ export class BattleScene extends Phaser.Scene {
     this.terminalPreparing = true;
     const signal = this.terminalController.signal;
     try {
-      await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
+      const receiptKey = evolutionReceiptFlag(event);
+      if (!this.presentedEvolutions.has(receiptKey)) await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
       if (signal.aborted) return;
-      this.presentedEvolutions.add(evolutionReceiptFlag(event));
+      this.presentedEvolutions.add(receiptKey);
+      await this.onEvolutionPresented?.(receiptKey, signal);
+      if (signal.aborted) return;
       const hasMore = this.eventLog.some(entry => entry.type === 'creatureEvolved' && entry.creatureId === event.creatureId && !this.presentedEvolutions.has(evolutionReceiptFlag(entry)));
       if (!hasMore) this.unrevealedEvolutions.delete(event.creatureId);
       const creature = this.creatureById(event.side, event.creatureId);
@@ -1310,23 +1317,24 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private describeEvent(event: BattleEvent): string | null {
+    const shownCreature = (side: BattleSide, id: string) => this.unrevealedEvolutions.get(id) ?? this.creatureById(side, id);
     switch (event.type) {
       case 'commandRejected':
         return event.reason === 'captureForbidden' ? 'Non puoi catturare le creature di un allenatore.' : 'Non puoi eseguire questa azione.';
       case 'moveUsed': {
-        const creature = this.creatureById(event.side, event.creatureId);
+        const creature = shownCreature(event.side, event.creatureId);
         const move = this.moveCatalog[event.moveId];
         const moveName = event.moveId === EMERGENCY_MOVE_ID ? EMERGENCY_MOVE_NAME : move?.name ?? event.moveId;
         return `${creature?.name ?? 'La creatura'} usa ${moveName}.`;
       }
       case 'recoilApplied':
-        return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.amount} danni da contraccolpo.`;
+        return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.amount} danni da contraccolpo.`;
       case 'healingApplied': return `Assorbe energia e recupera ${event.amount} HP.`;
-      case 'flinched': return formatFlinched(this.creatureById(event.side, event.creatureId)?.name ?? 'Il Pokémon');
-      case 'leechSeedApplied': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} è colpita da Parassiseme!`;
+      case 'flinched': return formatFlinched(shownCreature(event.side, event.creatureId)?.name ?? 'Il Pokémon');
+      case 'leechSeedApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è colpita da Parassiseme!`;
       case 'leechSeedPrevented': return event.reason === 'immune' ? 'Parassiseme non ha effetto sui Pokémon Erba.' : 'Il bersaglio è già sotto l’effetto di Parassiseme.';
-      case 'leechSeedTick': return `Parassiseme sottrae ${event.damage} HP a ${this.creatureById(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
-      case 'confusionApplied': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} è confusa!`;
+      case 'leechSeedTick': return `Parassiseme sottrae ${event.damage} HP a ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
+      case 'confusionApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è confusa!`;
       case 'confusionPrevented': return 'Il bersaglio è già confuso.';
       case 'confusionTick': return event.turnsRemaining === 0 ? 'La confusione è passata.' : null;
       case 'confusionSelfHit': return `Si colpisce per la confusione! −${event.amount} HP`;
@@ -1337,28 +1345,28 @@ export class BattleScene extends Phaser.Scene {
         if (event.effectiveness > 1) return `Super efficace! −${event.amount} HP`;
         if (event.effectiveness < 1) return `Poco efficace · −${event.amount} HP`;
         return event.critical ? `Colpo critico! −${event.amount} HP` : `A segno · −${event.amount} HP`;
-      case 'statusApplied': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ${this.statusVerb(event.status)}.`;
+      case 'statusApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ${this.statusVerb(event.status)}.`;
       case 'statusPrevented': return event.reason === 'alreadyAfflicted' ? 'La creatura ha già un problema di stato.' : 'Il tipo della creatura la protegge da questo stato.';
       case 'statusTick':
-        if (event.damage) return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.damage} danni dallo stato.`;
+        if (event.damage) return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.damage} danni dallo stato.`;
         return event.recovered ? 'La creatura si è ripresa.' : null;
-      case 'creatureFainted': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} non può più continuare.`;
-      case 'experienceGained': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ottiene ${event.amount} punti esperienza.`;
+      case 'creatureFainted': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} non può più continuare.`;
+      case 'experienceGained': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ottiene ${event.amount} punti esperienza.`;
       case 'moveLearned': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ha imparato ${this.moveCatalog[event.moveId]?.name ?? event.moveId}!`;
       case 'moveLearningSkipped': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} ha già quattro mosse: ${this.moveCatalog[event.moveId]?.name ?? event.moveId} non è stata appresa.`;
       case 'moveReplaced': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} dimentica ${this.moveCatalog[event.previousMoveId]?.name ?? event.previousMoveId} e impara ${this.moveCatalog[event.moveId]?.name ?? event.moveId}!`;
       case 'moveLearningDeclined': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} tiene le mosse che conosce.`;
-      case 'levelUp': return `${this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura'} sale al livello ${event.level}!`;
+      case 'levelUp': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} sale al livello ${event.level}!`;
       case 'statStageChanged':
-        return formatStatStageChanged(event.stat, event.change, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
+        return formatStatStageChanged(event.stat, event.change, shownCreature(event.side, event.creatureId)?.name ?? 'La creatura');
       case 'statStageLimited':
-        return formatStatStageLimited(event.stat, event.stage, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
-      case 'creatureEvolved': return this.state.outcome.kind === 'ongoing' ? `${event.fromName} si sta evolvendo!` : null;
-      case 'creatureSwitched': return `${this.creatureById(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
+        return formatStatStageLimited(event.stat, event.stage, shownCreature(event.side, event.creatureId)?.name ?? 'La creatura');
+      case 'creatureEvolved': return `${event.fromName} si sta evolvendo!`;
+      case 'creatureSwitched': return `${shownCreature(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
       case 'itemUsed': return 'Hai usato uno strumento.';
       case 'captureAttempted': return 'La sfera è in volo…';
       case 'captureFailed': return 'La creatura si è liberata!';
-      case 'creatureCaptured': return `Cattura riuscita. ${this.creatureById('player', event.creatureId)?.name ?? 'La creatura'} è ${event.destination === 'party' ? 'in squadra' : 'nel box'}.`;
+      case 'creatureCaptured': return `Cattura riuscita. ${shownCreature('player', event.creatureId)?.name ?? 'La creatura'} è ${event.destination === 'party' ? 'in squadra' : 'nel box'}.`;
       case 'fleeFailed': return 'Non riesci a fuggire.';
       case 'battleEnded': return event.outcome.kind === 'captured' ? 'La creatura si unisce al tuo viaggio.' : this.outcomeMessage(event.outcome);
       case 'turnStarted':

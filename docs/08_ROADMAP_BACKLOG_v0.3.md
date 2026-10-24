@@ -1,3 +1,7 @@
+## Animazione prima della mossa — runtime0.3.134
+
+Corretto l'ordine sull'ultimo avversario e per le mosse ottenute dalla forma precedente nello stesso turno: rivelazione evolutiva, poi apprendimento, senza anticipare il nome della forma nuova. Il log meccanico resta invariato e le ricevute già salvate vengono consumate senza ripetere la celebrazione.582 test dominio/persistenza, build/validatore e sei browser passati. [Contratto e limiti](51_EVOLUTION_LEARNING_ORDER_v0.1.md). Campagna e catalogo completi restano aperti.
+
 ## Guida al recupero evolutivo — runtime0.3.133
 
 Squadra mostra la soglia già raggiunta e le istruzioni per recuperare l'evoluzione, invitando a curare i compagni KO. Usa soltanto le regole runtime, senza modificare il salvataggio o dare indicazioni errate per pietre/scambio. Caso Drowzee31→Hypno31 verificato senza nuovo livello;57 regressioni starter, build/validatore e due browser orientamenti passati. [Contratto e limiti](50_EVOLUTION_READINESS_GUIDE_v0.1.md). Campagna e catalogo completi restano aperti.

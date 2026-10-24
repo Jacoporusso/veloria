@@ -240,3 +240,7 @@ I test unit e browser controllano esplicitamente la sorgente di entropia per ver
 ## Evoluzione durante lo scontro — runtime132
 
 Il reducer finalizza i destinatari XP al termine del turno anche con outcome ongoing. BattleScene sospende i comandi sul messaggio creatureEvolved, presenta la celebrazione e riprende prima della sostituzione avversaria. Le chiavi già presentate passano separatamente dagli eventi completi a WorldScene, che evita di accodare ricevute duplicate. Il commit del risultato resta a fine lotta; nessun nuovo formato di save o ripristino di battaglie interrotte. [Dettagli](49_MIDBATTLE_EVOLUTION_v0.1.md).
+
+## Ordine presentazione evoluzione/apprendimento — runtime134
+
+`evolutionPresentationEvents` ordina le sole notifiche della scena: tutte le carte di apprendimento del compagno seguono la sua ultima trasformazione nel turno. Il log meccanico resta invariato. La stessa presentazione viene eseguita anche sui risultati terminali; `onEvolutionPresented` consuma le ricevute già persistite per evitare repliche alla schermata finale, senza anticipare o duplicare le ricompense. [Contratto e verifiche](51_EVOLUTION_LEARNING_ORDER_v0.1.md).
