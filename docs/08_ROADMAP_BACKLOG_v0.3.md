@@ -1,3 +1,7 @@
+## Dettagli avatar — correzione 0.3.136
+
+Corretto l’allineamento di occhi, barba e zaino con maschere calibrate per posa. Rimossi i disegni a coordinate fisse e le componenti cromatiche isolate. 598 test dominio/persistenza, regressioni browser su dettagli/palette/orientamenti, validatore, build e PWA offline passati. [Evidenze e limiti](56_AVATAR_DETAIL_ALIGNMENT_v0.1.md). Rilascio in CI_STATUS; NPC e percorsi restano aperti.
+
 ## Primo lotto mondo/avatar — 0.3.135 in verifica locale
 
 Wizard nome/aspetto/riepilogo e modifica dalle impostazioni implementati; scelta salvata con catalogo chiuso e progressi conservati. Compositore condiviso editor/mappa con tre atlanti illustrati originali derivati dalla tavola approvata; maschere e animazioni restano da rifinire e verificare completamente. Segnale uniforme per ogni zona incontri e guida richiamabile, senza cambiare distribuzione o probabilità. [Stato e limiti](55_TRAINER_WIZARD_AND_HABITATS_v0.1.md). Incluse due mosse ufficiali già in lavorazione ([catalogo](52_SECONDARY_DAMAGE_MOVES_v0.1.md)). Nessuna pubblicazione attestata da questo paragrafo: ricevute in CI_STATUS.

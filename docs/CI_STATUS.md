@@ -1,3 +1,7 @@
+## 0.3.136 — Allineamento occhi, barba e zaino
+
+598 test dominio/persistenza e validatore passati. Quattro casi browser iniziali passati: due orientamenti del wizard, dettagli su tutte le pose e palette. Due regressioni di rendering ripassate dopo la rifinitura delle maschere. Build e prova PWA offline (modifica, salvataggio e ripresa) passati. Confronto visivo fronte/profilo/retro ispezionato. [Causa, correzione e limiti](56_AVATAR_DETAIL_ALIGNMENT_v0.1.md). Pubblicazione e CI remota da attestare; nessuna dichiarazione di QA fisico o completamento delle mappe/NPC.
+
 ## 0.3.135 — Wizard illustrato e segnali habitat
 
 595 test dominio/persistenza, 111 Python, validatore progetto e build passati. Wizard e modifica/ripresa verificati nei due orientamenti; nove combinazioni capelli/carnagione con regressione pelle/zaino e tutte le pose non vuote. Quattro biomi e guida passati, onboarding completo passato. PWA offline: aspetto modificato, salvato e ripreso senza rete. Sei regressioni tastiera battaglia passate dopo la correzione del doppio effetto di Invio sulla carta mossa e sul risultato. [Contratto e limiti](55_TRAINER_WIZARD_AND_HABITATS_v0.1.md).
