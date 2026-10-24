@@ -1,0 +1,13 @@
+# Leggibilità del mondo — concept 01
+
+24 ottobre 2026. Generazione con tool integrato image_gen; nessuna immagine di riferimento. Output copiato in `public/assets/concepts/world-readability-v1.png`. SHA256: `6697B9FCB95FD445D6AC025BAB6BC9FCF87EEC3A529CD61255C21B506A7820D8`.
+
+## Prompt esatto
+
+Create one polished art direction concept board for an original children's exploration RPG called Veloria. Modern hand painted 2D orthographic top-down game art, NOT isometric, NOT 3D render, NOT pixel art. Wide landscape composition 3:2. Main 75% area: warm rural village Borgofonte, ivory plaster small homes, terracotta muted coral roofs, botanical glass laboratory, central broad continuous pale stone walkway branching clearly to visible doors, north exit open through trees. Lush varied foliage, delicate flowers, soft painted shadows, teal stream at right with one clear wooden footbridge. Clean broad color shapes with restrained texture and beautiful contemporary storybook finish, mint, forest teal, warm cream, coral, lavender accents. Include two clearly defined wild encounter grass patches: repeated distinctive THREE LEAF tuft silhouette, light tips, different from decorative shrubs. Three small distinct full-body illustrated NPCs in village square: older researcher with silver curly hair cream coat teal trousers; young woman ranger dark skin short curly hair plum jacket sand trousers; stocky male gardener beard straw hat sage overalls. Consistent top-down view and painted rendering. No text or UI baked into art, no logos. At right 25%, two smaller separate environment studies stacked: deep forest clearing and turquoise coastal path, each showing the exact same three-leaf encounter tuft silhouette recolored by biome; clear paths. Flat edge-to-edge art board, no decorative border. This is concept artwork only, not a finished navigable map.
+
+## Revisione
+
+Stile dipinto e habitat distinguibili; tre studi di personaggi con silhouette diverse. Prospettiva ancora troppo inclinata rispetto alla camera ortogonale richiesta: non approvato come asset runtime. Edifici, vegetazione e persone sono incorporati nella tavola; per il gioco occorrono livelli separati e verifica della geometria Tiled. Percorsi sovrapposti nel mockup indicativi, non calcolati. Nessuna nuova destinazione, specie o interazione aggiunta al gioco.
+
+Anteprima: `world-design-prototype.html`, con legenda e overlay attivabili. Verificata in Chrome headless a 390×844 e 844×390: immagine caricata, overlay habitat, selettore percorsi, testo pesca, assenza di overflow orizzontale. Screenshot portrait ispezionato. Non è una prova della navigabilità delle mappe reali.

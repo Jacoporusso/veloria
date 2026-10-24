@@ -313,10 +313,15 @@ test('battle reveals evolution through a ceremony before showing the new sprite'
     return {
       speciesId: scene.state.player.creatures[0].speciesId,
       terminalEvolution: scene.eventLog.some((event: any) => event.type === 'creatureEvolved' && event.toSpeciesId === 11),
-      instantAnnouncement: scene.pendingMessages.some((message: any) => message.event?.type === 'creatureEvolved'),
+      evolutionQueued: scene.pendingMessages.some((message: any) => message.event?.type === 'creatureEvolved'),
       spriteTexture: image?.texture?.key, spriteFrame: image?.frame?.name,
     };
-  })).toEqual({ speciesId: 11, terminalEvolution: true, instantAnnouncement: false, spriteTexture: 'veloria-creatures-3-v1', spriteFrame: 'species-10' });
+  })).toEqual({ speciesId: 11, terminalEvolution: true, evolutionQueued: true, spriteTexture: 'veloria-creatures-3-v1', spriteFrame: 'species-10' });
+  const visibleLabels = await page.evaluate(() => {
+    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+    return scene.ui.list.filter((child: any) => child.type === 'Text' && child.visible).map((child: any) => child.text).join(' ');
+  });
+  expect(visibleLabels).not.toContain('Metapod');
   for (let index = 0; index < 20 && !await page.locator('.evolution-celebration').count(); index++) {
     await pressBattleKey(page, 'Enter', { delay: 40 });
   }
@@ -331,6 +336,12 @@ test('battle reveals evolution through a ceremony before showing the new sprite'
   await expect(revealed).toContainText('Caterpie si è evoluto in Metapod');
   await revealed.getByRole('button', { name: 'Continua', exact: true }).click();
   await expect(page.locator('.evolution-celebration')).toHaveCount(0);
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).battleRulesFixture.scene.getScene('battle');
+    return { mode: scene.mode, event: scene.pendingMessages[0]?.event?.type, move: scene.pendingMessages[0]?.event?.moveId };
+  })).toEqual({ mode: 'message', event: 'moveLearned', move: 'harden' });
+  // The learned-move card now follows the reveal, even for the final opponent.
+  await pressBattleKey(page, 'Enter', { delay: 40 });
   await expect(page.locator('.battle-celebration')).toBeVisible();
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');

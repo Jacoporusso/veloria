@@ -1,4 +1,5 @@
 import type { GameSave } from '../../persistence/save-types.ts';
+import { customizeTrainerAppearance, DEFAULT_TRAINER_APPEARANCE, type TrainerAppearance } from './trainer-appearance.ts';
 
 /** Normalize a trainer name, returning null when it is empty, too long, or contains invisible characters. */
 export function normalizeTrainerName(raw: string): string | null {
@@ -18,11 +19,11 @@ export function normalizeTrainerName(raw: string): string | null {
 }
 
 /** Return an independent copy of a new save personalized for the trainer. */
-export function personalizeNewGame(save: GameSave, rawName: string): GameSave {
+export function personalizeNewGame(save: GameSave, rawName: string, appearance: TrainerAppearance = DEFAULT_TRAINER_APPEARANCE): GameSave {
   const name = normalizeTrainerName(rawName);
   if (name === null) throw new Error('Invalid trainer name');
 
-  const personalized = structuredClone(save);
+  const personalized = customizeTrainerAppearance(save, appearance);
   personalized.player.name = name;
   if (!personalized.flags.includes('intro_started')) personalized.flags.push('intro_started');
   return personalized;

@@ -1,3 +1,8 @@
+import { ENCOUNTER_HABITAT_SYMBOL } from '../rendering/encounter-habitat-marker.ts';
+import { customizeTrainerAppearance, readTrainerAppearance } from '../../core/party/trainer-appearance.ts';
+import { createTrainerAvatarSheet } from '../rendering/trainer-avatar-art.ts';
+import { composeIllustratedTrainer, trainerSourcePath } from '../rendering/illustrated-trainer.ts';
+import { showTrainerAppearanceDialog } from '../ui/TrainerAppearanceEditor.ts';
 import { TouchJoystick } from '../input/touch-joystick';
 import { getEnvironmentRegulator } from '../maps/environment-regulator-registry';
 import { getChallengeSequence, listChallengeSequences } from '../maps/challenge-sequence-registry';
@@ -126,6 +131,9 @@ export class WorldScene extends Phaser.Scene {
   private readonly onMusicThemeChange: (themeId: string) => void;
   private readonly previewMode: boolean;
   private reducedAnimations = false;
+  private avatarTextureKey = TRAVELER_TEXTURE;
+  private avatarRevision = 0;
+  private avatarEditorOpen = false;
   private ambientTweenTargets: Phaser.GameObjects.GameObject[] = [];
 
   constructor(save: GameSave, onMusicThemeChange: (themeId: string) => void = () => undefined, previewMode = false) {
@@ -138,7 +146,10 @@ export class WorldScene extends Phaser.Scene {
   preload() {
     this.recoverChallengeProgress();
     const assetUrl = (path: string) => publicAssetUrl(path, import.meta.env.BASE_URL);
-    this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.webp'));
+    if (this.save.player.appearance) {
+      this.avatarTextureKey = 'veloria-avatar-custom';
+      this.load.image('veloria-avatar-source', assetUrl(trainerSourcePath(this.save.player.appearance)));
+    } else this.load.image(TRAVELER_TEXTURE, assetUrl('assets/sprites/veloria-traveler-walk-v2.webp'));
     const maps = listMaps();
     let initialMap: RegisteredMap;
     try { initialMap = getMap(this.save.player.mapId); }
@@ -170,6 +181,10 @@ export class WorldScene extends Phaser.Scene {
     }
     if (this.playerTile.x === spawn.x && this.playerTile.y === spawn.y) this.facing = spawn.facing;
 
+    if (this.save.player.appearance) {
+      const source = this.textures.get('veloria-avatar-source').getSourceImage() as HTMLImageElement;
+      this.textures.addCanvas(this.avatarTextureKey, composeIllustratedTrainer(source, this.save.player.appearance));
+    }
     this.player = this.makePlayer();
     this.drawFace();
     this.mapLayer.add(this.player);
@@ -233,6 +248,7 @@ export class WorldScene extends Phaser.Scene {
     if (this.map.metadata.id === 'veloria/borgofonte' && !this.save.flags.includes('q_starter_selected')) {
       this.showToast('Elia ti aspetta nel laboratorio. Entra dalla porta sul lato sud.');
     }
+    if (!this.dialogueLines.length) this.showHabitatHint();
     if (this.challengeRecovered && !this.completionActive) {
       this.challengeOperationActive = true;
       void this.finishChallengeRecovery();
@@ -257,7 +273,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private get navigationOpen(): boolean {
-    return this.completionActive || this.challengeOperationActive || Boolean(this.regionMap?.isOpen) || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
+    return this.avatarEditorOpen || this.completionActive || this.challengeOperationActive || Boolean(this.regionMap?.isOpen) || Boolean(document.querySelector('#exploration-menu:not([hidden]), #settings-menu:not([hidden]), #save-menu:not([hidden])'));
   }
 
   private updateInteractionPrompt(): void {
@@ -427,7 +443,7 @@ export class WorldScene extends Phaser.Scene {
   }
   private openPokedex(returnFocus: HTMLElement, view: 'team' | 'dex' = 'dex') {
     const panel = document.querySelector<HTMLElement>('#pokedex-panel');
-    if (!panel || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
+    if (!panel || this.avatarEditorOpen || this.fishingActive || this.battleActive || this.journey?.isOpen) return;
     const browser = new PokemonPanel((itemId, creatureId) => void this.openItemEvolution(itemId, creatureId),
       this.previewMode ? undefined : creatureId => void this.reorderParty(creatureId, 0, browser),
       this.previewMode ? undefined : (creatureId, index) => void this.reorderParty(creatureId, index, browser, true));
@@ -472,10 +488,51 @@ export class WorldScene extends Phaser.Scene {
     } finally { this.completionActive = false; }
   }
 
+  private async editTrainerAppearance(): Promise<void> {
+    if (this.previewMode || this.avatarEditorOpen || this.mapTransitionLoading || this.battleActive || this.moving || this.completionActive || this.challengeOperationActive || this.fishingActive || this.dialogueLines.length) return;
+    this.avatarEditorOpen = true;
+    document.querySelector<HTMLElement>('#settings-menu')!.hidden = true;
+    this.heldDirection = null; this.queuedDirection = null;
+    try {
+      await showTrainerAppearanceDialog(readTrainerAppearance(this.save.player.appearance)!, async appearance => {
+        const sheet = await createTrainerAvatarSheet(appearance);
+        const previous = this.save.player.appearance;
+        this.save = customizeTrainerAppearance(this.save, appearance);
+        if (!await this.persistProgress()) { if (previous) this.save.player.appearance = previous; else delete this.save.player.appearance; return false; }
+        const oldTexture = this.avatarTextureKey;
+        this.avatarTextureKey = `veloria-avatar-edited-${++this.avatarRevision}`;
+        this.textures.addCanvas(this.avatarTextureKey, sheet);
+        this.player.remove(this.playerSprite, true);
+        this.traveler = new TravelerAnimation(this, this.avatarTextureKey);
+        this.playerSprite = this.traveler.sprite; this.player.add(this.playerSprite); this.drawFace();
+        if (oldTexture !== TRAVELER_TEXTURE) this.textures.remove(oldTexture);
+        this.showToast('Aspetto salvato. Buon viaggio!'); return true;
+      });
+    } finally { this.avatarEditorOpen = false; }
+  }
+
+  private showHabitatHint(): void {
+    if (this.previewMode || this.save.flags.includes('tutorial_habitat_seen') || !this.renderedMap.triggers.some(trigger => trigger.kind === 'encounter-zone')) return;
+    this.save.flags.push('tutorial_habitat_seen');
+    this.showToast('Il simbolo a tre foglie indica dove incontrare Pokémon. Ritrovi la legenda in Menu → Come si gioca.');
+    void this.persistProgress();
+  }
+
+  private showFieldGuide(): void {
+    if (this.avatarEditorOpen || this.dialogueLines.length || this.battleActive || this.mapTransitionLoading || this.completionActive) return;
+    this.showDialogue('Come si gioca', [
+      'Le zone degli incontri sono segnate dal simbolo a tre foglie. Cammina tra le foglie per cercare Pokémon: il simbolo ha lo stesso significato in ogni ambiente.',
+      'Per pescare cerca i punti di pesca e usa una canna dallo zaino. Non tutti gli specchi d’acqua sono punti di pesca.',
+      'Segui i sentieri e le insegne per raggiungere porte e servizi. Le uscite indicano la destinazione; se un passaggio è chiuso, controlla l’obiettivo nel diario.',
+      'WASD o frecce per muoverti; E, Spazio, Invio o A sullo schermo per parlare. Su telefono usa frecce o trackpad a destra e azioni a sinistra.',
+    ]);
+    document.querySelector('#dialogue-speaker')?.insertAdjacentHTML('afterbegin', ENCOUNTER_HABITAT_SYMBOL);
+  }
+
   private makePlayer() {
     const player = this.add.container(0, 0).setSize(25, 40);
     const shadow = this.add.ellipse(0, 20, 24, 8, 0x24382e, .38);
-    this.traveler = new TravelerAnimation(this);
+    this.traveler = new TravelerAnimation(this, this.avatarTextureKey);
     this.playerSprite = this.traveler.sprite;
     player.add([shadow, this.playerSprite]);
     return player;
@@ -511,7 +568,8 @@ export class WorldScene extends Phaser.Scene {
       else {const toast=document.querySelector<HTMLElement>('#toast');toast?.classList.remove('visible');clearTimeout(this.toastTimer);}
     });
     document.querySelector('#action-save')?.addEventListener('click',()=>this.persistProgress(true));
-    document.querySelector('#help-button')?.addEventListener('click',()=>this.showToast('WASD o frecce per muoverti · E, Spazio o Invio per parlare · P o ◈ per il Pokédex. Su telefono usa i comandi in basso.'));
+    document.querySelector('#help-button')?.addEventListener('click',()=>this.showFieldGuide());
+    document.querySelector('#trainer-appearance-button')?.addEventListener('click',()=>void this.editTrainerAppearance());
     document.querySelector('#region-map-button')?.addEventListener('click', () => {
       if (this.battleActive || this.dialogueLines.length || this.mapTransitionLoading) return;
       this.heldDirection = null; this.queuedDirection = null;
@@ -815,6 +873,7 @@ export class WorldScene extends Phaser.Scene {
     this.mapTransitionLoading = false;
     gameRegion?.removeAttribute('aria-busy');
     this.showToast(destination.metadata.displayName);
+    this.showHabitatHint();
   }
 
   private fadeMapTransition(direction: 'out' | 'in'): Promise<void> {

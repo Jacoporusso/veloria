@@ -2,8 +2,11 @@ import type { GameSave } from '../../persistence/save-types.ts';
 import { normalizeTrainerName } from '../../core/party/trainer-profile.ts';
 import { getMap } from '../maps/map-registry.ts';
 import '../../start-screen.css';
+import { DEFAULT_TRAINER_APPEARANCE, type TrainerAppearance } from '../../core/party/trainer-appearance.ts';
+import { createTrainerAppearanceEditor } from './TrainerAppearanceEditor.ts';
+import { createTrainerAvatarPreview } from '../rendering/trainer-avatar-art.ts';
 
-export type GameSessionChoice = { kind: 'continue' } | { kind: 'new'; name: string };
+export type GameSessionChoice = { kind: 'continue' } | { kind: 'new'; name: string; appearance: TrainerAppearance };
 
 const MAX_NAME_LENGTH = 16;
 
@@ -24,7 +27,7 @@ function brandMark(): string {
 }
 
 /** Mounts an accessible title screen and resolves only after the player makes a choice. */
-export async function chooseGameSession(existing: GameSave | null, createGame: (name: string) => Promise<void>): Promise<GameSessionChoice> {
+export async function chooseGameSession(existing: GameSave | null, createGame: (name: string, appearance: TrainerAppearance) => Promise<void>): Promise<GameSessionChoice> {
   return new Promise(resolve => {
     const root = document.createElement('main');
     root.className = 'start-screen';
@@ -59,6 +62,8 @@ export async function chooseGameSession(existing: GameSave | null, createGame: (
     const flowId = 'start-screen-flow-title';
     let settled = false;
     let saving = false;
+    let draftName = '';
+    let draftAppearance: TrainerAppearance = { ...DEFAULT_TRAINER_APPEARANCE };
 
     const finish = (choice: GameSessionChoice) => {
       if (settled) return;
@@ -98,13 +103,16 @@ export async function chooseGameSession(existing: GameSave | null, createGame: (
         <input id="start-screen-player-name" name="playerName" type="text" maxlength="32" inputmode="text" autocomplete="nickname" autocapitalize="words" enterkeyhint="done" aria-label="Nome allenatore" aria-describedby="start-screen-name-hint start-screen-name-count" required>
         <div class="start-screen__input-details"><span id="start-screen-name-hint">Da 1 a ${MAX_NAME_LENGTH} caratteri</span><span id="start-screen-name-count" aria-live="polite">0/${MAX_NAME_LENGTH}</span></div>
         <p class="start-screen__form-error" role="alert" hidden></p>
-        <div class="start-screen__dialog-actions"><button class="start-screen__small-button" type="button" data-action="back">Indietro</button><button class="start-screen__small-button start-screen__small-button--accent" type="submit" aria-label="Inizia il viaggio">Inizia il viaggio <span aria-hidden="true">↗</span></button></div>
+        <div class="start-screen__dialog-actions"><button class="start-screen__small-button" type="button" data-action="back">Indietro</button><button class="start-screen__small-button start-screen__small-button--accent" type="submit" aria-label="Personalizza allenatore">Personalizza allenatore <span aria-hidden="true">↗</span></button></div>
       </form>`;
       const form = flow.querySelector<HTMLFormElement>('form')!;
       const input = form.querySelector<HTMLInputElement>('input')!;
+      input.value = draftName;
       const count = form.querySelector<HTMLElement>('#start-screen-name-count')!;
       const error = form.querySelector<HTMLElement>('.start-screen__form-error')!;
+      count.textContent = `${nameLength(draftName)}/${MAX_NAME_LENGTH}`;
       input.addEventListener('input', () => {
+        draftName = input.value;
         const length = nameLength(input.value);
         count.textContent = `${length}/${MAX_NAME_LENGTH}`;
         input.removeAttribute('aria-invalid');
@@ -129,25 +137,54 @@ export async function chooseGameSession(existing: GameSave | null, createGame: (
           input.focus({ preventScroll: true });
           return;
         }
-        saving = true;
-        const buttons = [...form.querySelectorAll<HTMLButtonElement>('button')];
-        buttons.forEach(button => button.disabled = true);
-        input.readOnly = true;
-        try {
-          await createGame(name);
-          finish({ kind: 'new', name });
-        } catch {
-          error.textContent = 'Non riesco a salvare la nuova partita. Controlla lo spazio e i permessi del browser, poi riprova.';
-          error.hidden = false;
-          input.focus({ preventScroll: true });
-        } finally {
-          saving = false;
-          buttons.forEach(button => button.disabled = false);
-          input.readOnly = false;
-        }
+        draftName = name;
+        showAppearanceForm();
       });
       flow.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       requestAnimationFrame(() => input.focus({ preventScroll: true }));
+    }
+
+    function showAppearanceForm(): void {
+      flow.replaceChildren();
+      const section = document.createElement('section'); section.className = 'start-screen__dialog';
+      section.innerHTML = `<p class="start-screen__dialog-kicker">Il tuo allenatore · 2 di 3</p><h2 id="${flowId}">Come vuoi essere?</h2>`;
+      section.append(createTrainerAppearanceEditor(draftAppearance, value => { draftAppearance = value; }));
+      const actions = document.createElement('div'); actions.className = 'start-screen__dialog-actions';
+      const back = document.createElement('button'); back.type = 'button'; back.textContent = 'Indietro';
+      const next = document.createElement('button'); next.type = 'button'; next.textContent = 'Riepilogo';
+      for (const b of [back, next]) b.className = 'start-screen__small-button';
+      back.onclick = showNameForm; next.onclick = showSummary;
+      actions.append(back, next); section.append(actions); flow.append(section);
+      section.querySelector('select')?.focus({ preventScroll: true });
+      flow.scrollIntoView({ block: 'nearest' });
+    }
+
+    function showSummary(): void {
+      flow.replaceChildren();
+      const section = document.createElement('section'); section.className = 'start-screen__dialog';
+      section.innerHTML = `<p class="start-screen__dialog-kicker">Pronti a partire · 3 di 3</p><h2 id="${flowId}">Il tuo viaggio ti aspetta.</h2>`;
+      const summary = document.createElement('div'); summary.className = 'trainer-summary';
+      const name = document.createElement('p'); name.className = 'start-screen__summary-name'; name.textContent = draftName;
+      summary.append(createTrainerAvatarPreview(draftAppearance), name); section.append(summary);
+      const error = document.createElement('p'); error.className = 'start-screen__form-error'; error.setAttribute('role', 'alert'); error.hidden = true;
+      const actions = document.createElement('div'); actions.className = 'start-screen__dialog-actions';
+      const back = document.createElement('button'); back.type = 'button'; back.textContent = 'Modifica aspetto';
+      const confirm = document.createElement('button'); confirm.type = 'button'; confirm.textContent = 'Inizia il viaggio';
+      for (const b of [back, confirm]) b.className = 'start-screen__small-button';
+      back.onclick = showAppearanceForm;
+      confirm.onclick = async () => {
+        if (saving) return;
+        saving = true; back.disabled = true; confirm.disabled = true; error.hidden = true;
+        try {
+          await createGame(draftName, { ...draftAppearance });
+          finish({ kind: 'new', name: draftName, appearance: { ...draftAppearance } });
+        } catch {
+          error.textContent = 'Non riesco a salvare la nuova partita. Le tue scelte sono conservate: riprova.';
+          error.hidden = false;
+        } finally { saving = false; back.disabled = false; confirm.disabled = false; }
+      };
+      actions.append(back, confirm); section.append(error, actions); flow.append(section);
+      confirm.focus({ preventScroll: true }); flow.scrollIntoView({ block: 'nearest' });
     }
 
     function onKeydown(event: KeyboardEvent): void {

@@ -17,6 +17,27 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('trainer appearance can be changed, saved and resumed while the PWA is offline', async ({ page, context }) => {
+  const failures: string[] = [];
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const before = await readBrowserSave(page);
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
+  await page.getByRole('button', { name: 'Aspetto allenatore' }).click();
+  await page.getByRole('combobox', { name: 'Capelli', exact: true }).selectOption('long');
+  await page.getByRole('combobox', { name: 'Abbigliamento', exact: true }).selectOption('lavender');
+  await page.getByRole('button', { name: 'Salva aspetto', exact: true }).click();
+  await expect(page.locator('.trainer-avatar-dialog')).toHaveCount(0);
+  await page.reload(); await enterGame(page);
+  const after = await readBrowserSave(page);
+  expect(after.player.appearance).toMatchObject({ hairStyle: 'long', outfit: 'lavender' });
+  for (const key of ['party', 'storage', 'inventory', 'badges', 'flags', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(failures).toEqual([]);
+});
+
 test('a seen Piloswine exposes Ice Fang combined effects on its first offline detail visit', async ({ page, context }, info) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });

@@ -6195,11 +6195,6 @@
         "order": null
       },
       {
-        "level": 21,
-        "moveId": "body-slam",
-        "order": null
-      },
-      {
         "level": 31,
         "moveId": "belly-drum",
         "order": null
@@ -6367,11 +6362,6 @@
       {
         "level": 23,
         "moveId": "charge",
-        "order": null
-      },
-      {
-        "level": 32,
-        "moveId": "signal-beam",
         "order": null
       },
       {
@@ -6777,11 +6767,6 @@
         "order": null
       },
       {
-        "level": 36,
-        "moveId": "signal-beam",
-        "order": null
-      },
-      {
         "level": 42,
         "moveId": "light-screen",
         "order": null
@@ -7115,11 +7100,6 @@
         "order": null
       },
       {
-        "level": 31,
-        "moveId": "signal-beam",
-        "order": null
-      },
-      {
         "level": 39,
         "moveId": "aqua-ring",
         "order": null
@@ -7150,11 +7130,6 @@
         "level": 27,
         "moveId": "spit-up",
         "order": 3
-      },
-      {
-        "level": 35,
-        "moveId": "signal-beam",
-        "order": null
       },
       {
         "level": 47,
@@ -7641,11 +7616,6 @@
         "order": null
       },
       {
-        "level": 42,
-        "moveId": "signal-beam",
-        "order": null
-      },
-      {
         "level": 51,
         "moveId": "light-screen",
         "order": null
@@ -7816,16 +7786,6 @@
     ],
     "87": [
       {
-        "level": 1,
-        "moveId": "signal-beam",
-        "order": 3
-      },
-      {
-        "level": 7,
-        "moveId": "signal-beam",
-        "order": null
-      },
-      {
         "level": 13,
         "moveId": "encore",
         "order": null
@@ -7910,11 +7870,6 @@
       {
         "level": 33,
         "moveId": "avalanche",
-        "order": null
-      },
-      {
-        "level": 39,
-        "moveId": "body-slam",
         "order": null
       },
       {
@@ -8551,11 +8506,6 @@
       {
         "level": 18,
         "moveId": "rain-dance",
-        "order": null
-      },
-      {
-        "level": 21,
-        "moveId": "body-slam",
         "order": null
       },
       {

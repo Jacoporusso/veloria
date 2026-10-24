@@ -1,3 +1,9 @@
+## 0.3.135 — Wizard illustrato e segnali habitat (locale)
+
+595 test dominio/persistenza, 111 Python, validatore progetto e build passati. Wizard e modifica/ripresa verificati nei due orientamenti; nove combinazioni capelli/carnagione con regressione pelle/zaino e tutte le pose non vuote. Quattro biomi e guida passati, onboarding completo passato. PWA offline: aspetto modificato, salvato e ripreso senza rete. Sei regressioni tastiera battaglia passate dopo la correzione del doppio effetto di Invio sulla carta mossa e sul risultato. [Contratto e limiti](55_TRAINER_WIZARD_AND_HABITATS_v0.1.md).
+
+Verify134 `40096055222` FAILURE: unico job Browser chapters shard2, caso cerimonia. Driver aggiornato all’ordine rivelazione→mossa e bug di input corretto; nessun assert su vecchio sprite/completamento eliminato. Deploy precedente `40096055347` SUCCESS. Nuovo commit/deploy e CI remota non ancora attestati; le prove locali non equivalgono alla suite Linux completa. Campagna, NPC, percorsi e QA fisico rimangono aperti.
+
 ## 0.3.134 — Ordine evoluzione/apprendimento
 
 [Verify40093581781](https://github.com/Jacoporusso/veloria/actions/runs/40093581781) della131 conclusa FAILURE nei driver Mira/Aster, che non chiudevano la nuova celebrazione evolutiva. Driver aggiornati a usare Continua e la scelta reale delle mosse, senza rimuovere assert su medaglie/premi. Entrambi i casi passati sulla134 in1,6minuti; le fixture e il runtime non sono stati indeboliti. Questi adattamenti dei test richiedono la propria CI dopo push.

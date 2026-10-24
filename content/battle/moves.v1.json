@@ -1156,6 +1156,31 @@
       "inflictedStatus": "freeze",
       "statusChance": 10,
       "flinchChance": 10
+    },
+    "body-slam": {
+      "id": "body-slam",
+      "name": "Corposcontro",
+      "type": "normal",
+      "category": "physical",
+      "power": 85,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedStatus": "paralysis",
+      "statusChance": 30
+    },
+    "signal-beam": {
+      "id": "signal-beam",
+      "name": "Segnoraggio",
+      "type": "bug",
+      "category": "special",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedConfusionChance": 10,
+      "minConfusionTurns": 2,
+      "maxConfusionTurns": 5
     }
   }
 }

@@ -25,6 +25,7 @@ SUPPORTED_MOVES += ['take-down']
 SUPPORTED_MOVES += ['mega-drain', 'magical-leaf']
 SUPPORTED_MOVES += ['bite', 'headbutt']
 SUPPORTED_MOVES += ['ice-fang']
+SUPPORTED_MOVES += ['body-slam', 'signal-beam']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 
@@ -98,6 +99,12 @@ def main(argv=None):
             if meta['stat_chance']:
                 move['statChangeChance'] = meta['stat_chance']
         ailment = meta['ailment']['name']
+        if name in ('body-slam', 'signal-beam'):
+            assert meta['category']['name'] == 'damage-ailment' and not raw['stat_changes']
+            assert meta['flinch_chance'] == meta['crit_rate'] == meta['drain'] == meta['healing'] == 0
+            assert meta['min_hits'] is None and meta['max_hits'] is None
+            assert ailment == ('paralysis' if name == 'body-slam' else 'confusion')
+            assert values['effect_chance'] == meta['ailment_chance'], 'Unsupported secondary-effect source semantics'
         if ailment in ('burn', 'poison', 'paralysis', 'sleep', 'freeze'):
             move['inflictedStatus'] = ailment
             move['statusChance'] = values['effect_chance'] if values['effect_chance'] is not None else (meta['ailment_chance'] or 100)

@@ -11,3 +11,8 @@ Stable encoding omits optional object properties whose value is `undefined`, mat
 The MVP Pokédex view is derived from the supported species catalog and the save's party/storage records. It counts unique species and owned instances without adding serialized fields; the first-act Pokédex tracks owned creatures, not sightings. Adding discovery history later requires an explicit versioned save migration.
 
 The IndexedDB database version is independent from the serialized save schema version: v2 changes only record contents, so it does not require an object-store upgrade. Future serialized changes must add a pure migration function to `save-migrations.ts` and increase `CURRENT_SAVE_SCHEMA_VERSION`; do not rewrite earlier migration functions.
+
+
+### Aspetto allenatore (schema 2, campo opzionale)
+
+`player.appearance` può contenere gli ID chiusi del catalogo in `core/party/trainer-appearance.ts`. Il validatore respinge profili incompleti o ID sconosciuti. Se il campo è assente, il salvataggio resta valido e il personaggio storico resta visibile finché non viene confermata una personalizzazione. Nuove partite ed editor salvano un profilo completo; nessuna migrazione/reset obbligatorio. Posizione, RNG, squadra, box, inventario, missioni e medaglie sono conservati. La strategia di backup e checksum esistente si applica anche al nuovo campo.

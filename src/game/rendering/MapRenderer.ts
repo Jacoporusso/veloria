@@ -10,6 +10,7 @@ import { getSignalRouter } from '../maps/signal-router-registry';
 import { renderSignalRouter } from './signal-router';
 import { collectMapCollision } from '../../core/world/map-collision';
 import { collectIceTiles } from '../../core/world/ice-movement';
+import { createEncounterHabitatMarkers } from './encounter-habitat-marker.ts';
 
 const TILE = 32;
 type RenderedMap = {
@@ -170,6 +171,19 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
       encounterChance: propNumber(properties, 'encounterChance'),
     };
   });
+
+  // A single static three-leaf sign marks each real encounter patch. It is
+  // derived from the trigger geometry, so it cannot drift from encounter logic.
+  for (const habitat of createEncounterHabitatMarkers(triggers)) {
+    const marker = attach(container, scene.add.graphics().setDepth(habitat.y + 1).setName('encounter-habitat-marker').setData('triggerId', habitat.triggerId));
+    marker.fillStyle(0x173d42, .72).fillRoundedRect(habitat.x - 11, habitat.y - 8, 22, 16, 7);
+    marker.lineStyle(1, 0xe0f9d9, .9).strokeRoundedRect(habitat.x - 11, habitat.y - 8, 22, 16, 7);
+    marker.fillStyle(0xc9f5c1, 1);
+    marker.fillEllipse(habitat.x, habitat.y - 3, 5, 7);
+    marker.fillEllipse(habitat.x - 4, habitat.y + 1, 5, 6);
+    marker.fillEllipse(habitat.x + 4, habitat.y + 1, 5, 6);
+    marker.lineStyle(1.2, 0xf5fff0, 1).lineBetween(habitat.x, habitat.y, habitat.x, habitat.y + 4);
+  }
 
   const iceTiles = collectIceTiles(tilemap.getObjectLayer('movement_surfaces')?.objects ?? [], tilemap.width, tilemap.height);
   const exitMarkers = triggers.filter(trigger => trigger.kind === 'map-exit' && trigger.destinationMapId).map(trigger => {

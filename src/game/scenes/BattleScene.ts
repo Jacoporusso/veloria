@@ -220,6 +220,9 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private confirm(event?: KeyboardEvent): void {
+    // A confirmation can create and focus a DOM result button during this key
+    // event. Do not let the browser also activate that newly focused button.
+    event?.preventDefault();
     if (this.terminalPreparing) return;
     if (this.mode === 'moveDetails') {
       if (event?.repeat) return;

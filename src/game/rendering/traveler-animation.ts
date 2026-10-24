@@ -12,8 +12,8 @@ export class TravelerAnimation {
   private cycleStartedAt = 0;
   private reduced = false;
 
-  constructor(scene: Phaser.Scene) {
-    const texture = scene.textures.get(TRAVELER_TEXTURE);
+  constructor(scene: Phaser.Scene, textureKey = TRAVELER_TEXTURE) {
+    const texture = scene.textures.get(textureKey);
     const source = texture.getSourceImage() as HTMLImageElement;
     for (let row = 0; row < 4; row++) {
       for (let column = 0; column < 4; column++) {
@@ -21,7 +21,7 @@ export class TravelerAnimation {
         if (!texture.has(String(frame))) texture.add(frame, 0, column * source.width / 4, row * source.height / 4, source.width / 4, source.height / 4);
       }
     }
-    this.sprite = scene.add.sprite(0, -8, TRAVELER_TEXTURE, 1).setDisplaySize(64, 64);
+    this.sprite = scene.add.sprite(0, -8, textureKey, 1).setDisplaySize(textureKey === TRAVELER_TEXTURE ? 64 : 51.2, 64);
   }
 
   face(direction: CardinalDirection): void {

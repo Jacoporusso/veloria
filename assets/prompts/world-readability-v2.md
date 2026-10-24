@@ -1,0 +1,7 @@
+# Leggibilità del mondo — sentieri leggeri
+
+24 ottobre 2026. Revisione richiesta dall’utente dopo la prima tavola. Tool integrato image_gen, editing di `public/assets/concepts/world-readability-v1.png`. Output previsto: `public/assets/concepts/world-readability-v2.png`. Solo concept; valgono ancora i vincoli della revisione v1 sulla prospettiva e sull’allineamento a Tiled.
+
+## Prompt esatto
+
+Edit this Veloria concept board with one focused change: make all walking paths prettier, softer and visually lighter. Preserve exactly the board composition, buildings, people, river, trees, three-leaf encounter habitats and the forest/coast studies. In the village replace the heavy fully paved stone corridors with warm pale sandy compacted earth mixed with sparse flat cream stepping stones; remove most dark grout lines, harsh paving outlines and curb-like edges. Keep a few delicate stone accents at door thresholds and the central plaza, subtle grass feathering at path margins and tiny flowers only outside the walking surface. Maintain continuous clearly readable unobstructed paths to every door, bridge and north/south exit, same width and geography. Softer lower contrast texture and painterly transitions, elegant modern illustrated 2D storybook game art. In forest and coast preserve readability, lightly soften path edges. No text, UI, new props, new obstacles or extra characters. Everything except path materials and edges unchanged.

@@ -1,3 +1,11 @@
+## Primo lotto mondo/avatar — 0.3.135 in verifica locale
+
+Wizard nome/aspetto/riepilogo e modifica dalle impostazioni implementati; scelta salvata con catalogo chiuso e progressi conservati. Compositore condiviso editor/mappa con tre atlanti illustrati originali derivati dalla tavola approvata; maschere e animazioni restano da rifinire e verificare completamente. Segnale uniforme per ogni zona incontri e guida richiamabile, senza cambiare distribuzione o probabilità. [Stato e limiti](55_TRAINER_WIZARD_AND_HABITATS_v0.1.md). Incluse due mosse ufficiali già in lavorazione ([catalogo](52_SECONDARY_DAMAGE_MOVES_v0.1.md)). Nessuna pubblicazione attestata da questo paragrafo: ricevute in CI_STATUS.
+
+## Mondo leggibile e wizard allenatore — piano approvato 24/10/2026
+
+Aggiunti al piano habitat con simbolo comune e legenda, identità NPC distinte, percorsi/servizi accessibili e transizioni leggibili, stile illustrato con sentieri leggeri. Incluso wizard con preset ragazzo/ragazza, carnagione, capelli, occhi, barba opzionale, vestiti e zaino, anteprima immediata e modifica successiva. Foto come possibile estensione futura che suggerisce opzioni del catalogo, non prerequisito del wizard. Concept approvati; nessuna sostituzione runtime ancora effettuata. [Piano, lotti e criteri](53_WORLD_AND_AVATAR_IMPROVEMENT_PLAN_v0.1.md), [audit tecnico wizard](54_AVATAR_WIZARD_TECHNICAL_PLAN_v0.1.md). Audit di onboarding/persistenza e mappe svolti in parallelo con subagent Luna. Il resto della campagna e del catalogo rimane aperto.
+
 ## Animazione prima della mossa — runtime0.3.134
 
 Corretto l'ordine sull'ultimo avversario e per le mosse ottenute dalla forma precedente nello stesso turno: rivelazione evolutiva, poi apprendimento, senza anticipare il nome della forma nuova. Il log meccanico resta invariato e le ricevute già salvate vengono consumate senza ripetere la celebrazione.582 test dominio/persistenza, build/validatore e sei browser passati. [Contratto e limiti](51_EVOLUTION_LEARNING_ORDER_v0.1.md). Campagna e catalogo completi restano aperti.

@@ -1,4 +1,5 @@
 import type { GameSave, GameSaveV1 } from './save-types.ts';
+import { validateTrainerAppearance } from '../core/party/trainer-appearance.ts';
 
 export type SaveValidationResult =
   | { valid: true; version: 1 | 2 }
@@ -94,7 +95,7 @@ function validate(value: unknown): SaveValidationResult {
   if (!isRecord(value.player)) {
     issues.push('$.player: expected an object');
   } else {
-    checkKeys(value.player, ['name', 'mapId', 'spawnPointId', 'money', 'x', 'y'], '$.player', issues);
+    checkKeys(value.player, ['name', 'mapId', 'spawnPointId', 'money', 'x', 'y', ...(version === 2 ? ['appearance'] : [])], '$.player', issues);
     for (const key of ['name', 'mapId', 'spawnPointId']) {
       if (!nonEmptyString(value.player[key])) issues.push(`$.player.${key}: expected a non-empty string`);
     }
@@ -103,6 +104,9 @@ function validate(value: unknown): SaveValidationResult {
       const coordinate = value.player[key];
       if (coordinate !== undefined && !isIntegerInRange(coordinate, 0, Number.MAX_SAFE_INTEGER)) issues.push(`$.player.${key}: expected a non-negative integer`);
       if (version === 2 && coordinate === undefined) issues.push(`$.player.${key}: required by schema version 2`);
+    }
+    if (version === 2 && value.player.appearance !== undefined && !validateTrainerAppearance(value.player.appearance)) {
+      issues.push('$.player.appearance: expected a supported trainer appearance');
     }
   }
 

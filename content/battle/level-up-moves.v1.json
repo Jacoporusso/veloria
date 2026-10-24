@@ -263,6 +263,10 @@
         "moveId": "double-slap"
       },
       {
+        "level": 21,
+        "moveId": "body-slam"
+      },
+      {
         "level": 25,
         "moveId": "bubble-beam"
       },
@@ -391,6 +395,10 @@
       {
         "level": 28,
         "moveId": "discharge"
+      },
+      {
+        "level": 32,
+        "moveId": "signal-beam"
       }
     ],
     "194": [
@@ -645,6 +653,10 @@
       {
         "level": 31,
         "moveId": "discharge"
+      },
+      {
+        "level": 36,
+        "moveId": "signal-beam"
       }
     ],
     "195": [
@@ -885,6 +897,10 @@
         "moveId": "bubble-beam"
       },
       {
+        "level": 31,
+        "moveId": "signal-beam"
+      },
+      {
         "level": 34,
         "moveId": "discharge"
       },
@@ -917,6 +933,10 @@
       {
         "level": 30,
         "moveId": "bubble-beam"
+      },
+      {
+        "level": 35,
+        "moveId": "signal-beam"
       },
       {
         "level": 40,
@@ -1221,6 +1241,10 @@
       {
         "level": 34,
         "moveId": "discharge"
+      },
+      {
+        "level": 42,
+        "moveId": "signal-beam"
       }
     ],
     "220": [
@@ -1345,6 +1369,10 @@
         "moveId": "growl"
       },
       {
+        "level": 7,
+        "moveId": "signal-beam"
+      },
+      {
         "level": 11,
         "moveId": "icy-wind"
       },
@@ -1377,6 +1405,10 @@
       {
         "level": 15,
         "moveId": "double-slap"
+      },
+      {
+        "level": 39,
+        "moveId": "body-slam"
       }
     ],
     "74": [
@@ -1768,6 +1800,10 @@
       {
         "level": 15,
         "moveId": "double-slap"
+      },
+      {
+        "level": 21,
+        "moveId": "body-slam"
       },
       {
         "level": 27,

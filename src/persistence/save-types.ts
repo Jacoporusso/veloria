@@ -1,3 +1,5 @@
+import type { TrainerAppearance } from '../core/party/trainer-appearance.ts';
+
 export type CreatureMoveSave = { id: string; pp: number };
 export type PersistentMajorStatus = 'burn' | 'poison' | 'paralysis' | 'sleep' | 'freeze';
 export type CreatureStatusSave = {
@@ -44,7 +46,7 @@ export type GameSaveV1 = {
 export type GameSave = Omit<GameSaveV1, 'schemaVersion' | 'player' | 'party'> & {
   schemaVersion: 2;
   saveRevision: number;
-  player: GameSaveV1['player'] & { x: number; y: number };
+  player: GameSaveV1['player'] & { x: number; y: number; appearance?: TrainerAppearance };
   party: CreatureSave[];
 };
 

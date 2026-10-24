@@ -1,3 +1,4 @@
+import { confirmNewTrainer } from './helpers/trainer-wizard';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
@@ -63,11 +64,11 @@ test('a named trainer starts the story, chooses one starter and resumes the same
   await page.screenshot({path:testInfo.outputPath('title-screen.png')});
   await page.getByRole('button',{name:'Nuova partita',exact:true}).click();
   await page.getByRole('textbox',{name:'Nome allenatore'}).fill('                 ');
-  await page.getByRole('button',{name:'Inizia il viaggio'}).click();
+  await confirmNewTrainer(page);
   await expect(page.locator('.start-screen__form-error')).toBeVisible();
   await page.getByRole('textbox',{name:'Nome allenatore'}).fill('Aurora');
   await page.screenshot({path:testInfo.outputPath('trainer-name.png')});
-  await page.getByRole('button',{name:'Inizia il viaggio'}).click();
+  await confirmNewTrainer(page);
   await expect(page.locator('#dialogue-text')).toContainText('Aurora');
   await page.screenshot({path:testInfo.outputPath('opening-story.png')});
   await enterGame(page);
@@ -130,12 +131,12 @@ test('storage failure keeps new-game recovery and prevents leaving an unsaved ad
     Storage.prototype.setItem = function () { throw new DOMException('Test storage full', 'QuotaExceededError'); };
     (window as any).restoreStorage = () => { IDBObjectStore.prototype.put = put; Storage.prototype.setItem = setItem; };
   });
-  await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+  await confirmNewTrainer(page);
   await expect(page.getByRole('alert')).toContainText('Non riesco a salvare');
-  await expect(page.getByRole('textbox', { name: 'Nome allenatore' })).toHaveValue('Aurora');
+  await expect(page.locator('.start-screen__summary-name')).toHaveText('Aurora');
   await expect(page.locator('#game canvas')).toHaveCount(0);
   await page.evaluate(() => (window as any).restoreStorage());
-  await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+  await confirmNewTrainer(page);
   await expect(page.locator('#game canvas')).toBeVisible({ timeout: 30000 });
   await enterGame(page);
   await expect.poll(async () => (await saved(page)).flags.includes('intro_completed')).toBe(true);
@@ -183,7 +184,7 @@ test('new adventures draw fresh entropy and resume keeps the saved RNG cursor', 
   await page.getByRole('button', { name: 'Nuova partita', exact: true }).click();
   await page.getByRole('button', { name: 'Sì, continua', exact: true }).click();
   await page.getByRole('textbox', { name: 'Nome allenatore' }).fill('Sole');
-  await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+  await confirmNewTrainer(page);
   await expect.poll(async () => (await saved(page))?.player.name).toBe('Sole');
   expect((await saved(page)).rngState).toBe(0x55667788);
   await enterGame(page);

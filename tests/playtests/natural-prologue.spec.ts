@@ -1,3 +1,4 @@
+import { confirmNewTrainer } from '../e2e/helpers/trainer-wizard';
 import { runDunesRecovery } from './helpers/dunes-recovery';
 import { runSeleneAttempt } from './helpers/selene-attempt';
 import { runAcquarivaWildTraining } from './helpers/acquariva-wild-training';
@@ -86,7 +87,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   await page.goto('/');
   await page.getByRole('button',{name:'Nuova partita',exact:true}).click();
   await page.getByRole('textbox',{name:'Nome allenatore'}).fill('Aurora');
-  await page.getByRole('button',{name:'Inizia il viaggio'}).click();
+  await confirmNewTrainer(page);
   await expect.poll(async () => Boolean(await observe(page))).toBe(true);
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30000 });
   let startingRngState = (await observe(page)).save.rngState;

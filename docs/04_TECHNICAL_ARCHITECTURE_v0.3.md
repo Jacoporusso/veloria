@@ -244,3 +244,8 @@ Il reducer finalizza i destinatari XP al termine del turno anche con outcome ong
 ## Ordine presentazione evoluzione/apprendimento — runtime134
 
 `evolutionPresentationEvents` ordina le sole notifiche della scena: tutte le carte di apprendimento del compagno seguono la sua ultima trasformazione nel turno. Il log meccanico resta invariato. La stessa presentazione viene eseguita anche sui risultati terminali; `onEvolutionPresented` consuma le ricevute già persistite per evitare repliche alla schermata finale, senza anticipare o duplicare le ricompense. [Contratto e verifiche](51_EVOLUTION_LEARNING_ORDER_v0.1.md).
+
+
+### Wizard allenatore e habitat — lotto 0.3.135
+
+Il profilo estetico usa un catalogo di ID validati nel dominio. `player.appearance` opzionale mantiene lo schema 2 e i progressi reali; UI a bozza e conferma prima della scrittura. Anteprima e pose del mondo derivano da un solo compositore; le nuove texture non dipendono da rete o foto. Il compositore usa tre atlanti originali illustrati e palette locali; maschere e animazioni richiedono ulteriore verifica artistica. I segnali degli incontri derivano dai trigger `encounter-zone`, non da liste di coordinate duplicate. Contratto, evidenze e limiti in `55_TRAINER_WIZARD_AND_HABITATS_v0.1.md`.

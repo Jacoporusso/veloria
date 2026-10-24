@@ -1,3 +1,4 @@
+import { confirmNewTrainer } from './helpers/trainer-wizard';
 import { expect, test } from '@playwright/test';
 
 test('loads Phaser and the world scene only after starting a game', async ({ page }) => {
@@ -16,7 +17,7 @@ test('loads Phaser and the world scene only after starting a game', async ({ pag
 
   await page.getByRole('button', { name: 'Nuova partita', exact: true }).click();
   await page.getByRole('textbox', { name: 'Nome allenatore' }).fill('Aurora');
-  await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+  await confirmNewTrainer(page);
 
   await expect(page.locator('#game canvas')).toBeVisible({ timeout: 30_000 });
   expect(engineRequests.some(url => /phaser/i.test(url))).toBe(true);

@@ -1,3 +1,4 @@
+import { confirmNewTrainer } from './helpers/trainer-wizard';
 import { expect, test } from '@playwright/test';
 async function enterGame(page: import('@playwright/test').Page) {
   await expect(page.locator('.start-screen')).toBeVisible();
@@ -5,7 +6,7 @@ async function enterGame(page: import('@playwright/test').Page) {
   else {
     await page.getByRole('button', { name: 'Nuova partita' }).click();
     await page.getByRole('textbox', { name: 'Nome allenatore' }).fill('Luna');
-    await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+    await confirmNewTrainer(page);
   }
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
   for (let i = 0; i < 12 && await page.locator('#dialogue-box').isVisible(); i++) await page.keyboard.press('Space');

@@ -1,3 +1,4 @@
+import { confirmNewTrainer } from './trainer-wizard';
 import { expect, type Page } from '@playwright/test';
 
 /** Enter through the player's real title-screen choice and dismiss only the new-game intro. */
@@ -16,7 +17,7 @@ export async function enterGame(page: Page): Promise<void> {
       startedNewGame = true;
       await page.getByRole('button', { name: 'Nuova partita' }).click();
       await page.getByRole('textbox', { name: 'Nome allenatore' }).fill('Luna');
-      await page.getByRole('button', { name: 'Inizia il viaggio' }).click();
+      await confirmNewTrainer(page);
     }
   }
 

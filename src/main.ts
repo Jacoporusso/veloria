@@ -91,8 +91,8 @@ if (previewMapId) {
   if (shell) shell.inert = true;
   try {
     let created: GameSave | undefined;
-    const choice = await chooseGameSession(existing, async name => {
-      const candidate = personalizeNewGame(newGameSave(), name);
+    const choice = await chooseGameSession(existing, async (name, appearance) => {
+      const candidate = personalizeNewGame(newGameSave(), name, appearance);
       await saveGame(candidate);
       created = candidate;
     });
