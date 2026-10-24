@@ -1,3 +1,9 @@
+## 0.3.130 — Indicazione sulla confusione e prima prova naturale Selene
+
+Descrittore condiviso: sostituire il Pokémon elimina la confusione, come già implementato dal motore.14 test esistenti descrizioni/effetti canonici e build passati; nessuna modifica alle regole. Prima sfida Selene su runtime129 persa in17 turni, puzzle/acquisti/export verificati; checksum e risorse dei backup controllati. [Dettagli](47_CONFUSION_STRATEGY_HINT_v0.1.md). Commit, CI130 e pubblicazione ancora da attestare.
+
+[Deploy40091846770](https://github.com/Jacoporusso/veloria/actions/runs/40091846770) del commit e1fcef0 SUCCESS; [Verify40091846798](https://github.com/Jacoporusso/veloria/actions/runs/40091846798) pending dietro [Verify40091325868](https://github.com/Jacoporusso/veloria/actions/runs/40091325868), ancora in corso al controllo. Nessuna attestazione anticipata di queste suite.
+
 ## 0.3.129 — Gelodenti e verifica degli effetti combinati
 
 84 mosse/83 specie, congelamento10% e tentennamento10% indipendenti.574 test dominio/persistenza,111 Python, validatore/importer offline e build passati. Undici casi di composizione comprendono anche le regole runtime senza modifiche; descrizioni aggiornate. Due casi UI portrait/landscape passati in2,2s e screenshot controllati. Prima consultazione senza rete nella PWA passata in3s (16,5s con build), risorse e salvataggio invariati. [Evidenze e limiti](46_ICE_FANG_COMBINED_EFFECTS_v0.1.md). Commit `db0550c` su main. [Deploy40089977062](https://github.com/Jacoporusso/veloria/actions/runs/40089977062) SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v150` verificati. [Verify40089977038](https://github.com/Jacoporusso/veloria/actions/runs/40089977038) conclusa SUCCESS. Playtest Bruno/Maya e backup integrati nel commit `497111c`; la sua CI separata non è ancora attestata.

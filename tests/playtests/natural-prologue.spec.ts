@@ -1,3 +1,4 @@
+import { runSeleneAttempt } from './helpers/selene-attempt';
 import { runAcquarivaWildTraining } from './helpers/acquariva-wild-training';
 import { runAcquarivaRouteTraining } from './helpers/acquariva-route-training';
 import { runAcquarivaCompanionSearch } from './helpers/acquariva-companion-search';
@@ -40,7 +41,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const acquarivaSearch = process.env.PLAYTEST_ACQUARIVA_SEARCH === '1';
   const acquarivaTrainer = process.env.PLAYTEST_ACQUARIVA_TRAINER;
   const acquarivaTrainSpecies = process.env.PLAYTEST_ACQUARIVA_TRAIN_SPECIES;
-  expect([acquarivaSearch, Boolean(acquarivaTrainer), Boolean(acquarivaTrainSpecies)].filter(Boolean).length).toBeLessThanOrEqual(1);
+  const seleneChallenge = process.env.PLAYTEST_SELENE_CHALLENGE === '1';
+  expect([acquarivaSearch, Boolean(acquarivaTrainer), Boolean(acquarivaTrainSpecies), seleneChallenge].filter(Boolean).length).toBeLessThanOrEqual(1);
   const captureSpeciesId = Number(process.env.PLAYTEST_CAPTURE_SPECIES ?? '0');
   expect(Number.isInteger(captureSpeciesId) && captureSpeciesId >= 0 && captureSpeciesId <= 251).toBe(true);
   const resumeFifthFile = process.env.PLAYTEST_RESUME_FIFTH_BACKUP;
@@ -607,7 +609,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
     if (resumeFifthFile) {
-      const driver = acquarivaTrainSpecies ? runAcquarivaWildTraining : acquarivaTrainer ? runAcquarivaRouteTraining : acquarivaSearch ? runAcquarivaCompanionSearch : runPortolumeAcquariva;
+      const driver = seleneChallenge ? runSeleneAttempt : acquarivaTrainSpecies ? runAcquarivaWildTraining : acquarivaTrainer ? runAcquarivaRouteTraining : acquarivaSearch ? runAcquarivaCompanionSearch : runPortolumeAcquariva;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
@@ -619,7 +621,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

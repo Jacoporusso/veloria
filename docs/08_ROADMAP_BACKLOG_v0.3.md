@@ -1,3 +1,7 @@
+## Prima sfida naturale P6 e indicazione sulla confusione
+
+Puzzle Selene completato e persistente dal backup guadagnato; primo tentativo perso in17 turni dopo acquisti pagati, senza premio. [Provenienza, esito e limiti](playtests/2026-10-24-selene-first-attempt.md). Il checkpoint avanzato conserva140 monete, cinque medaglie e risorse consumate. Nella130 i dettagli delle mosse spiegano il cambio per eliminare la confusione ([documento47](47_CONFUSION_STRATEGY_HINT_v0.1.md)); nessuna modifica a regole o dati ufficiali. La sesta medaglia naturale resta aperta.
+
 ## Preparazione naturale Acquariva — aggiornamento24/10/2026
 
 Bruno vinto, prima sconfitta Maya conservata; successivamente13 vittorie selvatiche senza spese, Eevee29 e Morso appresa tramite UI. Tre KO individuali conservati, nessuna sconfitta dell'intera squadra durante questo allenamento. Backup esportato e checksum/risorse/identità verificati. [Metodo, risultati e limiti](playtests/2026-10-24-acquariva-wild-training.md). Cinque medaglie: Maya, Selene/P6 e il resto della campagna naturale restano aperti. Nessuna attestazione del bilanciamento per bambini da questo singolo driver.

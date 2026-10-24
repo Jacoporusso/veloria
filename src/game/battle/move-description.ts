@@ -19,7 +19,7 @@ export function describeMoveEffects(move: MoveDefinition): string[] {
   }
   if (move.inflictedStatus) effects.push(`Infligge ${STATUS[move.inflictedStatus]} all’avversario${chance(move.statusChance ?? 100)}${move.minStatusTurns ? ` per ${move.minStatusTurns}–${move.maxStatusTurns ?? move.minStatusTurns} turni` : ''}. ${STATUS_HELP[move.inflictedStatus]}`);
   if (move.statusAffectedByTypeImmunity) effects.push(`Non funziona sui Pokémon immuni al tipo ${battleTypeLabel(move.type)}.`);
-  if (move.inflictedConfusionChance) effects.push(`Confonde l’avversario${chance(move.inflictedConfusionChance)}${move.minConfusionTurns ? ` per ${move.minConfusionTurns}–${move.maxConfusionTurns ?? move.minConfusionTurns} turni` : ''}: può colpirsi da solo.`);
+  if (move.inflictedConfusionChance) effects.push(`Confonde l’avversario${chance(move.inflictedConfusionChance)}${move.minConfusionTurns ? ` per ${move.minConfusionTurns}–${move.maxConfusionTurns ?? move.minConfusionTurns} turni` : ''}: può colpirsi da solo. Sostituire il Pokémon elimina la confusione.`);
   if (move.flinchChance) effects.push(`Può far tentennare l’avversario (${move.flinchChance}% di probabilità): perde la mossa di questo turno senza consumare PP, solo se colpisci prima che agisca e resta in campo.`);
   if (move.inflictedStatus && move.flinchChance) effects.push('Le due probabilità sono indipendenti: un colpo può causare entrambi gli effetti.');
   if (move.inflictedStatus === 'freeze') effects.push(`I Pokémon di tipo Ghiaccio sono immuni al gelo.${move.flinchChance ? ' Possono comunque tentennare.' : ''}`);
