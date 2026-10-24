@@ -1143,6 +1143,19 @@
       "priority": 0,
       "maxPp": 15,
       "flinchChance": 30
+    },
+    "ice-fang": {
+      "id": "ice-fang",
+      "name": "Gelodenti",
+      "type": "ice",
+      "category": "physical",
+      "power": 65,
+      "accuracy": 95,
+      "priority": 0,
+      "maxPp": 15,
+      "inflictedStatus": "freeze",
+      "statusChance": 10,
+      "flinchChance": 10
     }
   }
 }

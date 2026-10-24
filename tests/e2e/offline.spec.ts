@@ -17,6 +17,31 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('a seen Piloswine exposes Ice Fang combined effects on its first offline detail visit', async ({ page, context }, info) => {
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const fixture = await readBrowserSave(page);
+  fixture.flags.push('pokedex_seen_221');
+  await seedBrowserSave(page, fixture);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  const before = await readBrowserSave(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
+  const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
+  await panel.getByRole('button', { name: /Piloswine/ }).click();
+  const card = panel.locator('.pokemon-move').filter({ hasText: /Gelodenti · Livello 28/ });
+  await expect(card).toContainText('Potenza 65');
+  await expect(card).toContainText('indipendenti');
+  await expect(card).toContainText('Ghiaccio sono immuni al gelo');
+  expect((await card.innerText()).match(/10%/g)).toHaveLength(2);
+  await card.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: info.outputPath('ice-fang-first-offline-detail.png') });
+  const after = await readBrowserSave(page);
+  for (const key of ['party', 'storage', 'inventory', 'badges', 'flags', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(failures).toEqual([]);
+});
+
 test('earned Acquariva team studies Headbutt and the upcoming Bite level after offline backup import', async ({ page, context }, info) => {
   const backup = await readFile(new URL('../../docs/playtests/2026-10-24-natural-eevee-caught-backup-charmander.json', import.meta.url), 'utf8');
   const earned = JSON.parse(backup).save;

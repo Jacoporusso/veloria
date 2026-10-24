@@ -20,20 +20,6 @@
       "reason": "HGSS high critical-hit ratio is not represented by the battle move schema."
     },
     {
-      "category": "flinch",
-      "moves": [
-        "ice-fang"
-      ],
-      "reason": "Ice Fang combines flinch and freeze chances; this combined effect has not been source-imported and verified. Headbutt is supported from content 0.3.128 with its simple conditional 30-percent flinch."
-    },
-    {
-      "category": "secondary effect chance",
-      "moves": [
-        "ice-fang"
-      ],
-      "reason": "Two independent secondary effects each have a 10% chance; this combined effect has not been source-imported and verified."
-    },
-    {
       "category": "target scope",
       "moves": [
         "blizzard",
@@ -65,5 +51,8 @@
       "name": "Delibird",
       "reason": "Its only HGSS level-up move is Present, which has variable power and is not implemented. Keep defaultMoveIds empty; do not add Delibird to runtime encounters until an official move is supported."
     }
-  ]
+  ],
+  "implementedCombinedEffects": {
+    "ice-fang": "Source freeze and flinch each have a separate 10-percent chance; imported and covered by composition tests from local content 0.3.129."
+  }
 }

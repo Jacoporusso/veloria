@@ -1,3 +1,7 @@
+## Stato di lavorazione — 0.3.129, 24/10/2026
+
+Gelodenti con due effetti indipendenti importata dalle fonti locali:84 mosse supportate e544 apprendimenti esclusi documentati.574 test dominio/persistenza,111 Python e build passati. Dopo il ripristino della quota di approvazione sono passati due casi UI nei due orientamenti e la prima consultazione offline nella PWA. Documento46 e CI_STATUS attestano ambito, verifiche e pubblicazione. Il checkpoint naturale più avanzato resta Acquariva con cinque medaglie, Drowzee29 ed Eevee28; Selene, resto della campagna, catalogo completo e QA fisico restano aperti.
+
 ## Stato di lavorazione — 0.3.128, 24/10/2026
 
 Catalogo83 specie e83 mosse supportate. Morso/Bottintesta importate con effetti verificati; apprendimenti ripetuti a livelli diversi conservati correttamente.546 apprendimenti rimangono esclusi dal runtime e documentati nelle fonti. Documento45 per gate e limiti; roster001–251 ancora incompleto.

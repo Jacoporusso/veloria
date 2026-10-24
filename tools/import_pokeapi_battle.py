@@ -24,6 +24,7 @@ SUPPORTED_MOVES += ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-danc
 SUPPORTED_MOVES += ['take-down']
 SUPPORTED_MOVES += ['mega-drain', 'magical-leaf']
 SUPPORTED_MOVES += ['bite', 'headbutt']
+SUPPORTED_MOVES += ['ice-fang']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 
@@ -125,6 +126,13 @@ def main(argv=None):
         if name in ('dragon-rush', 'bite', 'headbutt'):
             assert move['category'] == 'physical' and meta['category']['name'] == 'damage' and meta['crit_rate'] == 0
             assert 0 < meta['flinch_chance'] <= 100
+            move['flinchChance'] = meta['flinch_chance']
+        if name == 'ice-fang':
+            assert move['category'] == 'physical' and meta['category']['name'] == 'damage-ailment'
+            assert meta['ailment']['name'] == 'freeze' and meta['ailment_chance'] == 10 and meta['flinch_chance'] == 10
+            assert meta['crit_rate'] == 0 and raw['target']['name'] == 'selected-pokemon' and not raw['stat_changes']
+            prose = ' '.join(entry['effect'] for entry in values['effect_entries'] if entry['language']['name'] == 'en')
+            assert 'separate chance' in prose, 'Ice Fang must retain independent source secondary effects'
             move['flinchChance'] = meta['flinch_chance']
         if meta['drain']:
             if name == 'take-down' and meta['drain'] < 0:

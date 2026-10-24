@@ -6884,11 +6884,6 @@
       },
       {
         "level": 1,
-        "moveId": "ice-fang",
-        "order": 2
-      },
-      {
-        "level": 1,
         "moveId": "fire-fang",
         "order": 3
       },
@@ -7732,11 +7727,6 @@
       {
         "level": 16,
         "moveId": "endure",
-        "order": null
-      },
-      {
-        "level": 28,
-        "moveId": "ice-fang",
         "order": null
       },
       {

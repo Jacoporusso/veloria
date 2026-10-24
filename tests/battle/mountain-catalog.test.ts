@@ -37,7 +37,7 @@ test('mountain species and every imported move have PokéAPI HGSS source records
       assert.ok(sourceManifest[`move/${entry.moveId}`]?.sha256, `missing raw move source checksum for ${entry.moveId}`);
     }
     assert.deepEqual((learnsets.species as Record<string, Array<{ level: number; moveId: string }>>)[id],
-      supported.filter(entry => entry.level >= 2).filter((entry, index, all) => all.findIndex(candidate => candidate.moveId === entry.moveId) === index));
+      supported.filter(entry => entry.level >= 2).filter((entry, index, all) => all.findIndex(candidate => candidate.moveId === entry.moveId && candidate.level === entry.level) === index));
   }
 });
 

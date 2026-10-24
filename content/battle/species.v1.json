@@ -1650,10 +1650,15 @@
       "experienceYield": 179,
       "growthCurveId": "pokeapi_growth_medium_v1",
       "defaultMoveIds": [
+        "ice-fang",
         "tackle",
         "harden"
       ],
       "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "ice-fang"
+        },
         {
           "level": 1,
           "moveId": "tackle"
@@ -2871,6 +2876,10 @@
         {
           "level": 25,
           "moveId": "icy-wind"
+        },
+        {
+          "level": 28,
+          "moveId": "ice-fang"
         },
         {
           "level": 32,
