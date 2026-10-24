@@ -1,6 +1,6 @@
 ## 0.3.133 — Guida al recupero e regressione Drowzee31
 
-57 test starter/evoluzioni passati, incluso Drowzee31→Hypno senza nuovo livello o mosse retroattive. Build e validatore passati; due browser sui messaggi di disponibilità/KO/pietra e immutabilità del save passati in2,7s, screenshot controllati. Nessun cambiamento al motorev15. [Dettagli](50_EVOLUTION_READINESS_GUIDE_v0.1.md). Commit, CI133 e pubblicazione ancora da attestare.
+57 test starter/evoluzioni passati, incluso Drowzee31→Hypno senza nuovo livello o mosse retroattive. Build e validatore passati; due browser sui messaggi di disponibilità/KO/pietra e immutabilità del save passati in2,7s, screenshot controllati. Nessun cambiamento al motorev15. [Dettagli](50_EVOLUTION_READINESS_GUIDE_v0.1.md). Commit `680e54a` su main. [Deploy40094904704](https://github.com/Jacoporusso/veloria/actions/runs/40094904704) SUCCESS: suite dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v154` verificati. [Verify40094904763](https://github.com/Jacoporusso/veloria/actions/runs/40094904763) pending; suite browser remota completa133 non ancora attestata. La Verify132 è stata cancellata dal raggruppamento della coda a favore della133, senza attestazione di successo.
 
 ## 0.3.132 — Evoluzione durante la sfida al capopalestra
 
