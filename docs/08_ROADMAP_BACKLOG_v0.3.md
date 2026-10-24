@@ -1,3 +1,7 @@
+## Nuova priorità — rifacimento completo di mappe e personaggi
+
+Richiesta del 24/10/2026: rifare tutte le 48 mappe e l’intero cast, nello stile 2D illustrato moderno approvato. Inventario derivato dai contenuti: 51 presenze NPC; le identità comuni sono accorpate soltanto con prove esplicite. [Ambito, lotti e criteri di accettazione](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md). Primo lotto in lavorazione: ambienti iniziali e identità del cast; la copertura attuale dei fondali non attesta il completamento del redesign.
+
 ## Identità principali e uscite leggibili — 0.3.137 in verifica
 
 Elia/Ada/Nilo coerenti nelle sei apparizioni, atlante illustrato e ancoraggi espliciti; Elia corretta in professoressa secondo GDD/dialoghi. Otto soglie laterali ampliate alla strada conservando i gate; Brumalta con raccordi ai servizi/monorotaia. R01 conserva l’artwork originale perché i candidati non rispettavano la geometria; la soglia ampia copre la strada effettiva. [Contratto, verifiche e limiti](57_NPC_IDENTITIES_AND_EARLY_PASSAGES_v0.1.md). Cast restante e parità grafica regionale ancora aperti.

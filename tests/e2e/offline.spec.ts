@@ -17,17 +17,18 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
-test('canonical NPC artwork and Brumalta approaches decode offline without changing progress', async ({ page, context }) => {
+test('canonical NPC artwork and redesigned scenery decode offline without changing progress', async ({ page, context }) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const before = await readBrowserSave(page);
   const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true); await page.reload(); await enterGame(page);
   const decoded = await page.evaluate(async () => {
-    const paths = ['assets/sprites/veloria-npcs-v3.webp', 'assets/scenery/veloria-c01_brumalta-illustrated-v2.webp'];
+    const paths = ['assets/sprites/veloria-npcs-v3.webp', 'assets/scenery/veloria-c01_brumalta-illustrated-v2.webp',
+      'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp'];
     return Promise.all(paths.map(async path => { const image = new Image(); image.src = new URL(path, location.href).href; await image.decode(); return { width: image.naturalWidth, height: image.naturalHeight }; }));
   });
-  expect(decoded).toEqual([{ width: 1536, height: 1024 }, { width: 1536, height: 1024 }]);
+  expect(decoded).toEqual(Array.from({ length: 4 }, () => ({ width: 1536, height: 1024 })));
   const after = await readBrowserSave(page);
   for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
   expect(failures).toEqual([]);
