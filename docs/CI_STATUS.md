@@ -1,8 +1,8 @@
 ## 0.3.130 — Indicazione sulla confusione e prima prova naturale Selene
 
-Descrittore condiviso: sostituire il Pokémon elimina la confusione, come già implementato dal motore.14 test esistenti descrizioni/effetti canonici e build passati; nessuna modifica alle regole. Prima sfida Selene su runtime129 persa in17 turni, puzzle/acquisti/export verificati; checksum e risorse dei backup controllati. [Dettagli](47_CONFUSION_STRATEGY_HINT_v0.1.md). Commit, CI130 e pubblicazione ancora da attestare.
+Descrittore condiviso: sostituire il Pokémon elimina la confusione, come già implementato dal motore.14 test esistenti descrizioni/effetti canonici e build passati; nessuna modifica alle regole. Prima sfida Selene su runtime129 persa in17 turni, puzzle/acquisti/export verificati; checksum e risorse dei backup controllati. [Dettagli](47_CONFUSION_STRATEGY_HINT_v0.1.md). Commit `59899c4` su main. [Deploy40092178872](https://github.com/Jacoporusso/veloria/actions/runs/40092178872) SUCCESS: test dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v151` verificati. [Verify40092178731](https://github.com/Jacoporusso/veloria/actions/runs/40092178731) pending; suite completa130 non ancora attestata.
 
-[Deploy40091846770](https://github.com/Jacoporusso/veloria/actions/runs/40091846770) del commit e1fcef0 SUCCESS; [Verify40091846798](https://github.com/Jacoporusso/veloria/actions/runs/40091846798) pending dietro [Verify40091325868](https://github.com/Jacoporusso/veloria/actions/runs/40091325868), ancora in corso al controllo. Nessuna attestazione anticipata di queste suite.
+[Deploy40091846770](https://github.com/Jacoporusso/veloria/actions/runs/40091846770) del commit e1fcef0 SUCCESS; [Verify40091846798](https://github.com/Jacoporusso/veloria/actions/runs/40091846798) cancellata dal raggruppamento della coda a favore della130, senza attestazione di successo; resta [Verify40091325868](https://github.com/Jacoporusso/veloria/actions/runs/40091325868), ancora in corso al controllo. Nessuna attestazione anticipata di queste suite.
 
 ## 0.3.129 — Gelodenti e verifica degli effetti combinati
 
