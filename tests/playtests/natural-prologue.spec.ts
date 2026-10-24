@@ -19,7 +19,7 @@ async function observe(page: Page): Promise<any> {
     const battle = game.scene.isActive('battle') ? game.scene.keys.battle : undefined;
     return { mapId: world.map.metadata.id, x: world.playerTile.x, y: world.playerTile.y,
       moving: world.moving, loading: world.mapTransitionLoading, battleStarting: world.battleActive && !battle, save: world.save,
-      battle: battle ? { mode: battle.mode, turn: battle.state.turn, outcome: battle.state.outcome,
+      battle: battle ? { mode: battle.mode, learning: battle.pendingMoveLearning, turn: battle.state.turn, outcome: battle.state.outcome,
         id: battle.state.battleId, rulesetId: battle.state.rulesetId, events: battle.eventLog, type: battle.state.battleType, player: battle.state.player, opponent: battle.state.opponent,
         inventory: battle.remainingInventory, itemNames: battle.itemNames, moves: battle.moveCatalog,
         forecasts: Object.fromEntries(battle.state.player.creatures[battle.state.player.activeIndex].moves.map((slot: any) => [slot.moveId, battle.moveForecast(battle.moveCatalog[slot.moveId])])) } : null };
@@ -44,6 +44,13 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const coastRotation = process.env.PLAYTEST_COAST_ROTATION === '1';
+  const nereaRotation = process.env.PLAYTEST_NEREA_ROTATION === '1';
+  const requestedLearning = Object.fromEntries((process.env.PLAYTEST_LEARN_MOVES ?? '').split(',').filter(Boolean).map(pair => {
+    const [incoming, outgoing, ...extra] = pair.split(':');
+    expect(incoming && outgoing && !extra.length, 'Learning policy must be incoming:outgoing move IDs').toBeTruthy();
+    return [incoming, outgoing];
+  }));
+  const tacticalMovesUsed = new Set<string>();
   const healingThreshold = Number(process.env.PLAYTEST_HEAL_THRESHOLD ?? '0.5');
   expect(healingThreshold).toBeGreaterThan(0);
   expect(healingThreshold).toBeLessThanOrEqual(0.9);
@@ -98,7 +105,17 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         const next = celebration.getByRole('button', { name: 'Continua', exact: true });
         await expect(next).toBeVisible({timeout:15_000}); await next.click(); continue;
       }
-      if (battle.mode === 'learning') { await tapBattleLabel(page, '__naturalGame', 'Tieni le mosse'); continue; }
+      if (battle.mode === 'learning') {
+        const incoming = battle.learning?.moveId;
+        const learner = battle.player.creatures.find((member: any) => member.instanceId === battle.learning?.creatureId);
+        const outgoing = requestedLearning[incoming];
+        const known = learner?.moves.find((slot: any) => slot.moveId === outgoing);
+        if (known) {
+          report.push({ label: 'Move selected through learning UI', creatureId: learner.instanceId, incoming, outgoing });
+          await tapBattleLabel(page, '__naturalGame', battle.moves[outgoing].name);
+        } else await tapBattleLabel(page, '__naturalGame', 'Tieni le mosse');
+        continue;
+      }
       if(battle.mode==='message'||battle.mode==='party') {
         await page.keyboard.press('Enter',{delay:40}); continue;
       }
@@ -111,6 +128,26 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         if (own.speciesId !== desiredSpecies && replacement) {
           await tapBattleLabel(page, '__naturalGame', 'SQUADRA');
           await tapBattleLabel(page, '__naturalGame', `${replacement.name} · ${replacement.hp}/`);
+          continue;
+        }
+      }
+      if (nereaRotation && state.mapId === 'veloria/gym05_portolume' && battle.mode === 'menu') {
+        // Visible matchup only: preserve Ground companion for Lanturn; no enemy command inspection.
+        const desiredSpecies = target.speciesId === 171 ? 195 : 170;
+        const replacement = battle.player.creatures.find((member: any, index: number) => index !== battle.player.activeIndex && member.speciesId === desiredSpecies && member.hp > 0);
+        if (own.speciesId !== desiredSpecies && replacement) {
+          await tapBattleLabel(page, '__naturalGame', 'SQUADRA');
+          await tapBattleLabel(page, '__naturalGame', `${replacement.name} · ${replacement.hp}/`);
+          continue;
+        }
+        const tacticalMove = own.speciesId === 170 && !target.confusionTurnsRemaining ? 'confuse-ray'
+          : own.speciesId === 195 && target.speciesId === 171 && (own.statStages?.specialDefense ?? 0) < 2 ? 'amnesia' : undefined;
+        const tacticalKey = `${battle.id}:${own.instanceId}:${target.instanceId}:${tacticalMove}`;
+        if (tacticalMove && own.hp > own.stats.maxHp / 2 && !tacticalMovesUsed.has(tacticalKey) && own.moves.some((slot: any) => slot.moveId === tacticalMove && slot.pp > 0)) {
+          tacticalMovesUsed.add(tacticalKey);
+          report.push({ label: 'Visible matchup tactical move', battleId: battle.id, creatureId: own.instanceId, targetId: target.instanceId, moveId: tacticalMove });
+          await tapBattleLabel(page, '__naturalGame', 'LOTTA');
+          await tapBattleLabel(page, '__naturalGame', battle.moves[tacticalMove].name);
           continue;
         }
       }
@@ -553,7 +590,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

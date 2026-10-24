@@ -298,6 +298,24 @@
       "templateSpeciesId": 61,
       "artworkGroup": "stone-evolutions",
       "evolutionItemId": "water-stone"
+    },
+    {
+      "speciesId": 45,
+      "templateSpeciesId": 44,
+      "artworkGroup": "botanical",
+      "evolutionItemId": "leaf-stone"
+    },
+    {
+      "speciesId": 71,
+      "templateSpeciesId": 70,
+      "artworkGroup": "botanical",
+      "evolutionItemId": "leaf-stone"
+    },
+    {
+      "speciesId": 182,
+      "templateSpeciesId": 44,
+      "artworkGroup": "botanical",
+      "evolutionItemId": "sun-stone"
     }
   ],
   "deferredImports": [

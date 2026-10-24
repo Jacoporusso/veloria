@@ -1,3 +1,11 @@
+## Stato di lavorazione — 0.3.127, 24/10/2026
+
+Catalogo runtime83 specie e81 mosse supportate. Vileplume, Victreebel e Bellossom ora ottenibili con Pietrafoglia/Pietrasolare nella bottega delle pietre di Radicelmo. Dati, learnset HGSS e artwork importati e verificati; il documento44 descrive copertura e limiti. Restano168 specie del target001–251 e564 apprendimenti ufficiali con mosse non ancora supportate: il catalogo completo è ancora aperto.
+
+La continuazione naturale Charmander ha raggiunto la quinta medaglia: dopo due sconfitte Nerea conservate,31 incontri vinti per allenare Quagsire dal21 al24, Amnesia appresa tramite UI e vittoria in12 turni,1400 monete guadagnate. Backup e limiti in `playtests/2026-10-24-nerea-fifth-medal.md`. Questo percorso documenta una strategia concreta; restano sesta–ottava palestra, Lega/finale naturali, confronto delle scelte e QA fisico. Il trackpad opzionale è pubblicato e verificato in browser nei due orientamenti (documento43).
+
+Le sezioni sotto sono fotografie storiche. I requisiti aperti della0.3.115 mantengono l'intero ambito; pubblicazione e CI autorevoli sono in `CI_STATUS.md`.
+
 ## Stato di lavorazione — 0.3.115, 22/10/2026
 
 Le sezioni versionate sotto sono fotografie storiche, non l'elenco aggiornato delle funzionalità mancanti. Il repository contiene 48 mappe, 53 missioni, 31 allenatori, 12 botteghe, 79 specie e 79 mosse supportate; otto Palestre, Lega ed epilogo sono collegati. I fondali illustrati coprono le 48 mappe. Questi numeri attestano contenuti registrati, non il completamento della qualità, della regione descritta o del bilanciamento.

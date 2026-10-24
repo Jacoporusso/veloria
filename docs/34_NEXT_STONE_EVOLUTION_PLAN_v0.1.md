@@ -1,5 +1,7 @@
 # Prossima evoluzione ottenibile: Poliwrath
 
+Aggiornamento24/10/2026: i tre rami botanici descritti nel seguito sono ora integrati nella0.3.127, con Pietrafoglia/Pietrasolare, fonti e verifiche nel [documento44](44_BOTANICAL_EVOLUTIONS_v0.1.md). Le note di preparazione sotto restano storiche.
+
 Stato22/10/2026: implementato in content0.3.116; roster runtime80 specie. Poliwhirl evolve in Poliwrath con Pietraidrica. Parametri, crescita, learnset HGSS e artwork derivano dalle fonti PokéAPI locali; nessuna mossa inventata. Il test naturale della quinta palestra resta distinto.
 
 ## Verifica dell’integrazione

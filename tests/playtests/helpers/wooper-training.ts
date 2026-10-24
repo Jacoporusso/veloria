@@ -8,6 +8,9 @@ export async function runWooperTraining(args: {
 }): Promise<void> {
   const { page, walk, interact, settle, observe, record, exportCheckpoint } = args;
   const initial = (await observe()).save;
+  const targetLevel = Number(process.env.PLAYTEST_TRAIN_TARGET ?? '20');
+  expect(Number.isInteger(targetLevel) && targetLevel >= 20 && targetLevel <= 28).toBe(true);
+  if ((await observe()).mapId === 'veloria/gym05_portolume') await walk(15, 23);
   expect((await observe()).mapId).toBe('veloria/portolume');
   const companion = initial.party.find((member: any) => member.speciesId === 194 || member.speciesId === 195);
   expect(companion).toBeTruthy(); expect(initial.badges).toHaveLength(4);
@@ -28,13 +31,13 @@ export async function runWooperTraining(args: {
     expect((await observe()).save.party.every((member: any) => member.hp === member.maxHp && !member.status)).toBe(true);
   }
   await rest();
-  for (let round = 0; round < 4 && (await observe()).save.party[0].level < 20; round++) {
+  for (let round = 0; round < 8 && (await observe()).save.party[0].level < targetLevel; round++) {
     await walk(0, 25);
     await expect.poll(async () => (await observe()).mapId).toBe('veloria/r06_anello_magnetico');
     await walk(29, 4);
     for (let step = 0; step < 80; step++) {
       const own = (await observe()).save.party[0];
-      if (own.level >= 20 || own.hp < own.maxHp * 0.55 || own.moves.every((slot: any) => slot.pp < 3)) break;
+      if (own.level >= targetLevel || own.hp < own.maxHp * 0.55 || own.moves.every((slot: any) => slot.pp < 3)) break;
       await walk(29, step % 2 === 0 ? 5 : 4);
     }
     await record(`Earned companion training round ${round + 1}`);
@@ -52,6 +55,6 @@ export async function runWooperTraining(args: {
   expect(final.inventory).toEqual(initial.inventory);
   expect(final.badges).toEqual(initial.badges);
   expect(final.party[0].instanceId).toBe(companion.instanceId);
-  await record(final.party[0].level >= 20 ? 'Companion reached level 20 through earned encounters' : 'Training budget retained without granting missing XP');
+  await record(final.party[0].level >= targetLevel ? `Companion reached level ${targetLevel} through earned encounters` : 'Training budget retained without granting missing XP');
   await exportCheckpoint('natural-wooper-training-backup.json');
 }

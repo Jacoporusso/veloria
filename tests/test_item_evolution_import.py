@@ -11,20 +11,20 @@ class ItemEvolutionImportTest(unittest.TestCase):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         root = Path(temp.name)
-        for relative in ('content/battle/species.v1.json', 'content/battle/species-imports.v1.json'):
+        for relative in ('content/battle/species.v1.json', 'content/battle/species-imports.v1.json', 'content/items/items.v1.json'):
             target = root / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / relative, target)
         source = root / 'content/sources/pokeapi'
         source.mkdir(parents=True)
-        for pattern in ('pokemon-species-*.json', 'evolution-chain-*.json'):
+        for pattern in ('pokemon-species-*.json', 'evolution-chain-*.json', 'item-*.json'):
             for path in (ROOT / 'content/sources/pokeapi').glob(pattern):
                 shutil.copyfile(path, source / path.name)
         return root
 
     def test_official_poliwrath_branch(self):
         rules = build()['rules']
-        self.assertEqual(len(rules), 5)
+        self.assertEqual(len(rules), 8)
         self.assertIn({'fromSpeciesId': 61, 'toSpeciesId': 62, 'itemId': 'water-stone'}, rules)
         self.assertFalse(any(rule['toSpeciesId'] == 186 for rule in rules))
 
@@ -34,13 +34,28 @@ class ItemEvolutionImportTest(unittest.TestCase):
         data = json.loads(path.read_text(encoding='utf-8'))
         next(entry for entry in data['imports'] if entry['speciesId'] == 62).pop('evolutionItemId')
         path.write_text(json.dumps(data), encoding='utf-8')
-        self.assertEqual(len(build(root)['rules']), 4)
+        self.assertEqual(len(build(root)['rules']), 7)
 
     def test_unsupported_declared_item_fails_closed(self):
         root = self.fixture()
         path = root / 'content/battle/species-imports.v1.json'
         data = json.loads(path.read_text(encoding='utf-8'))
-        next(entry for entry in data['imports'] if entry['speciesId'] == 62)['evolutionItemId'] = 'leaf-stone'
+        next(entry for entry in data['imports'] if entry['speciesId'] == 62)['evolutionItemId'] = 'moon-stone'
         path.write_text(json.dumps(data), encoding='utf-8')
         with self.assertRaisesRegex(ValueError, 'Unsupported'):
+            build(root)
+
+    def test_botanical_branches_are_distinct_and_source_items_are_recorded(self):
+        result = build()
+        for parent, target, item in [(44, 45, 'leaf-stone'), (44, 182, 'sun-stone'), (70, 71, 'leaf-stone')]:
+            self.assertIn({'fromSpeciesId': parent, 'toSpeciesId': target, 'itemId': item}, result['rules'])
+        self.assertEqual(len(result['itemSources']), 5)
+
+    def test_item_name_must_match_official_source(self):
+        root = self.fixture()
+        path = root / 'content/items/items.v1.json'
+        data = json.loads(path.read_text(encoding='utf-8'))
+        data['items']['leaf-stone']['name'] = 'Invented stone'
+        path.write_text(json.dumps(data), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'official source'):
             build(root)

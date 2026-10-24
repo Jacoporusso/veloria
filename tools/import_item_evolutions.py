@@ -6,7 +6,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/sources/pokeapi'
 TARGET = ROOT / 'content/battle/item-evolutions.v1.json'
-STONES = ('fire-stone', 'water-stone', 'thunder-stone')
+STONES = ('fire-stone', 'water-stone', 'thunder-stone', 'leaf-stone', 'sun-stone')
+STONE_SOURCES = {item: item for item in STONES}
+STONE_SOURCES.update({'leaf-stone': 85, 'sun-stone': 80})
 def read(path): return json.loads(path.read_text(encoding='utf-8'))
 def build(root=ROOT):
     species = read(root / 'content/battle/species.v1.json')['species']
@@ -23,6 +25,16 @@ def build(root=ROOT):
         expected.append(rule)
         record = read(root / f'content/sources/pokeapi/pokemon-species-{parent}.json')
         chains.add(int(record['evolution_chain']['url'].strip('/').split('/')[-1]))
+    items = read(root / 'content/items/items.v1.json')['items']
+    item_sources = []
+    for item in sorted({rule['itemId'] for rule in expected}):
+        key = STONE_SOURCES[item]
+        path = root / f'content/sources/pokeapi/item-{key}.json'
+        raw = read(path)
+        name = next(entry['name'] for entry in raw['names'] if entry['language']['name'] == 'it')
+        if raw['name'] != item or raw['category']['name'] != 'evolution' or items.get(item, {}).get('name') != name or items[item].get('evolutionStone') is not True:
+            raise ValueError('Evolution item differs from its official source or runtime definition')
+        item_sources.append({'url': f'https://pokeapi.co/api/v2/item/{key}/', 'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     rules, sources = [], []
     def walk(node):
         parent = int(node['species']['url'].strip('/').split('/')[-1])
@@ -49,7 +61,7 @@ def build(root=ROOT):
         walk(read(path)['chain'])
         sources.append({'url': f'https://pokeapi.co/api/v2/evolution-chain/{chain}/', 'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     if any(rule not in rules for rule in expected): raise ValueError('Declared stone evolution has no supported official source match')
-    return {'version':1,'versionGroup':'heartgold-soulsilver','rules':sorted(rules,key=lambda r:(r['fromSpeciesId'],r['toSpeciesId'])),'sources':sources}
+    return {'version':1,'versionGroup':'heartgold-soulsilver','rules':sorted(rules,key=lambda r:(r['fromSpeciesId'],r['toSpeciesId'])),'sources':sources,'itemSources':item_sources}
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')

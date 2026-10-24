@@ -109,6 +109,24 @@
       "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
       "evolutionStone": true,
       "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
+    },
+    "leaf-stone": {
+      "id": "leaf-stone",
+      "name": "Pietrafoglia",
+      "price": 3000,
+      "maxStack": 99,
+      "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
+      "evolutionStone": true,
+      "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
+    },
+    "sun-stone": {
+      "id": "sun-stone",
+      "name": "Pietrasolare",
+      "price": 3000,
+      "maxStack": 99,
+      "description": "Pietra evolutiva da usare su un Pokémon compatibile.",
+      "evolutionStone": true,
+      "priceNote": "Prezzo di gioco Veloria; non attribuito ai dati PokéAPI."
     }
   }
 }

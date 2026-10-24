@@ -11,6 +11,29 @@ import type { CreatureSave, GameSave } from '../../src/persistence/save-types.ts
 
 const species = speciesData.species as SpeciesBattleRegistry;
 const rules = itemEvolutionData.rules as ItemEvolutionRule[];
+
+for (const [fromSpeciesId, toSpeciesId, itemId] of [[44, 45, 'leaf-stone'], [44, 182, 'sun-stone'], [70, 71, 'leaf-stone']] as const) {
+  test(`botanical branch ${fromSpeciesId} -> ${toSpeciesId} preserves the companion and consumes its own stone`, () => {
+    const maxHp = calculateStats(species[fromSpeciesId].baseStats, 21).maxHp;
+    const creature = pikachu({ speciesId: fromSpeciesId, level: 21, experience: 117, maxHp, hp: maxHp - 7,
+      moves: [{ id: fromSpeciesId === 44 ? 'acid' : 'vine-whip', pp: 3 }] });
+    const original = saveWith(creature, { inventory: { 'leaf-stone': 2, 'sun-stone': 1 } });
+    const snapshot = structuredClone(original);
+    const result = applyItemEvolution(original, itemId, creature.instanceId, rules, species);
+    assert.ok(result.ok);
+    if (!result.ok) return;
+    assert.equal(result.creature.speciesId, toSpeciesId);
+    for (const key of ['instanceId', 'level', 'experience', 'moves', 'status'] as const) assert.deepEqual(result.creature[key], creature[key]);
+    assert.equal(result.creature.maxHp - result.creature.hp, 7);
+    assert.equal(result.save.inventory[itemId], original.inventory[itemId] - 1);
+    const otherItem = itemId === 'leaf-stone' ? 'sun-stone' : 'leaf-stone';
+    assert.equal(result.save.inventory[otherItem], original.inventory[otherItem]);
+    assert.deepEqual(original, snapshot);
+    assert.deepEqual(pendingEvolutionReceipts(JSON.parse(JSON.stringify(result.save))), [result.receipt]);
+    assert.ok(result.save.flags.includes(`pokedex_caught_${toSpeciesId}`));
+    assert.equal(applyItemEvolution(result.save, itemId, creature.instanceId, rules, species).ok, false);
+  });
+}
 const baseSave: GameSave = {
   schemaVersion: 2, saveRevision: 4, contentVersion: 'test', saveId: 'save', savedAt: '2026-10-20T00:00:00Z',
   player: { name: 'Allenatore', mapId: 'veloria/brumalta', spawnPointId: 'from_r02', money: 300, x: 1, y: 1 },

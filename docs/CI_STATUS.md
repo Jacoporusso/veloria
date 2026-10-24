@@ -1,3 +1,11 @@
+## 0.3.127 — Evoluzioni botaniche e quinta medaglia naturale (24/10/2026)
+
+Vileplume/Victreebel/Bellossom, Pietrafoglia/Pietrasolare acquistabili a Radicelmo, Megaassorbimento/Fogliamagica dai record ufficiali.83 specie,81 mosse,8 rami con pietre; fonti degli oggetti incluse nella verifica offline.558 test dominio/persistenza e111 Python passati, validatore/build passati; tre evoluzioni tramite negozio/Zaino/annullamento/reload passate in26,2s, artwork offline passati in2s (15,4s con build). Screenshot portrait/landscape controllati. Dettagli in [44_BOTANICAL_EVOLUTIONS_v0.1.md](44_BOTANICAL_EVOLUTIONS_v0.1.md). Pubblicazione e CI di questa versione ancora da attestare.
+
+Progressione separata su runtime126: seconda sconfitta Nerea conservata,31 vittorie di allenamento senza spese, Quagsire24 con Amnesia appresa via UI; Nerea vinta in12 turni, quinta medaglia e1400 monete reali. Backup esportati/checksum e confronti con report verificati. [Report e limiti](playtests/2026-10-24-nerea-fifth-medal.md). P6–P8/Lega/finale naturali restano aperti.
+
+[Verify40070926614](https://github.com/Jacoporusso/veloria/actions/runs/40070926614) del commit995fe6e conclusa SUCCESS. [Verify40071516996](https://github.com/Jacoporusso/veloria/actions/runs/40071516996) del trackpad126 ancora in corso all'ultimo controllo:13 job riusciti,8 attivi, nessun fallimento osservato. Nessuna attestazione anticipata della suite completa126 o127.
+
 ## 0.3.126 — Trackpad touch opzionale (24/10/2026)
 
 Commit `f1a28d3`: impostazione Frecce/Trackpad persistente sul dispositivo, movimento a destra e azioni a sinistra. Build riuscita, due regressioni layout mobile passate e due test dedicati portrait/landscape passati (9,6s): spostamento reale verso una casella libera, cambio direzione, zona neutra, rilascio, blur, cancellazione, reload e ripristino frecce. Controllo visivo screenshot portrait e landscape eseguito. Nessun test fisico Android/iOS attestato. [Deploy40071516967](https://github.com/Jacoporusso/veloria/actions/runs/40071516967) SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v147` verificati. [Verify40071516996](https://github.com/Jacoporusso/veloria/actions/runs/40071516996) avviata, suite completa non ancora attestata. Dettagli in [43_TOUCH_JOYSTICK_v0.1.md](43_TOUCH_JOYSTICK_v0.1.md).

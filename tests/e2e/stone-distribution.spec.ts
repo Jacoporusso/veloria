@@ -153,3 +153,59 @@ test('a pending evolution on reload completes before the championship presentati
   await expect(page.getByRole('dialog', { name: 'Campione di Veloria!' })).toBeVisible();
   expect((await readBrowserSave(page)).flags.some(flag => flag.startsWith('presentation/evolution/'))).toBe(false);
 });
+
+for (const [parentId, targetId, parentName, targetName, stoneId, stoneName, width, height] of [
+  [44, 45, 'Gloom', 'Vileplume', 'leaf-stone', 'Pietrafoglia', 390, 844],
+  [44, 182, 'Gloom', 'Bellossom', 'sun-stone', 'Pietrasolare', 844, 390],
+  [70, 71, 'Weepinbell', 'Victreebel', 'leaf-stone', 'Pietrafoglia', 390, 844],
+] as const) {
+  test(`botanical stone purchase and ${targetName} evolution persist through the real bag and reload`, async ({ page }, info) => {
+    test.setTimeout(120_000);
+    const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+    await page.setViewportSize({ width, height });
+    await seedRadicelmo(page, true, true);
+    const fixture = await readBrowserSave(page);
+    const maxHp = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: parentId, level: 21,
+      instanceId: `botanical-${targetId}` }).stats.maxHp;
+    fixture.party = [{ instanceId: `botanical-${targetId}`, speciesId: parentId, level: 21, experience: 117, hp: maxHp - 5, maxHp,
+      moves: [{ id: parentId === 44 ? 'acid' : 'vine-whip', pp: 3 }, { id: 'sleep-powder', pp: 4 }] }];
+    await seedBrowserSave(page, fixture); await page.reload(); await enterGame(page);
+    await walkTo(page, 'radicelmo.tmj', 26, 14); await walkTo(page, 'radicelmo.tmj', 28, 12); await interactNorth(page);
+    await buyFromShop(page, stoneName);
+    const before = await readBrowserSave(page);
+    expect(before.player.money).toBe(12000); expect(before.inventory[stoneId]).toBe(1);
+    const open = async () => {
+      await page.getByRole('button', { name: /^Apri zaino e dotazioni:/ }).tap();
+      await page.getByRole('dialog', { name: 'Zaino e dotazioni' }).getByRole('button', { name: `Usa ${stoneName}`, exact: true }).tap();
+      const chooser = page.getByRole('dialog', { name: stoneName, exact: true });
+      await chooser.getByRole('button', { name: new RegExp(parentName) }).tap();
+      await expect(chooser).toContainText(targetName); return chooser;
+    };
+    let chooser = await open();
+    await chooser.getByRole('button', { name: 'Indietro', exact: true }).tap();
+    await chooser.getByRole('button', { name: 'Annulla', exact: true }).tap();
+    const cancelled = await readBrowserSave(page);
+    expect(cancelled.party).toEqual(before.party); expect(cancelled.inventory).toEqual(before.inventory);
+    chooser = await open();
+    await chooser.getByRole('button', { name: `Evolvi in ${targetName}`, exact: true }).tap();
+    const ceremony = page.getByRole('dialog', { name: `Ora è ${targetName}!`, exact: true });
+    await expect(ceremony).toBeVisible();
+    const committed = await readBrowserSave(page);
+    expect(committed.party[0].speciesId).toBe(targetId); expect(committed.inventory[stoneId]).toBe(0);
+    for (const key of ['instanceId', 'level', 'experience', 'moves'] as const) expect(committed.party[0][key]).toEqual(before.party[0][key]);
+    expect(committed.party[0].maxHp - committed.party[0].hp).toBe(5);
+    expect(await page.locator('.evolution-celebration__after').evaluate(async node => {
+      const url = (node as HTMLElement).style.backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1];
+      if (!url || node.classList.contains('creature-portrait-pending')) return false;
+      const image = new Image(); image.src = url; await image.decode(); return image.naturalWidth > 0;
+    })).toBe(true);
+    await page.screenshot({ path: info.outputPath(`${targetName.toLowerCase()}-ceremony.png`) });
+    await page.reload(); await enterGame(page); await expect(ceremony).toBeVisible();
+    await ceremony.getByRole('button', { name: 'Continua', exact: true }).tap();
+    await expect.poll(async () => (await readBrowserSave(page)).flags.some(flag => flag.startsWith('presentation/evolution/'))).toBe(false);
+    const after = await readBrowserSave(page);
+    expect(after.party[0].speciesId).toBe(targetId); expect(after.inventory[stoneId]).toBe(0);
+    expect(after.flags).toContain(`pokedex_caught_${parentId}`); expect(after.flags).toContain(`pokedex_caught_${targetId}`);
+    expect(after.player.money).toBe(12000); expect(errors).toEqual([]);
+  });
+}

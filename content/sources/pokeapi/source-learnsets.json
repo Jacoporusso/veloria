@@ -5770,6 +5770,122 @@
         "moveId": "mind-reader",
         "order": null
       }
+    ],
+    "45": [
+      {
+        "level": 1,
+        "moveId": "mega-drain",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "aromatherapy",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "stun-spore",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "poison-powder",
+        "order": 4
+      },
+      {
+        "level": 53,
+        "moveId": "petal-dance",
+        "order": null
+      },
+      {
+        "level": 65,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "71": [
+      {
+        "level": 1,
+        "moveId": "stockpile",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "swallow",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "spit-up",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "vine-whip",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "sleep-powder",
+        "order": 5
+      },
+      {
+        "level": 1,
+        "moveId": "sweet-scent",
+        "order": 6
+      },
+      {
+        "level": 1,
+        "moveId": "razor-leaf",
+        "order": 7
+      },
+      {
+        "level": 47,
+        "moveId": "leaf-storm",
+        "order": 1
+      },
+      {
+        "level": 47,
+        "moveId": "leaf-blade",
+        "order": 2
+      }
+    ],
+    "182": [
+      {
+        "level": 1,
+        "moveId": "leaf-blade",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "mega-drain",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "sweet-scent",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "stun-spore",
+        "order": 4
+      },
+      {
+        "level": 1,
+        "moveId": "sunny-day",
+        "order": 5
+      },
+      {
+        "level": 23,
+        "moveId": "magical-leaf",
+        "order": null
+      },
+      {
+        "level": 53,
+        "moveId": "leaf-storm",
+        "order": null
+      }
     ]
   },
   "unimplemented": {
@@ -6051,11 +6167,6 @@
       }
     ],
     "43": [
-      {
-        "level": 21,
-        "moveId": "mega-drain",
-        "order": null
-      },
       {
         "level": 25,
         "moveId": "lucky-chant",
@@ -8506,11 +8617,6 @@
     ],
     "44": [
       {
-        "level": 23,
-        "moveId": "mega-drain",
-        "order": null
-      },
-      {
         "level": 29,
         "moveId": "lucky-chant",
         "order": null
@@ -8698,6 +8804,72 @@
       {
         "level": 53,
         "moveId": "mind-reader",
+        "order": null
+      }
+    ],
+    "45": [
+      {
+        "level": 1,
+        "moveId": "aromatherapy",
+        "order": 2
+      },
+      {
+        "level": 53,
+        "moveId": "petal-dance",
+        "order": null
+      },
+      {
+        "level": 65,
+        "moveId": "solar-beam",
+        "order": null
+      }
+    ],
+    "71": [
+      {
+        "level": 1,
+        "moveId": "stockpile",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "swallow",
+        "order": 2
+      },
+      {
+        "level": 1,
+        "moveId": "spit-up",
+        "order": 3
+      },
+      {
+        "level": 1,
+        "moveId": "razor-leaf",
+        "order": 7
+      },
+      {
+        "level": 47,
+        "moveId": "leaf-storm",
+        "order": 1
+      },
+      {
+        "level": 47,
+        "moveId": "leaf-blade",
+        "order": 2
+      }
+    ],
+    "182": [
+      {
+        "level": 1,
+        "moveId": "leaf-blade",
+        "order": 1
+      },
+      {
+        "level": 1,
+        "moveId": "sunny-day",
+        "order": 5
+      },
+      {
+        "level": 53,
+        "moveId": "leaf-storm",
         "order": null
       }
     ]

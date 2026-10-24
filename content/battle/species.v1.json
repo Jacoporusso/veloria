@@ -585,6 +585,10 @@
         {
           "level": 17,
           "moveId": "sleep-powder"
+        },
+        {
+          "level": 21,
+          "moveId": "mega-drain"
         }
       ]
     },
@@ -3905,6 +3909,10 @@
         {
           "level": 17,
           "moveId": "sleep-powder"
+        },
+        {
+          "level": 23,
+          "moveId": "mega-drain"
         }
       ]
     },
@@ -4182,6 +4190,120 @@
         {
           "level": 1,
           "moveId": "double-slap"
+        }
+      ]
+    },
+    "45": {
+      "speciesId": 45,
+      "name": "Vileplume",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "specialAttack": 100,
+        "specialDefense": 90,
+        "speed": 50
+      },
+      "experienceYield": 221,
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
+      "defaultMoveIds": [
+        "mega-drain",
+        "stun-spore",
+        "poison-powder"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "mega-drain"
+        },
+        {
+          "level": 1,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 1,
+          "moveId": "poison-powder"
+        }
+      ]
+    },
+    "71": {
+      "speciesId": 71,
+      "name": "Victreebel",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "baseStats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "specialAttack": 100,
+        "specialDefense": 60,
+        "speed": 70
+      },
+      "experienceYield": 221,
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
+      "defaultMoveIds": [
+        "vine-whip",
+        "sleep-powder",
+        "sweet-scent"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "vine-whip"
+        },
+        {
+          "level": 1,
+          "moveId": "sleep-powder"
+        },
+        {
+          "level": 1,
+          "moveId": "sweet-scent"
+        }
+      ]
+    },
+    "182": {
+      "speciesId": 182,
+      "name": "Bellossom",
+      "types": [
+        "grass"
+      ],
+      "baseStats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "specialAttack": 90,
+        "specialDefense": 100,
+        "speed": 50
+      },
+      "experienceYield": 221,
+      "growthCurveId": "pokeapi_growth_medium-slow_v1",
+      "defaultMoveIds": [
+        "mega-drain",
+        "sweet-scent",
+        "stun-spore"
+      ],
+      "officialLearnset": [
+        {
+          "level": 1,
+          "moveId": "mega-drain"
+        },
+        {
+          "level": 1,
+          "moveId": "sweet-scent"
+        },
+        {
+          "level": 1,
+          "moveId": "stun-spore"
+        },
+        {
+          "level": 23,
+          "moveId": "magical-leaf"
         }
       ]
     }

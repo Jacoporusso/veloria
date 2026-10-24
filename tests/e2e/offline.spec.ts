@@ -827,7 +827,7 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101,162,164,168,180,195]],['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,62,134,135,136]]] as const) {
+for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101,162,164,168,180,195]],['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,62,134,135,136]],['botanical',[45,71,182]]] as const) {
 test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
   const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;

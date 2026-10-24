@@ -231,6 +231,10 @@
       {
         "level": 17,
         "moveId": "sleep-powder"
+      },
+      {
+        "level": 21,
+        "moveId": "mega-drain"
       }
     ],
     "60": [
@@ -1674,6 +1678,10 @@
       {
         "level": 17,
         "moveId": "sleep-powder"
+      },
+      {
+        "level": 23,
+        "moveId": "mega-drain"
       }
     ],
     "61": [
@@ -1788,6 +1796,14 @@
         "moveId": "poison-jab"
       }
     ],
-    "62": []
+    "62": [],
+    "45": [],
+    "71": [],
+    "182": [
+      {
+        "level": 23,
+        "moveId": "magical-leaf"
+      }
+    ]
   }
 }

@@ -8,9 +8,24 @@
       "itemId": "thunder-stone"
     },
     {
+      "fromSpeciesId": 44,
+      "toSpeciesId": 45,
+      "itemId": "leaf-stone"
+    },
+    {
+      "fromSpeciesId": 44,
+      "toSpeciesId": 182,
+      "itemId": "sun-stone"
+    },
+    {
       "fromSpeciesId": 61,
       "toSpeciesId": 62,
       "itemId": "water-stone"
+    },
+    {
+      "fromSpeciesId": 70,
+      "toSpeciesId": 71,
+      "itemId": "leaf-stone"
     },
     {
       "fromSpeciesId": 133,
@@ -35,14 +50,51 @@
       "sha256": "15e7b538a392b4402a8065d2424f267d8f289a8520b97b18963b1e49d9dc0820"
     },
     {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/18/",
+      "path": "content/sources/pokeapi/evolution-chain-18.json",
+      "sha256": "be47766ffdfc6669be0fadbd4b54ab6225a7478ed144ab1deb073b03d22274a8"
+    },
+    {
       "url": "https://pokeapi.co/api/v2/evolution-chain/26/",
       "path": "content/sources/pokeapi/evolution-chain-26.json",
       "sha256": "8c19fb4b108ce0cd9a2ce76759b98e474ad0bbcc283a0104dfaf9212a7895499"
     },
     {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/29/",
+      "path": "content/sources/pokeapi/evolution-chain-29.json",
+      "sha256": "a85a50fefa2aaff211559b52616b124c4c80cd4d4e35eef516a8b4c07916a351"
+    },
+    {
       "url": "https://pokeapi.co/api/v2/evolution-chain/67/",
       "path": "content/sources/pokeapi/evolution-chain-67.json",
       "sha256": "48eb1dc4c41fec44e5a957e3b93af5a22511cc23a6b973ffed1b5e2eef8f778c"
+    }
+  ],
+  "itemSources": [
+    {
+      "url": "https://pokeapi.co/api/v2/item/fire-stone/",
+      "path": "content/sources/pokeapi/item-fire-stone.json",
+      "sha256": "d729a6730859fedd68437544d2e1d53c0b85b81bf8351dbf8a364062e3bf8d8e"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/item/85/",
+      "path": "content/sources/pokeapi/item-85.json",
+      "sha256": "b8481473bd9d1148626d555c57e749f8f3592d816a9b5c75233b5ccb22ef08ca"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/item/80/",
+      "path": "content/sources/pokeapi/item-80.json",
+      "sha256": "313ed8ac32c3cb65e4e9bde04d1c44f11821576bfc26568a74df9a4e9a92bfc8"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/item/thunder-stone/",
+      "path": "content/sources/pokeapi/item-thunder-stone.json",
+      "sha256": "796203cd93893c8a95b0cecfc7f7caa5ee74946a7f710e97fcbba929ff9f31db"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/item/water-stone/",
+      "path": "content/sources/pokeapi/item-water-stone.json",
+      "sha256": "c2405fe38cf3ffcde4e40cda70a1af33f6c269ded821d6a1e60c6a82272a6cbd"
     }
   ]
 }

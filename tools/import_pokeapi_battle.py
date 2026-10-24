@@ -22,6 +22,7 @@ SUPPORTED_MOVES += ['bug-buzz', 'poison-jab']
 SUPPORTED_MOVES += ['flamethrower', 'psychic', 'crunch', 'shadow-ball', 'sludge-bomb']
 SUPPORTED_MOVES += ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-dance', 'dragon-rush', 'hydro-pump', 'aqua-tail']
 SUPPORTED_MOVES += ['take-down']
+SUPPORTED_MOVES += ['mega-drain', 'magical-leaf']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 

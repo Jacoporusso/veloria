@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-24",
+  "scope": "Private prototype botanical-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 45,
+      "name": "Vileplume",
+      "path": "assets/creatures/pokeapi-botanical-45-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+      "sourcePath": "assets/sources/pokeapi/botanical/45.png",
+      "sourceSha256": "9c2b9e9a3b91e2400f6e54165d4dcdedf6650f85fcdf552a52d8d68a2129abb1",
+      "sha256": "514119dd4a85b31173588477eac7f16d19850dd39f2b63d6783fd4ad234f6e56"
+    },
+    {
+      "speciesId": 71,
+      "name": "Victreebel",
+      "path": "assets/creatures/pokeapi-botanical-71-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "sourcePath": "assets/sources/pokeapi/botanical/71.png",
+      "sourceSha256": "47c1fff808f898e37590ec5c10913efeb8a2593684b9f834a469d6b9991a8fcc",
+      "sha256": "ad00436fdd77458e0c31f6b3b2cd6ad530e86c912166e0d1e1ad8b3e8d10affc"
+    },
+    {
+      "speciesId": 182,
+      "name": "Bellossom",
+      "path": "assets/creatures/pokeapi-botanical-182-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "sourcePath": "assets/sources/pokeapi/botanical/182.png",
+      "sourceSha256": "f0c32f31a131a376957b78fb9c5eba45a5bc19e889584bd852b6caea1bb4dbb5",
+      "sha256": "ea07d613bf3237c276e5ab437a9b244f1fab3e5adb16f5a9988b57b560d7f860"
+    }
+  ]
+}
