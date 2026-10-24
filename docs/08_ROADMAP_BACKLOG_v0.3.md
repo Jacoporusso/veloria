@@ -1,3 +1,7 @@
+## Preparazione naturale Acquariva — aggiornamento24/10/2026
+
+Bruno vinto, prima sconfitta Maya conservata; successivamente13 vittorie selvatiche senza spese, Eevee29 e Morso appresa tramite UI. Tre KO individuali conservati, nessuna sconfitta dell'intera squadra durante questo allenamento. Backup esportato e checksum/risorse/identità verificati. [Metodo, risultati e limiti](playtests/2026-10-24-acquariva-wild-training.md). Cinque medaglie: Maya, Selene/P6 e il resto della campagna naturale restano aperti. Nessuna attestazione del bilanciamento per bambini da questo singolo driver.
+
 ## Stato di lavorazione — 0.3.129, 24/10/2026
 
 Gelodenti con due effetti indipendenti importata dalle fonti locali:84 mosse supportate e544 apprendimenti esclusi documentati.574 test dominio/persistenza,111 Python e build passati. Dopo il ripristino della quota di approvazione sono passati due casi UI nei due orientamenti e la prima consultazione offline nella PWA. Documento46 e CI_STATUS attestano ambito, verifiche e pubblicazione. Il checkpoint naturale più avanzato resta Acquariva con cinque medaglie, Drowzee29 ed Eevee28; Selene, resto della campagna, catalogo completo e QA fisico restano aperti.
