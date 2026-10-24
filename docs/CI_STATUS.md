@@ -1,3 +1,7 @@
+## 0.3.126 — Trackpad touch opzionale (24/10/2026)
+
+Commit `f1a28d3`: impostazione Frecce/Trackpad persistente sul dispositivo, movimento a destra e azioni a sinistra. Build riuscita, due regressioni layout mobile passate e due test dedicati portrait/landscape passati (9,6s): spostamento reale verso una casella libera, cambio direzione, zona neutra, rilascio, blur, cancellazione, reload e ripristino frecce. Controllo visivo screenshot portrait e landscape eseguito. Nessun test fisico Android/iOS attestato. [Deploy40071516967](https://github.com/Jacoporusso/veloria/actions/runs/40071516967) SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v147` verificati. [Verify40071516996](https://github.com/Jacoporusso/veloria/actions/runs/40071516996) avviata, suite completa non ancora attestata. Dettagli in [43_TOUCH_JOYSTICK_v0.1.md](43_TOUCH_JOYSTICK_v0.1.md).
+
 ## Verifica completa125 e progressione naturale Nerea (24/10/2026)
 
 [Verify40068518426](https://github.com/Jacoporusso/veloria/actions/runs/40068518426) del rilascio9986a89 **SUCCESS:21 job riusciti**. [Verify40067973650](https://github.com/Jacoporusso/veloria/actions/runs/40067973650) della124 conclusa FAILURE nel solo job chapters7: caricamento del driver funivia con ECONNRESET. Il driver ora consente due retry limitati di rete; caso gate/andata/ritorno funivia passato localmente in7s (8s totale). Nessun riavvio del gioco o retry degli assert introdotto.
