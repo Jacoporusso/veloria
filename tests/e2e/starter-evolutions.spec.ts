@@ -1,9 +1,9 @@
 import { expect, test, type Page } from '@playwright/test';
 
-async function mountEvolution(page: Page, speciesId: number) {
+async function mountEvolution(page: Page, speciesId: number, recover = false) {
   await page.route('**/src/main.ts*', route => route.fulfill({ contentType: 'text/javascript', body: 'export {};' }));
   await page.goto('/');
-  await page.evaluate(async speciesId => {
+  await page.evaluate(async ({ speciesId, recover }) => {
     await import('/src/style.css' as string);
     const source = await (await fetch('/src/game/scenes/BattleScene.ts')).text();
     const phaserUrl = source.match(/["']([^"']*\/node_modules\/\.vite\/deps\/phaser\.js[^"']*)["']/)![1];
@@ -14,9 +14,9 @@ async function mountEvolution(page: Page, speciesId: number) {
     const { newGameSave, saveGame } = await import('/src/persistence/save-store.ts' as string);
     const { createWildBattle, mergeBattlePlayerState } = await import('/src/game/battle/create-battle-state.ts' as string);
     const { battleSpecies, battleMoves, veloriaBattleRules } = await import('/src/game/battle/catalog.ts' as string);
-    const level = veloriaBattleRules.evolutions[speciesId][0].minimumLevel - 1;
+    const level = veloriaBattleRules.evolutions[speciesId][0].minimumLevel - (recover ? 0 : 1);
     const player = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId, level, instanceId: `starter-${speciesId}`,
-      experience: experienceToNextLevel(level, veloriaBattleRules.experienceCurves[battleSpecies[speciesId].growthCurveId]) - 1 });
+      experience: recover ? 0 : experienceToNextLevel(level, veloriaBattleRules.experienceCurves[battleSpecies[speciesId].growthCurveId]) - 1 });
     const save = newGameSave();
     // This isolated fixture verifies evolution/art/persistence, not hit probability.
     // New adventures remain random; a controlled battle cursor keeps this gate repeatable.
@@ -37,7 +37,7 @@ async function mountEvolution(page: Page, speciesId: number) {
       onDismiss: () => scene.scene.stop(),
     });
     document.querySelector<HTMLElement>('#game-loading')!.hidden = true;
-  }, speciesId);
+  }, { speciesId, recover });
   await expect.poll(() => page.evaluate(() => Boolean((window as any).evolutionGame?.scene.keys.battle?.ui?.list.length))).toBe(true);
 }
 
@@ -51,11 +51,11 @@ async function tapText(page: Page, text: string) {
   await page.touchscreen.tap(point.x, point.y);
 }
 
-for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[81, 82, 'Magneton', 30, 'urban'], [220, 221, 'Piloswine', 33, 'mountain'], [17, 18, 'Pidgeot', 36], [43, 44, 'Gloom', 21], [60, 61, 'Poliwhirl', 25], [69, 70, 'Weepinbell', 21], [100, 101, 'Electrode', 30], [167, 168, 'Ariados', 22], [1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20], [2, 3, 'Venusaur', 32, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals'], [8, 9, 'Blastoise', 36, 'starter-finals'], [180, 181, 'Ampharos', 30, 'starter-finals']] as const) {
-  test(`${name} evolves in a real battle and survives IndexedDB reload with artwork`, async ({ page }, testInfo) => {
+for (const [fromId, toId, name, threshold, artGroup = 'evolution', recover = false] of [[81, 82, 'Magneton', 30, 'urban'], [220, 221, 'Piloswine', 33, 'mountain'], [17, 18, 'Pidgeot', 36], [43, 44, 'Gloom', 21], [60, 61, 'Poliwhirl', 25], [69, 70, 'Weepinbell', 21], [100, 101, 'Electrode', 30], [167, 168, 'Ariados', 22], [1, 2, 'Ivysaur', 16], [4, 5, 'Charmeleon', 16], [7, 8, 'Wartortle', 16], [16, 17, 'Pidgeotto', 18], [19, 20, 'Raticate', 20], [161, 162, 'Furret', 15], [163, 164, 'Noctowl', 20], [179, 180, 'Flaaffy', 15], [194, 195, 'Quagsire', 20], [2, 3, 'Venusaur', 32, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals'], [8, 9, 'Blastoise', 36, 'starter-finals'], [180, 181, 'Ampharos', 30, 'starter-finals'], [5, 6, 'Charizard', 36, 'starter-finals', true]] as const) {
+  test(`${name} evolves in a real battle${recover ? " from existing threshold" : ""} and survives IndexedDB reload with artwork`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
-    await mountEvolution(page, fromId);
+    await mountEvolution(page, fromId, recover);
     await page.keyboard.press('Enter', { delay: 40 });
     await tapText(page, await page.evaluate(() => (window as any).evolutionMove));
     await expect.poll(() => page.evaluate(() => (window as any).evolutionGame.scene.keys.battle.state.player.creatures[0].speciesId)).toBe(toId);
@@ -85,10 +85,11 @@ for (const [fromId, toId, name, threshold, artGroup = 'evolution'] of [[81, 82, 
       const scene = (window as any).evolutionGame.scene.keys.battle;
       const image = scene.actors.player.list.find((child: any) => child.type === 'Image');
       return { completions: (window as any).evolutionCompletions, artwork: image.texture.key,
-        events: scene.eventLog.filter((event: any) => event.type === 'creatureEvolved').length, creature: scene.state.player.creatures[0] };
+        levelUps: scene.eventLog.filter((event: any) => event.type === 'levelUp').length, events: scene.eventLog.filter((event: any) => event.type === 'creatureEvolved').length, creature: scene.state.player.creatures[0] };
     });
     expect(observed.completions).toBe(1);
     expect(observed.events).toBe(1);
+    if (recover) expect(observed.levelUps).toBe(0);
     expect(observed.artwork).toBe(`pokeapi-${artGroup}-${toId}-v1`);
     await page.getByRole('button', { name: 'Continua', exact: true }).click();
     await page.reload();

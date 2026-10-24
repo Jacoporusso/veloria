@@ -77,6 +77,18 @@ for(const [fromId,toId,level,moveId]of [[5,6,36,'wing-attack'],[180,181,30,'thun
   });
 }
 
+test('Charmeleon already at 36 recovers Charizard and offers Wing Attack without gaining level 37', () => {
+  const result = defeatWild(5, 0, 36, ['scratch', 'growl', 'ember', 'smokescreen']);
+  const evolved = result.state.player.creatures[0];
+  assert.equal(evolved.speciesId, 6);
+  assert.equal(evolved.level, 36);
+  assert.equal(evolved.instanceId, result.injured.instanceId);
+  assert.ok(!result.events.some(event => event.type === 'levelUp'));
+  assert.ok(result.events.some(event => event.type === 'moveLearningSkipped' && event.moveId === 'wing-attack'));
+  assert.deepEqual(evolved.moves.map(slot => slot.moveId), result.injured.moves.map(slot => slot.moveId));
+  assert.equal(evolved.moves[result.moveSlot].pp, result.injured.moves[result.moveSlot].pp - 1);
+});
+
 test('evolution preserves forgotten older moves instead of automatically teaching them again',()=>{
   const required=experienceToNextLevel(31,growthCurves[species[2].growthCurveId!]);
   const result=defeatWild(2,required-1,31,['vine-whip']);

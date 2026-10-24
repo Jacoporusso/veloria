@@ -248,3 +248,7 @@ Mancata, immunità, sonno e mancata esecuzione non infliggono contraccolpo. Gli 
 La mossa d'emergenza mantiene la sua regola prototipale separata sul massimo HP: questa versione non la converte al calcolo di Riduttore. Non sono introdotte abilità, strumenti tenuti o altre eccezioni ancora assenti dal motore. Non viene dichiarata una simulazione HGSS completa.
 
 Il selettore mostra il rischio, mentre dettagli e Squadra/Pokédex spiegano percentuale, minimo e possibilità di KO. Il feedback usa recoilApplied, già animato per entrambe le parti. Snapshot HP/PP e salvataggi mantengono le conseguenze; prove portrait/landscape, evoluzioni e build offline in CI_STATUS.
+
+## Aggiornamento24/10/2026 — recupero evoluzioni, rulesetv14
+
+Quando un compagno già alla soglia evolutiva guadagna XP, alla fine di una vittoria viene rivalutato anche senza un ulteriore livello, purché non sia KO. Questo evita il blocco dopo una precedente occasione persa. Fuga/cattura/sconfitta e riserve senza XP non attivano il recupero. È una scelta del prototipo, con livelli e learnset ufficiali invariati. Nessun evento levelUp artificiale e nessun apprendimento retroattivo delle mosse di livelli precedenti. Dettagli e regressioni in [48_LEVEL_EVOLUTION_RECOVERY_v0.1.md](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md).

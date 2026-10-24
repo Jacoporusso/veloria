@@ -232,3 +232,7 @@ R06 e Ferraluce usano il registro mappe automatico e quest dichiarative: nessun 
 Solo una nuova avventura genera un seed uint32 tramite Web Crypto getRandomValues. Lo zero viene normalizzato al valore nonzero già usato dallo xorshift32. Il cursore vive in GameSave.rngState: incontri e lotte lo consumano secondo le proprie regole deterministiche; titolo/ripresa, reload e importazione non lo ripescano. Nessun cambio di schema o riscrittura del seed nei salvataggi esistenti.
 
 I test unit e browser controllano esplicitamente la sorgente di entropia per verificare nuove partite distinte e ripresa invariata. Il driver naturale registra startingRngState e dichiara separatamente le continuazioni da backup guadagnati. Le prove storiche fino a0.3.114 partivano dal seed fisso1234567: non sono campioni casuali indipendenti.
+
+## Recupero evoluzioni per livello — runtime131
+
+`awardExperience` accoda anche un destinatario già alla soglia configurata; `finalizeLevelEvolutions` conserva il controllo di vittoria e HP. La coda resta transitoria, senza cambiare il save. `evolveAfterBattle` limita le mosse della nuova forma al livello corrente quando non si è verificato un nuovo level-up. Il rulesetv14 distingue esplicitamente la nuova semantica. [Contratto e verifiche](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md).

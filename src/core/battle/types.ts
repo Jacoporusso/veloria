@@ -124,7 +124,7 @@ export interface BattleState {
   readonly opponent: BattleSideState;
   /** Captured creatures are kept here when the six-slot party is full. */
   readonly playerStorage: readonly BattleCreature[];
-  /** Battle-local level gains eligible for evolution after a player victory. */
+  /** Battle-local XP recipients eligible for level evolution after a player victory. */
   readonly pendingLevelEvolutions: readonly { readonly creatureId: string; readonly previousLevel: number }[];
   readonly outcome: BattleOutcome;
 }

@@ -630,12 +630,13 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
   const maxHpIncrease = stats.maxHp - recipient.stats.maxHp;
   const hp = recipient.hp === 0 ? 0 : Math.min(stats.maxHp, recipient.hp + Math.max(0, maxHpIncrease));
   const updated = setCreature(state, side, index, { ...recipient, level, experience, stats, hp, moves });
-  if (level === recipient.level || updated.pendingLevelEvolutions.some(entry => entry.creatureId === recipientId)) return updated;
+  const reachedEvolution = rules.evolutions[recipient.speciesId]?.some(rule => level >= rule.minimumLevel);
+  if ((level === recipient.level && !reachedEvolution) || updated.pendingLevelEvolutions.some(entry => entry.creatureId === recipientId)) return updated;
   return { ...updated, pendingLevelEvolutions: [...updated.pendingLevelEvolutions, { creatureId: recipientId, previousLevel: recipient.level }] };
 }
 
 /** Level evolution is resolved only after victory, never between opponents or on escape/loss/capture.
- * Only living party members which actually gained a level during this battle qualify.
+ * Living XP recipients qualify after a level gain, or when already at an evolution threshold.
  */
 function finalizeLevelEvolutions(state: BattleState, rules: BattleRules, events: BattleEvent[]): BattleState {
   if (state.outcome.kind === 'ongoing') return state;
@@ -657,6 +658,8 @@ function evolveAfterBattle(recipient: BattleCreature, previousLevel: number, rul
   let moves = recipient.moves;
   const attempted = new Set(moves.map(slot => slot.moveId));
   const seenSpecies = new Set<number>([evolved.speciesId]);
+  // A recovered evolution offers only this level's new-form moves, never older forgotten moves.
+  const firstLearningLevel = previousLevel === recipient.level ? recipient.level : previousLevel + 1;
   while (true) {
     const rule = rules.evolutions[evolved.speciesId]?.find(candidate => evolved.level >= candidate.minimumLevel && !seenSpecies.has(candidate.target.speciesId));
     if (!rule) break;
@@ -678,7 +681,7 @@ function evolveAfterBattle(recipient: BattleCreature, previousLevel: number, rul
     seenSpecies.add(target.speciesId);
     events.push({ type: 'creatureEvolved', side, creatureId: evolved.instanceId, fromSpeciesId: previous.speciesId, fromName: previous.name, toSpeciesId: target.speciesId, toName: target.name, level: evolved.level });
     for (const learning of rules.levelUpMoves[target.speciesId] ?? []) {
-      if (learning.level <= previousLevel || learning.level > evolved.level || attempted.has(learning.moveId)) continue;
+      if (learning.level < firstLearningLevel || learning.level > evolved.level || attempted.has(learning.moveId)) continue;
       attempted.add(learning.moveId);
       if (moves.length >= rules.maxMoves) {
         events.push({ type: 'moveLearningSkipped', side, creatureId: evolved.instanceId, moveId: learning.moveId, reason: 'fullMoveSlots' });

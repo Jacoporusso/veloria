@@ -1,3 +1,7 @@
+## Recupero Charmeleon36 — runtime0.3.131
+
+Un compagno già alla soglia può evolvere alla prossima vittoria in cui guadagna XP e resta in piedi, senza un ulteriore livello. Regole/dati ufficiali dei livelli e learnset invariati; la modalità di recupero è una scelta del prototipo.577 test dominio/persistenza, build/validatore e due prove browser Charizard normali/recupero passati. [Contratto e limiti](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md). Campagna naturale e catalogo completo rimangono aperti.
+
 ## Recupero naturale dopo Selene: Hypno e Dune
 
 Sconfitta Selene conservata: allenamento gratuito, Drowzee evoluto in Hypno30 con la stessa identità, poi Lina e Noemi vinte tramite strategia di cambi visibili. Due KO individuali per ciascuna prova, nessuna sconfitta dell'intera squadra. Cinque medaglie,1810 monete, risorse consumate in precedenza non restituite; backup intermedi/finale esportati e verificati. [Report e riproduzione](playtests/2026-10-24-hypno-and-dunes-recovery.md). Maya/Selene e il resto della campagna naturale restano aperti; questa evidenza non prova ancora il bilanciamento complessivo.

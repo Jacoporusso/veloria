@@ -45,12 +45,15 @@ test('fleeing clears pending eligibility without evolving or reverting gained le
   assert.deepEqual(result.state.pendingLevelEvolutions, []);
 });
 
-test('an already over-levelled form does not evolve without an actual level gain', () => {
+test('an already eligible XP recipient recovers evolution without another level gain', () => {
   const state = createBattleState({ battleId: 'no-level', battleType: 'wild', seed: 1, rules, playerTeam: [creature('hero', { level: 10, experience: 0 })], opponentTeam: [creature('target', { hp: 1, experienceYield: 1 })] });
   const result = resolveBattleTurn(state, attack, moves, rules);
   assert.equal(result.state.outcome.kind, 'won');
-  assert.equal(result.state.player.creatures[0].speciesId, 1);
-  assert.ok(!result.events.some(event => event.type === 'creatureEvolved'));
+  assert.equal(result.state.player.creatures[0].speciesId, 2);
+  assert.equal(result.state.player.creatures[0].level, 10);
+  assert.ok(result.events.some(event => event.type === 'creatureEvolved'));
+  assert.ok(!result.events.some(event => event.type === 'levelUp'));
+  assert.ok(!result.state.player.creatures[0].moves.some(slot => slot.moveId === 'wait'), 'older new-form moves are not granted retroactively');
 });
 
 test('a fainted level recipient does not evolve when another party member wins', () => {
@@ -62,6 +65,30 @@ test('a fainted level recipient does not evolve when another party member wins',
   assert.equal(result.state.player.creatures[0].speciesId, 1);
   assert.equal(result.state.player.creatures[0].hp, 0);
   assert.deepEqual(result.state.pendingLevelEvolutions, []);
+  const healed = { ...result.state.player.creatures[0], hp: result.state.player.creatures[0].stats.maxHp };
+  const retry = createBattleState({ battleId: 'healed-recovery', battleType: 'wild', seed: 1, rules, playerTeam: [healed], opponentTeam: [creature('target', { hp: 1, experienceYield: 1 })] });
+  const recovered = resolveBattleTurn(retry, attack, moves, rules);
+  assert.equal(recovered.state.player.creatures[0].speciesId, 2);
+  assert.equal(recovered.state.player.creatures[0].level, 6);
+  assert.ok(!recovered.events.some(event => event.type === 'levelUp'));
+});
+
+test('eligible reserves without XP are not evolved by another companion victory', () => {
+  const state = createBattleState({ battleId: 'reserve', battleType: 'wild', seed: 1, rules,
+    playerTeam: [creature('hero', { speciesId: 3, level: 10, experience: 0 }), creature('reserve', { level: 10, experience: 0 })],
+    opponentTeam: [creature('target', { hp: 1, experienceYield: 1 })] });
+  const result = resolveBattleTurn(state, attack, moves, rules);
+  assert.equal(result.state.player.creatures[1].speciesId, 1);
+  assert.ok(!result.events.some(event => event.type === 'creatureEvolved'));
+});
+
+test('an eligible creature receiving no XP cannot trigger recovery', () => {
+  const state = createBattleState({ battleId: 'no-xp', battleType: 'wild', seed: 1, rules,
+    playerTeam: [creature('hero', { level: 10, experience: 0 })],
+    opponentTeam: [creature('target', { hp: 1, experienceYield: 0 })] });
+  const result = resolveBattleTurn(state, attack, moves, rules);
+  assert.equal(result.state.player.creatures[0].speciesId, 1);
+  assert.ok(!result.events.some(event => event.type === 'creatureEvolved'));
 });
 
 test('defeat preserves earned levels and clears pending evolution without transforming', () => {

@@ -1,3 +1,7 @@
+## 0.3.131 — Recupero evoluzione alla soglia già raggiunta
+
+Rulesetv14: Charmeleon già36 può diventare Charizard senza dover raggiungere37, dopo una vittoria con XP e senza KO. Nessun cambiamento ai livelli/mosse importati o al formato del save.577 test dominio/persistenza, build e validatore passati; due casi browser Charizard normali/recupero con celebrazione e reload passati in14,6s, screenshot controllato. [Contratto](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md). Commit, CI131 e deploy ancora da attestare.
+
 ## Recupero naturale Hypno/Dune — 24 ottobre 2026
 
 Dieci vittorie selvatiche ed evoluzione guadagnata Drowzee→Hypno30 in5minuti; poi Lina/Noemi vinte,420+1250 monete, percorso di ritorno e cure gratuite verificati in3,9minuti. Entrambe le prove senza errori JS; backup/checksum, premi, identità e risorse verificati separatamente. [Provenienza e limiti](playtests/2026-10-24-hypno-and-dunes-recovery.md). Nuovi driver/backup richiedono la propria CI dopo integrazione, senza attestazione anticipata.
