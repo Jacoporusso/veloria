@@ -185,6 +185,11 @@ export class PokemonPanel {
       const levels = location.minLevel === location.maxLevel ? String(location.minLevel) : `${location.minLevel}–${location.maxLevel}`;
       card.append(node('h4', `${location.mapName}${save.player.mapId === location.mapId ? ' · 📍 Sei qui' : priority(location.mapId) === 2 ? ' · Da esplorare' : ''}`),
         node('p', `${methods[location.method]} · Lv.${levels} · ${location.timeBands.length === 3 ? 'A ogni ora' : location.timeBands.map(band => periods[band]).join(' / ')}`));
+      for (const area of location.areas ?? []) {
+        const areaLevels = area.minLevel === area.maxLevel ? String(area.minLevel) : `${area.minLevel}–${area.maxLevel}`;
+        const detail = location.areas!.length > 1 ? ` · Lv.${areaLevels} · ${area.timeBands.length === 3 ? 'A ogni ora' : area.timeBands.map(band => periods[band]).join(' / ')}` : '';
+        card.append(node('p', `📍 ${area.label}${detail}`, 'pokemon-note'));
+      }
       habitats.append(card);
     }
     habitats.append(node('p', locations.length ? 'Cerca le zone segnate dalle foglie. Per pescare serve la canna; alcune zone si aprono proseguendo l’avventura.' : 'Nessun habitat selvatico segnalato.', 'pokemon-note'));

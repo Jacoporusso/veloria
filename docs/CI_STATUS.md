@@ -1,3 +1,9 @@
+## 0.3.125 — Guida ai microhabitat (24/10/2026)
+
+Squadra e Pokédex indicano le aree all’interno della mappa, con livelli/orari propri quando una specie compare in più habitat.32 etichette descrittive nei contenuti, nessun cambiamento a pesi o salvataggi.552 test dominio/persistenza,109 Python, validatore e build passati; due prove browser portrait/landscape passate in5,7s e controllo visivo dello screenshot. PWA offline con indicazioni, deposito, negozio e reload passata in6,6s (20,1s inclusa build). Dettagli in [42_POKEDEX_MICROHABITAT_GUIDE_v0.1.md](42_POKEDEX_MICROHABITAT_GUIDE_v0.1.md). Deploy/suite completa125 da confermare dopo push.
+
+[Deploy40067973660](https://github.com/Jacoporusso/veloria/actions/runs/40067973660) della124 SUCCESS; sito pubblico HTTPS200 e cache `veloria-shell-v145` verificati. [Verify40067973650](https://github.com/Jacoporusso/veloria/actions/runs/40067973650) ancora in esecuzione: nove job completati e nessun fallimento al controllo, non attestata interamente verde.
+
 ## 0.3.124 — Microhabitat iniziali e prova naturale Mira (24/10/2026)
 
 Bosco con sottobosco/sponda; Viale con insetti/radura; Terrazze con felci/pietra; Salita con fiori/torrente; Viadotto con ciliegi/binari/rive. Metadata e trigger esistenti, nessun cambio di collisioni o tassi per passo.551 test dominio/persistenza, validatore e build passati. Pokédex portrait/landscape e percorso Vetracielo passati in1,4min. Nuova partita reale Charmander, seed1192554284: prima medaglia guadagnata in3,1min, cinque vittorie e una cattura, nessuna sconfitta dell’intera squadra e zero errori JS; titolo/ripresa verificati. Non è ancora confronto naturale di tutti gli starter. Dettagli in [41_EARLY_MICROHABITATS_v0.1.md](41_EARLY_MICROHABITATS_v0.1.md), report conservato nei playtest.

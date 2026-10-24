@@ -1215,6 +1215,7 @@ test('bulk storage and market work offline and persist after reload', async ({ p
   const habitats = page.getByRole('region', { name: 'Dove incontrarlo' });
   await expect(habitats).toContainText('Condotto Risonante');
   await expect(habitats).toContainText('Erba alta · Lv.18–21');
+  await expect(habitats).toContainText('Muschio occidentale');
   await page.keyboard.press('Escape');
   const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
   await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await action.tap();

@@ -5,3 +5,7 @@ Each `*.encounter.json` is a versioned content file discovered by `src/game/batt
 Encounter tables must declare `status: "prototype"` until encounter rates, levels, and weights have been playtested and approved. The `method` describes the authored encounter surface: use `tall-grass` for route grass and `woodland-understory` for forest floor zones. `encounterChance` belongs to each Tiled `encounter-zone`, not the table, so map areas can share content while using different rates.
 
 Register each table ID in the matching `content/maps/*.map.json` `encounterTableIds`, then reference the same ID from its Tiled trigger. Run `python tools/validate_examples.py` and `npm test` after edits.
+
+## Indicazione del luogo
+
+Ogni tabella runtime dichiara `habitatLabel`, etichetta per il giocatore del punto o gruppo di punti Tiled che la usano. Indicare una posizione riconoscibile (sponda est, binari, postazione di pesca); non usare ID tecnici. Pokédex e Squadra leggono questa etichetta e conservano i livelli/orari del singolo microhabitat. I pesi non cambiano in base al testo.

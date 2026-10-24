@@ -36,3 +36,16 @@ test('registered coast fishing and conduit grass report exact authored Chinchou 
   assert.deepEqual(findSpeciesHabitats(194, maps, tables).map(({ mapId, method, minLevel, maxLevel }) => ({ mapId, method, minLevel, maxLevel })),
     [{ mapId: 'veloria/r07_condotto_risonante', method: 'tall-grass', minLevel: 18, maxLevel: 21 }]);
 });
+
+test('named microhabitats retain their own hours and levels when a map summary spans both', () => {
+  const a = { ...table('a', 'fishing', { morning: [entry(10, 12)], day: [], night: [] }), habitatLabel: 'Riva nord' };
+  const b = { ...table('b', 'fishing', { morning: [], day: [], night: [entry(20, 22)] }), habitatLabel: 'Laguna sud' };
+  const result = findSpeciesHabitats(170, [{ id: 'veloria/coast', displayName: 'Costa', encounterTableIds: ['a', 'b', 'a'] }], { a, b });
+  assert.deepEqual(result[0].areas, [
+    { tableId: 'a', label: 'Riva nord', minLevel: 10, maxLevel: 12, timeBands: ['morning'] },
+    { tableId: 'b', label: 'Laguna sud', minLevel: 20, maxLevel: 22, timeBands: ['night'] },
+  ]);
+  assert.deepEqual(result[0].timeBands, ['morning', 'night']);
+  assert.equal(result[0].minLevel, 10);
+  assert.equal(result[0].maxLevel, 22);
+});

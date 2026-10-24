@@ -6,19 +6,65 @@
   "method": "tall-grass",
   "timeBands": {
     "morning": [
-      { "speciesId": 16, "weight": 50, "minLevel": 2, "maxLevel": 4 },
-      { "speciesId": 19, "weight": 30, "minLevel": 2, "maxLevel": 3 },
-      { "speciesId": 161, "weight": 20, "minLevel": 2, "maxLevel": 4 }
+      {
+        "speciesId": 16,
+        "weight": 50,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 19,
+        "weight": 30,
+        "minLevel": 2,
+        "maxLevel": 3
+      },
+      {
+        "speciesId": 161,
+        "weight": 20,
+        "minLevel": 2,
+        "maxLevel": 4
+      }
     ],
     "day": [
-      { "speciesId": 16, "weight": 40, "minLevel": 2, "maxLevel": 4 },
-      { "speciesId": 161, "weight": 30, "minLevel": 2, "maxLevel": 4 },
-      { "speciesId": 19, "weight": 30, "minLevel": 2, "maxLevel": 4 }
+      {
+        "speciesId": 16,
+        "weight": 40,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 161,
+        "weight": 30,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 19,
+        "weight": 30,
+        "minLevel": 2,
+        "maxLevel": 4
+      }
     ],
     "night": [
-      { "speciesId": 163, "weight": 50, "minLevel": 3, "maxLevel": 5 },
-      { "speciesId": 167, "weight": 30, "minLevel": 2, "maxLevel": 4 },
-      { "speciesId": 19, "weight": 20, "minLevel": 2, "maxLevel": 3 }
+      {
+        "speciesId": 163,
+        "weight": 50,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 167,
+        "weight": 30,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 19,
+        "weight": 20,
+        "minLevel": 2,
+        "maxLevel": 3
+      }
     ]
-  }
+  },
+  "habitatLabel": "Erba ai lati del sentiero"
 }

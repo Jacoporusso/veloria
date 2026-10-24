@@ -14,6 +14,7 @@ export interface EncounterTable {
   readonly version: number;
   readonly status: 'prototype';
   readonly method: EncounterMethod;
+  readonly habitatLabel?: string;
   readonly timeBands: Readonly<Record<EncounterTimeBand, readonly EncounterEntry[]>>;
 }
 
@@ -88,6 +89,7 @@ export function validateTable(table: EncounterTable, species: EncounterSpeciesRe
   if (!table.id.trim() || !table.mapId.trim() || !Number.isInteger(table.version) || table.version < 1) {
     throw new Error('Encounter table needs a stable ID, map ID, and positive integer version.');
   }
+  if (table.habitatLabel !== undefined && (typeof table.habitatLabel !== 'string' || !table.habitatLabel.trim() || table.habitatLabel.length > 120)) throw new Error(`Encounter table ${table.id} has an invalid habitat label.`);
   if (table.status !== 'prototype') throw new Error(`Encounter table ${table.id} must declare prototype status until its balance is approved.`);
   if (!['tall-grass', 'cave', 'surf', 'fishing', 'special', 'woodland-understory'].includes(table.method)) {
     throw new Error(`Encounter table ${table.id} has an unsupported method.`);

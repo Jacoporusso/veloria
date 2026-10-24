@@ -24,6 +24,7 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await expect(habitats.getByRole('article').first()).not.toContainText('Da esplorare');
     const conduit = habitats.getByRole('article').filter({ hasText: 'Condotto Risonante' });
     await expect(conduit).toHaveCount(1);
+    await expect(conduit).toContainText('Muschio occidentale');
     await expect(conduit).toContainText('Erba alta · Lv.18–21 · A ogni ora');
     await habitats.scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`wooper-habitats-${width}.png`) });
@@ -31,8 +32,17 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await panel.getByRole('button', { name: /Chinchou/ }).click();
     const coast = habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Pesca' });
     await expect(coast).toHaveCount(1);
+    await expect(coast).toContainText('Postazione di pesca dalla riva');
     await expect(coast).toContainText('Pesca · Lv.20–23 · A ogni ora');
     await expect(habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Erba alta' })).toHaveCount(1);
+    await panel.getByRole('button', { name: '← Tutte le specie viste', exact: true }).click();
+    await panel.getByRole('button', { name: /Pikachu/ }).click();
+    const viaduct = habitats.getByRole('article').filter({ hasText: 'Viadotto dei Ciliegi' });
+    await expect(viaduct).toHaveCount(1);
+    await expect(viaduct).toContainText('Giardino dei Binari, lato ovest · Lv.12–14 · A ogni ora');
+    await expect(viaduct).toContainText('Sponde del Viadotto, lato est · Lv.12–14 · A ogni ora');
+    await viaduct.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: info.outputPath(`pikachu-microhabitats-${width}.png`) });
     const after = await readBrowserSave(page);
     expect(after.party).toEqual(before.party);
     expect(after.inventory).toEqual(before.inventory);

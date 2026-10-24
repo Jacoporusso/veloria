@@ -616,6 +616,7 @@ for encounter_file in runtime_encounters:
     table = json.loads(encounter_file.read_text(encoding="utf-8"))
     check(table["id"] not in runtime_encounter_ids, f"Duplicate runtime encounter ID: {table['id']}")
     runtime_encounter_ids.add(table["id"])
+    check(isinstance(table.get("habitatLabel"), str) and 0 < len(table["habitatLabel"].strip()) <= 120, f"Runtime encounter needs a readable habitat label: {table['id']}")
     check(table.get("status") == "prototype", f"Encounter balance must remain explicitly provisional: {table['id']}")
     check(table.get("method") in {"tall-grass", "cave", "surf", "fishing", "special", "woodland-understory"}, f"Unsupported encounter method: {table['id']}")
     runtime_map = runtime_by_id.get(table["mapId"])
