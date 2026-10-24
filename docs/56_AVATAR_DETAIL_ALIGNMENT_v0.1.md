@@ -22,3 +22,8 @@ Le maschere sono calibrate sugli atlanti `trainer-*-v1.webp`, non una segmentazi
 Browser: quattro casi passati (wizard nei due orientamenti, controllo dei dettagli su tutti i frame e regressione pelle/zaino). Dopo la rifinitura dei poligoni, ripassati i due casi di rendering. Test sui dettagli: tre acconciature × 16 pose per ciascuna variazione occhi/barba/zaino, nessun cambiamento fuori maschera o su pixel trasparenti, nessuna modifica dell’alfa. Studio comparativo fronte/profilo/retro ispezionato visivamente. Non è ancora una prova su dispositivo fisico.
 
 Build, PWA offline e pubblicazione: esiti in CI_STATUS. Nessun progresso della partita viene azzerato da questa correzione.
+
+
+### Pubblicazione e driver
+
+Build e PWA offline passati. Rilascio 136 pubblicato e verificato con cache157; ricevuta in CI_STATUS. Corretti anche i tre driver/fixture emersi dalla CI135, senza cambiare la validazione dello schema v1 o attenuare gli assert di risorse. Migrazione, due orientamenti wizard e P8 offline ripassati.

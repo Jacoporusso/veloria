@@ -3,14 +3,16 @@ import { expect, type Page } from '@playwright/test';
 
 /** Enter through the player's real title-screen choice and dismiss only the new-game intro. */
 export async function enterGame(page: Page): Promise<void> {
-  const title = page.locator('.start-screen');
   const canvas = page.locator('#game canvas');
 
-  await expect.poll(async () => (await title.isVisible()) || (await canvas.isVisible()), { timeout: 30_000 }).toBe(true);
+  const continueButton = page.getByRole('button', { name: 'Continua partita' });
+  const newButton = page.getByRole('button', { name: 'Nuova partita', exact: true });
+  // The title also exists while a confirmed wizard is still saving. Wait for
+  // actual title actions or the canvas, rather than starting a second wizard.
+  await expect.poll(async () => await canvas.isVisible() || await continueButton.isVisible() || await newButton.isVisible(), { timeout: 30_000 }).toBe(true);
 
   let startedNewGame = false;
-  if (await title.isVisible()) {
-    const continueButton = page.getByRole('button', { name: 'Continua partita' });
+  if (!await canvas.isVisible()) {
     if (await continueButton.isVisible()) {
       await continueButton.click();
     } else {
