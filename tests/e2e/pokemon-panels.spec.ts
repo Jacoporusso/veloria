@@ -257,3 +257,53 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     }
   });
 }
+
+for (const [width, height] of [[390, 844], [844, 390]]) {
+  test(`evolution recovery guidance follows owned level and HP at ${width}x${height}`, async ({ page }, info) => {
+    await page.setViewportSize({ width, height });
+    await page.route('**/src/main.ts*', route => route.fulfill({ contentType: 'text/javascript', body: `
+      import '/src/style.css';
+      import '/src/settings.css';
+      import { PokemonPanel } from '/src/game/ui/PokemonPanel.ts';
+      import { newGameSave } from '/src/persistence/save-store.ts';
+      import { createBattleCreature } from '/src/core/battle/create-creature.ts';
+      import { battleSpecies, battleMoves } from '/src/game/battle/catalog.ts';
+      const save = newGameSave();
+      save.party = [[96, 25, false], [96, 31, true], [5, 36, false], [25, 20, false]].map(([speciesId, level, fainted], index) => {
+        const creature = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId, level, instanceId: 'guide-' + index });
+        return { instanceId: creature.instanceId, speciesId, level, experience: 0, hp: fainted ? 0 : creature.hp,
+          maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) };
+      });
+      globalThis.__guidanceSave = save;
+      globalThis.__guidanceBefore = JSON.stringify(save);
+      const panel = new PokemonPanel();
+      panel.render(save, 'team');
+      document.querySelector('#pokedex-panel').hidden = false;
+      document.querySelector('#game-loading').hidden = true;
+    ` }));
+    await page.goto('/');
+    const panel = page.getByRole('dialog', { name: 'Squadra', exact: true });
+    const evolution = panel.getByRole('region', { name: 'Evoluzione' });
+    await panel.locator('.pokemon-select').filter({ hasText: 'Lv.25' }).click();
+    await expect(evolution).toContainText('Dal livello 26');
+    await expect(evolution).not.toContainText('Soglia raggiunta');
+    await expect(evolution).toContainText('durante la lotta');
+    await panel.getByRole('button', { name: '← Squadra', exact: true }).click();
+    await panel.locator('.pokemon-select').filter({ hasText: 'Lv.31' }).click();
+    await expect(evolution).toContainText('Drowzee → Hypno');
+    await expect(evolution).toContainText('Soglia raggiunta');
+    await expect(evolution).toContainText('Curalo, poi');
+    await expect(evolution).toContainText('Non serve un altro livello');
+    await evolution.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: info.outputPath(`drowzee-recovery-${width}.png`) });
+    await panel.getByRole('button', { name: '← Squadra', exact: true }).click();
+    await panel.locator('.pokemon-select').filter({ hasText: 'Charmeleon' }).click();
+    await expect(evolution).toContainText('Soglia raggiunta');
+    await expect(evolution).not.toContainText('Curalo');
+    await panel.getByRole('button', { name: '← Squadra', exact: true }).click();
+    await panel.locator('.pokemon-select').filter({ hasText: 'Pikachu' }).click();
+    await expect(evolution).toContainText('Pietratuono');
+    await expect(evolution).not.toContainText('Soglia raggiunta');
+    expect(await page.evaluate(() => JSON.stringify((window as any).__guidanceSave) === (window as any).__guidanceBefore)).toBe(true);
+  });
+}

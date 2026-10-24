@@ -152,10 +152,17 @@ export class PokemonPanel {
         : `Usa ${evolution.itemName} · non dipende dal livello`;
       evolutionSection.append(node('strong', `${species.name} → ${evolution.targetName}`), node('p', requirement, 'pokemon-evolution-requirement'));
       const stoneRule = itemEvolutionRules.find(rule => rule.fromSpeciesId === speciesId && rule.toSpeciesId === evolution.targetSpeciesId && battleSpecies[String(rule.toSpeciesId)]);
-      const available = Boolean(stoneRule) || (veloriaBattleRules.evolutions[speciesId] ?? []).some(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
+      const levelRule = (veloriaBattleRules.evolutions[speciesId] ?? []).find(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
+      const available = Boolean(stoneRule || levelRule);
       evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : evolution.targetSpeciesId > 251
         ? 'Evoluzione ufficiale non ancora disponibile nel prototipo: fuori dal catalogo Gen I–II.'
         : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));
+      if (levelRule) {
+        if (creature && creature.level >= levelRule.minimumLevel) {
+          evolutionSection.append(node('p', '✦ Soglia raggiunta', 'pokemon-evolution-requirement'),
+            node('p', `${creature.hp === 0 ? 'Curalo, poi fagli' : 'Fagli'} guadagnare esperienza in lotta: si evolve alla fine del turno, se resta in piedi. Non serve un altro livello.`, 'pokemon-note'));
+        } else evolutionSection.append(node('p', 'Si evolve durante la lotta quando raggiunge il livello richiesto e resta in piedi alla fine del turno.', 'pokemon-note'));
+      }
       if (view === 'team' && creature && stoneRule && this.onUseEvolutionItem) {
         const quantity = save.inventory[stoneRule.itemId] ?? 0;
         const itemName = itemCatalog[stoneRule.itemId]?.name ?? stoneRule.itemId;

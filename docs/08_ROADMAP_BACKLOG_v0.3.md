@@ -1,3 +1,7 @@
+## Guida al recupero evolutivo — runtime0.3.133
+
+Squadra mostra la soglia già raggiunta e le istruzioni per recuperare l'evoluzione, invitando a curare i compagni KO. Usa soltanto le regole runtime, senza modificare il salvataggio o dare indicazioni errate per pietre/scambio. Caso Drowzee31→Hypno31 verificato senza nuovo livello;57 regressioni starter, build/validatore e due browser orientamenti passati. [Contratto e limiti](50_EVOLUTION_READINESS_GUIDE_v0.1.md). Campagna e catalogo completi restano aperti.
+
 ## Evoluzione durante il capopalestra — runtime0.3.132
 
 Richiesta dell'utente implementata: evoluzione alla fine del turno con XP/livello, prima del prossimo avversario, con celebrazione e apprendimento durante lo scontro. Identità/HP/PP conservati; nessuna seconda celebrazione finale.577 test dominio/persistenza, build/validatore e quattro prove browser passati. Due fixture WorldScene complete verificano Mira, medaglia e reload in entrambi gli orientamenti. [Contratto e limiti](49_MIDBATTLE_EVOLUTION_v0.1.md). Catalogo completo e resto della campagna naturale rimangono aperti.
