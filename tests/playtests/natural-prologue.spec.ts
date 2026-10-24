@@ -1,3 +1,4 @@
+import { runDunesRecovery } from './helpers/dunes-recovery';
 import { runSeleneAttempt } from './helpers/selene-attempt';
 import { runAcquarivaWildTraining } from './helpers/acquariva-wild-training';
 import { runAcquarivaRouteTraining } from './helpers/acquariva-route-training';
@@ -42,7 +43,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const acquarivaTrainer = process.env.PLAYTEST_ACQUARIVA_TRAINER;
   const acquarivaTrainSpecies = process.env.PLAYTEST_ACQUARIVA_TRAIN_SPECIES;
   const seleneChallenge = process.env.PLAYTEST_SELENE_CHALLENGE === '1';
-  expect([acquarivaSearch, Boolean(acquarivaTrainer), Boolean(acquarivaTrainSpecies), seleneChallenge].filter(Boolean).length).toBeLessThanOrEqual(1);
+  const dunesRecovery = process.env.PLAYTEST_DUNES_RECOVERY === '1';
+  expect([acquarivaSearch, Boolean(acquarivaTrainer), Boolean(acquarivaTrainSpecies), seleneChallenge, dunesRecovery].filter(Boolean).length).toBeLessThanOrEqual(1);
   const captureSpeciesId = Number(process.env.PLAYTEST_CAPTURE_SPECIES ?? '0');
   expect(Number.isInteger(captureSpeciesId) && captureSpeciesId >= 0 && captureSpeciesId <= 251).toBe(true);
   const resumeFifthFile = process.env.PLAYTEST_RESUME_FIFTH_BACKUP;
@@ -135,8 +137,10 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.mode!=='menu' && battle.mode!=='moves') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
-      if (coastRotation && state.mapId === 'veloria/r08_costa_turbine' && battle.type === 'trainer' && battle.mode === 'menu') {
-        const desiredSpecies = target.speciesId === 72 ? 170 : [98, 170].includes(target.speciesId) ? 195 : undefined;
+      if (coastRotation && ['veloria/r08_costa_turbine', 'veloria/r09_dune_salmastre'].includes(state.mapId) && battle.type === 'trainer' && battle.mode === 'menu') {
+        const desiredSpecies = state.mapId === 'veloria/r09_dune_salmastre'
+          ? target.speciesId === 72 ? 97 : [98, 17].includes(target.speciesId) ? 170 : [180, 170].includes(target.speciesId) ? 195 : undefined
+          : target.speciesId === 72 ? 170 : [98, 170].includes(target.speciesId) ? 195 : undefined;
         const replacement = battle.player.creatures.find((member: any, index: number) => index !== battle.player.activeIndex && member.speciesId === desiredSpecies && member.hp > member.stats.maxHp * 0.4);
         if (own.speciesId !== desiredSpecies && replacement) {
           await tapBattleLabel(page, '__naturalGame', 'SQUADRA');
@@ -276,7 +280,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     if (resumeBackupFile) {
       const backup = JSON.parse(await readFile(resumeBackupFile, 'utf8'));
       if (resumeFifthFile) {
-        expect(['veloria/gym05_portolume', 'veloria/portolume', 'veloria/acquariva']).toContain(backup.save.player.mapId);
+        expect(['veloria/gym05_portolume', 'veloria/portolume', 'veloria/acquariva', 'veloria/gym06_acquariva']).toContain(backup.save.player.mapId);
         expect(backup.save.flags).toContain('badge_marea_awarded');
         expect(backup.save.badges).toHaveLength(5);
       } else if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine', 'veloria/gym05_portolume']).toContain(backup.save.player.mapId);
@@ -609,7 +613,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
     if (resumeFifthFile) {
-      const driver = seleneChallenge ? runSeleneAttempt : acquarivaTrainSpecies ? runAcquarivaWildTraining : acquarivaTrainer ? runAcquarivaRouteTraining : acquarivaSearch ? runAcquarivaCompanionSearch : runPortolumeAcquariva;
+      const driver = dunesRecovery ? runDunesRecovery : seleneChallenge ? runSeleneAttempt : acquarivaTrainSpecies ? runAcquarivaWildTraining : acquarivaTrainer ? runAcquarivaRouteTraining : acquarivaSearch ? runAcquarivaCompanionSearch : runPortolumeAcquariva;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
@@ -621,7 +625,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

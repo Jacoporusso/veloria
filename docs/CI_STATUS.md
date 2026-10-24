@@ -1,3 +1,9 @@
+## Recupero naturale Hypno/Dune — 24 ottobre 2026
+
+Dieci vittorie selvatiche ed evoluzione guadagnata Drowzee→Hypno30 in5minuti; poi Lina/Noemi vinte,420+1250 monete, percorso di ritorno e cure gratuite verificati in3,9minuti. Entrambe le prove senza errori JS; backup/checksum, premi, identità e risorse verificati separatamente. [Provenienza e limiti](playtests/2026-10-24-hypno-and-dunes-recovery.md). Nuovi driver/backup richiedono la propria CI dopo integrazione, senza attestazione anticipata.
+
+[Verify40091325868](https://github.com/Jacoporusso/veloria/actions/runs/40091325868) del commit497111c conclusa SUCCESS. [Verify40092178731](https://github.com/Jacoporusso/veloria/actions/runs/40092178731) della130 ora in corso, non ancora attestata completamente verde.
+
 ## 0.3.130 — Indicazione sulla confusione e prima prova naturale Selene
 
 Descrittore condiviso: sostituire il Pokémon elimina la confusione, come già implementato dal motore.14 test esistenti descrizioni/effetti canonici e build passati; nessuna modifica alle regole. Prima sfida Selene su runtime129 persa in17 turni, puzzle/acquisti/export verificati; checksum e risorse dei backup controllati. [Dettagli](47_CONFUSION_STRATEGY_HINT_v0.1.md). Commit `59899c4` su main. [Deploy40092178872](https://github.com/Jacoporusso/veloria/actions/runs/40092178872) SUCCESS: test dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v151` verificati. [Verify40092178731](https://github.com/Jacoporusso/veloria/actions/runs/40092178731) pending; suite completa130 non ancora attestata.

@@ -1,3 +1,7 @@
+## Recupero naturale dopo Selene: Hypno e Dune
+
+Sconfitta Selene conservata: allenamento gratuito, Drowzee evoluto in Hypno30 con la stessa identità, poi Lina e Noemi vinte tramite strategia di cambi visibili. Due KO individuali per ciascuna prova, nessuna sconfitta dell'intera squadra. Cinque medaglie,1810 monete, risorse consumate in precedenza non restituite; backup intermedi/finale esportati e verificati. [Report e riproduzione](playtests/2026-10-24-hypno-and-dunes-recovery.md). Maya/Selene e il resto della campagna naturale restano aperti; questa evidenza non prova ancora il bilanciamento complessivo.
+
 ## Prima sfida naturale P6 e indicazione sulla confusione
 
 Puzzle Selene completato e persistente dal backup guadagnato; primo tentativo perso in17 turni dopo acquisti pagati, senza premio. [Provenienza, esito e limiti](playtests/2026-10-24-selene-first-attempt.md). Il checkpoint avanzato conserva140 monete, cinque medaglie e risorse consumate. Nella130 i dettagli delle mosse spiegano il cambio per eliminare la confusione ([documento47](47_CONFUSION_STRATEGY_HINT_v0.1.md)); nessuna modifica a regole o dati ufficiali. La sesta medaglia naturale resta aperta.

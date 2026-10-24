@@ -9,6 +9,7 @@ export async function runAcquarivaWildTraining(context: NaturalJourneyContext): 
   expect([96, 133]).toContain(speciesId);
   const targetLevel = speciesId === 96 ? 30 : 29;
   const initial = (await observe()).save;
+  if ((await observe()).mapId === 'veloria/gym06_acquariva') await walk(15, 23);
   expect((await observe()).mapId).toBe('veloria/acquariva');
   expect(initial.badges).toHaveLength(5);
   const companion = initial.party.find(member => member.speciesId === speciesId);
