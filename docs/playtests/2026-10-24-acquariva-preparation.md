@@ -20,7 +20,7 @@ I due Rattata6/8 vengono selezionati insieme nel Deposito e spostati con una sol
 
 Dal backup Drowzee si torna allo stesso habitat con l'orario reale del dispositivo, senza alterare il clock. Tre incontri lasciati con Fuga (Drowzee28, Natu30, Natu29), poi Eevee28 catturato in5 turni con una Sfera. Nessun KO completo, acquisto, premio o risorsa assegnata dal driver. Ritorno al Centro ed esportazione; prova passata in1,2min, zero errori JS.
 
-**Checkpoint più avanzato guadagnato:** `2026-10-24-natural-eevee-caught-backup-charmander.json`. Acquariva8,14,1890 monete, una Sfera, due Pozioni, tre Antidoti, cinque medaglie. Squadra curata: Quagsire24, Chinchou22, Charmeleon24, Drowzee29, Eevee28; Rattata6/8 nel box. RNG621636651. Morso non è ancora conosciuta da Eevee: il livello ufficiale29 è visibile nella scheda. Tutti e sette i compagni sono verificati contro i learnset HGSS e i limiti PP; checksum, squadra/inventario/flag/medaglie/denaro coincidono col report.
+**Checkpoint dopo la cattura di Eevee:** `2026-10-24-natural-eevee-caught-backup-charmander.json`. Acquariva8,14,1890 monete, una Sfera, due Pozioni, tre Antidoti, cinque medaglie. Squadra curata: Quagsire24, Chinchou22, Charmeleon24, Drowzee29, Eevee28; Rattata6/8 nel box. RNG621636651. Morso non è ancora conosciuta da Eevee: il livello ufficiale29 è visibile nella scheda. Tutti e sette i compagni sono verificati contro i learnset HGSS e i limiti PP; checksum, squadra/inventario/flag/medaglie/denaro coincidono col report.
 
 ## Offline e limiti
 
@@ -31,3 +31,21 @@ La contentVersion storica0.3.114 dei salvataggi è mantenuta e distinta dai runt
 Selene e la sesta medaglia non sono ancora state tentate in questa continuazione. Restano preparazione, allenatori facoltativi, apprendimento/evoluzioni guadagnati, P6–P8/Lega/finale naturali, altri starter e QA fisico.
 
 Riproduzione: PLAYTEST_RESUME_FIFTH_BACKUP al backup guadagnato scelto, PLAYTEST_DAMAGE_FIRST=1; per le catture PLAYTEST_ACQUARIVA_SEARCH=1 e PLAYTEST_CAPTURE_SPECIES=96 oppure133. Per la traversata iniziale usare il backup Nerea; per la ripresa Acquariva usare il checkpoint corrispondente. Un solo browser driver per volta.
+
+## Allenamento naturale contro Bruno
+
+Runtime0.3.129, partenza dal backup Eevee, stesso RNG621636651. Primo driver interrotto prima della sfida: la casella due passi sotto Bruno era occupata. Nessuna battaglia o risorsa consumata; report `2026-10-24-natural-bruno-driver-failure-charmander.json` conservato. Il driver ora legge la posizione effettiva dal tilemap e interagisce dalla casella libera immediatamente sotto. Ripartenza dallo stesso backup, senza selezionare il seed.
+
+Vittoria in24 turni, premio1450 monete una volta; due Pozioni consumate e tre KO (Drowzee, Quagsire, Chinchou). Drowzee resta al29 senza XP: la confusione e i colpi subiti lo mandano KO prima della prima vittoria. Non è stata alterata la strategia del nemico. Quagsire guadagna438XP e sale al25, Chinchou430XP e Charmeleon345XP, totale1213XP. Eevee resta28 senza Morso.
+
+Ritorno e riposo gratuito al Centro di Acquariva, export dalla UI. Driver passato in57,3s (58,2totali), zero errori JS. Importazione del backup con verifica del checksum, box/medaglie/identità della squadra conservati e incremento del denaro esattamente1450 verificati separatamente.
+
+Checkpoint `2026-10-24-natural-bruno-won-backup-charmander.json`:3340 monete, una Sfera, zero Pozioni, tre Antidoti, cinque medaglie; squadra curata Drowzee29, Quagsire25, Chinchou22, Charmeleon24, Eevee28. RNG3455314850. Il report `2026-10-24-natural-bruno-won-charmander.json` conserva gli eventi. La prova misura il comportamento del driver, non dimostra un bilanciamento adatto a un bambino o il minimo allenamento necessario. Selene resta da affrontare.
+
+Per riprodurre gli allenatori delle Canne: `PLAYTEST_ACQUARIVA_TRAINER=bruno` oppure `maya`, backup guadagnato in `PLAYTEST_RESUME_FIFTH_BACKUP`. Premi e sconfitte sono conservati; il driver non assegna risorse o XP.
+
+## Prima prova Maya: sconfitta conservata
+
+Dal backup Bruno, senza rifornimenti, Maya batte la squadra in13 turni. Hypno33 resta con3HP, Eevee32 non entra: nessuna XP o ricompensa ottenuta. Il driver usa principalmente il danno previsto e non applica una strategia di cambio contro sonno/confusione. Il risultato segnala un bisogno di preparazione/strategia, non giustifica da solo una modifica ai livelli o ai dati ufficiali.
+
+Ritorno al Centro ed export dopo cure gratuite:3340 monete, una Sfera, zero Pozioni, tre Antidoti e cinque medaglie, livelli/XP/box invariati. Nuovo RNG conservato, nessun ripristino del precedente seed. Prova passata in44,1s (44,9totali), zero errori JS: il successo del driver attesta la corretta gestione della sconfitta e del ritorno, non una vittoria su Maya. Backup/report `2026-10-24-natural-maya-lost*` conservati. Questo è il checkpoint cronologicamente più avanzato; Maya e Selene restano da vincere.
