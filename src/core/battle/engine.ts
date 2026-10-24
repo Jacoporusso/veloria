@@ -635,12 +635,11 @@ function awardExperience(state: BattleState, side: BattleSide, recipientId: stri
   return { ...updated, pendingLevelEvolutions: [...updated.pendingLevelEvolutions, { creatureId: recipientId, previousLevel: recipient.level }] };
 }
 
-/** Level evolution is resolved only after victory, never between opponents or on escape/loss/capture.
+/** Resolve evolution at the end of the XP-earning turn, including between trainer opponents.
  * Living XP recipients qualify after a level gain, or when already at an evolution threshold.
  */
 function finalizeLevelEvolutions(state: BattleState, rules: BattleRules, events: BattleEvent[]): BattleState {
-  if (state.outcome.kind === 'ongoing') return state;
-  if (state.outcome.kind === 'won' && state.outcome.winner === 'player') {
+  if (state.outcome.kind === 'ongoing' || state.outcome.kind === 'won' && state.outcome.winner === 'player') {
     for (const pending of state.pendingLevelEvolutions) {
       const index = state.player.creatures.findIndex(creature => creature.instanceId === pending.creatureId);
       const recipient = state.player.creatures[index];

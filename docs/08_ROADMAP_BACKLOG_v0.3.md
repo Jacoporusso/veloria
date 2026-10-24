@@ -1,3 +1,7 @@
+## Evoluzione durante il capopalestra — runtime0.3.132
+
+Richiesta dell'utente implementata: evoluzione alla fine del turno con XP/livello, prima del prossimo avversario, con celebrazione e apprendimento durante lo scontro. Identità/HP/PP conservati; nessuna seconda celebrazione finale.577 test dominio/persistenza, build/validatore e quattro prove browser passati. Due fixture WorldScene complete verificano Mira, medaglia e reload in entrambi gli orientamenti. [Contratto e limiti](49_MIDBATTLE_EVOLUTION_v0.1.md). Catalogo completo e resto della campagna naturale rimangono aperti.
+
 ## Recupero Charmeleon36 — runtime0.3.131
 
 Un compagno già alla soglia può evolvere alla prossima vittoria in cui guadagna XP e resta in piedi, senza un ulteriore livello. Regole/dati ufficiali dei livelli e learnset invariati; la modalità di recupero è una scelta del prototipo.577 test dominio/persistenza, build/validatore e due prove browser Charizard normali/recupero passati. [Contratto e limiti](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md). Campagna naturale e catalogo completo rimangono aperti.

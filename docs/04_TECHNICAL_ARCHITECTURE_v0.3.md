@@ -236,3 +236,7 @@ I test unit e browser controllano esplicitamente la sorgente di entropia per ver
 ## Recupero evoluzioni per livello — runtime131
 
 `awardExperience` accoda anche un destinatario già alla soglia configurata; `finalizeLevelEvolutions` conserva il controllo di vittoria e HP. La coda resta transitoria, senza cambiare il save. `evolveAfterBattle` limita le mosse della nuova forma al livello corrente quando non si è verificato un nuovo level-up. Il rulesetv14 distingue esplicitamente la nuova semantica. [Contratto e verifiche](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md).
+
+## Evoluzione durante lo scontro — runtime132
+
+Il reducer finalizza i destinatari XP al termine del turno anche con outcome ongoing. BattleScene sospende i comandi sul messaggio creatureEvolved, presenta la celebrazione e riprende prima della sostituzione avversaria. Le chiavi già presentate passano separatamente dagli eventi completi a WorldScene, che evita di accodare ricevute duplicate. Il commit del risultato resta a fine lotta; nessun nuovo formato di save o ripristino di battaglie interrotte. [Dettagli](49_MIDBATTLE_EVOLUTION_v0.1.md).

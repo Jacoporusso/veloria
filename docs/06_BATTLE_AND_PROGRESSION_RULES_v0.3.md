@@ -252,3 +252,7 @@ Il selettore mostra il rischio, mentre dettagli e Squadra/Pokédex spiegano perc
 ## Aggiornamento24/10/2026 — recupero evoluzioni, rulesetv14
 
 Quando un compagno già alla soglia evolutiva guadagna XP, alla fine di una vittoria viene rivalutato anche senza un ulteriore livello, purché non sia KO. Questo evita il blocco dopo una precedente occasione persa. Fuga/cattura/sconfitta e riserve senza XP non attivano il recupero. È una scelta del prototipo, con livelli e learnset ufficiali invariati. Nessun evento levelUp artificiale e nessun apprendimento retroattivo delle mosse di livelli precedenti. Dettagli e regressioni in [48_LEVEL_EVOLUTION_RECOVERY_v0.1.md](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md).
+
+## Aggiornamento24/10/2026 — evoluzione durante lo scontro, rulesetv15
+
+Su richiesta dell'utente, l'evoluzione avviene alla fine del turno che assegna XP/livello, anche prima del prossimo Pokémon del capopalestra. Sostituisce il precedente vincolo di vittoria finale: celebrazione e apprendimento vengono risolti prima della ripresa. Il compagno deve essere vivo al termine del turno; una successiva sconfitta o fuga non annulla la trasformazione già ottenuta. Conservato il recupero delle soglie già raggiunte e l'esclusione di riserve senza XP. Livelli e dati ufficiali invariati. [Contratto e verifiche](49_MIDBATTLE_EVOLUTION_v0.1.md).

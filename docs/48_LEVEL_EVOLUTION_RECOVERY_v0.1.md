@@ -1,5 +1,7 @@
 # Recupero delle evoluzioni per livello — v0.1
 
+Documento della runtime131: il vincolo di vittoria finale è sostituito nella132 dall’[evoluzione durante lo scontro](49_MIDBATTLE_EVOLUTION_v0.1.md), su richiesta dell’utente.
+
 ## Problema e comportamento
 
 Segnalazione: Charmeleon è già al36 ma non è ancora Charizard. Il vecchio reducer accodava l'evoluzione soltanto dopo un nuovo livello e la eliminava alla sconfitta o se il destinatario era KO alla vittoria. Un compagno rimasto alla soglia doveva quindi guadagnare un livello ulteriore.

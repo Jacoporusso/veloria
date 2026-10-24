@@ -1180,14 +1180,14 @@ export class WorldScene extends Phaser.Scene {
           this.save.flags = recordSpeciesSeen(this.save.flags, speciesId);
           void this.persistProgress();
         },
-        onComplete: (finalState: BattleState, events: readonly BattleEvent[]) => {
+        onComplete: (finalState: BattleState, events: readonly BattleEvent[], presentedEvolutions: readonly string[] = []) => {
           if (completionHandled) return;
           completionHandled = true;
           const previousMoney = this.save.player.money;
           const previousBadges = new Set(this.save.badges);
           this.save = mergeBattlePlayerState(this.save, finalState);
           this.save = queueEvolutionReceipts(this.save, events.flatMap(event =>
-            event.type === 'creatureEvolved' && event.side === 'player' ? [{ creatureId: event.creatureId,
+            event.type === 'creatureEvolved' && event.side === 'player' && !presentedEvolutions.includes(evolutionReceiptFlag(event)) ? [{ creatureId: event.creatureId,
               fromSpeciesId: event.fromSpeciesId, toSpeciesId: event.toSpeciesId, level: event.level }] : []));
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
           if (challenge && trainer) {

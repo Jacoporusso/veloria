@@ -19,6 +19,7 @@ import { BattleEffects } from '../battle/BattleEffects.ts';
 import { describeMoveMatchup } from '../battle/move-matchup.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
+import { evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
 import { BattleCelebration, type VictoryPresentation } from '../ui/BattleCelebration.ts';
 import { gameViewport } from '../rendering/game-size.ts';
 
@@ -28,7 +29,7 @@ export interface BattleSceneInit {
   readonly moveCatalog: MoveCatalog;
   readonly rules: BattleRules;
   /** Events remain the source of truth for save/inventory updates in the owning application. */
-  readonly onComplete: (state: BattleState, events: readonly BattleEvent[]) => void;
+  readonly onComplete: (state: BattleState, events: readonly BattleEvent[], presentedEvolutions: readonly string[]) => void;
   /** Owner commits the result and presents any durable ceremonies before the receipt. */
   readonly beforeCelebration?: (state: BattleState, events: readonly BattleEvent[], signal: AbortSignal) => Promise<void>;
   readonly capturedIsNew?: boolean;
@@ -102,6 +103,7 @@ export class BattleScene extends Phaser.Scene {
   private terminalPreparing = false;
   private terminalController = new AbortController();
   private readonly unrevealedEvolutions = new Map<string, BattleCreature>();
+  private readonly presentedEvolutions = new Set<string>();
   private victoryPresentation?: BattleSceneInit['victoryPresentation'];
   private pendingMoveLearning?: Extract<BattleEvent, { type: 'moveLearningSkipped' }>;
   private messageTimer?: Phaser.Time.TimerEvent;
@@ -146,6 +148,7 @@ export class BattleScene extends Phaser.Scene {
     this.terminalController = new AbortController();
     this.terminalPreparing = false;
     this.unrevealedEvolutions.clear();
+    this.presentedEvolutions.clear();
     this.onDismiss = data.onDismiss;
     this.onReady = data.onReady;
     this.celebration?.destroy();
@@ -979,7 +982,7 @@ export class BattleScene extends Phaser.Scene {
     const hasPendingPlayerLearning = transition.events.some(event => event.type === 'moveLearningSkipped' && event.side === 'player');
     if (this.state.outcome.kind !== 'ongoing' && !hasPendingPlayerLearning && !this.completionReported) {
       this.completionReported = true;
-      this.onComplete(this.state, [...this.eventLog]);
+      this.onComplete(this.state, [...this.eventLog], [...this.presentedEvolutions]);
     }
     this.render();
     this.scheduleMessageAdvance();
@@ -995,6 +998,10 @@ export class BattleScene extends Phaser.Scene {
     this.messageTimer?.remove(false);
     this.messageTimer = undefined;
     const current = this.pendingMessages[0];
+    if (current?.event?.type === 'creatureEvolved' && this.state.outcome.kind === 'ongoing') {
+      void this.presentTurnEvolution(current.event);
+      return;
+    }
     if (current?.event?.type === 'moveLearningSkipped' && current.event.side === 'player') {
       this.pendingMessages.shift();
       this.beginMoveLearning(current.event);
@@ -1020,6 +1027,32 @@ export class BattleScene extends Phaser.Scene {
     if (next?.event?.type !== 'moveLearningSkipped' || next.event.side !== 'player') return;
     this.pendingMessages.shift();
     this.beginMoveLearning(next.event);
+  }
+
+  private async presentTurnEvolution(event: Extract<BattleEvent, { type: 'creatureEvolved' }>): Promise<void> {
+    this.terminalPreparing = true;
+    const signal = this.terminalController.signal;
+    try {
+      await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
+      if (signal.aborted) return;
+      this.presentedEvolutions.add(evolutionReceiptFlag(event));
+      const hasMore = this.eventLog.some(entry => entry.type === 'creatureEvolved' && entry.creatureId === event.creatureId && !this.presentedEvolutions.has(evolutionReceiptFlag(entry)));
+      if (!hasMore) this.unrevealedEvolutions.delete(event.creatureId);
+      const creature = this.creatureById(event.side, event.creatureId);
+      if (creature) this.visualHp.set(event.creatureId, creature.hp);
+      this.pendingMessages.shift();
+      this.terminalPreparing = false;
+      this.openNextMoveLearningIfNeeded();
+      if (this.pendingMessages.length || this.pendingMoveLearning) {
+        this.render();
+        this.scheduleMessageAdvance();
+      } else this.finishPostTurn();
+    } catch (error) {
+      if (signal.aborted) return;
+      console.error('Unable to present turn evolution', error);
+      this.terminalPreparing = false;
+      this.render();
+    }
   }
 
   private beginMoveLearning(event: Extract<BattleEvent, { type: 'moveLearningSkipped' }>): void {
@@ -1080,7 +1113,7 @@ export class BattleScene extends Phaser.Scene {
     if (this.state.outcome.kind !== 'ongoing') {
       if (!this.completionReported) {
         this.completionReported = true;
-        this.onComplete(this.state, [...this.eventLog]);
+        this.onComplete(this.state, [...this.eventLog], [...this.presentedEvolutions]);
       }
       if (!this.terminalShown) void this.prepareTerminalPresentation();
       else if (!this.dismissalReported) {
@@ -1109,7 +1142,7 @@ export class BattleScene extends Phaser.Scene {
       else {
         for (const event of this.eventLog) {
           if (signal.aborted) return;
-          if (event.type === 'creatureEvolved') await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
+          if (event.type === 'creatureEvolved' && !this.presentedEvolutions.has(evolutionReceiptFlag(event))) await showEvolutionCelebration({ ...event, reducedAnimations: this.reducedAnimations, signal });
         }
       }
       if (signal.aborted) return;
@@ -1320,7 +1353,7 @@ export class BattleScene extends Phaser.Scene {
         return formatStatStageChanged(event.stat, event.change, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
       case 'statStageLimited':
         return formatStatStageLimited(event.stat, event.stage, this.creatureById(event.side, event.creatureId)?.name ?? 'La creatura');
-      case 'creatureEvolved': return null;
+      case 'creatureEvolved': return this.state.outcome.kind === 'ongoing' ? `${event.fromName} si sta evolvendo!` : null;
       case 'creatureSwitched': return `${this.creatureById(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
       case 'itemUsed': return 'Hai usato uno strumento.';
       case 'captureAttempted': return 'La sfera è in volo…';

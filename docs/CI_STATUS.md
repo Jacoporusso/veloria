@@ -1,3 +1,7 @@
+## 0.3.132 — Evoluzione durante la sfida al capopalestra
+
+Rulesetv15: trasformazione alla fine del turno con XP/livello, celebrazione prima del prossimo avversario e nessun duplicato a fine lotta.577 test dominio/persistenza, build e validatore passati. Quattro browser passati in45,8s: due nuove prove Mira portrait/landscape con medaglia/salvataggio/reload e due regressioni Charizard terminali. Screenshot controllati. [Contratto e limiti](49_MIDBATTLE_EVOLUTION_v0.1.md). Commit, CI132 e deploy ancora da attestare.
+
 ## 0.3.131 — Recupero evoluzione alla soglia già raggiunta
 
 Rulesetv14: Charmeleon già36 può diventare Charizard senza dover raggiungere37, dopo una vittoria con XP e senza KO. Nessun cambiamento ai livelli/mosse importati o al formato del save.577 test dominio/persistenza, build e validatore passati; due casi browser Charizard normali/recupero con celebrazione e reload passati in14,6s, screenshot controllato. [Contratto](48_LEVEL_EVOLUTION_RECOVERY_v0.1.md). Commit `9d07375` su main. [Deploy40093581805](https://github.com/Jacoporusso/veloria/actions/runs/40093581805) SUCCESS: test dominio/persistenza, validatore e build Pages passati. Sito pubblico HTTPS200 e cache `veloria-shell-v152` verificati. [Verify40093581781](https://github.com/Jacoporusso/veloria/actions/runs/40093581781) pending dietro la130 ancora in corso; suite completa131 non ancora attestata.

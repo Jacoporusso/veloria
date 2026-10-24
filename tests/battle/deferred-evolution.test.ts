@@ -18,13 +18,14 @@ const attack = { player: { kind: 'useMove', moveSlot: 0 } as const, opponent: { 
 function afterFirst() { return resolveBattleTurn(battle(), attack, moves, rules); }
 function replaceOpponent(state: ReturnType<typeof battle>) { return resolveBattleTurn(state, { player: attack.player, opponent: { kind: 'switch', partyIndex: 1 } }, moves, rules).state; }
 
-test('level gains remain in the original form between opponents and evolve only after victory', () => {
+test('a level gain evolves the creature before the next opponent acts', () => {
   const initial = battle(); const first = resolveBattleTurn(initial, attack, moves, rules);
   assert.equal(initial.player.creatures[0].level, 5);
   assert.equal(first.state.player.creatures[0].level, 6);
-  assert.equal(first.state.player.creatures[0].speciesId, 1);
-  assert.deepEqual(first.state.pendingLevelEvolutions, [{ creatureId: 'hero', previousLevel: 5 }]);
-  assert.ok(!first.events.some(event => event.type === 'creatureEvolved'));
+  assert.equal(first.state.player.creatures[0].speciesId, 2);
+  assert.deepEqual(first.state.pendingLevelEvolutions, []);
+  assert.ok(first.events.some(event => event.type === 'creatureEvolved'));
+  assert.ok(first.events.findIndex(event => event.type === 'levelUp') < first.events.findIndex(event => event.type === 'creatureEvolved'));
   const replaced = replaceOpponent(first.state);
   const result = resolveBattleTurn(replaced, attack, moves, rules);
   assert.equal(result.state.outcome.kind, 'won');
@@ -32,16 +33,16 @@ test('level gains remain in the original form between opponents and evolve only 
   assert.equal(result.state.player.creatures[0].moves[0].pp, 18);
   assert.ok(result.state.player.creatures[0].moves.some(slot => slot.moveId === 'wait'));
   assert.deepEqual(result.state.pendingLevelEvolutions, []);
-  assert.ok(result.events.findIndex(event => event.type === 'battleEnded') < result.events.findIndex(event => event.type === 'creatureEvolved'));
   assert.deepEqual(resolveBattleTurn(result.state, attack, moves, rules), { state: result.state, events: [] });
 });
 
-test('fleeing clears pending eligibility without evolving or reverting gained levels', () => {
+test('fleeing after an evolution keeps the evolved form', () => {
   const state = replaceOpponent(afterFirst().state);
+  assert.equal(state.player.creatures[0].speciesId, 2);
   const result = resolveBattleTurn(state, { player: { kind: 'attemptFlee' }, opponent: attack.opponent }, moves, rules);
   assert.equal(result.state.outcome.kind, 'fled');
   assert.equal(result.state.player.creatures[0].level, 6);
-  assert.equal(result.state.player.creatures[0].speciesId, 1);
+  assert.equal(result.state.player.creatures[0].speciesId, 2);
   assert.deepEqual(result.state.pendingLevelEvolutions, []);
 });
 
@@ -58,7 +59,7 @@ test('an already eligible XP recipient recovers evolution without another level 
 
 test('a fainted level recipient does not evolve when another party member wins', () => {
   const first = afterFirst().state;
-  const state = { ...first, player: { creatures: [{ ...first.player.creatures[0], hp: 0 }, creature('finisher', { speciesId: 3, level: 10, experience: 0 })], activeIndex: 0 } };
+  const state = { ...first, player: { creatures: [{ ...first.player.creatures[0], speciesId: 1, hp: 0 }, creature('finisher', { speciesId: 3, level: 10, experience: 0 })], activeIndex: 0 }, pendingLevelEvolutions: [{ creatureId: 'hero', previousLevel: 5 }] };
   const replaced = resolveBattleTurn(state, { player: { kind: 'switch', partyIndex: 1 }, opponent: { kind: 'switch', partyIndex: 1 } }, moves, rules);
   const result = resolveBattleTurn(replaced.state, attack, moves, rules);
   assert.equal(result.state.outcome.kind, 'won');
@@ -91,12 +92,13 @@ test('an eligible creature receiving no XP cannot trigger recovery', () => {
   assert.ok(!result.events.some(event => event.type === 'creatureEvolved'));
 });
 
-test('defeat preserves earned levels and clears pending evolution without transforming', () => {
+test('a later defeat does not revert an evolution earned earlier in the fight', () => {
   const state = replaceOpponent(afterFirst().state);
+  assert.equal(state.player.creatures[0].speciesId, 2);
   const losing = { ...state, player: { ...state.player, creatures: [{ ...state.player.creatures[0], hp: 1, moves: [{ moveId: 'wait', pp: 20 }] }] }, opponent: { ...state.opponent, creatures: state.opponent.creatures.map((entry, index) => index === 1 ? { ...entry, moves: [{ moveId: 'strike', pp: 20 }] } : entry) } };
   const result = resolveBattleTurn(losing, attack, moves, rules);
   assert.deepEqual(result.state.outcome, { kind: 'won', winner: 'opponent', reason: 'allFainted' });
   assert.equal(result.state.player.creatures[0].level, 6);
-  assert.equal(result.state.player.creatures[0].speciesId, 1);
+  assert.equal(result.state.player.creatures[0].speciesId, 2);
   assert.deepEqual(result.state.pendingLevelEvolutions, []);
 });
