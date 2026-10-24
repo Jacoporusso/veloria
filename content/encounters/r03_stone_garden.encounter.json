@@ -1,0 +1,69 @@
+{
+  "id": "veloria/r03_stone_garden",
+  "mapId": "veloria/r03_terrazze_muschio",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 74,
+        "weight": 50,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 161,
+        "weight": 30,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 69,
+        "weight": 20,
+        "minLevel": 6,
+        "maxLevel": 8
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 74,
+        "weight": 60,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 161,
+        "weight": 25,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 69,
+        "weight": 15,
+        "minLevel": 6,
+        "maxLevel": 8
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 74,
+        "weight": 40,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 41,
+        "weight": 45,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 167,
+        "weight": 15,
+        "minLevel": 6,
+        "maxLevel": 8
+      }
+    ]
+  }
+}

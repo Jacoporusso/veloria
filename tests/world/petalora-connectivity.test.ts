@@ -186,7 +186,8 @@ test('all R04 spawn points reach Nila and the central route avoids grass, water,
 
   const encounterZones = (layers.get('triggers') ?? []).filter(object => properties(object).kind === 'encounter-zone');
   assert.ok(encounterZones.length >= 4, `R04 has ${encounterZones.length} encounter zones`);
-  assert.ok(encounterZones.every(object => properties(object).encounterTableId === 'veloria/r04_petal_ascent'));
+  assert.equal(encounterZones.filter(object => properties(object).encounterTableId === 'veloria/r04_petal_ascent').length, 3);
+  assert.equal(encounterZones.filter(object => properties(object).encounterTableId === 'veloria/r04_stream_patch').length, 1);
   assert.ok(r04.encounterTableIds?.includes('veloria/r04_petal_ascent'));
 });
 

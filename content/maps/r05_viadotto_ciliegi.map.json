@@ -100,7 +100,9 @@
     }
   ],
   "encounterTableIds": [
-    "veloria/r05_cherry_viaduct"
+    "veloria/r05_cherry_viaduct",
+    "veloria/r05_rail_patch",
+    "veloria/r05_bank_patch"
   ],
   "npcRefs": [
     "oren_r05"

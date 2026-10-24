@@ -120,7 +120,8 @@ test('R05 and the city declare their route and park encounter habitats', () => {
   assert.equal(parkZones.length, 1, 'Vetracielo has a distinct park habitat');
   for (const [map, zones, tableId] of [[route, routeZones, 'veloria/r05_cherry_viaduct'], [city, parkZones, 'veloria/vetracielo_park']] as const) {
     assert.ok(map.encounterTableIds?.includes(tableId));
-    assert.ok(zones.every(zone => properties(zone).encounterTableId === tableId));
+    assert.ok(zones.every(zone => map.encounterTableIds?.includes(properties(zone).encounterTableId)));
+    if (map.id === route.id) assert.equal(new Set(zones.map(zone => properties(zone).encounterTableId)).size, 3);
     const table = readJson<{ id: string; mapId: string; status: string; timeBands: Record<string, { speciesId: number }[]> }>(`${root}/content/encounters/${tableId.split('/')[1]}.encounter.json`);
     assert.equal(table.id, tableId);
     assert.equal(table.mapId, map.id);

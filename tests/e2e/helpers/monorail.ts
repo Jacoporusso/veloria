@@ -25,7 +25,7 @@ export async function prepareMonorailTraveler(page: Page, unlocked = true, visit
   const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 25, level: 20, instanceId: 'rail-traveler', moveIds: ['thunder-shock', 'quick-attack'] });
   save.party = [{ instanceId: creature.instanceId, speciesId: 25, level: 20, experience: 0, hp: 12, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: 1 })) }];
   save.flags = [...save.flags.filter(flag => !flag.startsWith('atlas_visited_')),
-    'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'prologue_complete_seen', 'pokedex_seen_25',
+    'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'prologue_complete_seen', 'pokedex_seen_25', 'pokedex_caught_25',
     ...visited.flatMap(id => {
       const station = monorailNetwork.stations.find(item => item.id === id)!;
       return [`atlas_visited_${station.mapId}`, `q_${id}_visited`];

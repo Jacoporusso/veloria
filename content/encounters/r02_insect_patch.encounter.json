@@ -1,0 +1,81 @@
+{
+  "id": "veloria/r02_insect_patch",
+  "mapId": "veloria/r02_viale_fronde",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 10,
+        "weight": 40,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 13,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 69,
+        "weight": 20,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 11,
+        "weight": 5,
+        "minLevel": 7,
+        "maxLevel": 7
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 10,
+        "weight": 45,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 13,
+        "weight": 35,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 11,
+        "weight": 10,
+        "minLevel": 7,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 14,
+        "weight": 10,
+        "minLevel": 7,
+        "maxLevel": 7
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 167,
+        "weight": 50,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 13,
+        "weight": 30,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 43,
+        "weight": 20,
+        "minLevel": 4,
+        "maxLevel": 6
+      }
+    ]
+  }
+}

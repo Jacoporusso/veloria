@@ -2,21 +2,24 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
+import wetBankData from '../../content/encounters/d01_wet_bank.encounter.json' with { type: 'json' };
 import woodlandData from '../../content/encounters/d01_woodland.encounter.json' with { type: 'json' };
 import forestMap from '../../content/maps/d01_bosco_veli.map.json' with { type: 'json' };
 
 const tiledMap = JSON.parse(readFileSync(fileURLToPath(new URL('../../public/tilemaps/d01_bosco_veli.tmj', import.meta.url)), 'utf8'));
 
-test('Bosco encounter zones use the woodland pool and the tuned per-step rate', () => {
+test('Bosco encounter zones distinguish woodland and wet bank at the tuned per-step rate', () => {
   const triggerLayer = tiledMap.layers.find((layer: { name: string; type: string }) => layer.name === 'triggers' && layer.type === 'objectgroup');
   assert.ok(triggerLayer);
   const zones = triggerLayer.objects.filter((object: { properties?: readonly { name: string; value: unknown }[] }) =>
     object.properties?.some(property => property.name === 'kind' && property.value === 'encounter-zone'));
 
   assert.equal(zones.length, 2);
+  assert.equal(new Set(zones.map((zone: any) => zone.properties.find((entry: any) => entry.name === 'encounterTableId').value)).size, 2);
   for (const zone of zones) {
     const property = (name: string) => zone.properties?.find((entry: { name: string }) => entry.name === name)?.value;
-    assert.equal(property('encounterTableId'), woodlandData.id);
+    assert.ok([woodlandData.id, wetBankData.id].includes(property('encounterTableId')));
+    assert.ok(forestMap.encounterTableIds.includes(property('encounterTableId')));
     assert.equal(property('encounterChance'), 0.18);
   }
 });

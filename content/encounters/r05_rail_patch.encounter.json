@@ -1,0 +1,69 @@
+{
+  "id": "veloria/r05_rail_patch",
+  "mapId": "veloria/r05_viadotto_ciliegi",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 81,
+        "weight": 45,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 25,
+        "weight": 35,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 100,
+        "weight": 20,
+        "minLevel": 12,
+        "maxLevel": 14
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 81,
+        "weight": 45,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 25,
+        "weight": 35,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 100,
+        "weight": 20,
+        "minLevel": 12,
+        "maxLevel": 14
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 81,
+        "weight": 45,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 25,
+        "weight": 35,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 100,
+        "weight": 20,
+        "minLevel": 12,
+        "maxLevel": 14
+      }
+    ]
+  }
+}

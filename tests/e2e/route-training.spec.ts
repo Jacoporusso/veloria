@@ -24,7 +24,7 @@ for (const [map, key, name, x, y, reward, exitX, exitY, destination] of [
   test(`${name} offers an optional battle, pays once and leaves the walking route open`, async ({ page }, info) => {
     test.setTimeout(process.env.CI ? 300_000 : 180_000);
     await page.route('**/src/main.ts*', async route => {
-      const response = await route.fetch();
+      const response = await route.fetch({ maxRetries: 2 });
       await route.fulfill({ response, body: await response.text() + '\nglobalThis.trainingGame=game;' });
     });
     await page.goto('/'); await enterGame(page);

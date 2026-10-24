@@ -1,0 +1,69 @@
+{
+  "id": "veloria/r04_stream_patch",
+  "mapId": "veloria/r04_salita_petali",
+  "version": 1,
+  "status": "prototype",
+  "method": "woodland-understory",
+  "timeBands": {
+    "morning": [
+      {
+        "speciesId": 60,
+        "weight": 45,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 194,
+        "weight": 30,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 43,
+        "weight": 25,
+        "minLevel": 8,
+        "maxLevel": 10
+      }
+    ],
+    "day": [
+      {
+        "speciesId": 60,
+        "weight": 45,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 194,
+        "weight": 35,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 43,
+        "weight": 20,
+        "minLevel": 8,
+        "maxLevel": 10
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 60,
+        "weight": 55,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 194,
+        "weight": 35,
+        "minLevel": 8,
+        "maxLevel": 10
+      },
+      {
+        "speciesId": 43,
+        "weight": 10,
+        "minLevel": 8,
+        "maxLevel": 10
+      }
+    ]
+  }
+}
