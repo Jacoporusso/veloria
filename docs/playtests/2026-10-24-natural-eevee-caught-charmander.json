@@ -1,0 +1,2456 @@
+{
+  "starter": "Charmander",
+  "startingRngState": 3355243495,
+  "prepareGym": true,
+  "continueRadicelmo": false,
+  "continuePetalora": false,
+  "continueVetracielo": false,
+  "continueFerraluce": false,
+  "resumeFifthFile": "docs/playtests/2026-10-24-natural-drowzee-caught-backup-charmander.json",
+  "nereaChallenge": false,
+  "irisRecovery": false,
+  "darioPreparation": false,
+  "wooperPreparation": false,
+  "wooperTraining": false,
+  "damageFirst": true,
+  "coastRotation": false,
+  "nereaRotation": false,
+  "requestedLearning": {},
+  "acquarivaSearch": true,
+  "captureSpeciesId": 133,
+  "healingThreshold": 0.5,
+  "report": [
+    {
+      "label": "Resumed unchanged earned fifth medal checkpoint",
+      "contentVersion": "veloria-content-0.3.114",
+      "mapId": "veloria/acquariva",
+      "x": 8,
+      "y": 14,
+      "party": [
+        {
+          "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "speciesId": 195,
+          "level": 24,
+          "experience": 1547,
+          "hp": 79,
+          "maxHp": 79,
+          "moves": [
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "amnesia",
+              "pp": 20
+            },
+            {
+              "id": "mud-shot",
+              "pp": 15
+            },
+            {
+              "id": "slam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+          "speciesId": 170,
+          "level": 22,
+          "experience": 1463,
+          "hp": 65,
+          "maxHp": 65,
+          "moves": [
+            {
+              "id": "thunder-wave",
+              "pp": 20
+            },
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "confuse-ray",
+              "pp": 10
+            },
+            {
+              "id": "spark",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+          "speciesId": 5,
+          "level": 24,
+          "experience": 763,
+          "hp": 61,
+          "maxHp": 61,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+          "speciesId": 96,
+          "level": 29,
+          "experience": 0,
+          "hp": 73,
+          "maxHp": 73,
+          "moves": [
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "headbutt",
+              "pp": 15
+            },
+            {
+              "id": "meditate",
+              "pp": 40
+            },
+            {
+              "id": "psybeam",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio",
+        "badge_marea"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_179",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_43",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_194",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_81",
+        "pokedex_seen_100",
+        "pokedex_seen_5",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_227",
+        "pokedex_seen_208",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded",
+        "atlas_visited_veloria/r07_condotto_risonante",
+        "q_r07_measurement",
+        "atlas_visited_veloria/d03_centrale_risonante",
+        "q_centrale_log",
+        "q_centrale_isolated",
+        "q_centrale_output",
+        "q_centrale_report",
+        "atlas_visited_veloria/r08_costa_turbine",
+        "atlas_visited_veloria/portolume",
+        "q_portolume_visited",
+        "q_portolume_orientation",
+        "q_portolume_tide_read",
+        "q_portolume_tide_report",
+        "pokedex_seen_98",
+        "pokedex_seen_72",
+        "pokedex_seen_170",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_caught_170",
+        "pokedex_caught_5",
+        "pokedex_caught_19",
+        "trainer_r07_dario_defeated",
+        "q_r07_dario_helped",
+        "pokedex_caught_194",
+        "pokedex_seen_195",
+        "pokedex_caught_195",
+        "trainer_r08_viola_defeated",
+        "q_r08_viola_helped",
+        "atlas_visited_veloria/gym05_portolume",
+        "gym05_basin_balanced",
+        "gym05_sluice_open",
+        "gym05_tide_stable",
+        "pokedex_seen_171",
+        "trainer_gym05_nerea_defeated",
+        "badge_marea_awarded",
+        "atlas_visited_veloria/r09_dune_salmastre",
+        "atlas_visited_veloria/d04_delta_specchi",
+        "q_delta_nursery_read",
+        "q_delta_reeds_read",
+        "q_delta_flow_read",
+        "q_delta_report",
+        "atlas_visited_veloria/r10_sentiero_canne",
+        "q_r10_kit_found",
+        "atlas_visited_veloria/acquariva",
+        "q_acquariva_visited",
+        "q_acquariva_report",
+        "pokedex_seen_96",
+        "pokedex_caught_96"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 3,
+        "old-rod": 1,
+        "super-potion": 0
+      },
+      "money": 1890
+    },
+    {
+      "label": "Battle result",
+      "id": "feb50e8e-6995-4799-ac59-13fb24325526",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 1,
+      "outcome": {
+        "kind": "fled",
+        "side": "player"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+            "speciesId": 195,
+            "name": "Quagsire",
+            "level": 24,
+            "types": [
+              "water",
+              "ground"
+            ],
+            "baseStats": {
+              "hp": 95,
+              "attack": 85,
+              "defense": 85,
+              "specialAttack": 65,
+              "specialDefense": 65,
+              "speed": 35
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 79,
+              "attack": 45,
+              "defense": 45,
+              "specialAttack": 36,
+              "specialDefense": 36,
+              "speed": 21
+            },
+            "hp": 79,
+            "experience": 1547,
+            "experienceYield": 151,
+            "moves": [
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "amnesia",
+                "pp": 20
+              },
+              {
+                "moveId": "mud-shot",
+                "pp": 15
+              },
+              {
+                "moveId": "slam",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+            "speciesId": 170,
+            "name": "Chinchou",
+            "level": 22,
+            "types": [
+              "water",
+              "electric"
+            ],
+            "baseStats": {
+              "hp": 75,
+              "attack": 38,
+              "defense": 38,
+              "specialAttack": 56,
+              "specialDefense": 56,
+              "speed": 67
+            },
+            "growthCurveId": "pokeapi_growth_slow_v1",
+            "stats": {
+              "maxHp": 65,
+              "attack": 21,
+              "defense": 21,
+              "specialAttack": 29,
+              "specialDefense": 29,
+              "speed": 34
+            },
+            "hp": 65,
+            "experience": 1463,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "thunder-wave",
+                "pp": 20
+              },
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              },
+              {
+                "moveId": "spark",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+            "speciesId": 5,
+            "name": "Charmeleon",
+            "level": 24,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 58,
+              "attack": 64,
+              "defense": 58,
+              "specialAttack": 80,
+              "specialDefense": 65,
+              "speed": 80
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 61,
+              "attack": 35,
+              "defense": 32,
+              "specialAttack": 43,
+              "specialDefense": 36,
+              "speed": 43
+            },
+            "hp": 61,
+            "experience": 763,
+            "experienceYield": 142,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 25
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+            "speciesId": 96,
+            "name": "Drowzee",
+            "level": 29,
+            "types": [
+              "psychic"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 48,
+              "defense": 45,
+              "specialAttack": 43,
+              "specialDefense": 90,
+              "speed": 42
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 73,
+              "attack": 32,
+              "defense": 31,
+              "specialAttack": 29,
+              "specialDefense": 57,
+              "speed": 29
+            },
+            "hp": 73,
+            "experience": 0,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "headbutt",
+                "pp": 15
+              },
+              {
+                "moveId": "meditate",
+                "pp": 40
+              },
+              {
+                "moveId": "psybeam",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "feb50e8e-6995-4799-ac59-13fb24325526:wild",
+            "speciesId": 96,
+            "name": "Drowzee",
+            "level": 28,
+            "types": [
+              "psychic"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 48,
+              "defense": 45,
+              "specialAttack": 43,
+              "specialDefense": 90,
+              "speed": 42
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 71,
+              "attack": 31,
+              "defense": 30,
+              "specialAttack": 29,
+              "specialDefense": 55,
+              "speed": 28
+            },
+            "hp": 71,
+            "experience": 0,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "headbutt",
+                "pp": 15
+              },
+              {
+                "moveId": "meditate",
+                "pp": 40
+              },
+              {
+                "moveId": "psybeam",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "fled",
+            "side": "player"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "b3583215-9ec5-458c-9662-0fd8a30bd622",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 1,
+      "outcome": {
+        "kind": "fled",
+        "side": "player"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+            "speciesId": 195,
+            "name": "Quagsire",
+            "level": 24,
+            "types": [
+              "water",
+              "ground"
+            ],
+            "baseStats": {
+              "hp": 95,
+              "attack": 85,
+              "defense": 85,
+              "specialAttack": 65,
+              "specialDefense": 65,
+              "speed": 35
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 79,
+              "attack": 45,
+              "defense": 45,
+              "specialAttack": 36,
+              "specialDefense": 36,
+              "speed": 21
+            },
+            "hp": 79,
+            "experience": 1547,
+            "experienceYield": 151,
+            "moves": [
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "amnesia",
+                "pp": 20
+              },
+              {
+                "moveId": "mud-shot",
+                "pp": 15
+              },
+              {
+                "moveId": "slam",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+            "speciesId": 170,
+            "name": "Chinchou",
+            "level": 22,
+            "types": [
+              "water",
+              "electric"
+            ],
+            "baseStats": {
+              "hp": 75,
+              "attack": 38,
+              "defense": 38,
+              "specialAttack": 56,
+              "specialDefense": 56,
+              "speed": 67
+            },
+            "growthCurveId": "pokeapi_growth_slow_v1",
+            "stats": {
+              "maxHp": 65,
+              "attack": 21,
+              "defense": 21,
+              "specialAttack": 29,
+              "specialDefense": 29,
+              "speed": 34
+            },
+            "hp": 65,
+            "experience": 1463,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "thunder-wave",
+                "pp": 20
+              },
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              },
+              {
+                "moveId": "spark",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+            "speciesId": 5,
+            "name": "Charmeleon",
+            "level": 24,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 58,
+              "attack": 64,
+              "defense": 58,
+              "specialAttack": 80,
+              "specialDefense": 65,
+              "speed": 80
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 61,
+              "attack": 35,
+              "defense": 32,
+              "specialAttack": 43,
+              "specialDefense": 36,
+              "speed": 43
+            },
+            "hp": 61,
+            "experience": 763,
+            "experienceYield": 142,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 25
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+            "speciesId": 96,
+            "name": "Drowzee",
+            "level": 29,
+            "types": [
+              "psychic"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 48,
+              "defense": 45,
+              "specialAttack": 43,
+              "specialDefense": 90,
+              "speed": 42
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 73,
+              "attack": 32,
+              "defense": 31,
+              "specialAttack": 29,
+              "specialDefense": 57,
+              "speed": 29
+            },
+            "hp": 73,
+            "experience": 0,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "headbutt",
+                "pp": 15
+              },
+              {
+                "moveId": "meditate",
+                "pp": 40
+              },
+              {
+                "moveId": "psybeam",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "b3583215-9ec5-458c-9662-0fd8a30bd622:wild",
+            "speciesId": 177,
+            "name": "Natu",
+            "level": 30,
+            "types": [
+              "psychic",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 50,
+              "defense": 45,
+              "specialAttack": 70,
+              "specialDefense": 45,
+              "speed": 70
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 64,
+              "attack": 35,
+              "defense": 32,
+              "specialAttack": 47,
+              "specialDefense": 32,
+              "speed": 47
+            },
+            "hp": 64,
+            "experience": 0,
+            "experienceYield": 64,
+            "moves": [
+              {
+                "moveId": "peck",
+                "pp": 35
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "fled",
+            "side": "player"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "abbed38b-8527-444b-b30f-062e38788fe5",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 1,
+      "outcome": {
+        "kind": "fled",
+        "side": "player"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+            "speciesId": 195,
+            "name": "Quagsire",
+            "level": 24,
+            "types": [
+              "water",
+              "ground"
+            ],
+            "baseStats": {
+              "hp": 95,
+              "attack": 85,
+              "defense": 85,
+              "specialAttack": 65,
+              "specialDefense": 65,
+              "speed": 35
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 79,
+              "attack": 45,
+              "defense": 45,
+              "specialAttack": 36,
+              "specialDefense": 36,
+              "speed": 21
+            },
+            "hp": 79,
+            "experience": 1547,
+            "experienceYield": 151,
+            "moves": [
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "amnesia",
+                "pp": 20
+              },
+              {
+                "moveId": "mud-shot",
+                "pp": 15
+              },
+              {
+                "moveId": "slam",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+            "speciesId": 170,
+            "name": "Chinchou",
+            "level": 22,
+            "types": [
+              "water",
+              "electric"
+            ],
+            "baseStats": {
+              "hp": 75,
+              "attack": 38,
+              "defense": 38,
+              "specialAttack": 56,
+              "specialDefense": 56,
+              "speed": 67
+            },
+            "growthCurveId": "pokeapi_growth_slow_v1",
+            "stats": {
+              "maxHp": 65,
+              "attack": 21,
+              "defense": 21,
+              "specialAttack": 29,
+              "specialDefense": 29,
+              "speed": 34
+            },
+            "hp": 65,
+            "experience": 1463,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "thunder-wave",
+                "pp": 20
+              },
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              },
+              {
+                "moveId": "spark",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+            "speciesId": 5,
+            "name": "Charmeleon",
+            "level": 24,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 58,
+              "attack": 64,
+              "defense": 58,
+              "specialAttack": 80,
+              "specialDefense": 65,
+              "speed": 80
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 61,
+              "attack": 35,
+              "defense": 32,
+              "specialAttack": 43,
+              "specialDefense": 36,
+              "speed": 43
+            },
+            "hp": 61,
+            "experience": 763,
+            "experienceYield": 142,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 25
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+            "speciesId": 96,
+            "name": "Drowzee",
+            "level": 29,
+            "types": [
+              "psychic"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 48,
+              "defense": 45,
+              "specialAttack": 43,
+              "specialDefense": 90,
+              "speed": 42
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 73,
+              "attack": 32,
+              "defense": 31,
+              "specialAttack": 29,
+              "specialDefense": 57,
+              "speed": 29
+            },
+            "hp": 73,
+            "experience": 0,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "headbutt",
+                "pp": 15
+              },
+              {
+                "moveId": "meditate",
+                "pp": 40
+              },
+              {
+                "moveId": "psybeam",
+                "pp": 20
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "abbed38b-8527-444b-b30f-062e38788fe5:wild",
+            "speciesId": 177,
+            "name": "Natu",
+            "level": 29,
+            "types": [
+              "psychic",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 50,
+              "defense": 45,
+              "specialAttack": 70,
+              "specialDefense": 45,
+              "speed": 70
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 62,
+              "attack": 34,
+              "defense": 31,
+              "specialAttack": 45,
+              "specialDefense": 31,
+              "speed": 45
+            },
+            "hp": 62,
+            "experience": 0,
+            "experienceYield": 64,
+            "moves": [
+              {
+                "moveId": "peck",
+                "pp": 35
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "fled",
+            "side": "player"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "6db9fa10-81b3-4f82-a22d-0952b43d2606",
+      "rulesetId": "veloria-battle-prototype-v13",
+      "turn": 5,
+      "outcome": {
+        "kind": "captured",
+        "creatureId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+        "destination": "party"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+            "speciesId": 195,
+            "name": "Quagsire",
+            "level": 24,
+            "types": [
+              "water",
+              "ground"
+            ],
+            "baseStats": {
+              "hp": 95,
+              "attack": 85,
+              "defense": 85,
+              "specialAttack": 65,
+              "specialDefense": 65,
+              "speed": 35
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 79,
+              "attack": 45,
+              "defense": 45,
+              "specialAttack": 36,
+              "specialDefense": 36,
+              "speed": 21
+            },
+            "hp": 41,
+            "experience": 1547,
+            "experienceYield": 151,
+            "moves": [
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "amnesia",
+                "pp": 20
+              },
+              {
+                "moveId": "mud-shot",
+                "pp": 15
+              },
+              {
+                "moveId": "slam",
+                "pp": 16
+              }
+            ],
+            "statStages": {
+              "accuracy": -1
+            }
+          },
+          {
+            "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+            "speciesId": 170,
+            "name": "Chinchou",
+            "level": 22,
+            "types": [
+              "water",
+              "electric"
+            ],
+            "baseStats": {
+              "hp": 75,
+              "attack": 38,
+              "defense": 38,
+              "specialAttack": 56,
+              "specialDefense": 56,
+              "speed": 67
+            },
+            "growthCurveId": "pokeapi_growth_slow_v1",
+            "stats": {
+              "maxHp": 65,
+              "attack": 21,
+              "defense": 21,
+              "specialAttack": 29,
+              "specialDefense": 29,
+              "speed": 34
+            },
+            "hp": 65,
+            "experience": 1463,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "thunder-wave",
+                "pp": 20
+              },
+              {
+                "moveId": "water-gun",
+                "pp": 25
+              },
+              {
+                "moveId": "confuse-ray",
+                "pp": 10
+              },
+              {
+                "moveId": "spark",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+            "speciesId": 5,
+            "name": "Charmeleon",
+            "level": 24,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 58,
+              "attack": 64,
+              "defense": 58,
+              "specialAttack": 80,
+              "specialDefense": 65,
+              "speed": 80
+            },
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 61,
+              "attack": 35,
+              "defense": 32,
+              "specialAttack": 43,
+              "specialDefense": 36,
+              "speed": 43
+            },
+            "hp": 61,
+            "experience": 763,
+            "experienceYield": 142,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 25
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+            "speciesId": 96,
+            "name": "Drowzee",
+            "level": 29,
+            "types": [
+              "psychic"
+            ],
+            "baseStats": {
+              "hp": 60,
+              "attack": 48,
+              "defense": 45,
+              "specialAttack": 43,
+              "specialDefense": 90,
+              "speed": 42
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 73,
+              "attack": 32,
+              "defense": 31,
+              "specialAttack": 29,
+              "specialDefense": 57,
+              "speed": 29
+            },
+            "hp": 73,
+            "experience": 0,
+            "experienceYield": 66,
+            "moves": [
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "headbutt",
+                "pp": 15
+              },
+              {
+                "moveId": "meditate",
+                "pp": 40
+              },
+              {
+                "moveId": "psybeam",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+            "speciesId": 133,
+            "name": "Eevee",
+            "level": 28,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 55,
+              "attack": 55,
+              "defense": 50,
+              "specialAttack": 45,
+              "specialDefense": 65,
+              "speed": 55
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 68,
+              "attack": 35,
+              "defense": 33,
+              "specialAttack": 30,
+              "specialDefense": 41,
+              "speed": 35
+            },
+            "hp": 19,
+            "experience": 0,
+            "experienceYield": 65,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "sand-attack",
+                "pp": 14
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "quick-attack",
+                "pp": 28
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+            "speciesId": 133,
+            "name": "Eevee",
+            "level": 28,
+            "types": [
+              "normal"
+            ],
+            "baseStats": {
+              "hp": 55,
+              "attack": 55,
+              "defense": 50,
+              "specialAttack": 45,
+              "specialDefense": 65,
+              "speed": 55
+            },
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 68,
+              "attack": 35,
+              "defense": 33,
+              "specialAttack": 30,
+              "specialDefense": 41,
+              "speed": 35
+            },
+            "hp": 19,
+            "experience": 0,
+            "experienceYield": 65,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 34
+              },
+              {
+                "moveId": "sand-attack",
+                "pp": 14
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "quick-attack",
+                "pp": 28
+              }
+            ]
+          }
+        ],
+        "activeIndex": 0
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "moveId": "sand-attack"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "stat": "accuracy",
+          "change": -1,
+          "stage": -1
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "moveId": "slam"
+        },
+        {
+          "type": "moveMissed",
+          "side": "player",
+          "moveId": "slam"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 14,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "moveId": "slam"
+        },
+        {
+          "type": "moveMissed",
+          "side": "player",
+          "moveId": "slam"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "moveId": "tackle"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "tackle",
+          "amount": 11,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "moveId": "slam"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "slam",
+          "amount": 25,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "moveId": "quick-attack"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "moveId": "quick-attack",
+          "amount": 13,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "moveId": "slam"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "moveId": "slam",
+          "amount": 24,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "captureAttempted",
+          "side": "player",
+          "itemId": "poke-ball",
+          "wildCreatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "chance": 0.6463235294117647,
+          "roll": 0.0006392549257725477
+        },
+        {
+          "type": "creatureCaptured",
+          "side": "player",
+          "wildCreatureId": "6db9fa10-81b3-4f82-a22d-0952b43d2606:wild",
+          "creatureId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+          "destination": "party"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "captured",
+            "creatureId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+            "destination": "party"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Natural Acquariva companion search 133, round 1",
+      "contentVersion": "veloria-content-0.3.114",
+      "mapId": "veloria/r10_sentiero_canne",
+      "x": 33,
+      "y": 12,
+      "party": [
+        {
+          "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "speciesId": 195,
+          "level": 24,
+          "experience": 1547,
+          "hp": 41,
+          "maxHp": 79,
+          "moves": [
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "amnesia",
+              "pp": 20
+            },
+            {
+              "id": "mud-shot",
+              "pp": 15
+            },
+            {
+              "id": "slam",
+              "pp": 16
+            }
+          ]
+        },
+        {
+          "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+          "speciesId": 170,
+          "level": 22,
+          "experience": 1463,
+          "hp": 65,
+          "maxHp": 65,
+          "moves": [
+            {
+              "id": "thunder-wave",
+              "pp": 20
+            },
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "confuse-ray",
+              "pp": 10
+            },
+            {
+              "id": "spark",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+          "speciesId": 5,
+          "level": 24,
+          "experience": 763,
+          "hp": 61,
+          "maxHp": 61,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+          "speciesId": 96,
+          "level": 29,
+          "experience": 0,
+          "hp": 73,
+          "maxHp": 73,
+          "moves": [
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "headbutt",
+              "pp": 15
+            },
+            {
+              "id": "meditate",
+              "pp": 40
+            },
+            {
+              "id": "psybeam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+          "speciesId": 133,
+          "level": 28,
+          "experience": 0,
+          "hp": 19,
+          "maxHp": 68,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 34
+            },
+            {
+              "id": "sand-attack",
+              "pp": 14
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "quick-attack",
+              "pp": 28
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio",
+        "badge_marea"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_179",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_43",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_194",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_81",
+        "pokedex_seen_100",
+        "pokedex_seen_5",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_227",
+        "pokedex_seen_208",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded",
+        "atlas_visited_veloria/r07_condotto_risonante",
+        "q_r07_measurement",
+        "atlas_visited_veloria/d03_centrale_risonante",
+        "q_centrale_log",
+        "q_centrale_isolated",
+        "q_centrale_output",
+        "q_centrale_report",
+        "atlas_visited_veloria/r08_costa_turbine",
+        "atlas_visited_veloria/portolume",
+        "q_portolume_visited",
+        "q_portolume_orientation",
+        "q_portolume_tide_read",
+        "q_portolume_tide_report",
+        "pokedex_seen_98",
+        "pokedex_seen_72",
+        "pokedex_seen_170",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_caught_170",
+        "pokedex_caught_5",
+        "pokedex_caught_19",
+        "trainer_r07_dario_defeated",
+        "q_r07_dario_helped",
+        "pokedex_caught_194",
+        "pokedex_seen_195",
+        "pokedex_caught_195",
+        "trainer_r08_viola_defeated",
+        "q_r08_viola_helped",
+        "atlas_visited_veloria/gym05_portolume",
+        "gym05_basin_balanced",
+        "gym05_sluice_open",
+        "gym05_tide_stable",
+        "pokedex_seen_171",
+        "trainer_gym05_nerea_defeated",
+        "badge_marea_awarded",
+        "atlas_visited_veloria/r09_dune_salmastre",
+        "atlas_visited_veloria/d04_delta_specchi",
+        "q_delta_nursery_read",
+        "q_delta_reeds_read",
+        "q_delta_flow_read",
+        "q_delta_report",
+        "atlas_visited_veloria/r10_sentiero_canne",
+        "q_r10_kit_found",
+        "atlas_visited_veloria/acquariva",
+        "q_acquariva_visited",
+        "q_acquariva_report",
+        "pokedex_seen_96",
+        "pokedex_caught_96",
+        "pokedex_seen_177",
+        "pokedex_seen_133",
+        "pokedex_caught_133"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 1,
+        "archive-note": 1,
+        "antidote": 3,
+        "old-rod": 1,
+        "super-potion": 0
+      },
+      "money": 1890
+    },
+    {
+      "label": "Requested companion caught with earned resources and its official moves",
+      "contentVersion": "veloria-content-0.3.114",
+      "mapId": "veloria/acquariva",
+      "x": 8,
+      "y": 14,
+      "party": [
+        {
+          "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "speciesId": 195,
+          "level": 24,
+          "experience": 1547,
+          "hp": 79,
+          "maxHp": 79,
+          "moves": [
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "amnesia",
+              "pp": 20
+            },
+            {
+              "id": "mud-shot",
+              "pp": 15
+            },
+            {
+              "id": "slam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+          "speciesId": 170,
+          "level": 22,
+          "experience": 1463,
+          "hp": 65,
+          "maxHp": 65,
+          "moves": [
+            {
+              "id": "thunder-wave",
+              "pp": 20
+            },
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "confuse-ray",
+              "pp": 10
+            },
+            {
+              "id": "spark",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+          "speciesId": 5,
+          "level": 24,
+          "experience": 763,
+          "hp": 61,
+          "maxHp": 61,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+          "speciesId": 96,
+          "level": 29,
+          "experience": 0,
+          "hp": 73,
+          "maxHp": 73,
+          "moves": [
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "headbutt",
+              "pp": 15
+            },
+            {
+              "id": "meditate",
+              "pp": 40
+            },
+            {
+              "id": "psybeam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+          "speciesId": 133,
+          "level": 28,
+          "experience": 0,
+          "hp": 68,
+          "maxHp": 68,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "sand-attack",
+              "pp": 15
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "quick-attack",
+              "pp": 30
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio",
+        "badge_marea"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_179",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_43",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_194",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_81",
+        "pokedex_seen_100",
+        "pokedex_seen_5",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_227",
+        "pokedex_seen_208",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded",
+        "atlas_visited_veloria/r07_condotto_risonante",
+        "q_r07_measurement",
+        "atlas_visited_veloria/d03_centrale_risonante",
+        "q_centrale_log",
+        "q_centrale_isolated",
+        "q_centrale_output",
+        "q_centrale_report",
+        "atlas_visited_veloria/r08_costa_turbine",
+        "atlas_visited_veloria/portolume",
+        "q_portolume_visited",
+        "q_portolume_orientation",
+        "q_portolume_tide_read",
+        "q_portolume_tide_report",
+        "pokedex_seen_98",
+        "pokedex_seen_72",
+        "pokedex_seen_170",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_caught_170",
+        "pokedex_caught_5",
+        "pokedex_caught_19",
+        "trainer_r07_dario_defeated",
+        "q_r07_dario_helped",
+        "pokedex_caught_194",
+        "pokedex_seen_195",
+        "pokedex_caught_195",
+        "trainer_r08_viola_defeated",
+        "q_r08_viola_helped",
+        "atlas_visited_veloria/gym05_portolume",
+        "gym05_basin_balanced",
+        "gym05_sluice_open",
+        "gym05_tide_stable",
+        "pokedex_seen_171",
+        "trainer_gym05_nerea_defeated",
+        "badge_marea_awarded",
+        "atlas_visited_veloria/r09_dune_salmastre",
+        "atlas_visited_veloria/d04_delta_specchi",
+        "q_delta_nursery_read",
+        "q_delta_reeds_read",
+        "q_delta_flow_read",
+        "q_delta_report",
+        "atlas_visited_veloria/r10_sentiero_canne",
+        "q_r10_kit_found",
+        "atlas_visited_veloria/acquariva",
+        "q_acquariva_visited",
+        "q_acquariva_report",
+        "pokedex_seen_96",
+        "pokedex_caught_96",
+        "pokedex_seen_177",
+        "pokedex_seen_133",
+        "pokedex_caught_133"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 1,
+        "archive-note": 1,
+        "antidote": 3,
+        "old-rod": 1,
+        "super-potion": 0
+      },
+      "money": 1890
+    },
+    {
+      "label": "Final observed state",
+      "contentVersion": "veloria-content-0.3.114",
+      "mapId": "veloria/acquariva",
+      "x": 8,
+      "y": 14,
+      "party": [
+        {
+          "instanceId": "c15f129f-c174-4ef9-a1d3-676a03cd0435",
+          "speciesId": 195,
+          "level": 24,
+          "experience": 1547,
+          "hp": 79,
+          "maxHp": 79,
+          "moves": [
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "amnesia",
+              "pp": 20
+            },
+            {
+              "id": "mud-shot",
+              "pp": 15
+            },
+            {
+              "id": "slam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5",
+          "speciesId": 170,
+          "level": 22,
+          "experience": 1463,
+          "hp": 65,
+          "maxHp": 65,
+          "moves": [
+            {
+              "id": "thunder-wave",
+              "pp": 20
+            },
+            {
+              "id": "water-gun",
+              "pp": 25
+            },
+            {
+              "id": "confuse-ray",
+              "pp": 10
+            },
+            {
+              "id": "spark",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "b6b998be-e562-4275-813e-381efc9120db",
+          "speciesId": 5,
+          "level": 24,
+          "experience": 763,
+          "hp": 61,
+          "maxHp": 61,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "098720d2-61cd-47cf-897d-d18f4ac1b577",
+          "speciesId": 96,
+          "level": 29,
+          "experience": 0,
+          "hp": 73,
+          "maxHp": 73,
+          "moves": [
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "headbutt",
+              "pp": 15
+            },
+            {
+              "id": "meditate",
+              "pp": 40
+            },
+            {
+              "id": "psybeam",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "bb91b61c-bcf1-44ed-b79f-fce540ec5cd6",
+          "speciesId": 133,
+          "level": 28,
+          "experience": 0,
+          "hp": 68,
+          "maxHp": 68,
+          "moves": [
+            {
+              "id": "tackle",
+              "pp": 35
+            },
+            {
+              "id": "sand-attack",
+              "pp": 15
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "quick-attack",
+              "pp": 30
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio",
+        "badge_marea"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_161",
+        "pokedex_seen_19",
+        "trainer_route01_timo_defeated",
+        "pokedex_seen_163",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_167",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_179",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_43",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_194",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_81",
+        "pokedex_seen_100",
+        "pokedex_seen_5",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_227",
+        "pokedex_seen_208",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded",
+        "atlas_visited_veloria/r07_condotto_risonante",
+        "q_r07_measurement",
+        "atlas_visited_veloria/d03_centrale_risonante",
+        "q_centrale_log",
+        "q_centrale_isolated",
+        "q_centrale_output",
+        "q_centrale_report",
+        "atlas_visited_veloria/r08_costa_turbine",
+        "atlas_visited_veloria/portolume",
+        "q_portolume_visited",
+        "q_portolume_orientation",
+        "q_portolume_tide_read",
+        "q_portolume_tide_report",
+        "pokedex_seen_98",
+        "pokedex_seen_72",
+        "pokedex_seen_170",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_caught_170",
+        "pokedex_caught_5",
+        "pokedex_caught_19",
+        "trainer_r07_dario_defeated",
+        "q_r07_dario_helped",
+        "pokedex_caught_194",
+        "pokedex_seen_195",
+        "pokedex_caught_195",
+        "trainer_r08_viola_defeated",
+        "q_r08_viola_helped",
+        "atlas_visited_veloria/gym05_portolume",
+        "gym05_basin_balanced",
+        "gym05_sluice_open",
+        "gym05_tide_stable",
+        "pokedex_seen_171",
+        "trainer_gym05_nerea_defeated",
+        "badge_marea_awarded",
+        "atlas_visited_veloria/r09_dune_salmastre",
+        "atlas_visited_veloria/d04_delta_specchi",
+        "q_delta_nursery_read",
+        "q_delta_reeds_read",
+        "q_delta_flow_read",
+        "q_delta_report",
+        "atlas_visited_veloria/r10_sentiero_canne",
+        "q_r10_kit_found",
+        "atlas_visited_veloria/acquariva",
+        "q_acquariva_visited",
+        "q_acquariva_report",
+        "pokedex_seen_96",
+        "pokedex_caught_96",
+        "pokedex_seen_177",
+        "pokedex_seen_133",
+        "pokedex_caught_133"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 1,
+        "archive-note": 1,
+        "antidote": 3,
+        "old-rod": 1,
+        "super-potion": 0
+      },
+      "money": 1890
+    }
+  ],
+  "errors": []
+}

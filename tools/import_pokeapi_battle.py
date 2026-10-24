@@ -23,6 +23,7 @@ SUPPORTED_MOVES += ['flamethrower', 'psychic', 'crunch', 'shadow-ball', 'sludge-
 SUPPORTED_MOVES += ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-dance', 'dragon-rush', 'hydro-pump', 'aqua-tail']
 SUPPORTED_MOVES += ['take-down']
 SUPPORTED_MOVES += ['mega-drain', 'magical-leaf']
+SUPPORTED_MOVES += ['bite', 'headbutt']
 STATS = {'attack': 'attack', 'defense': 'defense', 'special-attack': 'specialAttack', 'special-defense': 'specialDefense', 'speed': 'speed', 'accuracy': 'accuracy', 'evasion': 'evasion'}
 
 
@@ -121,8 +122,9 @@ def main(argv=None):
             # HGSS accuracy still comes exclusively from the API past_values above.
             assert move['category'] == 'status' and move.get('inflictedStatus') == 'paralysis'
             move['statusAffectedByTypeImmunity'] = True
-        if name == 'dragon-rush':
-            assert move['category'] == 'physical' and meta['flinch_chance'] == 20
+        if name in ('dragon-rush', 'bite', 'headbutt'):
+            assert move['category'] == 'physical' and meta['category']['name'] == 'damage' and meta['crit_rate'] == 0
+            assert 0 < meta['flinch_chance'] <= 100
             move['flinchChance'] = meta['flinch_chance']
         if meta['drain']:
             if name == 'take-down' and meta['drain'] < 0:
@@ -180,9 +182,10 @@ def main(argv=None):
         seen = set()
         learning[species_id] = []
         for entry in supported:
-            if entry['level'] < 2 or entry['moveId'] in seen:
+            key = (entry['level'], entry['moveId'])
+            if entry['level'] < 2 or key in seen:
                 continue
-            seen.add(entry['moveId'])
+            seen.add(key)
             learning[species_id].append(entry)
         pending[species_id] = [entry for entry in entries if entry['moveId'] not in moves]
 

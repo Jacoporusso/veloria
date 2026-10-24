@@ -1,3 +1,5 @@
+import { runAcquarivaCompanionSearch } from './helpers/acquariva-companion-search';
+import { runPortolumeAcquariva } from './helpers/portolume-acquariva';
 import { buyFromShop } from '../e2e/helpers/shop';
 import { runCentralePortolume } from './helpers/centrale-portolume';
 import { runCoastPreparation } from './helpers/coast-preparation';
@@ -33,6 +35,10 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
   const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
+  const acquarivaSearch = process.env.PLAYTEST_ACQUARIVA_SEARCH === '1';
+  const captureSpeciesId = Number(process.env.PLAYTEST_CAPTURE_SPECIES ?? '0');
+  expect(Number.isInteger(captureSpeciesId) && captureSpeciesId >= 0 && captureSpeciesId <= 251).toBe(true);
+  const resumeFifthFile = process.env.PLAYTEST_RESUME_FIFTH_BACKUP;
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
   const irisRecovery = process.env.PLAYTEST_RECOVER_IRIS === '1';
@@ -40,8 +46,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
   const wooperTraining = process.env.PLAYTEST_TRAIN_WOOPER === '1';
   expect([nereaChallenge, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
-  const resumeBackupFile = resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
-  expect([resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
+  const resumeBackupFile = resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
+  expect([resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const coastRotation = process.env.PLAYTEST_COAST_ROTATION === '1';
   const nereaRotation = process.env.PLAYTEST_NEREA_ROTATION === '1';
@@ -153,16 +159,26 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       }
       const healingItem = battle.inventory?.['super-potion'] > 0 && (own.stats.maxHp - own.hp >= 35 || !(battle.inventory?.potion > 0))
         ? 'super-potion' : battle.inventory?.potion > 0 ? 'potion' : undefined;
+      const requestedCapture = captureSpeciesId > 0 && ![...state.save.party, ...state.save.storage].some((member: any) => member.speciesId === captureSpeciesId) ? captureSpeciesId : undefined;
       const searchingWooper = wooperPreparation && !state.save.party.some((member: any) => member.speciesId === 194 || member.speciesId === 195);
       const searchingCoast = !wooperPreparation && Boolean(resumeNereaFile) && !state.save.party.some((member: any) => member.speciesId === 170 || member.speciesId === 171);
-      if ((searchingWooper || searchingCoast) && battle.type === 'wild' && target.speciesId !== (searchingWooper ? 194 : 170)) {
+      const searchSpecies = requestedCapture ?? (searchingWooper ? 194 : searchingCoast ? 170 : undefined);
+      if (searchSpecies && battle.type === 'wild' && target.speciesId !== searchSpecies) {
         await tapBattleLabel(page, '__naturalGame', 'FUGA');
         await tapBattleLabel(page, '__naturalGame', '💨 FUGGI');
         continue;
       }
+      if (requestedCapture === 96 && battle.type === 'wild' && battle.mode === 'menu' && own.speciesId === 195 && own.hp > own.stats.maxHp / 2) {
+        const key = `${battle.id}:capture-amnesia`;
+        if (!tacticalMovesUsed.has(key) && own.moves.some((slot: any) => slot.moveId === 'amnesia' && slot.pp > 0)) {
+          tacticalMovesUsed.add(key);
+          report.push({ label: 'Capture preparation through visible move UI', battleId: battle.id, moveId: 'amnesia' });
+          await tapBattleLabel(page, '__naturalGame', 'LOTTA'); await tapBattleLabel(page, '__naturalGame', battle.moves.amnesia.name); continue;
+        }
+      }
       const upgradeCompanion = prepareGym && state.mapId === 'veloria/r02_viale_fronde' && target.level >= 5
         && state.save.party.length < 3 && state.save.party.slice(1).every((member: any) => member.level < 5);
-      if(battle.type==='wild' && (searchingWooper ? target.speciesId === 194 : searchingCoast ? target.speciesId === 170 : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
+      if(battle.type==='wild' && (searchSpecies ? target.speciesId === searchSpecies : state.save.party.length===1 || upgradeCompanion) && target.hp/target.stats.maxHp<=0.55 && battle.inventory?.['poke-ball']>0) {
         await tapBattleLabel(page, '__naturalGame', 'CATTURA');
         await page.keyboard.press('Enter',{delay:40});
       } else if(own.hp/own.stats.maxHp<healingThreshold && healingItem) {
@@ -252,11 +268,15 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     await settle();
     if (resumeBackupFile) {
       const backup = JSON.parse(await readFile(resumeBackupFile, 'utf8'));
-      if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine', 'veloria/gym05_portolume']).toContain(backup.save.player.mapId);
+      if (resumeFifthFile) {
+        expect(['veloria/gym05_portolume', 'veloria/portolume', 'veloria/acquariva']).toContain(backup.save.player.mapId);
+        expect(backup.save.flags).toContain('badge_marea_awarded');
+        expect(backup.save.badges).toHaveLength(5);
+      } else if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine', 'veloria/gym05_portolume']).toContain(backup.save.player.mapId);
       else expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
       expect(backup.save.flags).toContain('gym04_magnetic_aligned');
       if (resumeNereaFile) expect(backup.save.flags).toContain('q_portolume_tide_report');
-      if (resumePortolumeFile || resumeNereaFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
+      if (resumeFifthFile || resumePortolumeFile || resumeNereaFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
       else expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
       await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
       await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
@@ -270,7 +290,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       expect((await observe(page)).save.player.money).toBe(backup.save.player.money);
       expect((await observe(page)).save.rngState).toBe(backup.save.rngState);
       startingRngState = backup.save.rngState;
-      await record(resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
+      await record(resumeFifthFile ? 'Resumed unchanged earned fifth medal checkpoint' : resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
     }
     if (!resumeBackupFile) {
       await walk(21,25);
@@ -581,6 +601,10 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       await record('Fourth medal persists after title resume');
       await exportCheckpoint('natural-fourth-medal-backup.json');
     }
+    if (resumeFifthFile) {
+      const driver = acquarivaSearch ? runAcquarivaCompanionSearch : runPortolumeAcquariva;
+      await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
+    }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     if (resumeNereaFile) {
       const driver = wooperTraining ? runWooperTraining : wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
@@ -590,7 +614,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

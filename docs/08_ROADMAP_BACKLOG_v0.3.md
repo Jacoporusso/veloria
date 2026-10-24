@@ -1,3 +1,9 @@
+## Stato di lavorazione — 0.3.128, 24/10/2026
+
+Catalogo83 specie e83 mosse supportate. Morso/Bottintesta importate con effetti verificati; apprendimenti ripetuti a livelli diversi conservati correttamente.546 apprendimenti rimangono esclusi dal runtime e documentati nelle fonti. Documento45 per gate e limiti; roster001–251 ancora incompleto.
+
+La continuazione naturale dopo la quinta medaglia raggiunge Acquariva, completa Delta/rapporto del lago, cattura Drowzee29 ed Eevee28 e verifica il deposito multiplo dei due primi Rattata. Checkpoint esportato con cinque medaglie,1890 monete e risorse guadagnate. Report, errori dei driver e recuperi dichiarati in `playtests/2026-10-24-acquariva-preparation.md`. Selene resta da tentare con la preparazione reale; P6–P8/Lega/finale naturali e gli altri requisiti regionali/meccanici/QA sotto restano aperti. CI e pubblicazione sono attestate soltanto in CI_STATUS.
+
 ## Stato di lavorazione — 0.3.127, 24/10/2026
 
 Catalogo runtime83 specie e81 mosse supportate. Vileplume, Victreebel e Bellossom ora ottenibili con Pietrafoglia/Pietrasolare nella bottega delle pietre di Radicelmo. Dati, learnset HGSS e artwork importati e verificati; il documento44 descrive copertura e limiti. Restano168 specie del target001–251 e564 apprendimenti ufficiali con mosse non ancora supportate: il catalogo completo è ancora aperto.

@@ -17,6 +17,41 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('earned Acquariva team studies Headbutt and the upcoming Bite level after offline backup import', async ({ page, context }, info) => {
+  const backup = await readFile(new URL('../../docs/playtests/2026-10-24-natural-eevee-caught-backup-charmander.json', import.meta.url), 'utf8');
+  const earned = JSON.parse(backup).save;
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
+  page.once('dialog', dialog => dialog.accept());
+  await Promise.all([page.waitForEvent('load'), page.locator('#save-file').setInputFiles({ name: 'earned-acquariva.json', mimeType: 'application/json', buffer: Buffer.from(backup) })]);
+  await enterGame(page);
+  const before = await readBrowserSave(page);
+  expect(before.party).toEqual(earned.party); expect(before.rngState).toBe(earned.rngState);
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri la squadra' }).click();
+  const team = page.getByRole('dialog', { name: 'Squadra', exact: true });
+  await team.locator('.pokemon-select').filter({ hasText: 'Drowzee' }).click();
+  const headbutt = team.locator('.pokemon-move').filter({ hasText: /Bottintesta · PP/ });
+  await expect(headbutt).toContainText('Potenza 70'); await expect(headbutt).toContainText('30%');
+  await expect(headbutt).toContainText('prima che agisca');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri la squadra' }).click();
+  await team.locator('.pokemon-select').filter({ hasText: 'Eevee' }).click();
+  await expect(page.locator('#pokedex-summary')).toHaveText('Eevee · Livello 28 · NORMALE');
+  const bite = team.locator('.pokemon-move').filter({ hasText: /Morso · Livello 29/ });
+  await expect(bite).toContainText('BUIO'); await expect(bite).toContainText('Potenza 60'); await expect(bite).toContainText('30%');
+  await bite.scrollIntoViewIfNeeded(); await page.screenshot({ path: info.outputPath('eevee-bite-learnset-offline.png') });
+  const after = await readBrowserSave(page);
+  for (const key of ['party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(after.party.find(member => member.speciesId === 133)?.moves.some(slot => slot.id === 'bite')).toBe(false);
+  expect(failures).toEqual([]);
+});
+
 test('Acquariva chapter resources load first offline and the waterfall walking return persists',async({page,context})=>{
   test.setTimeout(180_000);
   await page.goto('/');await enterGame(page);

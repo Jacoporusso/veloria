@@ -1,0 +1,1160 @@
+{
+  "traceSha256": "fb0285c47e7d9246028d156491fb9ee5056c3a894aa6c45edba8ea36e7a4affd",
+  "traceMember": "1-trace.trace",
+  "event": {
+    "type": "after",
+    "callId": "ubzm@12379",
+    "endTime": 196844.214,
+    "result": {
+      "value": {
+        "o": [
+          {
+            "k": "mapId",
+            "v": {
+              "s": "veloria/acquariva"
+            }
+          },
+          {
+            "k": "x",
+            "v": {
+              "n": 8
+            }
+          },
+          {
+            "k": "y",
+            "v": {
+              "n": 14
+            }
+          },
+          {
+            "k": "moving",
+            "v": {
+              "b": false
+            }
+          },
+          {
+            "k": "loading",
+            "v": {
+              "b": false
+            }
+          },
+          {
+            "k": "battleStarting",
+            "v": {
+              "b": false
+            }
+          },
+          {
+            "k": "save",
+            "v": {
+              "o": [
+                {
+                  "k": "schemaVersion",
+                  "v": {
+                    "n": 2
+                  }
+                },
+                {
+                  "k": "saveRevision",
+                  "v": {
+                    "n": 2229
+                  }
+                },
+                {
+                  "k": "contentVersion",
+                  "v": {
+                    "s": "veloria-content-0.3.114"
+                  }
+                },
+                {
+                  "k": "saveId",
+                  "v": {
+                    "s": "6a611e13-e701-44d3-af3e-422ebcab7cf6"
+                  }
+                },
+                {
+                  "k": "savedAt",
+                  "v": {
+                    "s": "2026-10-24T07:17:22.846Z"
+                  }
+                },
+                {
+                  "k": "player",
+                  "v": {
+                    "o": [
+                      {
+                        "k": "name",
+                        "v": {
+                          "s": "Aurora"
+                        }
+                      },
+                      {
+                        "k": "mapId",
+                        "v": {
+                          "s": "veloria/acquariva"
+                        }
+                      },
+                      {
+                        "k": "spawnPointId",
+                        "v": {
+                          "s": "from_r10"
+                        }
+                      },
+                      {
+                        "k": "money",
+                        "v": {
+                          "n": 1890
+                        }
+                      },
+                      {
+                        "k": "x",
+                        "v": {
+                          "n": 8
+                        }
+                      },
+                      {
+                        "k": "y",
+                        "v": {
+                          "n": 14
+                        }
+                      }
+                    ],
+                    "id": 3
+                  }
+                },
+                {
+                  "k": "party",
+                  "v": {
+                    "a": [
+                      {
+                        "o": [
+                          {
+                            "k": "instanceId",
+                            "v": {
+                              "s": "12ba5c97-fe0c-4b40-8adb-e582b0ac76b5"
+                            }
+                          },
+                          {
+                            "k": "speciesId",
+                            "v": {
+                              "n": 170
+                            }
+                          },
+                          {
+                            "k": "level",
+                            "v": {
+                              "n": 22
+                            }
+                          },
+                          {
+                            "k": "experience",
+                            "v": {
+                              "n": 1463
+                            }
+                          },
+                          {
+                            "k": "hp",
+                            "v": {
+                              "n": 65
+                            }
+                          },
+                          {
+                            "k": "maxHp",
+                            "v": {
+                              "n": 65
+                            }
+                          },
+                          {
+                            "k": "moves",
+                            "v": {
+                              "a": [
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "thunder-wave"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 20
+                                      }
+                                    }
+                                  ],
+                                  "id": 7
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "water-gun"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 25
+                                      }
+                                    }
+                                  ],
+                                  "id": 8
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "confuse-ray"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 10
+                                      }
+                                    }
+                                  ],
+                                  "id": 9
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "spark"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 20
+                                      }
+                                    }
+                                  ],
+                                  "id": 10
+                                }
+                              ],
+                              "id": 6
+                            }
+                          }
+                        ],
+                        "id": 5
+                      },
+                      {
+                        "o": [
+                          {
+                            "k": "instanceId",
+                            "v": {
+                              "s": "c15f129f-c174-4ef9-a1d3-676a03cd0435"
+                            }
+                          },
+                          {
+                            "k": "speciesId",
+                            "v": {
+                              "n": 195
+                            }
+                          },
+                          {
+                            "k": "level",
+                            "v": {
+                              "n": 24
+                            }
+                          },
+                          {
+                            "k": "experience",
+                            "v": {
+                              "n": 1547
+                            }
+                          },
+                          {
+                            "k": "hp",
+                            "v": {
+                              "n": 79
+                            }
+                          },
+                          {
+                            "k": "maxHp",
+                            "v": {
+                              "n": 79
+                            }
+                          },
+                          {
+                            "k": "moves",
+                            "v": {
+                              "a": [
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "water-gun"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 25
+                                      }
+                                    }
+                                  ],
+                                  "id": 13
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "amnesia"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 20
+                                      }
+                                    }
+                                  ],
+                                  "id": 14
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "mud-shot"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 15
+                                      }
+                                    }
+                                  ],
+                                  "id": 15
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "slam"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 20
+                                      }
+                                    }
+                                  ],
+                                  "id": 16
+                                }
+                              ],
+                              "id": 12
+                            }
+                          }
+                        ],
+                        "id": 11
+                      },
+                      {
+                        "o": [
+                          {
+                            "k": "instanceId",
+                            "v": {
+                              "s": "b6b998be-e562-4275-813e-381efc9120db"
+                            }
+                          },
+                          {
+                            "k": "speciesId",
+                            "v": {
+                              "n": 5
+                            }
+                          },
+                          {
+                            "k": "level",
+                            "v": {
+                              "n": 24
+                            }
+                          },
+                          {
+                            "k": "experience",
+                            "v": {
+                              "n": 763
+                            }
+                          },
+                          {
+                            "k": "hp",
+                            "v": {
+                              "n": 61
+                            }
+                          },
+                          {
+                            "k": "maxHp",
+                            "v": {
+                              "n": 61
+                            }
+                          },
+                          {
+                            "k": "moves",
+                            "v": {
+                              "a": [
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "scratch"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 35
+                                      }
+                                    }
+                                  ],
+                                  "id": 19
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "growl"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 40
+                                      }
+                                    }
+                                  ],
+                                  "id": 20
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "ember"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 25
+                                      }
+                                    }
+                                  ],
+                                  "id": 21
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "smokescreen"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 20
+                                      }
+                                    }
+                                  ],
+                                  "id": 22
+                                }
+                              ],
+                              "id": 18
+                            }
+                          }
+                        ],
+                        "id": 17
+                      },
+                      {
+                        "o": [
+                          {
+                            "k": "instanceId",
+                            "v": {
+                              "s": "c299f4be-7885-4482-bbb6-677995c7aaac"
+                            }
+                          },
+                          {
+                            "k": "speciesId",
+                            "v": {
+                              "n": 19
+                            }
+                          },
+                          {
+                            "k": "level",
+                            "v": {
+                              "n": 6
+                            }
+                          },
+                          {
+                            "k": "experience",
+                            "v": {
+                              "n": 117
+                            }
+                          },
+                          {
+                            "k": "hp",
+                            "v": {
+                              "n": 19
+                            }
+                          },
+                          {
+                            "k": "maxHp",
+                            "v": {
+                              "n": 19
+                            }
+                          },
+                          {
+                            "k": "moves",
+                            "v": {
+                              "a": [
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "tackle"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 35
+                                      }
+                                    }
+                                  ],
+                                  "id": 25
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "tail-whip"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 30
+                                      }
+                                    }
+                                  ],
+                                  "id": 26
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "quick-attack"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 30
+                                      }
+                                    }
+                                  ],
+                                  "id": 27
+                                }
+                              ],
+                              "id": 24
+                            }
+                          }
+                        ],
+                        "id": 23
+                      },
+                      {
+                        "o": [
+                          {
+                            "k": "instanceId",
+                            "v": {
+                              "s": "11e64cc2-9fc7-4220-b0d1-811be18d181c"
+                            }
+                          },
+                          {
+                            "k": "speciesId",
+                            "v": {
+                              "n": 19
+                            }
+                          },
+                          {
+                            "k": "level",
+                            "v": {
+                              "n": 8
+                            }
+                          },
+                          {
+                            "k": "experience",
+                            "v": {
+                              "n": 211
+                            }
+                          },
+                          {
+                            "k": "hp",
+                            "v": {
+                              "n": 22
+                            }
+                          },
+                          {
+                            "k": "maxHp",
+                            "v": {
+                              "n": 22
+                            }
+                          },
+                          {
+                            "k": "moves",
+                            "v": {
+                              "a": [
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "tackle"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 35
+                                      }
+                                    }
+                                  ],
+                                  "id": 30
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "tail-whip"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 30
+                                      }
+                                    }
+                                  ],
+                                  "id": 31
+                                },
+                                {
+                                  "o": [
+                                    {
+                                      "k": "id",
+                                      "v": {
+                                        "s": "quick-attack"
+                                      }
+                                    },
+                                    {
+                                      "k": "pp",
+                                      "v": {
+                                        "n": 30
+                                      }
+                                    }
+                                  ],
+                                  "id": 32
+                                }
+                              ],
+                              "id": 29
+                            }
+                          }
+                        ],
+                        "id": 28
+                      }
+                    ],
+                    "id": 4
+                  }
+                },
+                {
+                  "k": "storage",
+                  "v": {
+                    "a": [],
+                    "id": 33
+                  }
+                },
+                {
+                  "k": "flags",
+                  "v": {
+                    "a": [
+                      {
+                        "s": "q_prologue_started"
+                      },
+                      {
+                        "s": "intro_started"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/borgofonte"
+                      },
+                      {
+                        "s": "intro_completed"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/borgofonte_lab"
+                      },
+                      {
+                        "s": "q_starter_selected"
+                      },
+                      {
+                        "s": "pokedex_seen_4"
+                      },
+                      {
+                        "s": "q_research_sample_received"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r01_sentiero_alba"
+                      },
+                      {
+                        "s": "pokedex_seen_16"
+                      },
+                      {
+                        "s": "trainer_route01_sera_defeated"
+                      },
+                      {
+                        "s": "item_r01_potion_collected"
+                      },
+                      {
+                        "s": "pokedex_seen_161"
+                      },
+                      {
+                        "s": "pokedex_seen_19"
+                      },
+                      {
+                        "s": "trainer_route01_timo_defeated"
+                      },
+                      {
+                        "s": "pokedex_seen_163"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/d01_bosco_veli"
+                      },
+                      {
+                        "s": "q_forest_signal_found"
+                      },
+                      {
+                        "s": "q_ada_helped"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r02_viale_fronde"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/brumalta"
+                      },
+                      {
+                        "s": "q_brumalta_visited"
+                      },
+                      {
+                        "s": "pokedex_seen_167"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/gym01_brumalta"
+                      },
+                      {
+                        "s": "gym01_resonance_south"
+                      },
+                      {
+                        "s": "gym01_resonance_middle"
+                      },
+                      {
+                        "s": "gym01_puzzle_solved"
+                      },
+                      {
+                        "s": "trainer_gym01_mira_defeated"
+                      },
+                      {
+                        "s": "badge_aurora_awarded"
+                      },
+                      {
+                        "s": "prologue_complete_seen"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r03_terrazze_muschio"
+                      },
+                      {
+                        "s": "q_radicelmo_seed_found"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/radicelmo"
+                      },
+                      {
+                        "s": "q_radicelmo_seed_archived"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r04_salita_petali"
+                      },
+                      {
+                        "s": "pokedex_seen_179"
+                      },
+                      {
+                        "s": "trainer_r04_nila_defeated"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/petalora"
+                      },
+                      {
+                        "s": "q_petalora_visited"
+                      },
+                      {
+                        "s": "pokedex_seen_43"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/gym02_petalora"
+                      },
+                      {
+                        "s": "gym02_water_source_open"
+                      },
+                      {
+                        "s": "gym02_water_west_open"
+                      },
+                      {
+                        "s": "gym02_water_east_open"
+                      },
+                      {
+                        "s": "gym02_irrigation_solved"
+                      },
+                      {
+                        "s": "pokedex_seen_69"
+                      },
+                      {
+                        "s": "trainer_gym02_dalia_defeated"
+                      },
+                      {
+                        "s": "badge_corolla_awarded"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r05_viadotto_ciliegi"
+                      },
+                      {
+                        "s": "pokedex_seen_25"
+                      },
+                      {
+                        "s": "pokedex_seen_194"
+                      },
+                      {
+                        "s": "trainer_r05_oren_defeated"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/vetracielo"
+                      },
+                      {
+                        "s": "q_vetracielo_visited"
+                      },
+                      {
+                        "s": "q_vetracielo_orientation"
+                      },
+                      {
+                        "s": "pokedex_seen_81"
+                      },
+                      {
+                        "s": "pokedex_seen_100"
+                      },
+                      {
+                        "s": "pokedex_seen_5"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/gym03_vetracielo"
+                      },
+                      {
+                        "s": "gym03_line_gardens_active"
+                      },
+                      {
+                        "s": "gym03_line_glass_active"
+                      },
+                      {
+                        "s": "gym03_lines_connected"
+                      },
+                      {
+                        "s": "trainer_gym03_aster_defeated"
+                      },
+                      {
+                        "s": "badge_circuito_awarded"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r06_anello_magnetico"
+                      },
+                      {
+                        "s": "q_r06_measurement"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/ferraluce"
+                      },
+                      {
+                        "s": "q_ferraluce_visited"
+                      },
+                      {
+                        "s": "q_ferraluce_report"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/gym04_ferraluce"
+                      },
+                      {
+                        "s": "router_gym04magnetic_field_west"
+                      },
+                      {
+                        "s": "router_gym04magnetic_first_east"
+                      },
+                      {
+                        "s": "router_gym04magnetic_second_north"
+                      },
+                      {
+                        "s": "gym04_magnetic_aligned"
+                      },
+                      {
+                        "s": "pokedex_seen_227"
+                      },
+                      {
+                        "s": "pokedex_seen_208"
+                      },
+                      {
+                        "s": "trainer_gym04_rhea_defeated"
+                      },
+                      {
+                        "s": "badge_acciaio_awarded"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r07_condotto_risonante"
+                      },
+                      {
+                        "s": "q_r07_measurement"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/d03_centrale_risonante"
+                      },
+                      {
+                        "s": "q_centrale_log"
+                      },
+                      {
+                        "s": "q_centrale_isolated"
+                      },
+                      {
+                        "s": "q_centrale_output"
+                      },
+                      {
+                        "s": "q_centrale_report"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r08_costa_turbine"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/portolume"
+                      },
+                      {
+                        "s": "q_portolume_visited"
+                      },
+                      {
+                        "s": "q_portolume_orientation"
+                      },
+                      {
+                        "s": "q_portolume_tide_read"
+                      },
+                      {
+                        "s": "q_portolume_tide_report"
+                      },
+                      {
+                        "s": "pokedex_seen_98"
+                      },
+                      {
+                        "s": "pokedex_seen_72"
+                      },
+                      {
+                        "s": "pokedex_seen_170"
+                      },
+                      {
+                        "s": "trainer_r06_iris_defeated"
+                      },
+                      {
+                        "s": "q_r06_iris_helped"
+                      },
+                      {
+                        "s": "pokedex_caught_170"
+                      },
+                      {
+                        "s": "pokedex_caught_5"
+                      },
+                      {
+                        "s": "pokedex_caught_19"
+                      },
+                      {
+                        "s": "trainer_r07_dario_defeated"
+                      },
+                      {
+                        "s": "q_r07_dario_helped"
+                      },
+                      {
+                        "s": "pokedex_caught_194"
+                      },
+                      {
+                        "s": "pokedex_seen_195"
+                      },
+                      {
+                        "s": "pokedex_caught_195"
+                      },
+                      {
+                        "s": "trainer_r08_viola_defeated"
+                      },
+                      {
+                        "s": "q_r08_viola_helped"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/gym05_portolume"
+                      },
+                      {
+                        "s": "gym05_basin_balanced"
+                      },
+                      {
+                        "s": "gym05_sluice_open"
+                      },
+                      {
+                        "s": "gym05_tide_stable"
+                      },
+                      {
+                        "s": "pokedex_seen_171"
+                      },
+                      {
+                        "s": "trainer_gym05_nerea_defeated"
+                      },
+                      {
+                        "s": "badge_marea_awarded"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r09_dune_salmastre"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/d04_delta_specchi"
+                      },
+                      {
+                        "s": "q_delta_nursery_read"
+                      },
+                      {
+                        "s": "q_delta_reeds_read"
+                      },
+                      {
+                        "s": "q_delta_flow_read"
+                      },
+                      {
+                        "s": "q_delta_report"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/r10_sentiero_canne"
+                      },
+                      {
+                        "s": "q_r10_kit_found"
+                      },
+                      {
+                        "s": "atlas_visited_veloria/acquariva"
+                      },
+                      {
+                        "s": "q_acquariva_visited"
+                      },
+                      {
+                        "s": "q_acquariva_report"
+                      }
+                    ],
+                    "id": 34
+                  }
+                },
+                {
+                  "k": "badges",
+                  "v": {
+                    "a": [
+                      {
+                        "s": "badge_aurora"
+                      },
+                      {
+                        "s": "badge_corolla"
+                      },
+                      {
+                        "s": "badge_circuito"
+                      },
+                      {
+                        "s": "badge_acciaio"
+                      },
+                      {
+                        "s": "badge_marea"
+                      }
+                    ],
+                    "id": 35
+                  }
+                },
+                {
+                  "k": "inventory",
+                  "v": {
+                    "o": [
+                      {
+                        "k": "potion",
+                        "v": {
+                          "n": 2
+                        }
+                      },
+                      {
+                        "k": "poke-ball",
+                        "v": {
+                          "n": 4
+                        }
+                      },
+                      {
+                        "k": "archive-note",
+                        "v": {
+                          "n": 1
+                        }
+                      },
+                      {
+                        "k": "antidote",
+                        "v": {
+                          "n": 3
+                        }
+                      },
+                      {
+                        "k": "old-rod",
+                        "v": {
+                          "n": 1
+                        }
+                      },
+                      {
+                        "k": "super-potion",
+                        "v": {
+                          "n": 0
+                        }
+                      }
+                    ],
+                    "id": 36
+                  }
+                },
+                {
+                  "k": "rngState",
+                  "v": {
+                    "n": 2520850373
+                  }
+                }
+              ],
+              "id": 2
+            }
+          },
+          {
+            "k": "battle",
+            "v": {
+              "v": "null"
+            }
+          }
+        ],
+        "id": 1
+      }
+    }
+  },
+  "recoveryNote": "Last complete read-only Acquariva observation before title reload; no game values changed."
+}

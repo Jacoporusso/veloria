@@ -22,17 +22,16 @@
     {
       "category": "flinch",
       "moves": [
-        "headbutt",
         "ice-fang"
       ],
-      "reason": "Flinch effects are not implemented; Ice Fang also combines flinch and freeze chances."
+      "reason": "Ice Fang combines flinch and freeze chances; this combined effect has not been source-imported and verified. Headbutt is supported from content 0.3.128 with its simple conditional 30-percent flinch."
     },
     {
       "category": "secondary effect chance",
       "moves": [
         "ice-fang"
       ],
-      "reason": "Two independent secondary effects each have a 10% chance; the current move model cannot represent both."
+      "reason": "Two independent secondary effects each have a 10% chance; this combined effect has not been source-imported and verified."
     },
     {
       "category": "target scope",

@@ -5940,11 +5940,6 @@
     ],
     "7": [
       {
-        "level": 16,
-        "moveId": "bite",
-        "order": null
-      },
-      {
         "level": 19,
         "moveId": "rapid-spin",
         "order": null
@@ -6096,11 +6091,6 @@
       {
         "level": 7,
         "moveId": "focus-energy",
-        "order": null
-      },
-      {
-        "level": 10,
-        "moveId": "bite",
         "order": null
       },
       {
@@ -6488,11 +6478,6 @@
     ],
     "8": [
       {
-        "level": 16,
-        "moveId": "bite",
-        "order": null
-      },
-      {
         "level": 20,
         "moveId": "rapid-spin",
         "order": null
@@ -6648,11 +6633,6 @@
       {
         "level": 7,
         "moveId": "focus-energy",
-        "order": null
-      },
-      {
-        "level": 10,
-        "moveId": "bite",
         "order": null
       },
       {
@@ -7209,11 +7189,6 @@
         "order": null
       },
       {
-        "level": 25,
-        "moveId": "headbutt",
-        "order": null
-      },
-      {
         "level": 34,
         "moveId": "zen-headbutt",
         "order": null
@@ -7251,11 +7226,6 @@
         "order": null
       },
       {
-        "level": 25,
-        "moveId": "headbutt",
-        "order": null
-      },
-      {
         "level": 34,
         "moveId": "zen-headbutt",
         "order": null
@@ -7283,11 +7253,6 @@
         "order": null
       },
       {
-        "level": 15,
-        "moveId": "headbutt",
-        "order": null
-      },
-      {
         "level": 18,
         "moveId": "poison-gas",
         "order": null
@@ -7295,11 +7260,6 @@
       {
         "level": 29,
         "moveId": "psych-up",
-        "order": null
-      },
-      {
-        "level": 32,
-        "moveId": "headbutt",
         "order": null
       },
       {
@@ -7345,11 +7305,6 @@
         "order": null
       },
       {
-        "level": 15,
-        "moveId": "headbutt",
-        "order": null
-      },
-      {
         "level": 18,
         "moveId": "poison-gas",
         "order": null
@@ -7357,11 +7312,6 @@
       {
         "level": 33,
         "moveId": "psych-up",
-        "order": null
-      },
-      {
-        "level": 38,
-        "moveId": "headbutt",
         "order": null
       },
       {
@@ -7390,11 +7340,6 @@
         "level": 1,
         "moveId": "helping-hand",
         "order": 3
-      },
-      {
-        "level": 29,
-        "moveId": "bite",
-        "order": null
       },
       {
         "level": 36,
@@ -7659,11 +7604,6 @@
         "order": 1
       },
       {
-        "level": 16,
-        "moveId": "bite",
-        "order": null
-      },
-      {
         "level": 20,
         "moveId": "rapid-spin",
         "order": null
@@ -7844,11 +7784,6 @@
     ],
     "86": [
       {
-        "level": 1,
-        "moveId": "headbutt",
-        "order": null
-      },
-      {
         "level": 7,
         "moveId": "water-sport",
         "order": null
@@ -7890,11 +7825,6 @@
       }
     ],
     "87": [
-      {
-        "level": 1,
-        "moveId": "headbutt",
-        "order": 1
-      },
       {
         "level": 1,
         "moveId": "signal-beam",
@@ -8191,11 +8121,6 @@
         "order": null
       },
       {
-        "level": 13,
-        "moveId": "bite",
-        "order": null
-      },
-      {
         "level": 25,
         "moveId": "air-cutter",
         "order": null
@@ -8230,11 +8155,6 @@
       {
         "level": 9,
         "moveId": "astonish",
-        "order": null
-      },
-      {
-        "level": 13,
-        "moveId": "bite",
         "order": null
       },
       {
@@ -8474,11 +8394,6 @@
         "order": 3
       },
       {
-        "level": 29,
-        "moveId": "bite",
-        "order": null
-      },
-      {
         "level": 43,
         "moveId": "aqua-ring",
         "order": null
@@ -8541,11 +8456,6 @@
         "level": 1,
         "moveId": "helping-hand",
         "order": 3
-      },
-      {
-        "level": 29,
-        "moveId": "bite",
-        "order": null
       },
       {
         "level": 36,

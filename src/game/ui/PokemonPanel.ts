@@ -114,6 +114,7 @@ export class PokemonPanel {
 
   private details(save: GameSave, view: 'team' | 'dex', speciesId: number, creature?: CreatureSave): void {
     const species = battleSpecies[speciesId];
+    this.summary.textContent = `${species.name}${creature ? ` · Livello ${creature.level}` : ''} · ${species.types.map(battleTypeLabel).join(' / ')}`;
     const body = node('li', '', 'pokemon-detail');
     const back = node('button', view === 'team' ? '← Squadra' : '← Tutte le specie viste', 'pokemon-back');
     back.type = 'button';

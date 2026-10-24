@@ -1121,6 +1121,28 @@
       "priority": 0,
       "maxPp": 20,
       "alwaysHits": true
+    },
+    "bite": {
+      "id": "bite",
+      "name": "Morso",
+      "type": "dark",
+      "category": "physical",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 25,
+      "flinchChance": 30
+    },
+    "headbutt": {
+      "id": "headbutt",
+      "name": "Bottintesta",
+      "type": "normal",
+      "category": "physical",
+      "power": 70,
+      "accuracy": 100,
+      "priority": 0,
+      "maxPp": 15,
+      "flinchChance": 30
     }
   }
 }

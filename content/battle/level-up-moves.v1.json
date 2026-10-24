@@ -79,6 +79,10 @@
         "moveId": "water-gun"
       },
       {
+        "level": 16,
+        "moveId": "bite"
+      },
+      {
         "level": 25,
         "moveId": "water-pulse"
       },
@@ -179,6 +183,10 @@
       {
         "level": 4,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 10,
+        "moveId": "bite"
       },
       {
         "level": 22,
@@ -473,6 +481,10 @@
         "moveId": "water-gun"
       },
       {
+        "level": 16,
+        "moveId": "bite"
+      },
+      {
         "level": 28,
         "moveId": "water-pulse"
       },
@@ -563,6 +575,10 @@
       {
         "level": 4,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 10,
+        "moveId": "bite"
       },
       {
         "level": 20,
@@ -925,6 +941,10 @@
         "moveId": "confusion"
       },
       {
+        "level": 25,
+        "moveId": "headbutt"
+      },
+      {
         "level": 29,
         "moveId": "water-pulse"
       },
@@ -951,6 +971,10 @@
         "moveId": "confusion"
       },
       {
+        "level": 25,
+        "moveId": "headbutt"
+      },
+      {
         "level": 29,
         "moveId": "water-pulse"
       },
@@ -973,12 +997,20 @@
         "moveId": "confusion"
       },
       {
+        "level": 15,
+        "moveId": "headbutt"
+      },
+      {
         "level": 21,
         "moveId": "meditate"
       },
       {
         "level": 26,
         "moveId": "psybeam"
+      },
+      {
+        "level": 32,
+        "moveId": "headbutt"
       },
       {
         "level": 40,
@@ -991,12 +1023,20 @@
         "moveId": "confusion"
       },
       {
+        "level": 15,
+        "moveId": "headbutt"
+      },
+      {
         "level": 21,
         "moveId": "meditate"
       },
       {
         "level": 28,
         "moveId": "psybeam"
+      },
+      {
+        "level": 38,
+        "moveId": "headbutt"
       },
       {
         "level": 50,
@@ -1015,6 +1055,10 @@
       {
         "level": 22,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 29,
+        "moveId": "bite"
       },
       {
         "level": 43,
@@ -1139,6 +1183,10 @@
       {
         "level": 13,
         "moveId": "water-gun"
+      },
+      {
+        "level": 16,
+        "moveId": "bite"
       },
       {
         "level": 28,
@@ -1363,6 +1411,10 @@
         "moveId": "supersonic"
       },
       {
+        "level": 13,
+        "moveId": "bite"
+      },
+      {
         "level": 17,
         "moveId": "wing-attack"
       },
@@ -1375,6 +1427,10 @@
       {
         "level": 5,
         "moveId": "supersonic"
+      },
+      {
+        "level": 13,
+        "moveId": "bite"
       },
       {
         "level": 17,
@@ -1584,6 +1640,10 @@
         "moveId": "quick-attack"
       },
       {
+        "level": 29,
+        "moveId": "bite"
+      },
+      {
         "level": 36,
         "moveId": "aurora-beam"
       },
@@ -1630,6 +1690,10 @@
       {
         "level": 22,
         "moveId": "quick-attack"
+      },
+      {
+        "level": 29,
+        "moveId": "bite"
       },
       {
         "level": 64,

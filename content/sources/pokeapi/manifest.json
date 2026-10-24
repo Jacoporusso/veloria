@@ -76,6 +76,11 @@
       "path": "content/sources/pokeapi/move-beat-up.json",
       "sha256": "b0e0ed2750ac7f2081ce86650da6bbfeedaa03bbd1552a9ffaba725f8d8baa71"
     },
+    "move/bite": {
+      "url": "https://pokeapi.co/api/v2/move/bite/",
+      "path": "content/sources/pokeapi/move-bite.json",
+      "sha256": "d7d73dc6ac7b5fb3855e93cec924cabeaa478b2bd2b73587cb379f6e9bdf6ec0"
+    },
     "move/blizzard": {
       "url": "https://pokeapi.co/api/v2/move/blizzard/",
       "path": "content/sources/pokeapi/move-blizzard.json",

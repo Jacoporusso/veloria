@@ -1,3 +1,5 @@
+Aggiornamento24/10/2026: analisi storica eseguita sul catalogo del20/10. Il runtime0.3.128 include Morso, oltre a Finta/Sgranocchio già introdotte successivamente; le indicazioni sull'assenza di mosse Buio sotto non descrivono il catalogo attuale. Per livelli ufficiali e limiti vedere [documento45](../45_PSYCHIC_PREPARATION_MOVES_v0.1.md), per la preparazione guadagnata ad Acquariva [report24/10](2026-10-24-acquariva-preparation.md).
+
 # Acquariva — audit della progressione
 
 ## Baseline osservata
