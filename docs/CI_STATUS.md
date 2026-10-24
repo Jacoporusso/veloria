@@ -1,8 +1,8 @@
-## 0.3.137 — Identità NPC e primi passaggi (locale)
+## 0.3.137 — Identità NPC e primi passaggi
 
 615 test dominio/persistenza, 111 Python, validatore (339 asset, 14 fondali con provenienza/binding) e build passati. Tre casi browser passati per sei apparizioni NPC nei due orientamenti e dialoghi mouse Elia/Ada. Cinque transizioni su corsie aggiunte passate; gate Ada ripassato con toast reale e mappa invariata. Percorsi stazione/Centro/negozio Brumalta passati con comandi reali e screenshot ispezionati; caso offline atlante/fondale passato senza richieste fallite o perdita di progressi. [Contratto e limiti](57_NPC_IDENTITIES_AND_EARLY_PASSAGES_v0.1.md).
 
-Nessun fondale R01 errato integrato: originali ripristinati, soglie ampliate sulla strada reale. Il resto del cast e delle mappe resta aperto. Commit/deploy137 e suite remota completa non ancora attestati. La [Verify665cab2](https://github.com/Jacoporusso/veloria/actions/runs/40118009993) era ancora in corso all’ultimo controllo; Deploy40118010065 SUCCESS. La Verify50e9657, precedente ai driver corretti in665cab2, si è conclusa FAILURE.
+Nessun fondale R01 errato integrato: originali ripristinati, soglie ampliate sulla strada reale. Il resto del cast e delle mappe resta aperto. Commit `9ff54bfee94a86977e083eec53b5c9ad4763e793` pubblicato. [Deploy40120666197](https://github.com/Jacoporusso/veloria/actions/runs/40120666197) SUCCESS; sito pubblico e atlante NPC HTTPS200, cache `veloria-shell-v158` con atlante incluso verificati. Tiled R01 pubblico confermato con uscita est `[928,256,32,128]` pixel. [Verify40120666256](https://github.com/Jacoporusso/veloria/actions/runs/40120666256) pending all’ultimo controllo; suite remota completa137 non ancora attestata. La [Verify665cab2](https://github.com/Jacoporusso/veloria/actions/runs/40118009993) era ancora in corso all’ultimo controllo; Deploy40118010065 SUCCESS. La Verify50e9657, precedente ai driver corretti in665cab2, si è conclusa FAILURE.
 
 ## 0.3.136 — Allineamento occhi, barba e zaino
 
