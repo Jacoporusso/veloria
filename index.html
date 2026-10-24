@@ -35,6 +35,8 @@
           <input id="save-file" type="file" accept="application/json,.json" hidden />
         </section>
         <section class="settings-menu" id="settings-menu" aria-label="Impostazioni" hidden>
+          <label for="movement-control">Movimento touch</label>
+          <select id="movement-control"><option value="buttons">Frecce</option><option value="joystick">Trackpad a trascinamento</option></select>
           <label for="animation-quality">Qualità animazioni</label>
           <select id="animation-quality">
             <option value="full">Complete</option>
@@ -78,6 +80,7 @@
           <button class="dpad-key down" data-direction="down" aria-label="Vai in basso">▼</button>
           <button class="dpad-key right" data-direction="right" aria-label="Vai a destra">▶</button>
         </div>
+        <button type="button" class="movement-stick" aria-label="Trackpad di movimento: trascina per camminare" hidden><span class="movement-stick-ring" aria-hidden="true"></span><span class="movement-stick-thumb" aria-hidden="true"></span></button>
         <div class="touch-actions" aria-label="Azioni touch">
           <button class="action-button" id="action-a" aria-label="Conferma e interagisci">A</button>
           <button class="action-button action-secondary" id="action-b" aria-label="Annulla">B</button>

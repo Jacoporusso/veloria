@@ -1,3 +1,4 @@
+import { TouchJoystick } from '../input/touch-joystick';
 import { getEnvironmentRegulator } from '../maps/environment-regulator-registry';
 import { getChallengeSequence, listChallengeSequences } from '../maps/challenge-sequence-registry';
 import { abortChallengeSequence, challengeSequenceState, challengeServiceAllowed, prepareChallengeBattle, recoverChallengeSequence, startChallengeSequence, type ChallengeSequence } from '../../core/world/challenge-sequence.ts';
@@ -86,6 +87,7 @@ export class WorldScene extends Phaser.Scene {
   private afterDialogue: (() => void) | null = null;
   private starterChoices!: HTMLElement;
   private moving = false;
+  private touchJoystick?: TouchJoystick;
   private heldDirection: Direction | null = null;
   private queuedDirection: Direction | null = null;
   private slidingDirection: Direction | null = null;
@@ -484,6 +486,12 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private bindTouchControls() {
+    this.touchJoystick = new TouchJoystick(direction => {
+      this.heldDirection = direction;
+      if (direction) this.tryMove(direction);
+      else this.queuedDirection = null;
+    });
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.touchJoystick?.destroy());
     const buttons=document.querySelectorAll<HTMLButtonElement>('.dpad-key');
     buttons.forEach(button=>{
       const dir=button.dataset.direction as Direction;
@@ -553,6 +561,7 @@ export class WorldScene extends Phaser.Scene {
   update(time: number) {
     this.traveler?.update(time);
     this.updateInteractionPrompt();
+    if (this.navigationOpen || this.fishingActive || this.battleActive || this.mapTransitionLoading || this.dialogueLines.length || this.pokedexOpen || this.journey?.isOpen) this.touchJoystick?.reset();
     if (this.movementReleaseRequired) {
       const movementKeys = ['W', 'A', 'S', 'D', 'UP', 'DOWN', 'LEFT', 'RIGHT'];
       if (!movementKeys.some(key => this.keys[key].isDown) && !this.heldDirection) this.movementReleaseRequired = false;

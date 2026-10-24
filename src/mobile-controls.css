@@ -101,3 +101,14 @@
     font-size:12px
   }
 }
+.movement-stick { display:none; pointer-events:auto; touch-action:none; padding:0; border:1px solid #b9f5ff66; border-radius:50%; background:radial-gradient(circle at 35% 25%,#a8ecff30,#22374e80 75%); box-shadow:0 8px 24px #08192340,inset 0 0 24px #9ce8ff12; color:#dcfaff; }
+.movement-stick-ring { position:absolute; inset:14px; border:1px solid #c4f5ff30; border-radius:50%; }
+.movement-stick-thumb { position:absolute; width:48px; height:48px; left:calc(50% - 24px); top:calc(50% - 24px); border-radius:50%; background:linear-gradient(145deg,#e2fffa,#8cd8f1 55%,#a6b6f4); border:1px solid #edffffc9; box-shadow:0 4px 12px #071b354d,inset 0 2px 2px #ffffffa0; transform:translate(var(--stick-x,0px),var(--stick-y,0px)); pointer-events:none; }
+.movement-stick:focus-visible { outline:3px solid #afffe3; outline-offset:4px; }
+.uses-joystick .dpad { display:none; }
+@media(pointer:coarse),(max-width:900px),(max-height:520px) {
+  .movement-stick:not([hidden]) { display:block; position:absolute; width:116px; height:116px; right:max(18px,env(safe-area-inset-right)); bottom:max(18px,env(safe-area-inset-bottom)); }
+}
+@media(max-height:520px) and (orientation:landscape) {
+  .movement-stick:not([hidden]) { width:104px; height:104px; bottom:max(12px,env(safe-area-inset-bottom)); }
+}

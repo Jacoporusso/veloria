@@ -2,7 +2,7 @@ import type Phaser from 'phaser';
 import { placeGuidance, type ScreenRect } from './guidance-placement.ts';
 import '../../world-guidance.css';
 
-const HUD = '.game-header, .journey-trigger, .journey-reward:not([hidden]), .dpad, .touch-actions, .interaction-prompt:not([hidden]), .toast.visible, .dev-preview-banner';
+const HUD = '.game-header, .journey-trigger, .journey-reward:not([hidden]), .dpad, .movement-stick, .touch-actions, .interaction-prompt:not([hidden]), .toast.visible, .dev-preview-banner';
 
 /** DOM text stays sharp at native display density; projection follows the rendered camera. */
 export class WorldGuidance {
