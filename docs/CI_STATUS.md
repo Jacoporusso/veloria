@@ -6,7 +6,7 @@ Verifiche locali: 636 test dominio/persistenza, 124 Python, validatore (370 asse
 
 PWA cache v162: 13 artwork canonici/nuovi decodificati dopo reload offline, progressi invariati; 14 fondali non iniziali decodificati alla prima richiesta senza rete. Due prove finali offline passate. Una precedente invocazione npm aveva ignorato il filtro CLI: interrotta e ripetuta tramite Playwright diretto; i cinque casi già conclusi erano verdi. Nessuna attestazione della suite offline completa in questo lotto.
 
-Pubblicazione e CI remote ancora da verificare.
+Runtime `4d5522a` pubblicato: [Deploy40191127494](https://github.com/Jacoporusso/veloria/actions/runs/40191127494) SUCCESS. Sito pubblico verificato: cache v162 e tre nuovi artwork HTTP200. [Verify40191127428](https://github.com/Jacoporusso/veloria/actions/runs/40191127428) ancora attiva; shard5 ha rilevato un’aspettativa obsoleta del test `illustrated-field-props`, che cercava l’asset Rami precedente filtrando le texture per prefisso. Test aggiornato al nome semantico `npc-sprite` e al nuovo atlante, mantenendo i controlli dei terreni. Ripetizione locale completa `illustrated-field-props`: 6/6 passati. Correzione del test e note di provenienza pubblicate in commit successivo; nuova CI completa ancora da attestare.
 
 ## 0.3.140 — Habitat leggibili, squadra KO e nuovo lotto mondo
 

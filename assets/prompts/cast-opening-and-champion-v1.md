@@ -1,6 +1,6 @@
 # Atlante apertura e Campione — prompt e provenienza
 
-**Stato:** candidato per revisione statica; nessun binding a catalogo o mappa è stato fatto. L’immagine è un atlante d’uso statico, non un set di animazione a quattro direzioni.
+**Stato:** integrato nel catalogo e nelle quattro presenze NPC del lotto0.3.141, con compositing e rendering runtime verificati. L’immagine è un atlante d’uso statico, non un set di animazione a quattro direzioni.
 
 ## File e provenienza
 
@@ -12,7 +12,7 @@
 - PNG e WebP decodificano in RGBA identico pixel per pixel, incluso il colore dei pixel completamente trasparenti. WebP creato senza resize, crop o correzioni dell’alpha.
 - Alpha PNG: intervallo 0–255; i quattro angoli sono alpha 0. Tutte le sagome alpha≥128 sono contenute nella propria cella con margine da ciascun bordo; nessuna figura attraversa la croce centrale.
 - Generazione e revisione effettuate con il tool built-in ImageGen. Reference usate solo per stile e scala: `assets/sources/veloria-npcs-v3.png`, `assets/sources/veloria-gym-leaders-a-v1.png`, `assets/sources/veloria-gym-leaders-b-v1.png`. Non sono stati riutilizzati i loro personaggi.
-- La composizione trasparente e i bordi devono ancora ricevere la QA di compositing di root; i bordi colorati visibili nel preview alpha non sono da soli un criterio di rifiuto.
+- Composizione e bordi approvati nel compositing Chrome di root e nel rendering runtime; i bordi colorati del viewer alpha non rappresentano il risultato reale.
 
 ## Fonti canoniche e proposte
 
@@ -60,7 +60,7 @@ Bbox per cella locale `(x0,y0)–(x1,y1)` basato sulla soglia alpha≥128. L’a
 | 2 | Rami | `(181,50)–(523,569)` | 292.0 / 424.5 | `0.5714, 0.9075` |
 | 3 | Enea | `(139,51)–(512,569)` | 251.0 / 377.5 | `0.5012, 0.9075` |
 
-Le scarpe di Rami ed Enea terminano più in alto della prima riga per lasciare il margine trasparente previsto. Le ancore descrivono la composizione dell’atlante e non hanno ancora un binding runtime.
+Le scarpe di Rami ed Enea terminano più in alto della prima riga per lasciare il margine trasparente previsto. Le ancore sono associate ai rispettivi profili e binding runtime; piedi e cornici verificati nelle quattro presenze in portrait e landscape.
 
 
 ## QA e vincolo della squadra di Enea

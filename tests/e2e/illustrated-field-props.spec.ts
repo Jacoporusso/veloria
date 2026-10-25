@@ -131,7 +131,7 @@ test('forest routes and Radicelmo share the seamless v5 terrain', async ({ page 
         seamlessTilesetLoaded: world.textures.exists('veloria-ground-hd-v5-seamless'),
         forestFloorLoaded: world.textures.exists('veloria-forest-floor-v1'),
         npcSprites: world.mapLayer.list
-          .filter((item: any) => item.type === 'Image' && item.texture.key.startsWith('veloria-npc-'))
+          .filter((item: any) => item.type === 'Image' && item.name === 'npc-sprite')
           .map((item: any) => item.texture.key),
         surface: surface ? { width: surface.width, height: surface.height } : null,
       };
@@ -139,7 +139,7 @@ test('forest routes and Radicelmo share the seamless v5 terrain', async ({ page 
     expect(terrain.seamlessTilesetLoaded, `${mapId} loads v5`).toBe(true);
     expect(terrain.forestFloorLoaded, `${mapId} loads the full-map forest underlay`).toBe(true);
     expect(terrain.surface, `${mapId} composes terrain`).not.toBeNull();
-    if (mapId.endsWith('r03_terrazze_muschio')) expect(terrain.npcSprites).toContain('veloria-npc-rami-v1');
+    if (mapId.endsWith('r03_terrazze_muschio')) expect(terrain.npcSprites).toContain('veloria-cast-opening-and-champion-v1');
     if (mapId.endsWith('radicelmo')) expect(terrain.npcSprites).toContain('veloria-npc-leda-v1');
   }
 
