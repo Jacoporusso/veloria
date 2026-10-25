@@ -60,6 +60,29 @@ test('profile asset references exist and asset/frame identity pairs are unique',
   }
 });
 
+test('opening route, terrace guide and Champion keep their separate NPC identities', () => {
+  const expected = [
+    ['route-trainer-sera', 'trainer_route01_a', 'sera_route01', 0],
+    ['route-trainer-timo', 'trainer_route01_b', 'timo_route01', 1],
+    ['guide-rami-r03', 'r03_path_guide', 'r03_path_guide', 2],
+    ['league-champion-enea', 'league_champion', 'league_champion', 3],
+  ] as const;
+  const ids = new Set<string>();
+  for (const [profileId, npcId, dialogueId, frame] of expected) {
+    const profile = catalog.profiles.find((candidate: any) => candidate.id === profileId);
+    assert.ok(profile, `missing profile ${profileId}`);
+    assert.deepEqual(profile.npcIds, [npcId]);
+    assert.deepEqual(profile.dialogueIds, [dialogueId]);
+    assert.equal(profile.assetKey, 'veloria-cast-opening-and-champion-v1');
+    assert.equal(profile.frame, frame);
+    assert.ok(!ids.has(npcId), `NPC identity ${npcId} is reused`);
+    ids.add(npcId);
+  }
+  assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('r03_path_guide'), true);
+  assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('ivo'), false);
+  assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('oren'), false);
+});
+
 test('the narrative explicitly identifies professor Elia', () => {
   assert.match(read('content/dialogue/world.v1.json').prof_elia.speaker, /Professoressa/);
 });

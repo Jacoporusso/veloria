@@ -24,6 +24,8 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       ['gym07_biancavetta', 'nives_gym'], ['gym08_concordia', 'aurel_gym'],
       ['league_council01', 'league_council1'], ['league_council02', 'league_council2'],
       ['league_council03', 'league_council3'], ['league_council04', 'league_council4'],
+      ['r01_sentiero_alba', 'trainer_route01_a'], ['r01_sentiero_alba', 'trainer_route01_b'],
+      ['r03_terrazze_muschio', 'r03_path_guide'], ['league_champion', 'league_champion'],
     ];
     test.setTimeout(30_000 + cases.length * 6_000);
     for (const [mapName, npcId] of cases) {

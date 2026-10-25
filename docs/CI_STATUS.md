@@ -1,3 +1,13 @@
+## 0.3.141 — Petalora, Salita dei Petali e quattro identità
+
+Nuovi fondali v3 per Petalora/R04 e atlante Sera/Timo/Rami/Enea. Catalogo 19 profili, 22 presenze; 29 presenze ancora da rifare. Movimento d’attesa lieve con piede ancorato, disattivato nelle animazioni ridotte; direzioni e animazioni complete restano aperte. Geometria, missioni e roster Pokémon invariati.
+
+Verifiche locali: 636 test dominio/persistenza, 124 Python, validatore (370 asset, 15 fondali), build. Rendering delle 22 presenze in portrait/landscape e impostazione idle/ridotta passati. Petalora entrambe le qualità nei due orientamenti, tre corsie del ponte e servizi raggiunti con comandi reali. R04: sei corsie e controllo visivo dei piedi dopo correzione del piano illustrato; prima iterazione respinta perché mostrava i piedi sull’acqua. Rendering e identità/uscite dei 15 fondali passati. Due confronti di dimensione aggiornati a tolleranza 10⁻⁶ pixel per arrotondamenti Phaser, senza cambiare le aspettative geometriche.
+
+PWA cache v162: 13 artwork canonici/nuovi decodificati dopo reload offline, progressi invariati; 14 fondali non iniziali decodificati alla prima richiesta senza rete. Due prove finali offline passate. Una precedente invocazione npm aveva ignorato il filtro CLI: interrotta e ripetuta tramite Playwright diretto; i cinque casi già conclusi erano verdi. Nessuna attestazione della suite offline completa in questo lotto.
+
+Pubblicazione e CI remote ancora da verificare.
+
 ## 0.3.140 — Habitat leggibili, squadra KO e nuovo lotto mondo
 
 Priorità feedback: una sola sagoma per ciascun habitat, con il path del prototipo e posizione su cella percorribile; corretto il marker R01 sull’acqua. Avviso squadra tutta KO senza consumo RNG; gli incontri ripartono con un compagno in forze. Dati pubblicati R11/R16/Piazzale Lega confrontati con i locali: identici. Sei prove con probabilità native e seed controllati verificano camminata e incontro reale, incluse Cascate e Cammino dell’Equilibrio; prova KO→HP ripristinati passata sia normale sia offline. Sei mappe verificate per simbolo unico, posizione libera e guida. [Contratto59](59_HABITATS_AND_GEN1_CATALOG_v0.1.md).
@@ -8,7 +18,7 @@ Lotto grafico: R01/R03/Radicelmo v3, quattro membri del Consiglio distinti; 15 p
 
 Verify139 conclusa FAILURE soltanto nello shard10: due percorsi interni esaurivano 90s in CI durante le camminate finali. Driver ora concede 180s solo in CI, mantenendo assert di interazioni e transizioni; entrambi ripassati localmente. Rifacimento completo, animazioni e conversione del roster Veloria restano aperti.
 
-Runtime `3ec32d5019929f469fed640eec05022306266c1b` pubblicato. [Deploy40177434735](https://github.com/Jacoporusso/veloria/actions/runs/40177434735) SUCCESS: dominio, validatore con tutti i 302 riferimenti Gen I e build Pages passati in CI. Sito pubblico verificato: cache v161, atlante Consiglio HTTP200, bundle WorldScene corrente contiene l’avviso «tutta KO» e la nuova texture della sagoma. [Verify40177434731](https://github.com/Jacoporusso/veloria/actions/runs/40177434731) in corso all’ultimo controllo, senza fallimenti allora rilevati; suite completa non ancora attestata.
+Runtime `3ec32d5019929f469fed640eec05022306266c1b` pubblicato. [Deploy40177434735](https://github.com/Jacoporusso/veloria/actions/runs/40177434735) SUCCESS: dominio, validatore con tutti i 302 riferimenti Gen I e build Pages passati in CI. Sito pubblico verificato: cache v161, atlante Consiglio HTTP200, bundle WorldScene corrente contiene l’avviso «tutta KO» e la nuova texture della sagoma. [Verify40177434731](https://github.com/Jacoporusso/veloria/actions/runs/40177434731) SUCCESS: tutti i 21 job conclusi, nessun fallimento.
 
 ## 0.3.139 — Tre ambienti e otto capipalestra
 

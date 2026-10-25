@@ -29,13 +29,16 @@ test('canonical NPC artwork and redesigned scenery decode offline without changi
       'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp',
       'assets/scenery/veloria-borgofonte-illustrated-v3.webp', 'assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp',
       'assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp', 'assets/sprites/veloria-gym-leaders-a-v1.webp',
-      'assets/sprites/veloria-gym-leaders-b-v1.webp', 'assets/sprites/veloria-league-council-v1.webp'];
+      'assets/sprites/veloria-gym-leaders-b-v1.webp', 'assets/sprites/veloria-league-council-v1.webp',
+      'assets/sprites/veloria-cast-opening-and-champion-v1.webp', 'assets/scenery/veloria-petalora-illustrated-v3.webp',
+      'assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp'];
     return Promise.all(paths.map(async path => { const image = new Image(); image.src = new URL(path, location.href).href; await image.decode(); return { width: image.naturalWidth, height: image.naturalHeight }; }));
   });
   expect(decoded).toEqual([
     ...Array.from({ length: 4 }, () => ({ width: 1536, height: 1024 })),
     { width: 1470, height: 1070 }, { width: 1484, height: 1060 },
     { width: 1536, height: 1024 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 },
+    { width: 1254, height: 1254 }, { width: 1461, height: 1077 }, { width: 1484, height: 1060 },
   ]);
   const after = await readBrowserSave(page);
   for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);

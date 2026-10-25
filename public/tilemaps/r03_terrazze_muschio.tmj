@@ -2681,7 +2681,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npc-rami-v1"
+              "value": "veloria-cast-opening-and-champion-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 2
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "guide-rami-r03"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5714
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9075
             }
           ]
         }

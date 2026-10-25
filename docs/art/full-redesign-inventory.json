@@ -20,7 +20,7 @@
     "parityArtworkEntries": 15,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
-    "registeredAppearanceProfiles": 15,
+    "registeredAppearanceProfiles": 19,
     "unboundCharacterStudies": 3,
     "possibleNarrativeAliasesUnresolved": 2
   },
@@ -198,6 +198,50 @@
           "league_council4"
         ],
         "narrativeSource": "content/trainers/league_council4.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-sera",
+        "description": "Sera, allenatrice facoltativa del Sentiero dell’Alba; giacca corta chiara e verde muschio, scheda percorso al cinturino",
+        "npcIds": [
+          "trainer_route01_a"
+        ],
+        "dialogueIds": [
+          "sera_route01"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/sera_route01; content/trainers/r01_sera.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-timo",
+        "description": "Timo, allenatore facoltativo del Sentiero dell’Alba; giacca a vento ruggine e blu, zaino e fischietto",
+        "npcIds": [
+          "trainer_route01_b"
+        ],
+        "dialogueIds": [
+          "timo_route01"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/timo_route01; content/trainers/r01_timo.trainer.json"
+      },
+      {
+        "profileId": "guide-rami-r03",
+        "description": "Rami, guida delle Terrazze del Muschio; mantella da escursione verde e terra, rotolo di mappa e dettagli di felce",
+        "npcIds": [
+          "r03_path_guide"
+        ],
+        "dialogueIds": [
+          "r03_path_guide"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r03_path_guide"
+      },
+      {
+        "profileId": "league-champion-enea",
+        "description": "Enea, Campione di Veloria; soprabito petrolio e avorio, sei segni di cucitura e medaglione semplice",
+        "npcIds": [
+          "league_champion"
+        ],
+        "dialogueIds": [
+          "league_champion"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/league_champion; docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md"
       }
     ],
     "unresolvedRepeatedNpcIds": [],
@@ -366,9 +410,19 @@
           "columns": 2,
           "rows": 2
         }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-cast-opening-and-champion-v1",
+        "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
       }
     ],
     "catalogAssetKeys": [
+      "veloria-cast-opening-and-champion-v1",
       "veloria-gym-leaders-a-v1",
       "veloria-gym-leaders-b-v1",
       "veloria-league-council-v1",
@@ -439,6 +493,15 @@
         "kind": "image",
         "key": "veloria-league-council-v1",
         "path": "assets/sprites/veloria-league-council-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-cast-opening-and-champion-v1",
+        "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
         "atlas": {
           "columns": 2,
           "rows": 2
@@ -705,6 +768,74 @@
         "origin": {
           "x": 0.4799,
           "y": 0.9809
+        }
+      },
+      {
+        "id": "route-trainer-sera",
+        "description": "Sera, allenatrice facoltativa del Sentiero dell’Alba; giacca corta chiara e verde muschio, scheda percorso al cinturino",
+        "dialogueIds": [
+          "sera_route01"
+        ],
+        "npcIds": [
+          "trainer_route01_a"
+        ],
+        "assetKey": "veloria-cast-opening-and-champion-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/sera_route01; content/trainers/r01_sera.trainer.json",
+        "origin": {
+          "x": 0.5762,
+          "y": 0.9601
+        }
+      },
+      {
+        "id": "route-trainer-timo",
+        "description": "Timo, allenatore facoltativo del Sentiero dell’Alba; giacca a vento ruggine e blu, zaino e fischietto",
+        "dialogueIds": [
+          "timo_route01"
+        ],
+        "npcIds": [
+          "trainer_route01_b"
+        ],
+        "assetKey": "veloria-cast-opening-and-champion-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/timo_route01; content/trainers/r01_timo.trainer.json",
+        "origin": {
+          "x": 0.5028,
+          "y": 0.9617
+        }
+      },
+      {
+        "id": "guide-rami-r03",
+        "description": "Rami, guida delle Terrazze del Muschio; mantella da escursione verde e terra, rotolo di mappa e dettagli di felce",
+        "dialogueIds": [
+          "r03_path_guide"
+        ],
+        "npcIds": [
+          "r03_path_guide"
+        ],
+        "assetKey": "veloria-cast-opening-and-champion-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r03_path_guide",
+        "origin": {
+          "x": 0.5714,
+          "y": 0.9075
+        }
+      },
+      {
+        "id": "league-champion-enea",
+        "description": "Enea, Campione di Veloria; soprabito petrolio e avorio, sei segni di cucitura e medaglione semplice",
+        "dialogueIds": [
+          "league_champion"
+        ],
+        "npcIds": [
+          "league_champion"
+        ],
+        "assetKey": "veloria-cast-opening-and-champion-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/league_champion; docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md",
+        "origin": {
+          "x": 0.5012,
+          "y": 0.9075
         }
       }
     ],
@@ -1837,7 +1968,7 @@
         "runtimeSha256": "2d35259ad7644f02dc38eaf0d590e5a34d69649db05220922122a2e1e49c2d3c",
         "width": 1536,
         "height": 1024,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Brumalta garden town aspect3:2. Preserve three buildings exactly: healing pavilion footprint x8–25%,y8–29%; marketx8–25%,y62–83%; gymx69–86%,y8–29%, gym entrancex79%,y31%. Refined glass and wood architectures with mint roofs, brass details, flowerbeds hugging existing building edges. Broad city axis across y46–58% fromwest toeast, plaza and continuous stone branches to each door. Fountain in footprintx36–50%,y17–29%, do not enlarge. Fill open plaza with refined varied ivory paving and soft dappled light, no massive green checker tiles, no objects that become new obstacles. Replace olddarkrectangularroads with elegantcontinuouspaving. Monorailterminal is runtime, OMIT fromimage.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Brumalta garden town aspect3:2. Preserve three buildings exactly: healing pavilion footprint x8â€“25%,y8â€“29%; marketx8â€“25%,y62â€“83%; gymx69â€“86%,y8â€“29%, gym entrancex79%,y31%. Refined glass and wood architectures with mint roofs, brass details, flowerbeds hugging existing building edges. Broad city axis across y46â€“58% fromwest toeast, plaza and continuous stone branches to each door. Fountain in footprintx36â€“50%,y17â€“29%, do not enlarge. Fill open plaza with refined varied ivory paving and soft dappled light, no massive green checker tiles, no objects that become new obstacles. Replace olddarkrectangularroads with elegantcontinuouspaving. Monorailterminal is runtime, OMIT fromimage.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/c01_brumalta.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -2377,7 +2508,7 @@
         "runtimeSha256": "ee5f7c0cde0f14fbbd5bb40dc40e45c56bff2497d036ebc12eba97413c49a648",
         "width": 1536,
         "height": 1024,
-        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45–60% from left edge to right edge. Open clearing around x43–60%,y50–65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73–90%,y15–30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
+        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45â€“60% from left edge to right edge. Open clearing around x43â€“60%,y50â€“65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73â€“90%,y15â€“30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/d01_bosco_veli.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -3290,7 +3421,7 @@
         "runtimeSha256": "0a6ac69681b3f626f305e853dd97f2590027564198eef863c5cdab6974af7447",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Ferraluce energycity,aspect4:3. Preserve theexistinggrandcopper-and-blueglassgeneratorbuilding EXACT footprintnorthcenterx22–78%,y8–50%, goldenverticalreactorwithin. Omittrain/monorailrail runtime topstrip. The forecourt islevelwalkableivorystone withcyan-copperinlays, openaxesfromWESTedgey80–90% across toEASTedgey73–90%, branchto liftaccessx86%,y62%. Enrich glazedarchitecture withsmallbotanicaldetail, warmreflections, individualfloorjoints, softshadows, gardensonlyexistingedgeprops, notlargeblockingplanters. Do notinventwallsacrossaccessibleforecourt, nootherbuildings orfalseentrances. Preserve originalbuildingfloorproportions.",
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Ferraluce energycity,aspect4:3. Preserve theexistinggrandcopper-and-blueglassgeneratorbuilding EXACT footprintnorthcenterx22â€“78%,y8â€“50%, goldenverticalreactorwithin. Omittrain/monorailrail runtime topstrip. The forecourt islevelwalkableivorystone withcyan-copperinlays, openaxesfromWESTedgey80â€“90% across toEASTedgey73â€“90%, branchto liftaccessx86%,y62%. Enrich glazedarchitecture withsmallbotanicaldetail, warmreflections, individualfloorjoints, softshadows, gardensonlyexistingedgeprops, notlargeblockingplanters. Do notinventwallsacrossaccessibleforecourt, nootherbuildings orfalseentrances. Preserve originalbuildingfloorproportions.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/ferraluce.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -3298,7 +3429,7 @@
         "revisions": [
           {
             "id": "ferraluce",
-            "prompt": "Correct ONLY the access edge geometry and false water of this Ferraluce painting. Remove ALL turquoise water pools/channels in the bottomthird and at left/right edges, replacing with matching dry walkable pale stone/cyan FLOORINLAY (notwater). Preserve the glassgeneratorbuilding and goldreactor exactly. Open paved road mouths at LEFT edge y80–90%, RIGHT edge y70–90%; no pillars/railings/trees across these openings. Maintain openwalkableground from plaza to lift point x86%,y62%. No invented bottomcenterdoor; only lowbotanicalfringe at verybottomedge where needed. No new solidfloorobjects or characters. Keep premium illustratedmaterials andlight unchanged.",
+            "prompt": "Correct ONLY the access edge geometry and false water of this Ferraluce painting. Remove ALL turquoise water pools/channels in the bottomthird and at left/right edges, replacing with matching dry walkable pale stone/cyan FLOORINLAY (notwater). Preserve the glassgeneratorbuilding and goldreactor exactly. Open paved road mouths at LEFT edge y80â€“90%, RIGHT edge y70â€“90%; no pillars/railings/trees across these openings. Maintain openwalkableground from plaza to lift point x86%,y62%. No invented bottomcenterdoor; only lowbotanicalfringe at verybottomedge where needed. No new solidfloorobjects or characters. Keep premium illustratedmaterials andlight unchanged.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f7ddb12e-3c5c-4999-87e0-f9d137ccce22.png"
           }
         ]
@@ -3630,7 +3761,7 @@
         "runtimeSha256": "86531e0c7006bcbd1a620c4c183aaf6f2af4d432f3bf749dff27bf92942b2788",
         "width": 1484,
         "height": 1060,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. First Gym, aspect7:5, indoor botanical training conservatory. Keep exact floor and wall footprint: one-tile perimeter walls except a bottom-center door opening x46–54%. The rest is luminous walkable pale stone, soft cream/brass/wood material, glass roof light and subtly patterned training lanes. Preserve the three existing horizontal hedge lanes at y30%,50%,70% with openings where reference already shows pale path. Keep sparse existing six tree/planter footprintson thetwoedges; premium botanical foliage, blueglass alcoves, fine wall detail at perimeter. No enormouscenterpiece, no new furniture, no additional doorways. Runtime puzzle switches/plates and trainer OMIT entirely.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. First Gym, aspect7:5, indoor botanical training conservatory. Keep exact floor and wall footprint: one-tile perimeter walls except a bottom-center door opening x46â€“54%. The rest is luminous walkable pale stone, soft cream/brass/wood material, glass roof light and subtly patterned training lanes. Preserve the three existing horizontal hedge lanes at y30%,50%,70% with openings where reference already shows pale path. Keep sparse existing six tree/planter footprintson thetwoedges; premium botanical foliage, blueglass alcoves, fine wall detail at perimeter. No enormouscenterpiece, no new furniture, no additional doorways. Runtime puzzle switches/plates and trainer OMIT entirely.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/gym01_brumalta.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -3638,7 +3769,7 @@
         "revisions": [
           {
             "id": "gym01",
-            "prompt": "Correct ONLY the hedge geometry of this beautiful botanical gym painting. Current number/positions of hedges are wrong. There must be EXACTLY THREE HORIZONTAL hedge rows, no fourth row. Row1 from TOP y30–35% with ONE walkable gap at x64.3–67.9%; Row2 y50–55% with ONE walkable gap atx28.6–32.1%; Row3 y70–75% with ONE walkable gap atx46.4–50.0%. Each hedge occupies full horizontal width between the sidewalls except its stated gap. Remove any hedge at y18–24% completely and replace with matching clear ivory floor. Openings must visually connect upper/lower floor, no bars across them. Preserve walls, bottomcenterdoor, six existing edge trees, botanical detail and painted premium material quality. No text, characters or switches. This is a collision-aligned gamebackground: honor these exact normalized coordinates.",
+            "prompt": "Correct ONLY the hedge geometry of this beautiful botanical gym painting. Current number/positions of hedges are wrong. There must be EXACTLY THREE HORIZONTAL hedge rows, no fourth row. Row1 from TOP y30â€“35% with ONE walkable gap at x64.3â€“67.9%; Row2 y50â€“55% with ONE walkable gap atx28.6â€“32.1%; Row3 y70â€“75% with ONE walkable gap atx46.4â€“50.0%. Each hedge occupies full horizontal width between the sidewalls except its stated gap. Remove any hedge at y18â€“24% completely and replace with matching clear ivory floor. Openings must visually connect upper/lower floor, no bars across them. Preserve walls, bottomcenterdoor, six existing edge trees, botanical detail and painted premium material quality. No text, characters or switches. This is a collision-aligned gamebackground: honor these exact normalized coordinates.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-e09d8db0-f924-4134-82ff-f19eb9c4e8d4.png"
           }
         ]
@@ -4910,19 +5041,19 @@
         },
         {
           "kind": "image",
-          "key": "veloria-npcs-v2",
-          "path": "assets/sprites/veloria-npcs-v2.webp",
-          "atlas": {
-            "columns": 3,
-            "rows": 2
-          },
+          "key": "veloria-league-champion-v1",
+          "path": "assets/scenery/veloria-league-champion-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
         {
           "kind": "image",
-          "key": "veloria-league-champion-v1",
-          "path": "assets/scenery/veloria-league-champion-v1.webp",
+          "key": "veloria-cast-opening-and-champion-v1",
+          "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -4954,14 +5085,17 @@
           "name": "Enea",
           "npcId": "league_champion",
           "dialogueId": "league_champion",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_champion",
-          "profileMatch": null,
+          "characterAppearanceId": "league-champion-enea",
+          "identityKey": "profile:league-champion-enea",
+          "profileMatch": "league-champion-enea",
           "narrativeSpeaker": "Enea",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-cast-opening-and-champion-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.5012,
+            "y": 0.9075
+          },
           "trainerId": "veloria/trainer_league_champion",
           "battleOnceFlag": "trainer_league_champion_defeated",
           "frame": null,
@@ -5969,7 +6103,7 @@
           "layer": "decorations",
           "stableObjectId": 186,
           "name": "petalora illustrated environment v2",
-          "spriteKey": "veloria-petalora-illustrated-v2",
+          "spriteKey": "veloria-petalora-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -5983,14 +6117,14 @@
           "layer": "decorations",
           "stableObjectId": 186,
           "name": "petalora illustrated environment v2",
-          "spriteKey": "veloria-petalora-illustrated-v2",
+          "spriteKey": "veloria-petalora-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 38.0,
             "height": 28.0
           },
-          "assetPath": "assets/scenery/veloria-petalora-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-petalora-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -5998,8 +6132,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-petalora-illustrated-v2",
-          "path": "assets/scenery/veloria-petalora-illustrated-v2.webp",
+          "key": "veloria-petalora-illustrated-v3",
+          "path": "assets/scenery/veloria-petalora-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6079,8 +6213,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-petalora-illustrated-v2",
-          "path": "assets/scenery/veloria-petalora-illustrated-v2.webp",
+          "key": "veloria-petalora-illustrated-v3",
+          "path": "assets/scenery/veloria-petalora-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6089,19 +6223,24 @@
       "parityArtwork": {
         "mapId": "veloria/petalora",
         "tiledAsset": "tilemaps/petalora.tmj",
-        "assetKey": "veloria-petalora-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-petalora-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-petalora-illustrated-v2.webp",
-        "sourceSha256": "9765796ed0b6642092ce748f52e46ccc928a38d1e676779f945f4fd58533c871",
-        "runtimeSha256": "b54362250cce629615c2336f32611f77c1feed8d115b1ccca1b54a94e30fb177",
+        "assetKey": "veloria-petalora-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-petalora-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-petalora-illustrated-v3.webp",
+        "sourceSha256": "5f153bea37657b276639019c8eac7491c51fc7ec38305c7b6b1e835387cc4366",
+        "runtimeSha256": "0902cd872f3e2b70d81a3772f69789725afdb4c5177ceaff68e48df896dbec8a",
         "width": 1461,
-        "height": 1076,
-        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Petalora cherrygarden town, exactaspect19:14. Rich cherryblossoms and crafted rural-modern roofs, ivory stone with rosepetalaccents. Keep two buildings at oldpositions: healinghousex18–34%,y10–29%,shopx66–82%,y10–29%. Preserve center verticalpathx45–53% fromtopedge tobottomedge; broad horizontal plaza at y40–50% to rightedgeexit y43%. Horizontal turquoise river ONLY y61–68% acrossthewholewidth. ONLY bridge at x45–53% spanningthe river. No newbridges. Connectbuildingdoors gently to plaza, keepruntimeNPC/monorail/props area x45–70%,y30–55% OPEN. No large gym drawncentral (gym is beyondnorthedge). Preserve exits exact centers top48%,bottom48%,righty45%.",
+        "height": 1077,
+        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Petalora cherrygarden town, exactaspect19:14. Rich cherryblossoms and crafted rural-modern roofs, ivory stone with rosepetalaccents. Keep two buildings at oldpositions: healinghousex18â€“34%,y10â€“29%,shopx66â€“82%,y10â€“29%. Preserve center verticalpathx45â€“53% fromtopedge tobottomedge; broad horizontal plaza at y40â€“50% to rightedgeexit y43%. Horizontal turquoise river ONLY y61â€“68% acrossthewholewidth. ONLY bridge at x45â€“53% spanningthe river. No newbridges. Connectbuildingdoors gently to plaza, keepruntimeNPC/monorail/props area x45â€“70%,y30â€“55% OPEN. No large gym drawncentral (gym is beyondnorthedge). Preserve exits exact centers top48%,bottom48%,righty45%.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/petalora.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/petalora-illustrated-v3.md",
+            "reason": "Modern matte illustrated scenery; authored navigation geometry preserved. Runtime bridge QA required."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [],
@@ -6580,17 +6719,6 @@
         },
         {
           "kind": "image",
-          "key": "veloria-npcs-v2",
-          "path": "assets/sprites/veloria-npcs-v2.webp",
-          "atlas": {
-            "columns": 3,
-            "rows": 2
-          },
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
           "key": "veloria-field-props-v1",
           "path": "assets/sprites/veloria-field-props-v1.webp",
           "atlas": {
@@ -6606,6 +6734,17 @@
           "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-cast-opening-and-champion-v1",
+          "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6619,7 +6758,7 @@
         "runtimeSha256": "a0e3436b3de644d8915e71bcac956efd1b3b49beaa136ed84aae6a842efc637c",
         "width": 1536,
         "height": 1024,
-        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Sentiero dell'Alba, aspect 3:2. Sunny rural meadow transition from Borgofonte to forest. Cream dirt road crosses west edge at y50%, follows x0–100% across y45–60%, northeast branch reaches east edge at y40%; preserve broad southern bypass. Small turquoise stream in top-middle x33–43%,y15–45%, stopping before the road. Four existing tree clusters, meadow wildflowers, smooth mossy rocks only at existing positions. Rich green ranges, warm ochre path, reflective shallow water with reeds. Match old map proportions precisely.",
+        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Sentiero dell'Alba, aspect 3:2. Sunny rural meadow transition from Borgofonte to forest. Cream dirt road crosses west edge at y50%, follows x0â€“100% across y45â€“60%, northeast branch reaches east edge at y40%; preserve broad southern bypass. Small turquoise stream in top-middle x33â€“43%,y15â€“45%, stopping before the road. Four existing tree clusters, meadow wildflowers, smooth mossy rocks only at existing positions. Rich green ranges, warm ochre path, reflective shallow water with reeds. Match old map proportions precisely.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r01_sentiero_alba.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -6627,7 +6766,7 @@
         "revisions": [
           {
             "id": "r01",
-            "prompt": "Edit ONLY the stream in this generated Veloria map: it MUST be a short enclosed pool/channel from x33–43% and y15–45% of the image. The TOP 15% at that x position must be grassy ground, not water, so do not let water reach the top edge. Keep stream south edge exactly where it is before the road. Maintain all roads, trees, meadow, style and composition unchanged. No new objects, text or UI.",
+            "prompt": "Edit ONLY the stream in this generated Veloria map: it MUST be a short enclosed pool/channel from x33â€“43% and y15â€“45% of the image. The TOP 15% at that x position must be grassy ground, not water, so do not let water reach the top edge. Keep stream south edge exactly where it is before the road. Maintain all roads, trees, meadow, style and composition unchanged. No new objects, text or UI.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-8983045e-758b-41d2-bb54-45e90333b30f.png"
           },
           {
@@ -6723,14 +6862,17 @@
           "name": "Sera",
           "npcId": "trainer_route01_a",
           "dialogueId": "sera_route01",
-          "characterAppearanceId": null,
-          "identityKey": "npc:trainer_route01_a",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-sera",
+          "identityKey": "profile:route-trainer-sera",
+          "profileMatch": "route-trainer-sera",
           "narrativeSpeaker": "Sera",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-cast-opening-and-champion-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.5762,
+            "y": 0.9601
+          },
           "trainerId": "veloria/trainer_route01_sera",
           "battleOnceFlag": "trainer_route01_sera_defeated",
           "frame": null,
@@ -6746,14 +6888,17 @@
           "name": "Timo",
           "npcId": "trainer_route01_b",
           "dialogueId": "timo_route01",
-          "characterAppearanceId": null,
-          "identityKey": "npc:trainer_route01_b",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-timo",
+          "identityKey": "profile:route-trainer-timo",
+          "profileMatch": "route-trainer-timo",
           "narrativeSpeaker": "Timo",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 5,
-          "spriteOrigin": null,
+          "sprite": "veloria-cast-opening-and-champion-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.5028,
+            "y": 0.9617
+          },
           "trainerId": "veloria/trainer_route01_timo",
           "battleOnceFlag": "trainer_route01_timo_defeated",
           "frame": null,
@@ -6948,7 +7093,7 @@
         "runtimeSha256": "664ce9d8e69f9f5ac1806ff19e64d6f75b285fe9bd5316a11f710a11838267c6",
         "width": 1484,
         "height": 1060,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40–55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40â€“55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r02_viale_fronde.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -7139,15 +7284,19 @@
         },
         {
           "kind": "image",
-          "key": "veloria-npc-rami-v1",
-          "path": "assets/sprites/veloria-npc-rami-v1.webp",
+          "key": "veloria-r03_terrazze_muschio-illustrated-v3",
+          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
         {
           "kind": "image",
-          "key": "veloria-r03_terrazze_muschio-illustrated-v3",
-          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
+          "key": "veloria-cast-opening-and-champion-v1",
+          "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7238,14 +7387,17 @@
           "name": "Guida Rami",
           "npcId": "r03_path_guide",
           "dialogueId": "r03_path_guide",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r03_path_guide",
-          "profileMatch": null,
+          "characterAppearanceId": "guide-rami-r03",
+          "identityKey": "profile:guide-rami-r03",
+          "profileMatch": "guide-rami-r03",
           "narrativeSpeaker": "Rami",
           "kind": "npc",
-          "sprite": "veloria-npc-rami-v1",
-          "spriteFrame": null,
-          "spriteOrigin": null,
+          "sprite": "veloria-cast-opening-and-champion-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.5714,
+            "y": 0.9075
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -7296,8 +7448,8 @@
         {
           "layer": "decorations",
           "stableObjectId": 204,
-          "name": "r04_salita_petali illustrated environment v2",
-          "spriteKey": "veloria-r04_salita_petali-illustrated-v2",
+          "name": "r04_salita_petali illustrated environment v3",
+          "spriteKey": "veloria-r04_salita_petali-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -7310,15 +7462,15 @@
         {
           "layer": "decorations",
           "stableObjectId": 204,
-          "name": "r04_salita_petali illustrated environment v2",
-          "spriteKey": "veloria-r04_salita_petali-illustrated-v2",
+          "name": "r04_salita_petali illustrated environment v3",
+          "spriteKey": "veloria-r04_salita_petali-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 42.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7326,8 +7478,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r04_salita_petali-illustrated-v2",
-          "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp",
+          "key": "veloria-r04_salita_petali-illustrated-v3",
+          "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7400,8 +7552,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r04_salita_petali-illustrated-v2",
-          "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp",
+          "key": "veloria-r04_salita_petali-illustrated-v3",
+          "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7410,19 +7562,24 @@
       "parityArtwork": {
         "mapId": "veloria/r04_salita_petali",
         "tiledAsset": "tilemaps/r04_salita_petali.tmj",
-        "assetKey": "veloria-r04_salita_petali-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r04_salita_petali-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp",
-        "sourceSha256": "b9b36ad919a37f37786184f9d413089673b7a9f6991fbe14335a649b662d12b8",
-        "runtimeSha256": "4abc1eec748f1dcb32602598be789dc14150c21042dc6b4757fb74e744470e05",
+        "assetKey": "veloria-r04_salita_petali-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r04_salita_petali-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
+        "sourceSha256": "64a7c2a28a6eb174085d5606351c4b2a3be1293679d43f56451e1e1725bb8afd",
+        "runtimeSha256": "379c032ab6b7efff100a46233f27728857b83593ceb32ececf6296207cffdaa3",
         "width": 1484,
         "height": 1060,
-        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Salita dei Petali, aspect7:5. Luminous cherryblossom approach, pink white canopy, layered soft greenery, mossy stream banks. EXACT verticalstreamx36–43% acrossfullheight. ONLY two bridges at y43–53% andy73–83% on existingpositions. Preserve path from bottomedge x40–48% → westward y75% → north x14–20% → east y45% crossing upperbridge → north x69–76% to TOPEDGE. Routes to both bridges remainopen. No third bridge, no rocks or fences newlyblocking paths, no decorativeexit beyond these. Delicate petals ground, spring light, refinedmaterials.",
+        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Salita dei Petali, aspect7:5. Luminous cherryblossom approach, pink white canopy, layered soft greenery, mossy stream banks. EXACT verticalstreamx36â€“43% acrossfullheight. ONLY two bridges at y43â€“53% andy73â€“83% on existingpositions. Preserve path from bottomedge x40â€“48% â†’ westward y75% â†’ north x14â€“20% â†’ east y45% crossing upperbridge â†’ north x69â€“76% to TOPEDGE. Routes to both bridges remainopen. No third bridge, no rocks or fences newlyblocking paths, no decorativeexit beyond these. Delicate petals ground, spring light, refinedmaterials.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r04_salita_petali.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r04-salita-petali-illustrated-v3.md",
+            "reason": "Modern matte illustrated scenery; authored navigation geometry preserved. Runtime bridge QA required."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [
@@ -7697,7 +7854,7 @@
         "runtimeSha256": "e52d0993444952c909d8ca451f2241b147755f534b2d954ddd8eba959250db20",
         "width": 1671,
         "height": 941,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Viadotto dei Ciliegi,aspect23:13. Cherryblossom approach to elegant city. Preserve verticalriverstripx48–54% acrossfullheight, ONLY stone/wood footbridge aroundy20–30%. Exact walkingroad enters WESTedgeaty65–77%, runsright tox30–37%, turnsUPto y20–30%, thenRIGHT overbridge toEASTedgeaty20–30%. The raisedmonorail atTOP10% is a runtime layer: do NOT painttrack,trainsorpillars, leave lowplantbackgroundunderthat strip. Elaboratepinkcanopy onlyexistingtreepositions, softwaterlight, delicatewatersidegroundcover; walkwaybridgemustalignprecisely. Do notaddotherbridges.",
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Viadotto dei Ciliegi,aspect23:13. Cherryblossom approach to elegant city. Preserve verticalriverstripx48â€“54% acrossfullheight, ONLY stone/wood footbridge aroundy20â€“30%. Exact walkingroad enters WESTedgeaty65â€“77%, runsright tox30â€“37%, turnsUPto y20â€“30%, thenRIGHT overbridge toEASTedgeaty20â€“30%. The raisedmonorail atTOP10% is a runtime layer: do NOT painttrack,trainsorpillars, leave lowplantbackgroundunderthat strip. Elaboratepinkcanopy onlyexistingtreepositions, softwaterlight, delicatewatersidegroundcover; walkwaybridgemustalignprecisely. Do notaddotherbridges.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r05_viadotto_ciliegi.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -7977,7 +8134,7 @@
         "runtimeSha256": "18473557d78122acab27c64116afb853973abadc8474dfc7aa1aebd2c4cec864",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Anello Magnetico,aspect4:3. Sustainable energyresearchpark with ivory brushedstone, turquoiseinlays,coppertraces,small moss gardens inonlyexisting four cornerhabitatfootprintsx7–20% or73–85%,y10–27% or67–80%. Preserveopenroundedrectangularwalkingloop acrossx12–86%,y29–88% matching bluepaving inreference, exitWESTy47–57%, exitEASTy80–90%. The northraisedrail isruntime, OMITrail/pillars. No huge structures/reactors/lakes/fountains, noitemsonthefloor. Lowfloorinlaysandgroundtextures can adddetailwithoutinventingcollision. Matcholdfloorgeometryprecisely;warmcyanreflectionsandvariedcleanmaterials.",
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Anello Magnetico,aspect4:3. Sustainable energyresearchpark with ivory brushedstone, turquoiseinlays,coppertraces,small moss gardens inonlyexisting four cornerhabitatfootprintsx7â€“20% or73â€“85%,y10â€“27% or67â€“80%. Preserveopenroundedrectangularwalkingloop acrossx12â€“86%,y29â€“88% matching bluepaving inreference, exitWESTy47â€“57%, exitEASTy80â€“90%. The northraisedrail isruntime, OMITrail/pillars. No huge structures/reactors/lakes/fountains, noitemsonthefloor. Lowfloorinlaysandgroundtextures can adddetailwithoutinventingcollision. Matcholdfloorgeometryprecisely;warmcyanreflectionsandvariedcleanmaterials.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r06_anello_magnetico.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -7985,7 +8142,7 @@
         "revisions": [
           {
             "id": "r06",
-            "prompt": "Correct ONLY actual exit mouths and unintended barriers in this Anello Magnetico background. Open clear paved ground through LEFT edge y47–57% and RIGHT edge y80–90%, removing columns/walls/planters from those edge segments. There must be no apparent exit at bottomcenter: carry a narrow botanical border only along the bottom1%, leaving all the interior floor unchanged. Do not add water/reactors/buildings. Keep the current beautiful brushed ivory/cyan/copper floor, four small garden corners and illustrated lighting exactly. No text or people.",
+            "prompt": "Correct ONLY actual exit mouths and unintended barriers in this Anello Magnetico background. Open clear paved ground through LEFT edge y47â€“57% and RIGHT edge y80â€“90%, removing columns/walls/planters from those edge segments. There must be no apparent exit at bottomcenter: carry a narrow botanical border only along the bottom1%, leaving all the interior floor unchanged. Do not add water/reactors/buildings. Keep the current beautiful brushed ivory/cyan/copper floor, four small garden corners and illustrated lighting exactly. No text or people.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f4c61f5b-5d6e-49ee-916e-92ff8958331b.png"
           }
         ]
@@ -10198,7 +10355,7 @@
         "runtimeSha256": "1d34ebb223dea1e84763dcdd34bae3a020ba7b4e678e110c20caec1294e34501",
         "width": 1536,
         "height": 1024,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Radicelmo research village aspect3:2. Preserve footprints: healing housex5–22%,y12–33%, herbalistx28–44%,y12–33%, greenhousex58–81%,y8–33%; doors at center loweredge ofeach. Flower-rich wood/glass craftwork, mossed masonry and copper botanical glazing. Broad horizontal village road y54–66% west→east, branches tohouses; CONNECT an open northbound roadatx47–55% to the TOPEDGE for the actual route exit. Existing sparseearthpaths become layered pale stone with rounded grass transitions. Research gardenx58–83%,y41–79% MUST REMAIN OPEN ground: no pots/figures/consoles/counter/stonepickup drawn there because allare runtime. Centralplaza easyread, botanicalbeds hugboundaries/oldtrunks only.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Radicelmo research village aspect3:2. Preserve footprints: healing housex5â€“22%,y12â€“33%, herbalistx28â€“44%,y12â€“33%, greenhousex58â€“81%,y8â€“33%; doors at center loweredge ofeach. Flower-rich wood/glass craftwork, mossed masonry and copper botanical glazing. Broad horizontal village road y54â€“66% westâ†’east, branches tohouses; CONNECT an open northbound roadatx47â€“55% to the TOPEDGE for the actual route exit. Existing sparseearthpaths become layered pale stone with rounded grass transitions. Research gardenx58â€“83%,y41â€“79% MUST REMAIN OPEN ground: no pots/figures/consoles/counter/stonepickup drawn there because allare runtime. Centralplaza easyread, botanicalbeds hugboundaries/oldtrunks only.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/radicelmo.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -10206,7 +10363,7 @@
         "revisions": [
           {
             "id": "radicelmo",
-            "prompt": "Precise geometry correction only. In this Radicelmo painting the vertical road reaching TOP EDGE is too far right. Move its TOP EDGE mouth and vertical upper section to center x51.4% with width8.3% (x47.2–55.5%), preserving its continuous connection into the lower village plaza. Do not move buildings or any other road. Keep greenhouse and wide researchgardenbelow it untouched. Same beautiful botanicaldetail, materials and lighting. No new paths/exits/people/text.",
+            "prompt": "Precise geometry correction only. In this Radicelmo painting the vertical road reaching TOP EDGE is too far right. Move its TOP EDGE mouth and vertical upper section to center x51.4% with width8.3% (x47.2â€“55.5%), preserving its continuous connection into the lower village plaza. Do not move buildings or any other road. Keep greenhouse and wide researchgardenbelow it untouched. Same beautiful botanicaldetail, materials and lighting. No new paths/exits/people/text.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4f568100-5da7-4037-baec-3aeccaa4adf0.png"
           },
           {
@@ -10525,7 +10682,7 @@
         "runtimeSha256": "979bc2e9384745da0d6237b59b762b55f0d1baf5becb42cb77a869df75b409ad",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Vetracielo garden metropolis,aspect4:3. Keep the EXISTING grand blueglass botanicalmonorailstation building exactly in northcenter footprintx22–78%,y5–50%, entrancecenterx50%y50%. It is being bakedintothisnewbackground so drawONESTATIONmatchingref, do NOT relocate/enlarge. No trains and no elevatedtrack because trackisanother runtime layer. Broad ivory/cyan glazed pedestrianplaza acrossx0–100%,y60–90%, branchupfromcenterx50% tostationentrance. West/eastexitsat y82–90%, southrouteexitx25–33%. Lushcherryparks alongtheleft/rightedgesandexistingtreepositions, restrained modern glasscity details onlyperiphery; openplazafloorremainsfree of giant planters/fountains/newbuildings.",
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Vetracielo garden metropolis,aspect4:3. Keep the EXISTING grand blueglass botanicalmonorailstation building exactly in northcenter footprintx22â€“78%,y5â€“50%, entrancecenterx50%y50%. It is being bakedintothisnewbackground so drawONESTATIONmatchingref, do NOT relocate/enlarge. No trains and no elevatedtrack because trackisanother runtime layer. Broad ivory/cyan glazed pedestrianplaza acrossx0â€“100%,y60â€“90%, branchupfromcenterx50% tostationentrance. West/eastexitsat y82â€“90%, southrouteexitx25â€“33%. Lushcherryparks alongtheleft/rightedgesandexistingtreepositions, restrained modern glasscity details onlyperiphery; openplazafloorremainsfree of giant planters/fountains/newbuildings.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/vetracielo.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -10533,7 +10690,7 @@
         "revisions": [
           {
             "id": "vetracielo",
-            "prompt": "Precise game-exit correction ONLY. Keep this beautiful Vetracielo station and plaza unchanged. Remove the decorative wall/rail/planters where they block these edge openings: LEFT edge y80–90%, RIGHT edge y80–90%, BOTTOM edge x25–33%. Extend clear pale paved walkway all the way through those edge segments. The bottomcenter x45–55% is NOT a mapexit: terminate that decorative centralinlay naturally before the edge and use a narrow flowerborder on the very bottom1% there instead of an apparent gateway. Do not add pools/water or any new building/furniture. Keep other art, road proportions and station identical. These are functional exits, so no railing across them.",
+            "prompt": "Precise game-exit correction ONLY. Keep this beautiful Vetracielo station and plaza unchanged. Remove the decorative wall/rail/planters where they block these edge openings: LEFT edge y80â€“90%, RIGHT edge y80â€“90%, BOTTOM edge x25â€“33%. Extend clear pale paved walkway all the way through those edge segments. The bottomcenter x45â€“55% is NOT a mapexit: terminate that decorative centralinlay naturally before the edge and use a narrow flowerborder on the very bottom1% there instead of an apparent gateway. Do not add pools/water or any new building/furniture. Keep other art, road proportions and station identical. These are functional exits, so no railing across them.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-6a715648-1c21-4db8-b47d-570d4b88b1fe.png"
           }
         ]
@@ -11249,14 +11406,17 @@
       "name": "Enea",
       "npcId": "league_champion",
       "dialogueId": "league_champion",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_champion",
-      "profileMatch": null,
+      "characterAppearanceId": "league-champion-enea",
+      "identityKey": "profile:league-champion-enea",
+      "profileMatch": "league-champion-enea",
       "narrativeSpeaker": "Enea",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-cast-opening-and-champion-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.5012,
+        "y": 0.9075
+      },
       "trainerId": "veloria/trainer_league_champion",
       "battleOnceFlag": "trainer_league_champion_defeated",
       "frame": null,
@@ -11477,14 +11637,17 @@
       "name": "Sera",
       "npcId": "trainer_route01_a",
       "dialogueId": "sera_route01",
-      "characterAppearanceId": null,
-      "identityKey": "npc:trainer_route01_a",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-sera",
+      "identityKey": "profile:route-trainer-sera",
+      "profileMatch": "route-trainer-sera",
       "narrativeSpeaker": "Sera",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-cast-opening-and-champion-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.5762,
+        "y": 0.9601
+      },
       "trainerId": "veloria/trainer_route01_sera",
       "battleOnceFlag": "trainer_route01_sera_defeated",
       "frame": null,
@@ -11501,14 +11664,17 @@
       "name": "Timo",
       "npcId": "trainer_route01_b",
       "dialogueId": "timo_route01",
-      "characterAppearanceId": null,
-      "identityKey": "npc:trainer_route01_b",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-timo",
+      "identityKey": "profile:route-trainer-timo",
+      "profileMatch": "route-trainer-timo",
       "narrativeSpeaker": "Timo",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 5,
-      "spriteOrigin": null,
+      "sprite": "veloria-cast-opening-and-champion-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.5028,
+        "y": 0.9617
+      },
       "trainerId": "veloria/trainer_route01_timo",
       "battleOnceFlag": "trainer_route01_timo_defeated",
       "frame": null,
@@ -11525,14 +11691,17 @@
       "name": "Guida Rami",
       "npcId": "r03_path_guide",
       "dialogueId": "r03_path_guide",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r03_path_guide",
-      "profileMatch": null,
+      "characterAppearanceId": "guide-rami-r03",
+      "identityKey": "profile:guide-rami-r03",
+      "profileMatch": "guide-rami-r03",
       "narrativeSpeaker": "Rami",
       "kind": "npc",
-      "sprite": "veloria-npc-rami-v1",
-      "spriteFrame": null,
-      "spriteOrigin": null,
+      "sprite": "veloria-cast-opening-and-champion-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.5714,
+        "y": 0.9075
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,

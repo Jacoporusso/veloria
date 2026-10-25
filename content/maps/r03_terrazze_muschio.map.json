@@ -44,13 +44,17 @@
     },
     {
       "kind": "image",
-      "key": "veloria-npc-rami-v1",
-      "path": "assets/sprites/veloria-npc-rami-v1.webp"
+      "key": "veloria-r03_terrazze_muschio-illustrated-v3",
+      "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp"
     },
     {
       "kind": "image",
-      "key": "veloria-r03_terrazze_muschio-illustrated-v3",
-      "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp"
+      "key": "veloria-cast-opening-and-champion-v1",
+      "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

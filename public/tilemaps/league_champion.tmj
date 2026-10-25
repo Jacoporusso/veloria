@@ -6833,12 +6833,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-cast-opening-and-champion-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 0
+              "value": 3
             },
             {
               "name": "trainerId",
@@ -6859,6 +6859,21 @@
               "name": "challengeStageId",
               "type": "string",
               "value": "champion"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "league-champion-enea"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5012
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9075
             }
           ]
         }

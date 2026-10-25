@@ -1,4 +1,5 @@
 import { ENCOUNTER_HABITAT_SYMBOL } from '../rendering/encounter-habitat-marker.ts';
+import { addNpcIdleMotion } from '../rendering/npc-idle-motion.ts';
 import { customizeTrainerAppearance, readTrainerAppearance } from '../../core/party/trainer-appearance.ts';
 import { createTrainerAvatarSheet } from '../rendering/trainer-avatar-art.ts';
 import { composeIllustratedTrainer, trainerSourcePath } from '../rendering/illustrated-trainer.ts';
@@ -356,6 +357,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private renderAmbientEffects() {
+    this.ambientTweenTargets.push(...addNpcIdleMotion(this, this.mapLayer, this.reducedAnimations));
     for (const effect of this.map.metadata.ambientEffects ?? []) {
       if (effect.kind === 'petals') {
         for (const point of createAmbientEffectPoints(this.map.metadata.id, effect)) {

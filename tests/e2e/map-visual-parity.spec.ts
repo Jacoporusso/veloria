@@ -70,7 +70,12 @@ test('illustrated maps render and retain visible world objects in portrait and l
       expect(result.textureExists, map.stem).toBe(true);
       expect(result.decoded, map.stem).toBe(true);
       expect(result.imageFound, map.stem).toBe(true);
-      expect(result.imageBounds, map.stem).toEqual({ x: 0, y: 0, width: result.mapWidth, height: result.mapHeight });
+      expect(result.imageBounds.x, map.stem).toBe(0);
+      expect(result.imageBounds.y, map.stem).toBe(0);
+      // Phaser computes display sizes through scale; non-integral source
+      // dimensions can introduce sub-pixel floating-point rounding.
+      expect(result.imageBounds.width, map.stem).toBeCloseTo(result.mapWidth, 6);
+      expect(result.imageBounds.height, map.stem).toBeCloseTo(result.mapHeight, 6);
       if (result.npcCount > 0) {
         expect(result.npcSprites, map.stem).toHaveLength(result.npcCount);
         expect(result.npcSprites.every(Boolean), map.stem).toBe(true);

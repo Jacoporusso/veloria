@@ -1845,12 +1845,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-cast-opening-and-champion-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 4
+              "value": 0
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-sera"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5762
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9601
             }
           ]
         },
@@ -1898,12 +1913,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-cast-opening-and-champion-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 5
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-timo"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5028
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9617
             }
           ]
         }
