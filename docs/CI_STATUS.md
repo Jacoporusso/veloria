@@ -6,7 +6,9 @@ Lotto grafico: R01/R03/Radicelmo v3, quattro membri del Consiglio distinti; 15 p
 
 302 riferimenti PokéAPI Gen I (151 Pokémon +151 specie) conservati e verificati offline con URL/ID/SHA-256; 181 risposte nuove, 121 riusate, nessuna cache precedente sovrascritta. Roster runtime ancora 83 specie, 60 Gen I: le 91 mancanti non sono ancora rese giocabili. [Proposta regionale e regali](60_REGIONAL_ROSTERS_AND_REWARDS_PROPOSAL_v0.1.md) e matrice151 sono bozze per la discussione richiesta, senza modifiche alle distribuzioni o alle squadre attuali.
 
-Verify139 conclusa FAILURE soltanto nello shard10: due percorsi interni esaurivano 90s in CI durante le camminate finali. Driver ora concede 180s solo in CI, mantenendo assert di interazioni e transizioni; entrambi ripassati localmente. Pubblicazione e CI140 da attestare dopo il push. Rifacimento completo, animazioni e conversione del roster Veloria restano aperti.
+Verify139 conclusa FAILURE soltanto nello shard10: due percorsi interni esaurivano 90s in CI durante le camminate finali. Driver ora concede 180s solo in CI, mantenendo assert di interazioni e transizioni; entrambi ripassati localmente. Rifacimento completo, animazioni e conversione del roster Veloria restano aperti.
+
+Runtime `3ec32d5019929f469fed640eec05022306266c1b` pubblicato. [Deploy40177434735](https://github.com/Jacoporusso/veloria/actions/runs/40177434735) SUCCESS: dominio, validatore con tutti i 302 riferimenti Gen I e build Pages passati in CI. Sito pubblico verificato: cache v161, atlante Consiglio HTTP200, bundle WorldScene corrente contiene l’avviso «tutta KO» e la nuova texture della sagoma. [Verify40177434731](https://github.com/Jacoporusso/veloria/actions/runs/40177434731) in corso all’ultimo controllo, senza fallimenti allora rilevati; suite completa non ancora attestata.
 
 ## 0.3.139 — Tre ambienti e otto capipalestra
 
