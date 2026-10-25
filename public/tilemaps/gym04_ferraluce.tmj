@@ -2583,12 +2583,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-gym-leaders-a-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 4
+              "value": 3
             },
             {
               "name": "trainerId",
@@ -2609,6 +2609,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Rhea aspetta il segnale: orienta il primo nastro a est, il secondo a nord e il campo a ovest. Le linee luminose mostrano fin dove arriva l’energia."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "gym-leader-rhea"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.4843
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9553
             }
           ]
         }

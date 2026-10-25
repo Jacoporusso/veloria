@@ -1,5 +1,7 @@
 ## Nuova priorità — rifacimento completo di mappe e personaggi
 
+Lotto0.3.139: Borgofonte, Bosco e Viale delle Fronde illustrati; identità distinte per tutti gli otto capipalestra, catalogo multiatlante e inquadratura ai bordi corretta. Con Elia/Ada/Nilo sono 11 profili e 14 presenze associate; le altre 37 presenze e la revisione completa delle 48 mappe restano aperte. [Stato e limiti](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md).
+
 Richiesta del 24/10/2026: rifare tutte le 48 mappe e l’intero cast, nello stile 2D illustrato moderno approvato. Inventario derivato dai contenuti: 51 presenze NPC; le identità comuni sono accorpate soltanto con prove esplicite. [Ambito, lotti e criteri di accettazione](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md). Primo lotto in lavorazione: ambienti iniziali e identità del cast; la copertura attuale dei fondali non attesta il completamento del redesign.
 
 ## Identità principali e uscite leggibili — 0.3.137 in verifica

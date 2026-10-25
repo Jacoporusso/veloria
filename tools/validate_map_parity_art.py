@@ -2,6 +2,7 @@
 import csv
 import hashlib
 import json
+import re
 import struct
 from pathlib import Path
 
@@ -78,8 +79,21 @@ def validate_map_parity_art(repository_root: Path) -> int:
     if manifest.get("version") != 2 or manifest.get("generator") != EXPECTED_GENERATOR:
         raise AssertionError("Map artwork provenance must use version 2 and the built-in imagegen generator.")
     artworks = manifest.get("artworks")
-    if not isinstance(artworks, list) or len(artworks) != 14:
-        raise AssertionError("Map artwork provenance must contain exactly 14 artwork records.")
+    if not isinstance(artworks, list) or not artworks:
+        raise AssertionError("Map artwork provenance must contain artwork records.")
+
+    # Grow with the maps actually bound to versioned illustrated scenery. A
+    # fixed count blocked new maps and could not detect a missing specific map.
+    required_maps = {
+        metadata["id"]
+        for path in (root / "content" / "maps").glob("*.map.json")
+        for metadata in [json.loads(path.read_text(encoding="utf-8"))]
+        if any(re.fullmatch(r"veloria-.+-illustrated-v\d+", asset.get("key", ""))
+               for asset in metadata.get("renderAssets", []))
+    }
+    recorded_maps = {record.get("mapId") for record in artworks}
+    if required_maps - recorded_maps:
+        raise AssertionError(f"Illustrated maps missing artwork provenance: {sorted(required_maps - recorded_maps)}")
 
     register_path = root / "assets" / "ASSET_REGISTER.csv"
     with register_path.open(newline="", encoding="utf-8-sig") as handle:

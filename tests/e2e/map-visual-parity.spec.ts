@@ -2,20 +2,23 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
 
-const mapStems = [
-  'r01_sentiero_alba', 'd01_bosco_veli', 'r02_viale_fronde', 'c01_brumalta',
-  'gym01_brumalta', 'r03_terrazze_muschio', 'radicelmo', 'ferraluce',
-  'gym02_petalora', 'petalora', 'r04_salita_petali', 'r05_viadotto_ciliegi',
-  'r06_anello_magnetico', 'vetracielo',
-];
 const representativeStems = new Set(['r01_sentiero_alba', 'd01_bosco_veli', 'c01_brumalta', 'petalora']);
+const parityManifest = JSON.parse(readFileSync(resolve('assets/map-parity-v2.json'), 'utf8'));
+const mapMetadata = readdirSync(resolve('content/maps'))
+  .filter(file => file.endsWith('.map.json'))
+  .map(file => JSON.parse(readFileSync(resolve('content/maps', file), 'utf8')));
 const knownMapNames = readdirSync(resolve('content/maps'))
   .filter(file => file.endsWith('.map.json'))
   .map(file => JSON.parse(readFileSync(resolve('content/maps', file), 'utf8')).displayName);
-const mapDefinitions = mapStems.map(stem => {
-  const metadata = JSON.parse(readFileSync(resolve('content/maps', `${stem}.map.json`), 'utf8'));
+const mapDefinitions = parityManifest.artworks.map((artwork: { mapId: string; assetKey: string }) => {
+  const metadata = mapMetadata.find(map => map.id === artwork.mapId);
+  if (!metadata) throw new Error(`No MapDefinition found for parity artwork ${artwork.mapId}`);
+  if (!metadata.renderAssets.some((asset: any) => asset.key === artwork.assetKey)) {
+    throw new Error(`Parity artwork ${artwork.assetKey} is not registered by ${artwork.mapId}`);
+  }
   const tiled = JSON.parse(readFileSync(resolve('public', metadata.tiledAsset), 'utf8'));
-  return { stem, metadata, tiled };
+  const tiledName = metadata.tiledAsset.split('/').pop() ?? metadata.tiledAsset;
+  return { stem: tiledName.replace(/\.tmj$/, ''), metadata, tiled, assetKey: artwork.assetKey };
 });
 
 async function exposeGame(page: import('@playwright/test').Page) {
@@ -41,12 +44,12 @@ test('illustrated maps render and retain visible world objects in portrait and l
     await page.setViewportSize(viewport);
     for (const map of mapDefinitions) {
       await openMap(page, map.metadata.id);
-      const result = await page.evaluate((destinationNames: string[]) => {
+      const result = await page.evaluate(({ destinationNames, assetKey }: { destinationNames: string[]; assetKey: string }) => {
         const game = (window as any).__mapParityGame;
         const world = game.scene.keys.world;
         const metadata = world.map.metadata;
         const tiled = world.mapLayer.list;
-        const backgroundAsset = metadata.renderAssets.find((asset: any) => asset.key === metadata.renderAssets.find((candidate: any) => candidate.path.includes('illustrated-v2'))?.key);
+        const backgroundAsset = metadata.renderAssets.find((asset: any) => asset.key === assetKey);
         const image = tiled.find((item: any) => item.type === 'Image' && item.texture.key === backgroundAsset?.key && item.width > 0);
         const source = image && world.textures.get(image.texture.key).getSourceImage() as HTMLImageElement;
         const npcInteractables = world.renderedMap.interactables.filter((item: any) => item.kind === 'npc');
@@ -62,7 +65,8 @@ test('illustrated maps render and retain visible world objects in portrait and l
           exitCount: world.renderedMap.triggers.filter((trigger: any) => trigger.kind === 'map-exit' && trigger.destinationMapId).length,
           visibleExitLabels: exitLabels.filter((label: any) => label.visible && String(label.text).trim()).length,
         };
-      }, knownMapNames);
+      }, { destinationNames: knownMapNames, assetKey: map.assetKey });
+      expect(result.assetKey, map.stem).toBe(map.assetKey);
       expect(result.textureExists, map.stem).toBe(true);
       expect(result.decoded, map.stem).toBe(true);
       expect(result.imageFound, map.stem).toBe(true);

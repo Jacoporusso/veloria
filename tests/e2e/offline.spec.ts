@@ -25,10 +25,17 @@ test('canonical NPC artwork and redesigned scenery decode offline without changi
   await context.setOffline(true); await page.reload(); await enterGame(page);
   const decoded = await page.evaluate(async () => {
     const paths = ['assets/sprites/veloria-npcs-v3.webp', 'assets/scenery/veloria-c01_brumalta-illustrated-v2.webp',
-      'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp'];
+      'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp',
+      'assets/scenery/veloria-borgofonte-illustrated-v3.webp', 'assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp',
+      'assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp', 'assets/sprites/veloria-gym-leaders-a-v1.webp',
+      'assets/sprites/veloria-gym-leaders-b-v1.webp'];
     return Promise.all(paths.map(async path => { const image = new Image(); image.src = new URL(path, location.href).href; await image.decode(); return { width: image.naturalWidth, height: image.naturalHeight }; }));
   });
-  expect(decoded).toEqual(Array.from({ length: 4 }, () => ({ width: 1536, height: 1024 })));
+  expect(decoded).toEqual([
+    ...Array.from({ length: 4 }, () => ({ width: 1536, height: 1024 })),
+    { width: 1470, height: 1070 }, { width: 1484, height: 1060 },
+    { width: 1536, height: 1024 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 },
+  ]);
   const after = await readBrowserSave(page);
   for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
   expect(failures).toEqual([]);
@@ -502,6 +509,20 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
     let observed = current;
     for (const direction of route.reverse()) observed = await walk(direction, 1, undefined, observed);
   };
+  const walkToMapExit = async (tilemapPath: string, destinationMapId: string) => {
+    const map = JSON.parse(await readFile(new URL(`../../public/tilemaps/${tilemapPath}`, import.meta.url), 'utf8'));
+    const exit = map.layers.find((layer: any) => layer.name === 'triggers').objects.find((object: any) => {
+      const properties = Object.fromEntries((object.properties ?? []).map((property: any) => [property.name, property.value]));
+      return properties.kind === 'map-exit' && properties.destinationMapId === destinationMapId;
+    });
+    if (!exit) throw new Error(`${tilemapPath} has no map exit to ${destinationMapId}.`);
+    // Aim for the middle of the currently authored exit rectangle so wider
+    // thresholds do not transition on the first incidental edge tile.
+    const targetX = Math.floor(exit.x / 32) + Math.floor(exit.width / 64);
+    const targetY = Math.floor(exit.y / 32) + Math.floor(exit.height / 64);
+    await walkToMapTile(tilemapPath, targetX, targetY);
+    return { x: targetX, y: targetY };
+  };
 
   // Start a new-game flow, then follow the same walkable route as E2E-02 while offline.
   await page.getByRole('button', { name: 'Vai in basso' }).tap();
@@ -547,10 +568,9 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   await page.getByRole('button', { name: 'Vai in alto' }).tap(); // Face the solid pickup without entering its tile.
   await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect.poll(async () => (await readSave(page))?.inventory?.potion).toBe(3);
-  await walk('destra', 14);
-  await walk('alto', 2, 'veloria/d01_bosco_veli');
+  const exitCell = await walkToMapExit('r01_sentiero_alba.tmj', 'veloria/d01_bosco_veli');
   const finalSave = await readSave(page);
-  expect(finalSave.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 1, y: 10 });
+  expect(finalSave.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 1, y: exitCell.y });
   expect(finalSave.flags).toContain('item_r01_potion_collected');
   // Encounters belong to the visible fern patches, not to the central path.
   await walkToMapTile('d01_bosco_veli.tmj', 2, 9);
@@ -1153,19 +1173,17 @@ test('illustrated Borgofonte decodes on its first offline request', async ({ pag
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30000 });
   await context.setOffline(true);
   expect(await page.evaluate(async () => {
-    const image = new Image(); image.src = new URL('assets/scenery/veloria-borgofonte-v2.webp', location.href).href;
-    await image.decode(); return image.naturalWidth > 0 && image.naturalHeight > 0;
-  })).toBe(true);
+    const image = new Image(); image.src = new URL('assets/scenery/veloria-borgofonte-illustrated-v3.webp', location.href).href;
+    await image.decode(); return { width: image.naturalWidth, height: image.naturalHeight };
+  })).toEqual({ width: 1470, height: 1070 });
 });
 
-test('fourteen illustrated early-map environments decode on their first offline request', async ({ page, context }) => {
+test('registered illustrated environments decode on their first offline request', async ({ page, context }) => {
   test.setTimeout(120_000);
-  const stems = [
-    'r01_sentiero_alba', 'd01_bosco_veli', 'r02_viale_fronde', 'c01_brumalta',
-    'gym01_brumalta', 'r03_terrazze_muschio', 'radicelmo', 'r04_salita_petali',
-    'petalora', 'gym02_petalora', 'r05_viadotto_ciliegi', 'vetracielo',
-    'r06_anello_magnetico', 'ferraluce',
-  ];
+  const manifest = JSON.parse(await readFile(new URL('../../assets/map-parity-v2.json', import.meta.url), 'utf8'));
+  const artworks = manifest.artworks.filter((art: any) => art.mapId !== 'veloria/borgofonte')
+    .map((art: any) => ({ mapId: art.mapId, path: art.runtimePath.replace(/^public\//, ''), width: art.width, height: art.height }));
+  expect(artworks.length).toBeGreaterThan(0);
   const errors: string[] = [];
   const failures: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -1173,25 +1191,20 @@ test('fourteen illustrated early-map environments decode on their first offline 
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   expect((await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
   // Only the initial town has rendered. None of these environments may be warmed by visiting its map.
-  const warmed = await page.evaluate(names => {
+  const warmed = await page.evaluate((assets: {mapId: string; path: string}[]) => {
     const resources = performance.getEntriesByType('resource').map(entry => entry.name);
-    return names.filter(stem => resources.some(url => url.includes(`/assets/scenery/veloria-${stem}-illustrated-v2.webp`)));
-  }, stems);
+    return assets.filter(art => resources.some(url => url.includes(`/${art.path}`))).map(art => art.mapId);
+  }, artworks);
   expect(warmed).toEqual([]);
   page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true);
-  const decoded = await page.evaluate(async names => Promise.all(names.map(async stem => {
+  const decoded = await page.evaluate(async (assets: {mapId: string; path: string}[]) => Promise.all(assets.map(async art => {
     const image = new Image();
-    const path = `assets/scenery/veloria-${stem}-illustrated-v2.webp`;
-    image.src = new URL(path, location.href).href;
+    image.src = new URL(art.path, location.href).href;
     await image.decode();
-    return { stem, width: image.naturalWidth, height: image.naturalHeight };
-  })), stems);
-  expect(decoded.map(image => image.stem)).toEqual(stems);
-  for (const image of decoded) {
-    expect(image.width, `${image.stem} image width`).toBeGreaterThanOrEqual(1000);
-    expect(image.height, `${image.stem} image height`).toBeGreaterThanOrEqual(700);
-  }
+    return { mapId: art.mapId, width: image.naturalWidth, height: image.naturalHeight };
+  })), artworks);
+  expect(decoded).toEqual(artworks.map(({mapId, width, height}: any) => ({mapId, width, height})));
   expect((await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
   expect(failures).toEqual([]);
   expect(errors).toEqual([]);

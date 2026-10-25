@@ -2,7 +2,7 @@
 
 ## Identità
 
-Elia, Ada e Nilo ricevono tre figure distinte nello stile illustrato approvato. Le sei apparizioni usano un catalogo stabile (`content/characters/appearances.v1.json`): Elia in laboratorio, Concordia e Santuario; Ada nel Bosco; Nilo a Borgofonte e sul Passo delle Due Luci. Profili, dialoghi e quest restano gli stessi.
+Elia, Ada e Nilo ricevono tre figure distinte nello stile illustrato approvato. Le sei apparizioni usano un catalogo stabile (`content/characters/appearances.v2.json`): Elia in laboratorio, Concordia e Santuario; Ada nel Bosco; Nilo a Borgofonte e sul Passo delle Due Luci. Profili, dialoghi e quest restano gli stessi.
 
 **Elia è una professoressa nel GDD e nel dialogo `prof_elia`.** La tavola di concept precedente la rappresentava erroneamente come uomo: l’atlante runtime corregge quella discrepanza, senza riscrivere la storia per adattarla all’immagine. La tavola nel prototipo viene aggiornata al cast corretto.
 

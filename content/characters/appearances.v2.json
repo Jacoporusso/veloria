@@ -1,0 +1,200 @@
+{
+  "version": 2,
+  "assets": [
+    {
+      "kind": "image",
+      "key": "veloria-npcs-v3",
+      "path": "assets/sprites/veloria-npcs-v3.webp",
+      "atlas": {
+        "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-gym-leaders-a-v1",
+      "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-gym-leaders-b-v1",
+      "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "id": "professor-elia",
+      "description": "Professoressa Elia, ricercatrice botanica anziana con occhiali e capelli argento",
+      "dialogueIds": [
+        "prof_elia",
+        "concordia_elia",
+        "d06_elia"
+      ],
+      "npcIds": [
+        "prof_elia",
+        "concordia_elia",
+        "d06_elia"
+      ],
+      "assetKey": "veloria-npcs-v3",
+      "frame": 0,
+      "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:80",
+      "origin": {
+        "x": 0.6953,
+        "y": 0.9863
+      }
+    },
+    {
+      "id": "ranger-ada",
+      "description": "Ada, guardaboschi e ricercatrice sul campo; giacca prugna e misuratore",
+      "dialogueIds": [
+        "ada_quest"
+      ],
+      "npcIds": [
+        "forest_ranger_ada"
+      ],
+      "assetKey": "veloria-npcs-v3",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/ada_quest",
+      "origin": {
+        "x": 0.5332,
+        "y": 0.998
+      }
+    },
+    {
+      "id": "rival-nilo",
+      "description": "Nilo, giovane rivale e amico; felpa petrolio e borsa a tracolla",
+      "dialogueIds": [
+        "nilo",
+        "r15_nilo"
+      ],
+      "npcIds": [
+        "nilo",
+        "r15_nilo"
+      ],
+      "assetKey": "veloria-npcs-v3",
+      "frame": 2,
+      "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81",
+      "origin": {
+        "x": 0.3672,
+        "y": 0.9883
+      }
+    },
+    {
+      "id": "gym-leader-mira",
+      "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+      "dialogueIds": ["mira_gym"],
+      "npcIds": ["mira"],
+      "assetKey": "veloria-gym-leaders-a-v1",
+      "frame": 0,
+      "narrativeSource": "content/trainers/gym01_mira.trainer.json",
+      "origin": {"x": 0.5667, "y": 0.9761}
+    },
+    {
+      "id": "gym-leader-dalia",
+      "description": "Dalia, capopalestra Erba di Petalora; soprabito salvia con fodera rosa, cintura porta-semi e attrezzo d’irrigazione",
+      "dialogueIds": ["dalia_gym"],
+      "npcIds": ["dalia_gym"],
+      "assetKey": "veloria-gym-leaders-a-v1",
+      "frame": 1,
+      "narrativeSource": "content/trainers/gym02_dalia.trainer.json",
+      "origin": {"x": 0.4700, "y": 0.9761}
+    },
+    {
+      "id": "gym-leader-aster",
+      "description": "Aster, capopalestra Elettro di Vetracielo; giacca tecnica blu e terminale portatile",
+      "dialogueIds": ["aster_gym"],
+      "npcIds": ["aster_gym"],
+      "assetKey": "veloria-gym-leaders-a-v1",
+      "frame": 2,
+      "narrativeSource": "content/trainers/gym03_aster.trainer.json",
+      "origin": {"x": 0.6116, "y": 0.9553}
+    },
+    {
+      "id": "gym-leader-rhea",
+      "description": "Rhea, capopalestra Acciaio di Ferraluce; grembiule d’officina corto e guanto magnetico",
+      "dialogueIds": ["rhea_gym"],
+      "npcIds": ["rhea_gym"],
+      "assetKey": "veloria-gym-leaders-a-v1",
+      "frame": 3,
+      "narrativeSource": "content/trainers/gym04_rhea.trainer.json",
+      "origin": {"x": 0.4843, "y": 0.9553}
+    },
+    {
+      "id": "gym-leader-nerea-portolume",
+      "description": "Nerea, capopalestra Acqua di Portolume; cappotto pratico da porto turchese con accenti corallo e registro delle maree",
+      "dialogueIds": ["nerea_gym"],
+      "npcIds": ["nerea_gym"],
+      "assetKey": "veloria-gym-leaders-b-v1",
+      "frame": 0,
+      "narrativeSource": "content/trainers/gym05_nerea.trainer.json",
+      "origin": {"x": 0.6239, "y": 0.9936}
+    },
+    {
+      "id": "gym-leader-selene",
+      "description": "Selene, capopalestra Psico di Acquariva; silhouette lunga lilla e verde acqua con lente ottica",
+      "dialogueIds": ["selene_gym"],
+      "npcIds": ["selene_gym"],
+      "assetKey": "veloria-gym-leaders-b-v1",
+      "frame": 1,
+      "narrativeSource": "content/trainers/gym06_selene.trainer.json",
+      "origin": {"x": 0.4314, "y": 0.9920}
+    },
+    {
+      "id": "gym-leader-nives",
+      "description": "Nives, capopalestra Ghiaccio di Biancavetta; abiti alpini a strati blu notte e neve con guanti e fibbia funivia",
+      "dialogueIds": ["nives_gym"],
+      "npcIds": ["nives_gym"],
+      "assetKey": "veloria-gym-leaders-b-v1",
+      "frame": 2,
+      "narrativeSource": "content/trainers/gym07_nives.trainer.json",
+      "origin": {"x": 0.5682, "y": 0.9585}
+    },
+    {
+      "id": "gym-leader-aurel",
+      "description": "Aurel, capopalestra Drago di Concordia; soprabito geometrico avorio e petrolio con fermaglio a due archi",
+      "dialogueIds": ["aurel_gym"],
+      "npcIds": ["aurel_gym"],
+      "assetKey": "veloria-gym-leaders-b-v1",
+      "frame": 3,
+      "narrativeSource": "content/trainers/gym08_aurel.trainer.json",
+      "origin": {"x": 0.4853, "y": 0.9761}
+    }
+  ],
+  "unboundStudies": [
+    {
+      "role": "shopkeeper",
+      "assetKey": "veloria-npcs-v3",
+      "frame": 3,
+      "origin": {
+        "x": 0.6816,
+        "y": 0.9609
+      }
+    },
+    {
+      "role": "gardener",
+      "assetKey": "veloria-npcs-v3",
+      "frame": 4,
+      "origin": {
+        "x": 0.5186,
+        "y": 0.9512
+      }
+    },
+    {
+      "role": "rail-attendant",
+      "assetKey": "veloria-npcs-v3",
+      "frame": 5,
+      "origin": {
+        "x": 0.4346,
+        "y": 0.9648
+      }
+    }
+  ]
+}

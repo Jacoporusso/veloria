@@ -5,11 +5,11 @@
     {
       "mapId": "veloria/r02_viale_fronde",
       "tiledAsset": "tilemaps/r02_viale_fronde.tmj",
-      "assetKey": "veloria-r02_viale_fronde-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-r02_viale_fronde-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
-      "sourceSha256": "aeb2b666376b4ec53354faad3b89b0f2ad0037350e20df21da12497f6d44c24e",
-      "runtimeSha256": "18c86d9bd34eb354a80148a8b94cf48061699592b94943b5b769386c1c6dc03b",
+      "assetKey": "veloria-r02_viale_fronde-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r02_viale_fronde-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp",
+      "sourceSha256": "7f4f855b316904c7a42d03c4157827b026de96f7ba3947c8065fe13399a52c1b",
+      "runtimeSha256": "664ce9d8e69f9f5ac1806ff19e64d6f75b285fe9bd5316a11f710a11838267c6",
       "width": 1484,
       "height": 1060,
       "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40–55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
@@ -17,7 +17,12 @@
         "C:/Projects/Veloria/.tmp/map-art-before/r02_viale_fronde.png",
         "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
       ],
-      "revisions": []
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/veloria-r02-viale-fronde-v3.md",
+          "reason": "Modern illustrated 2D with lighter natural paths; preserve geometry."
+        }
+      ]
     },
     {
       "mapId": "veloria/brumalta",
@@ -200,11 +205,11 @@
     {
       "mapId": "veloria/d01_bosco_veli",
       "tiledAsset": "tilemaps/d01_bosco_veli.tmj",
-      "assetKey": "veloria-d01_bosco_veli-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-d01_bosco_veli-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
-      "sourceSha256": "a5d57aa263e29c375c2a7dea00b5faba3b912ebe63dbb9344766bfbc39640e26",
-      "runtimeSha256": "1fd4e07940ceef4447714203c12151e1563c8a1cd0f5ce90c29b891a14082bf3",
+      "assetKey": "veloria-d01_bosco_veli-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-d01_bosco_veli-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp",
+      "sourceSha256": "036a043c133181eb377f6a59b6ab3a83707bacdba79304a73f6078589492caac",
+      "runtimeSha256": "ee5f7c0cde0f14fbbd5bb40dc40e45c56bff2497d036ebc12eba97413c49a648",
       "width": 1536,
       "height": 1024,
       "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45–60% from left edge to right edge. Open clearing around x43–60%,y50–65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73–90%,y15–30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
@@ -212,7 +217,12 @@
         "C:/Projects/Veloria/.tmp/map-art-before/d01_bosco_veli.png",
         "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
       ],
-      "revisions": []
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/d01-bosco-illustrated-v3.md",
+          "reason": "Lighter illustrated trail aligned to rows9-11, no interactive props baked."
+        }
+      ]
     },
     {
       "mapId": "veloria/r03_terrazze_muschio",
@@ -279,6 +289,22 @@
       "references": [
         "C:/Projects/Veloria/.tmp/map-art-before/gym02_petalora.png",
         "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+      ],
+      "revisions": []
+    },
+    {
+      "mapId": "veloria/borgofonte",
+      "tiledAsset": "tilemaps/bg_borgofonte.tmj",
+      "assetKey": "veloria-borgofonte-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-borgofonte-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-borgofonte-illustrated-v3.webp",
+      "sourceSha256": "7c381ca381730613c94861e44f6902f8d02f19e7ccafbac3cb0eea10e6c7cccf",
+      "runtimeSha256": "53ea0d61b42cb5c5ca149d20bf7b75806e12ad7e9be006c697d207d3ab14e420",
+      "width": 1470,
+      "height": 1070,
+      "prompt": "Repaint this exact map into a clearly modern 2D illustrated game background. Keep all landmarks in their exact current positions and retain its same 11:8 canvas. Do not change geometry or composition. Strongly reduce the miniature/3D appearance: remove beveled dimensional edges, glossy highlights, dramatic cast shadows, tiny toy-like props, and excessive sparkle. Use a refined 2D gouache/watercolor-digital illustration style with mostly flat clean color masses, subtle paper/grain texture, gentle soft shading only, crisp readable foliage and pale stone paths. Natural warm daylight, muted sage greens, warm cream stone, restrained teal/lavender flower accents. Keep the existing north path opening and all paths to building doors clearly open, same southwest pond and closed southern edge, same four buildings and round fountain. No new roads, structures, characters, labels, text, or UI. This is an art-style conversion only; preserve exact layout.",
+      "references": [
+        "public/assets/scenery/veloria-borgofonte-v2.webp"
       ],
       "revisions": []
     }

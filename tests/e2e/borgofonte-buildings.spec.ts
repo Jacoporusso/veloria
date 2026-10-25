@@ -1,4 +1,14 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
+
+const borgofonte = JSON.parse(readFileSync(resolve('content/maps/borgofonte.map.json'), 'utf8'));
+const borgofonteTiled = JSON.parse(readFileSync(resolve('public', borgofonte.tiledAsset), 'utf8'));
+const scenery = borgofonteTiled.layers.flatMap((layer: any) => layer.objects ?? [])
+  .find((object: any) => object.properties?.some((property: any) => property.name === 'kind' && property.value === 'scenery-image'));
+const scenerySprite = scenery?.properties?.find((property: any) => property.name === 'sprite')?.value;
+const boundScenery = borgofonte.renderAssets.find((asset: any) => asset.key === scenerySprite);
+if (!boundScenery) throw new Error('Borgofonte Tiled scenery-image does not resolve to a MapDefinition render asset');
 
 test('Borgofonte renders its baked scene and keeps Tiled building entrances', async ({ page }, testInfo) => {
   const errors: string[] = [];
@@ -10,9 +20,9 @@ test('Borgofonte renders its baked scene and keeps Tiled building entrances', as
 
   await page.goto('/?previewMap=veloria/borgofonte');
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
-  const scene = await page.evaluate(() => {
+  const scene = await page.evaluate((scenerySprite: string) => {
     const world = (window as any).__veloriaGame.scene.keys.world;
-    const art = world.map.metadata.renderAssets.find((asset: any) => asset.key === 'veloria-borgofonte-v2');
+    const art = world.map.metadata.renderAssets.find((asset: any) => asset.key === scenerySprite);
     const backgrounds = world.mapLayer.list.filter((item: any) => item.type === 'Image' && item.texture.key === art?.key);
     const background = backgrounds[0];
     const source = background && world.textures.get(art.key).getSourceImage() as HTMLImageElement;
@@ -34,9 +44,9 @@ test('Borgofonte renders its baked scene and keeps Tiled building entrances', as
       groundTilesetLoaded: world.textures.exists('veloria-ground-hd-v5-seamless') &&
         world.mapLayer.list.some((item: any) => item.type === 'RenderTexture'),
     };
-  });
+  }, scenerySprite);
 
-  expect(scene.backgroundKey).toBe('veloria-borgofonte-v2');
+  expect(scene.backgroundKey).toBe(scenerySprite);
   expect(scene.backgroundCount).toBe(1);
   expect(scene.backgroundBounds).toEqual({ x: 0, y: 0, ...scene.dimensions });
   expect(scene.decoded).toBe(true);
@@ -52,10 +62,10 @@ test('Borgofonte renders its baked scene and keeps Tiled building entrances', as
 
   await page.setViewportSize({ width: 1280, height: 800 });
   await expect.poll(() => page.evaluate(() => (window as any).__veloriaGame.scale.width)).toBe(1280);
-  await expect.poll(() => page.evaluate(() => {
+  await expect.poll(() => page.evaluate((scenerySprite: string) => {
     const world = (window as any).__veloriaGame.scene.keys.world;
-    return world.mapLayer.list.some((item: any) => item.type === 'Image' && item.texture.key === 'veloria-borgofonte-v2');
-  })).toBe(true);
+    return world.mapLayer.list.some((item: any) => item.type === 'Image' && item.texture.key === scenerySprite);
+  }, scenerySprite)).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('borgofonte-baked-landscape.png') });
   expect(errors).toEqual([]);
 });

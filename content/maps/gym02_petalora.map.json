@@ -64,6 +64,15 @@
       "kind": "image",
       "key": "veloria-gym02_petalora-illustrated-v2",
       "path": "assets/scenery/veloria-gym02_petalora-illustrated-v2.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-gym-leaders-a-v1",
+      "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

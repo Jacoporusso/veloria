@@ -1,3 +1,19 @@
+## 0.3.139 — Tre ambienti e otto capipalestra
+
+Borgofonte, Bosco dei Veli e Viale delle Fronde aggiornati con fondali illustrati; otto leader con volti/abiti/accessori distinti, senza modificare missioni, collisioni o squadre. Catalogo multiatlante v2: 11 profili, 14 presenze. Inquadratura ai bordi corretta e verificata con proiezione effettiva dei personaggi fuori dal HUD. [Ambito e limiti](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md).
+
+625 test dominio/persistenza, 114 Python, validatore (356 asset, 15 fondali con provenienza) e build passati. Verifiche browser: tutte le 14 apparizioni principali nei due orientamenti, porte e interni di Borgofonte con comandi reali, rendering/identità/uscite dei 15 fondali registrati. Otto strade/gate e indicazioni Bosco verificati nel lotto; percorso offline fino a tre medaglie passato prima delle ultime aggiunte cosmetiche. Nella build finale, nove artwork nuovi/canonici decodificati dopo reload offline con progressi invariati, Borgofonte v3 e gli altri 14 fondali decodificati alla prima richiesta senza rete. Cache `veloria-shell-v160`.
+
+Driver aggiornati a leggere geometria, identità e binding effettivi, conservando assert di risorse/ricompense/persistenza. Il falso positivo del viewer sui bordi alpha è stato corretto con compositing Chrome pulito: i due atlanti selezionati sono integrati, gli studi alternativi rimangono separati. Pubblicazione e CI di questo incremento da attestare dopo il push. La Verify138 è conclusa FAILURE sugli stessi tre driver già corretti localmente (Ada e attraversamenti R01). Il rifacimento delle 48 mappe, delle altre 37 presenze e le animazioni del cast restano aperti.
+
+## 0.3.138 — Primo incremento del redesign completo
+
+Nuovo obiettivo operativo: tutte le 48 mappe e tutto il cast, con inventario derivato dai contenuti e criteri per ogni ambiente/personaggio nel [piano58](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md). Casa e laboratorio di Borgofonte hanno fondali illustrati nuovi e binding aggiornati; nessuna modifica a geometria, missioni o progressi. 615 test dominio/persistenza, validatore e build passati. Due prove NPC sui due orientamenti, due percorsi interni con controlli reali e prova offline dei quattro artwork passati; progressi invariati dopo reload offline.
+
+Commit `780968d8ae32392923145e76f008fe75a95cb87e` pubblicato. [Deploy40122430862](https://github.com/Jacoporusso/veloria/actions/runs/40122430862) SUCCESS; sito pubblico verificato con cache `veloria-shell-v159` e nuovo laboratorio HTTP200. [Verify40122430870](https://github.com/Jacoporusso/veloria/actions/runs/40122430870) in corso all’ultimo controllo: suite remota completa non attestata. LAN verificata in ascolto su 0.0.0.0:5174 e asset nuovo HTTP200.
+
+Audit della Verify137 conclusa FAILURE: vecchie sequenze di passi R01 proseguivano oltre la nuova soglia ampia; test Ada cercava ancora l’atlante v2; percorso triplo Brumalta superava il timeout CI. Driver in aggiornamento con soglia derivata da Tiled, texture attuale e tempo proporzionato al percorso, conservando gli assert di progresso. La Verify del precedente commit driver665cab2 si è conclusa SUCCESS. Atlanti nuovi dei primi leader non integrati: studi rifiutati per artefatti di trasparenza. Il rifacimento completo resta aperto.
+
 ## 0.3.137 — Identità NPC e primi passaggi
 
 615 test dominio/persistenza, 111 Python, validatore (339 asset, 14 fondali con provenienza/binding) e build passati. Tre casi browser passati per sei apparizioni NPC nei due orientamenti e dialoghi mouse Elia/Ada. Cinque transizioni su corsie aggiunte passate; gate Ada ripassato con toast reale e mappa invariata. Percorsi stazione/Centro/negozio Brumalta passati con comandi reali e screenshot ispezionati; caso offline atlante/fondale passato senza richieste fallite o perdita di progressi. [Contratto e limiti](57_NPC_IDENTITIES_AND_EARLY_PASSAGES_v0.1.md).

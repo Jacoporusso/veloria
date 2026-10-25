@@ -3,6 +3,8 @@ import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-navigation';
 
 test('Brumalta streets reach the station, center and shop using visible movement controls', async ({ page }, info) => {
+  // This test performs three complete collision-aware walks at visible tile speed.
+  test.setTimeout(process.env.CI ? 180_000 : 120_000);
   await page.setViewportSize({ width: 844, height: 390 });
   await page.goto('/'); await enterGame(page);
   const fixture = await readBrowserSave(page);

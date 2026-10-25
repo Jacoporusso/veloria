@@ -2391,12 +2391,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-gym-leaders-a-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 3
+              "value": 0
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "gym-leader-mira"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5667
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9761
             }
           ]
         }

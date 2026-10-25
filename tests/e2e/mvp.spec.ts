@@ -341,6 +341,21 @@ async function walkToMapTile(page: Page, tiledFile: string, targetX: number, tar
   }
 }
 
+async function walkToMapExit(page: Page, tiledFile: string, destinationMapId: string) {
+  const map = JSON.parse(await readFile(new URL(`../../public/tilemaps/${tiledFile}`, import.meta.url), 'utf8'));
+  const exit = map.layers.find((layer: any) => layer.name === 'triggers').objects.find((object: any) => {
+    const properties = Object.fromEntries((object.properties ?? []).map((property: any) => [property.name, property.value]));
+    return properties.kind === 'map-exit' && properties.destinationMapId === destinationMapId;
+  });
+  if (!exit) throw new Error(`${tiledFile} has no map exit to ${destinationMapId}.`);
+  // Aim at the authored threshold center so a widened exit cannot transition
+  // on the first incidental tile at its north or south edge.
+  const targetX = Math.floor(exit.x / 32) + Math.floor(exit.width / 64);
+  const targetY = Math.floor(exit.y / 32) + Math.floor(exit.height / 64);
+  await walkToMapTile(page, tiledFile, targetX, targetY, destinationMapId);
+  return { x: targetX, y: targetY };
+}
+
 function findSafeExpansionSeed() {
   for (let seed = 1; seed < 1_000_000; seed += 1) {
     let state = seed;
@@ -738,13 +753,12 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
   }).toBe('veloria/r01_sentiero_alba|from_borgofonte|1,10');
   await expect(page.locator('#current-location')).toHaveText("SENTIERO DELL'ALBA");
 
-  // Follow the encounter-free southern edge of R01 and enter the forest exit at (29, 8).
-  await walkToTile(page, 'destra', 28);
-  await walkToTile(page, 'alto', 2);
+  // Enter through the center of the current Tiled exit rectangle.
+  const exitCell = await walkToMapExit(page, 'r01_sentiero_alba.tmj', 'veloria/d01_bosco_veli');
   await expect.poll(async () => {
     const player = (await readCurrentSave(page))?.player;
     return `${player?.mapId}|${player?.spawnPointId}|${player?.x},${player?.y}`;
-  }).toBe('veloria/d01_bosco_veli|from_r01|1,10');
+  }).toBe(`veloria/d01_bosco_veli|from_r01|1,${exitCell.y}`);
   await expect(page.locator('#current-location')).toHaveText('BOSCO DEI VELI');
 
   await page.reload();
@@ -755,7 +769,7 @@ test('E2E-02: touch navigation reaches the forest and restores its spawn after r
     mapId: 'veloria/d01_bosco_veli',
     spawnPointId: 'from_r01',
     x: 1,
-    y: 10,
+    y: exitCell.y,
   });
   expect(restored.party).toHaveLength(1);
   expect(restored.flags).toContain('q_starter_selected');
@@ -883,11 +897,10 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await expect(page.locator('#dialogue-box')).toBeHidden();
   await completeResearchReadings(page);
 
-  // Enter Bosco via R01 while keeping to the encounter-free south edge of the route.
+  // Enter Bosco through the center of the authored R01 east threshold.
   await walkToMapTile(page, 'bg_borgofonte.tmj', 22, 0, 'veloria/r01_sentiero_alba');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/r01_sentiero_alba');
-  await walkToTile(page, 'destra', 28);
-  await walkToTile(page, 'alto', 2);
+  await walkToMapExit(page, 'r01_sentiero_alba.tmj', 'veloria/d01_bosco_veli');
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/d01_bosco_veli');
   await walkToMapTile(page, 'd01_bosco_veli.tmj', 1, 8);
 

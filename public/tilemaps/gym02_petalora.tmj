@@ -2422,12 +2422,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-gym-leaders-a-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 2
+              "value": 1
             },
             {
               "name": "trainerId",
@@ -2448,6 +2448,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Dalia aspetta che l’acqua raggiunga la terrazza: sorgente, ovest, est, poi controlla la fioritura."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "gym-leader-dalia"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.47
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9761
             }
           ]
         }

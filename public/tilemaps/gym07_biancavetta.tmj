@@ -3402,12 +3402,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-gym-leaders-b-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 1
+              "value": 2
             },
             {
               "name": "trainerId",
@@ -3428,6 +3428,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Accendi i tre sigilli e apri il cancello dalla console centrale."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "gym-leader-nives"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.5682
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9585
             }
           ]
         }

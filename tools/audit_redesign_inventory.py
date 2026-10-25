@@ -42,7 +42,8 @@ def main():
     # MapDefinition IDs are authoritative: some Tiled filenames (notably
     # c01_brumalta) deliberately differ from their persistent map IDs.
     parity_by_id = {a.get("mapId"): a for a in parity.get("artworks", [])}
-    appearances = read_json(ROOT / "content/characters/appearances.v1.json")
+    appearances = read_json(ROOT / "content/characters/appearances.v2.json")
+    appearance_assets = {asset.get("key"): asset for asset in appearances.get("assets", [])}
     dialogue_path = ROOT / "content/dialogue/world.v1.json"
     dialogue_data = read_json(dialogue_path) if dialogue_path.exists() else {}
     profile_by_npc = {}
@@ -211,7 +212,7 @@ def main():
                    "npcPresences": total_npcs, "distinctIdentityKeys": len(unique_keys),
                    "registeredAppearanceProfiles": len(profiles), "unboundCharacterStudies": len(appearances.get("unboundStudies", [])),
                    "possibleNarrativeAliasesUnresolved": len(possible_aliases)},
-        "identityRules": {"source": "content/characters/appearances.v1.json", "grouping": "Only an explicit shared characterAppearanceId/profile npcIds/dialogueIds mapping consolidates different NPC IDs. Repeated stable npcId is the same content identity. Same display name alone is never treated as identity evidence.",
+        "identityRules": {"source": "content/characters/appearances.v2.json", "grouping": "Only an explicit shared characterAppearanceId/profile npcIds/dialogueIds mapping consolidates different NPC IDs. Repeated stable npcId is the same content identity. Same display name alone is never treated as identity evidence.",
                           "confirmedNarrativeAliases": [{"profileId": profile["id"], "description": profile["description"], "npcIds": profile.get("npcIds", []), "dialogueIds": profile.get("dialogueIds", []), "narrativeSource": profile.get("narrativeSource")} for profile in profiles],
                           "unresolvedRepeatedNpcIds": unresolved_reused, "possibleAliasesBySharedSpeaker": possible_aliases},
         "firstEightCoherentGroup": {"rationale": "A connected opening slice from the starting town through R01/Bosco/R02 to Brumalta, the first gym, R03 and Radicelmo; aligns with the route in docs/02 and the opening district priorities in docs/08.", "maps": first_eight},
@@ -226,12 +227,12 @@ def main():
             {"source": "docs/02_WORLD_MAP_DESIGN_Veloria_v0.2.md", "role": "Regional progression and biome/world role."},
             {"source": "content/maps/README.md", "role": "MapDefinition/Tiled contract: art and navigation are independent; stable IDs, exits, layers, services, triggers."},
             {"source": "content/characters/README.md", "role": "Appearance profile identity and atlas integration contract."},
-            {"source": "content/characters/appearances.v1.json", "role": "Explicit NPC/profile aliases; unbound studies are not placed identities."},
+            {"source": "content/characters/appearances.v2.json", "role": "Explicit NPC/profile aliases and multi-asset appearance keys; unbound studies are not placed identities."},
             {"source": "assets/map-parity-v2.json", "role": "Current scene-art provenance and checksums; a recorded artwork is not proof of visual acceptance."}
         ],
-        "characterAssetContract": {"atlas": appearances.get("atlas"), "atlasCapacityFrames": appearances.get("atlas", {}).get("columns", 0) * appearances.get("atlas", {}).get("rows", 0),
+        "characterAssetContract": {"assets": appearances.get("assets", []), "catalogAssetKeys": sorted(key for key, asset in appearance_assets.items() if asset.get("kind") == "image"),
                                     "unboundStudies": appearances.get("unboundStudies", []),
-                                    "acceptance": "The six-frame board is a design sheet, not evidence of four-direction walk/idle animations or finished runtime coverage."},
+                                    "acceptance": "Catalog image references are descriptors, not evidence of four-direction walk/idle animations or finished runtime coverage."},
         "profiles": appearances,
         "maps": maps,
         "npcPresences": people,

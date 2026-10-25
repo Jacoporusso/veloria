@@ -17,15 +17,15 @@
     "registeredSceneryImageAssets": 35,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 16,
     "mapsWithUnreferencedSceneryRegistration": 16,
-    "parityArtworkEntries": 14,
+    "parityArtworkEntries": 15,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
-    "registeredAppearanceProfiles": 3,
+    "registeredAppearanceProfiles": 11,
     "unboundCharacterStudies": 3,
-    "possibleNarrativeAliasesUnresolved": 2
+    "possibleNarrativeAliasesUnresolved": 1
   },
   "identityRules": {
-    "source": "content/characters/appearances.v1.json",
+    "source": "content/characters/appearances.v2.json",
     "grouping": "Only an explicit shared characterAppearanceId/profile npcIds/dialogueIds mapping consolidates different NPC IDs. Repeated stable npcId is the same content identity. Same display name alone is never treated as identity evidence.",
     "confirmedNarrativeAliases": [
       {
@@ -66,6 +66,94 @@
           "r15_nilo"
         ],
         "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81"
+      },
+      {
+        "profileId": "gym-leader-mira",
+        "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+        "npcIds": [
+          "mira"
+        ],
+        "dialogueIds": [
+          "mira_gym"
+        ],
+        "narrativeSource": "content/trainers/gym01_mira.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-dalia",
+        "description": "Dalia, capopalestra Erba di Petalora; soprabito salvia con fodera rosa, cintura porta-semi e attrezzo d’irrigazione",
+        "npcIds": [
+          "dalia_gym"
+        ],
+        "dialogueIds": [
+          "dalia_gym"
+        ],
+        "narrativeSource": "content/trainers/gym02_dalia.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-aster",
+        "description": "Aster, capopalestra Elettro di Vetracielo; giacca tecnica blu e terminale portatile",
+        "npcIds": [
+          "aster_gym"
+        ],
+        "dialogueIds": [
+          "aster_gym"
+        ],
+        "narrativeSource": "content/trainers/gym03_aster.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-rhea",
+        "description": "Rhea, capopalestra Acciaio di Ferraluce; grembiule d’officina corto e guanto magnetico",
+        "npcIds": [
+          "rhea_gym"
+        ],
+        "dialogueIds": [
+          "rhea_gym"
+        ],
+        "narrativeSource": "content/trainers/gym04_rhea.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-nerea-portolume",
+        "description": "Nerea, capopalestra Acqua di Portolume; cappotto pratico da porto turchese con accenti corallo e registro delle maree",
+        "npcIds": [
+          "nerea_gym"
+        ],
+        "dialogueIds": [
+          "nerea_gym"
+        ],
+        "narrativeSource": "content/trainers/gym05_nerea.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-selene",
+        "description": "Selene, capopalestra Psico di Acquariva; silhouette lunga lilla e verde acqua con lente ottica",
+        "npcIds": [
+          "selene_gym"
+        ],
+        "dialogueIds": [
+          "selene_gym"
+        ],
+        "narrativeSource": "content/trainers/gym06_selene.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-nives",
+        "description": "Nives, capopalestra Ghiaccio di Biancavetta; abiti alpini a strati blu notte e neve con guanti e fibbia funivia",
+        "npcIds": [
+          "nives_gym"
+        ],
+        "dialogueIds": [
+          "nives_gym"
+        ],
+        "narrativeSource": "content/trainers/gym07_nives.trainer.json"
+      },
+      {
+        "profileId": "gym-leader-aurel",
+        "description": "Aurel, capopalestra Drago di Concordia; soprabito geometrico avorio e petrolio con fermaglio a due archi",
+        "npcIds": [
+          "aurel_gym"
+        ],
+        "dialogueIds": [
+          "aurel_gym"
+        ],
+        "narrativeSource": "content/trainers/gym08_aurel.trainer.json"
       }
     ],
     "unresolvedRepeatedNpcIds": [],
@@ -82,23 +170,6 @@
             "mapId": "veloria/r06_anello_magnetico",
             "npcId": "r06_iris",
             "dialogueId": "r06_iris"
-          }
-        ],
-        "evidence": "same speaker label in separate dialogue entries; this is a candidate for narrative review, not proof of one person",
-        "status": "unresolved"
-      },
-      {
-        "speaker": "Nerea",
-        "appearances": [
-          {
-            "mapId": "veloria/league_council01",
-            "npcId": "league_council1",
-            "dialogueId": "league_council1"
-          },
-          {
-            "mapId": "veloria/gym05_portolume",
-            "npcId": "nerea_gym",
-            "dialogueId": "nerea_gym"
           }
         ],
         "evidence": "same speaker label in separate dialogue entries; this is a candidate for narrative review, not proof of one person",
@@ -185,8 +256,8 @@
       "role": "Appearance profile identity and atlas integration contract."
     },
     {
-      "source": "content/characters/appearances.v1.json",
-      "role": "Explicit NPC/profile aliases; unbound studies are not placed identities."
+      "source": "content/characters/appearances.v2.json",
+      "role": "Explicit NPC/profile aliases and multi-asset appearance keys; unbound studies are not placed identities."
     },
     {
       "source": "assets/map-parity-v2.json",
@@ -194,16 +265,44 @@
     }
   ],
   "characterAssetContract": {
-    "atlas": {
-      "key": "veloria-npcs-v3",
-      "path": "assets/sprites/veloria-npcs-v3.webp",
-      "columns": 3,
-      "rows": 2
-    },
-    "atlasCapacityFrames": 6,
+    "assets": [
+      {
+        "kind": "image",
+        "key": "veloria-npcs-v3",
+        "path": "assets/sprites/veloria-npcs-v3.webp",
+        "atlas": {
+          "columns": 3,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-gym-leaders-a-v1",
+        "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-gym-leaders-b-v1",
+        "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      }
+    ],
+    "catalogAssetKeys": [
+      "veloria-gym-leaders-a-v1",
+      "veloria-gym-leaders-b-v1",
+      "veloria-npcs-v3"
+    ],
     "unboundStudies": [
       {
         "role": "shopkeeper",
+        "assetKey": "veloria-npcs-v3",
         "frame": 3,
         "origin": {
           "x": 0.6816,
@@ -212,6 +311,7 @@
       },
       {
         "role": "gardener",
+        "assetKey": "veloria-npcs-v3",
         "frame": 4,
         "origin": {
           "x": 0.5186,
@@ -220,6 +320,7 @@
       },
       {
         "role": "rail-attendant",
+        "assetKey": "veloria-npcs-v3",
         "frame": 5,
         "origin": {
           "x": 0.4346,
@@ -227,16 +328,39 @@
         }
       }
     ],
-    "acceptance": "The six-frame board is a design sheet, not evidence of four-direction walk/idle animations or finished runtime coverage."
+    "acceptance": "Catalog image references are descriptors, not evidence of four-direction walk/idle animations or finished runtime coverage."
   },
   "profiles": {
-    "version": 1,
-    "atlas": {
-      "key": "veloria-npcs-v3",
-      "path": "assets/sprites/veloria-npcs-v3.webp",
-      "columns": 3,
-      "rows": 2
-    },
+    "version": 2,
+    "assets": [
+      {
+        "kind": "image",
+        "key": "veloria-npcs-v3",
+        "path": "assets/sprites/veloria-npcs-v3.webp",
+        "atlas": {
+          "columns": 3,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-gym-leaders-a-v1",
+        "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-gym-leaders-b-v1",
+        "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      }
+    ],
     "profiles": [
       {
         "id": "professor-elia",
@@ -251,6 +375,7 @@
           "concordia_elia",
           "d06_elia"
         ],
+        "assetKey": "veloria-npcs-v3",
         "frame": 0,
         "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:80",
         "origin": {
@@ -267,6 +392,7 @@
         "npcIds": [
           "forest_ranger_ada"
         ],
+        "assetKey": "veloria-npcs-v3",
         "frame": 1,
         "narrativeSource": "content/dialogue/world.v1.json#/ada_quest",
         "origin": {
@@ -285,17 +411,155 @@
           "nilo",
           "r15_nilo"
         ],
+        "assetKey": "veloria-npcs-v3",
         "frame": 2,
         "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81",
         "origin": {
           "x": 0.3672,
           "y": 0.9883
         }
+      },
+      {
+        "id": "gym-leader-mira",
+        "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+        "dialogueIds": [
+          "mira_gym"
+        ],
+        "npcIds": [
+          "mira"
+        ],
+        "assetKey": "veloria-gym-leaders-a-v1",
+        "frame": 0,
+        "narrativeSource": "content/trainers/gym01_mira.trainer.json",
+        "origin": {
+          "x": 0.5667,
+          "y": 0.9761
+        }
+      },
+      {
+        "id": "gym-leader-dalia",
+        "description": "Dalia, capopalestra Erba di Petalora; soprabito salvia con fodera rosa, cintura porta-semi e attrezzo d’irrigazione",
+        "dialogueIds": [
+          "dalia_gym"
+        ],
+        "npcIds": [
+          "dalia_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-a-v1",
+        "frame": 1,
+        "narrativeSource": "content/trainers/gym02_dalia.trainer.json",
+        "origin": {
+          "x": 0.47,
+          "y": 0.9761
+        }
+      },
+      {
+        "id": "gym-leader-aster",
+        "description": "Aster, capopalestra Elettro di Vetracielo; giacca tecnica blu e terminale portatile",
+        "dialogueIds": [
+          "aster_gym"
+        ],
+        "npcIds": [
+          "aster_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-a-v1",
+        "frame": 2,
+        "narrativeSource": "content/trainers/gym03_aster.trainer.json",
+        "origin": {
+          "x": 0.6116,
+          "y": 0.9553
+        }
+      },
+      {
+        "id": "gym-leader-rhea",
+        "description": "Rhea, capopalestra Acciaio di Ferraluce; grembiule d’officina corto e guanto magnetico",
+        "dialogueIds": [
+          "rhea_gym"
+        ],
+        "npcIds": [
+          "rhea_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-a-v1",
+        "frame": 3,
+        "narrativeSource": "content/trainers/gym04_rhea.trainer.json",
+        "origin": {
+          "x": 0.4843,
+          "y": 0.9553
+        }
+      },
+      {
+        "id": "gym-leader-nerea-portolume",
+        "description": "Nerea, capopalestra Acqua di Portolume; cappotto pratico da porto turchese con accenti corallo e registro delle maree",
+        "dialogueIds": [
+          "nerea_gym"
+        ],
+        "npcIds": [
+          "nerea_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-b-v1",
+        "frame": 0,
+        "narrativeSource": "content/trainers/gym05_nerea.trainer.json",
+        "origin": {
+          "x": 0.6239,
+          "y": 0.9936
+        }
+      },
+      {
+        "id": "gym-leader-selene",
+        "description": "Selene, capopalestra Psico di Acquariva; silhouette lunga lilla e verde acqua con lente ottica",
+        "dialogueIds": [
+          "selene_gym"
+        ],
+        "npcIds": [
+          "selene_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-b-v1",
+        "frame": 1,
+        "narrativeSource": "content/trainers/gym06_selene.trainer.json",
+        "origin": {
+          "x": 0.4314,
+          "y": 0.992
+        }
+      },
+      {
+        "id": "gym-leader-nives",
+        "description": "Nives, capopalestra Ghiaccio di Biancavetta; abiti alpini a strati blu notte e neve con guanti e fibbia funivia",
+        "dialogueIds": [
+          "nives_gym"
+        ],
+        "npcIds": [
+          "nives_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-b-v1",
+        "frame": 2,
+        "narrativeSource": "content/trainers/gym07_nives.trainer.json",
+        "origin": {
+          "x": 0.5682,
+          "y": 0.9585
+        }
+      },
+      {
+        "id": "gym-leader-aurel",
+        "description": "Aurel, capopalestra Drago di Concordia; soprabito geometrico avorio e petrolio con fermaglio a due archi",
+        "dialogueIds": [
+          "aurel_gym"
+        ],
+        "npcIds": [
+          "aurel_gym"
+        ],
+        "assetKey": "veloria-gym-leaders-b-v1",
+        "frame": 3,
+        "narrativeSource": "content/trainers/gym08_aurel.trainer.json",
+        "origin": {
+          "x": 0.4853,
+          "y": 0.9761
+        }
       }
     ],
     "unboundStudies": [
       {
         "role": "shopkeeper",
+        "assetKey": "veloria-npcs-v3",
         "frame": 3,
         "origin": {
           "x": 0.6816,
@@ -304,6 +568,7 @@
       },
       {
         "role": "gardener",
+        "assetKey": "veloria-npcs-v3",
         "frame": 4,
         "origin": {
           "x": 0.5186,
@@ -312,6 +577,7 @@
       },
       {
         "role": "rail-attendant",
+        "assetKey": "veloria-npcs-v3",
         "frame": 5,
         "origin": {
           "x": 0.4346,
@@ -793,7 +1059,7 @@
           "layer": "decorations",
           "stableObjectId": 1001,
           "name": "Borgofonte illustrata",
-          "spriteKey": "veloria-borgofonte-v2",
+          "spriteKey": "veloria-borgofonte-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -807,14 +1073,14 @@
           "layer": "decorations",
           "stableObjectId": 1001,
           "name": "Borgofonte illustrata",
-          "spriteKey": "veloria-borgofonte-v2",
+          "spriteKey": "veloria-borgofonte-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 44.0,
             "height": 32.0
           },
-          "assetPath": "assets/scenery/veloria-borgofonte-v2.webp",
+          "assetPath": "assets/scenery/veloria-borgofonte-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -822,8 +1088,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-borgofonte-v2",
-          "path": "assets/scenery/veloria-borgofonte-v2.webp",
+          "key": "veloria-borgofonte-illustrated-v3",
+          "path": "assets/scenery/veloria-borgofonte-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -886,8 +1152,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-borgofonte-v2",
-          "path": "assets/scenery/veloria-borgofonte-v2.webp",
+          "key": "veloria-borgofonte-illustrated-v3",
+          "path": "assets/scenery/veloria-borgofonte-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -904,8 +1170,23 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/borgofonte",
+        "tiledAsset": "tilemaps/bg_borgofonte.tmj",
+        "assetKey": "veloria-borgofonte-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-borgofonte-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-borgofonte-illustrated-v3.webp",
+        "sourceSha256": "7c381ca381730613c94861e44f6902f8d02f19e7ccafbac3cb0eea10e6c7cccf",
+        "runtimeSha256": "53ea0d61b42cb5c5ca149d20bf7b75806e12ad7e9be006c697d207d3ab14e420",
+        "width": 1470,
+        "height": 1070,
+        "prompt": "Repaint this exact map into a clearly modern 2D illustrated game background. Keep all landmarks in their exact current positions and retain its same 11:8 canvas. Do not change geometry or composition. Strongly reduce the miniature/3D appearance: remove beveled dimensional edges, glossy highlights, dramatic cast shadows, tiny toy-like props, and excessive sparkle. Use a refined 2D gouache/watercolor-digital illustration style with mostly flat clean color masses, subtle paper/grain texture, gentle soft shading only, crisp readable foliage and pale stone paths. Natural warm daylight, muted sage greens, warm cream stone, restrained teal/lavender flower accents. Keep the existing north path opening and all paths to building doors clearly open, same southwest pond and closed southern edge, same four buildings and round fountain. No new roads, structures, characters, labels, text, or UI. This is an art-style conversion only; preserve exact layout.",
+        "references": [
+          "public/assets/scenery/veloria-borgofonte-v2.webp"
+        ],
+        "revisions": []
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -1791,7 +2072,7 @@
           "layer": "decorations",
           "stableObjectId": 89,
           "name": "Sfondi illustrato — d01_bosco_veli",
-          "spriteKey": "veloria-d01_bosco_veli-illustrated-v2",
+          "spriteKey": "veloria-d01_bosco_veli-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -1820,14 +2101,14 @@
           "layer": "decorations",
           "stableObjectId": 89,
           "name": "Sfondi illustrato — d01_bosco_veli",
-          "spriteKey": "veloria-d01_bosco_veli-illustrated-v2",
+          "spriteKey": "veloria-d01_bosco_veli-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 30.0,
             "height": 20.0
           },
-          "assetPath": "assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -1835,8 +2116,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-d01_bosco_veli-illustrated-v2",
-          "path": "assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
+          "key": "veloria-d01_bosco_veli-illustrated-v3",
+          "path": "assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -1916,8 +2197,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-d01_bosco_veli-illustrated-v2",
-          "path": "assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
+          "key": "veloria-d01_bosco_veli-illustrated-v3",
+          "path": "assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -1937,11 +2218,11 @@
       "parityArtwork": {
         "mapId": "veloria/d01_bosco_veli",
         "tiledAsset": "tilemaps/d01_bosco_veli.tmj",
-        "assetKey": "veloria-d01_bosco_veli-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-d01_bosco_veli-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
-        "sourceSha256": "a5d57aa263e29c375c2a7dea00b5faba3b912ebe63dbb9344766bfbc39640e26",
-        "runtimeSha256": "1fd4e07940ceef4447714203c12151e1563c8a1cd0f5ce90c29b891a14082bf3",
+        "assetKey": "veloria-d01_bosco_veli-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-d01_bosco_veli-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp",
+        "sourceSha256": "036a043c133181eb377f6a59b6ab3a83707bacdba79304a73f6078589492caac",
+        "runtimeSha256": "ee5f7c0cde0f14fbbd5bb40dc40e45c56bff2497d036ebc12eba97413c49a648",
         "width": 1536,
         "height": 1024,
         "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45–60% from left edge to right edge. Open clearing around x43–60%,y50–65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73–90%,y15–30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
@@ -1949,7 +2230,12 @@
           "C:/Projects/Veloria/.tmp/map-art-before/d01_bosco_veli.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/d01-bosco-illustrated-v3.md",
+            "reason": "Lighter illustrated trail aligned to rows9-11, no interactive props baked."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [
@@ -3168,6 +3454,17 @@
           "path": "assets/scenery/veloria-gym01_brumalta-illustrated-v2.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-a-v1",
+          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3219,14 +3516,17 @@
           "name": "Capopalestra Mira",
           "npcId": "mira",
           "dialogueId": "mira_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:mira",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-mira",
+          "identityKey": "profile:gym-leader-mira",
+          "profileMatch": "gym-leader-mira",
           "narrativeSpeaker": "Mira",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-a-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.5667,
+            "y": 0.9761
+          },
           "trainerId": "veloria/trainer_mira_gym01",
           "battleOnceFlag": "trainer_gym01_mira_defeated",
           "frame": null,
@@ -3385,6 +3685,17 @@
           "path": "assets/scenery/veloria-gym02_petalora-illustrated-v2.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-a-v1",
+          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3430,14 +3741,17 @@
           "name": "Dalia",
           "npcId": "dalia_gym",
           "dialogueId": "dalia_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:dalia_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-dalia",
+          "identityKey": "profile:gym-leader-dalia",
+          "profileMatch": "gym-leader-dalia",
           "narrativeSpeaker": "Dalia",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 2,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-a-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.47,
+            "y": 0.9761
+          },
           "trainerId": "veloria/trainer_dalia_gym02",
           "battleOnceFlag": "trainer_gym02_dalia_defeated",
           "frame": null,
@@ -3552,6 +3866,17 @@
           "path": "assets/sprites/veloria-gym03-rooftop-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-a-v1",
+          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3581,14 +3906,17 @@
           "name": "Aster",
           "npcId": "aster_gym",
           "dialogueId": "aster_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:aster_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-aster",
+          "identityKey": "profile:gym-leader-aster",
+          "profileMatch": "gym-leader-aster",
           "narrativeSpeaker": "Aster",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-a-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.6116,
+            "y": 0.9553
+          },
           "trainerId": "veloria/trainer_aster_gym03",
           "battleOnceFlag": "trainer_gym03_aster_defeated",
           "frame": null,
@@ -3703,6 +4031,17 @@
           "path": "assets/sprites/veloria-gym04-magnetic-room-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-a-v1",
+          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3732,14 +4071,17 @@
           "name": "Rhea",
           "npcId": "rhea_gym",
           "dialogueId": "rhea_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:rhea_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-rhea",
+          "identityKey": "profile:gym-leader-rhea",
+          "profileMatch": "gym-leader-rhea",
           "narrativeSpeaker": "Rhea",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-a-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.4843,
+            "y": 0.9553
+          },
           "trainerId": "veloria/trainer_rhea_gym04",
           "battleOnceFlag": "trainer_gym04_rhea_defeated",
           "frame": null,
@@ -3843,6 +4185,17 @@
           "path": "assets/sprites/veloria-gym05-sluices-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-b-v1",
+          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3872,14 +4225,17 @@
           "name": "Nerea",
           "npcId": "nerea_gym",
           "dialogueId": "nerea_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:nerea_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-nerea-portolume",
+          "identityKey": "profile:gym-leader-nerea-portolume",
+          "profileMatch": "gym-leader-nerea-portolume",
           "narrativeSpeaker": "Nerea",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-b-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.6239,
+            "y": 0.9936
+          },
           "trainerId": "veloria/trainer_nerea_gym05",
           "battleOnceFlag": "trainer_gym05_nerea_defeated",
           "frame": null,
@@ -3983,6 +4339,17 @@
           "path": "assets/sprites/veloria-gym06-reflections-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-b-v1",
+          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -4012,14 +4379,17 @@
           "name": "Selene",
           "npcId": "selene_gym",
           "dialogueId": "selene_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:selene_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-selene",
+          "identityKey": "profile:gym-leader-selene",
+          "profileMatch": "gym-leader-selene",
           "narrativeSpeaker": "Selene",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-gym-leaders-b-v1",
           "spriteFrame": 1,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.4314,
+            "y": 0.992
+          },
           "trainerId": "veloria/trainer_selene_gym06",
           "battleOnceFlag": "trainer_gym06_selene_defeated",
           "frame": null,
@@ -4114,6 +4484,17 @@
           "path": "assets/scenery/veloria-gym07-ice-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-b-v1",
+          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -4143,14 +4524,17 @@
           "name": "Nives",
           "npcId": "nives_gym",
           "dialogueId": "nives_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:nives_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-nives",
+          "identityKey": "profile:gym-leader-nives",
+          "profileMatch": "gym-leader-nives",
           "narrativeSpeaker": "Nives",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-b-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.5682,
+            "y": 0.9585
+          },
           "trainerId": "veloria/trainer_nives_gym07",
           "battleOnceFlag": "trainer_gym07_nives_defeated",
           "frame": null,
@@ -4245,6 +4629,17 @@
           "path": "assets/scenery/veloria-gym08-convergence-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-gym-leaders-b-v1",
+          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -4274,14 +4669,17 @@
           "name": "Aurel",
           "npcId": "aurel_gym",
           "dialogueId": "aurel_gym",
-          "characterAppearanceId": null,
-          "identityKey": "npc:aurel_gym",
-          "profileMatch": null,
+          "characterAppearanceId": "gym-leader-aurel",
+          "identityKey": "profile:gym-leader-aurel",
+          "profileMatch": "gym-leader-aurel",
           "narrativeSpeaker": "Aurel",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 2,
-          "spriteOrigin": null,
+          "sprite": "veloria-gym-leaders-b-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.4853,
+            "y": 0.9761
+          },
           "trainerId": "veloria/trainer_aurel_gym08",
           "battleOnceFlag": "trainer_gym08_aurel_defeated",
           "frame": null,
@@ -6207,7 +6605,7 @@
           "layer": "decorations",
           "stableObjectId": 125,
           "name": "Sfondi illustrato — r02_viale_fronde",
-          "spriteKey": "veloria-r02_viale_fronde-illustrated-v2",
+          "spriteKey": "veloria-r02_viale_fronde-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6236,14 +6634,14 @@
           "layer": "decorations",
           "stableObjectId": 125,
           "name": "Sfondi illustrato — r02_viale_fronde",
-          "spriteKey": "veloria-r02_viale_fronde-illustrated-v2",
+          "spriteKey": "veloria-r02_viale_fronde-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 28.0,
             "height": 20.0
           },
-          "assetPath": "assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6251,8 +6649,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r02_viale_fronde-illustrated-v2",
-          "path": "assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
+          "key": "veloria-r02_viale_fronde-illustrated-v3",
+          "path": "assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6321,8 +6719,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r02_viale_fronde-illustrated-v2",
-          "path": "assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
+          "key": "veloria-r02_viale_fronde-illustrated-v3",
+          "path": "assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6331,11 +6729,11 @@
       "parityArtwork": {
         "mapId": "veloria/r02_viale_fronde",
         "tiledAsset": "tilemaps/r02_viale_fronde.tmj",
-        "assetKey": "veloria-r02_viale_fronde-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r02_viale_fronde-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
-        "sourceSha256": "aeb2b666376b4ec53354faad3b89b0f2ad0037350e20df21da12497f6d44c24e",
-        "runtimeSha256": "18c86d9bd34eb354a80148a8b94cf48061699592b94943b5b769386c1c6dc03b",
+        "assetKey": "veloria-r02_viale_fronde-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r02_viale_fronde-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp",
+        "sourceSha256": "7f4f855b316904c7a42d03c4157827b026de96f7ba3947c8065fe13399a52c1b",
+        "runtimeSha256": "664ce9d8e69f9f5ac1806ff19e64d6f75b285fe9bd5316a11f710a11838267c6",
         "width": 1484,
         "height": 1060,
         "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40–55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
@@ -6343,7 +6741,12 @@
           "C:/Projects/Veloria/.tmp/map-art-before/r02_viale_fronde.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/veloria-r02-viale-fronde-v3.md",
+            "reason": "Modern illustrated 2D with lighter natural paths; preserve geometry."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [
@@ -10409,14 +10812,17 @@
       "name": "Capopalestra Mira",
       "npcId": "mira",
       "dialogueId": "mira_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:mira",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-mira",
+      "identityKey": "profile:gym-leader-mira",
+      "profileMatch": "gym-leader-mira",
       "narrativeSpeaker": "Mira",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-a-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.5667,
+        "y": 0.9761
+      },
       "trainerId": "veloria/trainer_mira_gym01",
       "battleOnceFlag": "trainer_gym01_mira_defeated",
       "frame": null,
@@ -10433,14 +10839,17 @@
       "name": "Dalia",
       "npcId": "dalia_gym",
       "dialogueId": "dalia_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:dalia_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-dalia",
+      "identityKey": "profile:gym-leader-dalia",
+      "profileMatch": "gym-leader-dalia",
       "narrativeSpeaker": "Dalia",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 2,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-a-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.47,
+        "y": 0.9761
+      },
       "trainerId": "veloria/trainer_dalia_gym02",
       "battleOnceFlag": "trainer_gym02_dalia_defeated",
       "frame": null,
@@ -10457,14 +10866,17 @@
       "name": "Aster",
       "npcId": "aster_gym",
       "dialogueId": "aster_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:aster_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-aster",
+      "identityKey": "profile:gym-leader-aster",
+      "profileMatch": "gym-leader-aster",
       "narrativeSpeaker": "Aster",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-a-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.6116,
+        "y": 0.9553
+      },
       "trainerId": "veloria/trainer_aster_gym03",
       "battleOnceFlag": "trainer_gym03_aster_defeated",
       "frame": null,
@@ -10481,14 +10893,17 @@
       "name": "Rhea",
       "npcId": "rhea_gym",
       "dialogueId": "rhea_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:rhea_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-rhea",
+      "identityKey": "profile:gym-leader-rhea",
+      "profileMatch": "gym-leader-rhea",
       "narrativeSpeaker": "Rhea",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-a-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.4843,
+        "y": 0.9553
+      },
       "trainerId": "veloria/trainer_rhea_gym04",
       "battleOnceFlag": "trainer_gym04_rhea_defeated",
       "frame": null,
@@ -10505,14 +10920,17 @@
       "name": "Nerea",
       "npcId": "nerea_gym",
       "dialogueId": "nerea_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:nerea_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-nerea-portolume",
+      "identityKey": "profile:gym-leader-nerea-portolume",
+      "profileMatch": "gym-leader-nerea-portolume",
       "narrativeSpeaker": "Nerea",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-b-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.6239,
+        "y": 0.9936
+      },
       "trainerId": "veloria/trainer_nerea_gym05",
       "battleOnceFlag": "trainer_gym05_nerea_defeated",
       "frame": null,
@@ -10529,14 +10947,17 @@
       "name": "Selene",
       "npcId": "selene_gym",
       "dialogueId": "selene_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:selene_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-selene",
+      "identityKey": "profile:gym-leader-selene",
+      "profileMatch": "gym-leader-selene",
       "narrativeSpeaker": "Selene",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-gym-leaders-b-v1",
       "spriteFrame": 1,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.4314,
+        "y": 0.992
+      },
       "trainerId": "veloria/trainer_selene_gym06",
       "battleOnceFlag": "trainer_gym06_selene_defeated",
       "frame": null,
@@ -10553,14 +10974,17 @@
       "name": "Nives",
       "npcId": "nives_gym",
       "dialogueId": "nives_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:nives_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-nives",
+      "identityKey": "profile:gym-leader-nives",
+      "profileMatch": "gym-leader-nives",
       "narrativeSpeaker": "Nives",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-b-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.5682,
+        "y": 0.9585
+      },
       "trainerId": "veloria/trainer_nives_gym07",
       "battleOnceFlag": "trainer_gym07_nives_defeated",
       "frame": null,
@@ -10577,14 +11001,17 @@
       "name": "Aurel",
       "npcId": "aurel_gym",
       "dialogueId": "aurel_gym",
-      "characterAppearanceId": null,
-      "identityKey": "npc:aurel_gym",
-      "profileMatch": null,
+      "characterAppearanceId": "gym-leader-aurel",
+      "identityKey": "profile:gym-leader-aurel",
+      "profileMatch": "gym-leader-aurel",
       "narrativeSpeaker": "Aurel",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 2,
-      "spriteOrigin": null,
+      "sprite": "veloria-gym-leaders-b-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.4853,
+        "y": 0.9761
+      },
       "trainerId": "veloria/trainer_aurel_gym08",
       "battleOnceFlag": "trainer_gym08_aurel_defeated",
       "frame": null,

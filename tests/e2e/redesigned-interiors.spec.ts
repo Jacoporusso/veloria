@@ -25,6 +25,16 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       await walkDirection(page, 'down');
       await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
     }
+    // The city artwork must also lead visibly to its actual interior doors.
+    for (const [x, y, interior] of [[13, 9, 'borgofonte_home'], [21, 26, 'borgofonte_lab']] as const) {
+      await walkTo(page, 'bg_borgofonte.tmj', x, y);
+      await page.screenshot({ path: info.outputPath(`borgofonte-${x}-${y}.png`) });
+      await walkDirection(page, 'up');
+      await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe(`veloria/${interior}`);
+      await walkTo(page, `${interior}.tmj`, 12, 13);
+      await walkDirection(page, 'down');
+      await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
+    }
     expect(errors).toEqual([]);
   });
 }

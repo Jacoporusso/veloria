@@ -2938,12 +2938,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-gym-leaders-b-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 3
+              "value": 0
             },
             {
               "name": "trainerId",
@@ -2964,6 +2964,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Completa le tre regolazioni: compensa la vasca, apri la chiusa e stabilizza la marea."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "gym-leader-nerea-portolume"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.6239
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.9936
             }
           ]
         }

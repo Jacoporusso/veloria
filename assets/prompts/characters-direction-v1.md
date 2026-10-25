@@ -1,6 +1,6 @@
 # Personaggi illustrati — studio 01
 
-> Revisione 0.3.137: tavola storica di stile. Il ricercatore maschile indicato come Elia era incoerente con GDD/dialoghi: Elia è una professoressa. Usare l’identità corretta in `npc-identities-v3.md` e `content/characters/appearances.v1.json`; il prompt originale sotto resta come provenienza, non come scheda narrativa.
+> Revisione 0.3.137: tavola storica di stile. Il ricercatore maschile indicato come Elia era incoerente con GDD/dialoghi: Elia è una professoressa. Usare l’identità corretta in `npc-identities-v3.md` e `content/characters/appearances.v2.json`; il prompt originale sotto resta come provenienza, non come scheda narrativa.
 
 24 ottobre 2026. Tool integrato image_gen, generazione senza immagini di riferimento. File: `public/assets/concepts/characters-direction-v1.png`. Anteprima: `world-design-prototype.html#personaggi`.
 

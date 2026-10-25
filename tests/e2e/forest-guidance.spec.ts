@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
 
 test('forest instrument, Ada and onward exit stay clear with HD terrain', async ({ page }, testInfo) => {
   const errors: string[] = [];
@@ -28,14 +29,19 @@ test('forest instrument, Ada and onward exit stay clear with HD terrain', async 
   });
   await expect.poll(read).toMatchObject({ x: 1, y: 10, marker: 'SENSORE · A' });
   expect((await read())?.flags).not.toContain('q_ada_helped');
-  const floor = await page.evaluate(() => {
+  const forestMap = JSON.parse(await readFile(new URL('../../public/tilemaps/d01_bosco_veli.tmj', import.meta.url), 'utf8'));
+  const ada = forestMap.layers.find((layer: any) => layer.name === 'characters').objects.find((object: any) =>
+    object.properties?.some((property: any) => property.name === 'npcId' && property.value === 'forest_ranger_ada'));
+  const adaSprite = ada?.properties?.find((property: any) => property.name === 'sprite')?.value;
+  expect(adaSprite, 'Ada sprite key comes from the current Tiled character definition').toBeTruthy();
+  const floor = await page.evaluate((npcSprite: string) => {
     const world = (window as any).__forestGame.scene.keys.world;
     // Terrain is composed once into a continuous surface to avoid tile seams.
     const layer = world.mapLayer.list.find((item: any) => item.type === 'RenderTexture');
     return { width: layer.displayWidth,
       height: layer.displayHeight,
-      npc: world.mapLayer.list.filter((item: any) => item.type === 'Image' && item.texture.key === 'veloria-npcs-v2').length };
-  });
+      npc: world.mapLayer.list.filter((item: any) => item.type === 'Image' && item.texture.key === npcSprite).length };
+  }, adaSprite);
   expect(floor).toEqual({ width: 960, height: 640, npc: 1 });
   async function step(name: string) {
     await page.getByRole('button', {name}).tap();

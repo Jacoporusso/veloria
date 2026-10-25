@@ -57,7 +57,7 @@ import { createCreaturePortrait } from '../battle/creature-art.ts';
 import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-animation.ts';
 import { JourneyPanel } from '../journey/JourneyPanel.ts';
 import { WorldGuidance } from '../ui/WorldGuidance.ts';
-import { worldCameraZoom } from '../rendering/world-camera.ts';
+import { worldCameraBounds, worldCameraZoom } from '../rendering/world-camera.ts';
 import { worldFollowDeadzone } from '../rendering/camera-follow.ts';
 import { gameViewport } from '../rendering/game-size.ts';
 import { playFishingCast } from '../rendering/fishing-cast';
@@ -259,9 +259,10 @@ export class WorldScene extends Phaser.Scene {
 
   private fitWorldCamera(): void {
     const width = this.renderedMap.width * TILE, height = this.renderedMap.height * TILE;
-    this.cameras.main.setBounds(0, 0, width, height);
     const viewport = gameViewport(this.game);
     const logicalZoom = worldCameraZoom(viewport, { width, height });
+    const bounds = worldCameraBounds(viewport, { width, height }, logicalZoom);
+    this.cameras.main.setBounds(bounds.x, bounds.y, bounds.width, bounds.height);
     const deadzone = worldFollowDeadzone(viewport, logicalZoom);
     this.cameras.main.setZoom(logicalZoom * viewport.density);
     this.cameras.main.startFollow(this.player, true, .12, .12);

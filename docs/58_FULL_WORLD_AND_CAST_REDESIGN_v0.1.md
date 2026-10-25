@@ -38,3 +38,17 @@ La presenza di un fondale o di una riga nel registro non equivale ad accettazion
 Casa e laboratorio di Borgofonte hanno nuovi fondali illustrati, registrati con sorgenti e conversioni WebP lossless. Binding grafici sostituiti senza modificare collisioni, hotspot, missioni o spawn. Rendering dei personaggi principali verificato nelle sei apparizioni in entrambi gli orientamenti; casa e laboratorio percorsi con i comandi reali fino a scrittoio/Elia e poi all’uscita. Cache PWA aggiornata a v159: entrambi i nuovi fondali decodificati dopo reload offline, progressi invariati.
 
 Verifiche locali: 615 test dominio/persistenza, validatore dei contenuti, build, due prove browser NPC, due prove browser interni e una prova offline passati. Le prove degli interni usano un salvataggio preparato prima del percorso, non attestano un’intera campagna naturale. Le direzioni e animazioni del cast restano aperte. Borgofonte esterno e primo atlante capipalestra in lavorazione separata.
+
+## Secondo incremento — 0.3.139
+
+Nuovi fondali per Borgofonte, Viale delle Fronde e Bosco dei Veli: meno microdettaglio, percorso continuo e contrasto più leggibile. Collisioni, missioni, habitat, servizi e posizioni dei personaggi conservati. Sono iterazioni grafiche: non attestano che lo stile finale di tutte le mappe sia completo.
+
+Due atlanti 2×2 introducono otto identità distinte per Mira, Dalia, Aster, Rhea, Nerea della palestra, Selene, Nives e Aurel. Nerea del Consiglio rimane distinta, perché il canone non prova un’identità comune. Il catalogo `appearances.v2.json` associa ogni profilo a un asset esplicito e permette più atlanti senza inferire identità dal nome. Profili registrati: 11, per 14 presenze; le altre 37 presenze rimangono da rifare. Pose statiche: direzioni e animazioni del cast restano aperte.
+
+Il controllo del PNG trasparente nel viewer aveva prodotto un falso positivo sugli aloni dei personaggi. Il compositing reale di Chrome a più scale è pulito e ha permesso di selezionare i due atlanti. Conservati prompt, sorgenti, conversioni lossless e motivazione della rivalutazione; lo studio alternativo di Mira non entra nel gioco.
+
+La verifica portrait ha inoltre trovato Mira nascosta dalla UI vicino al bordo nord. La camera ora può oltrepassare moderatamente i bordi verticali per mantenere gli interlocutori fuori dal HUD e dai controlli touch. Questo può mostrare il fondo della scena lungo il limite del fondale; il completamento artistico dei margini rimane parte della revisione di ciascuna mappa.
+
+Il validatore di provenienza segue ora le mappe effettivamente associate ai fondali illustrati, invece di imporre esattamente 14 record. Tre regressioni Python coprono crescita del catalogo, provenienza mancante per una mappa nuova e modifica dei byte dell’artwork. Il manifest ora contiene 15 fondali; questa copertura non equivale a verifica grafica delle 48 mappe.
+
+Driver di navigazione corretti per le soglie ampliate e per gli asset attuali, mantenendo controlli su risorse, ricompense e persistenza. Il percorso offline fino a tre medaglie è passato prima delle ultime aggiunte cosmetiche. 625 test dominio/persistenza e 114 Python passati; verifiche browser e ricevute del lotto sono registrate in `CI_STATUS.md`.

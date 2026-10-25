@@ -2,7 +2,7 @@
 
 Tool integrato ImageGen, riferimento di stile `public/assets/concepts/characters-direction-v1.png`. La tavola storica rappresentava Elia come uomo, contrariamente al GDD e al dialogo `prof_elia`: questo atlante corregge esplicitamente l’identità in professoressa. Non sono stati cambiati genere, testo o ruolo narrativo per adattarli al disegno.
 
-Output originale conservato in `assets/sources/veloria-npcs-v3.png`, derivato WebP lossless in `public/assets/sprites/veloria-npcs-v3.webp`; 1536×1024 RGBA, griglia 3×2. Atlante ispezionato: tre identità principali e tre studi cittadini distinti, con trasparenza. I frame 0–2 sono integrati, gli altri non introducono NPC nuovi. Ancoraggi dei piedi espliciti in `content/characters/appearances.v1.json`, ripetuti nei Tiled con test contro il catalogo. La calibrazione usa il centro dell’ingombro dei piedi nei 64 pixel inferiori opachi; rendering e collisioni restano separati.
+Output originale conservato in `assets/sources/veloria-npcs-v3.png`, derivato WebP lossless in `public/assets/sprites/veloria-npcs-v3.webp`; 1536×1024 RGBA, griglia 3×2. Atlante ispezionato: tre identità principali e tre studi cittadini distinti, con trasparenza. I frame 0–2 sono integrati, gli altri non introducono NPC nuovi. Ancoraggi dei piedi espliciti in `content/characters/appearances.v2.json`, ripetuti nei Tiled con test contro il catalogo. La calibrazione usa il centro dell’ingombro dei piedi nei 64 pixel inferiori opachi; rendering e collisioni restano separati.
 
 ## Prompt esatto
 
