@@ -27,6 +27,15 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-v1",
+      "path": "assets/sprites/veloria-league-council-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "profiles": [
@@ -166,6 +175,46 @@
       "frame": 3,
       "narrativeSource": "content/trainers/gym08_aurel.trainer.json",
       "origin": {"x": 0.4853, "y": 0.9761}
+    },
+    {
+      "id": "league-council-nerea",
+      "description": "Nerea, membro del Consiglio della Lega; abito formale blu notte e perla con motivo delle correnti",
+      "dialogueIds": ["league_council1"],
+      "npcIds": ["league_council1"],
+      "assetKey": "veloria-league-council-v1",
+      "frame": 0,
+      "narrativeSource": "content/trainers/league_council1.trainer.json",
+      "origin": {"x": 0.6188, "y": 1.0000}
+    },
+    {
+      "id": "league-council-silvo",
+      "description": "Silvo, membro del Consiglio; giacca a strati verde bosco e ocra con borsa da appunti da campo",
+      "dialogueIds": ["league_council2"],
+      "npcIds": ["league_council2"],
+      "assetKey": "veloria-league-council-v1",
+      "frame": 1,
+      "narrativeSource": "content/trainers/league_council2.trainer.json",
+      "origin": {"x": 0.4787, "y": 1.0000}
+    },
+    {
+      "id": "league-council-brando",
+      "description": "Brando, membro del Consiglio; giacca squadrata petrolio con cuciture ambra e chiusura metallica",
+      "dialogueIds": ["league_council3"],
+      "npcIds": ["league_council3"],
+      "assetKey": "veloria-league-council-v1",
+      "frame": 2,
+      "narrativeSource": "content/trainers/league_council3.trainer.json",
+      "origin": {"x": 0.6154, "y": 0.9809}
+    },
+    {
+      "id": "league-council-luce",
+      "description": "Luce, membro del Consiglio; giacca corta avorio e prugna, capelli scuri e linea argento",
+      "dialogueIds": ["league_council4"],
+      "npcIds": ["league_council4"],
+      "assetKey": "veloria-league-council-v1",
+      "frame": 3,
+      "narrativeSource": "content/trainers/league_council4.trainer.json",
+      "origin": {"x": 0.4799, "y": 0.9809}
     }
   ],
   "unboundStudies": [

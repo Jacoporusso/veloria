@@ -11,6 +11,7 @@ import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/
 import { prepareMonorailTraveler, stationArrival, travelResources } from './helpers/monorail';
 import { readBrowserSave } from './helpers/world-navigation';
 import magneticRouter from '../../content/puzzles/gym04_magnetic.v1.json' with { type: 'json' };
+import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-check';
 
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
@@ -28,16 +29,43 @@ test('canonical NPC artwork and redesigned scenery decode offline without changi
       'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp',
       'assets/scenery/veloria-borgofonte-illustrated-v3.webp', 'assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp',
       'assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp', 'assets/sprites/veloria-gym-leaders-a-v1.webp',
-      'assets/sprites/veloria-gym-leaders-b-v1.webp'];
+      'assets/sprites/veloria-gym-leaders-b-v1.webp', 'assets/sprites/veloria-league-council-v1.webp'];
     return Promise.all(paths.map(async path => { const image = new Image(); image.src = new URL(path, location.href).href; await image.decode(); return { width: image.naturalWidth, height: image.naturalHeight }; }));
   });
   expect(decoded).toEqual([
     ...Array.from({ length: 4 }, () => ({ width: 1536, height: 1024 })),
     { width: 1470, height: 1070 }, { width: 1484, height: 1060 },
-    { width: 1536, height: 1024 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 },
+    { width: 1536, height: 1024 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 }, { width: 1254, height: 1254 },
   ]);
   const after = await readBrowserSave(page);
   for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(failures).toEqual([]);
+});
+
+test('exhausted habitat guidance and encounters after healing work offline', async ({ page, context }) => {
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const fixture = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 4, level: 5, instanceId: 'offline-habitat', moveIds: ['scratch', 'growl'] });
+  fixture.player = { ...fixture.player, mapId: 'veloria/r11_via_cascate', spawnPointId: 'from_acquariva', x: 6, y: 4 };
+  fixture.flags = [...new Set([...fixture.flags, 'q_starter_selected', 'prologue_complete_seen', 'tutorial_habitat_seen'])];
+  fixture.party = [{ instanceId: creature.instanceId, speciesId: 4, level: 5, experience: 0, hp: 0, maxHp: creature.stats.maxHp,
+    moves: creature.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
+  const seed = 1;
+  expect(rollEncounterCheck(seed, .09).encounter).toBe(true);
+  fixture.rngState = seed;
+  await seedBrowserSave(page, fixture);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await walkDirection(page, 'down');
+  await expect(page.locator('#toast')).toContainText('La squadra è tutta KO');
+  expect((await readBrowserSave(page)).rngState).toBe(seed);
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+  fixture.party[0].hp = fixture.party[0].maxHp;
+  await seedBrowserSave(page, fixture); await page.reload(); await enterGame(page);
+  await walkDirection(page, 'down');
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
   expect(failures).toEqual([]);
 });
 

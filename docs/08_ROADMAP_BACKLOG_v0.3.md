@@ -1,5 +1,7 @@
 ## Nuova priorità — rifacimento completo di mappe e personaggi
 
+Lotto0.3.140: R01/R03/Radicelmo e quattro membri del Consiglio; simbolo habitat unico conforme al prototipo e feedback squadra KO. 15 profili per 18 presenze; altre 33 presenze aperte. Preparati i dati ufficiali Gen I, mentre il roster runtime rimane parziale. Nuovo vincolo: Veloria Gen I, future generazioni in leghe successive; [proposta di disponibilità e missioni regalo da discutere](60_REGIONAL_ROSTERS_AND_REWARDS_PROPOSAL_v0.1.md).
+
 Lotto0.3.139: Borgofonte, Bosco e Viale delle Fronde illustrati; identità distinte per tutti gli otto capipalestra, catalogo multiatlante e inquadratura ai bordi corretta. Con Elia/Ada/Nilo sono 11 profili e 14 presenze associate; le altre 37 presenze e la revisione completa delle 48 mappe restano aperte. [Stato e limiti](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md).
 
 Richiesta del 24/10/2026: rifare tutte le 48 mappe e l’intero cast, nello stile 2D illustrato moderno approvato. Inventario derivato dai contenuti: 51 presenze NPC; le identità comuni sono accorpate soltanto con prove esplicite. [Ambito, lotti e criteri di accettazione](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md). Primo lotto in lavorazione: ambienti iniziali e identità del cast; la copertura attuale dei fondali non attesta il completamento del redesign.

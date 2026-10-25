@@ -1,0 +1,2576 @@
+{
+  "version": 1,
+  "provider": "PokeAPI",
+  "scope": "Reference-only Gen I baseline; species IDs 1-151; not a runtime registration.",
+  "speciesIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151
+  ],
+  "resources": [
+    {
+      "kind": "pokemon",
+      "id": 1,
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "path": "content/sources/pokeapi/pokemon-1.json",
+      "sha256": "bb86eb538386e767d6f6d35ae074754d54e9e773d5f6bfd7ca11cc27f0e38aa5"
+    },
+    {
+      "kind": "pokemon",
+      "id": 2,
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "path": "content/sources/pokeapi/pokemon-2.json",
+      "sha256": "987ef9f5a3141fba533a65a9abbae2578b19279626bbd624d2fddfecb7e18c86"
+    },
+    {
+      "kind": "pokemon",
+      "id": 3,
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "path": "content/sources/pokeapi/pokemon-3.json",
+      "sha256": "fd114adb1315542de8a79695e17e818643d357e72e12c2ffbd63fe4d8f8bd6a8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 4,
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon/4/",
+      "path": "content/sources/pokeapi/pokemon-4.json",
+      "sha256": "144639a8a4d1d8f7a64ec20bf2943bdcae19d56a3b14e61b23c05f9d45244bd8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 5,
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "path": "content/sources/pokeapi/pokemon-5.json",
+      "sha256": "48d199521c4e4090c3460998a2154348741c385cd15ec4442c0aa69e413f0835"
+    },
+    {
+      "kind": "pokemon",
+      "id": 6,
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "path": "content/sources/pokeapi/pokemon-6.json",
+      "sha256": "867e3acf05e270dd61377f52067c82a9ca3d10acf18eb3b1f2b4f72145635fc2"
+    },
+    {
+      "kind": "pokemon",
+      "id": 7,
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon/7/",
+      "path": "content/sources/pokeapi/pokemon-7.json",
+      "sha256": "fd977577e71b52916cadcae2bcf1366a609f3b4894d95b536d1a85c34da98e9c"
+    },
+    {
+      "kind": "pokemon",
+      "id": 8,
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon/8/",
+      "path": "content/sources/pokeapi/pokemon-8.json",
+      "sha256": "1dd39355b375b7a6c24fd99c5fa275d60441234a5db867d2d4fb0fffc2d9d697"
+    },
+    {
+      "kind": "pokemon",
+      "id": 9,
+      "name": "blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+      "path": "content/sources/pokeapi/pokemon-9.json",
+      "sha256": "e24b83abc281ca425fdc732c5f0c1aa428d285879b7073986e76d54049b45de0"
+    },
+    {
+      "kind": "pokemon",
+      "id": 10,
+      "name": "caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon/10/",
+      "path": "content/sources/pokeapi/pokemon-10.json",
+      "sha256": "78d002c370f2540fcc2e1c4ca206da14ad9866c834ab66e18a2fb9207bd626ff"
+    },
+    {
+      "kind": "pokemon",
+      "id": 11,
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon/11/",
+      "path": "content/sources/pokeapi/pokemon-11.json",
+      "sha256": "bc3d169a151a87054e9715353c1131d7c8c1f9224023374a522f564801cd23bb"
+    },
+    {
+      "kind": "pokemon",
+      "id": 12,
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "path": "content/sources/pokeapi/pokemon-12.json",
+      "sha256": "0d516f42efb2fd6c1583109a0499a366401e3ef336384526712bea623bcaf191"
+    },
+    {
+      "kind": "pokemon",
+      "id": 13,
+      "name": "weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon/13/",
+      "path": "content/sources/pokeapi/pokemon-13.json",
+      "sha256": "e8d9a6c386bdeb424369106cca2ddc5f26b115481614e73393c0ee02c4fe84c7"
+    },
+    {
+      "kind": "pokemon",
+      "id": 14,
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "path": "content/sources/pokeapi/pokemon-14.json",
+      "sha256": "3ea75327d372b32e72543253fadf1f8c9572dbfac8a9e0e283dd63350c445175"
+    },
+    {
+      "kind": "pokemon",
+      "id": 15,
+      "name": "beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon/15/",
+      "path": "content/sources/pokeapi/pokemon-15.json",
+      "sha256": "e39dbbcb5f57804df2329b234cb2a45c3c7f1890be10e72143cafe3e4c17a690"
+    },
+    {
+      "kind": "pokemon",
+      "id": 16,
+      "name": "pidgey",
+      "url": "https://pokeapi.co/api/v2/pokemon/16/",
+      "path": "content/sources/pokeapi/pokemon-16.json",
+      "sha256": "cf2588121c6e4056a4a6c7bcf470cb24e265ad5c424beaeddff91dade1c18a90"
+    },
+    {
+      "kind": "pokemon",
+      "id": 17,
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon/17/",
+      "path": "content/sources/pokeapi/pokemon-17.json",
+      "sha256": "fc6be80499386130837f8cdaae38cccf01c4668b1dc52e2ae0292143806bb994"
+    },
+    {
+      "kind": "pokemon",
+      "id": 18,
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "path": "content/sources/pokeapi/pokemon-18.json",
+      "sha256": "992e69d5bc542d304c04d50186898c67864e188ea3aaeab0cb099a78636cb094"
+    },
+    {
+      "kind": "pokemon",
+      "id": 19,
+      "name": "rattata",
+      "url": "https://pokeapi.co/api/v2/pokemon/19/",
+      "path": "content/sources/pokeapi/pokemon-19.json",
+      "sha256": "f0217bed9237574fccc271b04810b2f7f2933dc438b066652302e4734e6d6de1"
+    },
+    {
+      "kind": "pokemon",
+      "id": 20,
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon/20/",
+      "path": "content/sources/pokeapi/pokemon-20.json",
+      "sha256": "8b1c56cd6b47020f7df7ac8f20daa1307f8386f69f03ea5f86894d1a055255cb"
+    },
+    {
+      "kind": "pokemon",
+      "id": 21,
+      "name": "spearow",
+      "url": "https://pokeapi.co/api/v2/pokemon/21/",
+      "path": "content/sources/pokeapi/pokemon-21.json",
+      "sha256": "80d4df0cb134b6042d169512b410f3e474c855618984a0d0d27dcb62c1d9723e"
+    },
+    {
+      "kind": "pokemon",
+      "id": 22,
+      "name": "fearow",
+      "url": "https://pokeapi.co/api/v2/pokemon/22/",
+      "path": "content/sources/pokeapi/pokemon-22.json",
+      "sha256": "d51ccd9f3a7f9e2351e2909fa561218ee791107af6e78f8e6629ebec6c889f27"
+    },
+    {
+      "kind": "pokemon",
+      "id": 23,
+      "name": "ekans",
+      "url": "https://pokeapi.co/api/v2/pokemon/23/",
+      "path": "content/sources/pokeapi/pokemon-23.json",
+      "sha256": "8744ed058b5dedcded6637e9b333de9a3aa76ee9ca9a971fc6611404b6bd9b0f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 24,
+      "name": "arbok",
+      "url": "https://pokeapi.co/api/v2/pokemon/24/",
+      "path": "content/sources/pokeapi/pokemon-24.json",
+      "sha256": "829cdf94fb6b78d764fc8ceb86a05bcfd18b177e968e22cf58fe5215baf66d8b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 25,
+      "name": "pikachu",
+      "url": "https://pokeapi.co/api/v2/pokemon/25/",
+      "path": "content/sources/pokeapi/pokemon-25.json",
+      "sha256": "496f79f6858cb31ce6318c6b0c1eee946af8968d0cbb4e3b048e8ec77b11e078"
+    },
+    {
+      "kind": "pokemon",
+      "id": 26,
+      "name": "raichu",
+      "url": "https://pokeapi.co/api/v2/pokemon/26/",
+      "path": "content/sources/pokeapi/pokemon-26.json",
+      "sha256": "404c2f813956230014622d78a70f1521ab30f5bac4ef509da2595f967075597f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 27,
+      "name": "sandshrew",
+      "url": "https://pokeapi.co/api/v2/pokemon/27/",
+      "path": "content/sources/pokeapi/pokemon-27.json",
+      "sha256": "ab3e30c9c9f4aac57965ae9756b66f916333a71e933f58ed5bea3459ee23960e"
+    },
+    {
+      "kind": "pokemon",
+      "id": 28,
+      "name": "sandslash",
+      "url": "https://pokeapi.co/api/v2/pokemon/28/",
+      "path": "content/sources/pokeapi/pokemon-28.json",
+      "sha256": "9ec1a1cd658d45010bd3f40344fc1a48aa4f33db70fbe6a164a7614da3c96295"
+    },
+    {
+      "kind": "pokemon",
+      "id": 29,
+      "name": "nidoran-f",
+      "url": "https://pokeapi.co/api/v2/pokemon/29/",
+      "path": "content/sources/pokeapi/pokemon-29.json",
+      "sha256": "d707b87468d5368484d603141230acf2bd635ae4ad9412cedda8eeef27ea5598"
+    },
+    {
+      "kind": "pokemon",
+      "id": 30,
+      "name": "nidorina",
+      "url": "https://pokeapi.co/api/v2/pokemon/30/",
+      "path": "content/sources/pokeapi/pokemon-30.json",
+      "sha256": "5bec8315d2a8a49ef21549961fc0631906f7efc09623e540413d086a527e3e26"
+    },
+    {
+      "kind": "pokemon",
+      "id": 31,
+      "name": "nidoqueen",
+      "url": "https://pokeapi.co/api/v2/pokemon/31/",
+      "path": "content/sources/pokeapi/pokemon-31.json",
+      "sha256": "14ce559891474ff49e2aa3ddea6771927438718de3abb4dc31e4f62638f5058f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 32,
+      "name": "nidoran-m",
+      "url": "https://pokeapi.co/api/v2/pokemon/32/",
+      "path": "content/sources/pokeapi/pokemon-32.json",
+      "sha256": "e91854ff0fa7ab9734b96b2936a3475309fa221ea2c0ee795520567c1726ec49"
+    },
+    {
+      "kind": "pokemon",
+      "id": 33,
+      "name": "nidorino",
+      "url": "https://pokeapi.co/api/v2/pokemon/33/",
+      "path": "content/sources/pokeapi/pokemon-33.json",
+      "sha256": "46926c6426c8209bf5f71762c528652b3bbe59cb346a36bb5b11e8dbddb8b417"
+    },
+    {
+      "kind": "pokemon",
+      "id": 34,
+      "name": "nidoking",
+      "url": "https://pokeapi.co/api/v2/pokemon/34/",
+      "path": "content/sources/pokeapi/pokemon-34.json",
+      "sha256": "2044ac96e065c68408b8e460730f664680dd592da41722fc0c654370671d6f69"
+    },
+    {
+      "kind": "pokemon",
+      "id": 35,
+      "name": "clefairy",
+      "url": "https://pokeapi.co/api/v2/pokemon/35/",
+      "path": "content/sources/pokeapi/pokemon-35.json",
+      "sha256": "e080a8d6dd24bc223425d799616f54cbefa995bd823f7e689dd88f7c9e916474"
+    },
+    {
+      "kind": "pokemon",
+      "id": 36,
+      "name": "clefable",
+      "url": "https://pokeapi.co/api/v2/pokemon/36/",
+      "path": "content/sources/pokeapi/pokemon-36.json",
+      "sha256": "dc7c1b6ea215b89786c9b6c797cc21256412b772db1e7e7156303ba27eb71a24"
+    },
+    {
+      "kind": "pokemon",
+      "id": 37,
+      "name": "vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon/37/",
+      "path": "content/sources/pokeapi/pokemon-37.json",
+      "sha256": "9ea495793b9bcd578913d846558f7d2a610427c5bd3969312c6cbd8cb976385d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 38,
+      "name": "ninetales",
+      "url": "https://pokeapi.co/api/v2/pokemon/38/",
+      "path": "content/sources/pokeapi/pokemon-38.json",
+      "sha256": "3cf40d72c0d4edff335329a6b4bdfa043cb27ae76ce673dc9a07f221901ea8a5"
+    },
+    {
+      "kind": "pokemon",
+      "id": 39,
+      "name": "jigglypuff",
+      "url": "https://pokeapi.co/api/v2/pokemon/39/",
+      "path": "content/sources/pokeapi/pokemon-39.json",
+      "sha256": "eeaa5e077ea2140639e3fc8e88e184d7e99291da6e2264ebab730c5307c24c03"
+    },
+    {
+      "kind": "pokemon",
+      "id": 40,
+      "name": "wigglytuff",
+      "url": "https://pokeapi.co/api/v2/pokemon/40/",
+      "path": "content/sources/pokeapi/pokemon-40.json",
+      "sha256": "691d0c6652d954bcc8c8c97d8a27c74c6b9554af024baee03be92c14ceac7f1a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 41,
+      "name": "zubat",
+      "url": "https://pokeapi.co/api/v2/pokemon/41/",
+      "path": "content/sources/pokeapi/pokemon-41.json",
+      "sha256": "98087b90ec984ff9cc2d1b7f370d996860324b1d87dcb350b2164608b847c78b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 42,
+      "name": "golbat",
+      "url": "https://pokeapi.co/api/v2/pokemon/42/",
+      "path": "content/sources/pokeapi/pokemon-42.json",
+      "sha256": "79153e836abe1332b08940eab7f76d68427355279c094e8df82de8576d88b7e3"
+    },
+    {
+      "kind": "pokemon",
+      "id": 43,
+      "name": "oddish",
+      "url": "https://pokeapi.co/api/v2/pokemon/43/",
+      "path": "content/sources/pokeapi/pokemon-43.json",
+      "sha256": "aca6a6e5a1a918f07b13886d644c9af0f3dc8837dd8349e4df329d1acd9d5442"
+    },
+    {
+      "kind": "pokemon",
+      "id": 44,
+      "name": "gloom",
+      "url": "https://pokeapi.co/api/v2/pokemon/44/",
+      "path": "content/sources/pokeapi/pokemon-44.json",
+      "sha256": "158f6e755c52d8fe0369aeebbc25fd5b918f32f9325e32b25c82c3259bcbc53b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 45,
+      "name": "vileplume",
+      "url": "https://pokeapi.co/api/v2/pokemon/45/",
+      "path": "content/sources/pokeapi/pokemon-45.json",
+      "sha256": "22e5d2a35c06aed5ddf8fed9912126a62c3497f04b7361ced95143e4e046b90d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 46,
+      "name": "paras",
+      "url": "https://pokeapi.co/api/v2/pokemon/46/",
+      "path": "content/sources/pokeapi/pokemon-46.json",
+      "sha256": "0818fa3e5626ca4c9d9b086250a378374903ce542dfec3763accebce1af10964"
+    },
+    {
+      "kind": "pokemon",
+      "id": 47,
+      "name": "parasect",
+      "url": "https://pokeapi.co/api/v2/pokemon/47/",
+      "path": "content/sources/pokeapi/pokemon-47.json",
+      "sha256": "217a03318cfe23e792c68d49448d404446d330ded519bc66bfd27952daf5002d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 48,
+      "name": "venonat",
+      "url": "https://pokeapi.co/api/v2/pokemon/48/",
+      "path": "content/sources/pokeapi/pokemon-48.json",
+      "sha256": "539a8b55c1ea06a5fc40e03ca5bfd97a40139ce81cf973ef0c2f98f1e002c8ab"
+    },
+    {
+      "kind": "pokemon",
+      "id": 49,
+      "name": "venomoth",
+      "url": "https://pokeapi.co/api/v2/pokemon/49/",
+      "path": "content/sources/pokeapi/pokemon-49.json",
+      "sha256": "9fedbf65cf34e9cd4fdf6e092c7c1e160959bf47f13b720f5bc5f67f2a6ea788"
+    },
+    {
+      "kind": "pokemon",
+      "id": 50,
+      "name": "diglett",
+      "url": "https://pokeapi.co/api/v2/pokemon/50/",
+      "path": "content/sources/pokeapi/pokemon-50.json",
+      "sha256": "10edea91d3151dde90526b55779e33772f58a37779f909dd6e7521fd5fdaf2f7"
+    },
+    {
+      "kind": "pokemon",
+      "id": 51,
+      "name": "dugtrio",
+      "url": "https://pokeapi.co/api/v2/pokemon/51/",
+      "path": "content/sources/pokeapi/pokemon-51.json",
+      "sha256": "a0988a49f91e676025383066a4320f82b0a66e9fae102a19a9ecd515b7435e27"
+    },
+    {
+      "kind": "pokemon",
+      "id": 52,
+      "name": "meowth",
+      "url": "https://pokeapi.co/api/v2/pokemon/52/",
+      "path": "content/sources/pokeapi/pokemon-52.json",
+      "sha256": "9eb6afad4dbcf9bcb5fede8d017a4fb32726dc1dc5722e49d8df01e37d2a4e93"
+    },
+    {
+      "kind": "pokemon",
+      "id": 53,
+      "name": "persian",
+      "url": "https://pokeapi.co/api/v2/pokemon/53/",
+      "path": "content/sources/pokeapi/pokemon-53.json",
+      "sha256": "09711d2bb7ed83ba7e30fdaa3e1fe0c07df1e4963381bb21a6eedbbcf3a370b4"
+    },
+    {
+      "kind": "pokemon",
+      "id": 54,
+      "name": "psyduck",
+      "url": "https://pokeapi.co/api/v2/pokemon/54/",
+      "path": "content/sources/pokeapi/pokemon-54.json",
+      "sha256": "a9c5985241d8e9a42757099e08295f577bc3035ada5531470cda27dd946d9aa9"
+    },
+    {
+      "kind": "pokemon",
+      "id": 55,
+      "name": "golduck",
+      "url": "https://pokeapi.co/api/v2/pokemon/55/",
+      "path": "content/sources/pokeapi/pokemon-55.json",
+      "sha256": "dc9e52c006c78d9439864c3dc563f1e0237587bb2f8dd04176fc3635a9b3847d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 56,
+      "name": "mankey",
+      "url": "https://pokeapi.co/api/v2/pokemon/56/",
+      "path": "content/sources/pokeapi/pokemon-56.json",
+      "sha256": "5802d473c8e2293222e8903e0b7c2702b1df21f41b80ba120ed75ec99d66d9be"
+    },
+    {
+      "kind": "pokemon",
+      "id": 57,
+      "name": "primeape",
+      "url": "https://pokeapi.co/api/v2/pokemon/57/",
+      "path": "content/sources/pokeapi/pokemon-57.json",
+      "sha256": "67d8c480917afbfb99b9fa1d89c75ba2918602cc6a48e02089755a81a4c24910"
+    },
+    {
+      "kind": "pokemon",
+      "id": 58,
+      "name": "growlithe",
+      "url": "https://pokeapi.co/api/v2/pokemon/58/",
+      "path": "content/sources/pokeapi/pokemon-58.json",
+      "sha256": "c9270b0dc066d7467146802a092b6f5d86bf54bd807b0a143fa694bc47a1753a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 59,
+      "name": "arcanine",
+      "url": "https://pokeapi.co/api/v2/pokemon/59/",
+      "path": "content/sources/pokeapi/pokemon-59.json",
+      "sha256": "8c7387e89bc1fc7c6bc16b88a009350e4a5a054ad39f9055bb9a5cb7fea450e5"
+    },
+    {
+      "kind": "pokemon",
+      "id": 60,
+      "name": "poliwag",
+      "url": "https://pokeapi.co/api/v2/pokemon/60/",
+      "path": "content/sources/pokeapi/pokemon-60.json",
+      "sha256": "a08be5bdbbfcb3764e1b874bf7bc199f7a2da858b9c0b8f68afe1e0e5cd43de6"
+    },
+    {
+      "kind": "pokemon",
+      "id": 61,
+      "name": "poliwhirl",
+      "url": "https://pokeapi.co/api/v2/pokemon/61/",
+      "path": "content/sources/pokeapi/pokemon-61.json",
+      "sha256": "2ae722c03d523b0147da01af06a3068647d4d6196dc5d43e3fcfcd0c904fe458"
+    },
+    {
+      "kind": "pokemon",
+      "id": 62,
+      "name": "poliwrath",
+      "url": "https://pokeapi.co/api/v2/pokemon/62/",
+      "path": "content/sources/pokeapi/pokemon-62.json",
+      "sha256": "3f4dc4fc207560445e857f310cc253059466137461fc8d8e6cf848b9bb24149c"
+    },
+    {
+      "kind": "pokemon",
+      "id": 63,
+      "name": "abra",
+      "url": "https://pokeapi.co/api/v2/pokemon/63/",
+      "path": "content/sources/pokeapi/pokemon-63.json",
+      "sha256": "fb853f0801436db47d843f905b33407a3415a6deff43a19ef866a0c33cb209a2"
+    },
+    {
+      "kind": "pokemon",
+      "id": 64,
+      "name": "kadabra",
+      "url": "https://pokeapi.co/api/v2/pokemon/64/",
+      "path": "content/sources/pokeapi/pokemon-64.json",
+      "sha256": "46563e278cb28da598b19cdcd70718f954bde46fd9e8b6642c9e346f231334cf"
+    },
+    {
+      "kind": "pokemon",
+      "id": 65,
+      "name": "alakazam",
+      "url": "https://pokeapi.co/api/v2/pokemon/65/",
+      "path": "content/sources/pokeapi/pokemon-65.json",
+      "sha256": "3b91dec2fd692e55f29d83b82eb4e854be6e0c81e4b27f4ddf9c9b4f341c7659"
+    },
+    {
+      "kind": "pokemon",
+      "id": 66,
+      "name": "machop",
+      "url": "https://pokeapi.co/api/v2/pokemon/66/",
+      "path": "content/sources/pokeapi/pokemon-66.json",
+      "sha256": "faad50cfe216e38ad18f7537b40c8a617d65d2b647fe88255980360684baa58b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 67,
+      "name": "machoke",
+      "url": "https://pokeapi.co/api/v2/pokemon/67/",
+      "path": "content/sources/pokeapi/pokemon-67.json",
+      "sha256": "31cb9e3246c83cfc8fcded59b88b3c9f1b744ba2dda5e3448e24760cd7bbe350"
+    },
+    {
+      "kind": "pokemon",
+      "id": 68,
+      "name": "machamp",
+      "url": "https://pokeapi.co/api/v2/pokemon/68/",
+      "path": "content/sources/pokeapi/pokemon-68.json",
+      "sha256": "4bebf5953fe7b849ad816a37126dff428ac4fb9e0227dcbf93746c47a6c1b47b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 69,
+      "name": "bellsprout",
+      "url": "https://pokeapi.co/api/v2/pokemon/69/",
+      "path": "content/sources/pokeapi/pokemon-69.json",
+      "sha256": "4c49a144a9b27510097da58f2e29ec2f6e880071674c30f6c094c785dcebe9e0"
+    },
+    {
+      "kind": "pokemon",
+      "id": 70,
+      "name": "weepinbell",
+      "url": "https://pokeapi.co/api/v2/pokemon/70/",
+      "path": "content/sources/pokeapi/pokemon-70.json",
+      "sha256": "13ebcb9d6c0022ee75ff72a0ca1af5a9152085d8ccbbc012d71d7d3aeb0a6640"
+    },
+    {
+      "kind": "pokemon",
+      "id": 71,
+      "name": "victreebel",
+      "url": "https://pokeapi.co/api/v2/pokemon/71/",
+      "path": "content/sources/pokeapi/pokemon-71.json",
+      "sha256": "0994d83147464b76fd472a1b2c880f72660f2e8bb3edb4ee3af8dc51758d7c45"
+    },
+    {
+      "kind": "pokemon",
+      "id": 72,
+      "name": "tentacool",
+      "url": "https://pokeapi.co/api/v2/pokemon/72/",
+      "path": "content/sources/pokeapi/pokemon-72.json",
+      "sha256": "2e92ece629e86b46643ddca464b2f8f1a9f8099ce786ec47d7f946dce7af559d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 73,
+      "name": "tentacruel",
+      "url": "https://pokeapi.co/api/v2/pokemon/73/",
+      "path": "content/sources/pokeapi/pokemon-73.json",
+      "sha256": "e0cf95cca0e12d702c34e342ae1ed64b105df20d312928b50e71b98f7c9fcaa8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 74,
+      "name": "geodude",
+      "url": "https://pokeapi.co/api/v2/pokemon/74/",
+      "path": "content/sources/pokeapi/pokemon-74.json",
+      "sha256": "600e8f6094eed94d3ef54a2301f48e8ef886676ffb1b4ce9ef2071e03a060e31"
+    },
+    {
+      "kind": "pokemon",
+      "id": 75,
+      "name": "graveler",
+      "url": "https://pokeapi.co/api/v2/pokemon/75/",
+      "path": "content/sources/pokeapi/pokemon-75.json",
+      "sha256": "9a503d34324ad788bd743f4eb55bd1f1a5eda9e443df75a610435ce2e03df9e5"
+    },
+    {
+      "kind": "pokemon",
+      "id": 76,
+      "name": "golem",
+      "url": "https://pokeapi.co/api/v2/pokemon/76/",
+      "path": "content/sources/pokeapi/pokemon-76.json",
+      "sha256": "96f5a47dff8840d20e6503a3a93fc009913d1dd5988e339046b6b671d4c1e343"
+    },
+    {
+      "kind": "pokemon",
+      "id": 77,
+      "name": "ponyta",
+      "url": "https://pokeapi.co/api/v2/pokemon/77/",
+      "path": "content/sources/pokeapi/pokemon-77.json",
+      "sha256": "5636547baca3730964247a0fb7e1423ebf5a7e058901e5b7f33fd0933461aacb"
+    },
+    {
+      "kind": "pokemon",
+      "id": 78,
+      "name": "rapidash",
+      "url": "https://pokeapi.co/api/v2/pokemon/78/",
+      "path": "content/sources/pokeapi/pokemon-78.json",
+      "sha256": "2b33ad88d96a647a4dfbc64d371b0b5d286e99ae2802ba4030f46e10c751c63a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 79,
+      "name": "slowpoke",
+      "url": "https://pokeapi.co/api/v2/pokemon/79/",
+      "path": "content/sources/pokeapi/pokemon-79.json",
+      "sha256": "b43c66f8691b5cd6d6fcd38be3a11350a71de0222c6f403579200643ebeb5c65"
+    },
+    {
+      "kind": "pokemon",
+      "id": 80,
+      "name": "slowbro",
+      "url": "https://pokeapi.co/api/v2/pokemon/80/",
+      "path": "content/sources/pokeapi/pokemon-80.json",
+      "sha256": "ebd36be46b6b7c64f6c7656c02583d055693c7ff3a823f539c645a6d1574e25b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 81,
+      "name": "magnemite",
+      "url": "https://pokeapi.co/api/v2/pokemon/81/",
+      "path": "content/sources/pokeapi/pokemon-81.json",
+      "sha256": "be89b14a5a658647a70c9f53f246657a254d9b7cbeefcb7a998a7777fc64f704"
+    },
+    {
+      "kind": "pokemon",
+      "id": 82,
+      "name": "magneton",
+      "url": "https://pokeapi.co/api/v2/pokemon/82/",
+      "path": "content/sources/pokeapi/pokemon-82.json",
+      "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
+    },
+    {
+      "kind": "pokemon",
+      "id": 83,
+      "name": "farfetchd",
+      "url": "https://pokeapi.co/api/v2/pokemon/83/",
+      "path": "content/sources/pokeapi/pokemon-83.json",
+      "sha256": "9f255731cab0d7cf6aed88da9f84dd3a4ab3e0718895d2374518a38336529b50"
+    },
+    {
+      "kind": "pokemon",
+      "id": 84,
+      "name": "doduo",
+      "url": "https://pokeapi.co/api/v2/pokemon/84/",
+      "path": "content/sources/pokeapi/pokemon-84.json",
+      "sha256": "f4e67e9249e247f9437c3a9a83f2399cf2b328d6b5149917f00dea0caedea314"
+    },
+    {
+      "kind": "pokemon",
+      "id": 85,
+      "name": "dodrio",
+      "url": "https://pokeapi.co/api/v2/pokemon/85/",
+      "path": "content/sources/pokeapi/pokemon-85.json",
+      "sha256": "17388d082ec9ff4871121f61d05f83774db2147d36639153cc31a292b6402696"
+    },
+    {
+      "kind": "pokemon",
+      "id": 86,
+      "name": "seel",
+      "url": "https://pokeapi.co/api/v2/pokemon/86/",
+      "path": "content/sources/pokeapi/pokemon-86.json",
+      "sha256": "e58eb862f5c7288354ffb2b317332c058b576753e9aa0f5a585fba0638902120"
+    },
+    {
+      "kind": "pokemon",
+      "id": 87,
+      "name": "dewgong",
+      "url": "https://pokeapi.co/api/v2/pokemon/87/",
+      "path": "content/sources/pokeapi/pokemon-87.json",
+      "sha256": "d0b430cc12d42a637c04aed14c10c73a45f05d47cc18f93f121ecb930448b669"
+    },
+    {
+      "kind": "pokemon",
+      "id": 88,
+      "name": "grimer",
+      "url": "https://pokeapi.co/api/v2/pokemon/88/",
+      "path": "content/sources/pokeapi/pokemon-88.json",
+      "sha256": "ead5e660665c5278df53434d94d3783ce2c76bf21473f6d86dcd76dfce1456d6"
+    },
+    {
+      "kind": "pokemon",
+      "id": 89,
+      "name": "muk",
+      "url": "https://pokeapi.co/api/v2/pokemon/89/",
+      "path": "content/sources/pokeapi/pokemon-89.json",
+      "sha256": "55392b4ac34dfd1efc8d9e4c30cb581ef73e917502982f862152862c71d9e195"
+    },
+    {
+      "kind": "pokemon",
+      "id": 90,
+      "name": "shellder",
+      "url": "https://pokeapi.co/api/v2/pokemon/90/",
+      "path": "content/sources/pokeapi/pokemon-90.json",
+      "sha256": "6a1abcb582c3b61c54f6a79be6712e1024bbe7a2edad52100c8a9e455f33f668"
+    },
+    {
+      "kind": "pokemon",
+      "id": 91,
+      "name": "cloyster",
+      "url": "https://pokeapi.co/api/v2/pokemon/91/",
+      "path": "content/sources/pokeapi/pokemon-91.json",
+      "sha256": "d5c599f8a97c4fe407743979ae40927cefb6d1e83a35e59ac07d275025a38511"
+    },
+    {
+      "kind": "pokemon",
+      "id": 92,
+      "name": "gastly",
+      "url": "https://pokeapi.co/api/v2/pokemon/92/",
+      "path": "content/sources/pokeapi/pokemon-92.json",
+      "sha256": "6f1aa2b0c44ac47e896d4b0945771a1f945d99120e825d6c111bbdf325cd4ee9"
+    },
+    {
+      "kind": "pokemon",
+      "id": 93,
+      "name": "haunter",
+      "url": "https://pokeapi.co/api/v2/pokemon/93/",
+      "path": "content/sources/pokeapi/pokemon-93.json",
+      "sha256": "26ca00cce352fed9fc3b8a8620219eff0da8703b0f36115eb29e4c0577574c0d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 94,
+      "name": "gengar",
+      "url": "https://pokeapi.co/api/v2/pokemon/94/",
+      "path": "content/sources/pokeapi/pokemon-94.json",
+      "sha256": "a2203b21cf1d04c8f055b61505ef5a308a299894fcbee7c0661dc1ea2f3b7b8d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 95,
+      "name": "onix",
+      "url": "https://pokeapi.co/api/v2/pokemon/95/",
+      "path": "content/sources/pokeapi/pokemon-95.json",
+      "sha256": "e4c1249abf34580c5fdabeee8e8e49418e9d78e12b94d16a0663b95888d872d6"
+    },
+    {
+      "kind": "pokemon",
+      "id": 96,
+      "name": "drowzee",
+      "url": "https://pokeapi.co/api/v2/pokemon/96/",
+      "path": "content/sources/pokeapi/pokemon-96.json",
+      "sha256": "dd6acbba86d48dea53263c0e4aca67969e5eb0baa95d9148cdf9e6b034910413"
+    },
+    {
+      "kind": "pokemon",
+      "id": 97,
+      "name": "hypno",
+      "url": "https://pokeapi.co/api/v2/pokemon/97/",
+      "path": "content/sources/pokeapi/pokemon-97.json",
+      "sha256": "899c71e842c1fe7507d357d73bb908295f66d7e908b684553fd7a33435c2c74a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 98,
+      "name": "krabby",
+      "url": "https://pokeapi.co/api/v2/pokemon/98/",
+      "path": "content/sources/pokeapi/pokemon-98.json",
+      "sha256": "a1e32ffd5fb2402e3d4de0219e9de3e74153e66773073be091df27e652c49f08"
+    },
+    {
+      "kind": "pokemon",
+      "id": 99,
+      "name": "kingler",
+      "url": "https://pokeapi.co/api/v2/pokemon/99/",
+      "path": "content/sources/pokeapi/pokemon-99.json",
+      "sha256": "6d0a7bc307a4f29d2aa7f76657f59820959a4504f4db7a1ad9a630e703b18a96"
+    },
+    {
+      "kind": "pokemon",
+      "id": 100,
+      "name": "voltorb",
+      "url": "https://pokeapi.co/api/v2/pokemon/100/",
+      "path": "content/sources/pokeapi/pokemon-100.json",
+      "sha256": "ca9e0a6a8c3485936c7cd371187986ad4ea9a6aaaf956b4e0e7c90c3242f7b93"
+    },
+    {
+      "kind": "pokemon",
+      "id": 101,
+      "name": "electrode",
+      "url": "https://pokeapi.co/api/v2/pokemon/101/",
+      "path": "content/sources/pokeapi/pokemon-101.json",
+      "sha256": "083e322aaf5c54a81fe9724a6490399d236ea593a7b432875da734182c79131d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 102,
+      "name": "exeggcute",
+      "url": "https://pokeapi.co/api/v2/pokemon/102/",
+      "path": "content/sources/pokeapi/pokemon-102.json",
+      "sha256": "117b462e185c7f5bfecf083bbc8b59093011e435048e1180f72b591f5bcc359b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 103,
+      "name": "exeggutor",
+      "url": "https://pokeapi.co/api/v2/pokemon/103/",
+      "path": "content/sources/pokeapi/pokemon-103.json",
+      "sha256": "07533fdcef6b7493a6c92041a81bef52d65f86d1512722b1e9762dbc00c89eb1"
+    },
+    {
+      "kind": "pokemon",
+      "id": 104,
+      "name": "cubone",
+      "url": "https://pokeapi.co/api/v2/pokemon/104/",
+      "path": "content/sources/pokeapi/pokemon-104.json",
+      "sha256": "0a5560629c42290de43f86a9ad1f5d549057ae66d72b50a8b2c97376b41ef19d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 105,
+      "name": "marowak",
+      "url": "https://pokeapi.co/api/v2/pokemon/105/",
+      "path": "content/sources/pokeapi/pokemon-105.json",
+      "sha256": "604006aedc4db82ad8b5be640d4306428459cd1e5b48cc328e7ca5345766d418"
+    },
+    {
+      "kind": "pokemon",
+      "id": 106,
+      "name": "hitmonlee",
+      "url": "https://pokeapi.co/api/v2/pokemon/106/",
+      "path": "content/sources/pokeapi/pokemon-106.json",
+      "sha256": "c34cd4ea29e03e339cefde082055fe7f6cdce30a99dbe28c88dbaacdc4205e27"
+    },
+    {
+      "kind": "pokemon",
+      "id": 107,
+      "name": "hitmonchan",
+      "url": "https://pokeapi.co/api/v2/pokemon/107/",
+      "path": "content/sources/pokeapi/pokemon-107.json",
+      "sha256": "18da6877e696353ee2647c6fb9dc69a2ec203152360f132e0344dae07ce56d23"
+    },
+    {
+      "kind": "pokemon",
+      "id": 108,
+      "name": "lickitung",
+      "url": "https://pokeapi.co/api/v2/pokemon/108/",
+      "path": "content/sources/pokeapi/pokemon-108.json",
+      "sha256": "fe088b09550b78d51943c3e88434e5641a55e5817f830674ccf22fe1477d95d9"
+    },
+    {
+      "kind": "pokemon",
+      "id": 109,
+      "name": "koffing",
+      "url": "https://pokeapi.co/api/v2/pokemon/109/",
+      "path": "content/sources/pokeapi/pokemon-109.json",
+      "sha256": "7d753e8a0191586d4437d980edebe1810054758b847f4b13b7e6251164dbad4a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 110,
+      "name": "weezing",
+      "url": "https://pokeapi.co/api/v2/pokemon/110/",
+      "path": "content/sources/pokeapi/pokemon-110.json",
+      "sha256": "2c4dab486971451d2ba87b6969adb2da16675b3a43c55dd4efc9c5b43f25921f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 111,
+      "name": "rhyhorn",
+      "url": "https://pokeapi.co/api/v2/pokemon/111/",
+      "path": "content/sources/pokeapi/pokemon-111.json",
+      "sha256": "086ec32b809aa3554e66607d028259bbcc8159d36bf0607db3288a0ba1e3791a"
+    },
+    {
+      "kind": "pokemon",
+      "id": 112,
+      "name": "rhydon",
+      "url": "https://pokeapi.co/api/v2/pokemon/112/",
+      "path": "content/sources/pokeapi/pokemon-112.json",
+      "sha256": "c2d5c5cdb5f5973237d4214c7ed658d7943e947a599aa03206cee129f3c65157"
+    },
+    {
+      "kind": "pokemon",
+      "id": 113,
+      "name": "chansey",
+      "url": "https://pokeapi.co/api/v2/pokemon/113/",
+      "path": "content/sources/pokeapi/pokemon-113.json",
+      "sha256": "a00f879ef885fe22d2434b39a0e96936e7ad21927647a08f9a1a8e037f326a98"
+    },
+    {
+      "kind": "pokemon",
+      "id": 114,
+      "name": "tangela",
+      "url": "https://pokeapi.co/api/v2/pokemon/114/",
+      "path": "content/sources/pokeapi/pokemon-114.json",
+      "sha256": "49ec4a28166fffcd2bc10b18e7e47c527b2bda5dc7611fb175f9648e870f5f9f"
+    },
+    {
+      "kind": "pokemon",
+      "id": 115,
+      "name": "kangaskhan",
+      "url": "https://pokeapi.co/api/v2/pokemon/115/",
+      "path": "content/sources/pokeapi/pokemon-115.json",
+      "sha256": "3bc972d74a576df878cbffc34402f7ee458bebdafecf4e0ce167159ce26fd714"
+    },
+    {
+      "kind": "pokemon",
+      "id": 116,
+      "name": "horsea",
+      "url": "https://pokeapi.co/api/v2/pokemon/116/",
+      "path": "content/sources/pokeapi/pokemon-116.json",
+      "sha256": "5e852e9fde4bcef82f0646f00cedde4e166100a7f757ff9f3c453c852d500d43"
+    },
+    {
+      "kind": "pokemon",
+      "id": 117,
+      "name": "seadra",
+      "url": "https://pokeapi.co/api/v2/pokemon/117/",
+      "path": "content/sources/pokeapi/pokemon-117.json",
+      "sha256": "10b75d032f2fa5a4609563f69473c8d9f507f4393943777e3acd56695e8d910b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 118,
+      "name": "goldeen",
+      "url": "https://pokeapi.co/api/v2/pokemon/118/",
+      "path": "content/sources/pokeapi/pokemon-118.json",
+      "sha256": "731ef994e38d392764643bc6bfe11d015cc7b2b6f613ab1d8c80b3f4c72312dc"
+    },
+    {
+      "kind": "pokemon",
+      "id": 119,
+      "name": "seaking",
+      "url": "https://pokeapi.co/api/v2/pokemon/119/",
+      "path": "content/sources/pokeapi/pokemon-119.json",
+      "sha256": "bce6e848c810bb7cbf34b7087dbfd109422d10818c31ccc313d141e2affc97a8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 120,
+      "name": "staryu",
+      "url": "https://pokeapi.co/api/v2/pokemon/120/",
+      "path": "content/sources/pokeapi/pokemon-120.json",
+      "sha256": "77adf74207e4b6254fa03594b7aacb26915644f7ee638d7282eafde3aea84cc1"
+    },
+    {
+      "kind": "pokemon",
+      "id": 121,
+      "name": "starmie",
+      "url": "https://pokeapi.co/api/v2/pokemon/121/",
+      "path": "content/sources/pokeapi/pokemon-121.json",
+      "sha256": "0135fba58a0bf7cab7c33a82010cd28f5736b97182a648f8bc24f55eaa18fc01"
+    },
+    {
+      "kind": "pokemon",
+      "id": 122,
+      "name": "mr-mime",
+      "url": "https://pokeapi.co/api/v2/pokemon/122/",
+      "path": "content/sources/pokeapi/pokemon-122.json",
+      "sha256": "8f390e74d5cd2722f105a7f70d8a5985c3dab51128729ba8891bda46df06bce6"
+    },
+    {
+      "kind": "pokemon",
+      "id": 123,
+      "name": "scyther",
+      "url": "https://pokeapi.co/api/v2/pokemon/123/",
+      "path": "content/sources/pokeapi/pokemon-123.json",
+      "sha256": "2ebcf4693f69d176bf2c9e2b4c07129aa86e3a42d9f472af4ba5306598800a14"
+    },
+    {
+      "kind": "pokemon",
+      "id": 124,
+      "name": "jynx",
+      "url": "https://pokeapi.co/api/v2/pokemon/124/",
+      "path": "content/sources/pokeapi/pokemon-124.json",
+      "sha256": "c3611232210d76eb03d36ec5225ca159176ebbbbfcba3412abe37611618290da"
+    },
+    {
+      "kind": "pokemon",
+      "id": 125,
+      "name": "electabuzz",
+      "url": "https://pokeapi.co/api/v2/pokemon/125/",
+      "path": "content/sources/pokeapi/pokemon-125.json",
+      "sha256": "b9ccee4d5fe7d91fc12c1d175d10513df305c9724a1684f22dc2723d98aa4f7c"
+    },
+    {
+      "kind": "pokemon",
+      "id": 126,
+      "name": "magmar",
+      "url": "https://pokeapi.co/api/v2/pokemon/126/",
+      "path": "content/sources/pokeapi/pokemon-126.json",
+      "sha256": "e625d62a69bad3a7cb87c64976829042b31c3182e060e2faacdb718791bf9884"
+    },
+    {
+      "kind": "pokemon",
+      "id": 127,
+      "name": "pinsir",
+      "url": "https://pokeapi.co/api/v2/pokemon/127/",
+      "path": "content/sources/pokeapi/pokemon-127.json",
+      "sha256": "1dd057eb972fb12272d47767be041f43facd919b812524e076e00c53c9187deb"
+    },
+    {
+      "kind": "pokemon",
+      "id": 128,
+      "name": "tauros",
+      "url": "https://pokeapi.co/api/v2/pokemon/128/",
+      "path": "content/sources/pokeapi/pokemon-128.json",
+      "sha256": "4b211dc9667da74d03203c51132872aa1aad21166a20ee821ab315f0a549ccf8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 129,
+      "name": "magikarp",
+      "url": "https://pokeapi.co/api/v2/pokemon/129/",
+      "path": "content/sources/pokeapi/pokemon-129.json",
+      "sha256": "78f4ee60945d5617db03e1c864bd554eb846f4cbaa588eb7fdf7c146312fbb65"
+    },
+    {
+      "kind": "pokemon",
+      "id": 130,
+      "name": "gyarados",
+      "url": "https://pokeapi.co/api/v2/pokemon/130/",
+      "path": "content/sources/pokeapi/pokemon-130.json",
+      "sha256": "7917e6f5f5ac1ef2d3ed85346295f80cc0c3681d07f21bd157f51c1ca4adce0c"
+    },
+    {
+      "kind": "pokemon",
+      "id": 131,
+      "name": "lapras",
+      "url": "https://pokeapi.co/api/v2/pokemon/131/",
+      "path": "content/sources/pokeapi/pokemon-131.json",
+      "sha256": "f34d3e29b8635a92c805851c81e5b0425787892c0d2b5ab64235301af4fb5ba1"
+    },
+    {
+      "kind": "pokemon",
+      "id": 132,
+      "name": "ditto",
+      "url": "https://pokeapi.co/api/v2/pokemon/132/",
+      "path": "content/sources/pokeapi/pokemon-132.json",
+      "sha256": "f121c85e6fc73677fd5d331ca447b4462ba64848bae356452a9c4303c63207c3"
+    },
+    {
+      "kind": "pokemon",
+      "id": 133,
+      "name": "eevee",
+      "url": "https://pokeapi.co/api/v2/pokemon/133/",
+      "path": "content/sources/pokeapi/pokemon-133.json",
+      "sha256": "c14bc4bd2ce36e57bb72634c8fc474de9b06a137901046aa75b322175078b95e"
+    },
+    {
+      "kind": "pokemon",
+      "id": 134,
+      "name": "vaporeon",
+      "url": "https://pokeapi.co/api/v2/pokemon/134/",
+      "path": "content/sources/pokeapi/pokemon-134.json",
+      "sha256": "96bb5afd658800bdc11f3ae143eb1c05f2caf5a067e71b1612d20b7a7cc51978"
+    },
+    {
+      "kind": "pokemon",
+      "id": 135,
+      "name": "jolteon",
+      "url": "https://pokeapi.co/api/v2/pokemon/135/",
+      "path": "content/sources/pokeapi/pokemon-135.json",
+      "sha256": "d32a70bc45eb64fbd4df9f4c094d6b441fe9b2d42f5287231914c15dff950e6c"
+    },
+    {
+      "kind": "pokemon",
+      "id": 136,
+      "name": "flareon",
+      "url": "https://pokeapi.co/api/v2/pokemon/136/",
+      "path": "content/sources/pokeapi/pokemon-136.json",
+      "sha256": "5fdb45574c7b809d79d28fd3b6fb6fe9a975291a3fc03e87bd8be15137d7d8d0"
+    },
+    {
+      "kind": "pokemon",
+      "id": 137,
+      "name": "porygon",
+      "url": "https://pokeapi.co/api/v2/pokemon/137/",
+      "path": "content/sources/pokeapi/pokemon-137.json",
+      "sha256": "fb16dce22047e2e062789fefdd0a8f73162d825eb479a7bba6c5063c9a2ca1ea"
+    },
+    {
+      "kind": "pokemon",
+      "id": 138,
+      "name": "omanyte",
+      "url": "https://pokeapi.co/api/v2/pokemon/138/",
+      "path": "content/sources/pokeapi/pokemon-138.json",
+      "sha256": "02fae702dd0718342d2c1d5e7169c42326c74b0ec120a92b616273facaa02848"
+    },
+    {
+      "kind": "pokemon",
+      "id": 139,
+      "name": "omastar",
+      "url": "https://pokeapi.co/api/v2/pokemon/139/",
+      "path": "content/sources/pokeapi/pokemon-139.json",
+      "sha256": "0c0ec252ca15e76f802ac0347d29ea8874e86766e016b14a39de1a7269a8589b"
+    },
+    {
+      "kind": "pokemon",
+      "id": 140,
+      "name": "kabuto",
+      "url": "https://pokeapi.co/api/v2/pokemon/140/",
+      "path": "content/sources/pokeapi/pokemon-140.json",
+      "sha256": "b683bbe10f735c029081fc1091c6c8111869941ef564eaedcbe4b683db4131be"
+    },
+    {
+      "kind": "pokemon",
+      "id": 141,
+      "name": "kabutops",
+      "url": "https://pokeapi.co/api/v2/pokemon/141/",
+      "path": "content/sources/pokeapi/pokemon-141.json",
+      "sha256": "afb32af6d72e6a790d4d441476fd0e52147decf32f5d58220e31b393d8f32d90"
+    },
+    {
+      "kind": "pokemon",
+      "id": 142,
+      "name": "aerodactyl",
+      "url": "https://pokeapi.co/api/v2/pokemon/142/",
+      "path": "content/sources/pokeapi/pokemon-142.json",
+      "sha256": "6550cdb356bcdb3ba3e53b41d5beecbb5b36d24c120424bb0d2ae9acf0572330"
+    },
+    {
+      "kind": "pokemon",
+      "id": 143,
+      "name": "snorlax",
+      "url": "https://pokeapi.co/api/v2/pokemon/143/",
+      "path": "content/sources/pokeapi/pokemon-143.json",
+      "sha256": "d9b45f8b1caa026d8ac5fe02f2354d1d69ac931c9423708dee8d14c6318f3db2"
+    },
+    {
+      "kind": "pokemon",
+      "id": 144,
+      "name": "articuno",
+      "url": "https://pokeapi.co/api/v2/pokemon/144/",
+      "path": "content/sources/pokeapi/pokemon-144.json",
+      "sha256": "1784ccc24d8c85f21e977540e9489e8a1d8896a39068f8d06d055ab17ad987f8"
+    },
+    {
+      "kind": "pokemon",
+      "id": 145,
+      "name": "zapdos",
+      "url": "https://pokeapi.co/api/v2/pokemon/145/",
+      "path": "content/sources/pokeapi/pokemon-145.json",
+      "sha256": "ce39495fade462dc2f1da7602aa623309795428604490f1d482f6ad40aed04a2"
+    },
+    {
+      "kind": "pokemon",
+      "id": 146,
+      "name": "moltres",
+      "url": "https://pokeapi.co/api/v2/pokemon/146/",
+      "path": "content/sources/pokeapi/pokemon-146.json",
+      "sha256": "0d6e1fcffc68ba1fadf91455be896566c8723e67a4cfb6bc7716531c283bd344"
+    },
+    {
+      "kind": "pokemon",
+      "id": 147,
+      "name": "dratini",
+      "url": "https://pokeapi.co/api/v2/pokemon/147/",
+      "path": "content/sources/pokeapi/pokemon-147.json",
+      "sha256": "83212b418da3313c5135fba4cb548c5c36af0a6ad7eede3874a475f87adf5ce6"
+    },
+    {
+      "kind": "pokemon",
+      "id": 148,
+      "name": "dragonair",
+      "url": "https://pokeapi.co/api/v2/pokemon/148/",
+      "path": "content/sources/pokeapi/pokemon-148.json",
+      "sha256": "a3522729fd91cb89d6490c10c89c8cc14bc992786c546f9e86be82a324b988cd"
+    },
+    {
+      "kind": "pokemon",
+      "id": 149,
+      "name": "dragonite",
+      "url": "https://pokeapi.co/api/v2/pokemon/149/",
+      "path": "content/sources/pokeapi/pokemon-149.json",
+      "sha256": "bc3e64bd295e617ad75a924705099d98c89ce8b29bafae8a85b580517e482e89"
+    },
+    {
+      "kind": "pokemon",
+      "id": 150,
+      "name": "mewtwo",
+      "url": "https://pokeapi.co/api/v2/pokemon/150/",
+      "path": "content/sources/pokeapi/pokemon-150.json",
+      "sha256": "d0b84f7ff17f08f7f4206b4f37e4ec6a15122d2c9c44d03d68fd6d7d49a7501d"
+    },
+    {
+      "kind": "pokemon",
+      "id": 151,
+      "name": "mew",
+      "url": "https://pokeapi.co/api/v2/pokemon/151/",
+      "path": "content/sources/pokeapi/pokemon-151.json",
+      "sha256": "e84bff999e95151f97d9367acb2079134f382440a02142ebf713af1054045f94"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 1,
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/1/",
+      "path": "content/sources/pokeapi/pokemon-species-1.json",
+      "sha256": "0841398912abb467d9292255f0ab1dc69ad13a59f30c0a1589525ec43a33909f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 2,
+      "name": "ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/2/",
+      "path": "content/sources/pokeapi/pokemon-species-2.json",
+      "sha256": "a22616922b257d439f93e86d2f8b78b3c41404405e9c20f82b8b2cada4afa3f0"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 3,
+      "name": "venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/3/",
+      "path": "content/sources/pokeapi/pokemon-species-3.json",
+      "sha256": "1ec7684f0dae5889a4cdb014c1dce2866be60479079004bbc14afff26d7b09e5"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 4,
+      "name": "charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/4/",
+      "path": "content/sources/pokeapi/pokemon-species-4.json",
+      "sha256": "a2313515bb25a69e00158dfc53ec265e27d8c4450589ad4645f58906740262de"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 5,
+      "name": "charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/5/",
+      "path": "content/sources/pokeapi/pokemon-species-5.json",
+      "sha256": "4b85319a7dc2723d641cf9376011c08429e4773bc489a5d8ebed945475a6db74"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 6,
+      "name": "charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/6/",
+      "path": "content/sources/pokeapi/pokemon-species-6.json",
+      "sha256": "623e24b457cb50ed73df753dc54ba5b8f24ba314220ade8166a878edc44c3b3a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 7,
+      "name": "squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/7/",
+      "path": "content/sources/pokeapi/pokemon-species-7.json",
+      "sha256": "e6e025716c0b323d1048aab287db084b4f5773ead4dd07e6c2e14ddca7d68985"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 8,
+      "name": "wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/8/",
+      "path": "content/sources/pokeapi/pokemon-species-8.json",
+      "sha256": "b9a8c8b7fd5fddfb6a6320272e7cb1b19b01ad8ac31bec99d0c25c955b2959d5"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 9,
+      "name": "blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/9/",
+      "path": "content/sources/pokeapi/pokemon-species-9.json",
+      "sha256": "c38fe3038228bfe5f80c39be0e8677202e5fafd19cc20bb6e02a7af6ef3befbc"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 10,
+      "name": "caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/10/",
+      "path": "content/sources/pokeapi/pokemon-species-10.json",
+      "sha256": "65d71b38b0b00f8e0028f5c36ebd0f1ac89b630582f81179d11a267d0e670441"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 11,
+      "name": "metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/11/",
+      "path": "content/sources/pokeapi/pokemon-species-11.json",
+      "sha256": "209efae829a0359747856759002135fcbc155920ba5078a5b946ec9c8967f1c7"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 12,
+      "name": "butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/12/",
+      "path": "content/sources/pokeapi/pokemon-species-12.json",
+      "sha256": "da4dd0cc30a87635c2aaef978c5ac70832f7fff96e91ad0ff67976e50fdd72b9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 13,
+      "name": "weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/13/",
+      "path": "content/sources/pokeapi/pokemon-species-13.json",
+      "sha256": "3bd98fa0fdd5f271319c1f4d278750f512202ef028b4276dc28d09ed1442633b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 14,
+      "name": "kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/14/",
+      "path": "content/sources/pokeapi/pokemon-species-14.json",
+      "sha256": "1f23d9e168ba550fe1b615b1c248e9d30fab8f6fb4f4cb608ae71d2249effe41"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 15,
+      "name": "beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/15/",
+      "path": "content/sources/pokeapi/pokemon-species-15.json",
+      "sha256": "cc7b4619df07be59ccfe172f79d9022fb78bd40750bd57b803b5d9d1733df89f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 16,
+      "name": "pidgey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/16/",
+      "path": "content/sources/pokeapi/pokemon-species-16.json",
+      "sha256": "1bac4a09ce9159004bbb9f2e3dd3b8c921f7e2d79b04b4c2b6ebafe45ab163f0"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 17,
+      "name": "pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/17/",
+      "path": "content/sources/pokeapi/pokemon-species-17.json",
+      "sha256": "5497329185fa1a64455f7cd89ca934359569eeb1b02396328916c67cf54f0457"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 18,
+      "name": "pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/18/",
+      "path": "content/sources/pokeapi/pokemon-species-18.json",
+      "sha256": "1de15664fe3ec3b5b5eaef7e8af5372153d91e317f45efd71bf6d30a37e93907"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 19,
+      "name": "rattata",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/19/",
+      "path": "content/sources/pokeapi/pokemon-species-19.json",
+      "sha256": "a90b63ba156df69d1e76a626fbbd127b66fb7786f169f1291df65cfe27028151"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 20,
+      "name": "raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/20/",
+      "path": "content/sources/pokeapi/pokemon-species-20.json",
+      "sha256": "f9ad7b0e3e9df770762467dfe43cd892b89ca3195b1878eee933e82c95961f2b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 21,
+      "name": "spearow",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/21/",
+      "path": "content/sources/pokeapi/pokemon-species-21.json",
+      "sha256": "fe034a99b2722e2ddb6aee8ca34277f8b3fa38f08c86589627db4efb5000b6ff"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 22,
+      "name": "fearow",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/22/",
+      "path": "content/sources/pokeapi/pokemon-species-22.json",
+      "sha256": "4ef6bbd468217ec487de364ee5513facc80cf7fa83c5b9c8bec000b9c13a8fe1"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 23,
+      "name": "ekans",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/23/",
+      "path": "content/sources/pokeapi/pokemon-species-23.json",
+      "sha256": "749c04919870bf92a9c686ec3ec34a3bf374f98ed0a66900b7c474d98c56a605"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 24,
+      "name": "arbok",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/24/",
+      "path": "content/sources/pokeapi/pokemon-species-24.json",
+      "sha256": "ac5c56102c5257a355dd7520194c4e0b81ce355a5f7b26e6ea99c8a5a7ace287"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 25,
+      "name": "pikachu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/25/",
+      "path": "content/sources/pokeapi/pokemon-species-25.json",
+      "sha256": "a2ed8553154a8436bebdfa8e96df529e9e046b21badbba333ebf0eb860cc3358"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 26,
+      "name": "raichu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/26/",
+      "path": "content/sources/pokeapi/pokemon-species-26.json",
+      "sha256": "eb3b2ed9c2c93ec4679fdb5c0aa6d5cd48453d0bafd634d3d2c28efdb141188a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 27,
+      "name": "sandshrew",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/27/",
+      "path": "content/sources/pokeapi/pokemon-species-27.json",
+      "sha256": "090e0a913e36f32b1b111ed6f7527df7969be532c4c8615541087357f408b58a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 28,
+      "name": "sandslash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/28/",
+      "path": "content/sources/pokeapi/pokemon-species-28.json",
+      "sha256": "054625376da913ca5e4715c6ba2e0b4087a42d7ecb82b1f6471db7ee929830c0"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 29,
+      "name": "nidoran-f",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/29/",
+      "path": "content/sources/pokeapi/pokemon-species-29.json",
+      "sha256": "f2f5437ff002d697d45458b375b447d7d99618b31b9984eb61e0b6287ab724fc"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 30,
+      "name": "nidorina",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/30/",
+      "path": "content/sources/pokeapi/pokemon-species-30.json",
+      "sha256": "5c94f166e4a0db98d01ad94243099a9b745327bb0ca7b14f75d221d0b572c70a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 31,
+      "name": "nidoqueen",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/31/",
+      "path": "content/sources/pokeapi/pokemon-species-31.json",
+      "sha256": "d97f8ac2ba9c41ef9b2fdb7c6f7a11bbbb53b7f8e976e6fc38abdd2b93bb5640"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 32,
+      "name": "nidoran-m",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/32/",
+      "path": "content/sources/pokeapi/pokemon-species-32.json",
+      "sha256": "0bf0f77b2d48dfc5101aeeb7455b61a60816e795980ab306dca5ea663526e242"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 33,
+      "name": "nidorino",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/33/",
+      "path": "content/sources/pokeapi/pokemon-species-33.json",
+      "sha256": "06e849dee52de7c6eb484715ddb8cf5a706e7af11e62576e1ae1a13309a3e448"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 34,
+      "name": "nidoking",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/34/",
+      "path": "content/sources/pokeapi/pokemon-species-34.json",
+      "sha256": "caa92029466bdb75a2f9ca95d6df349e389b3c66379c41eb6a06bc1dc7a4cc2e"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 35,
+      "name": "clefairy",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/35/",
+      "path": "content/sources/pokeapi/pokemon-species-35.json",
+      "sha256": "290d21e42e4027e298d5e82e6075ff9350bf5271fd16e6a8e48f8456c16b142c"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 36,
+      "name": "clefable",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/36/",
+      "path": "content/sources/pokeapi/pokemon-species-36.json",
+      "sha256": "33e4ce222b8e9d1cc8e5bbcc23810debdec99da6af1667ba47eed62b732b79b5"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 37,
+      "name": "vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/37/",
+      "path": "content/sources/pokeapi/pokemon-species-37.json",
+      "sha256": "29001e9ecff5dda8cd6ad0aa390652dc5d46d8202c004b11129004caf29a55b7"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 38,
+      "name": "ninetales",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/38/",
+      "path": "content/sources/pokeapi/pokemon-species-38.json",
+      "sha256": "74d59a70c6ebf46f803c4bc3acdb5c6e95bd4a793db5d7bfee1b4b0d713087bb"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 39,
+      "name": "jigglypuff",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/39/",
+      "path": "content/sources/pokeapi/pokemon-species-39.json",
+      "sha256": "9582f212400448df48a9ace8bc125fc202e5291a072436114c6794cad21dfa03"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 40,
+      "name": "wigglytuff",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/40/",
+      "path": "content/sources/pokeapi/pokemon-species-40.json",
+      "sha256": "93c986f6f51181737ad131769a031a4f1b58b564481e411db272c8645fa2ba7d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 41,
+      "name": "zubat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/41/",
+      "path": "content/sources/pokeapi/pokemon-species-41.json",
+      "sha256": "b283c9491855b5d52b431035d9b59045f7d402b9d295bfdab08cda04d9c6c65c"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 42,
+      "name": "golbat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/42/",
+      "path": "content/sources/pokeapi/pokemon-species-42.json",
+      "sha256": "d200505617463b27166504e8b346fc2e33eeaa7631ab931a95fd1e712bb3c468"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 43,
+      "name": "oddish",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/43/",
+      "path": "content/sources/pokeapi/pokemon-species-43.json",
+      "sha256": "b4cb176b6a1e582778321f2a1f1d2972a02a8c7eb87c920304e2da36d4cfd65b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 44,
+      "name": "gloom",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/44/",
+      "path": "content/sources/pokeapi/pokemon-species-44.json",
+      "sha256": "c12d89f85a6203a212eb5a2b20e94d2e5acf333d2f0dc768c4bcc3ed07576320"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 45,
+      "name": "vileplume",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/45/",
+      "path": "content/sources/pokeapi/pokemon-species-45.json",
+      "sha256": "548b491e37e50733d3b3f49e0bb1d515534ac6de5a1aa84953c5882ed3ee1ee6"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 46,
+      "name": "paras",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/46/",
+      "path": "content/sources/pokeapi/pokemon-species-46.json",
+      "sha256": "7a3edb9f1a9aed26f5b94672893c33b9106255188a43f46564498ffe7fc4ec54"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 47,
+      "name": "parasect",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/47/",
+      "path": "content/sources/pokeapi/pokemon-species-47.json",
+      "sha256": "b5e62bc1252a143047a3a5c77fec62568879146b2ac3ee2c910c36221faeb253"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 48,
+      "name": "venonat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/48/",
+      "path": "content/sources/pokeapi/pokemon-species-48.json",
+      "sha256": "c52160f0c0cbcc4ec1983642c8e4e60b9b577f6c26e1e9490cabed0691d91995"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 49,
+      "name": "venomoth",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/49/",
+      "path": "content/sources/pokeapi/pokemon-species-49.json",
+      "sha256": "5624f175a11a2c170fa27a9f485393aeac45a6b451ff680fd59d810f617a5ab0"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 50,
+      "name": "diglett",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/50/",
+      "path": "content/sources/pokeapi/pokemon-species-50.json",
+      "sha256": "905251452255637153f401f0411078282d09d76db0443878f7ec6c3e6bf5e270"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 51,
+      "name": "dugtrio",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/51/",
+      "path": "content/sources/pokeapi/pokemon-species-51.json",
+      "sha256": "fe4dba4a8cbb471e2932e1e65b45643a6afc41e1789805c5bf11f46045cbcac9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 52,
+      "name": "meowth",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/52/",
+      "path": "content/sources/pokeapi/pokemon-species-52.json",
+      "sha256": "cc88ecbb6198ac265fc8bd748ffb1f5e29fcececcaa4f7019a27c24f6a0ee4ee"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 53,
+      "name": "persian",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/53/",
+      "path": "content/sources/pokeapi/pokemon-species-53.json",
+      "sha256": "3a847229aa5799076e48759bc8b8f9242fb7f2f86b75fff2c3357525cb3ca422"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 54,
+      "name": "psyduck",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/54/",
+      "path": "content/sources/pokeapi/pokemon-species-54.json",
+      "sha256": "5dc162847deafd2e9556db960e8b887c25bd535eba6d1f37179fb1329bcb2928"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 55,
+      "name": "golduck",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/55/",
+      "path": "content/sources/pokeapi/pokemon-species-55.json",
+      "sha256": "25d08feda3c5e0eda30ef11d7d2802b202cb75c3b7e754ef94702f0cecae64e6"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 56,
+      "name": "mankey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/56/",
+      "path": "content/sources/pokeapi/pokemon-species-56.json",
+      "sha256": "73b2f400eb19543fd13ef6d6223685edf97b73aae80c3226924b331c0434549f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 57,
+      "name": "primeape",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/57/",
+      "path": "content/sources/pokeapi/pokemon-species-57.json",
+      "sha256": "02bc73a50348325452cffc75c89f0af3d2d6ee2352deaa7206a701a490a507eb"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 58,
+      "name": "growlithe",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/58/",
+      "path": "content/sources/pokeapi/pokemon-species-58.json",
+      "sha256": "e4e1790fd7b02f4caf35dad28f4fb5d8d3d8735fa47a140c13779943dac895a9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 59,
+      "name": "arcanine",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/59/",
+      "path": "content/sources/pokeapi/pokemon-species-59.json",
+      "sha256": "533e9725a3b25341ed72a09a638bec9728f2c533ac942caf653459d20c66a446"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 60,
+      "name": "poliwag",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/60/",
+      "path": "content/sources/pokeapi/pokemon-species-60.json",
+      "sha256": "4694a3626f0583537b05e31aed2720163ad28d751e17da1d913f638e1aa84c37"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 61,
+      "name": "poliwhirl",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/61/",
+      "path": "content/sources/pokeapi/pokemon-species-61.json",
+      "sha256": "24b82a9a2e83f8c28b5d20b68dd711ca559601e95d398c27dc4dce78561c8720"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 62,
+      "name": "poliwrath",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/62/",
+      "path": "content/sources/pokeapi/pokemon-species-62.json",
+      "sha256": "64f8028074d537032100638b6533a0bb758d2fdb96bbaa60d05e958b292fe456"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 63,
+      "name": "abra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/63/",
+      "path": "content/sources/pokeapi/pokemon-species-63.json",
+      "sha256": "09653e2b216d798407b60599bd8a5cd31195e630a45adc9165b2c054c9343cb2"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 64,
+      "name": "kadabra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/64/",
+      "path": "content/sources/pokeapi/pokemon-species-64.json",
+      "sha256": "5bfb3af6102bd338966afe2c6c6ec7750f40db0ad284850a28971f70b9661fe4"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 65,
+      "name": "alakazam",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/65/",
+      "path": "content/sources/pokeapi/pokemon-species-65.json",
+      "sha256": "b8f9e9f31e84cb75328de1c7d2b65f14a3460a9d7bb60ddb5d04cbbf60b51f4c"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 66,
+      "name": "machop",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/66/",
+      "path": "content/sources/pokeapi/pokemon-species-66.json",
+      "sha256": "0888cc1aacb7c7b64444b8f7f00c207147fc6e11b92a1ff3c31046952615271f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 67,
+      "name": "machoke",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/67/",
+      "path": "content/sources/pokeapi/pokemon-species-67.json",
+      "sha256": "b1c9e14588f2da61f5d699d47e8dbd494dda6db1d76f9cef08028f286c62ef33"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 68,
+      "name": "machamp",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/68/",
+      "path": "content/sources/pokeapi/pokemon-species-68.json",
+      "sha256": "8abaab5b1015c544d29397bee7fefb43cee892534c53ddb0e284f5a53237a1a5"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 69,
+      "name": "bellsprout",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/69/",
+      "path": "content/sources/pokeapi/pokemon-species-69.json",
+      "sha256": "bfc5414ae5ad5e0c6ec60e8783cfecb21e091e099a1d0124ef97764f621108be"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 70,
+      "name": "weepinbell",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/70/",
+      "path": "content/sources/pokeapi/pokemon-species-70.json",
+      "sha256": "b0c5a9ac3ca2e29a45c38e12b8ca596f37f7033168e124ab71ed2a1291812327"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 71,
+      "name": "victreebel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/71/",
+      "path": "content/sources/pokeapi/pokemon-species-71.json",
+      "sha256": "a5f62b581117a7f176b552faee974e6fe7a577886954fe9840f917d10a392c00"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 72,
+      "name": "tentacool",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/72/",
+      "path": "content/sources/pokeapi/pokemon-species-72.json",
+      "sha256": "655d0581c20c80439506ef18807aeae2bce77b0908736b4c535b124f089092e7"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 73,
+      "name": "tentacruel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/73/",
+      "path": "content/sources/pokeapi/pokemon-species-73.json",
+      "sha256": "811c07d6b050735c82f4bdbfdaf4e23e5cc4f616ceb3a205aa78f216e70ac489"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 74,
+      "name": "geodude",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/74/",
+      "path": "content/sources/pokeapi/pokemon-species-74.json",
+      "sha256": "a209cddf452ee10d442adac0dffd00cf199da7a6d47ce84620f555e79b2e6049"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 75,
+      "name": "graveler",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/75/",
+      "path": "content/sources/pokeapi/pokemon-species-75.json",
+      "sha256": "0ee46c2b9635f57337c1054eae96689e9a2f38a17de540e5f36246087a07145b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 76,
+      "name": "golem",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/76/",
+      "path": "content/sources/pokeapi/pokemon-species-76.json",
+      "sha256": "2bf550d4ff661abfddd2db6ca777fb244bbbcb48e6db4d0270632559d401f3b1"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 77,
+      "name": "ponyta",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/77/",
+      "path": "content/sources/pokeapi/pokemon-species-77.json",
+      "sha256": "2a406262d9602ea7f233c959a625121d506b47b44f5002e3b2a704591ab8d791"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 78,
+      "name": "rapidash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/78/",
+      "path": "content/sources/pokeapi/pokemon-species-78.json",
+      "sha256": "975be3ff95a802e5510aa93a25662666f3abcfbdf9d999dbfe60e0f9d12dcca9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 79,
+      "name": "slowpoke",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/79/",
+      "path": "content/sources/pokeapi/pokemon-species-79.json",
+      "sha256": "1ac4584b825de3e9ba35c359291be4e148c00ddd186fc638a0aca900935ebb93"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 80,
+      "name": "slowbro",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/80/",
+      "path": "content/sources/pokeapi/pokemon-species-80.json",
+      "sha256": "f05a7db5066430fe4558c90004a85146565189d9b65f2755b4ec571d94ccb45f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 81,
+      "name": "magnemite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/81/",
+      "path": "content/sources/pokeapi/pokemon-species-81.json",
+      "sha256": "0e3c7e1fc56debb184744a217b883b6e7532bd614444fbe463acaa4831015ef7"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 82,
+      "name": "magneton",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/82/",
+      "path": "content/sources/pokeapi/pokemon-species-82.json",
+      "sha256": "05b0643d52f347e0e24fde889a9436707731564e491ce9758ad1f2d9ebd6b8fd"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 83,
+      "name": "farfetchd",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/83/",
+      "path": "content/sources/pokeapi/pokemon-species-83.json",
+      "sha256": "fd4367a85e7c334df86e66936072af59999e9fc52d68c36c418e79fb626f6e54"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 84,
+      "name": "doduo",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/84/",
+      "path": "content/sources/pokeapi/pokemon-species-84.json",
+      "sha256": "8b607ae445e3806f67e1a284ab862ef32087a495197776bc3d95f999c1f174e6"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 85,
+      "name": "dodrio",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/85/",
+      "path": "content/sources/pokeapi/pokemon-species-85.json",
+      "sha256": "1dcc17a0058f7ddcd9fddcdbac38ecba71a9e2376c063f1e3778af62f540b105"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 86,
+      "name": "seel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/86/",
+      "path": "content/sources/pokeapi/pokemon-species-86.json",
+      "sha256": "613a8e183f899eb38da56226497d34a9f9bebea5017f5651749bae99310ef8c9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 87,
+      "name": "dewgong",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/87/",
+      "path": "content/sources/pokeapi/pokemon-species-87.json",
+      "sha256": "852369a42051147d6d79a377317f8eb96df7497bc915087dfc6a5d7c00bdc22d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 88,
+      "name": "grimer",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/88/",
+      "path": "content/sources/pokeapi/pokemon-species-88.json",
+      "sha256": "0f2c58a8622cc565123feae700e1b4469d5772a96e3841d6d0599abcdfcf2396"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 89,
+      "name": "muk",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/89/",
+      "path": "content/sources/pokeapi/pokemon-species-89.json",
+      "sha256": "0aea3f40e31bbb8838a05b383a90615b0f7dbdce07f694c9425123f6f155fddc"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 90,
+      "name": "shellder",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/90/",
+      "path": "content/sources/pokeapi/pokemon-species-90.json",
+      "sha256": "6833109f93a3fcc729c47a6b252152c865a5ab62a1e345b86403a947f933ac4f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 91,
+      "name": "cloyster",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/91/",
+      "path": "content/sources/pokeapi/pokemon-species-91.json",
+      "sha256": "d22f2d930690e656fca2944dffaf968475e198c53230761755c03c83e0dc54ab"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 92,
+      "name": "gastly",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/92/",
+      "path": "content/sources/pokeapi/pokemon-species-92.json",
+      "sha256": "3346b7d7557f76c65ccab8ba69191094882c2cac9600aa4e99011a3e4bcb687f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 93,
+      "name": "haunter",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/93/",
+      "path": "content/sources/pokeapi/pokemon-species-93.json",
+      "sha256": "0ca2ebdee611d5bf60448ce70ce8513f8889bbbc8b391cd4de05904b6e6b2fea"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 94,
+      "name": "gengar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/94/",
+      "path": "content/sources/pokeapi/pokemon-species-94.json",
+      "sha256": "48d2a8c9120554273a56d4e2b07e3a9f10655979907713917ecce3db40b6d46c"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 95,
+      "name": "onix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/95/",
+      "path": "content/sources/pokeapi/pokemon-species-95.json",
+      "sha256": "0860760bbb3cc721f09acf303eb44f522dc17ab09cee30fc6a7accae2b560958"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 96,
+      "name": "drowzee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/96/",
+      "path": "content/sources/pokeapi/pokemon-species-96.json",
+      "sha256": "c2ccad8db1eaa659201cde7f59a3a8bef2ce37a2fde0d64d704a543cba8d23c6"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 97,
+      "name": "hypno",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/97/",
+      "path": "content/sources/pokeapi/pokemon-species-97.json",
+      "sha256": "64ac940ab5cf559154f1ef9853e994bd16b51ae925d9efaaacdfa6533922ca6a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 98,
+      "name": "krabby",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/98/",
+      "path": "content/sources/pokeapi/pokemon-species-98.json",
+      "sha256": "c3a7c55c875e6aa91dcefe2d050d653c789677a080a09458d178019188ec0649"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 99,
+      "name": "kingler",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/99/",
+      "path": "content/sources/pokeapi/pokemon-species-99.json",
+      "sha256": "dbc3a1ac2abac0d2c977ccb94cac247ba243d9683cc3528066db9944f94a131b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 100,
+      "name": "voltorb",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/100/",
+      "path": "content/sources/pokeapi/pokemon-species-100.json",
+      "sha256": "afb6412876ec11135611fd559b9e7481bb191eb3e66116e7040377f17f060e16"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 101,
+      "name": "electrode",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/101/",
+      "path": "content/sources/pokeapi/pokemon-species-101.json",
+      "sha256": "0f9f3e8d7d10d1cd7125fdf05fe8569602b6664496fbd692dcde9eb734b58f0a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 102,
+      "name": "exeggcute",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/102/",
+      "path": "content/sources/pokeapi/pokemon-species-102.json",
+      "sha256": "de1d47d6433e747c17afbb90db907b87b54c8da6c22e4594bb63062217f3df86"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 103,
+      "name": "exeggutor",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/103/",
+      "path": "content/sources/pokeapi/pokemon-species-103.json",
+      "sha256": "8c796cc93fac3cf5e53151363c35b5c33c6186e78d85953181855f5b459c9cea"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 104,
+      "name": "cubone",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/104/",
+      "path": "content/sources/pokeapi/pokemon-species-104.json",
+      "sha256": "0f0b367bab7c03e8e0cc86db8e86f595c427c77c5486106ccdd2476c898bd942"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 105,
+      "name": "marowak",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/105/",
+      "path": "content/sources/pokeapi/pokemon-species-105.json",
+      "sha256": "0acd3d335b5b9953bc908e57f377875354fcab281b74e08f5ddceaf3a22fbdeb"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 106,
+      "name": "hitmonlee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/106/",
+      "path": "content/sources/pokeapi/pokemon-species-106.json",
+      "sha256": "36fca27af0c153efd2d97f43934333e56ddfb19931ad467347e4e38ff631db82"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 107,
+      "name": "hitmonchan",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/107/",
+      "path": "content/sources/pokeapi/pokemon-species-107.json",
+      "sha256": "435ea148b3b2c1adf3207607ef30ec543584d4d3f4fdfd078a8a32453a454f95"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 108,
+      "name": "lickitung",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/108/",
+      "path": "content/sources/pokeapi/pokemon-species-108.json",
+      "sha256": "3f778216e257ef0c5664413581dd8af11533d860bcadc88fe738a3a75c0d3e1f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 109,
+      "name": "koffing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/109/",
+      "path": "content/sources/pokeapi/pokemon-species-109.json",
+      "sha256": "937a0d611f7d473ab55e2636d0491f19632c6fa82acab31737fa7a55020d8b9a"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 110,
+      "name": "weezing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/110/",
+      "path": "content/sources/pokeapi/pokemon-species-110.json",
+      "sha256": "23abb8ac68d49caf012c14b2b8bc003606fa6c2df7a4b4722a3dfe5982eecc75"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 111,
+      "name": "rhyhorn",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/111/",
+      "path": "content/sources/pokeapi/pokemon-species-111.json",
+      "sha256": "a4e91127d5082307fc2c5cae2921984cbfc81426b7b88fc80de116e5db4a7bc2"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 112,
+      "name": "rhydon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/112/",
+      "path": "content/sources/pokeapi/pokemon-species-112.json",
+      "sha256": "5c3ecbef84fe463a6e86721ecbac12e082276d35b89a3d85136a992aa5a006e9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 113,
+      "name": "chansey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/113/",
+      "path": "content/sources/pokeapi/pokemon-species-113.json",
+      "sha256": "cb89dd0ae4e5393c547cb2292dcb2cbc8c9845fb342dd55f5c435a9ed4a93db9"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 114,
+      "name": "tangela",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/114/",
+      "path": "content/sources/pokeapi/pokemon-species-114.json",
+      "sha256": "8e89a428b7ad1b43a665cb9a4ceadbc9a1dbb2d94ccd2442eff2c17544103337"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 115,
+      "name": "kangaskhan",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/115/",
+      "path": "content/sources/pokeapi/pokemon-species-115.json",
+      "sha256": "246e0e0663f6ac0d71d7dc3040f40f59f675b93ebc0964523b75b331125f3486"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 116,
+      "name": "horsea",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/116/",
+      "path": "content/sources/pokeapi/pokemon-species-116.json",
+      "sha256": "abd1e17a1e0fa6496da0fb415b2e515ef3af6a4f84e4b4f10da453142cfdce55"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 117,
+      "name": "seadra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/117/",
+      "path": "content/sources/pokeapi/pokemon-species-117.json",
+      "sha256": "408d138784d27e91e609ff96ab0fafd7de440ea57599ed4d477a6f5c54a86a03"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 118,
+      "name": "goldeen",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/118/",
+      "path": "content/sources/pokeapi/pokemon-species-118.json",
+      "sha256": "68684134f6e6da0076d1d5de00f449fca787123be99a334ebaaeaf6be003c091"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 119,
+      "name": "seaking",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/119/",
+      "path": "content/sources/pokeapi/pokemon-species-119.json",
+      "sha256": "70ebfae3940ddc1444032ee3bced8fb6ffd1cb1061b7268fec8ead9e0071c97d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 120,
+      "name": "staryu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/120/",
+      "path": "content/sources/pokeapi/pokemon-species-120.json",
+      "sha256": "1932b39c2b9de90c130d7c230871616c4d59868628a2edde610665f7cb605f97"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 121,
+      "name": "starmie",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/121/",
+      "path": "content/sources/pokeapi/pokemon-species-121.json",
+      "sha256": "291c9a8b88cf9c8c68da1816ac2dbab2529bf1145a7dd8a45446f0d8a9bbfc37"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 122,
+      "name": "mr-mime",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/122/",
+      "path": "content/sources/pokeapi/pokemon-species-122.json",
+      "sha256": "8a316413823c664ec91ead37f5d7cd532f9e985951270f2c94e48ff7e48826ac"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 123,
+      "name": "scyther",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/123/",
+      "path": "content/sources/pokeapi/pokemon-species-123.json",
+      "sha256": "e1f437d8fd0e6c54afdfd6a6be52717f9bca3b1c6016ff1a44224df7cf9ef644"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 124,
+      "name": "jynx",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/124/",
+      "path": "content/sources/pokeapi/pokemon-species-124.json",
+      "sha256": "36107f031d69ac778eb0b3f1664196b0d77fe8f2ec85fc898984ed191c5e6adb"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 125,
+      "name": "electabuzz",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/125/",
+      "path": "content/sources/pokeapi/pokemon-species-125.json",
+      "sha256": "bf7378490459c19da0041fb7b6ef186c2ad6f6c6992f8ec391058a50f55ef632"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 126,
+      "name": "magmar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/126/",
+      "path": "content/sources/pokeapi/pokemon-species-126.json",
+      "sha256": "92f92389495943a789c9a76e7652cf22bc99b4d4bb9e0b0bf3a70c64deba67da"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 127,
+      "name": "pinsir",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/127/",
+      "path": "content/sources/pokeapi/pokemon-species-127.json",
+      "sha256": "a24e7b83ac39f9b92494fce9cf7754d2095ddd25e738d699143d9fcfeed20f68"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 128,
+      "name": "tauros",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/128/",
+      "path": "content/sources/pokeapi/pokemon-species-128.json",
+      "sha256": "e36f0f4a8cf2f10a571302693afaf5c1a9e812f781fbe0e302a6b96ec3836a70"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 129,
+      "name": "magikarp",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/129/",
+      "path": "content/sources/pokeapi/pokemon-species-129.json",
+      "sha256": "43726703f95be1d007d0434b80f5d240f471e5921b20d957393963301e52b6fb"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 130,
+      "name": "gyarados",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/130/",
+      "path": "content/sources/pokeapi/pokemon-species-130.json",
+      "sha256": "0b49263eee41464dffa41148d733bd88fa4690906f7db0aff51c60bcb863c321"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 131,
+      "name": "lapras",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/131/",
+      "path": "content/sources/pokeapi/pokemon-species-131.json",
+      "sha256": "8b1ab089aa520322c6dd8760a3b1760b1b95dd440aecc4423a99dc9832b8cb2b"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 132,
+      "name": "ditto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/132/",
+      "path": "content/sources/pokeapi/pokemon-species-132.json",
+      "sha256": "e5bad12e3be2aa4c5561d1de2a1e3bc0dc6250daf6541c8700150c363e6cbf46"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 133,
+      "name": "eevee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/133/",
+      "path": "content/sources/pokeapi/pokemon-species-133.json",
+      "sha256": "b397af6301a7ac885249cdd9221141827d3d5b915b5a6a432e61720e30a5d563"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 134,
+      "name": "vaporeon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/134/",
+      "path": "content/sources/pokeapi/pokemon-species-134.json",
+      "sha256": "8c60e09d4fa24346a0e95217f73cd1b83f7961394d47e2d1578fff5faa01a97d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 135,
+      "name": "jolteon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/135/",
+      "path": "content/sources/pokeapi/pokemon-species-135.json",
+      "sha256": "a1c2330a1583a60a5d1a26ca4e94256a2fc1e05d0fb5464b59778991a41bab48"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 136,
+      "name": "flareon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/136/",
+      "path": "content/sources/pokeapi/pokemon-species-136.json",
+      "sha256": "8b9b1ab051d0400f50941b037c20f5a7aba81d5b5f7cf6783341be61a93724d0"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 137,
+      "name": "porygon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/137/",
+      "path": "content/sources/pokeapi/pokemon-species-137.json",
+      "sha256": "82fda8a28d6c9376921d5a3016e8e01faa29c81a51829aa03100994417b68478"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 138,
+      "name": "omanyte",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/138/",
+      "path": "content/sources/pokeapi/pokemon-species-138.json",
+      "sha256": "e4b8ea86f707e4458a172f638ed801bf47aba49feba6f073c360e36d5f053de8"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 139,
+      "name": "omastar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/139/",
+      "path": "content/sources/pokeapi/pokemon-species-139.json",
+      "sha256": "15fd449da373d4c4d2557a72797ccee4f8096868b5352ce5a7e08bbd9380723d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 140,
+      "name": "kabuto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/140/",
+      "path": "content/sources/pokeapi/pokemon-species-140.json",
+      "sha256": "ade636fad9479436ee0a49bb411f752f2deceeb5101abe612299da57b23d33ac"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 141,
+      "name": "kabutops",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/141/",
+      "path": "content/sources/pokeapi/pokemon-species-141.json",
+      "sha256": "6308228cbc9e72236973a012ba19b5a3447894e2aacdb16f41aad9a744647473"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 142,
+      "name": "aerodactyl",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/142/",
+      "path": "content/sources/pokeapi/pokemon-species-142.json",
+      "sha256": "10d0f6752ff4ae65d4e8c6abc08b66c31a86d952487387b34d6c51193e2923dd"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 143,
+      "name": "snorlax",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/143/",
+      "path": "content/sources/pokeapi/pokemon-species-143.json",
+      "sha256": "211fa83c6fb8492f36d2e04fcd78ada57679c0c8d4382e0a037321e6f2f37a40"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 144,
+      "name": "articuno",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/144/",
+      "path": "content/sources/pokeapi/pokemon-species-144.json",
+      "sha256": "fac79a06a72f7eb960281bb0ff5896f660ea31c10a6559393dfc019465bd9a9f"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 145,
+      "name": "zapdos",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/145/",
+      "path": "content/sources/pokeapi/pokemon-species-145.json",
+      "sha256": "fb7e0840c2cebaabf8b1cbfa7a121c83a420fd9b5f589873f7b3d786816a7dc1"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 146,
+      "name": "moltres",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/146/",
+      "path": "content/sources/pokeapi/pokemon-species-146.json",
+      "sha256": "edcc48317cc6ef3a711494529160b09115d92e762a72b2208fba7d4b7542800d"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 147,
+      "name": "dratini",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/147/",
+      "path": "content/sources/pokeapi/pokemon-species-147.json",
+      "sha256": "b0d671a837b6cd5aad493449b6e8bc4d8e82d162c285469d98f1120ca6792ebf"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 148,
+      "name": "dragonair",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/148/",
+      "path": "content/sources/pokeapi/pokemon-species-148.json",
+      "sha256": "5d7a89aa42af2a30d79f8cd1dba8d9b50b2e8bb46bd5ed1fcafab4f7579bc740"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 149,
+      "name": "dragonite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/149/",
+      "path": "content/sources/pokeapi/pokemon-species-149.json",
+      "sha256": "9dab8286b9bf0bf5def3c1667872c1137baac7c937bcefd057910fed6a265597"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 150,
+      "name": "mewtwo",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/150/",
+      "path": "content/sources/pokeapi/pokemon-species-150.json",
+      "sha256": "09c9fe83921bf30c9a0731449ee0e9a97a5c6f3ffac1fc5c3a36d8b247de4ad1"
+    },
+    {
+      "kind": "pokemon-species",
+      "id": 151,
+      "name": "mew",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/151/",
+      "path": "content/sources/pokeapi/pokemon-species-151.json",
+      "sha256": "3ac9988e842f485bd2feaffb78cbeb8187c4c8408dc1a6b350a34340972c4434"
+    }
+  ]
+}

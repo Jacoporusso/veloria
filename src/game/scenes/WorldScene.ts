@@ -114,6 +114,7 @@ export class WorldScene extends Phaser.Scene {
   private presentationAbort = new AbortController();
   private toastTimer?: ReturnType<typeof setTimeout>;
   private battleActive = false;
+  private lastExhaustedHabitatHintAt = -Infinity;
   private fishingActive = false;
   private battleSceneReady: Promise<void> | null = null;
   private mapTransitionLoading = false;
@@ -522,7 +523,7 @@ export class WorldScene extends Phaser.Scene {
   private showFieldGuide(): void {
     if (this.avatarEditorOpen || this.dialogueLines.length || this.battleActive || this.mapTransitionLoading || this.completionActive) return;
     this.showDialogue('Come si gioca', [
-      'Le zone degli incontri sono segnate dal simbolo a tre foglie. Cammina tra le foglie per cercare Pokémon: il simbolo ha lo stesso significato in ogni ambiente.',
+      'Cerca i ciuffi a tre foglie e camminaci dentro: segnano le celle dove puoi incontrare Pokémon. Gli incontri possono richiedere più passi. Serve almeno un compagno con PS: se sono tutti KO, curali al Centro Pokémon.',
       'Per pescare cerca i punti di pesca e usa una canna dallo zaino. Non tutti gli specchi d’acqua sono punti di pesca.',
       'Segui i sentieri e le insegne per raggiungere porte e servizi. Le uscite indicano la destinazione; se un passaggio è chiuso, controlla l’obiettivo nel diario.',
       'WASD o frecce per muoverti; E, Spazio, Invio o A sullo schermo per parlare. Su telefono usa frecce o trackpad a destra e azioni a sinistra.',
@@ -925,7 +926,14 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private tryWildEncounter(zone: MapTrigger) {
-    if (!zone.encounterTableId || !this.save.party.some(creature => creature.hp > 0)) return;
+    if (!zone.encounterTableId) return;
+    if (!this.save.party.some(creature => creature.hp > 0)) {
+      if (this.time.now - this.lastExhaustedHabitatHintAt > 8_000) {
+        this.showToast('La squadra è tutta KO: cura almeno un Pokémon al Centro Pokémon per cercare nuovi incontri.');
+        this.lastExhaustedHabitatHintAt = this.time.now;
+      }
+      return;
+    }
     const table = encounterCatalog[zone.encounterTableId];
     if (!table) { this.showToast(`Tabella incontri non trovata: ${zone.encounterTableId}`); return; }
     const check = rollEncounterCheck(this.save.rngState, zone.encounterChance ?? 0);

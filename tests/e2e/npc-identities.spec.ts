@@ -5,7 +5,7 @@ import appearances from '../../content/characters/appearances.v2.json' with { ty
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
   test(`main NPC identities and foot anchors render across all appearances at ${viewport.width}`, async ({ page }, info) => {
-    test.setTimeout(90_000); await page.setViewportSize(viewport);
+    await page.setViewportSize(viewport);
     let position = { x: 1, y: 1 };
     const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
     await page.route('**/src/main.ts', async route => {
@@ -22,7 +22,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       ['gym03_vetracielo', 'aster_gym'], ['gym04_ferraluce', 'rhea_gym'],
       ['gym05_portolume', 'nerea_gym'], ['gym06_acquariva', 'selene_gym'],
       ['gym07_biancavetta', 'nives_gym'], ['gym08_concordia', 'aurel_gym'],
+      ['league_council01', 'league_council1'], ['league_council02', 'league_council2'],
+      ['league_council03', 'league_council3'], ['league_council04', 'league_council4'],
     ];
+    test.setTimeout(30_000 + cases.length * 6_000);
     for (const [mapName, npcId] of cases) {
       const metadata = JSON.parse(await readFile(new URL(`../../content/maps/${mapName}.map.json`, import.meta.url), 'utf8'));
       const tiled = JSON.parse(await readFile(new URL(`../../public/${metadata.tiledAsset}`, import.meta.url), 'utf8'));

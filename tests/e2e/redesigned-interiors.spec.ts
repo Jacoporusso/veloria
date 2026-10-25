@@ -4,7 +4,9 @@ import { readBrowserSave, seedBrowserSave, walkDirection, walkTo } from './helpe
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
   test(`redesigned opening interiors keep interactions and exits reachable at ${viewport.width}`, async ({ page }, info) => {
-    test.setTimeout(90_000);
+    // CI139 exhausted 90s during the final city walk, after both interior
+    // checks had passed. Allow the complete visible movement sequence on CI.
+    test.setTimeout(process.env.CI ? 180_000 : 90_000);
     await page.setViewportSize(viewport);
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));

@@ -52,3 +52,11 @@ La verifica portrait ha inoltre trovato Mira nascosta dalla UI vicino al bordo n
 Il validatore di provenienza segue ora le mappe effettivamente associate ai fondali illustrati, invece di imporre esattamente 14 record. Tre regressioni Python coprono crescita del catalogo, provenienza mancante per una mappa nuova e modifica dei byte dell’artwork. Il manifest ora contiene 15 fondali; questa copertura non equivale a verifica grafica delle 48 mappe.
 
 Driver di navigazione corretti per le soglie ampliate e per gli asset attuali, mantenendo controlli su risorse, ricompense e persistenza. Il percorso offline fino a tre medaglie è passato prima delle ultime aggiunte cosmetiche. 625 test dominio/persistenza e 114 Python passati; verifiche browser e ricevute del lotto sono registrate in `CI_STATUS.md`.
+
+## Terzo incremento — 0.3.140
+
+R01, R03 e Radicelmo hanno nuovi fondali illustrati e materiali più opachi; il candidato di Radicelmo troppo lucido/lastricato è stato corretto prima dell’integrazione. Posizioni, collisioni e interazioni conservate. Verificati con controlli reali Centro, erboristeria e tre strumenti del giardino di Radicelmo. Le quattro identità del Consiglio sono integrate con frame e ancoraggi espliciti; Nerea Consiglio resta distinta dalla capopalestra. Catalogo: 15 profili per 18 presenze, altre 33 presenze da rifare, direzioni/animazioni aperte.
+
+Priorità emersa durante il lotto: feedback degli habitat. Una sola sagoma per zona, con il path approvato nel prototipo e ancoraggio su cella percorribile; eliminati il vecchio badge e il marker sull’acqua di R01. Squadra tutta KO: nuovo avviso chiaro e nessun consumo RNG. [Diagnosi e verifiche](59_HABITATS_AND_GEN1_CATALOG_v0.1.md).
+
+Nuovo vincolo di prodotto: Veloria dedicata ai 151 Gen I, generazioni successive introdotte con altre leghe/regioni. Scaricati e verificati 302 riferimenti ufficiali PokéAPI per i 151 ID; la registrazione runtime rimane 83 specie, di cui 60 Gen I. Distribuzione, regali e sostituzione delle specie Gen II attuali sono da discutere e implementare: [proposta regionale](60_REGIONAL_ROSTERS_AND_REWARDS_PROPOSAL_v0.1.md). Nessuna nuova distribuzione applicata durante questa discussione.

@@ -1,18 +1,51 @@
 import type { MapTrigger } from '../maps/map-types.ts';
 
+const TILE_SIZE = 32;
 export type EncounterHabitatMarker = { x: number; y: number; triggerId: string };
+export type EncounterHabitatCell = EncounterHabitatMarker;
 
-/** The guide uses the same silhouette and palette as the authored map markers. */
-export const ENCOUNTER_HABITAT_SYMBOL = '<svg xmlns="http://www.w3.org/2000/svg" width="33" height="24" viewBox="-11 -8 22 16" aria-hidden="true" style="vertical-align:middle;margin-right:8px"><rect x="-10.5" y="-7.5" width="21" height="15" rx="7" fill="#173d42" stroke="#e0f9d9" stroke-width=".7"/><g fill="#c9f5c1"><ellipse cx="0" cy="-3" rx="2.5" ry="3.5"/><ellipse cx="-4" cy="1" rx="2.5" ry="3"/><ellipse cx="4" cy="1" rx="2.5" ry="3"/></g><path d="M0 0v4" stroke="#f5fff0" stroke-width="1.2"/></svg>';
+/** Canonical three-leaf silhouette shared with the world-design prototype. */
+export const ENCOUNTER_HABITAT_LEAF_PATH = 'M11 22C2 20 1 13 2 7c6 1 9 5 9 10C7 9 10 3 13 1c4 6 4 11 1 16 2-6 5-8 9-8 0 8-4 12-12 13Z';
 
-/** One stable marker per authored encounter patch, independent of its tile count. */
-export function createEncounterHabitatMarkers(triggers: readonly Pick<MapTrigger, 'id' | 'kind' | 'x' | 'y' | 'width' | 'height'>[]): EncounterHabitatMarker[] {
+/** The habitat legend uses the canonical leaf directly, without a badge or extra leaf marks. */
+export const ENCOUNTER_HABITAT_SYMBOL = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:middle;margin-right:8px"><path d="${ENCOUNTER_HABITAT_LEAF_PATH}" fill="#c9f5c1"/></svg>`;
+
+function encounterCells(trigger: Pick<MapTrigger, 'id' | 'kind' | 'x' | 'y' | 'width' | 'height'>, occupied: ReadonlySet<string>): EncounterHabitatCell[] {
+  if (trigger.kind !== 'encounter-zone' || trigger.width <= 0 || trigger.height <= 0) return [];
+  const left = Math.floor(trigger.x / TILE_SIZE);
+  const top = Math.floor(trigger.y / TILE_SIZE);
+  const right = Math.ceil((trigger.x + trigger.width) / TILE_SIZE);
+  const bottom = Math.ceil((trigger.y + trigger.height) / TILE_SIZE);
+  const cells: EncounterHabitatCell[] = [];
+  for (let ty = top; ty < bottom; ty++) for (let tx = left; tx < right; tx++) {
+    const x = tx * TILE_SIZE + TILE_SIZE / 2;
+    const y = ty * TILE_SIZE + TILE_SIZE / 2;
+    if (x < trigger.x || x >= trigger.x + trigger.width || y < trigger.y || y >= trigger.y + trigger.height) continue;
+    if (occupied.has(`${tx},${ty}`)) continue;
+    cells.push({ x, y, triggerId: trigger.id });
+  }
+  return cells;
+}
+
+/** Returns every walkable tile center inside each authored encounter patch. */
+export function createEncounterHabitatCells(
+  triggers: readonly Pick<MapTrigger, 'id' | 'kind' | 'x' | 'y' | 'width' | 'height'>[],
+  occupied: ReadonlySet<string> = new Set(),
+): EncounterHabitatCell[] {
+  return triggers.flatMap(trigger => encounterCells(trigger, occupied));
+}
+
+/** One marker per patch, centered on its middle open tile or the nearest open tile. */
+export function createEncounterHabitatMarkers(
+  triggers: readonly Pick<MapTrigger, 'id' | 'kind' | 'x' | 'y' | 'width' | 'height'>[],
+  occupied: ReadonlySet<string> = new Set(),
+): EncounterHabitatMarker[] {
   return triggers.flatMap(trigger => {
-    if (trigger.kind !== 'encounter-zone' || trigger.width <= 0 || trigger.height <= 0) return [];
-    return [{
-      x: trigger.x + trigger.width / 2,
-      y: trigger.y + trigger.height / 2,
-      triggerId: trigger.id,
-    }];
+    const cells = encounterCells(trigger, occupied);
+    if (cells.length === 0) return [];
+    const cx = trigger.x + trigger.width / 2;
+    const cy = trigger.y + trigger.height / 2;
+    cells.sort((a, b) => (a.x - cx) ** 2 + (a.y - cy) ** 2 - ((b.x - cx) ** 2 + (b.y - cy) ** 2));
+    return [cells[0]!];
   });
 }

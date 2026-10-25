@@ -35,6 +35,23 @@ def cell_rect(obj):
     }
 
 
+def possible_narrative_aliases(people):
+    """An assigned portrait does not resolve another person's shared name."""
+    speakers = defaultdict(list)
+    for person in people:
+        if person.get("narrativeSpeaker"):
+            speakers[person["narrativeSpeaker"]].append({
+                key: person[key] for key in ("mapId", "npcId", "dialogueId", "identityKey")
+            })
+    return [
+        {"speaker": speaker, "appearances": sorted(rows, key=lambda row: row["npcId"]),
+         "evidence": "same speaker label with separate content identities; narrative review is required, not proof of one person",
+         "status": "unresolved"}
+        for speaker, rows in sorted(speakers.items())
+        if len({row["identityKey"] for row in rows}) > 1
+    ]
+
+
 def main():
     map_paths = sorted((ROOT / "content/maps").glob("*.map.json"))
     parity_path = ROOT / "assets/map-parity-v2.json"
@@ -172,16 +189,10 @@ def main():
     unresolved_reused = [{"npcId": key, "presenceCount": count} for key, count in sorted(counts_by_npc.items())
                          if count > 1 and not profile_by_npc.get(key)]
     unresolved_same_dialogue = defaultdict(set)
-    unresolved_same_speaker = defaultdict(list)
     for p in people:
         if p.get("dialogueId") and not p.get("profileMatch"):
             unresolved_same_dialogue[p["dialogueId"]].add(p["npcId"])
-        if p.get("narrativeSpeaker") and not p.get("profileMatch"):
-            unresolved_same_speaker[p["narrativeSpeaker"]].append({"mapId": p["mapId"], "npcId": p["npcId"], "dialogueId": p["dialogueId"]})
-    possible_aliases = [{"speaker": speaker, "appearances": sorted(rows, key=lambda x: x["npcId"]),
-                         "evidence": "same speaker label in separate dialogue entries; this is a candidate for narrative review, not proof of one person", "status": "unresolved"}
-                        for speaker, rows in sorted(unresolved_same_speaker.items())
-                        if len({row["npcId"] for row in rows}) > 1]
+    possible_aliases = possible_narrative_aliases(people)
 
     # Progression cluster for the opening district: three connected routes plus
     # the first town and first gym; these are the first eight outdoor/primary maps

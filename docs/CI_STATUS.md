@@ -1,3 +1,13 @@
+## 0.3.140 — Habitat leggibili, squadra KO e nuovo lotto mondo
+
+Priorità feedback: una sola sagoma per ciascun habitat, con il path del prototipo e posizione su cella percorribile; corretto il marker R01 sull’acqua. Avviso squadra tutta KO senza consumo RNG; gli incontri ripartono con un compagno in forze. Dati pubblicati R11/R16/Piazzale Lega confrontati con i locali: identici. Sei prove con probabilità native e seed controllati verificano camminata e incontro reale, incluse Cascate e Cammino dell’Equilibrio; prova KO→HP ripristinati passata sia normale sia offline. Sei mappe verificate per simbolo unico, posizione libera e guida. [Contratto59](59_HABITATS_AND_GEN1_CATALOG_v0.1.md).
+
+Lotto grafico: R01/R03/Radicelmo v3, quattro membri del Consiglio distinti; 15 profili per 18 presenze. Percorsi reali a Centro/erboristeria/tre strumenti Radicelmo passati; errore iniziale della fixture badge senza ricevuta del prologo corretto. Rendering/identità dei 15 fondali, tutte le 18 apparizioni NPC nei due orientamenti e porte/interiori passati. 631 test dominio/persistenza, 124 Python, validatore (364 asset; 15 fondali) e build passati. Tre prove offline finali: dieci artwork decodificati con progressi invariati, KO e ripresa degli incontri, prima richiesta dei 14 fondali non iniziali. Cache v161.
+
+302 riferimenti PokéAPI Gen I (151 Pokémon +151 specie) conservati e verificati offline con URL/ID/SHA-256; 181 risposte nuove, 121 riusate, nessuna cache precedente sovrascritta. Roster runtime ancora 83 specie, 60 Gen I: le 91 mancanti non sono ancora rese giocabili. [Proposta regionale e regali](60_REGIONAL_ROSTERS_AND_REWARDS_PROPOSAL_v0.1.md) e matrice151 sono bozze per la discussione richiesta, senza modifiche alle distribuzioni o alle squadre attuali.
+
+Verify139 conclusa FAILURE soltanto nello shard10: due percorsi interni esaurivano 90s in CI durante le camminate finali. Driver ora concede 180s solo in CI, mantenendo assert di interazioni e transizioni; entrambi ripassati localmente. Pubblicazione e CI140 da attestare dopo il push. Rifacimento completo, animazioni e conversione del roster Veloria restano aperti.
+
 ## 0.3.139 — Tre ambienti e otto capipalestra
 
 Borgofonte, Bosco dei Veli e Viale delle Fronde aggiornati con fondali illustrati; otto leader con volti/abiti/accessori distinti, senza modificare missioni, collisioni o squadre. Catalogo multiatlante v2: 11 profili, 14 presenze. Inquadratura ai bordi corretta e verificata con proiezione effettiva dei personaggi fuori dal HUD. [Ambito e limiti](58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md).

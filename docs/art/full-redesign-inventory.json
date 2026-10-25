@@ -20,9 +20,9 @@
     "parityArtworkEntries": 15,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
-    "registeredAppearanceProfiles": 11,
+    "registeredAppearanceProfiles": 15,
     "unboundCharacterStudies": 3,
-    "possibleNarrativeAliasesUnresolved": 1
+    "possibleNarrativeAliasesUnresolved": 2
   },
   "identityRules": {
     "source": "content/characters/appearances.v2.json",
@@ -154,6 +154,50 @@
           "aurel_gym"
         ],
         "narrativeSource": "content/trainers/gym08_aurel.trainer.json"
+      },
+      {
+        "profileId": "league-council-nerea",
+        "description": "Nerea, membro del Consiglio della Lega; abito formale blu notte e perla con motivo delle correnti",
+        "npcIds": [
+          "league_council1"
+        ],
+        "dialogueIds": [
+          "league_council1"
+        ],
+        "narrativeSource": "content/trainers/league_council1.trainer.json"
+      },
+      {
+        "profileId": "league-council-silvo",
+        "description": "Silvo, membro del Consiglio; giacca a strati verde bosco e ocra con borsa da appunti da campo",
+        "npcIds": [
+          "league_council2"
+        ],
+        "dialogueIds": [
+          "league_council2"
+        ],
+        "narrativeSource": "content/trainers/league_council2.trainer.json"
+      },
+      {
+        "profileId": "league-council-brando",
+        "description": "Brando, membro del Consiglio; giacca squadrata petrolio con cuciture ambra e chiusura metallica",
+        "npcIds": [
+          "league_council3"
+        ],
+        "dialogueIds": [
+          "league_council3"
+        ],
+        "narrativeSource": "content/trainers/league_council3.trainer.json"
+      },
+      {
+        "profileId": "league-council-luce",
+        "description": "Luce, membro del Consiglio; giacca corta avorio e prugna, capelli scuri e linea argento",
+        "npcIds": [
+          "league_council4"
+        ],
+        "dialogueIds": [
+          "league_council4"
+        ],
+        "narrativeSource": "content/trainers/league_council4.trainer.json"
       }
     ],
     "unresolvedRepeatedNpcIds": [],
@@ -164,15 +208,36 @@
           {
             "mapId": "veloria/d04_delta_specchi",
             "npcId": "delta_iris",
-            "dialogueId": "delta_iris"
+            "dialogueId": "delta_iris",
+            "identityKey": "npc:delta_iris"
           },
           {
             "mapId": "veloria/r06_anello_magnetico",
             "npcId": "r06_iris",
-            "dialogueId": "r06_iris"
+            "dialogueId": "r06_iris",
+            "identityKey": "npc:r06_iris"
           }
         ],
-        "evidence": "same speaker label in separate dialogue entries; this is a candidate for narrative review, not proof of one person",
+        "evidence": "same speaker label with separate content identities; narrative review is required, not proof of one person",
+        "status": "unresolved"
+      },
+      {
+        "speaker": "Nerea",
+        "appearances": [
+          {
+            "mapId": "veloria/league_council01",
+            "npcId": "league_council1",
+            "dialogueId": "league_council1",
+            "identityKey": "profile:league-council-nerea"
+          },
+          {
+            "mapId": "veloria/gym05_portolume",
+            "npcId": "nerea_gym",
+            "dialogueId": "nerea_gym",
+            "identityKey": "profile:gym-leader-nerea-portolume"
+          }
+        ],
+        "evidence": "same speaker label with separate content identities; narrative review is required, not proof of one person",
         "status": "unresolved"
       }
     ]
@@ -292,11 +357,21 @@
           "columns": 2,
           "rows": 2
         }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-league-council-v1",
+        "path": "assets/sprites/veloria-league-council-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
       }
     ],
     "catalogAssetKeys": [
       "veloria-gym-leaders-a-v1",
       "veloria-gym-leaders-b-v1",
+      "veloria-league-council-v1",
       "veloria-npcs-v3"
     ],
     "unboundStudies": [
@@ -355,6 +430,15 @@
         "kind": "image",
         "key": "veloria-gym-leaders-b-v1",
         "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-league-council-v1",
+        "path": "assets/sprites/veloria-league-council-v1.webp",
         "atlas": {
           "columns": 2,
           "rows": 2
@@ -553,6 +637,74 @@
         "origin": {
           "x": 0.4853,
           "y": 0.9761
+        }
+      },
+      {
+        "id": "league-council-nerea",
+        "description": "Nerea, membro del Consiglio della Lega; abito formale blu notte e perla con motivo delle correnti",
+        "dialogueIds": [
+          "league_council1"
+        ],
+        "npcIds": [
+          "league_council1"
+        ],
+        "assetKey": "veloria-league-council-v1",
+        "frame": 0,
+        "narrativeSource": "content/trainers/league_council1.trainer.json",
+        "origin": {
+          "x": 0.6188,
+          "y": 1.0
+        }
+      },
+      {
+        "id": "league-council-silvo",
+        "description": "Silvo, membro del Consiglio; giacca a strati verde bosco e ocra con borsa da appunti da campo",
+        "dialogueIds": [
+          "league_council2"
+        ],
+        "npcIds": [
+          "league_council2"
+        ],
+        "assetKey": "veloria-league-council-v1",
+        "frame": 1,
+        "narrativeSource": "content/trainers/league_council2.trainer.json",
+        "origin": {
+          "x": 0.4787,
+          "y": 1.0
+        }
+      },
+      {
+        "id": "league-council-brando",
+        "description": "Brando, membro del Consiglio; giacca squadrata petrolio con cuciture ambra e chiusura metallica",
+        "dialogueIds": [
+          "league_council3"
+        ],
+        "npcIds": [
+          "league_council3"
+        ],
+        "assetKey": "veloria-league-council-v1",
+        "frame": 2,
+        "narrativeSource": "content/trainers/league_council3.trainer.json",
+        "origin": {
+          "x": 0.6154,
+          "y": 0.9809
+        }
+      },
+      {
+        "id": "league-council-luce",
+        "description": "Luce, membro del Consiglio; giacca corta avorio e prugna, capelli scuri e linea argento",
+        "dialogueIds": [
+          "league_council4"
+        ],
+        "npcIds": [
+          "league_council4"
+        ],
+        "assetKey": "veloria-league-council-v1",
+        "frame": 3,
+        "narrativeSource": "content/trainers/league_council4.trainer.json",
+        "origin": {
+          "x": 0.4799,
+          "y": 0.9809
         }
       }
     ],
@@ -4903,6 +5055,17 @@
           "path": "assets/scenery/veloria-league-council01-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-council-v1",
+          "path": "assets/sprites/veloria-league-council-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -4932,14 +5095,17 @@
           "name": "Nerea",
           "npcId": "league_council1",
           "dialogueId": "league_council1",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_council1",
-          "profileMatch": null,
+          "characterAppearanceId": "league-council-nerea",
+          "identityKey": "profile:league-council-nerea",
+          "profileMatch": "league-council-nerea",
           "narrativeSpeaker": "Nerea",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-league-council-v1",
           "spriteFrame": 0,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.6188,
+            "y": 1.0
+          },
           "trainerId": "veloria/trainer_league_council1",
           "battleOnceFlag": "trainer_league_council1_defeated",
           "frame": null,
@@ -5033,6 +5199,17 @@
           "path": "assets/scenery/veloria-league-council02-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-council-v1",
+          "path": "assets/sprites/veloria-league-council-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -5062,14 +5239,17 @@
           "name": "Silvo",
           "npcId": "league_council2",
           "dialogueId": "league_council2",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_council2",
-          "profileMatch": null,
+          "characterAppearanceId": "league-council-silvo",
+          "identityKey": "profile:league-council-silvo",
+          "profileMatch": "league-council-silvo",
           "narrativeSpeaker": "Silvo",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-league-council-v1",
           "spriteFrame": 1,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.4787,
+            "y": 1.0
+          },
           "trainerId": "veloria/trainer_league_council2",
           "battleOnceFlag": "trainer_league_council2_defeated",
           "frame": null,
@@ -5163,6 +5343,17 @@
           "path": "assets/scenery/veloria-league-council03-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-council-v1",
+          "path": "assets/sprites/veloria-league-council-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -5192,14 +5383,17 @@
           "name": "Brando",
           "npcId": "league_council3",
           "dialogueId": "league_council3",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_council3",
-          "profileMatch": null,
+          "characterAppearanceId": "league-council-brando",
+          "identityKey": "profile:league-council-brando",
+          "profileMatch": "league-council-brando",
           "narrativeSpeaker": "Brando",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-league-council-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.6154,
+            "y": 0.9809
+          },
           "trainerId": "veloria/trainer_league_council3",
           "battleOnceFlag": "trainer_league_council3_defeated",
           "frame": null,
@@ -5293,6 +5487,17 @@
           "path": "assets/scenery/veloria-league-council04-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-council-v1",
+          "path": "assets/sprites/veloria-league-council-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -5322,14 +5527,17 @@
           "name": "Luce",
           "npcId": "league_council4",
           "dialogueId": "league_council4",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_council4",
-          "profileMatch": null,
+          "characterAppearanceId": "league-council-luce",
+          "identityKey": "profile:league-council-luce",
+          "profileMatch": "league-council-luce",
           "narrativeSpeaker": "Luce",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-league-council-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.4799,
+            "y": 0.9809
+          },
           "trainerId": "veloria/trainer_league_council4",
           "battleOnceFlag": "trainer_league_council4_defeated",
           "frame": null,
@@ -6305,7 +6513,7 @@
           "layer": "decorations",
           "stableObjectId": 39,
           "name": "Sfondi illustrato — r01_sentiero_alba",
-          "spriteKey": "veloria-r01_sentiero_alba-illustrated-v2",
+          "spriteKey": "veloria-r01_sentiero_alba-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6319,14 +6527,14 @@
           "layer": "decorations",
           "stableObjectId": 39,
           "name": "Sfondi illustrato — r01_sentiero_alba",
-          "spriteKey": "veloria-r01_sentiero_alba-illustrated-v2",
+          "spriteKey": "veloria-r01_sentiero_alba-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 30.0,
             "height": 20.0
           },
-          "assetPath": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6334,8 +6542,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r01_sentiero_alba-illustrated-v2",
-          "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp",
+          "key": "veloria-r01_sentiero_alba-illustrated-v3",
+          "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6394,8 +6602,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r01_sentiero_alba-illustrated-v2",
-          "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp",
+          "key": "veloria-r01_sentiero_alba-illustrated-v3",
+          "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6404,11 +6612,11 @@
       "parityArtwork": {
         "mapId": "veloria/r01_sentiero_alba",
         "tiledAsset": "tilemaps/r01_sentiero_alba.tmj",
-        "assetKey": "veloria-r01_sentiero_alba-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r01_sentiero_alba-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp",
-        "sourceSha256": "6a7ee6c1f7c7df97cf4cd7bffe8dfe1cef91e867b1833cd33d33c5d1c136d776",
-        "runtimeSha256": "35507ff767df16cc52d088944fb1d4638e2c600f5b6c2766ef71dc814b0f3daa",
+        "assetKey": "veloria-r01_sentiero_alba-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r01_sentiero_alba-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r01_sentiero_alba-illustrated-v3.webp",
+        "sourceSha256": "a4d0eec7437d4237ea82c367e87d005d3465c1e69154acac456c38fa9b60ac7f",
+        "runtimeSha256": "a0e3436b3de644d8915e71bcac956efd1b3b49beaa136ed84aae6a842efc637c",
         "width": 1536,
         "height": 1024,
         "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Sentiero dell'Alba, aspect 3:2. Sunny rural meadow transition from Borgofonte to forest. Cream dirt road crosses west edge at y50%, follows x0–100% across y45–60%, northeast branch reaches east edge at y40%; preserve broad southern bypass. Small turquoise stream in top-middle x33–43%,y15–45%, stopping before the road. Four existing tree clusters, meadow wildflowers, smooth mossy rocks only at existing positions. Rich green ranges, warm ochre path, reflective shallow water with reeds. Match old map proportions precisely.",
@@ -6421,6 +6629,10 @@
             "id": "r01",
             "prompt": "Edit ONLY the stream in this generated Veloria map: it MUST be a short enclosed pool/channel from x33–43% and y15–45% of the image. The TOP 15% at that x position must be grassy ground, not water, so do not let water reach the top edge. Keep stream south edge exactly where it is before the road. Maintain all roads, trees, meadow, style and composition unchanged. No new objects, text or UI.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-8983045e-758b-41d2-bb54-45e90333b30f.png"
+          },
+          {
+            "promptDocument": "assets/prompts/r01-sentiero-illustrated-v3.md",
+            "reason": "Modern illustrated 2D with lighter paths and preserved geometry."
           }
         ]
       },
@@ -6846,7 +7058,7 @@
           "layer": "decorations",
           "stableObjectId": 40,
           "name": "Sfondi illustrato — r03_terrazze_muschio",
-          "spriteKey": "veloria-r03_terrazze_muschio-illustrated-v2",
+          "spriteKey": "veloria-r03_terrazze_muschio-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6860,14 +7072,14 @@
           "layer": "decorations",
           "stableObjectId": 40,
           "name": "Sfondi illustrato — r03_terrazze_muschio",
-          "spriteKey": "veloria-r03_terrazze_muschio-illustrated-v2",
+          "spriteKey": "veloria-r03_terrazze_muschio-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 32.0,
             "height": 24.0
           },
-          "assetPath": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6875,8 +7087,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r03_terrazze_muschio-illustrated-v2",
-          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp",
+          "key": "veloria-r03_terrazze_muschio-illustrated-v3",
+          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6934,8 +7146,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r03_terrazze_muschio-illustrated-v2",
-          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp",
+          "key": "veloria-r03_terrazze_muschio-illustrated-v3",
+          "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6944,11 +7156,11 @@
       "parityArtwork": {
         "mapId": "veloria/r03_terrazze_muschio",
         "tiledAsset": "tilemaps/r03_terrazze_muschio.tmj",
-        "assetKey": "veloria-r03_terrazze_muschio-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r03_terrazze_muschio-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp",
-        "sourceSha256": "fcb434e038530b78feafae10cfec45fa354a2c0f1b7942e9e9b3787a72f31cfc",
-        "runtimeSha256": "8e91a7dd70afca11106f873e34a7c77c80c38a627196cd15b9a6be9baa38b323",
+        "assetKey": "veloria-r03_terrazze_muschio-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r03_terrazze_muschio-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r03_terrazze_muschio-illustrated-v3.webp",
+        "sourceSha256": "66d6f3d4bd4d293339da27455206f74972e952c2d0103b2b8a1b61ad05e5808f",
+        "runtimeSha256": "54da6035c5740d66ea6c66cc7139c3d1387b4868dbf7b98dcb568a567f0c7fdf",
         "width": 1448,
         "height": 1086,
         "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Terrazze del Muschio, aspect4:3. Mossy green countryside, fern gardens and gentle terraced GROUND TINTS rather than impassable cliffs. Preserve winding stair-step diagonal road from westedge at y73% through x25%y60%,x48%y45%,x67%y30%,toeastedge at y27%. Connect each stair-step bend smoothly with creamstone and earth; no abrupt path gaps. Sparser open lawns around all bends and existing center pickupfootprintx51%,y44% withoutdrawing pickup. Rich moss texture, warm sun, variedgroundcover and flowers at oldtreeclusters. No water, no bridges, no verticalwalls.",
@@ -6956,7 +7168,12 @@
           "C:/Projects/Veloria/.tmp/map-art-before/r03_terrazze_muschio.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r03-terrazze-illustrated-v3.md",
+            "reason": "Modern illustrated 2D with lighter paths and preserved geometry."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [
@@ -9855,7 +10072,7 @@
           "layer": "decorations",
           "stableObjectId": 35,
           "name": "Sfondi illustrato — radicelmo",
-          "spriteKey": "veloria-radicelmo-illustrated-v2",
+          "spriteKey": "veloria-radicelmo-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9869,14 +10086,14 @@
           "layer": "decorations",
           "stableObjectId": 35,
           "name": "Sfondi illustrato — radicelmo",
-          "spriteKey": "veloria-radicelmo-illustrated-v2",
+          "spriteKey": "veloria-radicelmo-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 36.0,
             "height": 24.0
           },
-          "assetPath": "assets/scenery/veloria-radicelmo-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-radicelmo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -9884,8 +10101,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-radicelmo-illustrated-v2",
-          "path": "assets/scenery/veloria-radicelmo-illustrated-v2.webp",
+          "key": "veloria-radicelmo-illustrated-v3",
+          "path": "assets/scenery/veloria-radicelmo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -9964,8 +10181,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-radicelmo-illustrated-v2",
-          "path": "assets/scenery/veloria-radicelmo-illustrated-v2.webp",
+          "key": "veloria-radicelmo-illustrated-v3",
+          "path": "assets/scenery/veloria-radicelmo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -9974,11 +10191,11 @@
       "parityArtwork": {
         "mapId": "veloria/radicelmo",
         "tiledAsset": "tilemaps/radicelmo.tmj",
-        "assetKey": "veloria-radicelmo-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-radicelmo-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-radicelmo-illustrated-v2.webp",
-        "sourceSha256": "32be1ee29ad0336b61f2b4f268e29b8d2127b4a9295815eb9980eeaa2d3d3587",
-        "runtimeSha256": "ffe9598caa112b8e3c214160f66fb50eb8bd078d6b78865fc90ecc529f9e050a",
+        "assetKey": "veloria-radicelmo-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-radicelmo-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-radicelmo-illustrated-v3.webp",
+        "sourceSha256": "7e83adac3e8ea2a9a2b3afc85383351291bec763872ff259425614ed29a1edb3",
+        "runtimeSha256": "1d34ebb223dea1e84763dcdd34bae3a020ba7b4e678e110c20caec1294e34501",
         "width": 1536,
         "height": 1024,
         "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Radicelmo research village aspect3:2. Preserve footprints: healing housex5–22%,y12–33%, herbalistx28–44%,y12–33%, greenhousex58–81%,y8–33%; doors at center loweredge ofeach. Flower-rich wood/glass craftwork, mossed masonry and copper botanical glazing. Broad horizontal village road y54–66% west→east, branches tohouses; CONNECT an open northbound roadatx47–55% to the TOPEDGE for the actual route exit. Existing sparseearthpaths become layered pale stone with rounded grass transitions. Research gardenx58–83%,y41–79% MUST REMAIN OPEN ground: no pots/figures/consoles/counter/stonepickup drawn there because allare runtime. Centralplaza easyread, botanicalbeds hugboundaries/oldtrunks only.",
@@ -9991,6 +10208,10 @@
             "id": "radicelmo",
             "prompt": "Precise geometry correction only. In this Radicelmo painting the vertical road reaching TOP EDGE is too far right. Move its TOP EDGE mouth and vertical upper section to center x51.4% with width8.3% (x47.2–55.5%), preserving its continuous connection into the lower village plaza. Do not move buildings or any other road. Keep greenhouse and wide researchgardenbelow it untouched. Same beautiful botanicaldetail, materials and lighting. No new paths/exits/people/text.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4f568100-5da7-4037-baec-3aeccaa4adf0.png"
+          },
+          {
+            "promptDocument": "assets/prompts/radicelmo-illustrated-v3.md",
+            "reason": "Lighter natural paths and matte illustrated buildings, preserve gameplay geometry."
           }
         ]
       },
@@ -11052,14 +11273,17 @@
       "name": "Nerea",
       "npcId": "league_council1",
       "dialogueId": "league_council1",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_council1",
-      "profileMatch": null,
+      "characterAppearanceId": "league-council-nerea",
+      "identityKey": "profile:league-council-nerea",
+      "profileMatch": "league-council-nerea",
       "narrativeSpeaker": "Nerea",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-league-council-v1",
       "spriteFrame": 0,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.6188,
+        "y": 1.0
+      },
       "trainerId": "veloria/trainer_league_council1",
       "battleOnceFlag": "trainer_league_council1_defeated",
       "frame": null,
@@ -11076,14 +11300,17 @@
       "name": "Silvo",
       "npcId": "league_council2",
       "dialogueId": "league_council2",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_council2",
-      "profileMatch": null,
+      "characterAppearanceId": "league-council-silvo",
+      "identityKey": "profile:league-council-silvo",
+      "profileMatch": "league-council-silvo",
       "narrativeSpeaker": "Silvo",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-league-council-v1",
       "spriteFrame": 1,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.4787,
+        "y": 1.0
+      },
       "trainerId": "veloria/trainer_league_council2",
       "battleOnceFlag": "trainer_league_council2_defeated",
       "frame": null,
@@ -11100,14 +11327,17 @@
       "name": "Brando",
       "npcId": "league_council3",
       "dialogueId": "league_council3",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_council3",
-      "profileMatch": null,
+      "characterAppearanceId": "league-council-brando",
+      "identityKey": "profile:league-council-brando",
+      "profileMatch": "league-council-brando",
       "narrativeSpeaker": "Brando",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-league-council-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.6154,
+        "y": 0.9809
+      },
       "trainerId": "veloria/trainer_league_council3",
       "battleOnceFlag": "trainer_league_council3_defeated",
       "frame": null,
@@ -11124,14 +11354,17 @@
       "name": "Luce",
       "npcId": "league_council4",
       "dialogueId": "league_council4",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_council4",
-      "profileMatch": null,
+      "characterAppearanceId": "league-council-luce",
+      "identityKey": "profile:league-council-luce",
+      "profileMatch": "league-council-luce",
       "narrativeSpeaker": "Luce",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-league-council-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.4799,
+        "y": 0.9809
+      },
       "trainerId": "veloria/trainer_league_council4",
       "battleOnceFlag": "trainer_league_council4_defeated",
       "frame": null,

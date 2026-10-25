@@ -6833,7 +6833,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-league-council-v1"
             },
             {
               "name": "spriteFrame",
@@ -6859,6 +6859,21 @@
               "name": "challengeStageId",
               "type": "string",
               "value": "council2"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "league-council-silvo"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.4787
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 1.0
             }
           ]
         }

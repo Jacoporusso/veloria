@@ -21,6 +21,7 @@ from challenge_sequence_validation import challenge_sequence_flags, validate_cha
 from fishing_validation import validate_fishing_spot
 from ice_validation import collect_movement_surfaces, object_tiles, validate_ice_triggers, reachable_tiles as reachable_with_ice
 from import_pokeapi_battle import main as verify_pokeapi_import
+from cache_gen1_reference import verify_published_offline as verify_gen1_reference
 from import_pokeapi_items import main as verify_item_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
@@ -50,6 +51,7 @@ ASSET_REGISTER = ROOT / "assets" / "ASSET_REGISTER.csv"
 CONTENT_MANIFEST = ROOT / "content" / "manifest.json"
 
 # Canonical move data must reproduce exactly from the committed API snapshots.
+print(f'Verified {verify_gen1_reference(ROOT)} cached Gen I reference resources; runtime registration remains separate.')
 verify_pokeapi_import(['--check'])
 verify_item_import(['--check'])
 verify_evolution_import(['--check'])
