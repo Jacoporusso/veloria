@@ -5,7 +5,7 @@
   "biomeId": "windy_valley",
   "tiledAsset": "tilemaps/r12_valle_vento.tmj",
   "terrainBase": {
-    "assetKey": "veloria-r12-wind-valley-v1",
+    "assetKey": "veloria-r12_valle_vento-illustrated-v3",
     "tilesetName": "veloria_terrain",
     "tileIndex": 0
   },
@@ -29,8 +29,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r12-wind-valley-v1",
-      "path": "assets/scenery/veloria-r12-wind-valley-v1.webp"
+      "key": "veloria-r12_valle_vento-illustrated-v3",
+      "path": "assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -86,5 +86,5 @@
     "veloria/q_r12_ruben"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-r12-wind-valley-v1"
+  "battleBackgroundKey": "veloria-r12_valle_vento-illustrated-v3"
 }

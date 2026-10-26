@@ -12,6 +12,7 @@ import { collectMapCollision } from '../../core/world/map-collision';
 import { collectIceTiles } from '../../core/world/ice-movement';
 import { renderEncounterHabitatGrass } from './encounter-habitat-grass.ts';
 import { npcSpriteOrigin } from './npc-sprite-origin.ts';
+import { renderWeatherInstrument } from './weather-instrument.ts';
 
 const TILE = 32;
 
@@ -243,9 +244,24 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
   // Full-map paintings can own a static object's appearance while Tiled keeps
   // its collision, service, dialogue and interaction coordinates authoritative.
-  if (item.properties.visualBaked === true) return;
+  if (item.properties.visualBaked === true && item.kind !== 'fishing-spot') return;
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    case 'fishing-spot': {
+      // One shared ground marker per authored spot; it never blocks movement.
+      const cx = x + item.width / 2, cy = y + item.height / 2 + 19;
+      const marker = attach(container, scene.add.graphics().setDepth(depth - 1).setName('fishing-spot-marker'));
+      marker.fillStyle(0x173d50, .88).fillCircle(cx, cy, 14);
+      marker.lineStyle(1.5, 0xb8f5e2, .95).strokeCircle(cx, cy, 14);
+      attach(container, scene.add.text(cx, cy - 1, '🎣', {
+        fontFamily: '"Segoe UI Emoji", "Apple Color Emoji", system-ui', fontSize: '18px', resolution: 4,
+      }).setOrigin(.5).setDepth(depth).setName('fishing-spot-icon'));
+      attach(container, scene.add.text(cx, cy + 17, 'PESCA', {
+        fontFamily: 'system-ui, sans-serif', fontSize: '9px', fontStyle: 'bold',
+        color: '#e9fff8', stroke: '#173d50', strokeThickness: 3, resolution: 4,
+      }).setOrigin(.5, 0).setDepth(depth).setName('fishing-spot-label'));
+      break;
+    }
     case 'sluice-gate': {
       if (active) break;
       const gate = attach(container, scene.add.graphics().setDepth(depth));
@@ -320,6 +336,9 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
     }
     // Baked room artwork already draws this object; Tiled owns its interaction footprint.
     case 'hotspot':
+      if (item.properties.weatherInstrument === 'wind' || item.properties.weatherInstrument === 'thermometer') {
+        renderWeatherInstrument(scene, container, item, item.properties.weatherInstrument);
+      }
       break;
     case 'house': {
       const sprite = propString(item.properties, 'houseSprite') ?? 'borgofonte-house';

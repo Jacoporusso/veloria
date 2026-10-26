@@ -9,6 +9,9 @@ import { itemEvolutionRules, battleSpecies, battleMoves } from '../battle/catalo
 import { createCreaturePortrait } from '../battle/creature-art.ts';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import '../../evolution-item-actions.css';
+import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
+import { getMap } from '../maps/map-registry.ts';
+import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
 const itemNames = Object.fromEntries(Object.entries(itemContent.items).map(([id, item]) => [id, item.name]));
@@ -45,7 +48,8 @@ export class JourneyPanel {
   get isOpen(): boolean { return !this.overlay.hidden; }
   get hasReward(): boolean { return !this.reward.hidden; }
 
-  constructor(stage: HTMLElement, private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void) {
+  constructor(stage: HTMLElement, private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void,
+    private readonly onShowMap?: (mapId: string) => void) {
     this.contents.tabIndex = 0;
     this.trigger.type = 'button';
     this.trigger.setAttribute('aria-label', 'Apri diario del viaggio');
@@ -223,10 +227,39 @@ export class JourneyPanel {
     for (const quest of questCatalog as readonly NamedQuest[]) {
       const complete = this.save.flags.includes(quest.completionFlag);
       const stepsDone = quest.steps.filter(step => this.save!.flags.includes(step.setFlag)).length;
+      const specialEncounters = Object.values(specialEncounterCatalog)
+        .filter(encounter => encounter.capturedFlag === quest.completionFlag || quest.steps.some(step => step.trigger === encounter.captureEvent))
+        .map(encounter => {
+          const discovery = specialEncounterDiscoveryState(encounter, this.save!.flags);
+          return {
+            encounter,
+            location: getMap(encounter.mapId).metadata.displayName,
+            status: discovery === 'caught' ? 'Catturato ✓' : discovery === 'available' ? 'Da raggiungere' : 'Da sbloccare',
+          };
+        });
       const row = element('article', `journey-quest${complete ? ' complete' : ''}`);
       const rewards = formatQuestRewards(quest, itemNames);
-      row.append(element('strong', '', quest.displayName ?? quest.id), element('span', 'journey-quest-state', complete ? 'Completata ✓' : `${stepsDone}/${quest.steps.length} passi`));
+      const questStatus = specialEncounters.length
+        ? specialEncounters.map(entry => entry.status).join(' · ')
+        : complete ? 'Completata ✓' : `${stepsDone}/${quest.steps.length} passi`;
+      row.append(element('strong', '', quest.displayName ?? quest.id), element('span', 'journey-quest-state', questStatus));
       if (rewards.length) row.append(element('p', '', `${complete ? 'Ricevuto' : 'Ricompensa'}: ${rewards.join(' · ')}`));
+      for (const { encounter, location } of specialEncounters) {
+        const species = battleSpecies[encounter.speciesId];
+        const guidance = element('section', 'journey-special-encounter');
+        guidance.append(element('strong', 'journey-special-encounter-title', `${species.name} · ${location}`),
+          element('p', 'journey-special-encounter-unlock', encounter.unlockHint),
+          element('p', 'journey-special-encounter-route', encounter.routeHint),
+          element('p', 'journey-special-encounter-action', 'Mettiti accanto all’incontro, premi A e scegli INCONTRA.'));
+        if (this.onShowMap) {
+          const locate = element('button', 'journey-special-map', '🗺️ Vedi sulla mappa');
+          locate.type = 'button';
+          locate.setAttribute('aria-label', `Mostra ${species.name} sulla mappa`);
+          locate.onclick = () => { this.close(); this.onShowMap?.(encounter.mapId); };
+          guidance.append(locate);
+        }
+        row.append(guidance);
+      }
       this.contents.append(row);
     }
   }

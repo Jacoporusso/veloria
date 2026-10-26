@@ -201,7 +201,8 @@ export class WorldScene extends Phaser.Scene {
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
     const stage = document.querySelector<HTMLElement>('.game-stage');
     if (stage) {
-      this.journey = new JourneyPanel(stage, (itemId, creatureId) => void this.openItemEvolution(itemId, creatureId));
+      this.journey = new JourneyPanel(stage, (itemId, creatureId) => void this.openItemEvolution(itemId, creatureId),
+        mapId => this.regionMap?.open(this.save, mapId));
       this.journey.update(this.save);
       this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.journey?.destroy());
     }
@@ -297,8 +298,10 @@ export class WorldScene extends Phaser.Scene {
     this.renderedMap.updateInteractionFocus(target || undefined);
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
-      const verb = target.properties.serviceId === 'monorail' ? 'Usa' : target.kind === 'npc' ? 'Parla con' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
-      prompt.textContent = this.interactionActionLabel() + ' · ' + verb + ' ' + target.name;
+      const verb = target.properties.serviceId === 'monorail' ? 'Usa' : target.kind === 'npc' ? 'Parla con'
+        : target.kind === 'wild-pokemon' ? 'Incontra' : target.kind === 'pickup' ? 'Raccogli' : 'Esamina';
+      prompt.textContent = this.interactionActionLabel() + ' · ' +
+        (target.kind === 'fishing-spot' ? '🎣 ' + target.name : verb + ' ' + target.name);
       this.promptTargetId = target.id;
     }
   }
@@ -531,7 +534,7 @@ export class WorldScene extends Phaser.Scene {
     if (this.avatarEditorOpen || this.dialogueLines.length || this.battleActive || this.mapTransitionLoading || this.completionActive) return;
     this.showDialogue('Come si gioca', [
       'Cerca i ciuffi a tre foglie e camminaci dentro: segnano le celle dove puoi incontrare Pokémon. Gli incontri possono richiedere più passi. Serve almeno un compagno con PS: se sono tutti KO, curali al Centro Pokémon.',
-      'Per pescare cerca i punti di pesca e usa una canna dallo zaino. Non tutti gli specchi d’acqua sono punti di pesca.',
+      'Per pescare cerca il simbolo 🎣 PESCA, fermati accanto rivolto verso il punto e premi A. Ti serve la Canna da pesca della Capitana Marina a Portolume; non tutti gli specchi d’acqua sono postazioni.',
       'Segui i sentieri e le insegne per raggiungere porte e servizi. Le uscite indicano la destinazione; se un passaggio è chiuso, controlla l’obiettivo nel diario.',
       'WASD o frecce per muoverti; E, Spazio, Invio o A sullo schermo per parlare. Su telefono usa frecce o trackpad a destra e azioni a sinistra.',
     ]);
@@ -1009,7 +1012,10 @@ export class WorldScene extends Phaser.Scene {
       requiredItemId: itemId, biteChance,
       requiredFlags: typeof prop.properties.requiredFlag === 'string' ? [prop.properties.requiredFlag] : [],
     };
-    this.showServiceOptions(prop.name, `Usa ${itemCatalog[itemId].name} per cercare Pokémon nell’acqua. La canna non si consuma.`, [
+    const fishingHint = this.save.inventory[itemId]
+      ? `Usa ${itemCatalog[itemId].name} per cercare Pokémon nell’acqua. La canna non si consuma.`
+      : `Ti serve ${itemCatalog[itemId].name}. Parla con la Capitana Marina al porto di Portolume per riceverla.`;
+    this.showServiceOptions(prop.name, fishingHint, [
       { label: 'PESCA', icon: 'fishing', action: () => {
         if (this.fishingActive || this.battleActive || this.mapTransitionLoading) return;
         const result = castFishingLine({
@@ -1019,7 +1025,7 @@ export class WorldScene extends Phaser.Scene {
         });
         if (result.kind === 'blocked') {
           const messages = {
-            'missing-equipment': `Ti serve ${itemCatalog[itemId].name}.`,
+            'missing-equipment': `Ti serve ${itemCatalog[itemId].name}. Chiedila alla Capitana Marina a Portolume.`,
             exhausted: 'La squadra ha bisogno di riposare prima di pescare.',
             locked: 'Questo punto di pesca non è ancora disponibile.',
             'wrong-map': 'Avvicinati alla postazione per pescare.',

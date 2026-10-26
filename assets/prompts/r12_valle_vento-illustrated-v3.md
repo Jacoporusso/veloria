@@ -1,0 +1,18 @@
+# Valle del Vento — illustrazione 2D v3
+
+Built-in ImageGen, 26 ottobre 2026. PNG raw copiato senza crop o resize; unica conversione WebP lossless.
+
+Sorgente: `assets/sources/veloria-r12_valle_vento-illustrated-v3.png` (1448×1086, SHA256 `87d5ea3d8b10778ac04a2b3c440190600734f26140ad84509f6eafce94d11a19`).
+Runtime: `public/assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp` (SHA256 `fa74435aca8c8473325e8ad99ab5616091e58273d5e57e828e17984a2d32e81d`).
+Output selezionato: `exec-2024ae94-9931-4e84-abf4-70ebd4a64981.png`.
+
+## Prompt di produzione e vincoli
+
+Create production modern illustrated2D RPG background Valle del Vento in Veloria, by rendering this exact1280x960 collisionblueprint. Exact4:3 sameframing,northup. Tanmask is passableland and LIGHTearthpaths, traceitsposition precisely; lightgreenrectangles are clear grassyhabitats; darkgreen is blockedforest/cliffdecor. Do notshiftpathcenters, do notreducefloorwidths. Floorbrownmask alreadyincludesextraSOUTHmargin foravatarfeet: preserveENTIREtanarea asclearwalkableground. Refinedmodernstorybookgouache, broadmattecolorplanes, roundedcanopies/smoothgrayrocks, sagegrass, gentlegoldenautumntrees, sparsepurplewildflowers, softambientlight. Notphotographic3D,isometricminiature,pixelart,glitterorrealisticseabed. Richbutquietdetail inblockedperimeter, readable paths. MainroutefromWESTedge y73–85% goes east to central-leftverticalx30–37.5%, climbto y40–49%, cross easttox58–65%, climbtobranchjunctionaroundx62%,y25%, theneasttoRIGHTedgey13–23%. No northorsouth exits. CRITICAL Snorlaxbranch: anunobstructedcontinuoussoilpath fromupperjunction x62%,y26% runsEASTtox68–75%, thenturnsSOUTHstraightdown throughx67.5–75%,y26–72%, endinginwideclearing. Entirefloorofthisbranchmustbevisible, no boulders, forestwall, dropsorwaterinterruptions. Snorlaxruntimepoint x71.25%,y58.3% needsbareemptydryground andapproachfromnorth, neverbakePokemon. Bake ONLYtwo smallstaticinteractionlandmarks (no runtimeart): a simplewindmeasurementpolewithweathervane atx31.25%,y25%,basewithinonecell; a SMALLthermometerpost atx71.25%,y65%,basewithinonecell, lowinstrumentnotahouse. Nootherinstrumentsorbuildings. Keepimmediateapproaches totheseobjects dryandopen. DoNOTbakeSnorlaxorotherPokemon,NPCs,signs,arrows,markers,text,UI,bridges,stairs,doors orbigobservatory. Lightgreenhabitats x10–22.5%y33–50% andx80–90%y27–47% stayopenlowgrasswithnobigrocktrunks. Blockeddarkgreenregionbecomesnaturalwoods/hills; quietsmallblueuplandlake MAYappearonlyinblockedupperleft x5–40%y0–17% leavingpathsintact. Afewsmallwindturbines onblockedfar-northernridge echoValleidentity. Modernfriendly2Dillustratedgame, warmcleanpaths, noheavydecorativerailings. Allfloors exactdiagram, no misleading newroutes.
+
+Final object-removal edit:
+Precise object removal ONLY. Remove the TWO small measuring instruments from thismap: the windweathervanepole nearx450,y280 and the thermometergauge nearx1040,y660. Replace both cleanly with the SAME bare sandy ground asaroundthem. The game will render instrumentsat exactinteractivecoordinates so nobakedinstrumentsallowed. Preserve ALL paths, branch, clearings, coastline,lake,trees,mountains,turbinesinthefarbackground,palette,style and all floorgeometry EXACTLY. Do NOTmoveorresizeanything else. No extraobjects/signs/characters/Pokemon/text/markers/UI. Keep1448x1086canvas4:3 sameframing. Onlyremove2foregroundinstrumentobjects andtheirshadows,bases.
+
+Riferimenti: `public/tilemaps/r12_valle_vento.tmj`, `assets/prompts/r12-layout-guide-v1.svg`
+
+Collisioni, missioni, interazioni e uscite Tiled conservate. Accettazione browser/offline da registrare dopo esecuzione; la sola integrazione non certifica il completamento.

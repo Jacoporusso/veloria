@@ -33,6 +33,10 @@
 .region-map-details h3 { margin: 0 0 6px; font-size: 21px; letter-spacing: -.03em; }
 .region-map-details p { margin: 8px 0 0; color: #c1dce4; }
 .region-map-state { color: #91e6dc; font-size: 12px; }
+.region-map-discovery { margin-top: 12px; padding-top: 10px; border-top: 1px solid #9fcddd33; }
+.region-map-discovery h4 { margin: 0 0 6px; font-size: 15px; color: #e9fff8; }
+.region-map-discovery-symbol { font: 800 17px system-ui, "Segoe UI Emoji", sans-serif; fill: #b8f5e2; paint-order: stroke; stroke: #173d50; stroke-width: 3px; pointer-events: none; }
+.region-map-legend { max-width: calc(100% - 24px); font-size: 11px; }
 .region-map-note { color: #8eb0c2; font-size: 11px; margin-top: 20px; }
 @media (max-width: 700px) and (orientation: portrait) {
  .region-map-overlay { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }

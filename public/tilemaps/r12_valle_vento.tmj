@@ -2850,6 +2850,11 @@
               "name": "dialogueId",
               "type": "string",
               "value": "r12_wind_gauge"
+            },
+            {
+              "name": "weatherInstrument",
+              "type": "string",
+              "value": "wind"
             }
           ]
         },
@@ -2872,6 +2877,11 @@
               "name": "dialogueId",
               "type": "string",
               "value": "r12_valley_thermometer"
+            },
+            {
+              "name": "weatherInstrument",
+              "type": "string",
+              "value": "thermometer"
             }
           ]
         },
@@ -3068,7 +3078,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r12-wind-valley-v1"
+              "value": "veloria-r12_valle_vento-illustrated-v3"
             },
             {
               "name": "renderDepth",

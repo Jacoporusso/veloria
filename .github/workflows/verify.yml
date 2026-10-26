@@ -37,6 +37,10 @@ jobs:
           - {suite: chapters, shard: 10, total: 12}
           - {suite: chapters, shard: 11, total: 12}
           - {suite: chapters, shard: 12, total: 12}
+          - {suite: journeys, shard: 1, total: 4}
+          - {suite: journeys, shard: 2, total: 4}
+          - {suite: journeys, shard: 3, total: 4}
+          - {suite: journeys, shard: 4, total: 4}
           - {suite: mvp, shard: 1, total: 4}
           - {suite: mvp, shard: 2, total: 4}
           - {suite: mvp, shard: 3, total: 4}

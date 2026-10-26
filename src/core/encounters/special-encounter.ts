@@ -4,10 +4,21 @@ export interface SpecialEncounter {
   readonly speciesId: number;
   readonly level: number;
   readonly requiredFlag: string;
+  readonly routeRequiredFlags?: readonly string[];
   readonly capturedFlag: string;
   readonly captureEvent: string;
   readonly description: string;
   readonly unlockHint: string;
+  readonly routeHint: string;
+}
+
+export type SpecialEncounterDiscoveryState = 'caught' | 'locked' | 'available';
+
+/** Discovery guidance ignores current map and party state; it reflects only lasting progress flags. */
+export function specialEncounterDiscoveryState(encounter: SpecialEncounter, flags: readonly string[]): SpecialEncounterDiscoveryState {
+  if (flags.includes(encounter.capturedFlag)) return 'caught';
+  if (!flags.includes(encounter.requiredFlag) || (encounter.routeRequiredFlags ?? []).some(flag => !flags.includes(flag))) return 'locked';
+  return 'available';
 }
 
 /** Knockout or escape never consumes a special encounter. Only capture settles it. */

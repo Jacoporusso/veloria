@@ -1,3 +1,9 @@
+## 0.4.2 — Dune Salmastre, Delta degli Specchi e Sentiero delle Canne
+
+Runtime `915177d` pubblicato. [Deploy40320780299](https://github.com/Jacoporusso/veloria/actions/runs/40320780299) SUCCESS, inclusi dominio/persistenza, validatore e build Pages. Sito pubblico verificato: cache `veloria-shell-v165` e tutti tre nuovi fondali HTTP200. Percorsi, pesca, kit, tre osservazioni/Iris e corsie dei pontili provati a piedi; piedi e raccordi revisionati nei due orientamenti. Prima richiesta senza rete dei21 fondali non iniziali passata. [Asset, prompt e prove](63_DELTA_ILLUSTRATED_BATCH_v0.1.md).
+
+[Verify40320780295](https://github.com/Jacoporusso/veloria/actions/runs/40320780295) FAILURE:20 job passati; chapters3 ha raggiunto il limite di24 minuti del passo browser dopo15 casi passati, senza errori di asserzione. I percorsi lunghi vengono spostati in quattro shard dedicati nel successivo aggiornamento, senza rimuovere test o allentare i controlli. La pipeline0.4.1 è stata ripetuta una volta ma ha raggiunto di nuovo il limite esterno di30 minuti, con20 casi passati nel job ripetuto; non viene attestata come successo.
+
 ## 0.4.1 — Costa delle Turbine, Portolume e Acquariva
 
 Runtime `b1a84c4ed1f511cfd4faa92f15f3d9d073af7128` pubblicato. [Deploy40309817415](https://github.com/Jacoporusso/veloria/actions/runs/40309817415) SUCCESS, inclusi test dominio/persistenza, validatore e build Pages. Sito pubblico verificato: cache `veloria-shell-v164`, tutti tre nuovi fondali HTTP200. [Verify40309817489](https://github.com/Jacoporusso/veloria/actions/runs/40309817489) ancora IN PROGRESS: quattro job passati e nessun fallimento all'ultimo controllo; nessuna attestazione anticipata della CI completa.

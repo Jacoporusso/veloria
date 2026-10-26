@@ -2,6 +2,9 @@ import '../../region-map.css';
 import { deriveAtlasState, regionAtlas } from '../../core/world/region-atlas.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
 import { publicAssetUrl } from '../../core/assets/index.ts';
+import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
+import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
+import { battleSpecies, encounterCatalog } from '../battle/catalog.ts';
 
 const ns = 'http://www.w3.org/2000/svg';
 function html<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string) {
@@ -29,6 +32,7 @@ export class RegionMapPanel {
   private readonly controller = new AbortController();
   private focusBeforeOpen?: HTMLElement;
   private state?: ReturnType<typeof deriveAtlasState>;
+  private save?: Pick<GameSave, 'player' | 'flags'> & Partial<Pick<GameSave, 'inventory'>>;
   private chart?: SVGSVGElement;
   private zoom = 1;
   private readonly resizeObserver = new ResizeObserver(() => {
@@ -65,7 +69,7 @@ export class RegionMapPanel {
     this.viewport.tabIndex = 0;
     this.viewport.setAttribute('aria-label', 'Mappa di Veloria. Ingrandisci e scorri per esplorare.');
     this.details.setAttribute('aria-live', 'polite');
-    const legend = html('p', 'region-map-legend', '● Sei qui   ✓ Visitato');
+    const legend = html('p', 'region-map-legend', '● Sei qui   ✓ Visitato   🎣 Pesca   ✦ Incontro');
     const note = html('p', 'region-map-note', 'Scorri la mappa e tocca un luogo. Le aree in preparazione non sono ancora giocabili.');
     const body = html('div', 'region-map-body');
     const mapColumn = html('div', 'region-map-chart-column');
@@ -82,8 +86,9 @@ export class RegionMapPanel {
     document.addEventListener('keydown', this.onKeyDown, { capture: true, signal: this.controller.signal });
   }
 
-  open(save: Pick<GameSave, 'player' | 'flags'>): void {
+  open(save: Pick<GameSave, 'player' | 'flags'> & Partial<Pick<GameSave, 'inventory'>>, mapId?: string): void {
     if (!this.isOpen) this.focusBeforeOpen = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
+    this.save = save;
     this.state = deriveAtlasState(save);
     const current = this.state.areas.find(area => area.current);
     this.location.textContent = `Sei qui: ${current?.name ?? 'Posizione non disponibile'}`;
@@ -92,8 +97,10 @@ export class RegionMapPanel {
       option.value = area.id; option.textContent = `${area.name} · ${area.status}`; return option;
     }));
     this.renderChart(); this.overlay.hidden = false; this.setZoom(1);
-    this.showArea(current?.id ?? regionAtlas.areas[0].id);
-    if (this.viewport.clientWidth < 540) this.showCurrent();
+    const requested = mapId ? this.state.areas.find(area => area.mapIds.includes(mapId)) : undefined;
+    this.showArea(requested?.id ?? current?.id ?? regionAtlas.areas[0].id);
+    if (requested) { this.setZoom(this.viewport.clientWidth < 540 ? 3 : 1.5); this.centerArea(requested.id); }
+    else if (this.viewport.clientWidth < 540) this.showCurrent();
     this.closeButton.focus();
   }
 
@@ -114,7 +121,30 @@ export class RegionMapPanel {
     const description = html('p', '', area.description);
     const gym = area.gym ? html('p', '', `Palestra · tappa ${area.gym}`) : undefined;
     this.details.replaceChildren(title, state, description, ...(gym ? [gym] : []));
+    if (this.hasFishing(area.mapIds)) {
+      const fishing = html('section', 'region-map-discovery');
+      fishing.setAttribute('aria-label', 'Punti pesca');
+      fishing.append(html('h4', '', '🎣 Punti pesca'), html('p', '',
+        this.save?.inventory?.['old-rod']
+          ? 'Canna pronta. Cerca il simbolo 🎣 PESCA sul posto, fermati accanto rivolto verso di esso e premi A.'
+          : 'Serve la Canna da pesca: parla con la Capitana Marina a Portolume. Sul posto cerca il simbolo 🎣 PESCA.'));
+      this.details.append(fishing);
+    }
+    for (const encounter of Object.values(specialEncounterCatalog).filter(item => area.mapIds.includes(item.mapId))) {
+      const encounterState = specialEncounterDiscoveryState(encounter, this.save?.flags ?? []);
+      const card = html('section', 'region-map-discovery');
+      card.setAttribute('aria-label', `Incontro con ${battleSpecies[encounter.speciesId].name}`);
+      card.append(html('h4', '', `✦ ${battleSpecies[encounter.speciesId].name} · Lv.${encounter.level}`),
+        html('strong', 'region-map-state', encounterState === 'caught' ? 'Catturato ✓' : encounterState === 'locked' ? 'Da sbloccare' : 'Da raggiungere'));
+      if (encounterState !== 'caught') card.append(html('p', '', encounter.unlockHint), html('p', '', encounter.routeHint),
+        html('p', '', 'Fermati accanto al Pokémon, rivolto verso di lui: premi A e scegli INCONTRA.'));
+      this.details.append(card);
+    }
     for (const node of this.chart?.querySelectorAll('[data-area]') ?? []) node.setAttribute('aria-pressed', String(node.getAttribute('data-area') === id));
+  }
+
+  private hasFishing(mapIds: readonly string[]): boolean {
+    return Object.values(encounterCatalog).some(table => table.method === 'fishing' && mapIds.includes(table.mapId));
   }
 
   private setZoom(zoom: number): void {
@@ -162,6 +192,11 @@ export class RegionMapPanel {
       if (area.current) node.append(svg('circle', { r: '22', class: 'region-map-pulse' }));
       node.append(svg('circle', { r: area.current ? '13' : area.visited ? '9' : '6', class: 'region-map-dot' }));
       node.append(svg('text', { 'text-anchor': 'middle', y: '5', class: 'region-map-symbol' }, area.current ? '●' : area.visited ? '✓' : ''));
+      const availableEncounter = Object.values(specialEncounterCatalog).some(encounter => area.mapIds.includes(encounter.mapId) &&
+        specialEncounterDiscoveryState(encounter, this.save?.flags ?? []) === 'available');
+      if (this.hasFishing(area.mapIds) || availableEncounter) node.append(svg('text', {
+        x: '15', y: '-12', class: 'region-map-discovery-symbol', 'aria-hidden': 'true',
+      }, this.hasFishing(area.mapIds) ? '🎣' : '✦'));
       const shortName = area.kind === 'route' ? area.name.split(' · ')[0] : area.name;
       node.append(svg('text', { 'text-anchor': 'middle', y: '34', class: 'region-map-label' }, shortName));
       node.addEventListener('click', () => this.showArea(area.id));

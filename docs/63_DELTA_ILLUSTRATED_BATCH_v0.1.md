@@ -6,6 +6,12 @@ Il lotto continua la direzione 2D moderna dei documenti58 e61: sabbia calda e ve
 
 Le sorgenti finali sono PNG raw ImageGen, convertite soltanto in WebP lossless. Prompt e checksum sono nei documenti `assets/prompts/*-illustrated-v3.md` e nel manifest parity. I diagrammi SVG D04/R10 derivano dalle celle percorribili Tiled, conservando come pavimento i footprint degli NPC, e sono riferimenti di posizionamento riproducibili; non sono grafica runtime.
 
+| Mappa | PNG sorgente | WebP runtime | Prompt |
+| --- | --- | --- | --- |
+| Dune Salmastre | [PNG](../assets/sources/veloria-r09_dune_salmastre-illustrated-v3.png) | [WebP](../public/assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp) | [Produzione](../assets/prompts/r09_dune_salmastre-illustrated-v3.md) |
+| Delta degli Specchi | [PNG](../assets/sources/veloria-d04_delta_specchi-illustrated-v3.png) | [WebP](../public/assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp) | [Produzione](../assets/prompts/d04_delta_specchi-illustrated-v3.md) |
+| Sentiero delle Canne | [PNG](../assets/sources/veloria-r10_sentiero_canne-illustrated-v3.png) | [WebP](../public/assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp) | [Produzione](../assets/prompts/r10_sentiero_canne-illustrated-v3.md) |
+
 ## Revisione geometrica
 
 I primi candidati con assi dei pontili spostati sono stati respinti. La revisione in Chrome ha inoltre mostrato che le corsie meridionali richiedevano un margine illustrato sotto i piedi del protagonista: il piano dipinto è stato ampliato verso sud, senza cambiare le celle percorribili. R09 riceve un raccordo est più libero da piccoli sassi e vegetazione. I paletti che apparivano nel piano percorribile dei pontili sono oggetto di una correzione finale prima dell'accettazione.

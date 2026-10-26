@@ -21,6 +21,37 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('special encounter Journal guidance opens the destination Atlas without a network or moving the player', async ({ page, context }, info) => {
+  test.setTimeout(120_000);
+  await page.goto('/'); await enterGame(page);
+  const save = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 1, level: 10, instanceId: 'offline-discovery-guide' });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 10, experience: 0,
+    hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.player = { ...save.player, mapId: 'veloria/acquariva', spawnPointId: 'from_r12', x: 13, y: 1 };
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'prologue_complete_seen',
+    'tutorial_habitat_seen', 'q_acquariva_report', 'badge_riflesso_awarded'])];
+  await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const before = await readBrowserSave(page);
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await page.getByRole('button', { name: 'Apri diario del viaggio' }).click();
+  await page.getByRole('button', { name: 'Mostra Snorlax sulla mappa' }).click();
+  const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
+  await expect(atlas).toBeVisible();
+  await expect(atlas.locator('.region-map-select')).toHaveValue('r12');
+  const encounter = atlas.getByRole('region', { name: 'Incontro con Snorlax' });
+  await expect(encounter).toContainText('Da raggiungere');
+  await expect(encounter).toContainText('radura orientale');
+  await encounter.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: info.outputPath('offline-snorlax-destination-guide.png') });
+  const after = await readBrowserSave(page);
+  for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(errors).toEqual([]);
+});
+
 test('canonical NPC artwork and redesigned scenery decode offline without changing progress', async ({ page, context }) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });

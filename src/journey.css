@@ -321,6 +321,10 @@
   background:#afffe30a
 }
 
+.journey-special-encounter { grid-column: 1 / -1; padding-top: 8px; border-top: 1px solid #b4d9e522; }
+.journey-special-map { min-height: 44px; margin-top: 10px; padding: 9px 14px; border: 1px solid #afffe355; border-radius: 12px; background: #afffe314; color: var(--paper); font: 650 12px system-ui, sans-serif; }
+.journey-special-map:focus-visible { outline: 2px solid #afffe3; outline-offset: 3px; }
+
 .journey-reward {
   pointer-events:auto;
   position:absolute;
