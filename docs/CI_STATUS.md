@@ -1,3 +1,11 @@
+## 0.4.3 — Indicazioni per incontri speciali e pesca
+
+Runtime `a605897` pubblicato. [Deploy40330025866](https://github.com/Jacoporusso/veloria/actions/runs/40330025866) SUCCESS:798 test dominio/persistenza, validatore e build Pages passati. Sito pubblico verificato: cache `veloria-shell-v166`, fondale R12 HTTP200, bundle WorldScene contiene i nuovi marker pesca e requisiti dei percorsi. [Verify40330025982](https://github.com/Jacoporusso/veloria/actions/runs/40330025982) IN PROGRESS:9 job passati e nessun fallimento all'ultimo controllo; nessuna attestazione anticipata della CI completa.
+
+Diario e atlante mostrano luogo, percorso, condizioni e stato dei sei incontri speciali; il pulsante del diario apre la destinazione senza spostare il giocatore. Un solo simbolo 🎣 PESCA per ogni postazione e indicazioni per ottenere la canna a Portolume. Valle del Vento rifatta con ramo continuo fino alla radura di Snorlax; strumenti meteo vettoriali sulle coordinate reali.609 asset e23 fondali registrati; restano aperte la revisione delle48 mappe e le animazioni direzionali del cast. [Asset, prompt ImageGen e prove](64_DISCOVERY_AND_FISHING_GUIDANCE_v0.1.md).
+
+Prove native passate: diario→mappa, stati prima/dopo Lega/cattura, tre marker pesca, pesca reale fino alla lotta, percorso Acquariva→Snorlax e INCONTRA, atlante nei due orientamenti. Guida e destinazione Snorlax funzionanti senza rete;22 fondali non iniziali decodificati alla prima richiesta offline. Le suite browser ora dividono i17 percorsi lunghi in quattro shard dedicati:305 casi totali presenti esattamente una volta fra le suite, senza rimuovere assert o aumentare i timeout dei singoli test.
+
 ## 0.4.2 — Dune Salmastre, Delta degli Specchi e Sentiero delle Canne
 
 Runtime `915177d` pubblicato. [Deploy40320780299](https://github.com/Jacoporusso/veloria/actions/runs/40320780299) SUCCESS, inclusi dominio/persistenza, validatore e build Pages. Sito pubblico verificato: cache `veloria-shell-v165` e tutti tre nuovi fondali HTTP200. Percorsi, pesca, kit, tre osservazioni/Iris e corsie dei pontili provati a piedi; piedi e raccordi revisionati nei due orientamenti. Prima richiesta senza rete dei21 fondali non iniziali passata. [Asset, prompt e prove](63_DELTA_ILLUSTRATED_BATCH_v0.1.md).
