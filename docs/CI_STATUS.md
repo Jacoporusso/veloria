@@ -1,8 +1,10 @@
 ## 0.4.4 — Via delle Cascate illustrata
 
+Diagnosi gym03 confermata dalla schermata CI: Omanyte0/52 PS, paralizzato, Magnemite35/35 PS, messaggio «La tua squadra non può più continuare». Il helper termina anche in sconfitta: il banner mancante era corretto. Fixture sostituita con DiglettLv25 e Fossa (mossa ufficiale appresa al18); nessuna modifica alla palestra. Percorso completo con puzzle, vittoria, ricompensa unica, medagliere, reload e uscita passato in Chrome (`.tmp/gym03-ground-strategy.log`,1 caso). Il precedente Omanyte passa localmente ma non era una strategia affidabile; nessun aumento dei timeout.
+
 Lotto R11 verificato localmente: fondale2D illustrato, nessun cambio a collisioni, habitat, interazioni o progressione. Percorso reale Acquariva→Vetracielo e ritorno passato; sentiero, radure e belvedere raggiunti a piedi e revisionati in otto schermate portrait/landscape. Build e due casi produzione offline passati, incluso attraversamento delle Cascate senza rete.767 test dominio e31 persistenza passati; validatore611 asset e24 fondali passato. [Fonti, prompt e ambito delle prove](65_WATERFALL_ILLUSTRATED_BATCH_v0.1.md). Cache v167, contenuti0.4.4. Pubblicazione e pipeline da verificare dopo il push.
 
-Verify40330025982 conclusa FAILURE:24 job passati, chapters9 fallito soltanto sul vecchio ordine Tab del Diario. La correzione è nel commit `fa27fed`, verificata in Chrome locale. Il relativo Deploy40335403200 è SUCCESS; Verify40335402843 risulta CANCELLED, non è attestata come successo. La prossima pipeline comprende la correzione e il nuovo caso R11.
+Verify40330025982 conclusa FAILURE:23 job passati; chapters9 fallito sul vecchio ordine Tab del Diario, chapters4 sull'attesa del banner Medaglia Circuito in gym03. Quest'ultimo è emerso al controllo finale ed è in diagnosi separata. La correzione del Diario è nel commit `fa27fed`, verificata in Chrome locale. Il relativo Deploy40335403200 è SUCCESS; Verify40335402843 risulta CANCELLED, non è attestata come successo. Il runtime R11 è `8582786`: Deploy40365068711 e Verify40365068712 avviati, esito ancora da attestare.
 
 ## 0.4.3 — Indicazioni per incontri speciali e pesca
 

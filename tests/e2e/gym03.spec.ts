@@ -21,12 +21,14 @@ test('Vetracielo lines, Aster and the third medal persist without duplicate rewa
   });
   await page.goto('/'); await enterGame(page);
   await expect.poll(async () => (await readBrowserSave(page))?.flags).toContain('intro_completed');
-  const creature = createBattleCreature({ species: speciesData.species as any, moves: moveData.moves as any, speciesId: 138, level: 25, instanceId: 'gym03-omanyte', moveIds: ['mud-shot', 'water-gun', 'rollout'] });
+  // Exercise the leader's documented Ground strategy with a legal level-up move.
+  // A lone Water-type Omanyte could lose to paralysis and Electric attacks.
+  const creature = createBattleCreature({ species: speciesData.species as any, moves: moveData.moves as any, speciesId: 50, level: 25, instanceId: 'gym03-diglett', moveIds: ['dig', 'mud-slap', 'scratch'] });
   const save = await readBrowserSave(page);
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'prologue_complete_seen', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved', 'badge_corolla_awarded', 'q_vetracielo_visited'])];
   save.badges = ['badge_aurora', 'badge_corolla'];
   save.player = { ...save.player, mapId: 'veloria/vetracielo', spawnPointId: 'from_gym03', x: 20, y: 18, money: 500 };
-  save.party = [{ instanceId: creature.instanceId, speciesId: 138, level: 25, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.party = [{ instanceId: creature.instanceId, speciesId: 50, level: 25, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
   await walkTo(page, 'vetracielo.tmj', 20, 16);
   await expect(page.locator('#current-location')).toHaveText('VETRACIELO · PIAZZA DELLA MONOROTAIA');
@@ -68,7 +70,7 @@ test('Vetracielo lines, Aster and the third medal persist without duplicate rewa
     await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect(page.locator('#dialogue-text')).toContainText('livello 16–17');
   await page.getByRole('button', { name: 'SFIDA', exact: true }).click();
-  await fightWithTouch(page, '__gym03Game', { 138: 'Colpodifango' }, 10);
+  await fightWithTouch(page, '__gym03Game', { 50: 'Fossa' }, 10);
   const banner = page.getByRole('dialog', { name: 'Medaglia Circuito conquistata!' });
   await expect(banner).toBeVisible(); await expect(banner).toContainText('+850 monete');
   await expect(banner.locator('[data-badge-id="badge_circuito"] svg')).toBeVisible();
