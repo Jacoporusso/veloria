@@ -386,6 +386,75 @@
       "runtimeSha256": "37612a13f0f61413ede1769f75f0fb718c1756186b17aa3fe91d1d2a62c644a6",
       "width": 1499,
       "height": 1049
+    },
+    {
+      "mapId": "veloria/r08_costa_turbine",
+      "tiledAsset": "tilemaps/r08_costa_turbine.tmj",
+      "assetKey": "veloria-r08_costa_turbine-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r08_costa_turbine-illustrated-v3.webp",
+      "sourceSha256": "d37255f877a1f907799e42afb46260a5466e8730c645eaac14e487223bf680f5",
+      "runtimeSha256": "b2dc49dfdb335a3530437369d782da98c2d5e503c4d7731f70fe1e55a6c57f9d",
+      "width": 1499,
+      "height": 1049,
+      "prompt": "Style transfer precise game map. Preserve EVERY path, open grass clearing, coastline and fishing spur position exactly. Petalora v3 is mandatory artstyle reference. Repaint substantially into modern matte handpainted 2D: broad color shapes, simple tree crowns, rounded gray rocks, few low-contrast flowers and soft painted turquoise water. No realistic surf, transparent seabed, glints or 3D diorama. Reduce decorative density. Preserve40x28 map aspect10:7: west path y75–82%, vertical corridor x35–40% y39–82%, east path y35.7–42.8%, NW grass x12.5–27.5% y7–18%, NE grass x72.5–87.5% y11–25%, fishing headland x48–57% y43–54%. No solid props over walkable ground. Small turbines in blocked north-center only. No characters, creatures, text, signs, UI, icons, fake exits or heavy balustrades. Initial realistic candidate rejected; final style correction selected.",
+      "references": [
+        "assets/sources/veloria-r08-coast-v1.png",
+        "assets/sources/veloria-petalora-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r08_costa_turbine-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/portolume",
+      "tiledAsset": "tilemaps/portolume.tmj",
+      "assetKey": "veloria-portolume-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-portolume-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-portolume-illustrated-v3.webp",
+      "sourceSha256": "ec12c682b80cb9f6abf3948d7439587a57e94513d437bff98e60dcabb516f830",
+      "runtimeSha256": "7ecbef97c95ad78a4075ca19874dfc4738eec6d267a6ff892d546ee85dd98c3e",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Style transfer game background. Preserve exact footprints, doorways, roads, docks, island and south exit of Portolume. Repaint completely in approved R08 modern matte 2D style: broad simple color planes, rounded gray rocks, flat painted blue water without seabed or glitter. Simplify architecture and remove tiny gold ornaments and window tracery. Reduce vegetation density60%, no tall cypresses over paths. Keep service approaches and station patch open. Main south exit x38.75–41.25% connects through main boulevard x42.5–50%y62–74%, x30–35%y77–83%, x37.5–42.5%y85–100%. Healing accessx21.25%y48.3% to60%; marketx36.25%y48.3% to60%; gymdoorx46.25%y21.7%; westexit y56.7–63.3%. Observatory landingx80–92.5%y26.7–36.7%, gaugex91.25%y25% on land. No bridge to island. No baked NPCs, instruments, monorail, text or UI. Exact4:3 northup. First realistic candidate rejected; final matte style correction selected.",
+      "references": [
+        "assets/sources/veloria-portolume-v1.png",
+        "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/portolume-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/acquariva",
+      "tiledAsset": "tilemaps/acquariva.tmj",
+      "assetKey": "veloria-acquariva-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-acquariva-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-acquariva-illustrated-v3.webp",
+      "sourceSha256": "8346fab66d3d711cd6d0b9a7834e2d6326ef04c9b0aee86671d27e397d3ca787",
+      "runtimeSha256": "5188946352cf7b94f5981a54e183b61727d2c3343fe81f7ebc8a7d4bc4b183a8",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Create modern matte illustrated2D Acquariva, Petalora v3 style, exact4:3 northup40x30map. Left mainland and painted turquoise lake right; coral healing house, mint/lilac market, lilac Psychic gym, willows and wooden observatory bridge. Preserve Tiled corridors and services. Final precise layout correction: main vertical sandy corridor coversx42.5–50% continuously y23–83%, no plants on western lane. Gym doorway threshold exactlyx43.75%y21.7%, building above y20.5%, forecourt x42.5–47.5%y21–26%. North paths x18.75% andx33.75–36.25%; west entrance y53.3–56.7%; healing x21.25%y45%, marketx33.75%y48.3%, bridge x50–77%y46.7–50%, observatory landingx75–92.5%y43.3–53.3%. End main path in natural garden aftery83%, NO south exit. Station approachx15–45%y77–82% remains free. Do not bake monorail, Tessa, markers, signs, text, instruments or UI. No realistic surf, shiny3D or pixel art. Original generated candidate followed by geometry correction selected.",
+      "references": [
+        "assets/sources/veloria-petalora-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/acquariva-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        },
+        {
+          "promptDocument": "assets/prompts/acquariva-illustrated-v3.md",
+          "reason": "Clear the full width of the gym approach after native foot-placement review."
+        }
+      ]
     }
   ]
 }

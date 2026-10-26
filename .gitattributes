@@ -1,0 +1,4 @@
+# Official CSV snapshots are hashed byte-for-byte in the source manifest.
+# Windows checkout must preserve their canonical LF bytes.
+content/sources/pokeapi/move-flags.csv text eol=lf
+content/sources/pokeapi/move-flag-map.csv text eol=lf

@@ -24,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-acquariva-v2",
-      "path": "assets/scenery/veloria-acquariva-v2.webp"
+      "key": "veloria-acquariva-illustrated-v3",
+      "path": "assets/scenery/veloria-acquariva-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -107,6 +107,6 @@
   ],
   "scriptRefs": [],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-acquariva-v2",
+  "battleBackgroundKey": "veloria-acquariva-illustrated-v3",
   "ambientEffects": []
 }
