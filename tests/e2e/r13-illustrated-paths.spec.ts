@@ -98,18 +98,18 @@ test('R13 illustrated switchbacks reach both habitat edges, Alma, Articuno and B
   await enterGame(page);
   await expect(page.locator('#game canvas')).toBeVisible();
 
-  // These are safe cells immediately outside the two encounter-zone rectangles.
-  await captureStop(page, info, 10, 11, 'upper-habitat-edge');
-  await captureStop(page, info, 31, 17, 'lower-habitat-edge');
-  await captureStop(page, info, 15, 13, 'trail-sign', { direction: 'Vai a sinistra', prompt: 'Esamina Indicazioni' });
-
-  // Keep Alma's live collision footprint: approach from the east, never use her tile.
-  await captureStop(page, info, 26, 13, 'alma-approach', { direction: 'Vai a sinistra', prompt: 'Parla con Alma' });
-
+  // Visit the same stops in geographic order rather than repeatedly retracing
+  // the switchbacks; retain every interaction, screenshot and exit assertion.
   // q_league_completed reveals Articuno; remain on the free tile north of it and do not activate the menu.
   await captureStop(page, info, 27, 22, 'articuno-approach', { direction: 'Vai in basso', prompt: 'Incontra Articuno' });
   expect((await readBrowserSave(page)).flags).not.toContain('q_special_articuno_caught');
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+
+  await captureStop(page, info, 31, 17, 'lower-habitat-edge');
+  // Keep Alma's live collision footprint: approach from the east, never use her tile.
+  await captureStop(page, info, 26, 13, 'alma-approach', { direction: 'Vai a sinistra', prompt: 'Parla con Alma' });
+  await captureStop(page, info, 15, 13, 'trail-sign', { direction: 'Vai a sinistra', prompt: 'Esamina Indicazioni' });
+  await captureStop(page, info, 10, 11, 'upper-habitat-edge');
 
   await captureStop(page, info, 38, 4, 'biancavetta-exit-approach');
   await walkTo(page, 'r13_tornanti_bianchi.tmj', 39, 5, { avoidEncounters: true });

@@ -1,6 +1,14 @@
+## 0.4.6 — Biancavetta illustrata
+
+Nuovo fondale raw PNG/WebP lossless con geometria Tiled, presidio e osservatorio conservati, palestra riposizionata verso la soglia reale, quattro pittogrammi condivisi per i servizi. [Asset, prompt, prove e limite del riflesso nord](68_BIANCAVETTA_ILLUSTRATED_BATCH_v0.1.md). [Piano delle pose NPC](67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md):48 identità presenti non equivalgono a48 set direzionali animati.
+
+Verifiche locali finali:767 test dominio e31 persistenza passati; validatore621 asset,27 fondali e48 mappe passato; build passata. Due casi Biancavetta passati, inclusi sei punti interattivi, palestra/ritorno, uscita ovest e varco est prima/dopo medaglia. Sequenza dei servizi riordinata e riprovata senza rimuovere tappe. Galleria dei27 fondali nei due orientamenti passata. Produzione offline:26 fondali non iniziali decodificati alla prima richiesta senza rete, funivia con ritorno/reload e risorse invariate passata. Cache v169, contenuti0.4.6. Pubblicazione e nuova CI da attestare dopo il push.
+
+Il test R13 mantiene tutti i punti e screenshot, ma li visita da sud a nord:201→103 passi pianificati sul Tiled reale, insieme delle destinazioni identico. Ripetizione browser passata (`.tmp/r13-geographic-order.log`), senza aumentare i timeout o indebolire assert.
+
 ## 0.4.5 — Passobrina e Tornanti Bianchi
 
-Commit runtime `ba5520c` inviato a main. [Deploy40407343341](https://github.com/Jacoporusso/veloria/actions/runs/40407343341): build SUCCESS, fase deploy ancora in coda al controllo corrente; [Verify40407343421](https://github.com/Jacoporusso/veloria/actions/runs/40407343421) in coda. La presenza sul sito pubblico e l'esito della suite completa restano da attestare sullo stesso rilascio, senza riavviarlo per l'attesa.
+Commit runtime `ba5520c` pubblicato: [Deploy40407343341](https://github.com/Jacoporusso/veloria/actions/runs/40407343341) SUCCESS; cache pubblica v168 e entrambi i fondali HTTP200 verificati. [Verify40407343421](https://github.com/Jacoporusso/veloria/actions/runs/40407343421) FAILURE con24 job passati: chapters9 ha esaurito180s nel nuovo percorso R13 a (36,4), a poche celle dall'uscita, dopo le verifiche delle tappe. Log `.tmp/alpine-chapters9.log`. Il successivo lotto riordina quel percorso senza rimuovere controlli. Nessun gate di approvazione rilevato nel deploy; la causa precisa della precedente attesa di scheduling non è deducibile dai metadati.
 
 Due fondali2D illustrati derivati da geometria Tiled, con sorgenti PNG raw, WebP lossless e guide registrate. Passobrina ha quattro pittogrammi vettoriali ancorati ai servizi; R13 conserva radure, Alma e approccio ad Articuno. Inventario rigenerato:48 mappe,51 presenze NPC,48 identità esplicite;26 fondali con provenienza non equivalgono a48 mappe accettate. [Prompt, asset e prove](66_ALPINE_ILLUSTRATED_BATCH_v0.1.md).
 

@@ -4,11 +4,6 @@
   "displayName": "Biancavetta",
   "biomeId": "snow_town",
   "tiledAsset": "tilemaps/biancavetta.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-biancavetta-v2",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -29,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-biancavetta-v2",
-      "path": "assets/scenery/veloria-biancavetta-v2.webp"
+      "key": "veloria-biancavetta-illustrated-v3",
+      "path": "assets/scenery/veloria-biancavetta-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -96,5 +91,5 @@
   ],
   "scriptRefs": [],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-biancavetta-v2"
+  "battleBackgroundKey": "veloria-biancavetta-illustrated-v3"
 }

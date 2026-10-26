@@ -4473,6 +4473,11 @@
               "name": "message",
               "type": "string",
               "value": "Cure e deposito al Centro Pokémon di Biancavetta."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "heal"
             }
           ]
         },
@@ -4500,6 +4505,11 @@
               "name": "message",
               "type": "string",
               "value": "Rifornimenti per la montagna e per il ritorno."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "shop"
             }
           ]
         },
@@ -4527,6 +4537,11 @@
               "name": "stopId",
               "type": "string",
               "value": "biancavetta"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "cable"
             }
           ]
         },
@@ -4554,6 +4569,11 @@
               "name": "message",
               "type": "string",
               "value": "Le guide controllano il Varco del Cristallo. Puoi tornare sui sentieri e continuare a esplorare."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -4716,7 +4736,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 1070,
+          "name": "Biancavetta illustrata",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-biancavetta-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4725,7 +4774,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1070,
+  "nextobjectid": 1071,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",
