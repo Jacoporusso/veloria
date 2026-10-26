@@ -1,5 +1,7 @@
 ## 0.4.6 — Biancavetta illustrata
 
+Runtime `6654b48` inviato a main. [Deploy40411320145](https://github.com/Jacoporusso/veloria/actions/runs/40411320145) in corso e [Verify40411320096](https://github.com/Jacoporusso/veloria/actions/runs/40411320096) in coda all'ultimo controllo. Versione pubblica v169 ed esiti completi ancora da verificare; nessuna dichiarazione anticipata di successo.
+
 Nuovo fondale raw PNG/WebP lossless con geometria Tiled, presidio e osservatorio conservati, palestra riposizionata verso la soglia reale, quattro pittogrammi condivisi per i servizi. [Asset, prompt, prove e limite del riflesso nord](68_BIANCAVETTA_ILLUSTRATED_BATCH_v0.1.md). [Piano delle pose NPC](67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md):48 identità presenti non equivalgono a48 set direzionali animati.
 
 Verifiche locali finali:767 test dominio e31 persistenza passati; validatore621 asset,27 fondali e48 mappe passato; build passata. Due casi Biancavetta passati, inclusi sei punti interattivi, palestra/ritorno, uscita ovest e varco est prima/dopo medaglia. Sequenza dei servizi riordinata e riprovata senza rimuovere tappe. Galleria dei27 fondali nei due orientamenti passata. Produzione offline:26 fondali non iniziali decodificati alla prima richiesta senza rete, funivia con ritorno/reload e risorse invariate passata. Cache v169, contenuti0.4.6. Pubblicazione e nuova CI da attestare dopo il push.
