@@ -1,3 +1,9 @@
+## 0.4.4 — Via delle Cascate illustrata
+
+Lotto R11 verificato localmente: fondale2D illustrato, nessun cambio a collisioni, habitat, interazioni o progressione. Percorso reale Acquariva→Vetracielo e ritorno passato; sentiero, radure e belvedere raggiunti a piedi e revisionati in otto schermate portrait/landscape. Build e due casi produzione offline passati, incluso attraversamento delle Cascate senza rete.767 test dominio e31 persistenza passati; validatore611 asset e24 fondali passato. [Fonti, prompt e ambito delle prove](65_WATERFALL_ILLUSTRATED_BATCH_v0.1.md). Cache v167, contenuti0.4.4. Pubblicazione e pipeline da verificare dopo il push.
+
+Verify40330025982 conclusa FAILURE:24 job passati, chapters9 fallito soltanto sul vecchio ordine Tab del Diario. La correzione è nel commit `fa27fed`, verificata in Chrome locale. Il relativo Deploy40335403200 è SUCCESS; Verify40335402843 risulta CANCELLED, non è attestata come successo. La prossima pipeline comprende la correzione e il nuovo caso R11.
+
 ## 0.4.3 — Indicazioni per incontri speciali e pesca
 
 Controllo successivo: Verify40330025982 ha23 job passati e un fallimento nello shard chapters9 al momento dell'osservazione. Il caso Diario presumeva ancora il vecchio ciclo Chiudi→contenuti→Chiudi: i nuovi pulsanti delle destinazioni sono invece correttamente raggiungibili. Aggiornata la regressione per percorrere tutti i pulsanti, verificare il ritorno ciclico a Chiudi e Shift+Tab, ripristinare il focus sul comando iniziale e confrontare le coordinate del giocatore prima/dopo. Chrome locale:1 caso passato (`.tmp/journal-focus-regression.log`). Nessun cambiamento al runtime né riduzione dei controlli; nuova verifica CI da attestare dopo il push.

@@ -33,8 +33,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r11-cascades-v1",
-      "path": "assets/sprites/veloria-r11-cascades-v1.webp"
+      "key": "veloria-r11_via_cascate-illustrated-v3",
+      "path": "assets/scenery/veloria-r11_via_cascate-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -84,5 +84,5 @@
     "veloria/q_r11_celia"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-r11-cascades-v1"
+  "battleBackgroundKey": "veloria-r11_via_cascate-illustrated-v3"
 }
