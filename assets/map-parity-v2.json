@@ -584,6 +584,48 @@
           "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
         }
       ]
+    },
+    {
+      "mapId": "veloria/passobrina",
+      "tiledAsset": "tilemaps/passobrina.tmj",
+      "assetKey": "veloria-passobrina-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-passobrina-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-passobrina-illustrated-v3.webp",
+      "sourceSha256": "e91cfdf72f21a2f4b440f8e2587ba5b2a8ab88a0e6fc154a8ce581f8627e6e7d",
+      "runtimeSha256": "05129aae82ee9b109adae21a811a617ff4e9a0ab9e7c0e743c9760de0fa8b79b",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Use case: sketch-to-render. The attached image is an EXACT top-down game-map layout diagram, not a style reference. Produce a beautiful modern illustrated 2D orthographic north-up ALPINE VILLAGE full-map background for Veloria, exact4:3 aspect. Preserve every silhouette of the BEIGE ground mask precisely, extending floor only a little to soften staircase edges. Beige is walkable pale cream compacted snow-free stone paths and plaza; MUST ALL remain open visible floor, including both wide center avenues, upper right terrace, and narrow spur downward on right. Blue-gray areas are blocked snow-covered fir forest, rounded alpine rock and distant mountains, low-contrast atmosphere. Pink rectangle at x17.5–30%,y30–43.3% is the roof of a warm apricot wooden healing chalet; violet rectangle adjacent x30–42.5%,y30–43.3% is an alpine shop roof. Tiny RED dot at x23.75%,y48.33% is the exact healing doorway/open porch target; tiny VIOLET dot at x36.25%,y48.33% is shop doorway/open porch target. Build their facades south of their roofs with CLEAR recessed porch openings centered exactly at those dots. Keep the apron below both porches open. Do NOT draw dots. Muted blue rectangle lower-right is a cableway building in the BLOCKED area east of the narrow beige spur. Its entrance faces WEST, connected to beige porch, with terminal location at BLUE dot x73.75%,y71.67%; do not paint console, it is dynamic. Mint dot x81.25%,y28.33% means an open snow-study clearing, no instrument. No UI, text, symbols, signs, people, creatures, decorative characters, place labels, grids or dots. Wide main road exits left exactly at y50–56.7%; northeast road exits right at y20–28.8%; no other exits or roads. Lower spur ENDS at cable station porch, do not extend it south past y78.8%. Rich matte hand-painted storybook style with broad foliage shapes, powder blue and white snow, warm wood, terracotta and muted blue roofs, turquoise distant river only in blocked lower-left. No isometric diorama, photorealism, glossy 3D, pixel art or big ornate geometric plaza. No posts, walls, trees, rocks or furnishings on any beige floor. Keep exact layout, make it an inviting coherent illustrated alpine village with soft light, warm windows and crisp modern2D shapes.\n",
+      "references": [
+        "assets/prompts/passobrina-production-layout-v1.svg"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/passobrina-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D alpine batch derived from Tiled geometry; preserve paths and interactions."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/r13_tornanti_bianchi",
+      "tiledAsset": "tilemaps/r13_tornanti_bianchi.tmj",
+      "assetKey": "veloria-r13_tornanti_bianchi-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r13_tornanti_bianchi-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp",
+      "sourceSha256": "72c8ea9b727d31ef456e44c77da40619f3b2bcbf7fcd6cf4858e7e853ecab3f1",
+      "runtimeSha256": "83521eb3e675c185816ae77f24a85d2ac59f003417c3fa1e2a40b177324c8845",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Use case: sketch-to-render. Production full-map background for modern illustrated 2D adventure game Veloria: Tornanti Bianchi snowy alpine switchbacks. Attached image is exact full40x30 walkability diagram, north-up,4:3. Render a richly beautiful matte hand-painted illustration, broad designed fir foliage, powder blue snow and ivory compacted snow walking trail, rounded rocks with subtle mauve shadows, gentle winter sunlight, crisp modern2D storybook materials. NOT realistic, not isometric miniature, not pixel art. Every BEIGE pixel in reference MUST become continuous open visibly walkable pale trail/clearing with absolutely no rocks, trunks, fences, railings, posts, buildings or props over it. Keep all path centerline positions and width; soften only the outer stair-step edges into natural broad curves extending a little INTO blue blocked region, never narrowing beige floor. The long path enters west at y80–85%, travels east to x70–75%, goes north then toward east clearing x75–92.5%,y53–65%, goes northwest along middle horizontal trail y43–52%, reaches small northwest clearing x15–25%,y30–42%, then goes northeast to the top horizontal trail y13–22%, exits east at y16–22%. Do not invent extra connections across the blue regions or to other map edges. Two GREEN patches are low snow-dusted alpine grass habitat, preserve exact positions and size: northwest x20–25%,y33–42%; east x80–85%,y57–65%. Grass should be distinct light sage tufts, walkable, not a tree crown. Blue-gray region is blocked snowy rock and fir forest. Decorate around paths with natural fir clusters, restrained grasses and snowdrifts; no literal blue diagram fill left. Leave the lower bend at x68.75%,y78.33% open for a dynamic Articuno character: NO creature or nest baked into image. Leave middle path around x63.75%,y45% clear for dynamic trainer. No text, symbols, markers, labels, people, creatures, sensor, signs, buildings, UI, border or margins. No huge cliff perspective; shallow rounded rocky banks and painted snow imply heights without a 3D camera. Full rectangular map all edges filled. Exact4:3 aspect. An appealing modern illustrated adventure environment, coherent with cream paths and soft blue snowy surroundings.\n",
+      "references": [
+        "assets/prompts/r13-production-layout-v1.svg"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r13_tornanti_bianchi-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D alpine batch derived from Tiled geometry; preserve paths and interactions."
+        }
+      ]
     }
   ]
 }

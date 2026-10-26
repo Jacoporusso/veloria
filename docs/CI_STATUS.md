@@ -1,6 +1,12 @@
+## 0.4.5 — Passobrina e Tornanti Bianchi
+
+Due fondali2D illustrati derivati da geometria Tiled, con sorgenti PNG raw, WebP lossless e guide registrate. Passobrina ha quattro pittogrammi vettoriali ancorati ai servizi; R13 conserva radure, Alma e approccio ad Articuno. Inventario rigenerato:48 mappe,51 presenze NPC,48 identità esplicite;26 fondali con provenienza non equivalgono a48 mappe accettate. [Prompt, asset e prove](66_ALPINE_ILLUSTRATED_BATCH_v0.1.md).
+
+Verifiche locali finali:767 dominio e31 persistenza passati; validatore618 asset/26 fondali/48 mappe passato; build passata. Percorsi reali e screenshot portrait/landscape di Passobrina e R13, quattro segni unici, funivia prima/dopo sblocco e risorse invariate passati. Due controlli globali dei fondali passati. Produzione offline:25 fondali non iniziali decodificati alla prima richiesta senza rete e ritorno in funivia dopo reload passati. Cache v168, contenuti0.4.5. Commit, deploy e CI da attestare dopo pubblicazione.
+
 ## 0.4.4 — Via delle Cascate illustrata
 
-Pubblicazione runtime `8582786` confermata: [Deploy40365068711](https://github.com/Jacoporusso/veloria/actions/runs/40365068711) SUCCESS, cache pubblica `veloria-shell-v167` e nuovo fondale R11 HTTP200 verificati. Correzione fixture palestra `04447f3` pubblicata; [Verify40365068712](https://github.com/Jacoporusso/veloria/actions/runs/40365068712) in corso e [Verify40366181621](https://github.com/Jacoporusso/veloria/actions/runs/40366181621) in attesa all'ultimo controllo. Nessuna attestazione anticipata della suite completa.
+Pubblicazione runtime `8582786` confermata: [Deploy40365068711](https://github.com/Jacoporusso/veloria/actions/runs/40365068711) SUCCESS, cache pubblica `veloria-shell-v167` e nuovo fondale R11 HTTP200 verificati. [Verify40365068712](https://github.com/Jacoporusso/veloria/actions/runs/40365068712) SUCCESS con25 job passati. Correzione fixture palestra `04447f3` pubblicata: anche [Verify40366181621](https://github.com/Jacoporusso/veloria/actions/runs/40366181621) e [Deploy40366181814](https://github.com/Jacoporusso/veloria/actions/runs/40366181814) conclusi SUCCESS al controllo successivo.
 
 Diagnosi gym03 confermata dalla schermata CI: Omanyte0/52 PS, paralizzato, Magnemite35/35 PS, messaggio «La tua squadra non può più continuare». Il helper termina anche in sconfitta: il banner mancante era corretto. Fixture sostituita con DiglettLv25 e Fossa (mossa ufficiale appresa al18); nessuna modifica alla palestra. Percorso completo con puzzle, vittoria, ricompensa unica, medagliere, reload e uscita passato in Chrome (`.tmp/gym03-ground-strategy.log`,1 caso). Il precedente Omanyte passa localmente ma non era una strategia affidabile; nessun aumento dei timeout.
 

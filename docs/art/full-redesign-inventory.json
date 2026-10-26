@@ -6,21 +6,21 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 32,
-    "mapsWithRegisteredSceneryPath": 36,
-    "mapsWithTerrainBase": 31,
+    "mapsWithExplicitSceneryImage": 33,
+    "mapsWithRegisteredSceneryPath": 42,
+    "mapsWithTerrainBase": 30,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 17,
-    "mapsWithTerrainBaseOnly": 16,
+    "mapsWithSceneryImageOnly": 18,
+    "mapsWithTerrainBaseOnly": 15,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 36,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 16,
-    "mapsWithUnreferencedSceneryRegistration": 16,
-    "parityArtworkEntries": 16,
+    "registeredSceneryImageAssets": 42,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 15,
+    "mapsWithUnreferencedSceneryRegistration": 15,
+    "parityArtworkEntries": 26,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
-    "registeredAppearanceProfiles": 31,
+    "registeredAppearanceProfiles": 48,
     "unboundCharacterStudies": 4,
     "possibleNarrativeAliasesUnresolved": 2
   },
@@ -374,6 +374,193 @@
           "delta_iris"
         ],
         "narrativeSource": "content/dialogue/world.v1.json#/delta_iris"
+      },
+      {
+        "profileId": "route-trainer-lina-r09",
+        "description": "Lina, allenatrice facoltativa di R09: propone una sfida prima del Delta e suggerisce di osservare tipi e livelli. Giacca da guardaparco e capelli raccolti sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r09_lina"
+        ],
+        "dialogueIds": [
+          "r09_lina"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r09_lina; content/trainers/r09_lina.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-noemi-r09",
+        "description": "Noemi, allenatrice facoltativa di R09: invita a un allenamento e ricorda di valutare le mosse secondo i tipi Acqua, Veleno ed Elettro. Abbigliamento sportivo dai toni prugna e corallo è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r09_noemi"
+        ],
+        "dialogueIds": [
+          "r09_noemi"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r09_noemi; content/trainers/r09_noemi.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-maya-r10",
+        "description": "Maya, allenatrice facoltativa di R10: offre una sfida prima di Acquariva e indica dove trovare il Centro e Tessa. Giacca da esploratrice color avorio e blu-verde è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r10_maya"
+        ],
+        "dialogueIds": [
+          "r10_maya"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r10_maya; content/trainers/r10_maya.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-bruno-r10",
+        "description": "Bruno, allenatore facoltativo di R10: propone un allenamento e ricorda che una mossa di stato può cambiare il ritmo della lotta. Camicia color ocra e maglia navy sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r10_bruno"
+        ],
+        "dialogueIds": [
+          "r10_bruno"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r10_bruno; content/trainers/r10_bruno.trainer.json"
+      },
+      {
+        "profileId": "delta-naturalist-teo",
+        "description": "Teo, naturalista del Delta: studia differenze ambientali e spiega come i doppi tipi cambino le resistenze. Giacca e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "delta_teo"
+        ],
+        "dialogueIds": [
+          "delta_teo"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/delta_teo; content/trainers/delta_teo.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-celia-r11",
+        "description": "Celia, allenatrice facoltativa di R11: propone una sfida prima di Selene e permette di proseguire lungo le cascate. Giacca outdoor color teal e ardesia sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r11_celia"
+        ],
+        "dialogueIds": [
+          "r11_celia"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r11_celia; content/trainers/r11_celia.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-ruben-r12",
+        "description": "Ruben, allenatore facoltativo di R12: ricorda di preparare la squadra rispetto ai tipi Ghiaccio, Terra e Buio prima del Centro di Passobrina. Abbigliamento caldo da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r12_ruben"
+        ],
+        "dialogueIds": [
+          "r12_ruben"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r12_ruben; content/trainers/r12_ruben.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-alma-r13",
+        "description": "Alma, allenatrice facoltativa di R13: chiarisce i tipi di alcuni Pokémon della neve e indica il recupero a Biancavetta. Abiti da sentiero invernale sono una proposta artistica; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r13_alma"
+        ],
+        "dialogueIds": [
+          "r13_alma"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r13_alma; content/trainers/r13_alma.trainer.json"
+      },
+      {
+        "profileId": "biancavetta-guide",
+        "description": "Guida di Biancavetta: parla della regolarità delle oscillazioni e indica Centro, bottega, palestra e funivia. Aspetto e abbigliamento da guida locale sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "biancavetta_guide"
+        ],
+        "dialogueIds": [
+          "biancavetta_guide"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/biancavetta_guide"
+      },
+      {
+        "profileId": "passobrina-alpine-guide",
+        "description": "Guida alpina di Passobrina: accompagna la ricerca su vento, temperatura e neve e apre il sentiero per i Tornanti Bianchi. Abbigliamento da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "passobrina_guide"
+        ],
+        "dialogueIds": [
+          "passobrina_guide"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/passobrina_guide"
+      },
+      {
+        "profileId": "r14-guide-livia",
+        "description": "Livia, guida di R14: indica rifugio, tre terrazze e ricevitore del Varco del Cristallo, poi lascia aperta la strada verso Biancavetta. Treccia e abiti da esplorazione sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r14_guide"
+        ],
+        "dialogueIds": [
+          "r14_guide"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r14_guide"
+      },
+      {
+        "profileId": "radicelmo-keeper-leda",
+        "description": "Custode Leda, responsabile dell’archivio ecologico e del vivaio di Radicelmo. Coordina la registrazione del seme e la crescita del vivaio. Capelli argento e abiti da giardiniera sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "radicelmo_keeper"
+        ],
+        "dialogueIds": [
+          "radicelmo_keeper"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/radicelmo_keeper"
+      },
+      {
+        "profileId": "league-receptionist",
+        "description": "Accoglienza della Lega: fornisce indicazioni su requisiti, servizi, portale e regole del tentativo. Aspetto e uniforme di servizio sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "league_reception"
+        ],
+        "dialogueIds": [
+          "league_reception"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/league_reception"
+      },
+      {
+        "profileId": "petalora-custodian-ivo",
+        "description": "Custode Ivo di Petalora: cura i canali che irrigano le terrazze dei ciliegi e indirizza il giocatore ai servizi e alla palestra. È distinto da Ivo di Ferraluce. Barba argento e abiti da giardiniere sono proposte artistiche; età non specificata nel canone.",
+        "npcIds": [
+          "petalora_ivo"
+        ],
+        "dialogueIds": [
+          "petalora_ivo"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/petalora_ivo"
+      },
+      {
+        "profileId": "route-trainer-maia-r16",
+        "description": "Maia, allenatrice facoltativa del Cammino dell’Equilibrio, che prepara alla Lega e discute tipi e strategie. Giacca sportiva e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "npcIds": [
+          "r16_maia"
+        ],
+        "dialogueIds": [
+          "r16_maia"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r16_maia; content/trainers/r16_maia.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-tobia-r16",
+        "description": "Tobia, allenatore facoltativo del Cammino dell’Equilibrio, che spiega difese fisiche e speciali, precisione e PP. Aspetto e abbigliamento sono proposte artistiche; età non specificata nel canone.",
+        "npcIds": [
+          "r16_tobia"
+        ],
+        "dialogueIds": [
+          "r16_tobia"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r16_tobia; content/trainers/r16_tobia.trainer.json"
+      },
+      {
+        "profileId": "centrale-technician",
+        "description": "Tecnica della Centrale, addetta alle misure e all’isolamento della linea sperimentale. Volto, capelli ricci e tuta tecnica ardesia con accenti rame e teal sono proposte artistiche coerenti con il nome dell’oggetto Tiled; non sono fatti canonici.",
+        "npcIds": [
+          "centrale_technician"
+        ],
+        "dialogueIds": [
+          "centrale_technician"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/centrale_technician; public/tilemaps/d03_centrale_risonante.tmj#Tecnica della Centrale"
       }
     ],
     "unresolvedRepeatedNpcIds": [],
@@ -583,16 +770,62 @@
           "columns": 2,
           "rows": 2
         }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-r09-r10-coastal-trainers-v1",
+        "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-delta-route-cast-v1",
+        "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-guides-and-keepers-v1",
+        "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-league-and-cammino-cast-v1",
+        "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-centrale-technician-v1",
+        "path": "assets/sprites/veloria-centrale-technician-v1.webp"
       }
     ],
     "catalogAssetKeys": [
       "veloria-cast-opening-and-champion-v1",
+      "veloria-centrale-technician-v1",
       "veloria-coastal-cast-v1",
+      "veloria-delta-route-cast-v1",
       "veloria-ferraluce-service-npcs-v1",
+      "veloria-guides-and-keepers-v1",
       "veloria-gym-leaders-a-v1",
       "veloria-gym-leaders-b-v1",
+      "veloria-league-and-cammino-cast-v1",
       "veloria-league-council-v1",
       "veloria-npcs-v3",
+      "veloria-r09-r10-coastal-trainers-v1",
       "veloria-route-trainers-r04-r07-v1",
       "veloria-vetracielo-lea-v1"
     ],
@@ -715,6 +948,47 @@
           "columns": 2,
           "rows": 2
         }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-r09-r10-coastal-trainers-v1",
+        "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-delta-route-cast-v1",
+        "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-guides-and-keepers-v1",
+        "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-league-and-cammino-cast-v1",
+        "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-centrale-technician-v1",
+        "path": "assets/sprites/veloria-centrale-technician-v1.webp"
       }
     ],
     "profiles": [
@@ -1249,6 +1523,294 @@
           "x": 0.57,
           "y": 0.887
         }
+      },
+      {
+        "id": "route-trainer-lina-r09",
+        "description": "Lina, allenatrice facoltativa di R09: propone una sfida prima del Delta e suggerisce di osservare tipi e livelli. Giacca da guardaparco e capelli raccolti sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r09_lina"
+        ],
+        "npcIds": [
+          "r09_lina"
+        ],
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/r09_lina; content/trainers/r09_lina.trainer.json",
+        "origin": {
+          "x": 0.597,
+          "y": 0.979
+        }
+      },
+      {
+        "id": "route-trainer-noemi-r09",
+        "description": "Noemi, allenatrice facoltativa di R09: invita a un allenamento e ricorda di valutare le mosse secondo i tipi Acqua, Veleno ed Elettro. Abbigliamento sportivo dai toni prugna e corallo è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r09_noemi"
+        ],
+        "npcIds": [
+          "r09_noemi"
+        ],
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/r09_noemi; content/trainers/r09_noemi.trainer.json",
+        "origin": {
+          "x": 0.514,
+          "y": 0.979
+        }
+      },
+      {
+        "id": "route-trainer-maya-r10",
+        "description": "Maya, allenatrice facoltativa di R10: offre una sfida prima di Acquariva e indica dove trovare il Centro e Tessa. Giacca da esploratrice color avorio e blu-verde è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r10_maya"
+        ],
+        "npcIds": [
+          "r10_maya"
+        ],
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r10_maya; content/trainers/r10_maya.trainer.json",
+        "origin": {
+          "x": 0.596,
+          "y": 0.93
+        }
+      },
+      {
+        "id": "route-trainer-bruno-r10",
+        "description": "Bruno, allenatore facoltativo di R10: propone un allenamento e ricorda che una mossa di stato può cambiare il ritmo della lotta. Camicia color ocra e maglia navy sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r10_bruno"
+        ],
+        "npcIds": [
+          "r10_bruno"
+        ],
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/r10_bruno; content/trainers/r10_bruno.trainer.json",
+        "origin": {
+          "x": 0.5,
+          "y": 0.931
+        }
+      },
+      {
+        "id": "delta-naturalist-teo",
+        "description": "Teo, naturalista del Delta: studia differenze ambientali e spiega come i doppi tipi cambino le resistenze. Giacca e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "delta_teo"
+        ],
+        "npcIds": [
+          "delta_teo"
+        ],
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/delta_teo; content/trainers/delta_teo.trainer.json",
+        "origin": {
+          "x": 0.587,
+          "y": 0.966
+        }
+      },
+      {
+        "id": "route-trainer-celia-r11",
+        "description": "Celia, allenatrice facoltativa di R11: propone una sfida prima di Selene e permette di proseguire lungo le cascate. Giacca outdoor color teal e ardesia sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r11_celia"
+        ],
+        "npcIds": [
+          "r11_celia"
+        ],
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/r11_celia; content/trainers/r11_celia.trainer.json",
+        "origin": {
+          "x": 0.539,
+          "y": 0.969
+        }
+      },
+      {
+        "id": "route-trainer-ruben-r12",
+        "description": "Ruben, allenatore facoltativo di R12: ricorda di preparare la squadra rispetto ai tipi Ghiaccio, Terra e Buio prima del Centro di Passobrina. Abbigliamento caldo da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r12_ruben"
+        ],
+        "npcIds": [
+          "r12_ruben"
+        ],
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r12_ruben; content/trainers/r12_ruben.trainer.json",
+        "origin": {
+          "x": 0.603,
+          "y": 0.914
+        }
+      },
+      {
+        "id": "route-trainer-alma-r13",
+        "description": "Alma, allenatrice facoltativa di R13: chiarisce i tipi di alcuni Pokémon della neve e indica il recupero a Biancavetta. Abiti da sentiero invernale sono una proposta artistica; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r13_alma"
+        ],
+        "npcIds": [
+          "r13_alma"
+        ],
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/r13_alma; content/trainers/r13_alma.trainer.json",
+        "origin": {
+          "x": 0.452,
+          "y": 0.93
+        }
+      },
+      {
+        "id": "biancavetta-guide",
+        "description": "Guida di Biancavetta: parla della regolarità delle oscillazioni e indica Centro, bottega, palestra e funivia. Aspetto e abbigliamento da guida locale sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "biancavetta_guide"
+        ],
+        "npcIds": [
+          "biancavetta_guide"
+        ],
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/biancavetta_guide",
+        "origin": {
+          "x": 0.504,
+          "y": 0.937
+        }
+      },
+      {
+        "id": "passobrina-alpine-guide",
+        "description": "Guida alpina di Passobrina: accompagna la ricerca su vento, temperatura e neve e apre il sentiero per i Tornanti Bianchi. Abbigliamento da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "passobrina_guide"
+        ],
+        "npcIds": [
+          "passobrina_guide"
+        ],
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/passobrina_guide",
+        "origin": {
+          "x": 0.467,
+          "y": 0.944
+        }
+      },
+      {
+        "id": "r14-guide-livia",
+        "description": "Livia, guida di R14: indica rifugio, tre terrazze e ricevitore del Varco del Cristallo, poi lascia aperta la strada verso Biancavetta. Treccia e abiti da esplorazione sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r14_guide"
+        ],
+        "npcIds": [
+          "r14_guide"
+        ],
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r14_guide",
+        "origin": {
+          "x": 0.561,
+          "y": 0.92
+        }
+      },
+      {
+        "id": "radicelmo-keeper-leda",
+        "description": "Custode Leda, responsabile dell’archivio ecologico e del vivaio di Radicelmo. Coordina la registrazione del seme e la crescita del vivaio. Capelli argento e abiti da giardiniera sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "radicelmo_keeper"
+        ],
+        "npcIds": [
+          "radicelmo_keeper"
+        ],
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/radicelmo_keeper",
+        "origin": {
+          "x": 0.53,
+          "y": 0.924
+        }
+      },
+      {
+        "id": "league-receptionist",
+        "description": "Accoglienza della Lega: fornisce indicazioni su requisiti, servizi, portale e regole del tentativo. Aspetto e uniforme di servizio sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "league_reception"
+        ],
+        "npcIds": [
+          "league_reception"
+        ],
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/league_reception",
+        "origin": {
+          "x": 0.54,
+          "y": 0.951
+        }
+      },
+      {
+        "id": "petalora-custodian-ivo",
+        "description": "Custode Ivo di Petalora: cura i canali che irrigano le terrazze dei ciliegi e indirizza il giocatore ai servizi e alla palestra. È distinto da Ivo di Ferraluce. Barba argento e abiti da giardiniere sono proposte artistiche; età non specificata nel canone.",
+        "dialogueIds": [
+          "petalora_ivo"
+        ],
+        "npcIds": [
+          "petalora_ivo"
+        ],
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/petalora_ivo",
+        "origin": {
+          "x": 0.479,
+          "y": 0.959
+        }
+      },
+      {
+        "id": "route-trainer-maia-r16",
+        "description": "Maia, allenatrice facoltativa del Cammino dell’Equilibrio, che prepara alla Lega e discute tipi e strategie. Giacca sportiva e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "dialogueIds": [
+          "r16_maia"
+        ],
+        "npcIds": [
+          "r16_maia"
+        ],
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r16_maia; content/trainers/r16_maia.trainer.json",
+        "origin": {
+          "x": 0.538,
+          "y": 0.915
+        }
+      },
+      {
+        "id": "route-trainer-tobia-r16",
+        "description": "Tobia, allenatore facoltativo del Cammino dell’Equilibrio, che spiega difese fisiche e speciali, precisione e PP. Aspetto e abbigliamento sono proposte artistiche; età non specificata nel canone.",
+        "dialogueIds": [
+          "r16_tobia"
+        ],
+        "npcIds": [
+          "r16_tobia"
+        ],
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/r16_tobia; content/trainers/r16_tobia.trainer.json",
+        "origin": {
+          "x": 0.539,
+          "y": 0.921
+        }
+      },
+      {
+        "id": "centrale-technician",
+        "description": "Tecnica della Centrale, addetta alle misure e all’isolamento della linea sperimentale. Volto, capelli ricci e tuta tecnica ardesia con accenti rame e teal sono proposte artistiche coerenti con il nome dell’oggetto Tiled; non sono fatti canonici.",
+        "dialogueIds": [
+          "centrale_technician"
+        ],
+        "npcIds": [
+          "centrale_technician"
+        ],
+        "assetKey": "veloria-centrale-technician-v1",
+        "narrativeSource": "content/dialogue/world.v1.json#/centrale_technician; public/tilemaps/d03_centrale_risonante.tmj#Tecnica della Centrale",
+        "origin": {
+          "x": 0.495,
+          "y": 0.95
+        }
       }
     ],
     "unboundStudies": [
@@ -1315,7 +1877,7 @@
           "layer": "decorations",
           "stableObjectId": 77,
           "name": "Acquariva illustrata",
-          "spriteKey": "veloria-acquariva-v2",
+          "spriteKey": "veloria-acquariva-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -1329,14 +1891,14 @@
           "layer": "decorations",
           "stableObjectId": 77,
           "name": "Acquariva illustrata",
-          "spriteKey": "veloria-acquariva-v2",
+          "spriteKey": "veloria-acquariva-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-acquariva-v2.webp",
+          "assetPath": "assets/scenery/veloria-acquariva-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -1344,8 +1906,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-acquariva-v2",
-          "path": "assets/scenery/veloria-acquariva-v2.webp",
+          "key": "veloria-acquariva-illustrated-v3",
+          "path": "assets/scenery/veloria-acquariva-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -1375,8 +1937,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-acquariva-v2",
-          "path": "assets/scenery/veloria-acquariva-v2.webp",
+          "key": "veloria-acquariva-illustrated-v3",
+          "path": "assets/scenery/veloria-acquariva-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -1393,8 +1955,32 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/acquariva",
+        "tiledAsset": "tilemaps/acquariva.tmj",
+        "assetKey": "veloria-acquariva-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-acquariva-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-acquariva-illustrated-v3.webp",
+        "sourceSha256": "8346fab66d3d711cd6d0b9a7834e2d6326ef04c9b0aee86671d27e397d3ca787",
+        "runtimeSha256": "5188946352cf7b94f5981a54e183b61727d2c3343fe81f7ebc8a7d4bc4b183a8",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create modern matte illustrated2D Acquariva, Petalora v3 style, exact4:3 northup40x30map. Left mainland and painted turquoise lake right; coral healing house, mint/lilac market, lilac Psychic gym, willows and wooden observatory bridge. Preserve Tiled corridors and services. Final precise layout correction: main vertical sandy corridor coversx42.5–50% continuously y23–83%, no plants on western lane. Gym doorway threshold exactlyx43.75%y21.7%, building above y20.5%, forecourt x42.5–47.5%y21–26%. North paths x18.75% andx33.75–36.25%; west entrance y53.3–56.7%; healing x21.25%y45%, marketx33.75%y48.3%, bridge x50–77%y46.7–50%, observatory landingx75–92.5%y43.3–53.3%. End main path in natural garden aftery83%, NO south exit. Station approachx15–45%y77–82% remains free. Do not bake monorail, Tessa, markers, signs, text, instruments or UI. No realistic surf, shiny3D or pixel art. Original generated candidate followed by geometry correction selected.",
+        "references": [
+          "assets/sources/veloria-petalora-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/acquariva-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          },
+          {
+            "promptDocument": "assets/prompts/acquariva-illustrated-v3.md",
+            "reason": "Clear the full width of the gym approach after native foot-placement review."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -1615,6 +2201,17 @@
           "path": "assets/scenery/veloria-biancavetta-v2.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-guides-and-keepers-v1",
+          "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -1722,14 +2319,17 @@
           "name": "Guida di Biancavetta",
           "npcId": "biancavetta_guide",
           "dialogueId": "biancavetta_guide",
-          "characterAppearanceId": null,
-          "identityKey": "npc:biancavetta_guide",
-          "profileMatch": null,
+          "characterAppearanceId": "biancavetta-guide",
+          "identityKey": "profile:biancavetta-guide",
+          "profileMatch": "biancavetta-guide",
           "narrativeSpeaker": "Guida di Biancavetta",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-guides-and-keepers-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.504,
+            "y": 0.937
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -1910,7 +2510,7 @@
       "exits": [
         {
           "stableObjectId": 1072,
-          "name": "Sentiero dellâ€™Alba",
+          "name": "Sentiero dell’Alba",
           "cell": {
             "x": 21.0,
             "y": 0.0,
@@ -3179,6 +3779,13 @@
           "path": "assets/creatures/pokeapi-gen1-145-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-centrale-technician-v1",
+          "path": "assets/sprites/veloria-centrale-technician-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3208,14 +3815,17 @@
           "name": "Tecnica della Centrale",
           "npcId": "centrale_technician",
           "dialogueId": "centrale_technician",
-          "characterAppearanceId": null,
-          "identityKey": "npc:centrale_technician",
-          "profileMatch": null,
-          "narrativeSpeaker": "Tecnico della Centrale",
+          "characterAppearanceId": "centrale-technician",
+          "identityKey": "profile:centrale-technician",
+          "profileMatch": "centrale-technician",
+          "narrativeSpeaker": "Tecnica della Centrale",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-centrale-technician-v1",
+          "spriteFrame": null,
+          "spriteOrigin": {
+            "x": 0.495,
+            "y": 0.95
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -3263,7 +3873,7 @@
           "layer": "decorations",
           "stableObjectId": 53,
           "name": "Delta illustrato",
-          "spriteKey": "veloria-d04-delta-v1",
+          "spriteKey": "veloria-d04_delta_specchi-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -3277,19 +3887,27 @@
           "layer": "decorations",
           "stableObjectId": 53,
           "name": "Delta illustrato",
-          "spriteKey": "veloria-d04-delta-v1",
+          "spriteKey": "veloria-d04_delta_specchi-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/sprites/veloria-d04-delta-v1.webp",
+          "assetPath": "assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-d04_delta_specchi-illustrated-v3",
+          "path": "assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -3315,8 +3933,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-d04-delta-v1",
-          "path": "assets/sprites/veloria-d04-delta-v1.webp",
+          "key": "veloria-d04_delta_specchi-illustrated-v3",
+          "path": "assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -3330,11 +3948,51 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-delta-route-cast-v1",
+          "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/d04_delta_specchi",
+        "tiledAsset": "tilemaps/d04_delta_specchi.tmj",
+        "assetKey": "veloria-d04_delta_specchi-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-d04_delta_specchi-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp",
+        "sourceSha256": "84aa3488a6377b7f627fb3b8250fcccf67f89eb77dc6890f73cf62594b3baaf7",
+        "runtimeSha256": "4f59466357a5a08ce1e60c0511d6e0cd818f02f2f9bd5f29f1bf2dfb632a7655",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Turn this EXACT 1280x960 schematic into a polished illustrated2D game map, output same4:3aspect and sameframing. The tanpixelshape MUST stay EXACTLY where it is: it is the floor, not a roughconcept. Trace the tanmask contour accurately and paint it with honeywoodenplanks, preserving every tanpixel aswalkablewood atitscurrentposition. Do not round, shift or scale bridgegeometry. Do not use any previous image layout. UpperLhorizontal2tileswide; verticalconnector1tilewide atx352..384 in1280canvas; lowerhorizontalx0..640,y544..608; southernstemx608..640,y608..736; smallgrassyendingx576..704,y736..800. Exactfloorgeometry, boardwalkverticalcenterx368/1280=28.75%, southerncenterx624/1280=48.75%. Keep minorwoodenposts outsideflooronly and no rails betweenlanes. Tanbottomrectangle become grassy drynurseryislet butkeepallfloorclear. Replaceblue with calmflatpaintedturquoisewater, tasteful scatteredsoftwillowislands and simplereeds confinedstrictlytoblue. Modernmattehandpainted2D familyRPG illustration, refinedbotanicaldetailbutsimple shapes, softshadows, roundedgrayrocks, sparsevioletirises, quietwater. Notpixelart, not3Dminiature, notphotorealistic. No additionalroutesorbridges orstaircases, no bakedpeople/Pokemon/text/instruments/markers/UI/grid/frame. IMPORTANT preserve the 1280x960diagram layout without translating it to a typicalreference composition. It is a level collision blueprint.\n\nFinal foot-placement correction:\nSmall PRECISE object edit of this map. Preserve exact canvas1448x1086, style, WATER,islands, ALL walkwaycenterlines, LEFT/RIGHTendpoints and every verticalbridge position. ONLY make the TWO main horizontal wooden boardwalks a little deeper toward the BOTTOM ofimage: keep their UPPERedges fixed, move ONLYloweredges down40pixels so deckfloor extends south. Top horizontalboardwalk currentlyy216..284 musthavewoodenfloor alltheway down to y325 alongx400..1448; do NOTshiftitup/right/left. Lowerhorizontalboardwalk currentlyy616..683 musthavewoodenfloor down to y725 alongx0..735; do NOTchange topedgeorwesternend. Keep verticalbridge atx396..440 joiningbothhorizontaldecks; don'tmoveit. Keep southstemcenterx706 andits nurseryplatform unchanged; make itsjunctioncontinuouswiththickerlowerdeck. Sparseposts along NEWloweredges only, no posts/ropeswhereformerbottomedgewas; no middleparallelrails insidefloor. Actualcharacterfeet at y294(top) andy693(lower) mustsit safelyonwoodfloor. Keep allwoodfloor unobstructed. Do not redesign scene, do not alterislands/palette, no additionalbridges, no text/people/UI/markers. ONLY widen thoseexistingwoodendecks southward40pixels.\n\nFinal post removal:\nPrecise object removal, NO layout orstyle change. Remove ALL cylindrical wooden POSTS and theirroundcapdiscs from EVERY boardwalk inthisimage. Theylook like obstacles underplayerfeet andmustnotexist. Inpaint theirformerlocations with continuous matchingwoodenplanks when onthedeck and matchingwater whenoutsideit. Keep ALL current deckfloorcontours/widths/positions EXACTLY unchanged, especially the expandedloweredges. Keep ALLwalkways and grassyislands,water andvegetation exactly. No bridgesmoved,widened,narrowed,resized,transformed orremoved. Flat uninterrupted warmwoodenplankfloors with thin darkouteredge only, absolutely NO bollards, roundcaps, rails, ropes, columns oruprightposts onanyfloor. Underdeckshadowonly. Modernillustrated2D samepalette, no newobjects/text/characters/UI. Exact1448x1086 sameframing4:3.",
+        "references": [
+          "public/tilemaps/d04_delta_specchi.tmj",
+          "assets/prompts/d04-layout-guide-v1.svg"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          },
+          {
+            "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+            "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+          },
+          {
+            "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+            "reason": "Remove painted posts from walkable floor after native screenshot review."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -3398,14 +4056,17 @@
           "name": "Naturalista Teo",
           "npcId": "delta_teo",
           "dialogueId": "delta_teo",
-          "characterAppearanceId": null,
-          "identityKey": "npc:delta_teo",
-          "profileMatch": null,
+          "characterAppearanceId": "delta-naturalist-teo",
+          "identityKey": "profile:delta-naturalist-teo",
+          "profileMatch": "delta-naturalist-teo",
           "narrativeSpeaker": "Teo",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-delta-route-cast-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.587,
+            "y": 0.966
+          },
           "trainerId": "veloria/trainer_delta_teo",
           "battleOnceFlag": "trainer_delta_teo_defeated",
           "frame": null,
@@ -6264,6 +6925,17 @@
           "path": "assets/scenery/veloria-league-forecourt-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-and-cammino-cast-v1",
+          "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -6328,14 +7000,17 @@
           "name": "Accoglienza della Lega",
           "npcId": "league_reception",
           "dialogueId": "league_reception",
-          "characterAppearanceId": null,
-          "identityKey": "npc:league_reception",
-          "profileMatch": null,
+          "characterAppearanceId": "league-receptionist",
+          "identityKey": "profile:league-receptionist",
+          "profileMatch": "league-receptionist",
           "narrativeSpeaker": "Accoglienza della Lega",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-league-and-cammino-cast-v1",
           "spriteFrame": 0,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.54,
+            "y": 0.951
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -6370,7 +7045,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-passobrina-v1",
+        "assetKey": "veloria-passobrina-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -6386,7 +7061,7 @@
           "layer": "decorations",
           "stableObjectId": 600,
           "name": "Passobrina illustrata",
-          "spriteKey": "veloria-passobrina-v1",
+          "spriteKey": "veloria-passobrina-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6400,14 +7075,14 @@
           "layer": "decorations",
           "stableObjectId": 600,
           "name": "Passobrina illustrata",
-          "spriteKey": "veloria-passobrina-v1",
+          "spriteKey": "veloria-passobrina-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-passobrina-v1.webp",
+          "assetPath": "assets/scenery/veloria-passobrina-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6415,8 +7090,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-passobrina-v1",
-          "path": "assets/scenery/veloria-passobrina-v1.webp",
+          "key": "veloria-passobrina-illustrated-v3",
+          "path": "assets/scenery/veloria-passobrina-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6446,15 +7121,46 @@
         },
         {
           "kind": "image",
-          "key": "veloria-passobrina-v1",
-          "path": "assets/scenery/veloria-passobrina-v1.webp",
+          "key": "veloria-passobrina-illustrated-v3",
+          "path": "assets/scenery/veloria-passobrina-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-guides-and-keepers-v1",
+          "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/passobrina",
+        "tiledAsset": "tilemaps/passobrina.tmj",
+        "assetKey": "veloria-passobrina-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-passobrina-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-passobrina-illustrated-v3.webp",
+        "sourceSha256": "e91cfdf72f21a2f4b440f8e2587ba5b2a8ab88a0e6fc154a8ce581f8627e6e7d",
+        "runtimeSha256": "05129aae82ee9b109adae21a811a617ff4e9a0ab9e7c0e743c9760de0fa8b79b",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Use case: sketch-to-render. The attached image is an EXACT top-down game-map layout diagram, not a style reference. Produce a beautiful modern illustrated 2D orthographic north-up ALPINE VILLAGE full-map background for Veloria, exact4:3 aspect. Preserve every silhouette of the BEIGE ground mask precisely, extending floor only a little to soften staircase edges. Beige is walkable pale cream compacted snow-free stone paths and plaza; MUST ALL remain open visible floor, including both wide center avenues, upper right terrace, and narrow spur downward on right. Blue-gray areas are blocked snow-covered fir forest, rounded alpine rock and distant mountains, low-contrast atmosphere. Pink rectangle at x17.5–30%,y30–43.3% is the roof of a warm apricot wooden healing chalet; violet rectangle adjacent x30–42.5%,y30–43.3% is an alpine shop roof. Tiny RED dot at x23.75%,y48.33% is the exact healing doorway/open porch target; tiny VIOLET dot at x36.25%,y48.33% is shop doorway/open porch target. Build their facades south of their roofs with CLEAR recessed porch openings centered exactly at those dots. Keep the apron below both porches open. Do NOT draw dots. Muted blue rectangle lower-right is a cableway building in the BLOCKED area east of the narrow beige spur. Its entrance faces WEST, connected to beige porch, with terminal location at BLUE dot x73.75%,y71.67%; do not paint console, it is dynamic. Mint dot x81.25%,y28.33% means an open snow-study clearing, no instrument. No UI, text, symbols, signs, people, creatures, decorative characters, place labels, grids or dots. Wide main road exits left exactly at y50–56.7%; northeast road exits right at y20–28.8%; no other exits or roads. Lower spur ENDS at cable station porch, do not extend it south past y78.8%. Rich matte hand-painted storybook style with broad foliage shapes, powder blue and white snow, warm wood, terracotta and muted blue roofs, turquoise distant river only in blocked lower-left. No isometric diorama, photorealism, glossy 3D, pixel art or big ornate geometric plaza. No posts, walls, trees, rocks or furnishings on any beige floor. Keep exact layout, make it an inviting coherent illustrated alpine village with soft light, warm windows and crisp modern2D shapes.\n",
+        "references": [
+          "assets/prompts/passobrina-production-layout-v1.svg"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/passobrina-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D alpine batch derived from Tiled geometry; preserve paths and interactions."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -6544,14 +7250,17 @@
           "name": "Guida alpina",
           "npcId": "passobrina_guide",
           "dialogueId": "passobrina_guide",
-          "characterAppearanceId": null,
-          "identityKey": "npc:passobrina_guide",
-          "profileMatch": null,
+          "characterAppearanceId": "passobrina-alpine-guide",
+          "identityKey": "profile:passobrina-alpine-guide",
+          "profileMatch": "passobrina-alpine-guide",
           "narrativeSpeaker": "Guida alpina",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-guides-and-keepers-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.467,
+            "y": 0.944
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -6716,6 +7425,17 @@
           "path": "assets/scenery/veloria-petalora-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-and-cammino-cast-v1",
+          "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6844,14 +7564,17 @@
           "name": "Custode Ivo",
           "npcId": "petalora_ivo",
           "dialogueId": "petalora_ivo",
-          "characterAppearanceId": null,
-          "identityKey": "npc:petalora_ivo",
-          "profileMatch": null,
+          "characterAppearanceId": "petalora-custodian-ivo",
+          "identityKey": "profile:petalora-custodian-ivo",
+          "profileMatch": "petalora-custodian-ivo",
           "narrativeSpeaker": "Custode Ivo",
           "kind": "npc",
-          "sprite": "veloria-npc-rami-v1",
-          "spriteFrame": null,
-          "spriteOrigin": null,
+          "sprite": "veloria-league-and-cammino-cast-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.479,
+            "y": 0.959
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -6899,7 +7622,7 @@
           "layer": "decorations",
           "stableObjectId": 2100,
           "name": "Portolume illustrata",
-          "spriteKey": "veloria-portolume-v1",
+          "spriteKey": "veloria-portolume-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6913,19 +7636,27 @@
           "layer": "decorations",
           "stableObjectId": 2100,
           "name": "Portolume illustrata",
-          "spriteKey": "veloria-portolume-v1",
+          "spriteKey": "veloria-portolume-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/sprites/veloria-portolume-v1.webp",
+          "assetPath": "assets/scenery/veloria-portolume-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-portolume-illustrated-v3",
+          "path": "assets/scenery/veloria-portolume-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -6951,8 +7682,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-portolume-v1",
-          "path": "assets/sprites/veloria-portolume-v1.webp",
+          "key": "veloria-portolume-illustrated-v3",
+          "path": "assets/scenery/veloria-portolume-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -6969,8 +7700,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/portolume",
+        "tiledAsset": "tilemaps/portolume.tmj",
+        "assetKey": "veloria-portolume-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-portolume-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-portolume-illustrated-v3.webp",
+        "sourceSha256": "ec12c682b80cb9f6abf3948d7439587a57e94513d437bff98e60dcabb516f830",
+        "runtimeSha256": "7ecbef97c95ad78a4075ca19874dfc4738eec6d267a6ff892d546ee85dd98c3e",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Style transfer game background. Preserve exact footprints, doorways, roads, docks, island and south exit of Portolume. Repaint completely in approved R08 modern matte 2D style: broad simple color planes, rounded gray rocks, flat painted blue water without seabed or glitter. Simplify architecture and remove tiny gold ornaments and window tracery. Reduce vegetation density60%, no tall cypresses over paths. Keep service approaches and station patch open. Main south exit x38.75–41.25% connects through main boulevard x42.5–50%y62–74%, x30–35%y77–83%, x37.5–42.5%y85–100%. Healing accessx21.25%y48.3% to60%; marketx36.25%y48.3% to60%; gymdoorx46.25%y21.7%; westexit y56.7–63.3%. Observatory landingx80–92.5%y26.7–36.7%, gaugex91.25%y25% on land. No bridge to island. No baked NPCs, instruments, monorail, text or UI. Exact4:3 northup. First realistic candidate rejected; final matte style correction selected.",
+        "references": [
+          "assets/sources/veloria-portolume-v1.png",
+          "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/portolume-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -9128,7 +9880,7 @@
           "layer": "decorations",
           "stableObjectId": 300,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-r08-coast-v1",
+          "spriteKey": "veloria-r08_costa_turbine-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9142,19 +9894,27 @@
           "layer": "decorations",
           "stableObjectId": 300,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-r08-coast-v1",
+          "spriteKey": "veloria-r08_costa_turbine-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 28.0
           },
-          "assetPath": "assets/sprites/veloria-r08-coast-v1.webp",
+          "assetPath": "assets/scenery/veloria-r08_costa_turbine-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-r08_costa_turbine-illustrated-v3",
+          "path": "assets/scenery/veloria-r08_costa_turbine-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -9187,8 +9947,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r08-coast-v1",
-          "path": "assets/sprites/veloria-r08-coast-v1.webp",
+          "key": "veloria-r08_costa_turbine-illustrated-v3",
+          "path": "assets/scenery/veloria-r08_costa_turbine-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -9216,8 +9976,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r08_costa_turbine",
+        "tiledAsset": "tilemaps/r08_costa_turbine.tmj",
+        "assetKey": "veloria-r08_costa_turbine-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r08_costa_turbine-illustrated-v3.webp",
+        "sourceSha256": "d37255f877a1f907799e42afb46260a5466e8730c645eaac14e487223bf680f5",
+        "runtimeSha256": "b2dc49dfdb335a3530437369d782da98c2d5e503c4d7731f70fe1e55a6c57f9d",
+        "width": 1499,
+        "height": 1049,
+        "prompt": "Style transfer precise game map. Preserve EVERY path, open grass clearing, coastline and fishing spur position exactly. Petalora v3 is mandatory artstyle reference. Repaint substantially into modern matte handpainted 2D: broad color shapes, simple tree crowns, rounded gray rocks, few low-contrast flowers and soft painted turquoise water. No realistic surf, transparent seabed, glints or 3D diorama. Reduce decorative density. Preserve40x28 map aspect10:7: west path y75–82%, vertical corridor x35–40% y39–82%, east path y35.7–42.8%, NW grass x12.5–27.5% y7–18%, NE grass x72.5–87.5% y11–25%, fishing headland x48–57% y43–54%. No solid props over walkable ground. Small turbines in blocked north-center only. No characters, creatures, text, signs, UI, icons, fake exits or heavy balustrades. Initial realistic candidate rejected; final style correction selected.",
+        "references": [
+          "assets/sources/veloria-r08-coast-v1.png",
+          "assets/sources/veloria-petalora-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r08_costa_turbine-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 30,
@@ -9338,7 +10119,7 @@
           "layer": "decorations",
           "stableObjectId": 60,
           "name": "Dune illustrate",
-          "spriteKey": "veloria-r09-dunes-v1",
+          "spriteKey": "veloria-r09_dune_salmastre-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9352,19 +10133,27 @@
           "layer": "decorations",
           "stableObjectId": 60,
           "name": "Dune illustrate",
-          "spriteKey": "veloria-r09-dunes-v1",
+          "spriteKey": "veloria-r09_dune_salmastre-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 28.0
           },
-          "assetPath": "assets/sprites/veloria-r09-dunes-v1.webp",
+          "assetPath": "assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-r09_dune_salmastre-illustrated-v3",
+          "path": "assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -9397,8 +10186,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r09-dunes-v1",
-          "path": "assets/sprites/veloria-r09-dunes-v1.webp",
+          "key": "veloria-r09_dune_salmastre-illustrated-v3",
+          "path": "assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -9412,11 +10201,47 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-r09-r10-coastal-trainers-v1",
+          "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r09_dune_salmastre",
+        "tiledAsset": "tilemaps/r09_dune_salmastre.tmj",
+        "assetKey": "veloria-r09_dune_salmastre-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r09_dune_salmastre-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp",
+        "sourceSha256": "1f6a20df2f34316aefe039b10bce7c8f4ea567eb901e2964a055278f71b466b0",
+        "runtimeSha256": "f849ffeec1f7ecbcf5033d76bb19b96f0fc0e9e96f5d11ff4fdecd2b8519d3a3",
+        "width": 1500,
+        "height": 1049,
+        "prompt": "Production background R09 Dune Salmastre, Veloria. Image1 is mandatory modern matte2D artstyle reference; image2 only oldlayout reference, do NOT copy its realistic shading. Generate landscape EXACT10:7 for40x28tilemap. Cheerful refined handpainted game illustration, broad matte shapes, rounded grayrocks, simple low salt-resistant shrubs and soft dunegrass, few tiny flowers. Warm palepeach sand, calm flat turquoise water at southernshore and upperright reeds. No shiny3D,photographic detail, realisticsurf/seabed, pixelart or isometricperspective. Northup overhead. Keep precise playable paths normalized percentages: northernentrance coversx47.5–52.5% and extends fromtop straightdown toy36%; main junctionx48–53%,y30–36%; easternarm runs acrossx50–72.5%,y30–36%, then turns south downx67.5–75%,y35–64.3%, then goesright acrossx70–100%,y57.1–64.3% tosole easternexit at y60.7%. Maincurves may be slightlyorganic but keep these fullwidthfloorbands clear. Fishing spur x70–75%,y64–75% ends atdry sandyheadland atx73.75%,y73.2%; sea only belowthispoint, no rocks atstandingpoint. Westernbranch runs fromjunction towardx30%,y34%, then south tograssclearingx12.5–25%,y35.7–50%; clear corridorx27.5–35%,y34–50%. Northeasternreedhabitat is open drygrasspatchx80–87.5%,y39.3–50%, connectfrommainpathviax72–87.5%,y43–50%. Leave runtimeNPCfootpositionsx46.25%,y30.4% andx71.25%,y33.9% open; no bakedpeople. Sand and grass clearings must be clearlywalkable, never fill with trees. Put larger dunes/lowshrubmass only blockedareas, notablycentralislandx35–65%,y39–55%; no objects spilling ontofloorbands. No paths towestedge,southedge or anynorthpointbesides central entrance. Remove oldlittleweathervane fromart (runtime owns interactions). No NPC,Pokemon, signs, pickups, instruments, icons,text,UI,border,ornewdoors. Same friendly modern illustrated world asimage1, spatial layout fromabove. No heavy paving or railings.\n\nFinal foot-placement correction:\nPrecise small terrain edit to this approved1499x1049 DuneSalmastre gamebackground, keep SAMEframing10:7 andallmainpaths, colors, rockislands, coastandvegetation exceptoneedge. Widen ONLY easternexit sandyroad SOUTHWARD30pixels. At rightthird x1040–1499pixels, keep upperedgefixed andreplace grass, flowers, littlerocks directlyalongroadloweredge withbare warmsand allthewaydown to y705pixels. On eastedge the exitroad musthave clear sand at y620,y660,y680,y695, notgrassorrocks. Existingpath at x70–100%,y57–64% staysbut extendsdown toy67.2%, no roads movedupwardor sideways. Keep shoreline southofthisnewroadmargin natural. Connect expandedfloor toverticalsandpathnearx1080 seamlessly. No rocks/grass insideexpandedexitlane. Do not touch fishingheadland x1100,y790 or otherpaths, no extrabranches or exits. Preserveillustrated2Dmatteartstyle. No newobjects,people,UI,signs,markers,orPokemon. Onlyclear lower30pixmarginofeastroad.",
+        "references": [
+          "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png",
+          "assets/sources/veloria-r09-dunes-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r09_dune_salmastre-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          },
+          {
+            "promptDocument": "assets/prompts/r09_dune_salmastre-illustrated-v3.md",
+            "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 56,
@@ -9479,14 +10304,17 @@
           "name": "Guardaparco Lina",
           "npcId": "r09_lina",
           "dialogueId": "r09_lina",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r09_lina",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-lina-r09",
+          "identityKey": "profile:route-trainer-lina-r09",
+          "profileMatch": "route-trainer-lina-r09",
           "narrativeSpeaker": "Lina",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 2,
-          "spriteOrigin": null,
+          "sprite": "veloria-r09-r10-coastal-trainers-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.597,
+            "y": 0.979
+          },
           "trainerId": "veloria/trainer_r09_lina",
           "battleOnceFlag": "trainer_r09_lina_defeated",
           "frame": null,
@@ -9502,14 +10330,17 @@
           "name": "Noemi",
           "npcId": "r09_noemi",
           "dialogueId": "r09_noemi",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r09_noemi",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-noemi-r09",
+          "identityKey": "profile:route-trainer-noemi-r09",
+          "profileMatch": "route-trainer-noemi-r09",
           "narrativeSpeaker": "Noemi",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 2,
-          "spriteOrigin": null,
+          "sprite": "veloria-r09-r10-coastal-trainers-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.514,
+            "y": 0.979
+          },
           "trainerId": "veloria/trainer_r09_noemi",
           "battleOnceFlag": "trainer_r09_noemi_defeated",
           "frame": null,
@@ -9557,7 +10388,7 @@
           "layer": "decorations",
           "stableObjectId": 76,
           "name": "Sentiero illustrato",
-          "spriteKey": "veloria-r10-reeds-v1",
+          "spriteKey": "veloria-r10_sentiero_canne-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9571,19 +10402,27 @@
           "layer": "decorations",
           "stableObjectId": 76,
           "name": "Sentiero illustrato",
-          "spriteKey": "veloria-r10-reeds-v1",
+          "spriteKey": "veloria-r10_sentiero_canne-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/sprites/veloria-r10-reeds-v1.webp",
+          "assetPath": "assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-r10_sentiero_canne-illustrated-v3",
+          "path": "assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -9609,8 +10448,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r10-reeds-v1",
-          "path": "assets/sprites/veloria-r10-reeds-v1.webp",
+          "key": "veloria-r10_sentiero_canne-illustrated-v3",
+          "path": "assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -9624,11 +10463,51 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-r09-r10-coastal-trainers-v1",
+          "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r10_sentiero_canne",
+        "tiledAsset": "tilemaps/r10_sentiero_canne.tmj",
+        "assetKey": "veloria-r10_sentiero_canne-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r10_sentiero_canne-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp",
+        "sourceSha256": "99cb8e848e43f846eb1039590263cdb5b62f400fc6c1eee438ad5e9cd2b42cae",
+        "runtimeSha256": "7aff87c5289ab1ee78e4121e79a6ea48efbf3c4708c3a2cf9161dd8be1dcb43c",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Trace this1280x960 levelcollision blueprint into a polished modern2D illustrated game background. Exact4:3canvas andsameframing. Tanmask is authoritative WALKABLEFLOOR geometry, not aroughconcept. Keepfloorart underneath EVERYtanpixel, traceoutercontours withouttranslation. Mainmaskbentrouteis honeywoodenplanks. Walkwaycenterlines leftx336and368(tiles10and11), rightx656and688(tiles20and21), kitendx1008tile31. Westentrancefloory672–736,x0–384; leftstemx320–384,y160–736; centralcrossbarx320–704,y416–480; rightstemx640–704,y128–480; tophorizontalx640–1280,y128–192. ExactgeometryIMPORTANT no recentering and no movingangles. Easternbranch is smallirregulartanmask leavingtopbarnearx976anddescending togroundislet nearx1040,y400, endingwoodenspur atx992–1024,y640. Mustbe drywoodunderkitpointx1008,y624 (65%y), notwater. Broadtanareas areGRASSYDRYlandings: top-leftwillowclearingx288–416,y160–288; lowerleftreedhabitatx96–256,y512–608; upperrightreedhabitatx1024–1120,y352–448. Drawgrassinsidetheseclearings, withno solidtree/rocktrunkinsideclearwalkablemask. Willowaboveupperleftisletcanoverhangblockedperimeteronly, no bellbaked. Surroundtanmaskwithcalmflatpaintedturquoisegreenmarshwater, tastefullowwillow/reedislands strictlywithinblueareas. Modernstorybookgouacheillustration, softmattebroadshapes, roundedgrayrocks, subtleirises, no glitter or realisticseabed, no3Disometricminiature,pixelart. Sparsepostsoutsidefloor, neverinsidefloorlanes/junctions. No extraboardwalkbranch orpath tootheredges, nopeople,Pokemon,markers,text,icons,UI,signs,pickups,instruments orframe. Followdiagramcoordinates precisely withquietbreathingroom.\n\nFinal foot-placement correction:\nSmall precise objectedit ONLY of this approved1448x1086 gamebackground, preservewater,style,landings,willows, verticalbridgepositions, ALLroutecenterlines, framing4:3. Extend ONLY the BOTTOMedges of the THREE horizontalwoodendecks DOWN by30pixels, keepingtheirTOPedges andleft/rightends FIXED. Upperhorizontaldeck currentlyfloory145..208 mustextenddown to y240 alongx734..1448. Middlehorizontalcrossbar currentlyy475..533 mustextenddown to y565 alongx360..800. Westentrancehorizontal currentlyy766..831 mustextenddown toy865 alongx0..435. No other changes to theseroutes, don'ttranslatebridges. Movebottomrail/posts toNEWloweredges, leavingfullfloorclear withno oldrailinside it. Keepverticalstemsatleftx363..434, rightx728..798 andeasternspuratx1119..1163, no sidewaysshifts. Extend onlysouthtip ofeasternkitspur fromy720 to y760, makingdrywoodfloorunder x1140,y730, posts atnewend. Theplayerfeet sitbelowtilecenter andneedthis extra southmargin; don'tnarrow decks. Preserve grassyislets, exactexits andnoextrabridges. No text,characters,UI,Pokemon,markers,instruments. Same modernmatte2D painterlystyle. ONLYsouthwardwoodfloorwidening.\n\nFinal post removal:\nPrecise object removal only to thisapprovedgamebackground. Remove ALL cylindricaluprightwoodenposts, roundcapdiscs,bollards andropes from EVERY boardwalk, including oldposts insidewideneddecks andgrassyplatformcornerposts. Theyare false obstacles forplayer; inpaint with matchingplankfloor wheretheywereonthedeck, matchingwater outside. Keep everyboardwalkfloorboundary,width,position,centerline andconnection EXACTLYunchanged. Do not change grassplatforms, willowtrees,water,colors,shadowsstyle orframing. Simple flat uninterruptedwoodenplankwalkways with thinouteredgeandundershadowonly. No verticalposts/railsorropes anywhere alongthem, no othernewobjects, no text/UI/characters. Preserve exact1448x1086 4:3. No resizing/croppingorbridgegeometrychanges. Onlyremove the visiblepostobjects to leavecleanwalkablefloor.",
+        "references": [
+          "public/tilemaps/r10_sentiero_canne.tmj",
+          "assets/prompts/r10-layout-guide-v1.svg"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          },
+          {
+            "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+            "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+          },
+          {
+            "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+            "reason": "Remove painted posts from walkable floor after native screenshot review."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 71,
@@ -9691,14 +10570,17 @@
           "name": "Esploratrice Maya",
           "npcId": "r10_maya",
           "dialogueId": "r10_maya",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r10_maya",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-maya-r10",
+          "identityKey": "profile:route-trainer-maya-r10",
+          "profileMatch": "route-trainer-maya-r10",
           "narrativeSpeaker": "Maya",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-r09-r10-coastal-trainers-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.596,
+            "y": 0.93
+          },
           "trainerId": "veloria/trainer_r10_maya",
           "battleOnceFlag": "trainer_r10_maya_defeated",
           "frame": null,
@@ -9714,14 +10596,17 @@
           "name": "Bruno",
           "npcId": "r10_bruno",
           "dialogueId": "r10_bruno",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r10_bruno",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-bruno-r10",
+          "identityKey": "profile:route-trainer-bruno-r10",
+          "profileMatch": "route-trainer-bruno-r10",
           "narrativeSpeaker": "Bruno",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-r09-r10-coastal-trainers-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.5,
+            "y": 0.931
+          },
           "trainerId": "veloria/trainer_r10_bruno",
           "battleOnceFlag": "trainer_r10_bruno_defeated",
           "frame": null,
@@ -9769,7 +10654,7 @@
           "layer": "decorations",
           "stableObjectId": 72,
           "name": "Via delle Cascate illustrata",
-          "spriteKey": "veloria-r11-cascades-v1",
+          "spriteKey": "veloria-r11_via_cascate-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9783,19 +10668,27 @@
           "layer": "decorations",
           "stableObjectId": 72,
           "name": "Via delle Cascate illustrata",
-          "spriteKey": "veloria-r11-cascades-v1",
+          "spriteKey": "veloria-r11_via_cascate-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/sprites/veloria-r11-cascades-v1.webp",
+          "assetPath": "assets/scenery/veloria-r11_via_cascate-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-r11_via_cascate-illustrated-v3",
+          "path": "assets/scenery/veloria-r11_via_cascate-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -9832,15 +10725,46 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r11-cascades-v1",
-          "path": "assets/sprites/veloria-r11-cascades-v1.webp",
+          "key": "veloria-r11_via_cascate-illustrated-v3",
+          "path": "assets/scenery/veloria-r11_via_cascate-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-delta-route-cast-v1",
+          "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r11_via_cascate",
+        "tiledAsset": "tilemaps/r11_via_cascate.tmj",
+        "assetKey": "veloria-r11_via_cascate-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r11_via_cascate-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r11_via_cascate-illustrated-v3.webp",
+        "sourceSha256": "ca4a144d8dc788c50be09ab64f7adef3ecf26e8b6c7aba6997e0da96bfe07b9a",
+        "runtimeSha256": "0430ba2eb525750df147d25b9d851ba951ae8a0c00ce5dd8fd0a775d132bc518",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Use case: style-transfer. Production full-map background for Veloria, modern illustrated 2D orthographic north-up adventure game. Image1 is exact geometry/layout reference and edit target, not desired style. Repaint entire image into refined matte children's adventure illustration: broad confident painted shapes, rounded simplified rock formations, soft willow foliage, turquoise painted water, ivory sandy path, gentle sunlight. Clearly illustrated, NOT photorealistic, NOT a 3D diorama, NOT pixel art. Keep the precise footprint and full width of ALL walkable pale ground from image1: winding north-south path on the left, both side clearings on left and semicircular lookout midway. Preserve path exits at north x49-53% and south x40-46%. Keep waterfalls and turquoise water entirely on existing right side. Keep all walkable paths and clearings free of rocks, trunks, pillars and railings; remove little posts entirely for readable floor. Existing blocked wooded rocky areas may be simplified, retain silhouette footprints. Keep entire rectangular map aspect4:3; no framing, margin, vignette, black outside or cropping. No people, Pokemon, creatures, interactive sensors, signs, symbols, letters, UI or text. Modern polished hand-painted flat orthographic game environment with readable light paths and restrained decorative detail. Waterfall tiers beautiful but simplified into designed flowing white shapes instead of individual photorealistic droplets. Preserve exact path geometry; no new branches or doors.\n",
+        "references": [
+          "assets/sources/veloria-r11-cascades-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r11_via_cascate-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 69,
@@ -9903,14 +10827,17 @@
           "name": "Celia",
           "npcId": "r11_celia",
           "dialogueId": "r11_celia",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r11_celia",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-celia-r11",
+          "identityKey": "profile:route-trainer-celia-r11",
+          "profileMatch": "route-trainer-celia-r11",
           "narrativeSpeaker": "Celia",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-delta-route-cast-v1",
           "spriteFrame": 1,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.539,
+            "y": 0.969
+          },
           "trainerId": "veloria/trainer_r11_celia",
           "battleOnceFlag": "trainer_r11_celia_defeated",
           "frame": null,
@@ -9946,7 +10873,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-r12-wind-valley-v1",
+        "assetKey": "veloria-r12_valle_vento-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -9962,7 +10889,7 @@
           "layer": "decorations",
           "stableObjectId": 600,
           "name": "Valle del Vento illustrata",
-          "spriteKey": "veloria-r12-wind-valley-v1",
+          "spriteKey": "veloria-r12_valle_vento-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -9976,14 +10903,14 @@
           "layer": "decorations",
           "stableObjectId": 600,
           "name": "Valle del Vento illustrata",
-          "spriteKey": "veloria-r12-wind-valley-v1",
+          "spriteKey": "veloria-r12_valle_vento-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-r12-wind-valley-v1.webp",
+          "assetPath": "assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -9991,8 +10918,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r12-wind-valley-v1",
-          "path": "assets/scenery/veloria-r12-wind-valley-v1.webp",
+          "key": "veloria-r12_valle_vento-illustrated-v3",
+          "path": "assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -10022,8 +10949,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r12-wind-valley-v1",
-          "path": "assets/scenery/veloria-r12-wind-valley-v1.webp",
+          "key": "veloria-r12_valle_vento-illustrated-v3",
+          "path": "assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -10033,11 +10960,43 @@
           "path": "assets/creatures/pokeapi-gen1-143-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-delta-route-cast-v1",
+          "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r12_valle_vento",
+        "tiledAsset": "tilemaps/r12_valle_vento.tmj",
+        "assetKey": "veloria-r12_valle_vento-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r12_valle_vento-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r12_valle_vento-illustrated-v3.webp",
+        "sourceSha256": "87d5ea3d8b10778ac04a2b3c440190600734f26140ad84509f6eafce94d11a19",
+        "runtimeSha256": "fa74435aca8c8473325e8ad99ab5616091e58273d5e57e828e17984a2d32e81d",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create production modern illustrated2D RPG background Valle del Vento in Veloria, by rendering this exact1280x960 collisionblueprint. Exact4:3 sameframing,northup. Tanmask is passableland and LIGHTearthpaths, traceitsposition precisely; lightgreenrectangles are clear grassyhabitats; darkgreen is blockedforest/cliffdecor. Do notshiftpathcenters, do notreducefloorwidths. Floorbrownmask alreadyincludesextraSOUTHmargin foravatarfeet: preserveENTIREtanarea asclearwalkableground. Refinedmodernstorybookgouache, broadmattecolorplanes, roundedcanopies/smoothgrayrocks, sagegrass, gentlegoldenautumntrees, sparsepurplewildflowers, softambientlight. Notphotographic3D,isometricminiature,pixelart,glitterorrealisticseabed. Richbutquietdetail inblockedperimeter, readable paths. MainroutefromWESTedge y73–85% goes east to central-leftverticalx30–37.5%, climbto y40–49%, cross easttox58–65%, climbtobranchjunctionaroundx62%,y25%, theneasttoRIGHTedgey13–23%. No northorsouth exits. CRITICAL Snorlaxbranch: anunobstructedcontinuoussoilpath fromupperjunction x62%,y26% runsEASTtox68–75%, thenturnsSOUTHstraightdown throughx67.5–75%,y26–72%, endinginwideclearing. Entirefloorofthisbranchmustbevisible, no boulders, forestwall, dropsorwaterinterruptions. Snorlaxruntimepoint x71.25%,y58.3% needsbareemptydryground andapproachfromnorth, neverbakePokemon. Bake ONLYtwo smallstaticinteractionlandmarks (no runtimeart): a simplewindmeasurementpolewithweathervane atx31.25%,y25%,basewithinonecell; a SMALLthermometerpost atx71.25%,y65%,basewithinonecell, lowinstrumentnotahouse. Nootherinstrumentsorbuildings. Keepimmediateapproaches totheseobjects dryandopen. DoNOTbakeSnorlaxorotherPokemon,NPCs,signs,arrows,markers,text,UI,bridges,stairs,doors orbigobservatory. Lightgreenhabitats x10–22.5%y33–50% andx80–90%y27–47% stayopenlowgrasswithnobigrocktrunks. Blockeddarkgreenregionbecomesnaturalwoods/hills; quietsmallblueuplandlake MAYappearonlyinblockedupperleft x5–40%y0–17% leavingpathsintact. Afewsmallwindturbines onblockedfar-northernridge echoValleidentity. Modernfriendly2Dillustratedgame, warmcleanpaths, noheavydecorativerailings. Allfloors exactdiagram, no misleading newroutes.\n\nFinal object-removal edit:\nPrecise object removal ONLY. Remove the TWO small measuring instruments from thismap: the windweathervanepole nearx450,y280 and the thermometergauge nearx1040,y660. Replace both cleanly with the SAME bare sandy ground asaroundthem. The game will render instrumentsat exactinteractivecoordinates so nobakedinstrumentsallowed. Preserve ALL paths, branch, clearings, coastline,lake,trees,mountains,turbinesinthefarbackground,palette,style and all floorgeometry EXACTLY. Do NOTmoveorresizeanything else. No extraobjects/signs/characters/Pokemon/text/markers/UI. Keep1448x1086canvas4:3 sameframing. Onlyremove2foregroundinstrumentobjects andtheirshadows,bases.",
+        "references": [
+          "public/tilemaps/r12_valle_vento.tmj",
+          "assets/prompts/r12-layout-guide-v1.svg"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r12_valle_vento-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 500,
@@ -10100,14 +11059,17 @@
           "name": "Ruben",
           "npcId": "r12_ruben",
           "dialogueId": "r12_ruben",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r12_ruben",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-ruben-r12",
+          "identityKey": "profile:route-trainer-ruben-r12",
+          "profileMatch": "route-trainer-ruben-r12",
           "narrativeSpeaker": "Ruben",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-delta-route-cast-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.603,
+            "y": 0.914
+          },
           "trainerId": "veloria/trainer_r12_ruben",
           "battleOnceFlag": "trainer_r12_ruben_defeated",
           "frame": null,
@@ -10141,11 +11103,7 @@
         "height": 30
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-r13-white-switchbacks-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 1200,
@@ -10153,26 +11111,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 1058,
+          "name": "Tornanti Bianchi illustrati",
+          "spriteKey": "veloria-r13_tornanti_bianchi-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 1058,
+          "name": "Tornanti Bianchi illustrati",
+          "spriteKey": "veloria-r13_tornanti_bianchi-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          },
+          "assetPath": "assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r13-white-switchbacks-v1",
-          "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp",
+          "key": "veloria-r13_tornanti_bianchi-illustrated-v3",
+          "path": "assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-r13-white-switchbacks-v1",
-          "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -10197,8 +11176,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r13-white-switchbacks-v1",
-          "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp",
+          "key": "veloria-r13_tornanti_bianchi-illustrated-v3",
+          "path": "assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -10208,11 +11187,42 @@
           "path": "assets/creatures/pokeapi-gen1-144-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-delta-route-cast-v1",
+          "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "tiledAsset": "tilemaps/r13_tornanti_bianchi.tmj",
+        "assetKey": "veloria-r13_tornanti_bianchi-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r13_tornanti_bianchi-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp",
+        "sourceSha256": "72c8ea9b727d31ef456e44c77da40619f3b2bcbf7fcd6cf4858e7e853ecab3f1",
+        "runtimeSha256": "83521eb3e675c185816ae77f24a85d2ac59f003417c3fa1e2a40b177324c8845",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Use case: sketch-to-render. Production full-map background for modern illustrated 2D adventure game Veloria: Tornanti Bianchi snowy alpine switchbacks. Attached image is exact full40x30 walkability diagram, north-up,4:3. Render a richly beautiful matte hand-painted illustration, broad designed fir foliage, powder blue snow and ivory compacted snow walking trail, rounded rocks with subtle mauve shadows, gentle winter sunlight, crisp modern2D storybook materials. NOT realistic, not isometric miniature, not pixel art. Every BEIGE pixel in reference MUST become continuous open visibly walkable pale trail/clearing with absolutely no rocks, trunks, fences, railings, posts, buildings or props over it. Keep all path centerline positions and width; soften only the outer stair-step edges into natural broad curves extending a little INTO blue blocked region, never narrowing beige floor. The long path enters west at y80–85%, travels east to x70–75%, goes north then toward east clearing x75–92.5%,y53–65%, goes northwest along middle horizontal trail y43–52%, reaches small northwest clearing x15–25%,y30–42%, then goes northeast to the top horizontal trail y13–22%, exits east at y16–22%. Do not invent extra connections across the blue regions or to other map edges. Two GREEN patches are low snow-dusted alpine grass habitat, preserve exact positions and size: northwest x20–25%,y33–42%; east x80–85%,y57–65%. Grass should be distinct light sage tufts, walkable, not a tree crown. Blue-gray region is blocked snowy rock and fir forest. Decorate around paths with natural fir clusters, restrained grasses and snowdrifts; no literal blue diagram fill left. Leave the lower bend at x68.75%,y78.33% open for a dynamic Articuno character: NO creature or nest baked into image. Leave middle path around x63.75%,y45% clear for dynamic trainer. No text, symbols, markers, labels, people, creatures, sensor, signs, buildings, UI, border or margins. No huge cliff perspective; shallow rounded rocky banks and painted snow imply heights without a 3D camera. Full rectangular map all edges filled. Exact4:3 aspect. An appealing modern illustrated adventure environment, coherent with cream paths and soft blue snowy surroundings.\n",
+        "references": [
+          "assets/prompts/r13-production-layout-v1.svg"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r13_tornanti_bianchi-illustrated-v3.md",
+            "reason": "Modern matte illustrated 2D alpine batch derived from Tiled geometry; preserve paths and interactions."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 52,
@@ -10275,14 +11285,17 @@
           "name": "Alma",
           "npcId": "r13_alma",
           "dialogueId": "r13_alma",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r13_alma",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-alma-r13",
+          "identityKey": "profile:route-trainer-alma-r13",
+          "profileMatch": "route-trainer-alma-r13",
           "narrativeSpeaker": "Alma",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 5,
-          "spriteOrigin": null,
+          "sprite": "veloria-delta-route-cast-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.452,
+            "y": 0.93
+          },
           "trainerId": "veloria/trainer_r13_alma",
           "battleOnceFlag": "trainer_r13_alma_defeated",
           "frame": null,
@@ -10377,6 +11390,17 @@
           "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-guides-and-keepers-v1",
+          "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -10450,14 +11474,17 @@
           "name": "Guida del varco",
           "npcId": "r14_guide",
           "dialogueId": "r14_guide",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r14_guide",
-          "profileMatch": null,
+          "characterAppearanceId": "r14-guide-livia",
+          "identityKey": "profile:r14-guide-livia",
+          "profileMatch": "r14-guide-livia",
           "narrativeSpeaker": "Guida Livia",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-guides-and-keepers-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.561,
+            "y": 0.92
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -10718,6 +11745,17 @@
           "path": "assets/scenery/veloria-r16-equilibrium-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-league-and-cammino-cast-v1",
+          "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -10797,14 +11835,17 @@
           "name": "Maia",
           "npcId": "r16_maia",
           "dialogueId": "r16_maia",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r16_maia",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-maia-r16",
+          "identityKey": "profile:route-trainer-maia-r16",
+          "profileMatch": "route-trainer-maia-r16",
           "narrativeSpeaker": "Maia",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-league-and-cammino-cast-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.538,
+            "y": 0.915
+          },
           "trainerId": "veloria/trainer_r16_maia",
           "battleOnceFlag": "trainer_r16_maia_defeated",
           "frame": null,
@@ -10820,14 +11861,17 @@
           "name": "Tobia",
           "npcId": "r16_tobia",
           "dialogueId": "r16_tobia",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r16_tobia",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-tobia-r16",
+          "identityKey": "profile:route-trainer-tobia-r16",
+          "profileMatch": "route-trainer-tobia-r16",
           "narrativeSpeaker": "Tobia",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-league-and-cammino-cast-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.539,
+            "y": 0.921
+          },
           "trainerId": "veloria/trainer_r16_tobia",
           "battleOnceFlag": "trainer_r16_tobia_defeated",
           "frame": null,
@@ -10991,6 +12035,17 @@
           "path": "assets/scenery/veloria-radicelmo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-guides-and-keepers-v1",
+          "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -11111,14 +12166,17 @@
           "name": "Custode Leda",
           "npcId": "radicelmo_keeper",
           "dialogueId": "radicelmo_keeper",
-          "characterAppearanceId": null,
-          "identityKey": "npc:radicelmo_keeper",
-          "profileMatch": null,
+          "characterAppearanceId": "radicelmo-keeper-leda",
+          "identityKey": "profile:radicelmo-keeper-leda",
+          "profileMatch": "radicelmo-keeper-leda",
           "narrativeSpeaker": "Custode Leda",
           "kind": "npc",
-          "sprite": "veloria-npc-leda-v1",
-          "spriteFrame": null,
-          "spriteOrigin": null,
+          "sprite": "veloria-guides-and-keepers-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.53,
+            "y": 0.924
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -11558,14 +12616,17 @@
       "name": "Guida di Biancavetta",
       "npcId": "biancavetta_guide",
       "dialogueId": "biancavetta_guide",
-      "characterAppearanceId": null,
-      "identityKey": "npc:biancavetta_guide",
-      "profileMatch": null,
+      "characterAppearanceId": "biancavetta-guide",
+      "identityKey": "profile:biancavetta-guide",
+      "profileMatch": "biancavetta-guide",
       "narrativeSpeaker": "Guida di Biancavetta",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-guides-and-keepers-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.504,
+        "y": 0.937
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11690,14 +12751,17 @@
       "name": "Tecnica della Centrale",
       "npcId": "centrale_technician",
       "dialogueId": "centrale_technician",
-      "characterAppearanceId": null,
-      "identityKey": "npc:centrale_technician",
-      "profileMatch": null,
-      "narrativeSpeaker": "Tecnico della Centrale",
+      "characterAppearanceId": "centrale-technician",
+      "identityKey": "profile:centrale-technician",
+      "profileMatch": "centrale-technician",
+      "narrativeSpeaker": "Tecnica della Centrale",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-centrale-technician-v1",
+      "spriteFrame": null,
+      "spriteOrigin": {
+        "x": 0.495,
+        "y": 0.95
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11741,14 +12805,17 @@
       "name": "Naturalista Teo",
       "npcId": "delta_teo",
       "dialogueId": "delta_teo",
-      "characterAppearanceId": null,
-      "identityKey": "npc:delta_teo",
-      "profileMatch": null,
+      "characterAppearanceId": "delta-naturalist-teo",
+      "identityKey": "profile:delta-naturalist-teo",
+      "profileMatch": "delta-naturalist-teo",
       "narrativeSpeaker": "Teo",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-delta-route-cast-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.587,
+        "y": 0.966
+      },
       "trainerId": "veloria/trainer_delta_teo",
       "battleOnceFlag": "trainer_delta_teo_defeated",
       "frame": null,
@@ -12224,14 +13291,17 @@
       "name": "Accoglienza della Lega",
       "npcId": "league_reception",
       "dialogueId": "league_reception",
-      "characterAppearanceId": null,
-      "identityKey": "npc:league_reception",
-      "profileMatch": null,
+      "characterAppearanceId": "league-receptionist",
+      "identityKey": "profile:league-receptionist",
+      "profileMatch": "league-receptionist",
       "narrativeSpeaker": "Accoglienza della Lega",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-league-and-cammino-cast-v1",
       "spriteFrame": 0,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.54,
+        "y": 0.951
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -12248,14 +13318,17 @@
       "name": "Guida alpina",
       "npcId": "passobrina_guide",
       "dialogueId": "passobrina_guide",
-      "characterAppearanceId": null,
-      "identityKey": "npc:passobrina_guide",
-      "profileMatch": null,
+      "characterAppearanceId": "passobrina-alpine-guide",
+      "identityKey": "profile:passobrina-alpine-guide",
+      "profileMatch": "passobrina-alpine-guide",
       "narrativeSpeaker": "Guida alpina",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-guides-and-keepers-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.467,
+        "y": 0.944
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -12272,14 +13345,17 @@
       "name": "Custode Ivo",
       "npcId": "petalora_ivo",
       "dialogueId": "petalora_ivo",
-      "characterAppearanceId": null,
-      "identityKey": "npc:petalora_ivo",
-      "profileMatch": null,
+      "characterAppearanceId": "petalora-custodian-ivo",
+      "identityKey": "profile:petalora-custodian-ivo",
+      "profileMatch": "petalora-custodian-ivo",
       "narrativeSpeaker": "Custode Ivo",
       "kind": "npc",
-      "sprite": "veloria-npc-rami-v1",
-      "spriteFrame": null,
-      "spriteOrigin": null,
+      "sprite": "veloria-league-and-cammino-cast-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.479,
+        "y": 0.959
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -12539,14 +13615,17 @@
       "name": "Guardaparco Lina",
       "npcId": "r09_lina",
       "dialogueId": "r09_lina",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r09_lina",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-lina-r09",
+      "identityKey": "profile:route-trainer-lina-r09",
+      "profileMatch": "route-trainer-lina-r09",
       "narrativeSpeaker": "Lina",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 2,
-      "spriteOrigin": null,
+      "sprite": "veloria-r09-r10-coastal-trainers-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.597,
+        "y": 0.979
+      },
       "trainerId": "veloria/trainer_r09_lina",
       "battleOnceFlag": "trainer_r09_lina_defeated",
       "frame": null,
@@ -12563,14 +13642,17 @@
       "name": "Noemi",
       "npcId": "r09_noemi",
       "dialogueId": "r09_noemi",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r09_noemi",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-noemi-r09",
+      "identityKey": "profile:route-trainer-noemi-r09",
+      "profileMatch": "route-trainer-noemi-r09",
       "narrativeSpeaker": "Noemi",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 2,
-      "spriteOrigin": null,
+      "sprite": "veloria-r09-r10-coastal-trainers-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.514,
+        "y": 0.979
+      },
       "trainerId": "veloria/trainer_r09_noemi",
       "battleOnceFlag": "trainer_r09_noemi_defeated",
       "frame": null,
@@ -12587,14 +13669,17 @@
       "name": "Esploratrice Maya",
       "npcId": "r10_maya",
       "dialogueId": "r10_maya",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r10_maya",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-maya-r10",
+      "identityKey": "profile:route-trainer-maya-r10",
+      "profileMatch": "route-trainer-maya-r10",
       "narrativeSpeaker": "Maya",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-r09-r10-coastal-trainers-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.596,
+        "y": 0.93
+      },
       "trainerId": "veloria/trainer_r10_maya",
       "battleOnceFlag": "trainer_r10_maya_defeated",
       "frame": null,
@@ -12611,14 +13696,17 @@
       "name": "Bruno",
       "npcId": "r10_bruno",
       "dialogueId": "r10_bruno",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r10_bruno",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-bruno-r10",
+      "identityKey": "profile:route-trainer-bruno-r10",
+      "profileMatch": "route-trainer-bruno-r10",
       "narrativeSpeaker": "Bruno",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-r09-r10-coastal-trainers-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.5,
+        "y": 0.931
+      },
       "trainerId": "veloria/trainer_r10_bruno",
       "battleOnceFlag": "trainer_r10_bruno_defeated",
       "frame": null,
@@ -12635,14 +13723,17 @@
       "name": "Celia",
       "npcId": "r11_celia",
       "dialogueId": "r11_celia",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r11_celia",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-celia-r11",
+      "identityKey": "profile:route-trainer-celia-r11",
+      "profileMatch": "route-trainer-celia-r11",
       "narrativeSpeaker": "Celia",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-delta-route-cast-v1",
       "spriteFrame": 1,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.539,
+        "y": 0.969
+      },
       "trainerId": "veloria/trainer_r11_celia",
       "battleOnceFlag": "trainer_r11_celia_defeated",
       "frame": null,
@@ -12659,14 +13750,17 @@
       "name": "Ruben",
       "npcId": "r12_ruben",
       "dialogueId": "r12_ruben",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r12_ruben",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-ruben-r12",
+      "identityKey": "profile:route-trainer-ruben-r12",
+      "profileMatch": "route-trainer-ruben-r12",
       "narrativeSpeaker": "Ruben",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-delta-route-cast-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.603,
+        "y": 0.914
+      },
       "trainerId": "veloria/trainer_r12_ruben",
       "battleOnceFlag": "trainer_r12_ruben_defeated",
       "frame": null,
@@ -12683,14 +13777,17 @@
       "name": "Alma",
       "npcId": "r13_alma",
       "dialogueId": "r13_alma",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r13_alma",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-alma-r13",
+      "identityKey": "profile:route-trainer-alma-r13",
+      "profileMatch": "route-trainer-alma-r13",
       "narrativeSpeaker": "Alma",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 5,
-      "spriteOrigin": null,
+      "sprite": "veloria-delta-route-cast-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.452,
+        "y": 0.93
+      },
       "trainerId": "veloria/trainer_r13_alma",
       "battleOnceFlag": "trainer_r13_alma_defeated",
       "frame": null,
@@ -12707,14 +13804,17 @@
       "name": "Guida del varco",
       "npcId": "r14_guide",
       "dialogueId": "r14_guide",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r14_guide",
-      "profileMatch": null,
+      "characterAppearanceId": "r14-guide-livia",
+      "identityKey": "profile:r14-guide-livia",
+      "profileMatch": "r14-guide-livia",
       "narrativeSpeaker": "Guida Livia",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-guides-and-keepers-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.561,
+        "y": 0.92
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -12758,14 +13858,17 @@
       "name": "Maia",
       "npcId": "r16_maia",
       "dialogueId": "r16_maia",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r16_maia",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-maia-r16",
+      "identityKey": "profile:route-trainer-maia-r16",
+      "profileMatch": "route-trainer-maia-r16",
       "narrativeSpeaker": "Maia",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-league-and-cammino-cast-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.538,
+        "y": 0.915
+      },
       "trainerId": "veloria/trainer_r16_maia",
       "battleOnceFlag": "trainer_r16_maia_defeated",
       "frame": null,
@@ -12782,14 +13885,17 @@
       "name": "Tobia",
       "npcId": "r16_tobia",
       "dialogueId": "r16_tobia",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r16_tobia",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-tobia-r16",
+      "identityKey": "profile:route-trainer-tobia-r16",
+      "profileMatch": "route-trainer-tobia-r16",
       "narrativeSpeaker": "Tobia",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-league-and-cammino-cast-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.539,
+        "y": 0.921
+      },
       "trainerId": "veloria/trainer_r16_tobia",
       "battleOnceFlag": "trainer_r16_tobia_defeated",
       "frame": null,
@@ -12806,14 +13912,17 @@
       "name": "Custode Leda",
       "npcId": "radicelmo_keeper",
       "dialogueId": "radicelmo_keeper",
-      "characterAppearanceId": null,
-      "identityKey": "npc:radicelmo_keeper",
-      "profileMatch": null,
+      "characterAppearanceId": "radicelmo-keeper-leda",
+      "identityKey": "profile:radicelmo-keeper-leda",
+      "profileMatch": "radicelmo-keeper-leda",
       "narrativeSpeaker": "Custode Leda",
       "kind": "npc",
-      "sprite": "veloria-npc-leda-v1",
-      "spriteFrame": null,
-      "spriteOrigin": null,
+      "sprite": "veloria-guides-and-keepers-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.53,
+        "y": 0.924
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,

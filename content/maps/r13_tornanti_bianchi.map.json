@@ -4,11 +4,6 @@
   "displayName": "Tornanti Bianchi",
   "biomeId": "snow_switchbacks",
   "tiledAsset": "tilemaps/r13_tornanti_bianchi.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-r13-white-switchbacks-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -29,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r13-white-switchbacks-v1",
-      "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp"
+      "key": "veloria-r13_tornanti_bianchi-illustrated-v3",
+      "path": "assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -85,5 +80,5 @@
     "veloria/q_r13_alma"
   ],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-r13-white-switchbacks-v1"
+  "battleBackgroundKey": "veloria-r13_tornanti_bianchi-illustrated-v3"
 }

@@ -5,7 +5,7 @@
   "biomeId": "alpine_village",
   "tiledAsset": "tilemaps/passobrina.tmj",
   "terrainBase": {
-    "assetKey": "veloria-passobrina-v1",
+    "assetKey": "veloria-passobrina-illustrated-v3",
     "tilesetName": "veloria_terrain",
     "tileIndex": 0
   },
@@ -29,8 +29,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-passobrina-v1",
-      "path": "assets/scenery/veloria-passobrina-v1.webp"
+      "key": "veloria-passobrina-illustrated-v3",
+      "path": "assets/scenery/veloria-passobrina-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -86,5 +86,5 @@
     "veloria/q_passobrina_report"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-passobrina-v1"
+  "battleBackgroundKey": "veloria-passobrina-illustrated-v3"
 }

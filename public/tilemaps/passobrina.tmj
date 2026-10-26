@@ -2743,6 +2743,11 @@
               "name": "message",
               "type": "string",
               "value": "Cure e deposito per la squadra."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "heal"
             }
           ]
         },
@@ -2770,6 +2775,11 @@
               "name": "message",
               "type": "string",
               "value": "Benvenuto alla Bottega alpina! Prepariamo lo zaino per la neve."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "shop"
             }
           ]
         },
@@ -2797,6 +2807,11 @@
               "name": "questEvent",
               "type": "string",
               "value": "passobrina/snow/read"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -2829,6 +2844,11 @@
               "name": "stopId",
               "type": "string",
               "value": "passobrina"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "cable"
             }
           ]
         }
@@ -2933,7 +2953,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-passobrina-v1"
+              "value": "veloria-passobrina-illustrated-v3"
             },
             {
               "name": "renderDepth",

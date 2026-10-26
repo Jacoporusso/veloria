@@ -4559,7 +4559,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 1058,
+          "name": "Tornanti Bianchi illustrati",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r13_tornanti_bianchi-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4568,7 +4597,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1058,
+  "nextobjectid": 1059,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

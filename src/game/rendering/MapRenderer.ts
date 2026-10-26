@@ -13,6 +13,7 @@ import { collectIceTiles } from '../../core/world/ice-movement';
 import { renderEncounterHabitatGrass } from './encounter-habitat-grass.ts';
 import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 import { renderWeatherInstrument } from './weather-instrument.ts';
+import { renderWayfindingMarker } from './wayfinding-marker.ts';
 
 const TILE = 32;
 
@@ -242,6 +243,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
 }
 
 function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Container, item: MapInteractable, imageKeys: ReadonlySet<string>, imageAtlases: ReadonlyMap<string, { columns: number; rows: number }>, active: boolean, flags: readonly string[]): void {
+  renderWayfindingMarker(scene, container, item);
   // Full-map paintings can own a static object's appearance while Tiled keeps
   // its collision, service, dialogue and interaction coordinates authoritative.
   if (item.properties.visualBaked === true && item.kind !== 'fishing-spot') return;
