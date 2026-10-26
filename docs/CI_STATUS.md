@@ -2,7 +2,7 @@
 
 Nuovo fondale R14 raw PNG/WebP lossless, generato dalla geometria Tiled e coerente con Biancavetta; pittogrammi condivisi su rifugio e sensore. Primo candidato corretto dopo la revisione browser della roccia che invadeva il punto di cura. Nessuna modifica a collisioni, incontri, missioni o uscite. [Asset, verifiche e limiti](70_CRYSTAL_PASS_ILLUSTRATED_v0.1.md).
 
-Locale:771 dominio +31 persistenza passati; build passata; validatore624 asset/28 fondali/48 mappe passato. Percorso touch completo con cura effettiva, dialoghi, grotta/ritorno e uscita ovest passato; due casi camera passati. Produzione offline: prima richiesta dei27 fondali non iniziali passata; regolatore della grotta e ritorno a R14 passati anche nella ripetizione che richiede i nuovi asset. Cache v171, contenuti0.4.8. Commit, pubblicazione e nuova CI da attestare dopo push. Revisione48 mappe e direzioni/animazioni cast ancora aperte.
+Locale:771 dominio +31 persistenza passati; build passata; validatore624 asset/28 fondali/48 mappe passato. Percorso touch completo con cura effettiva, dialoghi, grotta/ritorno e uscita ovest passato; due casi camera passati. Produzione offline: prima richiesta dei27 fondali non iniziali passata; regolatore della grotta e ritorno a R14 passati anche nella ripetizione che richiede i nuovi asset. Cache v171, contenuti0.4.8. Runtime `bf86f1f` inviato a main: [Deploy40422659748](https://github.com/Jacoporusso/veloria/actions/runs/40422659748) IN PROGRESS, [Verify40422659495](https://github.com/Jacoporusso/veloria/actions/runs/40422659495) PENDING all’ultimo controllo. Disponibilità pubblica v171 ancora da attestare. Revisione48 mappe e direzioni/animazioni cast ancora aperte.
 
 ## 0.4.7 — Guide dei doni Pokémon e margini senza copie
 
