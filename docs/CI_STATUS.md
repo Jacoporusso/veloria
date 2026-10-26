@@ -1,5 +1,7 @@
 ## 0.4.5 — Passobrina e Tornanti Bianchi
 
+Commit runtime `ba5520c` inviato a main. [Deploy40407343341](https://github.com/Jacoporusso/veloria/actions/runs/40407343341): build SUCCESS, fase deploy ancora in coda al controllo corrente; [Verify40407343421](https://github.com/Jacoporusso/veloria/actions/runs/40407343421) in coda. La presenza sul sito pubblico e l'esito della suite completa restano da attestare sullo stesso rilascio, senza riavviarlo per l'attesa.
+
 Due fondali2D illustrati derivati da geometria Tiled, con sorgenti PNG raw, WebP lossless e guide registrate. Passobrina ha quattro pittogrammi vettoriali ancorati ai servizi; R13 conserva radure, Alma e approccio ad Articuno. Inventario rigenerato:48 mappe,51 presenze NPC,48 identità esplicite;26 fondali con provenienza non equivalgono a48 mappe accettate. [Prompt, asset e prove](66_ALPINE_ILLUSTRATED_BATCH_v0.1.md).
 
 Verifiche locali finali:767 dominio e31 persistenza passati; validatore618 asset/26 fondali/48 mappe passato; build passata. Percorsi reali e screenshot portrait/landscape di Passobrina e R13, quattro segni unici, funivia prima/dopo sblocco e risorse invariate passati. Due controlli globali dei fondali passati. Produzione offline:25 fondali non iniziali decodificati alla prima richiesta senza rete e ritorno in funivia dopo reload passati. Cache v168, contenuti0.4.5. Commit, deploy e CI da attestare dopo pubblicazione.
