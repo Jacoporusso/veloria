@@ -1,5 +1,7 @@
 ## 0.4.7 — Guide dei doni Pokémon e margini senza copie
 
+Runtime `37419c4` inviato a main. [Deploy40417666646](https://github.com/Jacoporusso/veloria/actions/runs/40417666646): build SUCCESS, deploy ancora in coda al controllo corrente. [Verify40417666535](https://github.com/Jacoporusso/veloria/actions/runs/40417666535) avviata e da attestare. La disponibilità pubblica della cache v170 non è ancora confermata.
+
 Feedback della foto sui fossili: Diario e atlante mostrano requisiti, luogo, NPC e azione per tutte sei le quest con dono Pokémon. «Vedi sulla mappa» mette in primo piano il dono selezionato; 🎁 indica le ricompense disponibili. Nessun cambiamento a premi, livelli, sblocchi o stato del salvataggio. [Sorgenti e prove](69_POKEMON_REWARDS_AND_MAP_EDGES_v0.1.md).
 
 Il riempimento oltre i bordi campiona una piccola fascia esterna e ne deriva un campo colore, invece di riflettere edifici interni. Due sole immagini di margine, texture in memoria riusate, nessuna modifica degli artwork. Prova pixel sintetica passata con e senza blur, undici casi camera e regressioni PWA DPR3/4 passati.
