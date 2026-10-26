@@ -50,7 +50,7 @@ test('illustrated maps render and retain visible world objects in portrait and l
         const metadata = world.map.metadata;
         const tiled = world.mapLayer.list;
         const backgroundAsset = metadata.renderAssets.find((asset: any) => asset.key === assetKey);
-        const image = tiled.find((item: any) => item.type === 'Image' && item.texture.key === backgroundAsset?.key && item.width > 0);
+        const image = tiled.find((item: any) => item.type === 'Image' && item.texture.key === backgroundAsset?.key && item.width > 0 && item.name !== 'map-edge-backdrop');
         const source = image && world.textures.get(image.texture.key).getSourceImage() as HTMLImageElement;
         const npcInteractables = world.renderedMap.interactables.filter((item: any) => item.kind === 'npc');
         const npcSprites = npcInteractables.map((npc: any) => tiled.some((item: any) => item.type === 'Image' && item.texture.key === npc.properties.sprite));

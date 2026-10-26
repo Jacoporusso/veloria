@@ -4,6 +4,11 @@ import { expect, test, type Page } from '@playwright/test';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
+import { selectWildEncounter } from '../../src/core/encounters/select-encounter.ts';
+import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-check.ts';
+import r01TallGrass from '../../content/encounters/r01_tall_grass.encounter.json' with { type: 'json' };
+import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' with { type: 'json' };
+import speciesRegistry from '../../content/battle/species.v1.json' with { type: 'json' };
 import { tapBattleLabel } from './helpers/battle-touch';
 
 // Long progression journeys exercise reduced motion; dedicated effect tests cover full animation.
@@ -426,27 +431,32 @@ function nextRandom(state: number) {
 }
 
 function findPidgeySeed() {
-    for (let seed = 1; seed < 1_000_000; seed += 1) {
-    const encounterRoll = nextRandom(seed);
-    if (encounterRoll / 0x1_0000_0000 >= 0.08) continue;
-    const speciesRoll = nextRandom(encounterRoll);
-    if (1 + Math.floor(speciesRoll / 0x1_0000_0000 * 100) <= 40) return seed;
+  const dayPidgeyId = 16;
+  for (let seed = 1; seed < 1_000_000; seed += 1) {
+    const check = rollEncounterCheck(seed, 0.08);
+    if (!check.encounter) continue;
+    const selected = selectWildEncounter({ rngState: check.nextRngState, localHour: 12,
+      table: r01TallGrass, species: speciesRegistry.species as any });
+    if (selected.speciesId === dayPidgeyId && selected.level === 3) return seed;
   }
   throw new Error('No deterministic Pidgey encounter seed found.');
 }
 
-function findPidgeyCaptureSeed() {
+const woodlandCaptureSpeciesId = d01Woodland.timeBands.day[0].speciesId;
+
+function findWoodlandCaptureSeed(table: any, chance: number, speciesId: number, battleRandomDrawsBeforeCapture: number) {
   for (let seed = 1; seed < 1_000_000; seed += 1) {
-    const encounterRoll = nextRandom(seed);
-    if (encounterRoll / 0x1_0000_0000 >= 0.18) continue;
-    const speciesRoll = nextRandom(encounterRoll);
-    // Pidgey is the first day-band entry in the woodland table (20 of 100 weight).
-    if (1 + Math.floor(speciesRoll / 0x1_0000_0000 * 100) > 20) continue;
-    const levelRoll = nextRandom(speciesRoll);
-    const captureRoll = nextRandom(levelRoll);
+    const check = rollEncounterCheck(seed, chance);
+    if (!check.encounter) continue;
+    const selected = selectWildEncounter({ rngState: check.nextRngState, localHour: 12,
+      table, species: speciesRegistry.species as any });
+    if (selected.speciesId !== speciesId) continue;
+    let captureState = selected.nextRngState;
+    for (let draw = 0; draw < battleRandomDrawsBeforeCapture; draw += 1) captureState = nextRandom(captureState);
+    const captureRoll = nextRandom(captureState);
     if (captureRoll / 0x1_0000_0000 < 0.25) return seed;
   }
-  throw new Error('No deterministic Pidgey capture seed found.');
+  throw new Error(`No deterministic ${(speciesRegistry.species as any)[String(speciesId)].name} capture seed found for ${table.id}.`);
 }
 
 function findNoEncounterSeed() {
@@ -883,7 +893,7 @@ test('E2E-03: a wild Pidgey battle exhausts Growl, uses Scratch, and persists HP
   expect(restored.party[0].moves).toEqual(defeated.moves);
 });
 
-test('E2E-04: capture with a full party stores a unique creature visible at the Pokémon Center after reload', async ({ page }) => {
+test('E2E-04: capture with a full party stores a unique woodland Vulpix visible at the Pokémon Center after reload', async ({ page }) => {
   // CI 39594789385 completes six captures and reaches the final return to Brumalta at 360s.
   // Preserve the Center healing, storage, reload and unique-instance checks.
   test.setTimeout(process.env.CI ? 480_000 : 240_000);
@@ -904,9 +914,9 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await expect.poll(async () => (await readCurrentSave(page))?.player.mapId).toBe('veloria/d01_bosco_veli');
   await walkToMapTile(page, 'd01_bosco_veli.tmj', 1, 8);
 
-  // Capture five real woodland Pidgey with the five starting balls, filling the six-slot party.
+  // Capture five real woodland Vulpix from the current day-band encounter table with the five starting balls.
   for (let captured = 0; captured < 5; captured += 1) {
-    await setSaveRngState(page, findPidgeyCaptureSeed());
+    await setSaveRngState(page, findWoodlandCaptureSeed(d01Woodland, 0.18, woodlandCaptureSpeciesId, 0));
     await page.reload();
     await waitForWorldReady(page);
     await walkToTile(page, captured === 3 ? 'sinistra' : 'destra', 1);
@@ -916,7 +926,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   }
   let save = await readCurrentSave(page);
   expect(save.party).toHaveLength(6);
-  expect(save.party.slice(1).every((creature: any) => creature.speciesId === 16)).toBe(true);
+  expect(save.party.slice(1).every((creature: any) => creature.speciesId === woodlandCaptureSpeciesId)).toBe(true);
   expect(save.inventory['poke-ball']).toBe(0);
 
   await walkToTile(page, 'basso', 2);
@@ -939,7 +949,7 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await expect.poll(async () => (await readCurrentSave(page))?.inventory?.['poke-ball']).toBe(1);
   expect((await readCurrentSave(page)).player.money).toBe(350);
 
-  // Return to the forest, prepare one guaranteed Pidgey, and catch it while all six slots are occupied.
+  // Return to the forest, prepare one guaranteed Vulpix, and catch it while all six slots are occupied.
   await walkToTile(page, 'alto', 2);
   await walkToTile(page, 'sinistra', 6);
   await expect.poll(async () => {
@@ -953,14 +963,14 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await walkToTile(page, 'alto', 2);
   save = await readCurrentSave(page);
   expect(save.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 6, y: 8 });
-  await setSaveRngState(page, findPidgeyCaptureSeed());
+  await setSaveRngState(page, findWoodlandCaptureSeed(d01Woodland, 0.18, woodlandCaptureSpeciesId, 0));
   await page.reload();
   await waitForWorldReady(page);
   await walkToTile(page, 'sinistra', 1);
   await captureWildWithTouch(page);
   await expect.poll(async () => (await readCurrentSave(page))?.storage?.length).toBe(1);
   const capturedInBox = (await readCurrentSave(page)).storage[0];
-  expect(capturedInBox.speciesId).toBe(16);
+  expect(capturedInBox.speciesId).toBe(woodlandCaptureSpeciesId);
   expect((await readCurrentSave(page)).party).toHaveLength(6);
   expect((await readCurrentSave(page)).inventory['poke-ball']).toBe(0);
 
@@ -996,14 +1006,14 @@ test('E2E-04: capture with a full party stores a unique creature visible at the 
   await page.getByRole('button', { name: 'DEPOSITO' }).click();
   await expect(page.getByRole('dialog', { name: 'Deposito Pokémon' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Squadra · 6/6' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /RITIRA · Pidgey/ })).toHaveCount(1);
+  await expect(page.getByRole('button', { name: /RITIRA · Vulpix/ })).toHaveCount(1);
 
   await page.reload();
   await waitForWorldReady(page);
   const restored = await readCurrentSave(page);
   expect(restored.party).toHaveLength(6);
   expect(restored.storage).toHaveLength(1);
-  expect(restored.storage[0]).toMatchObject({ instanceId: capturedInBox.instanceId, speciesId: 16 });
+  expect(restored.storage[0]).toMatchObject({ instanceId: capturedInBox.instanceId, speciesId: woodlandCaptureSpeciesId });
   const occurrences = [...restored.party, ...restored.storage]
     .filter((creature: any) => creature.instanceId === capturedInBox.instanceId);
   expect(occurrences).toHaveLength(1);

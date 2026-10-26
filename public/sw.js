@@ -347,14 +347,16 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    const page = await fetch('./');
+    const page = await fetch('./', { cache: 'reload' });
     const html = await page.clone().text();
     const localAssets = [...html.matchAll(/(?:src|href)=["']([^"']+)["']/g)]
       .map((match) => new URL(match[1], self.registration.scope))
       .filter((url) => url.origin === self.location.origin && url.pathname.startsWith(new URL(self.registration.scope).pathname))
       .map((url) => url.href);
     const assets = new Set([...SHELL.map((path) => new URL(path, self.registration.scope).href), ...localAssets]);
-    await cache.addAll([...assets]);
+    // A new shell must refresh artwork bytes even when a deployed filename is
+    // unchanged and the browser's HTTP cache still contains the prior drawing.
+    await cache.addAll([...assets].map((url) => new Request(url, { cache: 'reload' })));
     const buildManifestResponse = await cache.match(new URL('./build-manifest.json', self.registration.scope));
     if (!buildManifestResponse?.ok) throw new Error('The production build manifest is unavailable.');
     const buildManifest = await buildManifestResponse.json();
@@ -363,7 +365,7 @@ self.addEventListener('install', (event) => {
       if (entry.file) buildAssets.add(entry.file);
       for (const file of [...(entry.css ?? []), ...(entry.assets ?? [])]) buildAssets.add(file);
     }
-    await cache.addAll([...buildAssets].map((path) => new URL(path, self.registration.scope).href));
+    await cache.addAll([...buildAssets].map((path) => new Request(new URL(path, self.registration.scope).href, { cache: 'reload' })));
   })());
 });
 

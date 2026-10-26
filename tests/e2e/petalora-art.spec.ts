@@ -15,7 +15,7 @@ for (const quality of ['full','reduced']) test(`Petalora cherry artwork and peta
     const visuals=await page.evaluate(()=>{
       const world=(window as any).__petaloraGame.scene.keys.world;
       const art=world.map.metadata.renderAssets.find((asset:any)=>asset.kind==='image'&&asset.key.endsWith('-illustrated-v3'));
-      const backgrounds=world.mapLayer.list.filter((item:any)=>item.type==='Image'&&item.texture.key===art?.key);
+      const backgrounds=world.mapLayer.list.filter((item:any)=>item.type==='Image'&&item.texture.key===art?.key&&item.name!=='map-edge-backdrop');
       const background=backgrounds[0];
       const source=background&&world.textures.get(art.key).getSourceImage() as HTMLImageElement;
       const legacyCherryTrees=world.mapLayer.list.filter((item:any)=>item.type==='Image'&&item.texture.key==='veloria-cherry-tree-v1');

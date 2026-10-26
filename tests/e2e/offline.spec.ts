@@ -12,6 +12,9 @@ import { prepareMonorailTraveler, stationArrival, travelResources } from './help
 import { readBrowserSave } from './helpers/world-navigation';
 import magneticRouter from '../../content/puzzles/gym04_magnetic.v1.json' with { type: 'json' };
 import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-check';
+import { selectWildEncounter } from '../../src/core/encounters/select-encounter.ts';
+import { exportSave } from '../../src/persistence/save-backup.ts';
+import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' with { type: 'json' };
 
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
@@ -120,13 +123,16 @@ test('a seen Gyarados exposes Ice Fang combined effects on its first offline det
 
 test('earned Acquariva team studies Headbutt and the upcoming Bite level after offline backup import', async ({ page, context }, info) => {
   const backup = await readFile(new URL('../../docs/playtests/2026-10-24-natural-eevee-caught-backup-charmander.json', import.meta.url), 'utf8');
-  const payload = JSON.parse(backup);
-  const earned = payload.save;
-  earned.party = earned.party.filter((member: { speciesId: number }) => member.speciesId <= 151);
-  earned.storage = earned.storage.filter((member: { speciesId: number }) => member.speciesId <= 151);
-  earned.flags = earned.flags.filter((flag: string) => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151);
-  const gen1Backup = JSON.stringify(payload);
+  const sourceSave = JSON.parse(backup).save;
   await page.goto('/'); await enterGame(page);
+  const gen1Save = {
+    ...sourceSave,
+    party: sourceSave.party.filter((member: { speciesId: number }) => member.speciesId <= 151),
+    storage: sourceSave.storage.filter((member: { speciesId: number }) => member.speciesId <= 151),
+    flags: sourceSave.flags.filter((flag: string) => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151),
+  };
+  const gen1Backup = exportSave(gen1Save, '2026-10-26T00:00:00.000Z');
+  const earned = JSON.parse(gen1Backup).save;
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true);
@@ -281,19 +287,19 @@ function nextRandom(state: number) {
   return value >>> 0;
 }
 
-function findPidgeyCaptureSeed() {
+function findDeterministicEncounterSeed(table: any, chance: number, speciesId: number, battleRandomDrawsBeforeCapture = 2) {
   for (let seed = 1; seed < 1_000_000; seed += 1) {
-    const encounterRoll = nextRandom(seed);
-    if (encounterRoll / 0x1_0000_0000 >= 0.08) continue;
-    const speciesRoll = nextRandom(encounterRoll);
-    if (1 + Math.floor(speciesRoll / 0x1_0000_0000 * 100) > 20) continue;
-    const levelRoll = nextRandom(speciesRoll);
-    const firstTurnRoll = nextRandom(levelRoll);
-    const secondTurnRoll = nextRandom(firstTurnRoll);
-    const captureRoll = nextRandom(secondTurnRoll);
+    const check = rollEncounterCheck(seed, chance);
+    if (!check.encounter) continue;
+    const selected = selectWildEncounter({ rngState: check.nextRngState, localHour: 12,
+      table, species: speciesRegistry.species as any });
+    if (selected.speciesId !== speciesId) continue;
+    let captureState = selected.nextRngState;
+    for (let draw = 0; draw < battleRandomDrawsBeforeCapture; draw += 1) captureState = nextRandom(captureState);
+    const captureRoll = nextRandom(captureState);
     if (captureRoll / 0x1_0000_0000 < 0.25) return seed;
   }
-  throw new Error('No deterministic offline Pidgey capture seed found.');
+  throw new Error(`No deterministic offline ${(speciesRegistry.species as any)[String(speciesId)].name} encounter seed found for ${table.id}.`);
 }
 
 function findNoEncounterSeed(checks: number) {
@@ -610,7 +616,7 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   expect(finalSave.flags).toContain('item_r01_potion_collected');
   // Encounters belong to the visible fern patches, not to the central path.
   await walkToMapTile('d01_bosco_veli.tmj', 2, 9);
-  await seedOfflineCapture(page, findPidgeyCaptureSeed());
+  await seedOfflineCapture(page, findDeterministicEncounterSeed(d01Woodland, 0.18, d01Woodland.timeBands.day[0].speciesId));
   await page.reload();
   await enterGame(page);
   await page.getByRole('button', { name: 'Vai in alto' }).tap();
@@ -622,7 +628,7 @@ test('E2E-06: the cached adventure reaches three badges offline', async ({ page,
   }
   await expect.poll(async () => (await readSave(page))?.party?.length).toBe(2);
   const capturedSave = await readSave(page);
-  expect(capturedSave.party[1]).toMatchObject({ speciesId: 16 });
+  expect(capturedSave.party[1]).toMatchObject({ speciesId: d01Woodland.timeBands.day[0].speciesId });
   expect(capturedSave.inventory['poke-ball']).toBe(4);
 
   // Finish Ada's quest offline, then follow the forest-city connection without encounters.
@@ -1104,7 +1110,9 @@ test('P8 relays, crystal and dragon resources, and Concordia rail work offline',
  const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'tutorial_habitat_seen','q_starter_selected','q_concordia_restore_plan','q_d05_report','badge_circuito_awarded','badge_ghiaccio_awarded','q_concordia_visited','q_vetracielo_visited','atlas_visited_veloria/concordia','atlas_visited_veloria/vetracielo'])];save.badges=[...new Set([...save.badges,'badge_circuito','badge_brina'])];save.player={...save.player,mapId:'veloria/gym08_concordia',spawnPointId:'from_city',x:15,y:22};await seedBrowserSave(page,save);
  const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/gym08_concordia');
  const decoded=await page.evaluate(async()=>{
-  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15-two-lights-v1.webp',...[116,117,147,148,149,230].map(id=>`assets/creatures/pokeapi-dragon-${id}-v1.webp`)];
+  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15-two-lights-v1.webp',
+   'assets/creatures/pokeapi-dragon-116-v1.webp','assets/creatures/pokeapi-dragon-117-v1.webp','assets/creatures/pokeapi-dragon-147-v1.webp',
+   'assets/creatures/pokeapi-dragon-148-v1.webp','assets/creatures/pokeapi-dragon-149-v1.webp','assets/creatures/pokeapi-gen1-130-v1.webp'];
   const imageResults=await Promise.all(images.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>100&&image.naturalHeight>100;}));
   const maps=await Promise.all(['concordia','gym08_concordia','r15_passo_due_luci'].map(async name=>{const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return(await response.json()).width;}));return{imageResults,maps};
  });expect(decoded).toEqual({imageResults:Array(9).fill(true),maps:[40,32,40]});
@@ -1258,7 +1266,7 @@ test('Riduttore strategy, battle and HP/PP survive an offline reload', async ({ 
     speciesId: 1, level: 15, instanceId: 'offline-recoil', moveIds: ['take-down'] });
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen'])];
   save.player = { ...save.player, mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 2, y: 9 };
-  save.rngState = findPidgeyCaptureSeed();
+  save.rngState = findDeterministicEncounterSeed(d01Woodland, 0.18, d01Woodland.timeBands.day[0].speciesId);
   save.party = [{ instanceId: c.instanceId, speciesId: 1, level: 15, experience: 0,
     hp: c.hp, maxHp: c.stats.maxHp, moves: c.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
   await seedBrowserSave(page, save);
@@ -1351,14 +1359,14 @@ test('bulk storage and market work offline and persist after reload', async ({ p
   });
   save.storage = [];
   save.player = { ...save.player, mapId: 'veloria/portolume', spawnPointId: 'from_r08', x: 8, y: 15, money: 1000 };
-  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'pokedex_seen_74'])];
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'pokedex_seen_104'])];
   save.inventory = { potion: 0 };
   await seedBrowserSave(page, save);
   page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true); await page.reload(); await enterGame(page);
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
-  await page.getByRole('dialog', { name: 'Pokédex', exact: true }).getByRole('button', { name: /Geodude.*VISTO/ }).click();
+  await page.getByRole('dialog', { name: 'Pokédex', exact: true }).getByRole('button', { name: /Cubone.*VISTO/ }).click();
   const habitats = page.getByRole('region', { name: 'Dove incontrarlo' });
   await expect(habitats).toContainText('Condotto Risonante');
   await expect(habitats).toContainText('Erba alta · Lv.18–21');

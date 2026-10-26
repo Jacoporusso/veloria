@@ -29,6 +29,7 @@ from import_pokeapi_growth import main as verify_growth_import
 from import_pokeapi_abilities import main as verify_ability_import
 from validate_pokeapi_artwork import validate_pokeapi_artwork
 from validate_regional_roster import validate_regional_roster
+from localized_text_validation import validate_localized_text
 from import_item_evolutions import main as verify_item_evolutions
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +63,7 @@ verify_ability_import(['--check'])
 verify_item_evolutions(['--check'])
 print(f'Verified {validate_pokeapi_artwork(ROOT)} recorded official artworks and full runtime coverage.')
 print(f'Verified {validate_regional_roster(ROOT)} regional species and visible encounter wiring.')
+print(f'Verified localized text encoding in {validate_localized_text(ROOT)} map/dialogue files.')
 
 def read(name):
     return json.loads((EXAMPLES / name).read_text(encoding="utf-8"))

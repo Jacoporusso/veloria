@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import appearances from '../../content/characters/appearances.v2.json' with { type: 'json' };
 
 async function exposeGame(page: Page, errors: string[]) {
   page.on('pageerror', error => errors.push(error.message));
@@ -115,14 +116,14 @@ test('forest routes and Radicelmo share the seamless v5 terrain', async ({ page 
   const errors: string[] = [];
   await exposeGame(page, errors);
 
-  for (const mapId of [
-    'veloria/r02_viale_fronde',
-    'veloria/r03_terrazze_muschio',
-    'veloria/radicelmo',
+  for (const entry of [
+    { mapId: 'veloria/r02_viale_fronde' },
+    { mapId: 'veloria/r03_terrazze_muschio', npcId: 'r03_path_guide' },
+    { mapId: 'veloria/radicelmo', npcId: 'radicelmo_keeper' },
   ]) {
-    await page.goto(`/?previewMap=${mapId}`);
+    await page.goto(`/?previewMap=${entry.mapId}`);
     try { await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 }); }
-    catch { throw new Error(`Map ${mapId} did not finish startup: ${errors.join(' | ') || 'loading state remained visible'}`); }
+    catch { throw new Error(`Map ${entry.mapId} did not finish startup: ${errors.join(' | ') || 'loading state remained visible'}`); }
 
     const terrain = await page.evaluate(() => {
       const world = (window as any).__veloriaGame.scene.keys.world;
@@ -132,15 +133,26 @@ test('forest routes and Radicelmo share the seamless v5 terrain', async ({ page 
         forestFloorLoaded: world.textures.exists('veloria-forest-floor-v1'),
         npcSprites: world.mapLayer.list
           .filter((item: any) => item.type === 'Image' && item.name === 'npc-sprite')
-          .map((item: any) => item.texture.key),
+          .map((item: any) => ({ npcId: item.getData('npcId'), appearanceId: item.getData('appearanceId'), key: item.texture.key, frame: item.frame.name })),
         surface: surface ? { width: surface.width, height: surface.height } : null,
       };
     });
-    expect(terrain.seamlessTilesetLoaded, `${mapId} loads v5`).toBe(true);
-    expect(terrain.forestFloorLoaded, `${mapId} loads the full-map forest underlay`).toBe(true);
-    expect(terrain.surface, `${mapId} composes terrain`).not.toBeNull();
-    if (mapId.endsWith('r03_terrazze_muschio')) expect(terrain.npcSprites).toContain('veloria-cast-opening-and-champion-v1');
-    if (mapId.endsWith('radicelmo')) expect(terrain.npcSprites).toContain('veloria-npc-leda-v1');
+    expect(terrain.seamlessTilesetLoaded, `${entry.mapId} loads v5`).toBe(true);
+    expect(terrain.forestFloorLoaded, `${entry.mapId} loads the full-map forest underlay`).toBe(true);
+    expect(terrain.surface, `${entry.mapId} composes terrain`).not.toBeNull();
+    if (entry.npcId) {
+      const profile = appearances.profiles.find(profile => profile.npcIds.includes(entry.npcId!));
+      expect(profile, `${entry.npcId} has an appearance profile`).toBeTruthy();
+      const asset = appearances.assets.find(asset => asset.key === profile!.assetKey);
+      expect(asset, `${profile!.id} has a declared image asset`).toBeTruthy();
+      const frame = asset!.atlas ? `cell-${profile!.frame}` : profile!.frame === undefined ? '__BASE' : String(profile!.frame);
+      expect(terrain.npcSprites).toContainEqual({
+        npcId: entry.npcId,
+        appearanceId: profile!.id,
+        key: profile!.assetKey,
+        frame,
+      });
+    }
   }
 
   expect(errors).toEqual([]);

@@ -68,7 +68,7 @@ test('Vetracielo lines, Aster and the third medal persist without duplicate rewa
     await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
   await expect(page.locator('#dialogue-text')).toContainText('livello 16–17');
   await page.getByRole('button', { name: 'SFIDA', exact: true }).click();
-  await fightWithTouch(page, '__gym03Game', { 138: 'Fangobomba' }, 10);
+  await fightWithTouch(page, '__gym03Game', { 138: 'Colpodifango' }, 10);
   const banner = page.getByRole('dialog', { name: 'Medaglia Circuito conquistata!' });
   await expect(banner).toBeVisible(); await expect(banner).toContainText('+850 monete');
   await expect(banner.locator('[data-badge-id="badge_circuito"] svg')).toBeVisible();

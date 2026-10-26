@@ -23,7 +23,7 @@ test('Borgofonte renders its baked scene and keeps Tiled building entrances', as
   const scene = await page.evaluate((scenerySprite: string) => {
     const world = (window as any).__veloriaGame.scene.keys.world;
     const art = world.map.metadata.renderAssets.find((asset: any) => asset.key === scenerySprite);
-    const backgrounds = world.mapLayer.list.filter((item: any) => item.type === 'Image' && item.texture.key === art?.key);
+    const backgrounds = world.mapLayer.list.filter((item: any) => item.type === 'Image' && item.texture.key === art?.key && item.name !== 'map-edge-backdrop');
     const background = backgrounds[0];
     const source = background && world.textures.get(art.key).getSourceImage() as HTMLImageElement;
     const entrances = world.renderedMap.triggers

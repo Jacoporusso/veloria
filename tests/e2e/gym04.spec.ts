@@ -23,8 +23,8 @@ async function prepare(page: Page, report: boolean) {
     ...priorMilestones.map(step => step.flag), 'prologue_complete_seen', 'badge_circuito_awarded', 'q_ferraluce_visited', ...(report ? ['q_ferraluce_report'] : [])])];
   save.badges = ['badge_aurora', 'badge_corolla', 'badge_circuito'];
   save.player = { ...save.player, mapId: 'veloria/ferraluce', spawnPointId: 'from_gym04', x: 34, y: 19, money: 100 };
-  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 140, level: 36, instanceId: 'gym04-integration', moveIds: ['mud-shot', 'aqua-jet', 'mega-drain'] });
-  save.party = [{ instanceId: creature.instanceId, speciesId: 140, level: creature.level, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 141, level: 40, instanceId: 'gym04-integration', moveIds: ['mud-shot', 'aqua-jet', 'mega-drain'] });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 141, level: creature.level, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
 }
 
@@ -116,7 +116,7 @@ test('Rhea requires the circuit, awards Acciaio once, and the medal survives rel
       const state = (window as any).__gym04Game.scene.keys.battle.state;
       return state.opponent.creatures[state.opponent.activeIndex].speciesId;
     });
-    await tapLabel('LOTTA'); await tapLabel(opponent === 81 ? 'Colpodifango' : 'Pistolacqua');
+    await tapLabel('LOTTA'); await tapLabel(opponent === 81 ? 'Colpodifango' : 'Acquagetto');
   }
   const banner = page.getByRole('dialog', { name: 'Medaglia Acciaio conquistata!' });
   await expect(banner).toBeVisible();

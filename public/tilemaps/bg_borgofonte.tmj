@@ -3740,7 +3740,7 @@
       "objects": [
         {
           "id": 1070,
-          "name": "Emporio Â· chiuso",
+          "name": "Emporio · chiuso",
           "type": "",
           "x": 896,
           "y": 256,
@@ -3757,13 +3757,13 @@
             {
               "name": "message",
               "type": "string",
-              "value": "Lâ€™emporio non Ã¨ ancora aperto. Per iniziare cerca Elia nel laboratorio con la cupola azzurra, a sud della piazza."
+              "value": "L’emporio non è ancora aperto. Per iniziare cerca Elia nel laboratorio con la cupola azzurra, a sud della piazza."
             }
           ]
         },
         {
           "id": 1071,
-          "name": "Officina Â· chiusa",
+          "name": "Officina · chiusa",
           "type": "",
           "x": 1120,
           "y": 736,
@@ -3780,7 +3780,7 @@
             {
               "name": "message",
               "type": "string",
-              "value": "Lâ€™officina Ã¨ chiusa. Il Sentiero dellâ€™Alba si raggiunge seguendo la strada principale verso nord."
+              "value": "L’officina è chiusa. Il Sentiero dell’Alba si raggiunge seguendo la strada principale verso nord."
             }
           ]
         }
@@ -3798,7 +3798,7 @@
       "objects": [
         {
           "id": 1072,
-          "name": "Sentiero dellâ€™Alba",
+          "name": "Sentiero dell’Alba",
           "type": "",
           "x": 672,
           "y": 0,

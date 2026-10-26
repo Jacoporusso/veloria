@@ -46,7 +46,7 @@ test('P7 three real ice lanes persist through reload and the console opens Nives
  await checkpoint(page,'veloria/gym07_biancavetta','from_city',15,22,['badge_riflesso_awarded','q_passobrina_report']);
  // Strong integration checkpoint: victory flow is tested, natural progression balance is separate.
  const save=await readBrowserSave(page);save.player.money=500;
- const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:6,level:70,instanceId:'p7-integration',moveIds:['ember']});
+ const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:6,level:100,instanceId:'p7-integration',moveIds:['flamethrower']});
  save.party=[{instanceId:creature.instanceId,speciesId:6,level:70,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(m=>({id:m.moveId,pp:m.pp}))}];
  await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  for(const [x,y,flag]of [[24,3,'gym07_ice_east'],[8,3,'gym07_ice_west'],[16,3,'gym07_ice_center']]as const){
@@ -61,7 +61,7 @@ test('P7 three real ice lanes persist through reload and the console opens Nives
  await page.getByRole('button',{name:labels.up,exact:true}).tap();await confirm(page).tap();
  for(let i=0;i<12&&!await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible();i++)await confirm(page).tap();
  await page.getByRole('button',{name:'SFIDA',exact:true}).tap();
- await fightWithTouch(page,'mountainGame',{6:'Braciere'});
+ await fightWithTouch(page,'mountainGame',{6:'Lanciafiamme'});
  const banner=page.getByRole('dialog',{name:'Medaglia Brina conquistata!'});await expect(banner).toBeVisible();await expect(banner).toContainText('Nives');
  await expect(banner.locator('[data-badge-id="badge_brina"] svg')).toBeVisible();await page.screenshot({path:info.outputPath('brina-medal.png')});
  await banner.getByRole('button',{name:'Continua',exact:true}).tap();

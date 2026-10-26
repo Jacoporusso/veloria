@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
+import gen1Artwork from '../../assets/pokeapi-gen1-artwork-v1.json' with { type: 'json' };
+import starterArtwork from '../../assets/pokeapi-starter-artwork-v1.json' with { type: 'json' };
 
 test('journey journal shows real progress and returns focus without moving the player', async ({ page }, testInfo) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
@@ -60,6 +62,11 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     observeGameSize((window as any).battleFixture,document.querySelector<HTMLElement>('#battle-fixture')!);
   });
   await expect.poll(async () => ({ active: await page.evaluate(() => Boolean((window as any).battleFixture?.scene.isActive('battle'))), errors })).toEqual({ active: true, errors: [] });
+  const expectedArtKeys = [25, 10].map(speciesId => {
+    const artwork = [...starterArtwork.artworks, ...gen1Artwork.artworks].find(artwork => artwork.speciesId === speciesId);
+    expect(artwork, `species ${speciesId} has registered artwork`).toBeTruthy();
+    return artwork!.path.split('/').pop()!.replace(/\.webp$/, '');
+  });
   const tapBattleZone = async (name: string) => {
     const point = await page.evaluate(name => {
       const scene = (window as any).battleFixture.scene.getScene('battle');
@@ -74,9 +81,23 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     await expect.poll(() => page.evaluate(() => (window as any).battleFixture.scale.width)).toBe(width);
     const actors = await page.evaluate(() => {
       const scene = (window as any).battleFixture.scene.getScene('battle');
-      return Object.values(scene.actors).map((actor: any) => actor.list.some((child: any) => child.type === 'Image' && child.texture.key.startsWith('veloria-creatures-')));
+      return (['player', 'opponent'] as const).map(side => {
+        const actor = scene.actors[side];
+        const creature = scene.state[side].creatures[scene.state[side].activeIndex];
+        const sprite = actor?.list.find((child: any) => child.type === 'Image');
+        const source = sprite && scene.textures.get(sprite.texture.key).getSourceImage() as HTMLImageElement;
+        return {
+          speciesId: creature.speciesId,
+          textureKey: sprite?.texture.key ?? null,
+          rendered: Boolean(sprite && sprite.visible && actor.visible && actor.alpha > 0 && sprite.displayWidth > 0 && sprite.displayHeight > 0),
+          decoded: Boolean(source?.complete && source.naturalWidth > 0 && source.naturalHeight > 0),
+        };
+      });
     });
-    expect(actors).toEqual([true, true]);
+    expect(actors).toEqual([
+      { speciesId: 25, textureKey: expectedArtKeys[0], rendered: true, decoded: true },
+      { speciesId: 10, textureKey: expectedArtKeys[1], rendered: true, decoded: true },
+    ]);
     await page.screenshot({ path: testInfo.outputPath(`battle-${width}x${height}.png`) });
   }
   if (width !== 390) {
