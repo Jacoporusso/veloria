@@ -1,3 +1,9 @@
+## 0.4.1 — Costa delle Turbine, Portolume e Acquariva
+
+Runtime `b1a84c4ed1f511cfd4faa92f15f3d9d073af7128` pubblicato. [Deploy40309817415](https://github.com/Jacoporusso/veloria/actions/runs/40309817415) SUCCESS, inclusi test dominio/persistenza, validatore e build Pages. Sito pubblico verificato: cache `veloria-shell-v164`, tutti tre nuovi fondali HTTP200. [Verify40309817489](https://github.com/Jacoporusso/veloria/actions/runs/40309817489) ancora IN PROGRESS: quattro job passati e nessun fallimento all'ultimo controllo; nessuna attestazione anticipata della CI completa.
+
+Nuovo lotto 2D opaco: acqua dipinta e percorsi leggeri,19 fondali nel manifest e598 asset registrati. Sette casi browser pertinenti passati: costa/radure/pesca e due uscite, traghetto/misuratore, servizi e soglie palestra delle due città nei due orientamenti, raccordo al Delta e due verifiche globali dei fondali. La revisione screenshot ha trovato vegetazione nell'approccio alla palestra di Acquariva: correzione grafica e ripetizione finale passate, piedi sul percorso libero. Build finale e prima richiesta offline dei18 fondali non iniziali passate, inclusi i tre nuovi. Collisioni e progressione invariate; rifacimento complessivo delle48 mappe ancora aperto. [Dettagli del lotto](62_COASTAL_ILLUSTRATED_BATCH_v0.1.md).
+
 ## 0.4.0 — Catalogo Gen I e lotto illustrato — 26 ottobre 2026
 
 Runtime `35a2365894cc4239dfa74ddcfbbee60bc25b17a9` pubblicato. [Verify40301261972](https://github.com/Jacoporusso/veloria/actions/runs/40301261972) SUCCESS: tutti21 job conclusi, inclusi progressione e risorse offline. [Deploy40304577265](https://github.com/Jacoporusso/veloria/actions/runs/40304577265) SUCCESS. Main aggiornato tramite fast-forward allo stesso commit verificato.
