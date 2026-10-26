@@ -1,6 +1,8 @@
 ## 0.4.7 — Guide dei doni Pokémon e margini senza copie
 
-Runtime `37419c4` inviato a main. [Deploy40417666646](https://github.com/Jacoporusso/veloria/actions/runs/40417666646): build SUCCESS, deploy ancora in coda al controllo corrente. [Verify40417666535](https://github.com/Jacoporusso/veloria/actions/runs/40417666535) avviata e da attestare. La disponibilità pubblica della cache v170 non è ancora confermata.
+Runtime `37419c4` pubblicato. [Deploy40417666646](https://github.com/Jacoporusso/veloria/actions/runs/40417666646): SUCCESS; cache pubblica `veloria-shell-v170` verificata via HTTP. [Verify40417666535](https://github.com/Jacoporusso/veloria/actions/runs/40417666535): FAILURE, unico job fallito «Browser journeys shard 2».
+
+Diagnosi Nilo: il checkpoint Staryu75/Pistolacqua perde realmente contro la squadra del trainer; non è un ritardo del banner. La regressione di interazione/premio usa ora Alakazam75 con Psichico, verificato nel learnset ufficiale locale, e controlla vittoria persistita e PS residui prima del banner. Restano declino, premio1600, reload e assenza di doppia ricompensa. Nessuna modifica a trainer, motore o timeout. Ripetizione Chrome locale:1 caso passato, `.tmp/nilo-psychic-fixture.log`; nuova CI da attestare. Questo checkpoint non prova il bilanciamento naturale della campagna.
 
 Feedback della foto sui fossili: Diario e atlante mostrano requisiti, luogo, NPC e azione per tutte sei le quest con dono Pokémon. «Vedi sulla mappa» mette in primo piano il dono selezionato; 🎁 indica le ricompense disponibili. Nessun cambiamento a premi, livelli, sblocchi o stato del salvataggio. [Sorgenti e prove](69_POKEMON_REWARDS_AND_MAP_EDGES_v0.1.md).
 

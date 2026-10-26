@@ -67,11 +67,15 @@ test('Nilo can be declined, then beaten through touch for one persistent reward'
  await checkpoint(page,'veloria/r15_passo_due_luci','from_cavern',22,13,['q_d05_report']);
  const save=await readBrowserSave(page);
  // Deliberately strong checkpoint to isolate interaction and reward integration.
- const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:120,level:75,instanceId:'nilo-integration',moveIds:['water-gun']});
- save.party=[{instanceId:creature.instanceId,speciesId:120,level:75,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(m=>({id:m.moveId,pp:m.pp}))}];await seedBrowserSave(page,save);await page.reload();await enterGame(page);
+ const alakazam=species.species['65'];
+ expect(alakazam.officialLearnset).toContainEqual({level:40,moveId:'psychic'});
+ expect(moves.moves.psychic.name).toBe('Psichico');
+ const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:65,level:75,instanceId:'nilo-integration',moveIds:['psychic']});
+ save.party=[{instanceId:creature.instanceId,speciesId:65,level:75,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(m=>({id:m.moveId,pp:m.pp}))}];await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  async function challenge(){await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();for(let i=0;i<16&&!await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible();i++)await a(page).tap();}
  await challenge();await page.getByRole('button',{name:'NON ORA',exact:true}).tap();expect((await readBrowserSave(page)).player.money).toBe(4000);expect((await readBrowserSave(page)).flags).not.toContain('trainer_r15_nilo_defeated');
- await challenge();await page.getByRole('button',{name:'SFIDA',exact:true}).tap();await fightWithTouch(page,'concordiaGame',{120:'Pistolacqua'});
+ await challenge();await page.getByRole('button',{name:'SFIDA',exact:true}).tap();await fightWithTouch(page,'concordiaGame',{65:'Psichico'});
+ const battleResult=await readBrowserSave(page);expect(battleResult.flags).toContain('trainer_r15_nilo_defeated');expect(battleResult.party[0].hp).toBeGreaterThan(0);
  const banner=page.getByRole('dialog').filter({hasText:'Nilo'});await expect(banner).toBeVisible();await expect(banner).toContainText('1600');await banner.getByRole('button',{name:'Continua',exact:true}).tap();
  await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_r15_nilo_helped');expect((await readBrowserSave(page)).player.money).toBe(5600);
  await page.reload();await enterGame(page);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await dialogue(page);expect((await readBrowserSave(page)).player.money).toBe(5600);await expect(page.getByRole('button',{name:'SFIDA',exact:true})).toBeHidden();
