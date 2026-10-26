@@ -455,6 +455,92 @@
           "reason": "Clear the full width of the gym approach after native foot-placement review."
         }
       ]
+    },
+    {
+      "mapId": "veloria/r09_dune_salmastre",
+      "tiledAsset": "tilemaps/r09_dune_salmastre.tmj",
+      "assetKey": "veloria-r09_dune_salmastre-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r09_dune_salmastre-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r09_dune_salmastre-illustrated-v3.webp",
+      "sourceSha256": "1f6a20df2f34316aefe039b10bce7c8f4ea567eb901e2964a055278f71b466b0",
+      "runtimeSha256": "f849ffeec1f7ecbcf5033d76bb19b96f0fc0e9e96f5d11ff4fdecd2b8519d3a3",
+      "width": 1500,
+      "height": 1049,
+      "prompt": "Production background R09 Dune Salmastre, Veloria. Image1 is mandatory modern matte2D artstyle reference; image2 only oldlayout reference, do NOT copy its realistic shading. Generate landscape EXACT10:7 for40x28tilemap. Cheerful refined handpainted game illustration, broad matte shapes, rounded grayrocks, simple low salt-resistant shrubs and soft dunegrass, few tiny flowers. Warm palepeach sand, calm flat turquoise water at southernshore and upperright reeds. No shiny3D,photographic detail, realisticsurf/seabed, pixelart or isometricperspective. Northup overhead. Keep precise playable paths normalized percentages: northernentrance coversx47.5–52.5% and extends fromtop straightdown toy36%; main junctionx48–53%,y30–36%; easternarm runs acrossx50–72.5%,y30–36%, then turns south downx67.5–75%,y35–64.3%, then goesright acrossx70–100%,y57.1–64.3% tosole easternexit at y60.7%. Maincurves may be slightlyorganic but keep these fullwidthfloorbands clear. Fishing spur x70–75%,y64–75% ends atdry sandyheadland atx73.75%,y73.2%; sea only belowthispoint, no rocks atstandingpoint. Westernbranch runs fromjunction towardx30%,y34%, then south tograssclearingx12.5–25%,y35.7–50%; clear corridorx27.5–35%,y34–50%. Northeasternreedhabitat is open drygrasspatchx80–87.5%,y39.3–50%, connectfrommainpathviax72–87.5%,y43–50%. Leave runtimeNPCfootpositionsx46.25%,y30.4% andx71.25%,y33.9% open; no bakedpeople. Sand and grass clearings must be clearlywalkable, never fill with trees. Put larger dunes/lowshrubmass only blockedareas, notablycentralislandx35–65%,y39–55%; no objects spilling ontofloorbands. No paths towestedge,southedge or anynorthpointbesides central entrance. Remove oldlittleweathervane fromart (runtime owns interactions). No NPC,Pokemon, signs, pickups, instruments, icons,text,UI,border,ornewdoors. Same friendly modern illustrated world asimage1, spatial layout fromabove. No heavy paving or railings.\n\nFinal foot-placement correction:\nPrecise small terrain edit to this approved1499x1049 DuneSalmastre gamebackground, keep SAMEframing10:7 andallmainpaths, colors, rockislands, coastandvegetation exceptoneedge. Widen ONLY easternexit sandyroad SOUTHWARD30pixels. At rightthird x1040–1499pixels, keep upperedgefixed andreplace grass, flowers, littlerocks directlyalongroadloweredge withbare warmsand allthewaydown to y705pixels. On eastedge the exitroad musthave clear sand at y620,y660,y680,y695, notgrassorrocks. Existingpath at x70–100%,y57–64% staysbut extendsdown toy67.2%, no roads movedupwardor sideways. Keep shoreline southofthisnewroadmargin natural. Connect expandedfloor toverticalsandpathnearx1080 seamlessly. No rocks/grass insideexpandedexitlane. Do not touch fishingheadland x1100,y790 or otherpaths, no extrabranches or exits. Preserveillustrated2Dmatteartstyle. No newobjects,people,UI,signs,markers,orPokemon. Onlyclear lower30pixmarginofeastroad.",
+      "references": [
+        "assets/sources/veloria-r08_costa_turbine-illustrated-v3.png",
+        "assets/sources/veloria-r09-dunes-v1.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r09_dune_salmastre-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        },
+        {
+          "promptDocument": "assets/prompts/r09_dune_salmastre-illustrated-v3.md",
+          "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/d04_delta_specchi",
+      "tiledAsset": "tilemaps/d04_delta_specchi.tmj",
+      "assetKey": "veloria-d04_delta_specchi-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-d04_delta_specchi-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-d04_delta_specchi-illustrated-v3.webp",
+      "sourceSha256": "84aa3488a6377b7f627fb3b8250fcccf67f89eb77dc6890f73cf62594b3baaf7",
+      "runtimeSha256": "4f59466357a5a08ce1e60c0511d6e0cd818f02f2f9bd5f29f1bf2dfb632a7655",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Turn this EXACT 1280x960 schematic into a polished illustrated2D game map, output same4:3aspect and sameframing. The tanpixelshape MUST stay EXACTLY where it is: it is the floor, not a roughconcept. Trace the tanmask contour accurately and paint it with honeywoodenplanks, preserving every tanpixel aswalkablewood atitscurrentposition. Do not round, shift or scale bridgegeometry. Do not use any previous image layout. UpperLhorizontal2tileswide; verticalconnector1tilewide atx352..384 in1280canvas; lowerhorizontalx0..640,y544..608; southernstemx608..640,y608..736; smallgrassyendingx576..704,y736..800. Exactfloorgeometry, boardwalkverticalcenterx368/1280=28.75%, southerncenterx624/1280=48.75%. Keep minorwoodenposts outsideflooronly and no rails betweenlanes. Tanbottomrectangle become grassy drynurseryislet butkeepallfloorclear. Replaceblue with calmflatpaintedturquoisewater, tasteful scatteredsoftwillowislands and simplereeds confinedstrictlytoblue. Modernmattehandpainted2D familyRPG illustration, refinedbotanicaldetailbutsimple shapes, softshadows, roundedgrayrocks, sparsevioletirises, quietwater. Notpixelart, not3Dminiature, notphotorealistic. No additionalroutesorbridges orstaircases, no bakedpeople/Pokemon/text/instruments/markers/UI/grid/frame. IMPORTANT preserve the 1280x960diagram layout without translating it to a typicalreference composition. It is a level collision blueprint.\n\nFinal foot-placement correction:\nSmall PRECISE object edit of this map. Preserve exact canvas1448x1086, style, WATER,islands, ALL walkwaycenterlines, LEFT/RIGHTendpoints and every verticalbridge position. ONLY make the TWO main horizontal wooden boardwalks a little deeper toward the BOTTOM ofimage: keep their UPPERedges fixed, move ONLYloweredges down40pixels so deckfloor extends south. Top horizontalboardwalk currentlyy216..284 musthavewoodenfloor alltheway down to y325 alongx400..1448; do NOTshiftitup/right/left. Lowerhorizontalboardwalk currentlyy616..683 musthavewoodenfloor down to y725 alongx0..735; do NOTchange topedgeorwesternend. Keep verticalbridge atx396..440 joiningbothhorizontaldecks; don'tmoveit. Keep southstemcenterx706 andits nurseryplatform unchanged; make itsjunctioncontinuouswiththickerlowerdeck. Sparseposts along NEWloweredges only, no posts/ropeswhereformerbottomedgewas; no middleparallelrails insidefloor. Actualcharacterfeet at y294(top) andy693(lower) mustsit safelyonwoodfloor. Keep allwoodfloor unobstructed. Do not redesign scene, do not alterislands/palette, no additionalbridges, no text/people/UI/markers. ONLY widen thoseexistingwoodendecks southward40pixels.\n\nFinal post removal:\nPrecise object removal, NO layout orstyle change. Remove ALL cylindrical wooden POSTS and theirroundcapdiscs from EVERY boardwalk inthisimage. Theylook like obstacles underplayerfeet andmustnotexist. Inpaint theirformerlocations with continuous matchingwoodenplanks when onthedeck and matchingwater whenoutsideit. Keep ALL current deckfloorcontours/widths/positions EXACTLY unchanged, especially the expandedloweredges. Keep ALLwalkways and grassyislands,water andvegetation exactly. No bridgesmoved,widened,narrowed,resized,transformed orremoved. Flat uninterrupted warmwoodenplankfloors with thin darkouteredge only, absolutely NO bollards, roundcaps, rails, ropes, columns oruprightposts onanyfloor. Underdeckshadowonly. Modernillustrated2D samepalette, no newobjects/text/characters/UI. Exact1448x1086 sameframing4:3.",
+      "references": [
+        "public/tilemaps/d04_delta_specchi.tmj",
+        "assets/prompts/d04-layout-guide-v1.svg"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        },
+        {
+          "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+          "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+        },
+        {
+          "promptDocument": "assets/prompts/d04_delta_specchi-illustrated-v3.md",
+          "reason": "Remove painted posts from walkable floor after native screenshot review."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/r10_sentiero_canne",
+      "tiledAsset": "tilemaps/r10_sentiero_canne.tmj",
+      "assetKey": "veloria-r10_sentiero_canne-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r10_sentiero_canne-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp",
+      "sourceSha256": "99cb8e848e43f846eb1039590263cdb5b62f400fc6c1eee438ad5e9cd2b42cae",
+      "runtimeSha256": "7aff87c5289ab1ee78e4121e79a6ea48efbf3c4708c3a2cf9161dd8be1dcb43c",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Trace this1280x960 levelcollision blueprint into a polished modern2D illustrated game background. Exact4:3canvas andsameframing. Tanmask is authoritative WALKABLEFLOOR geometry, not aroughconcept. Keepfloorart underneath EVERYtanpixel, traceoutercontours withouttranslation. Mainmaskbentrouteis honeywoodenplanks. Walkwaycenterlines leftx336and368(tiles10and11), rightx656and688(tiles20and21), kitendx1008tile31. Westentrancefloory672–736,x0–384; leftstemx320–384,y160–736; centralcrossbarx320–704,y416–480; rightstemx640–704,y128–480; tophorizontalx640–1280,y128–192. ExactgeometryIMPORTANT no recentering and no movingangles. Easternbranch is smallirregulartanmask leavingtopbarnearx976anddescending togroundislet nearx1040,y400, endingwoodenspur atx992–1024,y640. Mustbe drywoodunderkitpointx1008,y624 (65%y), notwater. Broadtanareas areGRASSYDRYlandings: top-leftwillowclearingx288–416,y160–288; lowerleftreedhabitatx96–256,y512–608; upperrightreedhabitatx1024–1120,y352–448. Drawgrassinsidetheseclearings, withno solidtree/rocktrunkinsideclearwalkablemask. Willowaboveupperleftisletcanoverhangblockedperimeteronly, no bellbaked. Surroundtanmaskwithcalmflatpaintedturquoisegreenmarshwater, tastefullowwillow/reedislands strictlywithinblueareas. Modernstorybookgouacheillustration, softmattebroadshapes, roundedgrayrocks, subtleirises, no glitter or realisticseabed, no3Disometricminiature,pixelart. Sparsepostsoutsidefloor, neverinsidefloorlanes/junctions. No extraboardwalkbranch orpath tootheredges, nopeople,Pokemon,markers,text,icons,UI,signs,pickups,instruments orframe. Followdiagramcoordinates precisely withquietbreathingroom.\n\nFinal foot-placement correction:\nSmall precise objectedit ONLY of this approved1448x1086 gamebackground, preservewater,style,landings,willows, verticalbridgepositions, ALLroutecenterlines, framing4:3. Extend ONLY the BOTTOMedges of the THREE horizontalwoodendecks DOWN by30pixels, keepingtheirTOPedges andleft/rightends FIXED. Upperhorizontaldeck currentlyfloory145..208 mustextenddown to y240 alongx734..1448. Middlehorizontalcrossbar currentlyy475..533 mustextenddown to y565 alongx360..800. Westentrancehorizontal currentlyy766..831 mustextenddown toy865 alongx0..435. No other changes to theseroutes, don'ttranslatebridges. Movebottomrail/posts toNEWloweredges, leavingfullfloorclear withno oldrailinside it. Keepverticalstemsatleftx363..434, rightx728..798 andeasternspuratx1119..1163, no sidewaysshifts. Extend onlysouthtip ofeasternkitspur fromy720 to y760, makingdrywoodfloorunder x1140,y730, posts atnewend. Theplayerfeet sitbelowtilecenter andneedthis extra southmargin; don'tnarrow decks. Preserve grassyislets, exactexits andnoextrabridges. No text,characters,UI,Pokemon,markers,instruments. Same modernmatte2D painterlystyle. ONLYsouthwardwoodfloorwidening.\n\nFinal post removal:\nPrecise object removal only to thisapprovedgamebackground. Remove ALL cylindricaluprightwoodenposts, roundcapdiscs,bollards andropes from EVERY boardwalk, including oldposts insidewideneddecks andgrassyplatformcornerposts. Theyare false obstacles forplayer; inpaint with matchingplankfloor wheretheywereonthedeck, matchingwater outside. Keep everyboardwalkfloorboundary,width,position,centerline andconnection EXACTLYunchanged. Do not change grassplatforms, willowtrees,water,colors,shadowsstyle orframing. Simple flat uninterruptedwoodenplankwalkways with thinouteredgeandundershadowonly. No verticalposts/railsorropes anywhere alongthem, no othernewobjects, no text/UI/characters. Preserve exact1448x1086 4:3. No resizing/croppingorbridgegeometrychanges. Onlyremove the visiblepostobjects to leavecleanwalkablefloor.",
+      "references": [
+        "public/tilemaps/r10_sentiero_canne.tmj",
+        "assets/prompts/r10-layout-guide-v1.svg"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+          "reason": "Modern matte illustrated 2D coastal batch; preserve playable geometry."
+        },
+        {
+          "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+          "reason": "Widen southern floor margins after native avatar foot-placement review; collision geometry unchanged."
+        },
+        {
+          "promptDocument": "assets/prompts/r10_sentiero_canne-illustrated-v3.md",
+          "reason": "Remove painted posts from walkable floor after native screenshot review."
+        }
+      ]
     }
   ]
 }

@@ -24,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r10-reeds-v1",
-      "path": "assets/sprites/veloria-r10-reeds-v1.webp"
+      "key": "veloria-r10_sentiero_canne-illustrated-v3",
+      "path": "assets/scenery/veloria-r10_sentiero_canne-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -85,5 +85,5 @@
     "veloria/q_r10_bruno"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-r10-reeds-v1"
+  "battleBackgroundKey": "veloria-r10_sentiero_canne-illustrated-v3"
 }

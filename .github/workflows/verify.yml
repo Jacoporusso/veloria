@@ -45,7 +45,9 @@ jobs:
           - {suite: controls, shard: 2, total: 2}
           - {suite: league, shard: 1, total: 1}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Runner bootstrap can take over 20 minutes; preserve the separately
+    # bounded 24-minute browser step plus artifact upload after that setup.
+    timeout-minutes: 50
 
     steps:
       - name: Check out repository
