@@ -1,3 +1,9 @@
+## 0.4.8 — Varco di Cristallo illustrato
+
+Nuovo fondale R14 raw PNG/WebP lossless, generato dalla geometria Tiled e coerente con Biancavetta; pittogrammi condivisi su rifugio e sensore. Primo candidato corretto dopo la revisione browser della roccia che invadeva il punto di cura. Nessuna modifica a collisioni, incontri, missioni o uscite. [Asset, verifiche e limiti](70_CRYSTAL_PASS_ILLUSTRATED_v0.1.md).
+
+Locale:771 dominio +31 persistenza passati; build passata; validatore624 asset/28 fondali/48 mappe passato. Percorso touch completo con cura effettiva, dialoghi, grotta/ritorno e uscita ovest passato; due casi camera passati. Produzione offline: prima richiesta dei27 fondali non iniziali passata; regolatore della grotta e ritorno a R14 passati anche nella ripetizione che richiede i nuovi asset. Cache v171, contenuti0.4.8. Commit, pubblicazione e nuova CI da attestare dopo push. Revisione48 mappe e direzioni/animazioni cast ancora aperte.
+
 ## 0.4.7 — Guide dei doni Pokémon e margini senza copie
 
 Runtime `37419c4` pubblicato. [Deploy40417666646](https://github.com/Jacoporusso/veloria/actions/runs/40417666646): SUCCESS; cache pubblica `veloria-shell-v170` verificata via HTTP. [Verify40417666535](https://github.com/Jacoporusso/veloria/actions/runs/40417666535): FAILURE, unico job fallito «Browser journeys shard 2».

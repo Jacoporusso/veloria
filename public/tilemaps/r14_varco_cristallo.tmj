@@ -4380,6 +4380,11 @@
               "name": "dialogueId",
               "type": "string",
               "value": "r14_wind_reading"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -4407,6 +4412,11 @@
               "name": "message",
               "type": "string",
               "value": "Un rifugio al riparo dal vento. Puoi far riposare la squadra prima di entrare nella grotta."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "heal"
             }
           ]
         }
@@ -4514,7 +4524,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 165,
+          "name": "Varco di Cristallo illustrato",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r14_varco_cristallo-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4523,7 +4562,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 165,
+  "nextobjectid": 166,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

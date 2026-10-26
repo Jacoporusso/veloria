@@ -1,5 +1,6 @@
-const CACHE = 'veloria-shell-v170';
+const CACHE = 'veloria-shell-v171';
 const SHELL = [
+  './assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp',
   './assets/scenery/veloria-biancavetta-illustrated-v3.webp',
   './assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp',
   './assets/scenery/veloria-passobrina-illustrated-v3.webp',

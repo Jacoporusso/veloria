@@ -6,18 +6,18 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 34,
+    "mapsWithExplicitSceneryImage": 35,
     "mapsWithRegisteredSceneryPath": 42,
-    "mapsWithTerrainBase": 29,
+    "mapsWithTerrainBase": 28,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 19,
-    "mapsWithTerrainBaseOnly": 14,
+    "mapsWithSceneryImageOnly": 20,
+    "mapsWithTerrainBaseOnly": 13,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
     "registeredSceneryImageAssets": 42,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 14,
-    "mapsWithUnreferencedSceneryRegistration": 14,
-    "parityArtworkEntries": 27,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 13,
+    "mapsWithUnreferencedSceneryRegistration": 13,
+    "parityArtworkEntries": 28,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -11367,11 +11367,7 @@
         "height": 30
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-r14-crystal-pass-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 1200,
@@ -11379,26 +11375,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 165,
+          "name": "Varco di Cristallo illustrato",
+          "spriteKey": "veloria-r14_varco_cristallo-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 165,
+          "name": "Varco di Cristallo illustrato",
+          "spriteKey": "veloria-r14_varco_cristallo-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          },
+          "assetPath": "assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r14-crystal-pass-v1",
-          "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp",
+          "key": "veloria-r14_varco_cristallo-illustrated-v3",
+          "path": "assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-r14-crystal-pass-v1",
-          "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -11423,8 +11440,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r14-crystal-pass-v1",
-          "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp",
+          "key": "veloria-r14_varco_cristallo-illustrated-v3",
+          "path": "assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -11440,9 +11457,30 @@
           "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/r14_varco_cristallo",
+        "tiledAsset": "tilemaps/r14_varco_cristallo.tmj",
+        "assetKey": "veloria-r14_varco_cristallo-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r14_varco_cristallo-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
+        "sourceSha256": "87588b5de68f130a28e06f97a0cc9fae33ea784befd1bdc62cdfa76d5eb9b3f8",
+        "runtimeSha256": "17bb9812d028d97f9cd46aa470aac88aee8c5c6b42927f2eea11589de8cb5b04",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create a finished modern illustrated 2D top-down RPG full-map environment for Veloria, Varco Cristallo alpine mountain pass. EXACT 4:3 canvas, no border, no UI, no labels, no grid, no characters, no creatures, no markers, no baked interactive sensor. First reference is STRICT geometry: blue-grey = inaccessible snowy cliffs/rocks/conifers; beige = traversable light natural stone path, preserve EVERY beige corridor and spur at exact normalized position and width, never place rocks, posts, trunks or walls on it. Green = small reachable tufted alpine grass habitat lower right, preserve location. Second reference is STYLE ONLY: polished hand-painted contemporary family adventure, detailed crisp painterly surfaces, soft atmospheric light, snowy blue mountains, warm limestone paths, restrained cyan crystals, vivid but cohesive, not pixel art, not isometric 3D render. Composition matches geometry precisely: west entry at x0,y55%; winding path bifurcates into northwestern lookout at x30%,y18%, east climbing route leading to a cave mouth centered x86.25%,y18.33%, southern grass spur at x60%,y66%. Cave mouth must open onto beige path with threshold at normalized (0.8625,0.1833); no invented extra walkways. Northmost 0-16% is cliffs and trees. At east branch around x76%,y42%, a small warm sheltered rest alcove may be carved BEHIND free floor, never on beige. Keep all beige usable flat ground and sufficient foot clearance from source mask. Fill inaccessible remainder with beautifully varied snowy slate outcrops, small crystal formations, clusters of fir trees, distant depth only outside walkable floor; no black void. Light natural paths not dark heavy edging. Preserve flat consistent overhead gameplay scale, no huge foreground occlusion.",
+        "references": [
+          "assets/prompts/r14-production-layout-v1.svg",
+          "assets/sources/veloria-biancavetta-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r14_varco_cristallo-illustrated-v3.md",
+            "reason": "Modern illustrated alpine pass; generated collision guide preserves paths and habitat with actor foot clearance."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 163,

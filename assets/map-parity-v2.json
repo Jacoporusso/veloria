@@ -647,6 +647,32 @@
           "reason": "Modern matte illustrated 2D alpine town; retain secondary hotspots and align the gym approach."
         }
       ]
+    },
+    {
+      "mapId": "veloria/r14_varco_cristallo",
+      "tiledAsset": "tilemaps/r14_varco_cristallo.tmj",
+      "assetKey": "veloria-r14_varco_cristallo-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r14_varco_cristallo-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
+      "sourceSha256": "ff999a98057427d00d7c0b0c321db420607dcaa691e1c4d2d7726c7285154521",
+      "runtimeSha256": "bc6957eb70b621d9662630127094b73c2d0a457aa725ccc67409e68eb1b631fe",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Create a finished modern illustrated 2D top-down RPG full-map environment for Veloria, Varco Cristallo alpine mountain pass. EXACT 4:3 canvas, no border, no UI, no labels, no grid, no characters, no creatures, no markers, no baked interactive sensor. First reference is STRICT geometry: blue-grey = inaccessible snowy cliffs/rocks/conifers; beige = traversable light natural stone path, preserve EVERY beige corridor and spur at exact normalized position and width, never place rocks, posts, trunks or walls on it. Green = small reachable tufted alpine grass habitat lower right, preserve location. Second reference is STYLE ONLY: polished hand-painted contemporary family adventure, detailed crisp painterly surfaces, soft atmospheric light, snowy blue mountains, warm limestone paths, restrained cyan crystals, vivid but cohesive, not pixel art, not isometric 3D render. Composition matches geometry precisely: west entry at x0,y55%; winding path bifurcates into northwestern lookout at x30%,y18%, east climbing route leading to a cave mouth centered x86.25%,y18.33%, southern grass spur at x60%,y66%. Cave mouth must open onto beige path with threshold at normalized (0.8625,0.1833); no invented extra walkways. Northmost 0-16% is cliffs and trees. At east branch around x76%,y42%, a small warm sheltered rest alcove may be carved BEHIND free floor, never on beige. Keep all beige usable flat ground and sufficient foot clearance from source mask. Fill inaccessible remainder with beautifully varied snowy slate outcrops, small crystal formations, clusters of fir trees, distant depth only outside walkable floor; no black void. Light natural paths not dark heavy edging. Preserve flat consistent overhead gameplay scale, no huge foreground occlusion.",
+      "references": [
+        "assets/prompts/r14-production-layout-v1.svg",
+        "assets/sources/veloria-biancavetta-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r14_varco_cristallo-illustrated-v3.md",
+          "reason": "Modern illustrated alpine pass; generated collision guide preserves paths and habitat with actor foot clearance."
+        },
+        {
+          "promptDocument": "assets/prompts/r14_varco_cristallo-illustrated-v3.md",
+          "reason": "Browser review found a painted rock inside the refuge approach. Removed rock and habitat edge obstructions through ImageGen; gameplay geometry unchanged."
+        }
+      ]
     }
   ]
 }

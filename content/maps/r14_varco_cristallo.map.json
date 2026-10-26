@@ -4,11 +4,6 @@
   "displayName": "Varco di Cristallo",
   "biomeId": "snow_pass",
   "tiledAsset": "tilemaps/r14_varco_cristallo.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-r14-crystal-pass-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -29,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r14-crystal-pass-v1",
-      "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp"
+      "key": "veloria-r14_varco_cristallo-illustrated-v3",
+      "path": "assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -80,5 +75,5 @@
     "veloria/q_crystal_research"
   ],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-r14-crystal-pass-v1"
+  "battleBackgroundKey": "veloria-r14_varco_cristallo-illustrated-v3"
 }
