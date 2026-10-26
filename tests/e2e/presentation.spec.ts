@@ -2,10 +2,12 @@ import { expect, test } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
 import gen1Artwork from '../../assets/pokeapi-gen1-artwork-v1.json' with { type: 'json' };
 import starterArtwork from '../../assets/pokeapi-starter-artwork-v1.json' with { type: 'json' };
+import { readBrowserSave } from './helpers/world-navigation';
 
 test('journey journal shows real progress and returns focus without moving the player', async ({ page }, testInfo) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await enterGame(page);
+  const playerBefore = (await readBrowserSave(page)).player;
   const journal = page.getByRole('button', { name: 'Apri diario del viaggio' });
   await expect(journal).toContainText('Un compagno di viaggio');
   await journal.click();
@@ -15,12 +17,22 @@ test('journey journal shows real progress and returns focus without moving the p
   await expect(page.locator('.journey-next h3')).toHaveText(await journal.locator('.journey-heading').innerText());
   await page.keyboard.press('Tab');
   await expect(page.locator('.journey-contents')).toBeFocused();
+  const mapButtons = page.locator('.journey-contents button:not(:disabled)');
+  const count = await mapButtons.count();
+  expect(count).toBeGreaterThan(0);
+  for (let index = 0; index < count; index++) {
+    await page.keyboard.press('Tab');
+    await expect(mapButtons.nth(index)).toBeFocused();
+  }
   await page.keyboard.press('Tab');
   await expect(page.locator('.journey-close')).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(mapButtons.last()).toBeFocused();
   await page.screenshot({ path: testInfo.outputPath('journey-mobile.png') });
   await page.keyboard.press('Escape', { delay: 40 });
   await expect(page.getByRole('dialog', { name: 'Il tuo viaggio' })).toBeHidden();
   await expect(journal).toBeFocused();
+  expect((await readBrowserSave(page)).player).toEqual(playerBefore);
   await page.screenshot({ path: testInfo.outputPath('world-modernized-mobile.png') });
 });
 
