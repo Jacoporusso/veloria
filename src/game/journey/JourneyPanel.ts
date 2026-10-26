@@ -12,6 +12,7 @@ import '../../evolution-item-actions.css';
 import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { getMap } from '../maps/map-registry.ts';
 import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
+import { describePokemonReward } from './pokemon-reward-guidance.ts';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
 const itemNames = Object.fromEntries(Object.entries(itemContent.items).map(([id, item]) => [id, item.name]));
@@ -49,7 +50,7 @@ export class JourneyPanel {
   get hasReward(): boolean { return !this.reward.hidden; }
 
   constructor(stage: HTMLElement, private readonly onUseEvolutionItem?: (itemId: string, creatureId?: string) => void,
-    private readonly onShowMap?: (mapId: string) => void) {
+    private readonly onShowMap?: (mapId: string, discoveryId?: string) => void) {
     this.contents.tabIndex = 0;
     this.trigger.type = 'button';
     this.trigger.setAttribute('aria-label', 'Apri diario del viaggio');
@@ -239,11 +240,28 @@ export class JourneyPanel {
         });
       const row = element('article', `journey-quest${complete ? ' complete' : ''}`);
       const rewards = formatQuestRewards(quest, itemNames);
+      const pokemonReward = describePokemonReward(quest, this.save.flags);
       const questStatus = specialEncounters.length
         ? specialEncounters.map(entry => entry.status).join(' · ')
-        : complete ? 'Completata ✓' : `${stepsDone}/${quest.steps.length} passi`;
+        : pokemonReward?.status ?? (complete ? 'Completata ✓' : `${stepsDone}/${quest.steps.length} passi`);
       row.append(element('strong', '', quest.displayName ?? quest.id), element('span', 'journey-quest-state', questStatus));
       if (rewards.length) row.append(element('p', '', `${complete ? 'Ricevuto' : 'Ricompensa'}: ${rewards.join(' · ')}`));
+      if (pokemonReward) {
+        const { guide, name, location } = pokemonReward;
+        const guidance = element('section', 'journey-special-encounter journey-pokemon-reward');
+        guidance.append(element('strong', 'journey-special-encounter-title', `🎁 ${location}`),
+          element('p', 'journey-special-encounter-unlock', guide.unlockHint),
+          element('p', 'journey-special-encounter-route', guide.routeHint),
+          element('p', 'journey-special-encounter-action', guide.actionHint));
+        if (this.onShowMap) {
+          const locate = element('button', 'journey-special-map', '🗺️ Vedi sulla mappa');
+          locate.type = 'button';
+          locate.setAttribute('aria-label', `Mostra ${name} sulla mappa`);
+          locate.onclick = () => { this.close(); this.onShowMap?.(guide.mapId, quest.id); };
+          guidance.append(locate);
+        }
+        row.append(guidance);
+      }
       for (const { encounter, location } of specialEncounters) {
         const species = battleSpecies[encounter.speciesId];
         const guidance = element('section', 'journey-special-encounter');
@@ -255,7 +273,7 @@ export class JourneyPanel {
           const locate = element('button', 'journey-special-map', '🗺️ Vedi sulla mappa');
           locate.type = 'button';
           locate.setAttribute('aria-label', `Mostra ${species.name} sulla mappa`);
-          locate.onclick = () => { this.close(); this.onShowMap?.(encounter.mapId); };
+          locate.onclick = () => { this.close(); this.onShowMap?.(encounter.mapId, encounter.id); };
           guidance.append(locate);
         }
         row.append(guidance);

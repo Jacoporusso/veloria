@@ -202,7 +202,7 @@ export class WorldScene extends Phaser.Scene {
     const stage = document.querySelector<HTMLElement>('.game-stage');
     if (stage) {
       this.journey = new JourneyPanel(stage, (itemId, creatureId) => void this.openItemEvolution(itemId, creatureId),
-        mapId => this.regionMap?.open(this.save, mapId));
+        (mapId, discoveryId) => this.regionMap?.open(this.save, mapId, discoveryId));
       this.journey.update(this.save);
       this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.journey?.destroy());
     }

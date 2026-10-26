@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "guides": [
+    {
+      "questId": "veloria/q_fossil_omanyte",
+      "mapId": "veloria/borgofonte_lab",
+      "npcId": "prof_elia",
+      "routeHint": "Raggiungi Borgofonte ed entra nel laboratorio con la cupola azzurra, a sud della piazza.",
+      "actionHint": "Parla con la professoressa Elia e scegli «Ridona vita a Omanyte».",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "questId": "veloria/q_fossil_kabuto",
+      "mapId": "veloria/borgofonte_lab",
+      "npcId": "prof_elia",
+      "routeHint": "Raggiungi Borgofonte ed entra nel laboratorio con la cupola azzurra, a sud della piazza.",
+      "actionHint": "Parla con la professoressa Elia e scegli «Ridona vita a Kabuto».",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "questId": "veloria/q_fossil_aerodactyl",
+      "mapId": "veloria/borgofonte_lab",
+      "npcId": "prof_elia",
+      "routeHint": "Raggiungi Borgofonte ed entra nel laboratorio con la cupola azzurra, a sud della piazza.",
+      "actionHint": "Parla con la professoressa Elia e scegli «Ridona vita a Aerodactyl».",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "questId": "veloria/q_radicelmo_greenhouse",
+      "mapId": "veloria/radicelmo",
+      "npcId": "radicelmo_keeper",
+      "routeHint": "Raggiungi Radicelmo e cerca Leda davanti alla serra.",
+      "actionHint": "Parla con Leda; nel vivaio a sud attiva l’acqua a sinistra, regola la luce a destra, osserva il seme nel vaso centrale e torna da lei.",
+      "unlockHint": "Prima riporta e archivia il seme ancestrale."
+    },
+    {
+      "questId": "veloria/q_ferraluce_report",
+      "mapId": "veloria/ferraluce",
+      "npcId": "ferraluce_ivo",
+      "routeHint": "Raggiungi Ferraluce e cerca Ivo nella Piazza dell’Energia.",
+      "actionHint": "Dopo aver registrato la lettura all’Anello Magnetico, parla con Ivo per confrontare i dati.",
+      "unlockHint": "Prima visita Ferraluce e registra la lettura del misuratore sull’Anello Magnetico."
+    },
+    {
+      "questId": "veloria/q_acquariva_research",
+      "mapId": "veloria/acquariva",
+      "npcId": "acquariva_tessa",
+      "routeHint": "Dopo il rapporto del Delta, raggiungi Acquariva e cerca Tessa nell’osservatorio a est della piazza.",
+      "actionHint": "Parla con Tessa e riferisci le osservazioni del Delta per confrontarle con le letture del lago.",
+      "unlockHint": "Prima completa il rapporto di Iris al Delta."
+    }
+  ]
+}

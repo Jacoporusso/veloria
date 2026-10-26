@@ -14,22 +14,10 @@ import { renderEncounterHabitatGrass } from './encounter-habitat-grass.ts';
 import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 import { renderWeatherInstrument } from './weather-instrument.ts';
 import { renderWayfindingMarker } from './wayfinding-marker.ts';
+import { renderMapEdgeBackdrop } from './map-edge-backdrop.ts';
 
 const TILE = 32;
 
-/** Reflect only static scenery beyond the playable rectangle. The seam shares
- * identical edge texels; actors, collision, exits and map scale stay unchanged.
- * Reuse the texture instead of allocating enlarged bitmap copies per map.
- */
-function renderVerticalBackdrop(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
-  texture: string | Phaser.Textures.Texture, width: number, height: number, depth: number): void {
-  for (const edge of ['top', 'bottom'] as const) {
-    const image = scene.add.image(0, edge === 'top' ? 0 : height, texture)
-      .setOrigin(0, edge === 'top' ? 1 : 0).setDisplaySize(width, height)
-      .setFlipY(true).setDepth(depth).setName('map-edge-backdrop');
-    container.add(image);
-  }
-}
 type RenderedMap = {
   container: Phaser.GameObjects.Container;
   occupied: Set<string>;
@@ -137,7 +125,8 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   }
   terrainSurface.setOrigin(0, 0).setDepth(-10);
   container.add(terrainSurface);
-  renderVerticalBackdrop(scene, container, terrainSurface.texture, terrainWidth, terrainHeight, -11);
+  let backdropTexture: string | Phaser.Textures.Texture = terrainBase?.assetKey ?? terrainSurface.texture;
+  let backdropDepth = -11;
   for (const layer of terrainLayers) layer.destroy();
 
   const occupied = collectMapCollision(tilemap.getObjectLayer('collision')?.objects ?? [], tilemap.width, tilemap.height, collectedFlags);
@@ -162,7 +151,11 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
       const activatedFlag = propString(properties, 'activatedFlag');
       if (item.kind === 'scenery-image' && item.x === 0 && item.y === 0 && item.width === terrainWidth && item.height === terrainHeight) {
         const sprite = propString(item.properties, 'sprite');
-        if (sprite && imageKeys.has(sprite)) renderVerticalBackdrop(scene, container, sprite, terrainWidth, terrainHeight, propNumber(item.properties, 'renderDepth') ?? -4);
+        const renderDepth = propNumber(item.properties, 'renderDepth') ?? -4;
+        if (sprite && imageKeys.has(sprite) && renderDepth >= backdropDepth) {
+          backdropTexture = sprite;
+          backdropDepth = renderDepth;
+        }
       }
       renderObject(scene, container, item, imageKeys, imageAtlases, !activatedFlag || collectedFlags.includes(activatedFlag), collectedFlags);
       const completedFlag = propString(properties, 'completedFlag');
@@ -175,6 +168,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
     }
   }
 
+  renderMapEdgeBackdrop(scene, container, backdropTexture, terrainWidth, terrainHeight, backdropDepth);
   const triggers = (tilemap.getObjectLayer('triggers')?.objects ?? []).map(raw => {
     const object = raw as TiledObject;
     const properties = propertiesOf(object);

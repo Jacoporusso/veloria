@@ -48,6 +48,7 @@
  .region-map-body { display: flex; flex-direction: column; }
  .region-map-chart-column { flex: 1; }
  .region-map-sidebar { flex: none; max-height: 210px; padding: 12px 16px; }
+ .has-discovery-target .region-map-sidebar { max-height: min(46vh, 360px); }
  .region-map-select { margin-bottom: 6px; }
  .region-map-details h3 { font-size: 18px; display: inline; margin-right: 10px; }
  .region-map-details p { font-size: 13px; margin-top: 4px; }

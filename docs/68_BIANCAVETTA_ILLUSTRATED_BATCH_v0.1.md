@@ -14,6 +14,6 @@ Build e due controlli globali dei27 fondali passati. Produzione offline:26 fonda
 
 ## Revisione ancora aperta
 
-Il riempimento riflesso oltre il bordo nord può mostrare un frammento della cupola nella parte alta della viewport portrait. È un limite osservato del renderer dei margini, non una seconda palestra o un accesso logico. Va sostituito con un'estensione adatta ai fondali con edifici vicini al bordo; la sola presenza nel manifest non certifica la revisione completa della scena.
+Nel rilascio0.4.6 il riempimento riflesso oltre il bordo nord mostrava un frammento della cupola nella viewport portrait. Il successivo [incremento0.4.7](69_POKEMON_REWARDS_AND_MAP_EDGES_v0.1.md) sostituisce quel riempimento con un campo colore derivato dalla sola fascia esterna, verificato anche a390×1100. La sola presenza nel manifest continua a non certificare la revisione completa della scena.
 
 Rimangono aperti il rifacimento delle altre mappe, le pose direzionali del cast e la verifica naturale della campagna completa. Il [piano delle pose NPC](67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md) distingue le48 identità presenti dalle animazioni ancora da implementare.

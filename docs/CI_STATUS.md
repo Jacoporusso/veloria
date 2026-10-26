@@ -1,6 +1,14 @@
+## 0.4.7 — Guide dei doni Pokémon e margini senza copie
+
+Feedback della foto sui fossili: Diario e atlante mostrano requisiti, luogo, NPC e azione per tutte sei le quest con dono Pokémon. «Vedi sulla mappa» mette in primo piano il dono selezionato; 🎁 indica le ricompense disponibili. Nessun cambiamento a premi, livelli, sblocchi o stato del salvataggio. [Sorgenti e prove](69_POKEMON_REWARDS_AND_MAP_EDGES_v0.1.md).
+
+Il riempimento oltre i bordi campiona una piccola fascia esterna e ne deriva un campo colore, invece di riflettere edifici interni. Due sole immagini di margine, texture in memoria riusate, nessuna modifica degli artwork. Prova pixel sintetica passata con e senza blur, undici casi camera e regressioni PWA DPR3/4 passati.
+
+Locale:771 test dominio +31 persistenza passati; validatore621 asset/27 fondali/48 mappe passato; build passata. Cinque casi focalizzati su guida fossili, ricezione reale dei tre al20, Snorlax e focus Diario; tre regressioni PWA/atlante; tredici casi sui margini passati. Tre prove produzione offline passate, inclusa la nuova guida Kabuto e il test specifico della prima richiesta dei26 fondali non iniziali. Log `.tmp/gift-edges-production-final.log`, `.tmp/edge-ambience-final.log` e riferimenti nel documento69. Cache v170, contenuti0.4.7; nuova pubblicazione da verificare dopo il push. Studio Ada non accettato e conservato solo in `.tmp`, non registrato né collegato al runtime.
+
 ## 0.4.6 — Biancavetta illustrata
 
-Runtime `6654b48` inviato a main. [Deploy40411320145](https://github.com/Jacoporusso/veloria/actions/runs/40411320145) in corso e [Verify40411320096](https://github.com/Jacoporusso/veloria/actions/runs/40411320096) in coda all'ultimo controllo. Versione pubblica v169 ed esiti completi ancora da verificare; nessuna dichiarazione anticipata di successo.
+Runtime `6654b48` pubblicato: [Deploy40411320145](https://github.com/Jacoporusso/veloria/actions/runs/40411320145) SUCCESS e [Verify40411320096](https://github.com/Jacoporusso/veloria/actions/runs/40411320096) SUCCESS con25 job passati, comprese le risorse offline. Cache pubblica v169 e fondale Biancavetta HTTP200 verificati.
 
 Nuovo fondale raw PNG/WebP lossless con geometria Tiled, presidio e osservatorio conservati, palestra riposizionata verso la soglia reale, quattro pittogrammi condivisi per i servizi. [Asset, prompt, prove e limite del riflesso nord](68_BIANCAVETTA_ILLUSTRATED_BATCH_v0.1.md). [Piano delle pose NPC](67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md):48 identità presenti non equivalgono a48 set direzionali animati.
 

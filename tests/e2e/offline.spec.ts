@@ -52,6 +52,40 @@ test('special encounter Journal guidance opens the destination Atlas without a n
   expect(errors).toEqual([]);
 });
 
+test('fossil reward guidance locates Elia from the first offline Journal visit', async ({ page, context }, info) => {
+  await page.goto('/'); await enterGame(page);
+  const fixture = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 1, level: 10, instanceId: 'offline-fossil-guide' });
+  fixture.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 10, experience: 0, hp: creature.hp,
+    maxHp: creature.stats.maxHp, moves: creature.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
+  fixture.flags = [...new Set([...fixture.flags, 'q_starter_selected', 'q_research_sample_received',
+    'q_league_completed', 'q_league_epilogue_seen', 'prologue_complete_seen'])];
+  await seedBrowserSave(page, fixture);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  const before = await readBrowserSave(page);
+  await page.getByRole('button', { name: 'Apri diario del viaggio' }).click();
+  const journal = page.getByRole('dialog', { name: 'Il tuo viaggio' });
+  const quest = journal.locator('.journey-quest').filter({ hasText: 'Una nuova vita per Kabuto' });
+  await expect(quest.locator('.journey-quest-state')).toHaveText('Da ricevere');
+  await journal.getByRole('button', { name: 'Mostra Kabuto sulla mappa', exact: true }).click();
+  const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
+  await expect(atlas.locator('.region-map-select')).toHaveValue('borgofonte');
+  const gift = atlas.getByRole('region', { name: 'Pokémon in dono: Kabuto', exact: true });
+  await expect(gift).toContainText('Elia'); await expect(gift).toContainText('cupola azzurra');
+  await expect(gift).toContainText('Ridona vita a Kabuto');
+  await page.evaluate(async () => {
+    const image = new Image(); image.src = document.querySelector<SVGImageElement>('.region-map-chart image')!.href.baseVal;
+    await image.decode(); await new Promise(requestAnimationFrame);
+  });
+  await page.screenshot({ path: info.outputPath('offline-kabuto-lab-guidance.png') });
+  const after = await readBrowserSave(page);
+  for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(failures).toEqual([]);
+});
+
 test('canonical NPC artwork and redesigned scenery decode offline without changing progress', async ({ page, context }) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });

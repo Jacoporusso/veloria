@@ -2,9 +2,9 @@ import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { collectMapCollision } from '../../src/core/world/map-collision';
 
-for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
-  for (const mapName of ['r04_salita_petali', 'r07_condotto_risonante', 'ferraluce', 'borgofonte_lab']) {
-    test(`painted camera edges stay covered in ${mapName} at ${viewport.width}`, async ({ page }, info) => {
+for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 390, height: 1100 }]) {
+  for (const mapName of viewport.height === 1100 ? ['biancavetta'] : ['r04_salita_petali', 'r07_condotto_risonante', 'ferraluce', 'borgofonte_lab', 'biancavetta']) {
+    test(`painted camera edges stay covered in ${mapName} at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
       await page.setViewportSize(viewport);
       const metadata = JSON.parse(await readFile(`content/maps/${mapName}.map.json`, 'utf8'));
       const tiled = JSON.parse(await readFile(`public/${metadata.tiledAsset}`, 'utf8'));
@@ -39,9 +39,10 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
         const backdrop = await page.evaluate(() => {
           const world = (window as any).__cameraEdgeGame.scene.keys.world;
           const images = world.renderedMap.container.list.filter((item: any) => item.name === 'map-edge-backdrop');
-          return images.map((image: any) => { const bounds = image.getBounds(); return { top: bounds.top, bottom: bounds.bottom }; });
+          return images.map((image: any) => { const bounds = image.getBounds(); return { top: bounds.top, bottom: bounds.bottom, mode: image.getData('edgeBackdropMode') }; });
         });
-        expect(backdrop.length).toBeGreaterThanOrEqual(2);
+        expect(backdrop).toHaveLength(2);
+        expect(backdrop.every((image: any) => image.mode === 'ambience')).toBe(true);
         expect(view.top).toBeGreaterThanOrEqual(Math.min(...backdrop.map((image: any) => image.top)) - 1);
         expect(view.right).toBeLessThanOrEqual(tiled.width * tiled.tilewidth + 1);
         expect(view.bottom).toBeLessThanOrEqual(Math.max(...backdrop.map((image: any) => image.bottom)) + 1);
