@@ -1,78 +1,120 @@
 {
   "id": "veloria/r02_insect_patch",
   "mapId": "veloria/r02_viale_fronde",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "woodland-understory",
   "timeBands": {
     "morning": [
       {
         "speciesId": 10,
-        "weight": 40,
+        "weight": 30,
         "minLevel": 4,
-        "maxLevel": 6
+        "maxLevel": 7
       },
       {
         "speciesId": 13,
-        "weight": 35,
+        "weight": 24,
         "minLevel": 4,
-        "maxLevel": 6
+        "maxLevel": 7
       },
       {
-        "speciesId": 69,
-        "weight": 20,
+        "speciesId": 46,
+        "weight": 18,
         "minLevel": 4,
-        "maxLevel": 6
+        "maxLevel": 7
       },
       {
-        "speciesId": 11,
-        "weight": 5,
-        "minLevel": 7,
+        "speciesId": 48,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 12,
+        "weight": 10,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 123,
+        "weight": 4,
+        "minLevel": 4,
         "maxLevel": 7
       }
     ],
     "day": [
       {
-        "speciesId": 10,
-        "weight": 45,
-        "minLevel": 4,
-        "maxLevel": 6
-      },
-      {
         "speciesId": 13,
-        "weight": 35,
+        "weight": 30,
         "minLevel": 4,
-        "maxLevel": 6
-      },
-      {
-        "speciesId": 11,
-        "weight": 10,
-        "minLevel": 7,
         "maxLevel": 7
       },
       {
-        "speciesId": 14,
+        "speciesId": 46,
+        "weight": 24,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 10,
+        "weight": 18,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 48,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 12,
         "weight": 10,
-        "minLevel": 7,
+        "minLevel": 4,
+        "maxLevel": 7
+      },
+      {
+        "speciesId": 123,
+        "weight": 4,
+        "minLevel": 4,
         "maxLevel": 7
       }
     ],
     "night": [
       {
-        "speciesId": 167,
-        "weight": 50,
-        "minLevel": 4,
-        "maxLevel": 6
-      },
-      {
-        "speciesId": 13,
+        "speciesId": 46,
         "weight": 30,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
-        "speciesId": 43,
-        "weight": 20,
+        "speciesId": 10,
+        "weight": 24,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 13,
+        "weight": 18,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 48,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 12,
+        "weight": 10,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 123,
+        "weight": 4,
         "minLevel": 4,
         "maxLevel": 6
       }

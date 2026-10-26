@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/r08_viola/defeated",
   "rewardMoney": 1050,
   "victoryMessage": "Hai vinto contro Viola. Ricevi 1050 ₿.",
-  "victoryFeedback": "Sulla costa Acqua ed Elettro si incontrano spesso. Chinchou è Acqua/Elettro: una mossa Terra può colpirlo con grande efficacia. Le mosse di stato possono creare occasioni per attaccare.",
+  "victoryFeedback": "Sulla costa incontri anche Tentacool, di tipo Acqua/Veleno: una mossa Terra può colpirlo con grande efficacia. Le mosse di stato possono creare occasioni per attaccare.",
   "team": [
     {
       "speciesId": 72,
@@ -29,13 +29,13 @@
       ]
     },
     {
-      "speciesId": 170,
+      "speciesId": 72,
       "level": 25,
       "moveIds": [
-        "thunder-wave",
-        "water-gun",
-        "confuse-ray",
-        "spark"
+        "wrap",
+        "bubble-beam",
+        "toxic-spikes",
+        "acid"
       ]
     }
   ]

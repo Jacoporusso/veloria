@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/r06_iris/defeated",
   "rewardMoney": 650,
   "victoryMessage": "Hai vinto contro Iris. Ricevi 650 ₿.",
-  "victoryFeedback": "La zona magnetica attira molti Pokémon Elettro. Wooper è di tipo Terra e non subisce i loro attacchi elettrici; prova a variare le mosse in base ai tipi.",
+  "victoryFeedback": "La zona magnetica attira molti Pokémon Elettro. Sandshrew è di tipo Terra e non subisce i loro attacchi elettrici; prova a variare le mosse in base ai tipi.",
   "team": [
     {
       "speciesId": 100,
@@ -18,12 +18,13 @@
       ]
     },
     {
-      "speciesId": 194,
+      "speciesId": 27,
       "level": 18,
       "moveIds": [
-        "water-gun",
-        "mud-shot",
-        "slam"
+        "swift",
+        "rapid-spin",
+        "poison-sting",
+        "sand-attack"
       ]
     }
   ]

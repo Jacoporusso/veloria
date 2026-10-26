@@ -6,15 +6,15 @@ export interface MapCollisionObject {
   readonly properties?: unknown;
 }
 
-function gateFlag(object: MapCollisionObject): string | undefined {
+function gateFlag(object: MapCollisionObject, name = 'blocksUntilFlag'): string | undefined {
   const properties = object.properties;
   const value = Array.isArray(properties)
-    ? properties.find(property => property?.name === 'blocksUntilFlag')?.value
+    ? properties.find(property => property?.name === name)?.value
     : properties && typeof properties === 'object'
-      ? (properties as Record<string, unknown>).blocksUntilFlag
+      ? (properties as Record<string, unknown>)[name]
       : undefined;
   if (value === undefined) return undefined;
-  if (typeof value !== 'string' || !value.trim()) throw new Error('Collision blocksUntilFlag must be a non-empty flag.');
+  if (typeof value !== 'string' || !value.trim()) throw new Error(`Collision ${name} must be a non-empty flag.`);
   return value;
 }
 
@@ -27,10 +27,12 @@ export function collectMapCollision(objects: readonly MapCollisionObject[], widt
   const knownFlags = new Set(flags);
   for (const object of objects) {
     const unlockFlag = gateFlag(object);
+    const visibleFlag = gateFlag(object, 'blocksWhenFlag');
     const x = object.x ?? 0, y = object.y ?? 0;
     const w = object.width ?? 32, h = object.height ?? 32;
     if (![x, y, w, h].every(Number.isFinite)) throw new Error('Collision rectangles must have finite bounds.');
     if (unlockFlag && knownFlags.has(unlockFlag)) continue;
+    if (visibleFlag && !knownFlags.has(visibleFlag)) continue;
     const left = Math.max(0, Math.floor(x / 32));
     const top = Math.max(0, Math.floor(y / 32));
     const right = Math.min(width, Math.ceil((x + Math.max(1, w)) / 32));

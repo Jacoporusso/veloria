@@ -67,8 +67,17 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r05_viadotto_ciliegi-illustrated-v2",
-      "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp"
+      "key": "veloria-r05_viadotto_ciliegi-illustrated-v3",
+      "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainers-r04-r07-v1",
+      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

@@ -1,20 +1,22 @@
 import '../../item-evolution-menu.css';
 import type { GameSave } from '../../persistence/save-types.ts';
 import type { ItemEvolutionRule } from '../../core/services/item-evolution.ts';
+import type { TradeEvolutionRule } from '../../core/services/trade-evolution.ts';
 import type { BattleMoveRegistry, SpeciesBattleRegistry } from '../../core/battle/create-creature.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
 import { battleTypeLabel } from '../battle/presentation.ts';
 
-export interface ItemEvolutionMenuArgs {
+type EvolutionMenuSharedArgs = {
   save: GameSave;
-  itemId: string;
   creatureId?: string;
-  rules: readonly ItemEvolutionRule[];
   species: SpeciesBattleRegistry;
   moves: BattleMoveRegistry;
-  itemName: string;
   signal?: AbortSignal;
-}
+};
+export type ItemEvolutionMenuArgs = EvolutionMenuSharedArgs & (
+  | { method?: 'item'; itemId: string; itemName: string; rules: readonly ItemEvolutionRule[] }
+  | { method: 'trade'; serviceName: string; rules: readonly TradeEvolutionRule[] }
+);
 
 /** Returns a confirmed selection. Consumption and evolution belong to the caller. */
 export function chooseItemEvolution(args: ItemEvolutionMenuArgs): Promise<string | null> {
@@ -34,10 +36,11 @@ export function chooseItemEvolution(args: ItemEvolutionMenuArgs): Promise<string
     panel.setAttribute('aria-modal', 'true');
     panel.setAttribute('aria-labelledby', 'item-evolution-title');
     const heading = node('header', 'item-evolution__header');
-    const title = node('h2', '', args.itemName);
+    const title = node('h2', '', args.method === 'trade' ? args.serviceName : args.itemName);
     title.id = 'item-evolution-title';
-    const quantity = args.save.inventory[args.itemId] ?? 0;
-    heading.append(node('p', 'item-evolution__eyebrow', `ZAINO · ${quantity} DISPONIBILI`), title);
+    const quantity = args.method === 'trade' ? 1 : args.save.inventory[args.itemId] ?? 0;
+    heading.append(node('p', 'item-evolution__eyebrow', args.method === 'trade'
+      ? 'SCAMBIO ASSISTITO · IL TUO COMPAGNO TORNA CON TE' : `ZAINO · ${quantity} DISPONIBILI`), title);
     const content = node('div', 'item-evolution__content');
     content.tabIndex = 0;
     const footer = node('footer', 'item-evolution__footer');
@@ -62,7 +65,8 @@ export function chooseItemEvolution(args: ItemEvolutionMenuArgs): Promise<string
     };
     const compatibleRule = (id: string) => {
       const member = args.save.party.find(mon => mon.instanceId === id);
-      return member && args.rules.find(rule => rule.itemId === args.itemId && rule.fromSpeciesId === member.speciesId);
+      return member && args.rules.find(rule => rule.fromSpeciesId === member.speciesId &&
+        (args.method === 'trade' || ('itemId' in rule && rule.itemId === args.itemId)));
     };
     const focusFirst = () => {
       content.scrollTop = 0;
@@ -80,7 +84,7 @@ export function chooseItemEvolution(args: ItemEvolutionMenuArgs): Promise<string
         row.className = 'item-evolution__member';
         row.disabled = quantity < 1 || !target;
         const description = node('span', 'item-evolution__member-copy');
-        description.append(node('strong', '', current?.name ?? `Pokémon ${member.speciesId}`), node('span', '', `Livello ${member.level}`), node('small', '', quantity < 1 ? 'Nessuna pietra disponibile' : target ? `Può evolversi in ${target.name}` : rule ? 'Nuova forma non ancora disponibile' : 'Questa pietra non ha effetto'));
+        description.append(node('strong', '', current?.name ?? `Pokémon ${member.speciesId}`), node('span', '', `Livello ${member.level}`), node('small', '', quantity < 1 ? 'Nessuna pietra disponibile' : target ? `Può evolversi in ${target.name}` : rule ? 'Nuova forma non ancora disponibile' : args.method === 'trade' ? 'Non evolve tramite scambio' : 'Questa pietra non ha effetto'));
         row.append(createCreaturePortrait(member.speciesId), description);
         list.append(row);
       }
@@ -103,7 +107,9 @@ export function chooseItemEvolution(args: ItemEvolutionMenuArgs): Promise<string
         forms.append(form);
         if (definition === current) forms.append(node('span', 'item-evolution__arrow', '→'));
       }
-      const note = node('p', 'item-evolution__intro', `Userai 1 ${args.itemName}. Il livello e tutte le mosse attuali vengono conservati. L’evoluzione è definitiva.`);
+      const note = node('p', 'item-evolution__intro', args.method === 'trade'
+        ? 'Il personale scambia il tuo Pokémon e te lo restituisce subito dopo l’evoluzione. Conserva livello e mosse. Il servizio è gratuito e l’evoluzione è definitiva.'
+        : `Userai 1 ${args.itemName}. Il livello e tutte le mosse attuali vengono conservati. L’evoluzione è definitiva.`);
       const kept = node('section', 'item-evolution__section');
       kept.append(node('h3', '', 'Mosse che conserva'));
       const keptList = node('ul', 'item-evolution__moves');

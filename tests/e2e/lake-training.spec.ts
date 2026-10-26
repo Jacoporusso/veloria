@@ -31,7 +31,7 @@ for(const placement of placements.placements)test(`${placement.name} is optional
   // Integration checkpoint; progression balance is audited separately.
   save.party=[
     createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:82,level:55,instanceId:'training-lead',moveIds:['thunder-shock','spark']}),
-    createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:195,level:55,instanceId:'training-reserve',moveIds:['mud-shot','water-gun']}),
+    createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:138,level:55,instanceId:'training-reserve',moveIds:['mud-shot','water-gun']}),
   ].map(member=>({instanceId:member.instanceId,speciesId:member.speciesId,level:55,experience:0,hp:member.hp,maxHp:member.stats.maxHp,moves:member.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}));
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
   await challenge(page);
@@ -39,7 +39,7 @@ for(const placement of placements.placements)test(`${placement.name} is optional
   await page.getByRole('button',{name:'NON ORA',exact:true}).tap();
   expect((await readBrowserSave(page)).flags).not.toContain(trainer.battleOnceFlag);
   await challenge(page);await page.getByRole('button',{name:'SFIDA',exact:true}).tap();
-  await fightWithTouch(page,'__lakeTraining',{82:'Tuonoshock',195:'Colpodifango'});
+  await fightWithTouch(page,'__lakeTraining',{82:'Tuonoshock',138:'Fangobomba'});
   const banner=page.getByRole('dialog',{name:`Hai vinto contro ${trainer.name}!`});
   await expect(banner).toBeVisible();await expect(banner).toContainText(`+${trainer.rewardMoney} monete`);
   await page.screenshot({path:info.outputPath(`${placement.npcId}-victory.png`)});

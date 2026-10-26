@@ -1,66 +1,120 @@
 {
   "id": "veloria/r05_rail_patch",
   "mapId": "veloria/r05_viadotto_ciliegi",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "woodland-understory",
   "timeBands": {
     "morning": [
       {
         "speciesId": 81,
-        "weight": 45,
-        "minLevel": 12,
-        "maxLevel": 14
-      },
-      {
-        "speciesId": 25,
-        "weight": 35,
+        "weight": 30,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
         "speciesId": 100,
-        "weight": 20,
+        "weight": 24,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 66,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 95,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 27,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 58,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }
     ],
     "day": [
       {
-        "speciesId": 81,
-        "weight": 45,
-        "minLevel": 12,
-        "maxLevel": 14
-      },
-      {
-        "speciesId": 25,
-        "weight": 35,
-        "minLevel": 12,
-        "maxLevel": 14
-      },
-      {
         "speciesId": 100,
-        "weight": 20,
+        "weight": 30,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 66,
+        "weight": 24,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 81,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 95,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 27,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 58,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }
     ],
     "night": [
       {
-        "speciesId": 81,
-        "weight": 45,
+        "speciesId": 66,
+        "weight": 30,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 25,
-        "weight": 35,
+        "speciesId": 81,
+        "weight": 24,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
         "speciesId": 100,
-        "weight": 20,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 95,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 27,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 58,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }

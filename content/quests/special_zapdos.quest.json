@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_zapdos",
+  "version": 1,
+  "displayName": "Un incontro con Zapdos",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/zapdos/captured",
+      "setFlag": "q_special_zapdos_caught",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_zapdos_caught"
+}

@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/r11_celia/defeated",
   "rewardMoney": 1500,
   "victoryMessage": "Hai vinto contro Celia. Ricevi 1500 ₿.",
-  "victoryFeedback": "Sulla Via delle Cascate i tipi sono diversi: Pidgeotto è Normale/Volante, Flaaffy è Elettro e Natu è Psico/Volante. Una mossa Roccia può aiutare contro i Volanti; contro Flaaffy scegli un attacco che non sia Elettro.",
+  "victoryFeedback": "Sulla Via delle Cascate i tipi sono diversi: Pidgeotto è Normale/Volante, Magnemite Elettro/Acciaio e Drowzee Psico. Roccia aiuta contro il Volante; Terra è particolarmente utile contro Magnemite.",
   "team": [
     {
       "speciesId": 17,
@@ -20,21 +20,23 @@
       ]
     },
     {
-      "speciesId": 180,
+      "speciesId": 81,
       "level": 34,
       "moveIds": [
         "tackle",
         "thunder-shock",
         "thunder-wave",
-        "discharge"
+        "screech"
       ]
     },
     {
-      "speciesId": 177,
+      "speciesId": 96,
       "level": 35,
       "moveIds": [
-        "peck",
-        "confuse-ray"
+        "headbutt",
+        "psych-up",
+        "psybeam",
+        "meditate"
       ]
     }
   ]

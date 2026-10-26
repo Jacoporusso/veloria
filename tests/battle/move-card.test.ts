@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import { prototypeBattleRules } from '../../src/core/battle/rules.ts';
 import { BATTLE_TYPES, type BattleCreature, type MoveDefinition } from '../../src/core/battle/types.ts';
 import { createMoveCard, MOVE_TYPE_ICONS } from '../../src/game/battle/move-card.ts';
@@ -72,4 +73,25 @@ test('recoil is visible on a damaging move card and its accessible label; immuni
   const immune = createMoveCard(recoilMove, { ...target, types: ['ghost'] }, rules, 10);
   assert.equal(immune.riskLabel, undefined);
   assert.doesNotMatch(immune.accessibleLabel, /Contraccolpo/);
+});
+
+test('Rest card heals and sleeps the user regardless of the opponent status', () => {
+  const catalog = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
+  const card = createMoveCard(catalog.rest, { ...target, status: { status: 'burn' } }, rules, 5);
+  assert.equal(card.effectiveness, 'support');
+  assert.match(card.supportEffect!, /Cura 100%/);
+  assert.match(card.supportEffect!, /Sonno tuo/);
+  assert.doesNotMatch(card.supportEffect!, /avversario/);
+});
+
+test('canonical formula moves show their rule instead of a misleading zero power or type bonus', () => {
+  const catalog = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves;
+  assert.equal(createMoveCard(catalog['gyro-ball'], target, rules, 5).powerLabel, 'Variabile');
+  const toss = createMoveCard(catalog['seismic-toss'], target, { ...rules, typeChart: { fighting: { steel: 2 } } }, 5);
+  assert.equal(toss.powerLabel, 'Livello');
+  assert.equal(toss.effectiveness, 'fixed');
+  assert.doesNotMatch(toss.effectivenessLabel, /Super efficace/);
+  const delayed = createMoveCard(catalog['future-sight'], { ...target, types: ['dark'] }, { ...rules, typeChart: { psychic: { dark: 0 } } }, 5);
+  assert.equal(delayed.effectiveness, 'normal');
+  assert.match(delayed.effectivenessLabel, /Senza affinità/);
 });

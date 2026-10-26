@@ -8,61 +8,115 @@
     "morning": [
       {
         "speciesId": 81,
-        "weight": 45,
-        "minLevel": 15,
-        "maxLevel": 17
-      },
-      {
-        "speciesId": 100,
         "weight": 30,
         "minLevel": 15,
         "maxLevel": 18
       },
       {
-        "speciesId": 179,
-        "weight": 25,
+        "speciesId": 100,
+        "weight": 24,
         "minLevel": 15,
-        "maxLevel": 17
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 88,
+        "weight": 18,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 109,
+        "weight": 14,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 125,
+        "weight": 10,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 26,
+        "weight": 4,
+        "minLevel": 15,
+        "maxLevel": 18
       }
     ],
     "day": [
       {
-        "speciesId": 81,
-        "weight": 50,
-        "minLevel": 15,
-        "maxLevel": 17
-      },
-      {
         "speciesId": 100,
         "weight": 30,
         "minLevel": 15,
         "maxLevel": 18
       },
       {
-        "speciesId": 179,
-        "weight": 20,
-        "minLevel": 15,
-        "maxLevel": 17
-      }
-    ],
-    "night": [
-      {
-        "speciesId": 81,
-        "weight": 35,
-        "minLevel": 15,
-        "maxLevel": 17
-      },
-      {
-        "speciesId": 100,
-        "weight": 45,
+        "speciesId": 88,
+        "weight": 24,
         "minLevel": 15,
         "maxLevel": 18
       },
       {
-        "speciesId": 179,
-        "weight": 20,
+        "speciesId": 81,
+        "weight": 18,
         "minLevel": 15,
-        "maxLevel": 17
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 109,
+        "weight": 14,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 125,
+        "weight": 10,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 26,
+        "weight": 4,
+        "minLevel": 15,
+        "maxLevel": 18
+      }
+    ],
+    "night": [
+      {
+        "speciesId": 88,
+        "weight": 30,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 81,
+        "weight": 24,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 100,
+        "weight": 18,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 109,
+        "weight": 14,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 125,
+        "weight": 10,
+        "minLevel": 15,
+        "maxLevel": 18
+      },
+      {
+        "speciesId": 26,
+        "weight": 4,
+        "minLevel": 15,
+        "maxLevel": 18
       }
     ]
   },

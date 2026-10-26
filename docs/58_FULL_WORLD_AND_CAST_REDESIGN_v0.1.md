@@ -70,3 +70,7 @@ Sera, Timo, Rami delle Terrazze ed Enea hanno quattro identità illustrate dedic
 L’obiettivo rimane la revisione completa delle 48 mappe e dell’intero cast. Le proposte di distribuzione dei 151 Gen I, regali e nuove regioni restano separate e non applicate in questo lotto.
 
 Verifiche locali del lotto: 636 test dominio/persistenza, 124 Python, validatore (370 asset e 15 fondali), build; 22 presenze NPC nei due orientamenti, ciclo idle/animazioni ridotte, Petalora con entrambe le qualità e orientamenti, percorsi reali dei ponti e servizi, rendering e identità di tutti i 15 fondali registrati. I confronti delle dimensioni usano una tolleranza di un milionesimo di pixel per l’arrotondamento dei rapporti di scala Phaser, mantenendo coordinate e identità esatte. Prove offline e ricevute di rilascio in CI_STATUS.md.
+
+## Obiettivo congiunto autorizzato
+
+Il rifacimento completo prosegue in parallelo alla migrazione dei151 Gen I, con agenti separati e uguale obbligo di completamento. Nessuna retrocompatibilità richiesta per i salvataggi Gen II. Ambito, responsabilità e criteri congiunti nel [documento61](61_GRAPHICS_AND_GEN1_MIGRATION_v0.1.md). Le precedenti note di sola proposta descrivono lo stato storico, superato dall’autorizzazione dell’utente.

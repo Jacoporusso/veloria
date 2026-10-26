@@ -8,14 +8,39 @@
       "itemId": "thunder-stone"
     },
     {
+      "fromSpeciesId": 30,
+      "toSpeciesId": 31,
+      "itemId": "moon-stone"
+    },
+    {
+      "fromSpeciesId": 33,
+      "toSpeciesId": 34,
+      "itemId": "moon-stone"
+    },
+    {
+      "fromSpeciesId": 35,
+      "toSpeciesId": 36,
+      "itemId": "moon-stone"
+    },
+    {
+      "fromSpeciesId": 37,
+      "toSpeciesId": 38,
+      "itemId": "fire-stone"
+    },
+    {
+      "fromSpeciesId": 39,
+      "toSpeciesId": 40,
+      "itemId": "moon-stone"
+    },
+    {
       "fromSpeciesId": 44,
       "toSpeciesId": 45,
       "itemId": "leaf-stone"
     },
     {
-      "fromSpeciesId": 44,
-      "toSpeciesId": 182,
-      "itemId": "sun-stone"
+      "fromSpeciesId": 58,
+      "toSpeciesId": 59,
+      "itemId": "fire-stone"
     },
     {
       "fromSpeciesId": 61,
@@ -26,6 +51,21 @@
       "fromSpeciesId": 70,
       "toSpeciesId": 71,
       "itemId": "leaf-stone"
+    },
+    {
+      "fromSpeciesId": 90,
+      "toSpeciesId": 91,
+      "itemId": "water-stone"
+    },
+    {
+      "fromSpeciesId": 102,
+      "toSpeciesId": 103,
+      "itemId": "leaf-stone"
+    },
+    {
+      "fromSpeciesId": 120,
+      "toSpeciesId": 121,
+      "itemId": "water-stone"
     },
     {
       "fromSpeciesId": 133,
@@ -50,9 +90,39 @@
       "sha256": "15e7b538a392b4402a8065d2424f267d8f289a8520b97b18963b1e49d9dc0820"
     },
     {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/12/",
+      "path": "content/sources/pokeapi/evolution-chain-12.json",
+      "sha256": "95ac5d2564143cc394f83753a625af5ac0028621446b1261e677ab4c4b96cc2a"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/13/",
+      "path": "content/sources/pokeapi/evolution-chain-13.json",
+      "sha256": "59578f38bc67970ea75f063906effcce0b35827fa24a21c1415923e1dde3819e"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/14/",
+      "path": "content/sources/pokeapi/evolution-chain-14.json",
+      "sha256": "d45f2428c8bf9b05e5addf2ab79505f41538094262fe93352c2521b0546e0769"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/15/",
+      "path": "content/sources/pokeapi/evolution-chain-15.json",
+      "sha256": "35e83de770ddef348bc13a6a0c7cafa998a4a5792f903636f846279f19dc906a"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/16/",
+      "path": "content/sources/pokeapi/evolution-chain-16.json",
+      "sha256": "e6a0e38434961d61670ede4a7ed630be965b44487ab1107a9322bf2ef87db51d"
+    },
+    {
       "url": "https://pokeapi.co/api/v2/evolution-chain/18/",
       "path": "content/sources/pokeapi/evolution-chain-18.json",
       "sha256": "be47766ffdfc6669be0fadbd4b54ab6225a7478ed144ab1deb073b03d22274a8"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/25/",
+      "path": "content/sources/pokeapi/evolution-chain-25.json",
+      "sha256": "5a2e4daa574f2cd0ef73f82200a8618fdc7d17a580925f2e0f03eda23e8dba79"
     },
     {
       "url": "https://pokeapi.co/api/v2/evolution-chain/26/",
@@ -63,6 +133,21 @@
       "url": "https://pokeapi.co/api/v2/evolution-chain/29/",
       "path": "content/sources/pokeapi/evolution-chain-29.json",
       "sha256": "a85a50fefa2aaff211559b52616b124c4c80cd4d4e35eef516a8b4c07916a351"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/39/",
+      "path": "content/sources/pokeapi/evolution-chain-39.json",
+      "sha256": "6d831b14f90efafaa54210c205f2427ead1430a875bb8daa2f11abadaabc10a2"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/45/",
+      "path": "content/sources/pokeapi/evolution-chain-45.json",
+      "sha256": "7d109e88f3421d949305bd44511eecc4e90e4b22ab9551c2bdb95984b9cf3e85"
+    },
+    {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/56/",
+      "path": "content/sources/pokeapi/evolution-chain-56.json",
+      "sha256": "9d0d563239c65f04141c070610a4f76a6107cca0628b0e6753354758b2cc78a2"
     },
     {
       "url": "https://pokeapi.co/api/v2/evolution-chain/67/",
@@ -82,9 +167,9 @@
       "sha256": "b8481473bd9d1148626d555c57e749f8f3592d816a9b5c75233b5ccb22ef08ca"
     },
     {
-      "url": "https://pokeapi.co/api/v2/item/80/",
-      "path": "content/sources/pokeapi/item-80.json",
-      "sha256": "313ed8ac32c3cb65e4e9bde04d1c44f11821576bfc26568a74df9a4e9a92bfc8"
+      "url": "https://pokeapi.co/api/v2/item/81/",
+      "path": "content/sources/pokeapi/item-81.json",
+      "sha256": "5f386e40079fc84a7aaa987a74e52c4c0a57eeae3f43ab1670c61d917ddeda26"
     },
     {
       "url": "https://pokeapi.co/api/v2/item/thunder-stone/",

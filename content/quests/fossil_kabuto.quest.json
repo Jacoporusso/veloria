@@ -1,0 +1,24 @@
+{
+  "id": "veloria/q_fossil_kabuto",
+  "version": 1,
+  "displayName": "Una nuova vita per Kabuto",
+  "steps": [
+    {
+      "id": "restore",
+      "trigger": "lab/fossil/kabuto/restore",
+      "setFlag": "q_fossil_kabuto_received",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_fossil_kabuto_received",
+  "reward": {
+    "pokemon": [
+      {
+        "speciesId": 140,
+        "level": 20
+      }
+    ]
+  }
+}

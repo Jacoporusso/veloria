@@ -49,8 +49,10 @@ def main(argv=None):
             'name': next(name['name'] for name in names['names'] if name['language']['name'] == 'it'),
             'types': types,
             'baseStats': base_stats,
+            'weightKg': raw['weight'] / 10,
             'experienceYield': raw['base_experience'],
             'growthCurveId': f"pokeapi_growth_{names['growth_rate']['name']}_v1",
+            'genderRate': names['gender_rate'],
         }
         current = data['species'].get(str(species_id), {})
         if args.check:
@@ -59,6 +61,7 @@ def main(argv=None):
         else:
             data['species'][str(species_id)] = {**expected,
                 'defaultMoveIds': current.get('defaultMoveIds', parent['defaultMoveIds']),
+                **({'defaultAbilityId': current['defaultAbilityId']} if 'defaultAbilityId' in current else {}),
                 **({'officialLearnset': current['officialLearnset']} if 'officialLearnset' in current else {}),
             }
     manifest_path = ROOT / 'content/sources/pokeapi/species-manifest.json'

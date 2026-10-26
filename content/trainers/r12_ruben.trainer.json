@@ -10,23 +10,23 @@
   "victoryFeedback": "Ghiaccio, Terra e Buio non hanno le stesse debolezze. Leggi i tipi di ogni avversario e prepara la squadra al Centro di Passobrina.",
   "team": [
     {
-      "speciesId": 220,
+      "speciesId": 86,
       "level": 36,
       "moveIds": [
-        "powder-snow",
-        "mud-bomb",
         "icy-wind",
-        "ice-shard"
+        "ice-shard",
+        "brine",
+        "aqua-jet"
       ]
     },
     {
-      "speciesId": 215,
+      "speciesId": 124,
       "level": 36,
       "moveIds": [
-        "quick-attack",
-        "screech",
-        "feint-attack",
-        "icy-wind"
+        "avalanche",
+        "wake-up-slap",
+        "fake-tears",
+        "mean-look"
       ]
     },
     {

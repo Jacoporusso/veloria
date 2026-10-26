@@ -7235,12 +7235,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-route-trainers-r04-r07-v1"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-iris-r06"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 0
+              "value": 2
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.593
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.895
             },
             {
               "name": "trainerId",
@@ -9018,7 +9033,7 @@
         {
           "height": 960,
           "id": 281,
-          "name": "r06_anello_magnetico illustrated environment v2",
+          "name": "r06_anello_magnetico illustrated environment v3",
           "properties": [
             {
               "name": "kind",
@@ -9028,7 +9043,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r06_anello_magnetico-illustrated-v2"
+              "value": "veloria-r06_anello_magnetico-illustrated-v3"
             },
             {
               "name": "renderDepth",

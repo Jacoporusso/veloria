@@ -1,0 +1,1018 @@
+{
+  "versionGroup": "heartgold-soulsilver",
+  "generation": 4,
+  "selectionPolicy": "Each species receives its official non-hidden slot-1 ability; this is the deterministic Veloria prototype ability-selection rule.",
+  "battleScopePolicy": "Battle effects follow HGSS mechanics in Veloria single battles: Lightning Rod only redirects Electric moves in doubles, so it supplies no single-battle immunity or Special Attack boost; Stench has no HGSS battle effect; Illuminate and Pickup are out-of-battle-only effects.",
+  "resources": {
+    "ability/blaze": {
+      "url": "https://pokeapi.co/api/v2/ability/blaze/",
+      "path": "content/sources/pokeapi/ability-blaze.json",
+      "sha256": "f3d9873edc3d37858f4208697462a149650eca8d7c26329d17da97bb4aa2b1bb"
+    },
+    "ability/chlorophyll": {
+      "url": "https://pokeapi.co/api/v2/ability/chlorophyll/",
+      "path": "content/sources/pokeapi/ability-chlorophyll.json",
+      "sha256": "23be6dbe9f7bb95aacf68344ef7e15dbfcc7b32d24975d54a245f6ac177a5feb"
+    },
+    "ability/clear-body": {
+      "url": "https://pokeapi.co/api/v2/ability/clear-body/",
+      "path": "content/sources/pokeapi/ability-clear-body.json",
+      "sha256": "d0bdb39fae404c4153c301caddc0cca7e0ce3eb49630d448129fb049f5cc1e1d"
+    },
+    "ability/compound-eyes": {
+      "url": "https://pokeapi.co/api/v2/ability/compound-eyes/",
+      "path": "content/sources/pokeapi/ability-compound-eyes.json",
+      "sha256": "0ab5591e6205874c321a5d52e58c25c7f5673e2328585a0065b2833e3047be73"
+    },
+    "ability/cute-charm": {
+      "url": "https://pokeapi.co/api/v2/ability/cute-charm/",
+      "path": "content/sources/pokeapi/ability-cute-charm.json",
+      "sha256": "a087b32020bf0480e0edb69f1de2266c7b74c54c565e8f9307591b1140e4dc5b"
+    },
+    "ability/damp": {
+      "url": "https://pokeapi.co/api/v2/ability/damp/",
+      "path": "content/sources/pokeapi/ability-damp.json",
+      "sha256": "f99be234ce2b22e89d1bdd97dd22f1c011f3deded227711a73f2014a83bd5343"
+    },
+    "ability/early-bird": {
+      "url": "https://pokeapi.co/api/v2/ability/early-bird/",
+      "path": "content/sources/pokeapi/ability-early-bird.json",
+      "sha256": "5636dbc71e570d2e7244af183feba65e1ef71f6bf5343489858f5dd86c270a71"
+    },
+    "ability/effect-spore": {
+      "url": "https://pokeapi.co/api/v2/ability/effect-spore/",
+      "path": "content/sources/pokeapi/ability-effect-spore.json",
+      "sha256": "1ed4236db690e1aee1bdd9cc935c4faccffd7b7d98a7b86b54e8f3871a131476"
+    },
+    "ability/flame-body": {
+      "url": "https://pokeapi.co/api/v2/ability/flame-body/",
+      "path": "content/sources/pokeapi/ability-flame-body.json",
+      "sha256": "36d7d50cf95800595a81624d6658989c417104bc79ac9a50d00bd16c4ce23c74"
+    },
+    "ability/flash-fire": {
+      "url": "https://pokeapi.co/api/v2/ability/flash-fire/",
+      "path": "content/sources/pokeapi/ability-flash-fire.json",
+      "sha256": "c393b22cecc7c1678fd8fbe0429de14800835fda8b4794dc34d6e1e65e16b627"
+    },
+    "ability/guts": {
+      "url": "https://pokeapi.co/api/v2/ability/guts/",
+      "path": "content/sources/pokeapi/ability-guts.json",
+      "sha256": "30756909f2d0879b20d768b5ed5df357d9af11f1cc27e0887aada1c71025cf24"
+    },
+    "ability/hyper-cutter": {
+      "url": "https://pokeapi.co/api/v2/ability/hyper-cutter/",
+      "path": "content/sources/pokeapi/ability-hyper-cutter.json",
+      "sha256": "eafa7da8918a2dba404a21c0a8ce7fccfa347d9335ca852f3d3e79c744c4061e"
+    },
+    "ability/illuminate": {
+      "url": "https://pokeapi.co/api/v2/ability/illuminate/",
+      "path": "content/sources/pokeapi/ability-illuminate.json",
+      "sha256": "e483be6b2f5c7b32a9a467b36e35c96abee5ca19799dff112ca18c01f1bae296"
+    },
+    "ability/immunity": {
+      "url": "https://pokeapi.co/api/v2/ability/immunity/",
+      "path": "content/sources/pokeapi/ability-immunity.json",
+      "sha256": "67bf856d0df5c91f57a5f60c30f4bcbbab04f393689d7076fa7c1843b84498e7"
+    },
+    "ability/inner-focus": {
+      "url": "https://pokeapi.co/api/v2/ability/inner-focus/",
+      "path": "content/sources/pokeapi/ability-inner-focus.json",
+      "sha256": "e7fe8d369942ecfa8ca3daff77b67245f7159d0c383e5b3454a355d8798736ea"
+    },
+    "ability/insomnia": {
+      "url": "https://pokeapi.co/api/v2/ability/insomnia/",
+      "path": "content/sources/pokeapi/ability-insomnia.json",
+      "sha256": "a802dbd8ead5db8ce48cfe6245c7c08091efd5a3a57b658bdce4c66297e9e11a"
+    },
+    "ability/intimidate": {
+      "url": "https://pokeapi.co/api/v2/ability/intimidate/",
+      "path": "content/sources/pokeapi/ability-intimidate.json",
+      "sha256": "2548a0843471832383272a4d71f43d7008bd55fb351d3459e54b59390e997a05"
+    },
+    "ability/keen-eye": {
+      "url": "https://pokeapi.co/api/v2/ability/keen-eye/",
+      "path": "content/sources/pokeapi/ability-keen-eye.json",
+      "sha256": "448316508b25070dbcf577ee6413a62f84816a1daa32cd75a2a89a9302f99d0b"
+    },
+    "ability/levitate": {
+      "url": "https://pokeapi.co/api/v2/ability/levitate/",
+      "path": "content/sources/pokeapi/ability-levitate.json",
+      "sha256": "6adcffa8257be0b7c0ffc34d20392e0ffbb1422fd6929a19ab75bf112385a072"
+    },
+    "ability/lightning-rod": {
+      "url": "https://pokeapi.co/api/v2/ability/lightning-rod/",
+      "path": "content/sources/pokeapi/ability-lightning-rod.json",
+      "sha256": "e46d6f454f199a46af99ef13f1a36d178a912c040666adaee0ec5ee98e2f4479"
+    },
+    "ability/limber": {
+      "url": "https://pokeapi.co/api/v2/ability/limber/",
+      "path": "content/sources/pokeapi/ability-limber.json",
+      "sha256": "0e270693273bee8320ab97bc3bc9d6533bcf4712e45ddd138f9b602d397a6cfd"
+    },
+    "ability/magnet-pull": {
+      "url": "https://pokeapi.co/api/v2/ability/magnet-pull/",
+      "path": "content/sources/pokeapi/ability-magnet-pull.json",
+      "sha256": "d00b1b96cdf5d425365c849b0586a040970249138f0aca3e918f8bbbdeb32912"
+    },
+    "ability/natural-cure": {
+      "url": "https://pokeapi.co/api/v2/ability/natural-cure/",
+      "path": "content/sources/pokeapi/ability-natural-cure.json",
+      "sha256": "c10ecb473f41d5d6dacaf44a09c83bf43a29388e51d043c96b982e1cdadb809e"
+    },
+    "ability/oblivious": {
+      "url": "https://pokeapi.co/api/v2/ability/oblivious/",
+      "path": "content/sources/pokeapi/ability-oblivious.json",
+      "sha256": "bb30019350da443c04b747d898cf023f0013c0b38632b49ea82af9ddc9cbb291"
+    },
+    "ability/overgrow": {
+      "url": "https://pokeapi.co/api/v2/ability/overgrow/",
+      "path": "content/sources/pokeapi/ability-overgrow.json",
+      "sha256": "e4f507b391a10930d0db390b0e298d626a1cffc9cf09da9898d811aa503b7d53"
+    },
+    "ability/own-tempo": {
+      "url": "https://pokeapi.co/api/v2/ability/own-tempo/",
+      "path": "content/sources/pokeapi/ability-own-tempo.json",
+      "sha256": "4d13b89c4d9adad6566dac29f365f7cbc8e853da36580d01f45d25ff8e176b93"
+    },
+    "ability/pickup": {
+      "url": "https://pokeapi.co/api/v2/ability/pickup/",
+      "path": "content/sources/pokeapi/ability-pickup.json",
+      "sha256": "d501cd2fcd9afa76102fdc27fbee5fc69b1758c84ccbeab4a9f50164f34fa222"
+    },
+    "ability/poison-point": {
+      "url": "https://pokeapi.co/api/v2/ability/poison-point/",
+      "path": "content/sources/pokeapi/ability-poison-point.json",
+      "sha256": "8768a4deb9bf2b546d45f2accc0b46079062a89a342a724829e749896bc63140"
+    },
+    "ability/pressure": {
+      "url": "https://pokeapi.co/api/v2/ability/pressure/",
+      "path": "content/sources/pokeapi/ability-pressure.json",
+      "sha256": "053db6b101eeeca54244e8e8955364c5fa373736b9f9a36d5fd97222699b8b6f"
+    },
+    "ability/rock-head": {
+      "url": "https://pokeapi.co/api/v2/ability/rock-head/",
+      "path": "content/sources/pokeapi/ability-rock-head.json",
+      "sha256": "80b2421a5563c954a7e8042d2d01eb10559e6ff7bb8ff74aa3a10323c0195196"
+    },
+    "ability/run-away": {
+      "url": "https://pokeapi.co/api/v2/ability/run-away/",
+      "path": "content/sources/pokeapi/ability-run-away.json",
+      "sha256": "791cfb4af8b050066bf05f042959e0c472a60099696eac53a496f46e53d9eef1"
+    },
+    "ability/sand-veil": {
+      "url": "https://pokeapi.co/api/v2/ability/sand-veil/",
+      "path": "content/sources/pokeapi/ability-sand-veil.json",
+      "sha256": "4f093989306ffe083226483c07cc09333cb3ccd56fc5125c8a17abec2ed229f9"
+    },
+    "ability/shed-skin": {
+      "url": "https://pokeapi.co/api/v2/ability/shed-skin/",
+      "path": "content/sources/pokeapi/ability-shed-skin.json",
+      "sha256": "25022a4f339c2944e938d113d795ecfb0d0d445c76022fe987657bc83f5fc273"
+    },
+    "ability/shell-armor": {
+      "url": "https://pokeapi.co/api/v2/ability/shell-armor/",
+      "path": "content/sources/pokeapi/ability-shell-armor.json",
+      "sha256": "5f4dacdde2e8c3b86fe848499931236b37f813d81b4668c9986ea94be7a74b68"
+    },
+    "ability/shield-dust": {
+      "url": "https://pokeapi.co/api/v2/ability/shield-dust/",
+      "path": "content/sources/pokeapi/ability-shield-dust.json",
+      "sha256": "137a1d00f97135b2c788351bd6895f3d0b0699ebc872961a1aac66801d16dfaa"
+    },
+    "ability/soundproof": {
+      "url": "https://pokeapi.co/api/v2/ability/soundproof/",
+      "path": "content/sources/pokeapi/ability-soundproof.json",
+      "sha256": "20ff347904a40cfcba87e3f7802b003598614452be2cdfe25cae6775dc44342b"
+    },
+    "ability/static": {
+      "url": "https://pokeapi.co/api/v2/ability/static/",
+      "path": "content/sources/pokeapi/ability-static.json",
+      "sha256": "4c009751466c320e68271f3cd373a0e626819bb4c7aa512117ce2a6caf28125e"
+    },
+    "ability/stench": {
+      "url": "https://pokeapi.co/api/v2/ability/stench/",
+      "path": "content/sources/pokeapi/ability-stench.json",
+      "sha256": "81aa50b45ea8d1ced7478cab98b76a07bcc87189ef313ba5d0f090fd4135acb6"
+    },
+    "ability/swarm": {
+      "url": "https://pokeapi.co/api/v2/ability/swarm/",
+      "path": "content/sources/pokeapi/ability-swarm.json",
+      "sha256": "56f66f3ee302c63605a27b81983d596e303922b81d326dc011b12b83d9bed9ff"
+    },
+    "ability/swift-swim": {
+      "url": "https://pokeapi.co/api/v2/ability/swift-swim/",
+      "path": "content/sources/pokeapi/ability-swift-swim.json",
+      "sha256": "2a7d41aa1c140cbb626641312e32a7e4b23ade2afdeb3f489dd149df16619c40"
+    },
+    "ability/synchronize": {
+      "url": "https://pokeapi.co/api/v2/ability/synchronize/",
+      "path": "content/sources/pokeapi/ability-synchronize.json",
+      "sha256": "e7c85180d5fede83100266f9a6665dcf096f2a9d35cd194c1e4fc0272ae81606"
+    },
+    "ability/thick-fat": {
+      "url": "https://pokeapi.co/api/v2/ability/thick-fat/",
+      "path": "content/sources/pokeapi/ability-thick-fat.json",
+      "sha256": "8fba8a973511eb9203251688a4a5b1d4f81726cb77e58a796d155049d5a01cb8"
+    },
+    "ability/torrent": {
+      "url": "https://pokeapi.co/api/v2/ability/torrent/",
+      "path": "content/sources/pokeapi/ability-torrent.json",
+      "sha256": "ba2a65a43281472e38c17611c2690712044a0aa801dc8d049caccc935e4afda1"
+    },
+    "ability/trace": {
+      "url": "https://pokeapi.co/api/v2/ability/trace/",
+      "path": "content/sources/pokeapi/ability-trace.json",
+      "sha256": "210732a784f1028e94488bffb2332bb912d1705e7a69bc48ef7af9edff232ab8"
+    },
+    "ability/vital-spirit": {
+      "url": "https://pokeapi.co/api/v2/ability/vital-spirit/",
+      "path": "content/sources/pokeapi/ability-vital-spirit.json",
+      "sha256": "d60b451d4ee2c87c51892f110443d6fc12fba4f3d2546d857be421e045631262"
+    },
+    "ability/volt-absorb": {
+      "url": "https://pokeapi.co/api/v2/ability/volt-absorb/",
+      "path": "content/sources/pokeapi/ability-volt-absorb.json",
+      "sha256": "f8a73f6ad46d04fa72db2817ce1ea935723e7bef1b46f0f10ff8157d24da5a48"
+    },
+    "ability/water-absorb": {
+      "url": "https://pokeapi.co/api/v2/ability/water-absorb/",
+      "path": "content/sources/pokeapi/ability-water-absorb.json",
+      "sha256": "65df3b864550b0a124bc849f3f15753cd8ac18cba609cc7da6b274b78727bcda"
+    },
+    "pokemon/1": {
+      "url": "https://pokeapi.co/api/v2/pokemon/1/",
+      "path": "content/sources/pokeapi/pokemon-1.json",
+      "sha256": "bb86eb538386e767d6f6d35ae074754d54e9e773d5f6bfd7ca11cc27f0e38aa5"
+    },
+    "pokemon/10": {
+      "url": "https://pokeapi.co/api/v2/pokemon/10/",
+      "path": "content/sources/pokeapi/pokemon-10.json",
+      "sha256": "78d002c370f2540fcc2e1c4ca206da14ad9866c834ab66e18a2fb9207bd626ff"
+    },
+    "pokemon/100": {
+      "url": "https://pokeapi.co/api/v2/pokemon/100/",
+      "path": "content/sources/pokeapi/pokemon-100.json",
+      "sha256": "ca9e0a6a8c3485936c7cd371187986ad4ea9a6aaaf956b4e0e7c90c3242f7b93"
+    },
+    "pokemon/101": {
+      "url": "https://pokeapi.co/api/v2/pokemon/101/",
+      "path": "content/sources/pokeapi/pokemon-101.json",
+      "sha256": "083e322aaf5c54a81fe9724a6490399d236ea593a7b432875da734182c79131d"
+    },
+    "pokemon/102": {
+      "url": "https://pokeapi.co/api/v2/pokemon/102/",
+      "path": "content/sources/pokeapi/pokemon-102.json",
+      "sha256": "117b462e185c7f5bfecf083bbc8b59093011e435048e1180f72b591f5bcc359b"
+    },
+    "pokemon/103": {
+      "url": "https://pokeapi.co/api/v2/pokemon/103/",
+      "path": "content/sources/pokeapi/pokemon-103.json",
+      "sha256": "07533fdcef6b7493a6c92041a81bef52d65f86d1512722b1e9762dbc00c89eb1"
+    },
+    "pokemon/104": {
+      "url": "https://pokeapi.co/api/v2/pokemon/104/",
+      "path": "content/sources/pokeapi/pokemon-104.json",
+      "sha256": "0a5560629c42290de43f86a9ad1f5d549057ae66d72b50a8b2c97376b41ef19d"
+    },
+    "pokemon/105": {
+      "url": "https://pokeapi.co/api/v2/pokemon/105/",
+      "path": "content/sources/pokeapi/pokemon-105.json",
+      "sha256": "604006aedc4db82ad8b5be640d4306428459cd1e5b48cc328e7ca5345766d418"
+    },
+    "pokemon/106": {
+      "url": "https://pokeapi.co/api/v2/pokemon/106/",
+      "path": "content/sources/pokeapi/pokemon-106.json",
+      "sha256": "c34cd4ea29e03e339cefde082055fe7f6cdce30a99dbe28c88dbaacdc4205e27"
+    },
+    "pokemon/107": {
+      "url": "https://pokeapi.co/api/v2/pokemon/107/",
+      "path": "content/sources/pokeapi/pokemon-107.json",
+      "sha256": "18da6877e696353ee2647c6fb9dc69a2ec203152360f132e0344dae07ce56d23"
+    },
+    "pokemon/108": {
+      "url": "https://pokeapi.co/api/v2/pokemon/108/",
+      "path": "content/sources/pokeapi/pokemon-108.json",
+      "sha256": "fe088b09550b78d51943c3e88434e5641a55e5817f830674ccf22fe1477d95d9"
+    },
+    "pokemon/109": {
+      "url": "https://pokeapi.co/api/v2/pokemon/109/",
+      "path": "content/sources/pokeapi/pokemon-109.json",
+      "sha256": "7d753e8a0191586d4437d980edebe1810054758b847f4b13b7e6251164dbad4a"
+    },
+    "pokemon/11": {
+      "url": "https://pokeapi.co/api/v2/pokemon/11/",
+      "path": "content/sources/pokeapi/pokemon-11.json",
+      "sha256": "bc3d169a151a87054e9715353c1131d7c8c1f9224023374a522f564801cd23bb"
+    },
+    "pokemon/110": {
+      "url": "https://pokeapi.co/api/v2/pokemon/110/",
+      "path": "content/sources/pokeapi/pokemon-110.json",
+      "sha256": "2c4dab486971451d2ba87b6969adb2da16675b3a43c55dd4efc9c5b43f25921f"
+    },
+    "pokemon/111": {
+      "url": "https://pokeapi.co/api/v2/pokemon/111/",
+      "path": "content/sources/pokeapi/pokemon-111.json",
+      "sha256": "086ec32b809aa3554e66607d028259bbcc8159d36bf0607db3288a0ba1e3791a"
+    },
+    "pokemon/112": {
+      "url": "https://pokeapi.co/api/v2/pokemon/112/",
+      "path": "content/sources/pokeapi/pokemon-112.json",
+      "sha256": "c2d5c5cdb5f5973237d4214c7ed658d7943e947a599aa03206cee129f3c65157"
+    },
+    "pokemon/113": {
+      "url": "https://pokeapi.co/api/v2/pokemon/113/",
+      "path": "content/sources/pokeapi/pokemon-113.json",
+      "sha256": "a00f879ef885fe22d2434b39a0e96936e7ad21927647a08f9a1a8e037f326a98"
+    },
+    "pokemon/114": {
+      "url": "https://pokeapi.co/api/v2/pokemon/114/",
+      "path": "content/sources/pokeapi/pokemon-114.json",
+      "sha256": "49ec4a28166fffcd2bc10b18e7e47c527b2bda5dc7611fb175f9648e870f5f9f"
+    },
+    "pokemon/115": {
+      "url": "https://pokeapi.co/api/v2/pokemon/115/",
+      "path": "content/sources/pokeapi/pokemon-115.json",
+      "sha256": "3bc972d74a576df878cbffc34402f7ee458bebdafecf4e0ce167159ce26fd714"
+    },
+    "pokemon/116": {
+      "url": "https://pokeapi.co/api/v2/pokemon/116/",
+      "path": "content/sources/pokeapi/pokemon-116.json",
+      "sha256": "5e852e9fde4bcef82f0646f00cedde4e166100a7f757ff9f3c453c852d500d43"
+    },
+    "pokemon/117": {
+      "url": "https://pokeapi.co/api/v2/pokemon/117/",
+      "path": "content/sources/pokeapi/pokemon-117.json",
+      "sha256": "10b75d032f2fa5a4609563f69473c8d9f507f4393943777e3acd56695e8d910b"
+    },
+    "pokemon/118": {
+      "url": "https://pokeapi.co/api/v2/pokemon/118/",
+      "path": "content/sources/pokeapi/pokemon-118.json",
+      "sha256": "731ef994e38d392764643bc6bfe11d015cc7b2b6f613ab1d8c80b3f4c72312dc"
+    },
+    "pokemon/119": {
+      "url": "https://pokeapi.co/api/v2/pokemon/119/",
+      "path": "content/sources/pokeapi/pokemon-119.json",
+      "sha256": "bce6e848c810bb7cbf34b7087dbfd109422d10818c31ccc313d141e2affc97a8"
+    },
+    "pokemon/12": {
+      "url": "https://pokeapi.co/api/v2/pokemon/12/",
+      "path": "content/sources/pokeapi/pokemon-12.json",
+      "sha256": "0d516f42efb2fd6c1583109a0499a366401e3ef336384526712bea623bcaf191"
+    },
+    "pokemon/120": {
+      "url": "https://pokeapi.co/api/v2/pokemon/120/",
+      "path": "content/sources/pokeapi/pokemon-120.json",
+      "sha256": "77adf74207e4b6254fa03594b7aacb26915644f7ee638d7282eafde3aea84cc1"
+    },
+    "pokemon/121": {
+      "url": "https://pokeapi.co/api/v2/pokemon/121/",
+      "path": "content/sources/pokeapi/pokemon-121.json",
+      "sha256": "0135fba58a0bf7cab7c33a82010cd28f5736b97182a648f8bc24f55eaa18fc01"
+    },
+    "pokemon/122": {
+      "url": "https://pokeapi.co/api/v2/pokemon/122/",
+      "path": "content/sources/pokeapi/pokemon-122.json",
+      "sha256": "8f390e74d5cd2722f105a7f70d8a5985c3dab51128729ba8891bda46df06bce6"
+    },
+    "pokemon/123": {
+      "url": "https://pokeapi.co/api/v2/pokemon/123/",
+      "path": "content/sources/pokeapi/pokemon-123.json",
+      "sha256": "2ebcf4693f69d176bf2c9e2b4c07129aa86e3a42d9f472af4ba5306598800a14"
+    },
+    "pokemon/124": {
+      "url": "https://pokeapi.co/api/v2/pokemon/124/",
+      "path": "content/sources/pokeapi/pokemon-124.json",
+      "sha256": "c3611232210d76eb03d36ec5225ca159176ebbbbfcba3412abe37611618290da"
+    },
+    "pokemon/125": {
+      "url": "https://pokeapi.co/api/v2/pokemon/125/",
+      "path": "content/sources/pokeapi/pokemon-125.json",
+      "sha256": "b9ccee4d5fe7d91fc12c1d175d10513df305c9724a1684f22dc2723d98aa4f7c"
+    },
+    "pokemon/126": {
+      "url": "https://pokeapi.co/api/v2/pokemon/126/",
+      "path": "content/sources/pokeapi/pokemon-126.json",
+      "sha256": "e625d62a69bad3a7cb87c64976829042b31c3182e060e2faacdb718791bf9884"
+    },
+    "pokemon/127": {
+      "url": "https://pokeapi.co/api/v2/pokemon/127/",
+      "path": "content/sources/pokeapi/pokemon-127.json",
+      "sha256": "1dd057eb972fb12272d47767be041f43facd919b812524e076e00c53c9187deb"
+    },
+    "pokemon/128": {
+      "url": "https://pokeapi.co/api/v2/pokemon/128/",
+      "path": "content/sources/pokeapi/pokemon-128.json",
+      "sha256": "4b211dc9667da74d03203c51132872aa1aad21166a20ee821ab315f0a549ccf8"
+    },
+    "pokemon/129": {
+      "url": "https://pokeapi.co/api/v2/pokemon/129/",
+      "path": "content/sources/pokeapi/pokemon-129.json",
+      "sha256": "78f4ee60945d5617db03e1c864bd554eb846f4cbaa588eb7fdf7c146312fbb65"
+    },
+    "pokemon/13": {
+      "url": "https://pokeapi.co/api/v2/pokemon/13/",
+      "path": "content/sources/pokeapi/pokemon-13.json",
+      "sha256": "e8d9a6c386bdeb424369106cca2ddc5f26b115481614e73393c0ee02c4fe84c7"
+    },
+    "pokemon/130": {
+      "url": "https://pokeapi.co/api/v2/pokemon/130/",
+      "path": "content/sources/pokeapi/pokemon-130.json",
+      "sha256": "7917e6f5f5ac1ef2d3ed85346295f80cc0c3681d07f21bd157f51c1ca4adce0c"
+    },
+    "pokemon/131": {
+      "url": "https://pokeapi.co/api/v2/pokemon/131/",
+      "path": "content/sources/pokeapi/pokemon-131.json",
+      "sha256": "f34d3e29b8635a92c805851c81e5b0425787892c0d2b5ab64235301af4fb5ba1"
+    },
+    "pokemon/132": {
+      "url": "https://pokeapi.co/api/v2/pokemon/132/",
+      "path": "content/sources/pokeapi/pokemon-132.json",
+      "sha256": "f121c85e6fc73677fd5d331ca447b4462ba64848bae356452a9c4303c63207c3"
+    },
+    "pokemon/133": {
+      "url": "https://pokeapi.co/api/v2/pokemon/133/",
+      "path": "content/sources/pokeapi/pokemon-133.json",
+      "sha256": "c14bc4bd2ce36e57bb72634c8fc474de9b06a137901046aa75b322175078b95e"
+    },
+    "pokemon/134": {
+      "url": "https://pokeapi.co/api/v2/pokemon/134/",
+      "path": "content/sources/pokeapi/pokemon-134.json",
+      "sha256": "96bb5afd658800bdc11f3ae143eb1c05f2caf5a067e71b1612d20b7a7cc51978"
+    },
+    "pokemon/135": {
+      "url": "https://pokeapi.co/api/v2/pokemon/135/",
+      "path": "content/sources/pokeapi/pokemon-135.json",
+      "sha256": "d32a70bc45eb64fbd4df9f4c094d6b441fe9b2d42f5287231914c15dff950e6c"
+    },
+    "pokemon/136": {
+      "url": "https://pokeapi.co/api/v2/pokemon/136/",
+      "path": "content/sources/pokeapi/pokemon-136.json",
+      "sha256": "5fdb45574c7b809d79d28fd3b6fb6fe9a975291a3fc03e87bd8be15137d7d8d0"
+    },
+    "pokemon/137": {
+      "url": "https://pokeapi.co/api/v2/pokemon/137/",
+      "path": "content/sources/pokeapi/pokemon-137.json",
+      "sha256": "fb16dce22047e2e062789fefdd0a8f73162d825eb479a7bba6c5063c9a2ca1ea"
+    },
+    "pokemon/138": {
+      "url": "https://pokeapi.co/api/v2/pokemon/138/",
+      "path": "content/sources/pokeapi/pokemon-138.json",
+      "sha256": "02fae702dd0718342d2c1d5e7169c42326c74b0ec120a92b616273facaa02848"
+    },
+    "pokemon/139": {
+      "url": "https://pokeapi.co/api/v2/pokemon/139/",
+      "path": "content/sources/pokeapi/pokemon-139.json",
+      "sha256": "0c0ec252ca15e76f802ac0347d29ea8874e86766e016b14a39de1a7269a8589b"
+    },
+    "pokemon/14": {
+      "url": "https://pokeapi.co/api/v2/pokemon/14/",
+      "path": "content/sources/pokeapi/pokemon-14.json",
+      "sha256": "3ea75327d372b32e72543253fadf1f8c9572dbfac8a9e0e283dd63350c445175"
+    },
+    "pokemon/140": {
+      "url": "https://pokeapi.co/api/v2/pokemon/140/",
+      "path": "content/sources/pokeapi/pokemon-140.json",
+      "sha256": "b683bbe10f735c029081fc1091c6c8111869941ef564eaedcbe4b683db4131be"
+    },
+    "pokemon/141": {
+      "url": "https://pokeapi.co/api/v2/pokemon/141/",
+      "path": "content/sources/pokeapi/pokemon-141.json",
+      "sha256": "afb32af6d72e6a790d4d441476fd0e52147decf32f5d58220e31b393d8f32d90"
+    },
+    "pokemon/142": {
+      "url": "https://pokeapi.co/api/v2/pokemon/142/",
+      "path": "content/sources/pokeapi/pokemon-142.json",
+      "sha256": "6550cdb356bcdb3ba3e53b41d5beecbb5b36d24c120424bb0d2ae9acf0572330"
+    },
+    "pokemon/143": {
+      "url": "https://pokeapi.co/api/v2/pokemon/143/",
+      "path": "content/sources/pokeapi/pokemon-143.json",
+      "sha256": "d9b45f8b1caa026d8ac5fe02f2354d1d69ac931c9423708dee8d14c6318f3db2"
+    },
+    "pokemon/144": {
+      "url": "https://pokeapi.co/api/v2/pokemon/144/",
+      "path": "content/sources/pokeapi/pokemon-144.json",
+      "sha256": "1784ccc24d8c85f21e977540e9489e8a1d8896a39068f8d06d055ab17ad987f8"
+    },
+    "pokemon/145": {
+      "url": "https://pokeapi.co/api/v2/pokemon/145/",
+      "path": "content/sources/pokeapi/pokemon-145.json",
+      "sha256": "ce39495fade462dc2f1da7602aa623309795428604490f1d482f6ad40aed04a2"
+    },
+    "pokemon/146": {
+      "url": "https://pokeapi.co/api/v2/pokemon/146/",
+      "path": "content/sources/pokeapi/pokemon-146.json",
+      "sha256": "0d6e1fcffc68ba1fadf91455be896566c8723e67a4cfb6bc7716531c283bd344"
+    },
+    "pokemon/147": {
+      "url": "https://pokeapi.co/api/v2/pokemon/147/",
+      "path": "content/sources/pokeapi/pokemon-147.json",
+      "sha256": "83212b418da3313c5135fba4cb548c5c36af0a6ad7eede3874a475f87adf5ce6"
+    },
+    "pokemon/148": {
+      "url": "https://pokeapi.co/api/v2/pokemon/148/",
+      "path": "content/sources/pokeapi/pokemon-148.json",
+      "sha256": "a3522729fd91cb89d6490c10c89c8cc14bc992786c546f9e86be82a324b988cd"
+    },
+    "pokemon/149": {
+      "url": "https://pokeapi.co/api/v2/pokemon/149/",
+      "path": "content/sources/pokeapi/pokemon-149.json",
+      "sha256": "bc3e64bd295e617ad75a924705099d98c89ce8b29bafae8a85b580517e482e89"
+    },
+    "pokemon/15": {
+      "url": "https://pokeapi.co/api/v2/pokemon/15/",
+      "path": "content/sources/pokeapi/pokemon-15.json",
+      "sha256": "e39dbbcb5f57804df2329b234cb2a45c3c7f1890be10e72143cafe3e4c17a690"
+    },
+    "pokemon/150": {
+      "url": "https://pokeapi.co/api/v2/pokemon/150/",
+      "path": "content/sources/pokeapi/pokemon-150.json",
+      "sha256": "d0b84f7ff17f08f7f4206b4f37e4ec6a15122d2c9c44d03d68fd6d7d49a7501d"
+    },
+    "pokemon/151": {
+      "url": "https://pokeapi.co/api/v2/pokemon/151/",
+      "path": "content/sources/pokeapi/pokemon-151.json",
+      "sha256": "e84bff999e95151f97d9367acb2079134f382440a02142ebf713af1054045f94"
+    },
+    "pokemon/16": {
+      "url": "https://pokeapi.co/api/v2/pokemon/16/",
+      "path": "content/sources/pokeapi/pokemon-16.json",
+      "sha256": "cf2588121c6e4056a4a6c7bcf470cb24e265ad5c424beaeddff91dade1c18a90"
+    },
+    "pokemon/17": {
+      "url": "https://pokeapi.co/api/v2/pokemon/17/",
+      "path": "content/sources/pokeapi/pokemon-17.json",
+      "sha256": "fc6be80499386130837f8cdaae38cccf01c4668b1dc52e2ae0292143806bb994"
+    },
+    "pokemon/18": {
+      "url": "https://pokeapi.co/api/v2/pokemon/18/",
+      "path": "content/sources/pokeapi/pokemon-18.json",
+      "sha256": "992e69d5bc542d304c04d50186898c67864e188ea3aaeab0cb099a78636cb094"
+    },
+    "pokemon/19": {
+      "url": "https://pokeapi.co/api/v2/pokemon/19/",
+      "path": "content/sources/pokeapi/pokemon-19.json",
+      "sha256": "f0217bed9237574fccc271b04810b2f7f2933dc438b066652302e4734e6d6de1"
+    },
+    "pokemon/2": {
+      "url": "https://pokeapi.co/api/v2/pokemon/2/",
+      "path": "content/sources/pokeapi/pokemon-2.json",
+      "sha256": "987ef9f5a3141fba533a65a9abbae2578b19279626bbd624d2fddfecb7e18c86"
+    },
+    "pokemon/20": {
+      "url": "https://pokeapi.co/api/v2/pokemon/20/",
+      "path": "content/sources/pokeapi/pokemon-20.json",
+      "sha256": "8b1c56cd6b47020f7df7ac8f20daa1307f8386f69f03ea5f86894d1a055255cb"
+    },
+    "pokemon/21": {
+      "url": "https://pokeapi.co/api/v2/pokemon/21/",
+      "path": "content/sources/pokeapi/pokemon-21.json",
+      "sha256": "80d4df0cb134b6042d169512b410f3e474c855618984a0d0d27dcb62c1d9723e"
+    },
+    "pokemon/22": {
+      "url": "https://pokeapi.co/api/v2/pokemon/22/",
+      "path": "content/sources/pokeapi/pokemon-22.json",
+      "sha256": "d51ccd9f3a7f9e2351e2909fa561218ee791107af6e78f8e6629ebec6c889f27"
+    },
+    "pokemon/23": {
+      "url": "https://pokeapi.co/api/v2/pokemon/23/",
+      "path": "content/sources/pokeapi/pokemon-23.json",
+      "sha256": "8744ed058b5dedcded6637e9b333de9a3aa76ee9ca9a971fc6611404b6bd9b0f"
+    },
+    "pokemon/24": {
+      "url": "https://pokeapi.co/api/v2/pokemon/24/",
+      "path": "content/sources/pokeapi/pokemon-24.json",
+      "sha256": "829cdf94fb6b78d764fc8ceb86a05bcfd18b177e968e22cf58fe5215baf66d8b"
+    },
+    "pokemon/25": {
+      "url": "https://pokeapi.co/api/v2/pokemon/25/",
+      "path": "content/sources/pokeapi/pokemon-25.json",
+      "sha256": "496f79f6858cb31ce6318c6b0c1eee946af8968d0cbb4e3b048e8ec77b11e078"
+    },
+    "pokemon/26": {
+      "url": "https://pokeapi.co/api/v2/pokemon/26/",
+      "path": "content/sources/pokeapi/pokemon-26.json",
+      "sha256": "404c2f813956230014622d78a70f1521ab30f5bac4ef509da2595f967075597f"
+    },
+    "pokemon/27": {
+      "url": "https://pokeapi.co/api/v2/pokemon/27/",
+      "path": "content/sources/pokeapi/pokemon-27.json",
+      "sha256": "ab3e30c9c9f4aac57965ae9756b66f916333a71e933f58ed5bea3459ee23960e"
+    },
+    "pokemon/28": {
+      "url": "https://pokeapi.co/api/v2/pokemon/28/",
+      "path": "content/sources/pokeapi/pokemon-28.json",
+      "sha256": "9ec1a1cd658d45010bd3f40344fc1a48aa4f33db70fbe6a164a7614da3c96295"
+    },
+    "pokemon/29": {
+      "url": "https://pokeapi.co/api/v2/pokemon/29/",
+      "path": "content/sources/pokeapi/pokemon-29.json",
+      "sha256": "d707b87468d5368484d603141230acf2bd635ae4ad9412cedda8eeef27ea5598"
+    },
+    "pokemon/3": {
+      "url": "https://pokeapi.co/api/v2/pokemon/3/",
+      "path": "content/sources/pokeapi/pokemon-3.json",
+      "sha256": "fd114adb1315542de8a79695e17e818643d357e72e12c2ffbd63fe4d8f8bd6a8"
+    },
+    "pokemon/30": {
+      "url": "https://pokeapi.co/api/v2/pokemon/30/",
+      "path": "content/sources/pokeapi/pokemon-30.json",
+      "sha256": "5bec8315d2a8a49ef21549961fc0631906f7efc09623e540413d086a527e3e26"
+    },
+    "pokemon/31": {
+      "url": "https://pokeapi.co/api/v2/pokemon/31/",
+      "path": "content/sources/pokeapi/pokemon-31.json",
+      "sha256": "14ce559891474ff49e2aa3ddea6771927438718de3abb4dc31e4f62638f5058f"
+    },
+    "pokemon/32": {
+      "url": "https://pokeapi.co/api/v2/pokemon/32/",
+      "path": "content/sources/pokeapi/pokemon-32.json",
+      "sha256": "e91854ff0fa7ab9734b96b2936a3475309fa221ea2c0ee795520567c1726ec49"
+    },
+    "pokemon/33": {
+      "url": "https://pokeapi.co/api/v2/pokemon/33/",
+      "path": "content/sources/pokeapi/pokemon-33.json",
+      "sha256": "46926c6426c8209bf5f71762c528652b3bbe59cb346a36bb5b11e8dbddb8b417"
+    },
+    "pokemon/34": {
+      "url": "https://pokeapi.co/api/v2/pokemon/34/",
+      "path": "content/sources/pokeapi/pokemon-34.json",
+      "sha256": "2044ac96e065c68408b8e460730f664680dd592da41722fc0c654370671d6f69"
+    },
+    "pokemon/35": {
+      "url": "https://pokeapi.co/api/v2/pokemon/35/",
+      "path": "content/sources/pokeapi/pokemon-35.json",
+      "sha256": "e080a8d6dd24bc223425d799616f54cbefa995bd823f7e689dd88f7c9e916474"
+    },
+    "pokemon/36": {
+      "url": "https://pokeapi.co/api/v2/pokemon/36/",
+      "path": "content/sources/pokeapi/pokemon-36.json",
+      "sha256": "dc7c1b6ea215b89786c9b6c797cc21256412b772db1e7e7156303ba27eb71a24"
+    },
+    "pokemon/37": {
+      "url": "https://pokeapi.co/api/v2/pokemon/37/",
+      "path": "content/sources/pokeapi/pokemon-37.json",
+      "sha256": "9ea495793b9bcd578913d846558f7d2a610427c5bd3969312c6cbd8cb976385d"
+    },
+    "pokemon/38": {
+      "url": "https://pokeapi.co/api/v2/pokemon/38/",
+      "path": "content/sources/pokeapi/pokemon-38.json",
+      "sha256": "3cf40d72c0d4edff335329a6b4bdfa043cb27ae76ce673dc9a07f221901ea8a5"
+    },
+    "pokemon/39": {
+      "url": "https://pokeapi.co/api/v2/pokemon/39/",
+      "path": "content/sources/pokeapi/pokemon-39.json",
+      "sha256": "eeaa5e077ea2140639e3fc8e88e184d7e99291da6e2264ebab730c5307c24c03"
+    },
+    "pokemon/4": {
+      "url": "https://pokeapi.co/api/v2/pokemon/4/",
+      "path": "content/sources/pokeapi/pokemon-4.json",
+      "sha256": "144639a8a4d1d8f7a64ec20bf2943bdcae19d56a3b14e61b23c05f9d45244bd8"
+    },
+    "pokemon/40": {
+      "url": "https://pokeapi.co/api/v2/pokemon/40/",
+      "path": "content/sources/pokeapi/pokemon-40.json",
+      "sha256": "691d0c6652d954bcc8c8c97d8a27c74c6b9554af024baee03be92c14ceac7f1a"
+    },
+    "pokemon/41": {
+      "url": "https://pokeapi.co/api/v2/pokemon/41/",
+      "path": "content/sources/pokeapi/pokemon-41.json",
+      "sha256": "98087b90ec984ff9cc2d1b7f370d996860324b1d87dcb350b2164608b847c78b"
+    },
+    "pokemon/42": {
+      "url": "https://pokeapi.co/api/v2/pokemon/42/",
+      "path": "content/sources/pokeapi/pokemon-42.json",
+      "sha256": "79153e836abe1332b08940eab7f76d68427355279c094e8df82de8576d88b7e3"
+    },
+    "pokemon/43": {
+      "url": "https://pokeapi.co/api/v2/pokemon/43/",
+      "path": "content/sources/pokeapi/pokemon-43.json",
+      "sha256": "aca6a6e5a1a918f07b13886d644c9af0f3dc8837dd8349e4df329d1acd9d5442"
+    },
+    "pokemon/44": {
+      "url": "https://pokeapi.co/api/v2/pokemon/44/",
+      "path": "content/sources/pokeapi/pokemon-44.json",
+      "sha256": "158f6e755c52d8fe0369aeebbc25fd5b918f32f9325e32b25c82c3259bcbc53b"
+    },
+    "pokemon/45": {
+      "url": "https://pokeapi.co/api/v2/pokemon/45/",
+      "path": "content/sources/pokeapi/pokemon-45.json",
+      "sha256": "22e5d2a35c06aed5ddf8fed9912126a62c3497f04b7361ced95143e4e046b90d"
+    },
+    "pokemon/46": {
+      "url": "https://pokeapi.co/api/v2/pokemon/46/",
+      "path": "content/sources/pokeapi/pokemon-46.json",
+      "sha256": "0818fa3e5626ca4c9d9b086250a378374903ce542dfec3763accebce1af10964"
+    },
+    "pokemon/47": {
+      "url": "https://pokeapi.co/api/v2/pokemon/47/",
+      "path": "content/sources/pokeapi/pokemon-47.json",
+      "sha256": "217a03318cfe23e792c68d49448d404446d330ded519bc66bfd27952daf5002d"
+    },
+    "pokemon/48": {
+      "url": "https://pokeapi.co/api/v2/pokemon/48/",
+      "path": "content/sources/pokeapi/pokemon-48.json",
+      "sha256": "539a8b55c1ea06a5fc40e03ca5bfd97a40139ce81cf973ef0c2f98f1e002c8ab"
+    },
+    "pokemon/49": {
+      "url": "https://pokeapi.co/api/v2/pokemon/49/",
+      "path": "content/sources/pokeapi/pokemon-49.json",
+      "sha256": "9fedbf65cf34e9cd4fdf6e092c7c1e160959bf47f13b720f5bc5f67f2a6ea788"
+    },
+    "pokemon/5": {
+      "url": "https://pokeapi.co/api/v2/pokemon/5/",
+      "path": "content/sources/pokeapi/pokemon-5.json",
+      "sha256": "48d199521c4e4090c3460998a2154348741c385cd15ec4442c0aa69e413f0835"
+    },
+    "pokemon/50": {
+      "url": "https://pokeapi.co/api/v2/pokemon/50/",
+      "path": "content/sources/pokeapi/pokemon-50.json",
+      "sha256": "10edea91d3151dde90526b55779e33772f58a37779f909dd6e7521fd5fdaf2f7"
+    },
+    "pokemon/51": {
+      "url": "https://pokeapi.co/api/v2/pokemon/51/",
+      "path": "content/sources/pokeapi/pokemon-51.json",
+      "sha256": "a0988a49f91e676025383066a4320f82b0a66e9fae102a19a9ecd515b7435e27"
+    },
+    "pokemon/52": {
+      "url": "https://pokeapi.co/api/v2/pokemon/52/",
+      "path": "content/sources/pokeapi/pokemon-52.json",
+      "sha256": "9eb6afad4dbcf9bcb5fede8d017a4fb32726dc1dc5722e49d8df01e37d2a4e93"
+    },
+    "pokemon/53": {
+      "url": "https://pokeapi.co/api/v2/pokemon/53/",
+      "path": "content/sources/pokeapi/pokemon-53.json",
+      "sha256": "09711d2bb7ed83ba7e30fdaa3e1fe0c07df1e4963381bb21a6eedbbcf3a370b4"
+    },
+    "pokemon/54": {
+      "url": "https://pokeapi.co/api/v2/pokemon/54/",
+      "path": "content/sources/pokeapi/pokemon-54.json",
+      "sha256": "a9c5985241d8e9a42757099e08295f577bc3035ada5531470cda27dd946d9aa9"
+    },
+    "pokemon/55": {
+      "url": "https://pokeapi.co/api/v2/pokemon/55/",
+      "path": "content/sources/pokeapi/pokemon-55.json",
+      "sha256": "dc9e52c006c78d9439864c3dc563f1e0237587bb2f8dd04176fc3635a9b3847d"
+    },
+    "pokemon/56": {
+      "url": "https://pokeapi.co/api/v2/pokemon/56/",
+      "path": "content/sources/pokeapi/pokemon-56.json",
+      "sha256": "5802d473c8e2293222e8903e0b7c2702b1df21f41b80ba120ed75ec99d66d9be"
+    },
+    "pokemon/57": {
+      "url": "https://pokeapi.co/api/v2/pokemon/57/",
+      "path": "content/sources/pokeapi/pokemon-57.json",
+      "sha256": "67d8c480917afbfb99b9fa1d89c75ba2918602cc6a48e02089755a81a4c24910"
+    },
+    "pokemon/58": {
+      "url": "https://pokeapi.co/api/v2/pokemon/58/",
+      "path": "content/sources/pokeapi/pokemon-58.json",
+      "sha256": "c9270b0dc066d7467146802a092b6f5d86bf54bd807b0a143fa694bc47a1753a"
+    },
+    "pokemon/59": {
+      "url": "https://pokeapi.co/api/v2/pokemon/59/",
+      "path": "content/sources/pokeapi/pokemon-59.json",
+      "sha256": "8c7387e89bc1fc7c6bc16b88a009350e4a5a054ad39f9055bb9a5cb7fea450e5"
+    },
+    "pokemon/6": {
+      "url": "https://pokeapi.co/api/v2/pokemon/6/",
+      "path": "content/sources/pokeapi/pokemon-6.json",
+      "sha256": "867e3acf05e270dd61377f52067c82a9ca3d10acf18eb3b1f2b4f72145635fc2"
+    },
+    "pokemon/60": {
+      "url": "https://pokeapi.co/api/v2/pokemon/60/",
+      "path": "content/sources/pokeapi/pokemon-60.json",
+      "sha256": "a08be5bdbbfcb3764e1b874bf7bc199f7a2da858b9c0b8f68afe1e0e5cd43de6"
+    },
+    "pokemon/61": {
+      "url": "https://pokeapi.co/api/v2/pokemon/61/",
+      "path": "content/sources/pokeapi/pokemon-61.json",
+      "sha256": "2ae722c03d523b0147da01af06a3068647d4d6196dc5d43e3fcfcd0c904fe458"
+    },
+    "pokemon/62": {
+      "url": "https://pokeapi.co/api/v2/pokemon/62/",
+      "path": "content/sources/pokeapi/pokemon-62.json",
+      "sha256": "3f4dc4fc207560445e857f310cc253059466137461fc8d8e6cf848b9bb24149c"
+    },
+    "pokemon/63": {
+      "url": "https://pokeapi.co/api/v2/pokemon/63/",
+      "path": "content/sources/pokeapi/pokemon-63.json",
+      "sha256": "fb853f0801436db47d843f905b33407a3415a6deff43a19ef866a0c33cb209a2"
+    },
+    "pokemon/64": {
+      "url": "https://pokeapi.co/api/v2/pokemon/64/",
+      "path": "content/sources/pokeapi/pokemon-64.json",
+      "sha256": "46563e278cb28da598b19cdcd70718f954bde46fd9e8b6642c9e346f231334cf"
+    },
+    "pokemon/65": {
+      "url": "https://pokeapi.co/api/v2/pokemon/65/",
+      "path": "content/sources/pokeapi/pokemon-65.json",
+      "sha256": "3b91dec2fd692e55f29d83b82eb4e854be6e0c81e4b27f4ddf9c9b4f341c7659"
+    },
+    "pokemon/66": {
+      "url": "https://pokeapi.co/api/v2/pokemon/66/",
+      "path": "content/sources/pokeapi/pokemon-66.json",
+      "sha256": "faad50cfe216e38ad18f7537b40c8a617d65d2b647fe88255980360684baa58b"
+    },
+    "pokemon/67": {
+      "url": "https://pokeapi.co/api/v2/pokemon/67/",
+      "path": "content/sources/pokeapi/pokemon-67.json",
+      "sha256": "31cb9e3246c83cfc8fcded59b88b3c9f1b744ba2dda5e3448e24760cd7bbe350"
+    },
+    "pokemon/68": {
+      "url": "https://pokeapi.co/api/v2/pokemon/68/",
+      "path": "content/sources/pokeapi/pokemon-68.json",
+      "sha256": "4bebf5953fe7b849ad816a37126dff428ac4fb9e0227dcbf93746c47a6c1b47b"
+    },
+    "pokemon/69": {
+      "url": "https://pokeapi.co/api/v2/pokemon/69/",
+      "path": "content/sources/pokeapi/pokemon-69.json",
+      "sha256": "4c49a144a9b27510097da58f2e29ec2f6e880071674c30f6c094c785dcebe9e0"
+    },
+    "pokemon/7": {
+      "url": "https://pokeapi.co/api/v2/pokemon/7/",
+      "path": "content/sources/pokeapi/pokemon-7.json",
+      "sha256": "fd977577e71b52916cadcae2bcf1366a609f3b4894d95b536d1a85c34da98e9c"
+    },
+    "pokemon/70": {
+      "url": "https://pokeapi.co/api/v2/pokemon/70/",
+      "path": "content/sources/pokeapi/pokemon-70.json",
+      "sha256": "13ebcb9d6c0022ee75ff72a0ca1af5a9152085d8ccbbc012d71d7d3aeb0a6640"
+    },
+    "pokemon/71": {
+      "url": "https://pokeapi.co/api/v2/pokemon/71/",
+      "path": "content/sources/pokeapi/pokemon-71.json",
+      "sha256": "0994d83147464b76fd472a1b2c880f72660f2e8bb3edb4ee3af8dc51758d7c45"
+    },
+    "pokemon/72": {
+      "url": "https://pokeapi.co/api/v2/pokemon/72/",
+      "path": "content/sources/pokeapi/pokemon-72.json",
+      "sha256": "2e92ece629e86b46643ddca464b2f8f1a9f8099ce786ec47d7f946dce7af559d"
+    },
+    "pokemon/73": {
+      "url": "https://pokeapi.co/api/v2/pokemon/73/",
+      "path": "content/sources/pokeapi/pokemon-73.json",
+      "sha256": "e0cf95cca0e12d702c34e342ae1ed64b105df20d312928b50e71b98f7c9fcaa8"
+    },
+    "pokemon/74": {
+      "url": "https://pokeapi.co/api/v2/pokemon/74/",
+      "path": "content/sources/pokeapi/pokemon-74.json",
+      "sha256": "600e8f6094eed94d3ef54a2301f48e8ef886676ffb1b4ce9ef2071e03a060e31"
+    },
+    "pokemon/75": {
+      "url": "https://pokeapi.co/api/v2/pokemon/75/",
+      "path": "content/sources/pokeapi/pokemon-75.json",
+      "sha256": "9a503d34324ad788bd743f4eb55bd1f1a5eda9e443df75a610435ce2e03df9e5"
+    },
+    "pokemon/76": {
+      "url": "https://pokeapi.co/api/v2/pokemon/76/",
+      "path": "content/sources/pokeapi/pokemon-76.json",
+      "sha256": "96f5a47dff8840d20e6503a3a93fc009913d1dd5988e339046b6b671d4c1e343"
+    },
+    "pokemon/77": {
+      "url": "https://pokeapi.co/api/v2/pokemon/77/",
+      "path": "content/sources/pokeapi/pokemon-77.json",
+      "sha256": "5636547baca3730964247a0fb7e1423ebf5a7e058901e5b7f33fd0933461aacb"
+    },
+    "pokemon/78": {
+      "url": "https://pokeapi.co/api/v2/pokemon/78/",
+      "path": "content/sources/pokeapi/pokemon-78.json",
+      "sha256": "2b33ad88d96a647a4dfbc64d371b0b5d286e99ae2802ba4030f46e10c751c63a"
+    },
+    "pokemon/79": {
+      "url": "https://pokeapi.co/api/v2/pokemon/79/",
+      "path": "content/sources/pokeapi/pokemon-79.json",
+      "sha256": "b43c66f8691b5cd6d6fcd38be3a11350a71de0222c6f403579200643ebeb5c65"
+    },
+    "pokemon/8": {
+      "url": "https://pokeapi.co/api/v2/pokemon/8/",
+      "path": "content/sources/pokeapi/pokemon-8.json",
+      "sha256": "1dd39355b375b7a6c24fd99c5fa275d60441234a5db867d2d4fb0fffc2d9d697"
+    },
+    "pokemon/80": {
+      "url": "https://pokeapi.co/api/v2/pokemon/80/",
+      "path": "content/sources/pokeapi/pokemon-80.json",
+      "sha256": "ebd36be46b6b7c64f6c7656c02583d055693c7ff3a823f539c645a6d1574e25b"
+    },
+    "pokemon/81": {
+      "url": "https://pokeapi.co/api/v2/pokemon/81/",
+      "path": "content/sources/pokeapi/pokemon-81.json",
+      "sha256": "be89b14a5a658647a70c9f53f246657a254d9b7cbeefcb7a998a7777fc64f704"
+    },
+    "pokemon/82": {
+      "url": "https://pokeapi.co/api/v2/pokemon/82/",
+      "path": "content/sources/pokeapi/pokemon-82.json",
+      "sha256": "c1b5d020a5ee5555e37dbb07dd4ef863c7d2d4dd50e28afa59d810abc2aea683"
+    },
+    "pokemon/83": {
+      "url": "https://pokeapi.co/api/v2/pokemon/83/",
+      "path": "content/sources/pokeapi/pokemon-83.json",
+      "sha256": "9f255731cab0d7cf6aed88da9f84dd3a4ab3e0718895d2374518a38336529b50"
+    },
+    "pokemon/84": {
+      "url": "https://pokeapi.co/api/v2/pokemon/84/",
+      "path": "content/sources/pokeapi/pokemon-84.json",
+      "sha256": "f4e67e9249e247f9437c3a9a83f2399cf2b328d6b5149917f00dea0caedea314"
+    },
+    "pokemon/85": {
+      "url": "https://pokeapi.co/api/v2/pokemon/85/",
+      "path": "content/sources/pokeapi/pokemon-85.json",
+      "sha256": "17388d082ec9ff4871121f61d05f83774db2147d36639153cc31a292b6402696"
+    },
+    "pokemon/86": {
+      "url": "https://pokeapi.co/api/v2/pokemon/86/",
+      "path": "content/sources/pokeapi/pokemon-86.json",
+      "sha256": "e58eb862f5c7288354ffb2b317332c058b576753e9aa0f5a585fba0638902120"
+    },
+    "pokemon/87": {
+      "url": "https://pokeapi.co/api/v2/pokemon/87/",
+      "path": "content/sources/pokeapi/pokemon-87.json",
+      "sha256": "d0b430cc12d42a637c04aed14c10c73a45f05d47cc18f93f121ecb930448b669"
+    },
+    "pokemon/88": {
+      "url": "https://pokeapi.co/api/v2/pokemon/88/",
+      "path": "content/sources/pokeapi/pokemon-88.json",
+      "sha256": "ead5e660665c5278df53434d94d3783ce2c76bf21473f6d86dcd76dfce1456d6"
+    },
+    "pokemon/89": {
+      "url": "https://pokeapi.co/api/v2/pokemon/89/",
+      "path": "content/sources/pokeapi/pokemon-89.json",
+      "sha256": "55392b4ac34dfd1efc8d9e4c30cb581ef73e917502982f862152862c71d9e195"
+    },
+    "pokemon/9": {
+      "url": "https://pokeapi.co/api/v2/pokemon/9/",
+      "path": "content/sources/pokeapi/pokemon-9.json",
+      "sha256": "e24b83abc281ca425fdc732c5f0c1aa428d285879b7073986e76d54049b45de0"
+    },
+    "pokemon/90": {
+      "url": "https://pokeapi.co/api/v2/pokemon/90/",
+      "path": "content/sources/pokeapi/pokemon-90.json",
+      "sha256": "6a1abcb582c3b61c54f6a79be6712e1024bbe7a2edad52100c8a9e455f33f668"
+    },
+    "pokemon/91": {
+      "url": "https://pokeapi.co/api/v2/pokemon/91/",
+      "path": "content/sources/pokeapi/pokemon-91.json",
+      "sha256": "d5c599f8a97c4fe407743979ae40927cefb6d1e83a35e59ac07d275025a38511"
+    },
+    "pokemon/92": {
+      "url": "https://pokeapi.co/api/v2/pokemon/92/",
+      "path": "content/sources/pokeapi/pokemon-92.json",
+      "sha256": "6f1aa2b0c44ac47e896d4b0945771a1f945d99120e825d6c111bbdf325cd4ee9"
+    },
+    "pokemon/93": {
+      "url": "https://pokeapi.co/api/v2/pokemon/93/",
+      "path": "content/sources/pokeapi/pokemon-93.json",
+      "sha256": "26ca00cce352fed9fc3b8a8620219eff0da8703b0f36115eb29e4c0577574c0d"
+    },
+    "pokemon/94": {
+      "url": "https://pokeapi.co/api/v2/pokemon/94/",
+      "path": "content/sources/pokeapi/pokemon-94.json",
+      "sha256": "a2203b21cf1d04c8f055b61505ef5a308a299894fcbee7c0661dc1ea2f3b7b8d"
+    },
+    "pokemon/95": {
+      "url": "https://pokeapi.co/api/v2/pokemon/95/",
+      "path": "content/sources/pokeapi/pokemon-95.json",
+      "sha256": "e4c1249abf34580c5fdabeee8e8e49418e9d78e12b94d16a0663b95888d872d6"
+    },
+    "pokemon/96": {
+      "url": "https://pokeapi.co/api/v2/pokemon/96/",
+      "path": "content/sources/pokeapi/pokemon-96.json",
+      "sha256": "dd6acbba86d48dea53263c0e4aca67969e5eb0baa95d9148cdf9e6b034910413"
+    },
+    "pokemon/97": {
+      "url": "https://pokeapi.co/api/v2/pokemon/97/",
+      "path": "content/sources/pokeapi/pokemon-97.json",
+      "sha256": "899c71e842c1fe7507d357d73bb908295f66d7e908b684553fd7a33435c2c74a"
+    },
+    "pokemon/98": {
+      "url": "https://pokeapi.co/api/v2/pokemon/98/",
+      "path": "content/sources/pokeapi/pokemon-98.json",
+      "sha256": "a1e32ffd5fb2402e3d4de0219e9de3e74153e66773073be091df27e652c49f08"
+    },
+    "pokemon/99": {
+      "url": "https://pokeapi.co/api/v2/pokemon/99/",
+      "path": "content/sources/pokeapi/pokemon-99.json",
+      "sha256": "6d0a7bc307a4f29d2aa7f76657f59820959a4504f4db7a1ad9a630e703b18a96"
+    },
+    "version-group/black-white": {
+      "url": "https://pokeapi.co/api/v2/version-group/black-white/",
+      "path": "content/sources/pokeapi/version-group-black-white.json",
+      "sha256": "99a58f3543ebd4074db1821288ab5381b80da8f30472ac1f82323d1e191dda7e"
+    },
+    "version-group/diamond-pearl": {
+      "url": "https://pokeapi.co/api/v2/version-group/diamond-pearl/",
+      "path": "content/sources/pokeapi/version-group-diamond-pearl.json",
+      "sha256": "dc11d819d319adbaa27237e285a2404ac250922da44a75136f5420756edf2366"
+    },
+    "version-group/emerald": {
+      "url": "https://pokeapi.co/api/v2/version-group/emerald/",
+      "path": "content/sources/pokeapi/version-group-emerald.json",
+      "sha256": "dc44c87a3980e7e6f2823370b40a7f5305d55e9e34616d5ddafe3c9353d41e47"
+    },
+    "version-group/heartgold-soulsilver": {
+      "url": "https://pokeapi.co/api/v2/version-group/heartgold-soulsilver/",
+      "path": "content/sources/pokeapi/version-group-heartgold-soulsilver.json",
+      "sha256": "ad2d4c31b70bc6d4af254fc96f6f912e21cbab281030530dc53c363e64f51dca"
+    }
+  }
+}

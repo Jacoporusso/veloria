@@ -162,11 +162,13 @@ test('flinch uses action priority as well as speed and can prevent emergency str
 
 test('seeded chance replay is stable and includes both successful and unsuccessful secondary rolls',()=>{
   const catalog={...moves,impact:{...attack,flinchChance:20}};
+  const stable=(value: unknown) => JSON.stringify(value,(_key,item) => item && typeof item === 'object' && !Array.isArray(item)
+    ? Object.fromEntries(Object.entries(item).sort(([a],[b])=>a.localeCompare(b))) : item);
   let flinched=0;
   for(let seed=1;seed<=100;seed++){
     const input=freeze(battle(100,10,{},seed));
     const first=resolveBattleTurn(input,actions,catalog,rules);
-    assert.equal(JSON.stringify(first),JSON.stringify(resolveBattleTurn(JSON.parse(JSON.stringify(input)),actions,catalog,rules)));
+    assert.equal(stable(first),stable(resolveBattleTurn(JSON.parse(JSON.stringify(input)),actions,catalog,rules)));
     if(first.events.some(event=>event.type==='flinched'))flinched++;
   }
   assert.ok(flinched>0&&flinched<100);

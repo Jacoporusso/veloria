@@ -50,7 +50,7 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       ...(moveIds ? { moveIds } : {}),
     });
 
-    const effectivenessPair = kind === 'immune' ? 194 : 7;
+    const effectivenessPair = kind === 'immune' ? 74 : 7;
     const player = kind === 'forced-player-switch'
       ? { ...creature(25, 'test-player-pikachu', ['thunder-shock'], 8), hp: 1 }
       : kind === 'forced-opponent-switch'
@@ -62,8 +62,8 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       : kind === 'gym-beginner'
       ? creature(1, 'test-player-bulbasaur', ['tackle', 'growl'])
       : kind === 'move-learning'
-        ? creature(179, 'test-player-mareep', ['thunder-shock', 'growl', 'tackle', 'scratch'])
-        : creature(179, 'test-player-mareep', ['thunder-shock', 'growl']);
+        ? creature(25, 'test-player-pikachu', ['thunder-shock', 'growl', 'tackle', 'scratch'])
+        : creature(25, 'test-player-pikachu', ['thunder-shock', 'growl']);
     const baseOpponent = kind.startsWith('forced-')
       ? creature(19, 'test-opponent-rattata', ['quick-attack'], 8)
       : kind === 'leech-seed'
@@ -71,8 +71,8 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       : kind === 'evolution'
       ? creature(10, 'test-opponent-caterpie', ['tackle'], 3)
       : kind === 'gym-beginner'
-      ? creature(161, 'test-opponent-sentret', ['tackle', 'defense-curl'])
-      : creature(effectivenessPair, kind === 'immune' ? 'test-opponent-wooper' : 'test-opponent-squirtle');
+      ? creature(74, 'test-opponent-geodude', ['tackle', 'defense-curl'])
+      : creature(effectivenessPair, kind === 'immune' ? 'test-opponent-geodude' : 'test-opponent-squirtle');
     const opponent = kind === 'forced-opponent-switch'
       ? { ...baseOpponent, hp: 1, experienceYield: 0 }
       : kind === 'evolution'
@@ -85,7 +85,7 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
         ...veloriaBattleRules,
         levelUpMoves: {
           ...veloriaBattleRules.levelUpMoves,
-          179: [
+          25: [
             { level: 9, moveId: 'quick-attack', maxPp: battleMoves['quick-attack'].maxPp },
             { level: 10, moveId: 'gust', maxPp: battleMoves.gust.maxPp },
           ],
@@ -98,7 +98,7 @@ async function mountBattle(page: Page, fixtureKind: FixtureKind): Promise<string
       seed: 321,
       rules,
       playerTeam: [player, ...(kind === 'forced-player-switch' ? [creature(7, 'test-player-reserve', ['tackle'], 8)] : [])],
-      opponentTeam: [opponent, ...(kind === 'forced-opponent-switch' ? [creature(161, 'test-opponent-reserve', ['quick-attack'], 8)] : [])],
+      opponentTeam: [opponent, ...(kind === 'forced-opponent-switch' ? [creature(16, 'test-opponent-reserve', ['quick-attack'], 13)] : [])],
     });
 
     class Fixture extends Phaser.Scene {
@@ -163,7 +163,7 @@ test('battle UI describes an electric hit as super effective against Squirtle', 
   await page.setViewportSize({ width: 390, height: 844 });
   const errors = await mountBattle(page, 'super-effective');
 
-  await chooseFirstMove(page); // Mareep's catalog Thunder Shock.
+  await chooseFirstMove(page); // Pikachu's catalog Thunder Shock.
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return scene.eventLog.some((event: any) => event.type === 'damageApplied' && event.effectiveness > 1)
@@ -172,11 +172,11 @@ test('battle UI describes an electric hit as super effective against Squirtle', 
   expect(errors).toEqual([]);
 });
 
-test('battle UI describes electric immunity against Wooper', async ({ page }) => {
+test('battle UI describes electric immunity against Geodude', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const errors = await mountBattle(page, 'immune');
 
-  await chooseFirstMove(page); // Mareep's catalog Thunder Shock.
+  await chooseFirstMove(page); // Pikachu's catalog Thunder Shock.
   await expect.poll(() => page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     const target = scene.state.opponent.creatures[scene.state.opponent.activeIndex];
@@ -187,7 +187,7 @@ test('battle UI describes electric immunity against Wooper', async ({ page }) =>
       messages: scene.pendingMessages.map((message: any) => message.text),
     };
   })).toMatchObject({
-    targetTypes: ['water', 'ground'],
+    targetTypes: ['rock', 'ground'],
     moves: ['thunder-shock'],
     effectiveness: [0],
     messages: expect.arrayContaining(['Nessun effetto: il bersaglio è immune.']),
@@ -286,7 +286,7 @@ test('gym beginner policy uses Defense Curl on turn zero, then Tackle on turn on
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return scene.eventLog.some((event: any) => event.type === 'moveUsed' && event.side === 'opponent' && event.moveId === 'defense-curl')
       && scene.state.opponent.creatures[scene.state.opponent.activeIndex].statStages?.defense === 1
-      && scene.pendingMessages.some((message: any) => message.text === 'la Difesa di Sentret sale.');
+      && scene.pendingMessages.some((message: any) => message.text === 'la Difesa di Geodude sale.');
   })).toBe(true);
   await advanceMessages(page);
 
@@ -470,7 +470,7 @@ test('opponent replacement is automatic after KO and does not consume the next p
       opponentMoves: scene.eventLog.filter((event: any) => event.type === 'moveUsed' && event.side === 'opponent').length,
       switches: scene.eventLog.filter((event: any) => event.type === 'creatureSwitched').length };
   })).toEqual({ turn: 1, pp: 29, opponentMoves: 0, switches: 1 });
-  expect(await page.evaluate(() => (window as any).battleSeenSpecies)).toEqual([19, 161]);
+  expect(await page.evaluate(() => (window as any).battleSeenSpecies)).toEqual([19, 16]);
   expect(errors).toEqual([]);
 });
 

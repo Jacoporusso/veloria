@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_mewtwo",
+  "version": 1,
+  "displayName": "Un incontro con Mewtwo",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/mewtwo/captured",
+      "setFlag": "q_special_mewtwo_caught",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_mewtwo_caught"
+}

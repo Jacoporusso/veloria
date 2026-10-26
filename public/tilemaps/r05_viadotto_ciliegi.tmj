@@ -5903,7 +5903,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npc-rami-v1"
+              "value": "veloria-route-trainers-r04-r07-v1"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-oren"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.468
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.96
             },
             {
               "name": "trainerId",
@@ -6815,7 +6835,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r05_viadotto_ciliegi-illustrated-v2"
+              "value": "veloria-r05_viadotto_ciliegi-illustrated-v3"
             },
             {
               "name": "renderDepth",

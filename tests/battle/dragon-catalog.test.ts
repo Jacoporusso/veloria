@@ -18,7 +18,7 @@ import hydroPump from '../../content/sources/pokeapi/move-hydro-pump.json' with 
 import aquaTail from '../../content/sources/pokeapi/move-aqua-tail.json' with { type: 'json' };
 import twister from '../../content/sources/pokeapi/move-twister.json' with { type: 'json' };
 
-const ids = [147, 148, 149, 116, 117, 230];
+const ids = [116, 117, 147, 148, 149];
 const moves = battleData.moves as Record<string, { type: string; category: string; power: number; accuracy: number; maxPp: number; fixedDamage?: number; inflictedStatus?: string; statusChance?: number; flinchChance?: number; statChanges?: Array<{ target: string; stat: string; stages: number }> }>;
 const species = speciesData.species as Record<string, { types: string[]; baseStats: Record<string, number>; defaultMoveIds: string[]; officialLearnset: Array<{ level: number; moveId: string }> }>;
 const fullLearnsets = sourceLearnsets.species as Record<string, Array<{ level: number; moveId: string }>>;
@@ -44,11 +44,11 @@ test('Concordia dragon roster parameters, previews and learnsets have HGSS sourc
       .filter(entry => entry.level >= 2)
       .filter((entry, index, all) => all.findIndex(candidate => candidate.moveId === entry.moveId) === index));
   }
-  assert.deepEqual(species['147'].defaultMoveIds, ['thunder-wave']);
+  assert.deepEqual(species['147'].defaultMoveIds, ['wrap', 'leer', 'thunder-wave']);
   assert.deepEqual(species['147'].types, ['dragon']);
   assert.deepEqual(species['147'].baseStats, { hp: 41, attack: 64, defense: 45, specialAttack: 50, specialDefense: 50, speed: 50 });
   assert.deepEqual(species['149'].types, ['dragon', 'flying']);
-  assert.deepEqual(species['230'].types, ['water', 'dragon']);
+  assert.equal(species['230'], undefined, 'the regional runtime excludes the Gen II Kingdra');
 });
 
 test('the imported Dragon moves preserve their HGSS-supported effects', () => {
@@ -71,7 +71,7 @@ test('the imported Dragon moves preserve their HGSS-supported effects', () => {
   assert.deepEqual([aquaTail.power, aquaTail.accuracy, aquaTail.pp], [90, 90, 10]);
   assert.deepEqual([moves['aqua-tail'].type, moves['aqua-tail'].category, moves['aqua-tail'].power, moves['aqua-tail'].accuracy, moves['aqua-tail'].maxPp], ['water', 'physical', 90, 90, 10]);
   for (const id of ['dragon-rage', 'dragon-breath', 'dragon-pulse', 'dragon-dance', 'dragon-rush', 'hydro-pump', 'aqua-tail']) assert.ok(battleManifest[`move/${id}`]?.sha256);
-  assert.equal(moves.twister, undefined);
+  assert.equal(moves.twister.power, 40);
   assert.equal(dragonRush.meta.flinch_chance, 20);
   assert.equal(twister.meta.flinch_chance, 20);
 });
@@ -80,7 +80,7 @@ test('the proposed P8 lineup uses only moves available by each trainer level', (
   const proposed = [
     { speciesId: 148, level: 46, moveIds: ['dragon-rush', 'thunder-wave', 'agility', 'aqua-tail'] },
     { speciesId: 117, level: 47, moveIds: ['bubble-beam', 'smokescreen', 'agility', 'hydro-pump'] },
-    { speciesId: 230, level: 48, moveIds: ['hydro-pump', 'bubble-beam', 'smokescreen', 'agility'] },
+    { speciesId: 116, level: 48, moveIds: ['hydro-pump', 'bubble-beam', 'smokescreen', 'agility'] },
     { speciesId: 148, level: 49, moveIds: ['dragon-rush', 'dragon-rage', 'thunder-wave', 'aqua-tail'] },
   ];
   for (const member of proposed) {
@@ -91,12 +91,13 @@ test('the proposed P8 lineup uses only moves available by each trainer level', (
   assert.deepEqual(proposed.map(member => member.level), [46, 47, 48, 49]);
   assert.ok(species['148'].officialLearnset.some(entry => entry.moveId === 'aqua-tail' && entry.level === 33));
   assert.ok(species['148'].officialLearnset.some(entry => entry.moveId === 'dragon-rush' && entry.level === 39));
-  for (const id of ['117', '230']) assert.ok(species[id].officialLearnset.some(entry => entry.moveId === 'hydro-pump' && entry.level === 40));
+  assert.ok(species['117'].officialLearnset.some(entry => entry.moveId === 'hydro-pump' && entry.level === 40));
+  assert.ok(species['116'].officialLearnset.some(entry => entry.moveId === 'hydro-pump' && entry.level === 35));
 });
 
 test('only the official level evolutions activate; Kingdra retains its trade reference', () => {
   const rules = progression.evolutions.filter(rule => ids.includes(rule.fromSpeciesId));
-  assert.deepEqual(rules.map(rule => [rule.fromSpeciesId, rule.toSpeciesId, rule.minimumLevel]), [[147, 148, 30], [148, 149, 55], [116, 117, 32]]);
+  assert.deepEqual(rules.map(rule => [rule.fromSpeciesId, rule.toSpeciesId, rule.minimumLevel]), [[116, 117, 32], [147, 148, 30], [148, 149, 55]]);
   const reference = evolutionReference.species as Record<string, { evolutions: Array<{ targetSpeciesId: number; trigger: string; minimumLevel: number | null; heldItemName?: string }> }>;
   assert.ok(reference['117'].evolutions.some(entry => entry.targetSpeciesId === 230 && entry.trigger === 'trade' && entry.minimumLevel === null && entry.heldItemName === 'Squama Drago'));
   assert.equal(rules.some(rule => rule.toSpeciesId === 230), false);

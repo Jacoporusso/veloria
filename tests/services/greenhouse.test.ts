@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { applyQuestEvent, type QuestDefinition } from '../../src/core/quests/apply-quest-event.ts';
+import { applyQuestEvent, type QuestDefinition } from '../helpers/quest-event.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 import greenhouseQuest from '../../content/quests/radicelmo_greenhouse.quest.json' with { type: 'json' };
 import worldDialogue from '../../content/dialogue/world.v1.json' with { type: 'json' };

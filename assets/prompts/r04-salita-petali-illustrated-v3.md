@@ -1,33 +1,18 @@
-# R04 Salita dei Petali — illustrated v3
+# R04 Salita dei Petali — illustrated v3 restyle
 
-- Generazione: ImageGen integrato, repaint 2D opaco derivato dalla composizione v2 e rifinitura mirata ai ponti.
-- Output: `assets/sources/veloria-r04_salita_petali-illustrated-v3.png` e `public/assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp` lossless, 1484×1060 px, rapporto 1,4:1.
-- Binding grafici v3 aggiornati soltanto in `content/maps/r04_salita_petali.map.json` e `public/tilemaps/r04_salita_petali.tmj`; geometria Tiled invariata. Registro, manifest di provenienza e precache PWA aggiornati nel lotto 0.3.141.
+Built-in ImageGen restyle approved by root on 25 October 2026, after the earlier minimal bridge edit was rejected for remaining too close to the previous art. The accepted candidate keeps the existing 42×30 composition, stream, walkable route bands, tree locations, and both approved bridge decks. The restyle softens path edges and bridge materials, reduces the bright water treatment, and replaces uniform grass patches with finer organic texture and lighter canopies.
 
-## Prompt di rifinitura ImageGen
+## Files
 
-Use case: precise-object-edit
-Asset type: game map background edit, R04 Salita dei Petali v3.
-Input: Image 1 is the current source v3. Preserve its style, map composition, trail layout, river, trees, clearings, palette, framing and every pixel outside the bridge decks and the short trail junctions touching their ends.
-Edit only the two existing wooden bridges and the few trail pixels immediately connecting to them. Translate both bridge decks 20 px left. Move the upper bridge down 40 px and the lower bridge down 55 px. Do not resize, rotate, repaint, replace, or change perspective of the decks; keep each deck exactly three map cells wide and spanning the stream, with continuous walkable surface and no water gap. Blend the bank/path edges where the bridges were and where they land after moving. Do not move or alter the stream, trails elsewhere, vegetation, rocks, cherry trees, or boundaries.
-Exact canvas is 1484×1060. The top bridge visual center must end at x=583 px, y=512 px. The bottom bridge visual center must end at x=583 px, y=830 px. Each should occupy about 106 px across the map direction for the three-cell span; preserve the current orthographic view.
-No new elements, no trail extensions beyond small endpoint raccords, no NPCs, signs, objects, habitat markers, text, UI, border or watermark.
+- Source: `assets/sources/veloria-r04_salita_petali-illustrated-v3.png` (1484×1060 RGB PNG; SHA-256 `59348dc4d270e8e42b9b6b9e70d4af19ce3b522a8fafae23039966cd7d4c8b24`)
+- Runtime: `public/assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp` (1484×1060 lossless WebP; SHA-256 `ff3593be3cbf16146cb97be33de4a0f6cdd6376a6fd3d010a0e45a14c6b9c26b`)
+- ImageGen candidate: `exec-9cdbde5a-d139-483e-b46e-f9e510dc7260.png`
+- Style references: `assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v3.png`, `assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png`
 
-## Verifica geometrica della prima iterazione (superata)
+## Accepted restyle prompt
 
-Il Tiled è 42×30 celle, origine in alto a sinistra. I ponti sono rettangoli [15,13,3,3] e [15,22,3,3]; i loro centri reali sono quindi (16.5/42, 14.5/30) e (16.5/42, 23.5/30), non i centri dei bordi delle celle. Proiettati sul PNG 1484×1060, i target sono:
+Substantively repaint the current R04 artwork to match the approved R05/R07 modern matte illustrated 2D direction. Keep the exact 42×30 composition, stream course, route centerlines and widths, exits, tree centers, clearings, and both bridge positions and dimensions. Make trees finer and less bulky; reduce neon saturation in the water; replace uniform grass patches with organic varied ground texture; use warm pale compacted earth, light irregular path edges and restrained matte bridge materials. Keep both decks continuous across the stream with their full southern planks and unchanged bank approaches. Add no characters, signs, markers, sensors, props, text, or UI.
 
-- Ponte nord: (583.0 px, 512.3 px).
-- Ponte sud: (583.0 px, 830.3 px).
+## Verification limits
 
-Stima dei centri sul PNG finale usando il bounding box dei pixel legno/ponte: nord circa (592,504), sud circa (593,819.5). Scarto residuo: circa 9–10 px a est e 8–11 px a nord. Silhouette stimata circa 147×101 px; la misura include parapetti/pilastri e resta una stima visiva, non un controllo runtime. Il sentiero si chiude circa a x6 sul lato ovest, coerente con il terreno Tiled; non c’è un’uscita ovest. Gli accessi nord/sud sono visivamente raccordati. Nessun NPC, cartello, pickup, marker habitat o UI visibile.
-
-Le coordinate Tiled restano autorevoli per collisioni e passaggi. La stima dei pixel non sostituisce la verifica browser, non eseguita in questo task.
-
-## Correzione dopo prova di gioco
-
-La prima prova delle sei corsie ha mostrato i piedi nell’acqua nella corsia meridionale di entrambi i ponti: il rettangolo logico non basta a descrivere la proiezione dei piedi dello sprite. Un primo tentativo di spostamento esatto non ha corretto abbastanza il piano e non è stato selezionato.
-
-Output selezionato: `exec-751d17ba-c7a4-4f5f-b29c-bc62c03d9722.png`, ImageGen integrato. Prompt: “Each of the two wooden bridges is TOO NARROW from north to south. EXTEND BOTH WOODEN DECKS SOUTHWARD by HALF THEIR CURRENT HEIGHT: add another five broad wooden planks below each existing deck, covering the water immediately beneath it. Keep northern edge fixed. Thus each bridge becomes 50% taller in the image. Move the southern posts/rail down to enclose the extended deck. Keep bridge width and horizontal positions identical. Upper bridge southern floor edge must reach around 55% of canvas height; lower bridge around85%. Smooth the adjacent pale dirt bank approaches. Preserve the rest of the exact map without changes.”
-
-Collisioni e geometria runtime invariate. PNG copiato e convertito WebP lossless. Verifica finale: sei attraversamenti da x14 a18 con input UI e screenshot al centro, corsie13/14/15 e22/23/24, tutti passati. Root ha controllato i sei screenshot: piedi sul piano in legno anche nelle due corsie meridionali. Il bordo sud del ponte alto resta vicino al piede dell’ultima corsia, senza lo sconfinamento sull’acqua osservato prima.
+The decoded WebP is pixel-identical to its PNG source. Root visually approved the new art direction. Existing map geometry and gameplay records are unchanged. Runtime bridge/navigation QA remains the authoritative check; this restyle alone does not claim whole-map completion.

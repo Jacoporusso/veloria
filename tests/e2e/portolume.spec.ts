@@ -59,8 +59,8 @@ test('Nerea sluices open in order and the Marea medal survives reload', async({p
   const save=await readBrowserSave(page);
   save.flags=[...save.flags,'q_starter_selected','q_centrale_report','q_portolume_visited','q_portolume_orientation','q_portolume_tide_read','q_portolume_tide_report'];
   save.player={...save.player,mapId:'veloria/gym05_portolume',spawnPointId:'from_portolume',x:15,y:22,money:500};
-  const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:195,level:45,instanceId:'p5-checkpoint',moveIds:['mud-shot','water-gun']});
-  save.party=[{instanceId:creature.instanceId,speciesId:195,level:45,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
+  const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:138,level:45,instanceId:'p5-checkpoint',moveIds:['mud-shot','water-gun']});
+  save.party=[{instanceId:creature.instanceId,speciesId:138,level:45,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
   for(const [x,y,flag]of [[8,17,'gym05_basin_balanced'],[24,10,'gym05_sluice_open'],[8,4,'gym05_tide_stable']]as const){
     await walkTo(page,'gym05_portolume.tmj',x,y+1);await face(page,'Vai in alto');await a(page).tap();await finishDialogue(page);
@@ -111,8 +111,8 @@ test('Ferraluce reaches Portolume by the coast and fishing starts a coastal wild
   save.flags=[...save.flags,'q_starter_selected','q_centrale_report'];save.rngState=42;
   save.inventory['old-rod']=1;
   save.player={...save.player,mapId:'veloria/ferraluce',spawnPointId:'from_r08',x:38,y:22};
-  const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:195,level:45,instanceId:'fishing-checkpoint',moveIds:['mud-shot','water-gun']});
-  save.party=[{instanceId:creature.instanceId,speciesId:195,level:45,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
+  const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:138,level:45,instanceId:'fishing-checkpoint',moveIds:['mud-shot','water-gun']});
+  save.party=[{instanceId:creature.instanceId,speciesId:138,level:45,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
   await walkDirection(page,'right');
   await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r08_costa_turbine');

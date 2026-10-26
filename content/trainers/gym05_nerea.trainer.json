@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/trainer_nerea/defeated",
   "rewardMoney": 1400,
   "victoryMessage": "Hai vinto contro Nerea. Ricevi 1400 ₿ e la Medaglia Marea.",
-  "victoryFeedback": "La Medaglia Marea è tua! Hai letto il ritmo della mia squadra. Barriera aumenta la Difesa, ma non la Difesa Speciale. Lanturn unisce Acqua ed Elettro: una risposta utile contro Krabby non funziona sempre allo stesso modo contro di lui. Le misure dell’osservatorio restano nel nostro registro: continueremo a confrontarle con quelle della Centrale.",
+  "victoryFeedback": "La Medaglia Marea è tua! Hai letto il ritmo della mia squadra. Barriera aumenta la Difesa, ma non la Difesa Speciale. Tentacruel unisce Acqua e Veleno: Terra e Psico possono aiutare, mentre Erba non ha il vantaggio che avrebbe contro Krabby. Continueremo a confrontare le misure dell’osservatorio con quelle della Centrale.",
   "team": [
     {
       "speciesId": 72,
@@ -30,13 +30,13 @@
       ]
     },
     {
-      "speciesId": 171,
+      "speciesId": 73,
       "level": 28,
       "moveIds": [
-        "water-gun",
-        "spark",
-        "thunder-wave",
-        "supersonic"
+        "supersonic",
+        "barrier",
+        "wrap",
+        "bubble-beam"
       ]
     }
   ]

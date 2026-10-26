@@ -94,6 +94,29 @@
             "type": "integer",
             "minimum": 0
           }
+        },
+        "pokemon": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "speciesId",
+              "level"
+            ],
+            "properties": {
+              "speciesId": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "level": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              }
+            }
+          }
         }
       }
     }

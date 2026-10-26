@@ -7,7 +7,7 @@
   "defeatQuestEvent": "league/stage/council1/won",
   "rewardMoney": 3000,
   "victoryMessage": "Hai vinto contro Nerea.",
-  "victoryFeedback": "Hai superato le correnti! Quagsire unisce Acqua e Terra: osservare entrambi i tipi evita mosse senza effetto. Conserva le risorse per le prossime sale.",
+  "victoryFeedback": "Hai superato le correnti! Slowbro unisce Acqua e Psico: osservare entrambi i tipi rivela debolezze e resistenze. Conserva le risorse per le prossime sale.",
   "team": [
     {
       "speciesId": 9,
@@ -20,13 +20,13 @@
       ]
     },
     {
-      "speciesId": 195,
+      "speciesId": 80,
       "level": 51,
       "moveIds": [
-        "mud-bomb",
         "amnesia",
         "water-gun",
-        "slam"
+        "zen-headbutt",
+        "slack-off"
       ]
     },
     {

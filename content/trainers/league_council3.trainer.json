@@ -7,7 +7,7 @@
   "defeatQuestEvent": "league/stage/council3/won",
   "rewardMoney": 3000,
   "victoryMessage": "Hai vinto contro Brando.",
-  "victoryFeedback": "La rete non ha una sola risposta: Terra aiuta contro Elettro, ma osserva le difese di Steelix e le mosse speciali.",
+  "victoryFeedback": "La rete non ha una sola risposta: Terra aiuta contro Elettro, ma osserva la grande Difesa di Onix e scegli anche le mosse speciali.",
   "team": [
     {
       "speciesId": 82,
@@ -20,23 +20,23 @@
       ]
     },
     {
-      "speciesId": 208,
+      "speciesId": 95,
       "level": 53,
       "moveIds": [
-        "crunch",
         "dragon-breath",
         "rock-throw",
-        "screech"
+        "screech",
+        "double-edge"
       ]
     },
     {
-      "speciesId": 181,
+      "speciesId": 26,
       "level": 54,
       "moveIds": [
-        "discharge",
-        "thunder-punch",
-        "thunder-wave",
-        "growl"
+        "thunderbolt",
+        "quick-attack",
+        "tail-whip",
+        "thunder-shock"
       ]
     }
   ]

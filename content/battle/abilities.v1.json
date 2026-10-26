@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "source": "PokeAPI",
+  "selectionPolicy": "Each species receives its official non-hidden slot-1 ability; this is the deterministic Veloria prototype ability-selection rule.",
+  "battleScopePolicy": "Battle effects follow HGSS mechanics in Veloria single battles: Lightning Rod only redirects Electric moves in doubles, so it supplies no single-battle immunity or Special Attack boost; Stench has no HGSS battle effect; Illuminate and Pickup are out-of-battle-only effects.",
+  "abilities": {
+    "blaze": {
+      "id": "blaze",
+      "name": "Aiutofuoco",
+      "englishName": "Blaze",
+      "effect": "When this Pokémon has 1/3 or less of its HP remaining, its Fire-type moves inflict 1.5× as much regular damage.",
+      "shortEffect": "Strengthens Fire moves to inflict 1.5× damage at 1/3 max HP or less."
+    },
+    "chlorophyll": {
+      "id": "chlorophyll",
+      "name": "Clorofilla",
+      "englishName": "Chlorophyll",
+      "effect": "This Pokémon's Speed is doubled during strong sunlight.\n\nThis bonus does not count as a stat modifier.",
+      "shortEffect": "Doubles Speed during strong sunlight."
+    },
+    "clear-body": {
+      "id": "clear-body",
+      "name": "Corpochiaro",
+      "englishName": "Clear Body",
+      "effect": "This Pokémon cannot have its stats lowered by other Pokémon.\n\nThis ability does not prevent any stat losses other than stat modifiers, such as the Speed cut from paralysis.  This Pokémon can still be passed negative stat modifiers through Guard Swap, Heart Swap, or Power Swap.\n\nThis ability functions identically to White Smoke in battle.",
+      "shortEffect": "Prevents stats from being lowered by other Pokémon."
+    },
+    "compound-eyes": {
+      "id": "compound-eyes",
+      "name": "Insettocchi",
+      "englishName": "Compound Eyes",
+      "effect": "This Pokémon's moves have 1.3× their accuracy. This ability has no effect on the one-hit KO moves (Fissure, Guillotine, Horn Drill, and Sheer Cold)."
+    },
+    "cute-charm": {
+      "id": "cute-charm",
+      "name": "Incantevole",
+      "englishName": "Cute Charm",
+      "effect": "Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being infatuated."
+    },
+    "damp": {
+      "id": "damp",
+      "name": "Umidità",
+      "englishName": "Damp",
+      "effect": "While this Pokémon is in battle, Self-Destruct and Explosion will fail and Aftermath will not take effect.",
+      "shortEffect": "Prevents Self-Destruct, Explosion, and Aftermath from working while the Pokémon is in battle."
+    },
+    "early-bird": {
+      "id": "early-bird",
+      "name": "Sveglialampo",
+      "englishName": "Early Bird",
+      "effect": "This Pokémon's remaining sleep turn count falls by 2 rather than 1.\n\nIf this Pokémon's sleep counter is at 1, it will fall to 0 and then the Pokémon will wake up.",
+      "shortEffect": "Makes sleep pass twice as quickly."
+    },
+    "effect-spore": {
+      "id": "effect-spore",
+      "name": "Spargispora",
+      "englishName": "Effect Spore",
+      "effect": "Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being paralyzed, poisoned, or put to sleep, chosen at random.\n\nNothing is done to compensate if the move's user is immune to one of these ailments; there is simply a lower chance that the move's user will be affected.",
+      "shortEffect": "Has a 30% chance of inflcting either paralysis, poison, or sleep on attacking Pokémon on contact."
+    },
+    "flame-body": {
+      "id": "flame-body",
+      "name": "Corpodifuoco",
+      "englishName": "Flame Body",
+      "effect": "Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being burned."
+    },
+    "flash-fire": {
+      "id": "flash-fire",
+      "name": "Fuocardore",
+      "englishName": "Flash Fire",
+      "effect": "This Pokemon is immune to Fire-type moves, as long as it is not frozen. The first time it is hit by a Fire-type move, damage from its Fire-type attacks will be multiplied by 1.5 as long as it remains active and has this Ability. If this Pokemon has a non-volatile status condition, is a Fire type, or has a substitute, Will-O-Wisp will not activate this Ability."
+    },
+    "guts": {
+      "id": "guts",
+      "name": "Dentistretti",
+      "englishName": "Guts",
+      "effect": "Whenever this Pokémon is burned, paralyzed, or poisoned, it has 1.5× its Attack. This Pokémon is not affected by the usual Attack cut from a burn. This bonus does not count as a stat modifier."
+    },
+    "hyper-cutter": {
+      "id": "hyper-cutter",
+      "name": "Ipertaglio",
+      "englishName": "Hyper Cutter",
+      "effect": "This Pokémon's Attack cannot be lowered by other Pokémon. This ability does not prevent any Attack losses other than stat modifiers, such as the Attack cut from a burn. Overworld: Doubles Cut's grass-cutting radius on the overworld if any party Pokémon has this ability."
+    },
+    "illuminate": {
+      "id": "illuminate",
+      "name": "Risplendi",
+      "englishName": "Illuminate",
+      "effect": "Overworld: If the lead Pokémon has this ability, the wild encounter rate is doubled.\n\nThis ability has no effect in battle.",
+      "shortEffect": "Doubles the wild encounter rate."
+    },
+    "immunity": {
+      "id": "immunity",
+      "name": "Immunità",
+      "englishName": "Immunity",
+      "effect": "This Pokémon cannot be poisoned.  This includes bad poison.\n\nIf a Pokémon is poisoned and acquires this ability, its poison is healed; this includes when regaining a lost ability upon leaving battle.",
+      "shortEffect": "Prevents poison."
+    },
+    "inner-focus": {
+      "id": "inner-focus",
+      "name": "Forza Interiore",
+      "englishName": "Inner Focus",
+      "effect": "This Pokémon cannot flinch.",
+      "shortEffect": "Prevents flinching."
+    },
+    "insomnia": {
+      "id": "insomnia",
+      "name": "Insonnia",
+      "englishName": "Insomnia",
+      "effect": "This Pokémon cannot be asleep.\n\nThis causes Rest to fail altogether.  If a Pokémon is asleep and acquires this ability, it will immediately wake up; this includes when regaining a lost ability upon leaving battle.\n\nThis ability functions identically to Vital Spirit in battle.",
+      "shortEffect": "Prevents sleep."
+    },
+    "intimidate": {
+      "id": "intimidate",
+      "name": "Prepotenza",
+      "englishName": "Intimidate",
+      "effect": "When this Pokémon enters battle, the opponent's Attack is lowered by one stage. In a double battle, both opponents are affected. This ability has no effect on an opponent that has a Substitute.  Overworld: If the first Pokémon in the party has this ability, any random encounter with a Pokémon five or more levels lower than it has a 50% chance of being skipped."
+    },
+    "keen-eye": {
+      "id": "keen-eye",
+      "name": "Sguardofermo",
+      "englishName": "Keen Eye",
+      "effect": "This Pokémon cannot have its accuracy lowered. This ability does not prevent other Pokémon's evasion from making this Pokémon's moves less accurate."
+    },
+    "levitate": {
+      "id": "levitate",
+      "name": "Levitazione",
+      "englishName": "Levitate",
+      "effect": "This Pokémon is immune to Ground-type moves, Spikes, Toxic Spikes, and Arena Trap.\n\nThis ability is disabled during Gravity or Ingrain, or while holding an Iron Ball.  This ability is not disabled during Roost.",
+      "shortEffect": "Evades Ground moves."
+    },
+    "lightning-rod": {
+      "id": "lightning-rod",
+      "name": "Parafulmine",
+      "englishName": "Lightning Rod",
+      "effect": "If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself.  Does not redirect Hidden Power. Overworld: Increases the frequency of Match Call calls on the overworld if any party Pokémon has this ability."
+    },
+    "limber": {
+      "id": "limber",
+      "name": "Scioltezza",
+      "englishName": "Limber",
+      "effect": "This Pokémon cannot be paralyzed.\n\nIf a Pokémon is paralyzed and acquires this ability, its paralysis is healed; this includes when regaining a lost ability upon leaving battle.",
+      "shortEffect": "Prevents paralysis."
+    },
+    "magnet-pull": {
+      "id": "magnet-pull",
+      "name": "Magnetismo",
+      "englishName": "Magnet Pull",
+      "effect": "While this Pokémon is in battle, opposing Steel-type Pokémon cannot flee or switch out. Pokémon with Run Away can still flee. Pokémon can still switch out with the use of a move or item."
+    },
+    "natural-cure": {
+      "id": "natural-cure",
+      "name": "Alternacura",
+      "englishName": "Natural Cure",
+      "effect": "This Pokémon is cured of any major status ailment when it is switched out for another Pokémon.\n\nIf this ability is acquired during battle, the Pokémon is cured upon leaving battle before losing the temporary ability.",
+      "shortEffect": "Cures any major status ailment upon switching out."
+    },
+    "oblivious": {
+      "id": "oblivious",
+      "name": "Indifferenza",
+      "englishName": "Oblivious",
+      "effect": "This Pokémon cannot be infatuated and is immune to Captivate.\n\nIf a Pokémon is infatuated and acquires this ability, its infatuation is cleared.",
+      "shortEffect": "Prevents infatuation and protects against Captivate."
+    },
+    "overgrow": {
+      "id": "overgrow",
+      "name": "Erbaiuto",
+      "englishName": "Overgrow",
+      "effect": "When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.",
+      "shortEffect": "Strengthens Grass moves to inflict 1.5× damage at 1/3 max HP or less."
+    },
+    "own-tempo": {
+      "id": "own-tempo",
+      "name": "Mente Locale",
+      "englishName": "Own Tempo",
+      "effect": "This Pokémon cannot be confused.\n\nIf a Pokémon is confused and acquires this ability, its confusion will immediately be healed.",
+      "shortEffect": "Prevents confusion."
+    },
+    "pickup": {
+      "id": "pickup",
+      "name": "Raccolta",
+      "englishName": "Pickup",
+      "effect": "At the end of each turn, if another Pokémon consumed or Flung a held item that turn, this Pokémon picks up the item if it is not already holding one.  After each battle, this Pokémon has a 10% chance of picking up an item if it is not already holding one.\n\nThe Air Balloon and Eject Button cannot be picked up.\n\nThe items that may be found vary by game, and, since Pokémon Emerald, by the Pokémon's level.  This ability is checked after the battle ends, at which point any temporary ability changes have worn off.",
+      "shortEffect": "Picks up other Pokémon's used and Flung held items.  May also pick up an item after battle."
+    },
+    "poison-point": {
+      "id": "poison-point",
+      "name": "Velenopunto",
+      "englishName": "Poison Point",
+      "effect": "Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being poisoned.",
+      "shortEffect": "Has a 30% chance of poisoning attacking Pokémon on contact."
+    },
+    "pressure": {
+      "id": "pressure",
+      "name": "Pressione",
+      "englishName": "Pressure",
+      "effect": "Moves targetting this Pokémon use one extra PP. This ability stacks if multiple targets have it. This ability still affects moves that fail or miss. This ability does not affect friendly Pokémon's moves that target all other Pokémon, nor this Pokémon's self-targetted moves; it does, however, affect single-targetted ally moves aimed at this Pokémon, ally moves that target all other Pokémon, and opponents' moves that target the entire field. If this ability raises a move's PP cost above its remaining PP, it will use all remaining PP."
+    },
+    "rock-head": {
+      "id": "rock-head",
+      "name": "Testadura",
+      "englishName": "Rock Head",
+      "effect": "This Pokémon does not receive recoil damage from its recoil moves.\n\nStruggle's recoil is unaffected.  This ability does not prevent crash damage from missing with Jump Kick or High Jump Kick.",
+      "shortEffect": "Protects against recoil damage."
+    },
+    "run-away": {
+      "id": "run-away",
+      "name": "Fugafacile",
+      "englishName": "Run Away",
+      "effect": "This Pokémon is always successful fleeing from wild battles, even if trapped by a move or ability.",
+      "shortEffect": "Ensures success fleeing from wild battles."
+    },
+    "sand-veil": {
+      "id": "sand-veil",
+      "name": "Sabbiavelo",
+      "englishName": "Sand Veil",
+      "effect": "During a sandstorm, this Pokémon has 1.25× its evasion, and it does not take sandstorm damage regardless of type.\n\nThe evasion bonus does not count as a stat modifier.\n\nOverworld: If the lead Pokémon has this ability, the wild encounter rate is halved in a sandstorm.",
+      "shortEffect": "Increases evasion to 1.25× during a sandstorm.  Protects against sandstorm damage."
+    },
+    "shed-skin": {
+      "id": "shed-skin",
+      "name": "Muta",
+      "englishName": "Shed Skin",
+      "effect": "After each turn, this Pokémon has a 33% of being cured of any major status ailment."
+    },
+    "shell-armor": {
+      "id": "shell-armor",
+      "name": "Guscioscudo",
+      "englishName": "Shell Armor",
+      "effect": "Moves cannot score critical hits against this Pokémon.\n\nThis ability functions identically to Battle Armor.",
+      "shortEffect": "Protects against critical hits."
+    },
+    "shield-dust": {
+      "id": "shield-dust",
+      "name": "Polvoscudo",
+      "englishName": "Shield Dust",
+      "effect": "This Pokémon is immune to the extra effects of moves used against it.\n\nAn extra effect is a move's chance, listed as an \"effect chance\", to inflict a status ailment, cause a stat change, or make the target flinch in addition to the move's main effect.  For example, Thunder Shock's paralysis is an extra effect, but Thunder Wave's is not, nor are Knock Off's item removal and Air Cutter's increased critical hit rate.",
+      "shortEffect": "Protects against incoming moves' extra effects."
+    },
+    "soundproof": {
+      "id": "soundproof",
+      "name": "Antisuono",
+      "englishName": "Soundproof",
+      "effect": "This Pokémon is immune to moves flagged as being sound-based.\n\nHeal Bell is unaffected.  Uproar still prevents this Pokémon from sleeping.  This Pokémon can still receive a Perish Song counter through Baton Pass, and will retain a Perish Song counter if it acquires this ability after Perish Song is used.\n\nHowl, Roar of Time, Sonic Boom, and Yawn are not flagged as sound-based.",
+      "shortEffect": "Protects against sound-based moves."
+    },
+    "static": {
+      "id": "static",
+      "name": "Statico",
+      "englishName": "Static",
+      "effect": "Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being paralyzed. Pokémon that are immune to Electric-type moves can still be paralyzed by this ability."
+    },
+    "stench": {
+      "id": "stench",
+      "name": "Tanfo",
+      "englishName": "Stench",
+      "effect": "This Pokémon's damaging moves have a 10% chance to make the target flinch with each hit if they do not already cause flinching as a secondary effect.\n\nThis ability does not stack with a held item.\n\nOverworld: The wild encounter rate is halved while this Pokémon is first in the party.",
+      "shortEffect": "Has a 10% chance of making target Pokémon flinch with each hit."
+    },
+    "swarm": {
+      "id": "swarm",
+      "name": "Aiutinsetto",
+      "englishName": "Swarm",
+      "effect": "When this Pokémon has 1/3 or less of its HP remaining, its Bug-type moves inflict 1.5× as much regular damage. Overworld: Increases the frequency of cries heard on the overworld if any party Pokémon has this ability."
+    },
+    "swift-swim": {
+      "id": "swift-swim",
+      "name": "Nuotovelox",
+      "englishName": "Swift Swim",
+      "effect": "This Pokémon's Speed is doubled during rain.\n\nThis bonus does not count as a stat modifier.",
+      "shortEffect": "Doubles Speed during rain."
+    },
+    "synchronize": {
+      "id": "synchronize",
+      "name": "Sincronismo",
+      "englishName": "Synchronize",
+      "effect": "Whenever this Pokémon is burned, paralyzed, or poisoned, the Pokémon who gave this Pokémon that ailment is also given the ailment. This ability passes back bad poison when this Pokémon is badly poisoned. This ability cannot pass on a status ailment that the Pokémon did not directly receive from another Pokémon, such as the poison from Toxic Spikes or the burn from a Flame Orb. Overworld: If the lead Pokémon has this ability, wild Pokémon have a 50% chance of having the lead Pokémon's nature, and a 50% chance of being given a random nature as usual, including the lead Pokémon's nature. This does not work on Pokémon received outside of battle, static encounters, or roaming legendaries."
+    },
+    "thick-fat": {
+      "id": "thick-fat",
+      "name": "Grassospesso",
+      "englishName": "Thick Fat",
+      "effect": "This Pokémon takes half as much damage from Fire- and Ice-type moves.",
+      "shortEffect": "Halves damage from Fire and Ice moves."
+    },
+    "torrent": {
+      "id": "torrent",
+      "name": "Acquaiuto",
+      "englishName": "Torrent",
+      "effect": "When this Pokémon has 1/3 or less of its HP remaining, its Water-type moves inflict 1.5× as much regular damage.",
+      "shortEffect": "Strengthens Water moves to inflict 1.5× damage at 1/3 max HP or less."
+    },
+    "trace": {
+      "id": "trace",
+      "name": "Traccia",
+      "englishName": "Trace",
+      "effect": "When this Pokémon enters battle, it copies a random opponent's ability."
+    },
+    "vital-spirit": {
+      "id": "vital-spirit",
+      "name": "Spiritovivo",
+      "englishName": "Vital Spirit",
+      "effect": "This Pokémon cannot be asleep. This causes Rest to fail altogether. If a Pokémon is asleep and acquires this ability, it will immediately wake up; this includes when regaining a lost ability upon leaving battle. This ability functions identically to Insomnia in battle."
+    },
+    "volt-absorb": {
+      "id": "volt-absorb",
+      "name": "Assorbivolt",
+      "englishName": "Volt Absorb",
+      "effect": "This Pokemon is immune to damaging Electric-type moves and restores 1/4 of its maximum HP, rounded down, when hit by one."
+    },
+    "water-absorb": {
+      "id": "water-absorb",
+      "name": "Assorbacqua",
+      "englishName": "Water Absorb",
+      "effect": "Whenever a Water-type move hits this Pokémon, it heals for 1/4 of its maximum HP, negating any other effect on it.\n\nWater moves will ignore this Pokémon's Substitute.",
+      "shortEffect": "Absorbs Water moves, healing for 1/4 max HP."
+    }
+  }
+}

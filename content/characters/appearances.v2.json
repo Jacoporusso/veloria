@@ -45,6 +45,79 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainers-r04-r07-v1",
+      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-vetracielo-lea-v1",
+      "path": "assets/sprites/veloria-vetracielo-lea-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-service-npcs-v1",
+      "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-coastal-cast-v1",
+      "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-r09-r10-coastal-trainers-v1",
+      "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-delta-route-cast-v1",
+      "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-guides-and-keepers-v1",
+      "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-and-cammino-cast-v1",
+      "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-v1",
+      "path": "assets/sprites/veloria-centrale-technician-v1.webp"
     }
   ],
   "profiles": [
@@ -376,6 +449,497 @@
         "x": 0.5012,
         "y": 0.9075
       }
+    },
+    {
+      "id": "route-trainer-nila",
+      "description": "Nila, allenatrice facoltativa della Salita dei Petali; soprabito chiaro con accenti petalo, borsa da viaggio e fermaglio riflettente. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "nila_r04"
+      ],
+      "npcIds": [
+        "nila_r04"
+      ],
+      "assetKey": "veloria-route-trainers-r04-r07-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/nila_r04; content/trainers/r04_nila.trainer.json",
+      "origin": {
+        "x": 0.558,
+        "y": 0.951
+      }
+    },
+    {
+      "id": "route-trainer-oren",
+      "description": "Oren, allenatore di percorso del Viadotto dei Ciliegi; giacca ardesia e berry, binocolo e zaino. Non è definito addetto ferroviario; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "oren_r05"
+      ],
+      "npcIds": [
+        "oren_r05"
+      ],
+      "assetKey": "veloria-route-trainers-r04-r07-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/oren_r05; content/trainers/r05_oren.trainer.json",
+      "origin": {
+        "x": 0.468,
+        "y": 0.96
+      }
+    },
+    {
+      "id": "route-trainer-iris-r06",
+      "description": "Iris, allenatrice facoltativa di R06, distinta dalla Biologa Iris del Delta; giacca da allenamento petrolio e grigio minerale con fermaglio bussola. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r06_iris"
+      ],
+      "npcIds": [
+        "r06_iris"
+      ],
+      "assetKey": "veloria-route-trainers-r04-r07-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r06_iris; content/trainers/r06_iris.trainer.json",
+      "origin": {
+        "x": 0.593,
+        "y": 0.895
+      }
+    },
+    {
+      "id": "route-trainer-dario",
+      "description": "Dario, allenatore del Condotto Risonante; abito carbone e rame, fasce ai polsi e strumenti da percorso. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r07_dario"
+      ],
+      "npcIds": [
+        "r07_dario"
+      ],
+      "assetKey": "veloria-route-trainers-r04-r07-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/r07_dario; content/trainers/r07_dario.trainer.json",
+      "origin": {
+        "x": 0.494,
+        "y": 0.901
+      }
+    },
+    {
+      "id": "vetracielo-lea",
+      "description": "Lea, guida e accoglienza di Vetracielo; capelli ricci, uniforme azzurra e avorio e borsa con mappa. La raffigurazione femminile adulta è una proposta artistica, non un fatto canonico.",
+      "dialogueIds": [
+        "vetracielo_lea"
+      ],
+      "npcIds": [
+        "vetracielo_lea"
+      ],
+      "assetKey": "veloria-vetracielo-lea-v1",
+      "narrativeSource": "content/dialogue/world.v1.json#/vetracielo_lea",
+      "origin": {
+        "x": 0.558,
+        "y": 0.876
+      }
+    },
+    {
+      "id": "ferraluce-ivo",
+      "description": "Ivo, coordinatore dei dati di Ferraluce; giacca scura con dettagli rame e folio. Distinto da Oren e dall’omonimo Ivo di Petalora; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "ferraluce_ivo"
+      ],
+      "npcIds": [
+        "ferraluce_ivo"
+      ],
+      "assetKey": "veloria-ferraluce-service-npcs-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_ivo",
+      "origin": {
+        "x": 0.472,
+        "y": 0.943
+      }
+    },
+    {
+      "id": "ferraluce-care",
+      "description": "Addetta del Centro Pokémon di Ferraluce; divisa crema e verde acqua con grembiule. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+      "dialogueIds": [
+        "ferraluce_care"
+      ],
+      "npcIds": [
+        "ferraluce_care"
+      ],
+      "assetKey": "veloria-ferraluce-service-npcs-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_care",
+      "origin": {
+        "x": 0.598,
+        "y": 0.871
+      }
+    },
+    {
+      "id": "ferraluce-shop",
+      "description": "Mercante di Ferraluce; camicia verde petrolio, grembiule color terracotta e borse vuote per le provviste. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+      "dialogueIds": [
+        "ferraluce_shop"
+      ],
+      "npcIds": [
+        "ferraluce_shop"
+      ],
+      "assetKey": "veloria-ferraluce-service-npcs-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_shop",
+      "origin": {
+        "x": 0.509,
+        "y": 0.856
+      }
+    },
+    {
+      "id": "acquariva-tessa",
+      "description": "Tessa, ricercatrice dell’osservatorio di Acquariva: confronta le misure del lago e del Delta con metodo, senza saltare alle conclusioni. Abbigliamento da ricerca sul campo e borsa di campionamento sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "acquariva_tessa"
+      ],
+      "npcIds": [
+        "acquariva_tessa"
+      ],
+      "assetKey": "veloria-coastal-cast-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/acquariva_tessa",
+      "origin": {
+        "x": 0.592,
+        "y": 0.903
+      }
+    },
+    {
+      "id": "portolume-captain-marina",
+      "description": "Capitana Marina, guida il porto di Portolume e consegna la canna da pesca per le osservazioni delle maree. Giacca da capitana blu navy e dettagli dorati sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "portolume_captain"
+      ],
+      "npcIds": [
+        "portolume_captain"
+      ],
+      "assetKey": "veloria-coastal-cast-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/portolume_captain",
+      "origin": {
+        "x": 0.546,
+        "y": 0.911
+      }
+    },
+    {
+      "id": "route-trainer-viola-r08",
+      "description": "Viola, allenatrice facoltativa di R08: propone una sfida sui tipi prima di Portolume e permette di proseguire lungo la costa anche senza combattere. Abbigliamento sportivo e aspetto apparente sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r08_viola"
+      ],
+      "npcIds": [
+        "r08_viola"
+      ],
+      "assetKey": "veloria-coastal-cast-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r08_viola; content/trainers/r08_viola.trainer.json",
+      "origin": {
+        "x": 0.621,
+        "y": 0.88
+      }
+    },
+    {
+      "id": "delta-biologist-iris",
+      "description": "Iris, biologa del Delta: guida le osservazioni di corrente, canneti e vivaio naturale. È distinta dall’allenatrice Iris di R06. Gilet e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "delta_iris"
+      ],
+      "npcIds": [
+        "delta_iris"
+      ],
+      "assetKey": "veloria-coastal-cast-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/delta_iris",
+      "origin": {
+        "x": 0.57,
+        "y": 0.887
+      }
+    },
+    {
+      "id": "route-trainer-lina-r09",
+      "description": "Lina, allenatrice facoltativa di R09: propone una sfida prima del Delta e suggerisce di osservare tipi e livelli. Giacca da guardaparco e capelli raccolti sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r09_lina"
+      ],
+      "npcIds": [
+        "r09_lina"
+      ],
+      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/r09_lina; content/trainers/r09_lina.trainer.json",
+      "origin": {
+        "x": 0.597,
+        "y": 0.979
+      }
+    },
+    {
+      "id": "route-trainer-noemi-r09",
+      "description": "Noemi, allenatrice facoltativa di R09: invita a un allenamento e ricorda di valutare le mosse secondo i tipi Acqua, Veleno ed Elettro. Abbigliamento sportivo dai toni prugna e corallo è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r09_noemi"
+      ],
+      "npcIds": [
+        "r09_noemi"
+      ],
+      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/r09_noemi; content/trainers/r09_noemi.trainer.json",
+      "origin": {
+        "x": 0.514,
+        "y": 0.979
+      }
+    },
+    {
+      "id": "route-trainer-maya-r10",
+      "description": "Maya, allenatrice facoltativa di R10: offre una sfida prima di Acquariva e indica dove trovare il Centro e Tessa. Giacca da esploratrice color avorio e blu-verde è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r10_maya"
+      ],
+      "npcIds": [
+        "r10_maya"
+      ],
+      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r10_maya; content/trainers/r10_maya.trainer.json",
+      "origin": {
+        "x": 0.596,
+        "y": 0.93
+      }
+    },
+    {
+      "id": "route-trainer-bruno-r10",
+      "description": "Bruno, allenatore facoltativo di R10: propone un allenamento e ricorda che una mossa di stato può cambiare il ritmo della lotta. Camicia color ocra e maglia navy sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r10_bruno"
+      ],
+      "npcIds": [
+        "r10_bruno"
+      ],
+      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/r10_bruno; content/trainers/r10_bruno.trainer.json",
+      "origin": {
+        "x": 0.5,
+        "y": 0.931
+      }
+    },
+    {
+      "id": "delta-naturalist-teo",
+      "description": "Teo, naturalista del Delta: studia differenze ambientali e spiega come i doppi tipi cambino le resistenze. Giacca e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "delta_teo"
+      ],
+      "npcIds": [
+        "delta_teo"
+      ],
+      "assetKey": "veloria-delta-route-cast-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/delta_teo; content/trainers/delta_teo.trainer.json",
+      "origin": {
+        "x": 0.587,
+        "y": 0.966
+      }
+    },
+    {
+      "id": "route-trainer-celia-r11",
+      "description": "Celia, allenatrice facoltativa di R11: propone una sfida prima di Selene e permette di proseguire lungo le cascate. Giacca outdoor color teal e ardesia sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r11_celia"
+      ],
+      "npcIds": [
+        "r11_celia"
+      ],
+      "assetKey": "veloria-delta-route-cast-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/r11_celia; content/trainers/r11_celia.trainer.json",
+      "origin": {
+        "x": 0.539,
+        "y": 0.969
+      }
+    },
+    {
+      "id": "route-trainer-ruben-r12",
+      "description": "Ruben, allenatore facoltativo di R12: ricorda di preparare la squadra rispetto ai tipi Ghiaccio, Terra e Buio prima del Centro di Passobrina. Abbigliamento caldo da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r12_ruben"
+      ],
+      "npcIds": [
+        "r12_ruben"
+      ],
+      "assetKey": "veloria-delta-route-cast-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r12_ruben; content/trainers/r12_ruben.trainer.json",
+      "origin": {
+        "x": 0.603,
+        "y": 0.914
+      }
+    },
+    {
+      "id": "route-trainer-alma-r13",
+      "description": "Alma, allenatrice facoltativa di R13: chiarisce i tipi di alcuni Pokémon della neve e indica il recupero a Biancavetta. Abiti da sentiero invernale sono una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r13_alma"
+      ],
+      "npcIds": [
+        "r13_alma"
+      ],
+      "assetKey": "veloria-delta-route-cast-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/r13_alma; content/trainers/r13_alma.trainer.json",
+      "origin": {
+        "x": 0.452,
+        "y": 0.93
+      }
+    },
+    {
+      "id": "biancavetta-guide",
+      "description": "Guida di Biancavetta: parla della regolarità delle oscillazioni e indica Centro, bottega, palestra e funivia. Aspetto e abbigliamento da guida locale sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "biancavetta_guide"
+      ],
+      "npcIds": [
+        "biancavetta_guide"
+      ],
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/biancavetta_guide",
+      "origin": {
+        "x": 0.504,
+        "y": 0.937
+      }
+    },
+    {
+      "id": "passobrina-alpine-guide",
+      "description": "Guida alpina di Passobrina: accompagna la ricerca su vento, temperatura e neve e apre il sentiero per i Tornanti Bianchi. Abbigliamento da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "passobrina_guide"
+      ],
+      "npcIds": [
+        "passobrina_guide"
+      ],
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/passobrina_guide",
+      "origin": {
+        "x": 0.467,
+        "y": 0.944
+      }
+    },
+    {
+      "id": "r14-guide-livia",
+      "description": "Livia, guida di R14: indica rifugio, tre terrazze e ricevitore del Varco del Cristallo, poi lascia aperta la strada verso Biancavetta. Treccia e abiti da esplorazione sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "r14_guide"
+      ],
+      "npcIds": [
+        "r14_guide"
+      ],
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r14_guide",
+      "origin": {
+        "x": 0.561,
+        "y": 0.92
+      }
+    },
+    {
+      "id": "radicelmo-keeper-leda",
+      "description": "Custode Leda, responsabile dell’archivio ecologico e del vivaio di Radicelmo. Coordina la registrazione del seme e la crescita del vivaio. Capelli argento e abiti da giardiniera sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "radicelmo_keeper"
+      ],
+      "npcIds": [
+        "radicelmo_keeper"
+      ],
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/radicelmo_keeper",
+      "origin": {
+        "x": 0.53,
+        "y": 0.924
+      }
+    },
+    {
+      "id": "league-receptionist",
+      "description": "Accoglienza della Lega: fornisce indicazioni su requisiti, servizi, portale e regole del tentativo. Aspetto e uniforme di servizio sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueIds": [
+        "league_reception"
+      ],
+      "npcIds": [
+        "league_reception"
+      ],
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "frame": 0,
+      "narrativeSource": "content/dialogue/world.v1.json#/league_reception",
+      "origin": {
+        "x": 0.54,
+        "y": 0.951
+      }
+    },
+    {
+      "id": "petalora-custodian-ivo",
+      "description": "Custode Ivo di Petalora: cura i canali che irrigano le terrazze dei ciliegi e indirizza il giocatore ai servizi e alla palestra. È distinto da Ivo di Ferraluce. Barba argento e abiti da giardiniere sono proposte artistiche; età non specificata nel canone.",
+      "dialogueIds": [
+        "petalora_ivo"
+      ],
+      "npcIds": [
+        "petalora_ivo"
+      ],
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "frame": 1,
+      "narrativeSource": "content/dialogue/world.v1.json#/petalora_ivo",
+      "origin": {
+        "x": 0.479,
+        "y": 0.959
+      }
+    },
+    {
+      "id": "route-trainer-maia-r16",
+      "description": "Maia, allenatrice facoltativa del Cammino dell’Equilibrio, che prepara alla Lega e discute tipi e strategie. Giacca sportiva e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+      "dialogueIds": [
+        "r16_maia"
+      ],
+      "npcIds": [
+        "r16_maia"
+      ],
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "frame": 2,
+      "narrativeSource": "content/dialogue/world.v1.json#/r16_maia; content/trainers/r16_maia.trainer.json",
+      "origin": {
+        "x": 0.538,
+        "y": 0.915
+      }
+    },
+    {
+      "id": "route-trainer-tobia-r16",
+      "description": "Tobia, allenatore facoltativo del Cammino dell’Equilibrio, che spiega difese fisiche e speciali, precisione e PP. Aspetto e abbigliamento sono proposte artistiche; età non specificata nel canone.",
+      "dialogueIds": [
+        "r16_tobia"
+      ],
+      "npcIds": [
+        "r16_tobia"
+      ],
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "frame": 3,
+      "narrativeSource": "content/dialogue/world.v1.json#/r16_tobia; content/trainers/r16_tobia.trainer.json",
+      "origin": {
+        "x": 0.539,
+        "y": 0.921
+      }
+    },
+    {
+      "id": "centrale-technician",
+      "description": "Tecnica della Centrale, addetta alle misure e all’isolamento della linea sperimentale. Volto, capelli ricci e tuta tecnica ardesia con accenti rame e teal sono proposte artistiche coerenti con il nome dell’oggetto Tiled; non sono fatti canonici.",
+      "dialogueIds": [
+        "centrale_technician"
+      ],
+      "npcIds": [
+        "centrale_technician"
+      ],
+      "assetKey": "veloria-centrale-technician-v1",
+      "narrativeSource": "content/dialogue/world.v1.json#/centrale_technician; public/tilemaps/d03_centrale_risonante.tmj#Tecnica della Centrale",
+      "origin": {
+        "x": 0.495,
+        "y": 0.95
+      }
     }
   ],
   "unboundStudies": [
@@ -404,6 +968,15 @@
       "origin": {
         "x": 0.4346,
         "y": 0.9648
+      }
+    },
+    {
+      "role": "unused-male-lea-study-not-an-npc",
+      "assetKey": "veloria-ferraluce-service-npcs-v1",
+      "frame": 0,
+      "origin": {
+        "x": 0.56,
+        "y": 0.95
       }
     }
   ]

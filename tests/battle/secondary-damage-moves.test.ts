@@ -57,7 +57,7 @@ for (const id of ids) {
       assert.deepEqual(species.officialLearnset.filter(slot => slot.moveId === id).map(slot => slot.level).sort((a, b) => a - b), levels, speciesId);
       assert.deepEqual((learnsetData.species as Record<string, Array<{ level: number; moveId: string }>>)[speciesId].filter(slot => slot.moveId === id).map(slot => slot.level).sort((a, b) => a - b), levels.filter(level => level >= 2), speciesId);
     }
-    assert.equal(count, id === 'body-slam' ? 3 : 7);
+    assert.equal(count, id === 'body-slam' ? 7 : 5);
   });
 }
 

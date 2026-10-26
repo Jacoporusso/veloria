@@ -11,7 +11,7 @@
     "test:battle": "node --experimental-strip-types --test tests/battle/*.test.ts tests/encounters/*.test.ts tests/services/*.test.ts tests/world/*.test.ts",
     "test:persistence": "node --experimental-strip-types --test tests/persistence/*.test.ts",
     "test:e2e": "playwright test",
-    "test:e2e:offline": "playwright test --config=playwright.offline.config.ts tests/e2e/offline.spec.ts",
+    "test:e2e:offline": "playwright test --config=playwright.offline.config.ts tests/e2e/offline.spec.ts tests/e2e/gen1-offline.spec.ts",
     "test": "npm run test:battle && npm run test:persistence"
   },
   "dependencies": {

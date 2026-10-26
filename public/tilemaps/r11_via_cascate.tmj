@@ -4425,7 +4425,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-delta-route-cast-v1"
             },
             {
               "name": "spriteFrame",
@@ -4441,6 +4441,21 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r11_celia_defeated"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-celia-r11"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.539
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.969
             }
           ]
         }

@@ -1,84 +1,120 @@
 {
   "id": "veloria/r09_reeds_patch",
   "mapId": "veloria/r09_dune_salmastre",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 194,
+        "speciesId": 54,
         "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 60,
-        "weight": 30,
+        "speciesId": 55,
+        "weight": 24,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 61,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 79,
-        "weight": 25,
+        "weight": 14,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 44,
-        "weight": 15,
+        "speciesId": 108,
+        "weight": 10,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 127,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }
     ],
     "day": [
       {
-        "speciesId": 194,
-        "weight": 25,
+        "speciesId": 55,
+        "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 60,
-        "weight": 25,
+        "speciesId": 61,
+        "weight": 24,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 54,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 79,
-        "weight": 35,
+        "weight": 14,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 44,
-        "weight": 15,
+        "speciesId": 108,
+        "weight": 10,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 127,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }
     ],
     "night": [
       {
-        "speciesId": 194,
+        "speciesId": 61,
         "weight": 30,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 60,
-        "weight": 40,
+        "speciesId": 54,
+        "weight": 24,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 55,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
         "speciesId": 79,
-        "weight": 20,
+        "weight": 14,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 44,
+        "speciesId": 108,
         "weight": 10,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 127,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }

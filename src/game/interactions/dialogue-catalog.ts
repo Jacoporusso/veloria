@@ -6,6 +6,7 @@ export interface DialogueChoice {
   lines: string[];
   questEvent?: string;
   requiresFlags?: readonly string[];
+  unlessFlag?: string;
 }
 
 interface DialogueStage {
@@ -57,7 +58,8 @@ export function selectDialogueEntry(entry: DialogueEntry, state: DialogueState):
     requiresStarterChoice: Boolean(selected.requiresStarterChoice && (!stage ? !state.starterSelected : true)),
     ...(stage ? { questEvent: stage.questEvent } : {}),
     ...(selected.choices ? {
-      choices: selected.choices.filter(choice => (choice.requiresFlags ?? []).every(flag => state.flags.includes(flag))),
+      choices: selected.choices.filter(choice => (choice.requiresFlags ?? []).every(flag => state.flags.includes(flag)) &&
+        (!choice.unlessFlag || !state.flags.includes(choice.unlessFlag))),
       choicePrompt: selected.choicePrompt,
     } : {}),
   };

@@ -69,6 +69,15 @@
       "kind": "image",
       "key": "veloria-petalora-illustrated-v3",
       "path": "assets/scenery/veloria-petalora-illustrated-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-and-cammino-cast-v1",
+      "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

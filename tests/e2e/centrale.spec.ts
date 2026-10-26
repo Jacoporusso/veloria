@@ -14,7 +14,7 @@ async function seedFerraluce(page: Page, hasSteelBadge: boolean) {
   const creature = createBattleCreature({
     species: speciesData.species as any,
     moves: moveData.moves as any,
-    speciesId: 194,
+    speciesId: 138,
     level: 35,
     instanceId: 'centrale-investigation-wooper',
     moveIds: ['mud-shot', 'water-gun', 'slam'],

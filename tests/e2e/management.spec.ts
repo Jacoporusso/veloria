@@ -17,6 +17,9 @@ async function setup(page: Page) {
     const { importSave } = await import('/src/persistence/save-backup.ts' as string);
     const { saveGame } = await import('/src/persistence/save-store.ts' as string);
     const save = importSave(text);
+    save.party = save.party.filter(member => member.speciesId <= 151);
+    save.storage = save.storage.filter(member => member.speciesId <= 151);
+    save.flags = save.flags.filter(flag => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151);
     // Explicit integration fixture: extra boxed members, no claim of natural catches.
     save.storage = save.party.slice(1).map((member, index) => ({ ...member, instanceId: `box-${index}` }));
     await saveGame(save);

@@ -48,8 +48,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r07-conduit-v1",
-      "path": "assets/sprites/veloria-r07-conduit-v1.webp"
+      "key": "veloria-r07_condotto_risonante-illustrated-v3",
+      "path": "assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -57,6 +57,15 @@
       "path": "assets/sprites/veloria-npcs-v2.webp",
       "atlas": {
         "columns": 3,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainers-r04-r07-v1",
+      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+      "atlas": {
+        "columns": 2,
         "rows": 2
       }
     }

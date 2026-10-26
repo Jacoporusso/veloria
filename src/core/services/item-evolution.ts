@@ -51,14 +51,24 @@ export function applyItemEvolution(save: GameSave, itemId: string, creatureId: s
   if (!current) return { ok: false, reason: 'notInParty', save };
   const rule = rules.find(rule => rule.itemId === itemId && rule.fromSpeciesId === current.speciesId);
   if (!rule) return { ok: false, reason: 'incompatible', save };
-  const target = species[rule.toSpeciesId];
+  const result = evolvePartyMember(save, creatureId, rule.toSpeciesId, species);
+  if (!result.ok) return result;
+  return { ...result, save: { ...result.save, inventory: { ...result.save.inventory, [itemId]: quantity - 1 } } };
+}
+
+/** Shared atomic form change for stones and an actual assisted trade. */
+export function evolvePartyMember(save: GameSave, creatureId: string, targetSpeciesId: number,
+  species: SpeciesBattleRegistry): ItemEvolutionResult {
+  const current = save.party.find(creature => creature.instanceId === creatureId);
+  if (!current) return { ok: false, reason: 'notInParty', save };
+  const target = species[targetSpeciesId];
   if (!target) return { ok: false, reason: 'unavailable', save };
   const stats = calculateStats(target.baseStats, current.level);
   const creature: CreatureSave = { ...current, speciesId: target.speciesId, maxHp: stats.maxHp,
     hp: current.hp === 0 ? 0 : Math.min(stats.maxHp, current.hp + Math.max(0, stats.maxHp - current.maxHp)),
     moves: current.moves.map(move => ({ ...move })), ...(current.status ? { status: { ...current.status } } : {}) };
   const receipt = { creatureId, fromSpeciesId: current.speciesId, toSpeciesId: target.speciesId, level: current.level };
-  const next = { ...save, inventory: { ...save.inventory, [itemId]: quantity - 1 },
+  const next = { ...save,
     party: save.party.map(member => member.instanceId === creatureId ? creature : member) };
   return { ok: true, creature, receipt, save: queueEvolutionReceipts(next, [receipt]) };
 }

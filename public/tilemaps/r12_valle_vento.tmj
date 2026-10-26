@@ -2709,6 +2709,29 @@
           "visible": true,
           "type": "",
           "properties": []
+        },
+        {
+          "id": 1027,
+          "name": "veloria/special_snorlax footprint",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 896,
+          "y": 544,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "blocksWhenFlag",
+              "type": "string",
+              "value": "q_acquariva_report"
+            },
+            {
+              "name": "blocksUntilFlag",
+              "type": "string",
+              "value": "q_special_snorlax_caught"
+            }
+          ]
         }
       ],
       "draworder": "topdown",
@@ -2751,12 +2774,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-delta-route-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 0
+              "value": 2
             },
             {
               "name": "trainerId",
@@ -2767,6 +2790,21 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r12_ruben_defeated"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-ruben-r12"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.603
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.914
             }
           ]
         }
@@ -2834,6 +2872,49 @@
               "name": "dialogueId",
               "type": "string",
               "value": "r12_valley_thermometer"
+            }
+          ]
+        },
+        {
+          "id": 1026,
+          "name": "Snorlax",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 896,
+          "y": 544,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "id",
+              "type": "string",
+              "value": "veloria/special_snorlax"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "wild-pokemon"
+            },
+            {
+              "name": "specialEncounterId",
+              "type": "string",
+              "value": "veloria/special_snorlax"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "pokeapi-gen1-143-v1"
+            },
+            {
+              "name": "visibleWhenFlag",
+              "type": "string",
+              "value": "q_acquariva_report"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_special_snorlax_caught"
             }
           ]
         }
@@ -3005,7 +3086,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 1026,
+  "nextobjectid": 1028,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

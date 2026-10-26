@@ -50,6 +50,12 @@
     "items": {
       "potion": 2,
       "antidote": 1
-    }
+    },
+    "pokemon": [
+      {
+        "speciesId": 1,
+        "level": 15
+      }
+    ]
   }
 }

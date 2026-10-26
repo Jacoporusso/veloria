@@ -25,7 +25,7 @@ test('same save RNG state and local hour select exactly the same weighted encoun
   const second = selectWildEncounter(options);
   assert.deepEqual(first, second);
   assert.equal(first.band, 'night');
-  assert.ok([163, 167, 19].includes(first.speciesId));
+  assert.ok([10, 16, 19, 13, 21, 29, 32].includes(first.speciesId));
   assert.ok(first.level >= 2 && first.level <= 5);
   assert.notEqual(first.nextRngState, options.rngState);
   assert.equal(options.rngState, 0x1234abcd, 'selection must not mutate the persisted seed');
@@ -55,7 +55,7 @@ test('rejects unresolved species and malformed intervals in any time band', () =
   assert.throws(() => validateTable(missingSpecies, species), /species 999.*species registry/);
   const invalidRange: EncounterTable = {
     ...table,
-    timeBands: { ...table.timeBands, night: [{ speciesId: 163, weight: 1, minLevel: 6, maxLevel: 3 }] },
+    timeBands: { ...table.timeBands, night: [{ speciesId: 21, weight: 1, minLevel: 6, maxLevel: 3 }] },
   };
   assert.throws(() => selectWildEncounter({ table: invalidRange, species, localHour: 21, rngState: 1 }), /invalid level interval/);
 });

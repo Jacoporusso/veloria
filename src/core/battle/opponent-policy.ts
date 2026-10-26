@@ -61,7 +61,7 @@ export function chooseOpponentCommand(state: BattleState, catalog: MoveCatalog, 
   if (user.hp <= 0) return replacement >= 0 ? { kind: 'switch', partyIndex: replacement } : { kind: 'useMove', moveSlot: 0 };
   const options = user.moves.flatMap((slot, index) => {
     const move = catalog[slot.moveId];
-    if (slot.pp <= 0 || !move) return [];
+    if (slot.pp <= 0 || !move || (move.batonPass && replacement < 0)) return [];
     const setupAllowed = policy.maxStatusUsesPerMove === undefined || move.maxPp - slot.pp < policy.maxStatusUsesPerMove;
     const setup = setupAllowed ? setupUtility(user, target, move, catalog, policy) : 0;
     const statusImmune = (move.inflictedStatus && target.types.some(type => rules.statusImmunities[type]?.includes(move.inflictedStatus!))) ||
@@ -79,5 +79,7 @@ export function chooseOpponentCommand(state: BattleState, catalog: MoveCatalog, 
   if (!chosen && attacks.length) chosen = policy.damageSelection === 'cycle'
     ? [...attacks].sort((a, b) => a.index - b.index)[state.turn % attacks.length] : attacks[0];
   chosen ??= setup[0] ?? options.find(option => option.move.category !== 'status') ?? options[0];
-  return { kind: 'useMove', moveSlot: chosen.index };
+  return chosen.move.batonPass
+    ? { kind: 'useMove', moveSlot: chosen.index, batonPassPartyIndex: replacement }
+    : { kind: 'useMove', moveSlot: chosen.index };
 }

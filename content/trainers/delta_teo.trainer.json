@@ -7,16 +7,16 @@
   "defeatQuestEvent": "battle/trainer_delta_teo/defeated",
   "rewardMoney": 520,
   "victoryMessage": "Hai vinto contro Teo. Ricevi 520 ₿.",
-  "victoryFeedback": "Conoscere un tipo non racconta tutta la strategia: Chinchou è Acqua/Elettro, Slowpoke Acqua/Psico. Guarda i dettagli del Pokédex e conserva le mosse che aiutano la tua squadra.",
+  "victoryFeedback": "Conoscere un tipo non racconta tutta la strategia: Tentacool è Acqua/Veleno, Slowpoke Acqua/Psico. Guarda i dettagli del Pokédex e conserva le mosse che aiutano la tua squadra.",
   "team": [
     {
-      "speciesId": 170,
+      "speciesId": 72,
       "level": 30,
       "moveIds": [
         "bubble-beam",
-        "spark",
-        "confuse-ray",
-        "thunder-wave"
+        "water-pulse",
+        "barrier",
+        "wrap"
       ]
     },
     {

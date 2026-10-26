@@ -156,7 +156,7 @@ test('a pending evolution on reload completes before the championship presentati
 
 for (const [parentId, targetId, parentName, targetName, stoneId, stoneName, width, height] of [
   [44, 45, 'Gloom', 'Vileplume', 'leaf-stone', 'Pietrafoglia', 390, 844],
-  [44, 182, 'Gloom', 'Bellossom', 'sun-stone', 'Pietrasolare', 844, 390],
+  [30, 31, 'Nidorina', 'Nidoqueen', 'moon-stone', 'Pietralunare', 844, 390],
   [70, 71, 'Weepinbell', 'Victreebel', 'leaf-stone', 'Pietrafoglia', 390, 844],
 ] as const) {
   test(`botanical stone purchase and ${targetName} evolution persist through the real bag and reload`, async ({ page }, info) => {
@@ -168,7 +168,7 @@ for (const [parentId, targetId, parentName, targetName, stoneId, stoneName, widt
     const maxHp = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: parentId, level: 21,
       instanceId: `botanical-${targetId}` }).stats.maxHp;
     fixture.party = [{ instanceId: `botanical-${targetId}`, speciesId: parentId, level: 21, experience: 117, hp: maxHp - 5, maxHp,
-      moves: [{ id: parentId === 44 ? 'acid' : 'vine-whip', pp: 3 }, { id: 'sleep-powder', pp: 4 }] }];
+      moves: [{ id: parentId === 44 ? 'acid' : parentId === 30 ? 'poison-sting' : 'vine-whip', pp: 3 }, { id: parentId === 30 ? 'double-kick' : 'sleep-powder', pp: 4 }] }];
     await seedBrowserSave(page, fixture); await page.reload(); await enterGame(page);
     await walkTo(page, 'radicelmo.tmj', 26, 14); await walkTo(page, 'radicelmo.tmj', 28, 12); await interactNorth(page);
     await buyFromShop(page, stoneName);

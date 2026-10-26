@@ -344,6 +344,35 @@
   font-weight:700
 }
 
+.journey-reward:has(.journey-companion-reward) {
+  top:80px;
+  max-height:calc(100dvh - 190px);
+  overflow:auto;
+}
+
+.journey-companion-reward {
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid #c9fff12b;
+}
+
+.journey-companion-reward .creature-portrait {
+  width:64px;
+  height:64px;
+  image-rendering:auto;
+}
+
+.journey-companion-copy {
+  display:grid;
+  gap:5px;
+  font-size:12px;
+  line-height:1.4;
+}
+
 .journey-reward-items {
   display:block;
   color:#c4f4e5;

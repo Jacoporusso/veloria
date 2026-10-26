@@ -2672,12 +2672,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-guides-and-keepers-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 0
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "passobrina-alpine-guide"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.467
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.944
             }
           ]
         }

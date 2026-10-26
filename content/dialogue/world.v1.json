@@ -6,7 +6,7 @@
         "whenFlagMissing": "q_starter_selected",
         "lines": [
           "Ti do il benvenuto, {trainer}. Sono Elia, la professoressa che si prende cura di questo laboratorio.",
-          "È il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
+          "Ãˆ il momento di scegliere il tuo primo compagno: quale vuoi portare con te?"
         ],
         "requiresStarterChoice": true
       },
@@ -14,16 +14,61 @@
         "whenFlagMissing": "q_research_sample_received",
         "questEvent": "interaction/prof_elia/readings",
         "lines": [
-          "Il tuo {starter} è in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
-          "Se la squadra è stanca, torna a casa: usa il letto e scegli RIPOSA. Recupererai gratuitamente HP, PP e stati alterati. La casa è a nord-ovest della piazza.",
-          "Ti affido le rilevazioni per Ada. Esci dalla porta in basso del laboratorio. Nel paese, gira intorno all’edificio e raggiungi il passaggio segnato «Sentiero dell’Alba» a nord."
+          "Il tuo {starter} Ã¨ in ottima forma. Ti aspetta un viaggio pieno di scoperte.",
+          "Se la squadra Ã¨ stanca, torna a casa: usa il letto e scegli RIPOSA. Recupererai gratuitamente HP, PP e stati alterati. La casa Ã¨ a nord-ovest della piazza.",
+          "Ti affido le rilevazioni per Ada. Esci dalla porta in basso del laboratorio. Nel paese, gira intorno allâ€™edificio e raggiungi il passaggio segnato Â«Sentiero dellâ€™AlbaÂ» a nord."
+        ]
+      },
+      {
+        "whenFlagPresent": "q_league_completed",
+        "lines": [
+          "Campione, bentornato al laboratorio! Il museo ci ha affidato tre fossili: ora possiamo restituire loro la vita. Puoi accogliere tutti e tre i Pokémon, uno alla volta."
+        ],
+        "choicePrompt": "Quale fossile vuoi restaurare?",
+        "choices": [
+          {
+            "id": "restore_omanyte",
+            "label": "Ridona vita a Omanyte",
+            "lines": [
+              "La ricostruzione è riuscita: Omanyte si risveglia! Ha bisogno di un compagno di viaggio attento. Te lo affido al livello 20; se hai la squadra piena, ti aspetterà al deposito."
+            ],
+            "questEvent": "lab/fossil/omanyte/restore",
+            "requiresFlags": [
+              "q_league_completed"
+            ],
+            "unlessFlag": "q_fossil_omanyte_received"
+          },
+          {
+            "id": "restore_kabuto",
+            "label": "Ridona vita a Kabuto",
+            "lines": [
+              "La ricostruzione è riuscita: Kabuto si risveglia! Ha bisogno di un compagno di viaggio attento. Te lo affido al livello 20; se hai la squadra piena, ti aspetterà al deposito."
+            ],
+            "questEvent": "lab/fossil/kabuto/restore",
+            "requiresFlags": [
+              "q_league_completed"
+            ],
+            "unlessFlag": "q_fossil_kabuto_received"
+          },
+          {
+            "id": "restore_aerodactyl",
+            "label": "Ridona vita a Aerodactyl",
+            "lines": [
+              "La ricostruzione è riuscita: Aerodactyl si risveglia! Ha bisogno di un compagno di viaggio attento. Te lo affido al livello 20; se hai la squadra piena, ti aspetterà al deposito."
+            ],
+            "questEvent": "lab/fossil/aerodactyl/restore",
+            "requiresFlags": [
+              "q_league_completed"
+            ],
+            "unlessFlag": "q_fossil_aerodactyl_received"
+          }
         ]
       },
       {
         "lines": [
           "Le rilevazioni sono pronte. Ada ti aspetta nel Bosco dei Veli.",
-          "Il Sentiero dell’Alba si trova a nord della piazza.",
-          "Prima di ripartire puoi riposare nel letto di casa, a nord-ovest della piazza: è gratuito e cura tutta la squadra."
+          "Il Sentiero dellâ€™Alba si trova a nord della piazza.",
+          "Prima di ripartire puoi riposare nel letto di casa, a nord-ovest della piazza: Ã¨ gratuito e cura tutta la squadra."
         ]
       }
     ]
@@ -32,14 +77,14 @@
     "speaker": "Nilo",
     "lines": [
       "Ehi, anche tu senti il profumo del pane?",
-      "Dicono che dal Sentiero dell’Alba si arrivi al Bosco dei Veli. Non vedo l’ora di partire."
+      "Dicono che dal Sentiero dellâ€™Alba si arrivi al Bosco dei Veli. Non vedo lâ€™ora di partire."
     ]
   },
   "route_trainer": {
     "speaker": "Viaggiatore",
     "lines": [
       "Il sentiero prosegue verso il Bosco dei Veli.",
-      "Fai attenzione all’erba alta: qualcosa si muove tra gli steli."
+      "Fai attenzione allâ€™erba alta: qualcosa si muove tra gli steli."
     ]
   },
   "sera_route01": {
@@ -54,7 +99,7 @@
       },
       {
         "lines": [
-          "Se la squadra è stanca, puoi tornare al letto di casa a Borgofonte e scegliere RIPOSA: è gratuito e recupera anche i PP e gli stati alterati.",
+          "Se la squadra Ã¨ stanca, puoi tornare al letto di casa a Borgofonte e scegliere RIPOSA: Ã¨ gratuito e recupera anche i PP e gli stati alterati.",
           "Puoi sempre tornare qui per continuare il viaggio verso il bosco."
         ]
       }
@@ -72,7 +117,7 @@
       },
       {
         "lines": [
-          "La prossima volta mi farò trovare più preparato!"
+          "La prossima volta mi farÃ² trovare piÃ¹ preparato!"
         ]
       }
     ]
@@ -83,8 +128,8 @@
       {
         "whenFlagMissing": "q_forest_signal_found",
         "lines": [
-          "Sto studiando un’anomalia tra gli alberi. Puoi controllare il vecchio misuratore luminoso?",
-          "Segui il sentiero alla mia destra: il misuratore verde è nella radura. Avvicinati e premi A per leggere i dati, poi torna da me."
+          "Sto studiando unâ€™anomalia tra gli alberi. Puoi controllare il vecchio misuratore luminoso?",
+          "Segui il sentiero alla mia destra: il misuratore verde Ã¨ nella radura. Avvicinati e premi A per leggere i dati, poi torna da me."
         ]
       },
       {
@@ -92,13 +137,13 @@
         "questEvent": "interaction/ada/report",
         "lines": [
           "Il misuratore ha registrato le tue rilevazioni: vanno bene anche se lo hai controllato prima di parlarmi. Registriamole nel mio taccuino.",
-          "Grazie! Ecco due Pozioni e 100 monete. Ora segui il sentiero a destra fino all’uscita per il Viale delle Fronde: da lì arriverai a Brumalta."
+          "Grazie! Ecco due Pozioni e 100 monete. Ora segui il sentiero a destra fino allâ€™uscita per il Viale delle Fronde: da lÃ¬ arriverai a Brumalta."
         ]
       },
       {
         "lines": [
           "Grazie per aver recuperato le letture. Ora posso capire cosa sta succedendo nel bosco.",
-          "Per Brumalta, segui il sentiero a destra fino al Viale delle Fronde. Il misuratore ha già registrato le tue letture."
+          "Per Brumalta, segui il sentiero a destra fino al Viale delle Fronde. Il misuratore ha giÃ  registrato le tue letture."
         ]
       }
     ]
@@ -110,7 +155,7 @@
         "whenFlagMissing": "trainer_gym01_mira_defeated",
         "lines": [
           "Benvenuta alla Palestra di Brumalta. La Medaglia Aurora premia chi sa scegliere la mossa giusta al momento giusto.",
-          "Non conta solo la potenza: Colpocoda abbassa la Difesa, Ruggito riduce l’Attacco. Scegli la mossa di supporto adatta e porta qualche Pozione per la prova."
+          "Non conta solo la potenza: Colpocoda abbassa la Difesa, Ruggito riduce lâ€™Attacco. Scegli la mossa di supporto adatta e porta qualche Pozione per la prova."
         ]
       },
       {
@@ -124,8 +169,8 @@
   "r03_path_guide": {
     "speaker": "Rami",
     "lines": [
-      "Segui i lastroni chiari che salgono tra felci e gradoni di pietra: il seme custodito è sulle terrazze, poco più avanti.",
-      "Dopo averlo raccolto, prosegui fino al sentiero a est per Radicelmo. La custode Leda può registrarlo nell'archivio della serra."
+      "Segui i lastroni chiari che salgono tra felci e gradoni di pietra: il seme custodito Ã¨ sulle terrazze, poco piÃ¹ avanti.",
+      "Dopo averlo raccolto, prosegui fino al sentiero a est per Radicelmo. La custode Leda puÃ² registrarlo nell'archivio della serra."
     ]
   },
   "radicelmo_keeper": {
@@ -134,7 +179,7 @@
       {
         "whenFlagMissing": "q_radicelmo_seed_found",
         "lines": [
-          "Custodisco l'archivio ecologico della serra. Un seme ancestrale è caduto sulle Terrazze del Muschio.",
+          "Custodisco l'archivio ecologico della serra. Un seme ancestrale Ã¨ caduto sulle Terrazze del Muschio.",
           "Raccoglilo sulle terrazze e portamelo: registreremo la sua provenienza e lo affideremo alla serra."
         ]
       },
@@ -149,24 +194,25 @@
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_started",
         "lines": [
-          "Il seme è registrato. Ora aiutami a risvegliarlo nel vivaio, qui a sud della serra.",
-          "Prima attiva il regolatore dell’acqua a sinistra, poi il misuratore di luce a destra. Infine osserva il seme nel vaso centrale e torna da me."
+          "Il seme Ã¨ registrato. Ora aiutami a risvegliarlo nel vivaio, qui a sud della serra.",
+          "Prima attiva il regolatore dellâ€™acqua a sinistra, poi il misuratore di luce a destra. Infine osserva il seme nel vaso centrale e torna da me."
         ],
         "questEvent": "interaction/radicelmo/greenhouse/begin"
       },
       {
         "whenFlagMissing": "q_radicelmo_seed_sprouted",
         "lines": [
-          "Il vivaio è nel giardino a sud della serra: acqua a sinistra, luce a destra, seme al centro.",
-          "L’acqua prepara il terreno; solo dopo regola la luce. Il diario ti indica il prossimo passo."
+          "Il vivaio Ã¨ nel giardino a sud della serra: acqua a sinistra, luce a destra, seme al centro.",
+          "Lâ€™acqua prepara il terreno; solo dopo regola la luce. Il diario ti indica il prossimo passo."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_complete",
         "lines": [
           "La prima foglia! Le Vene Luminose reagiscono alla crescita, non soltanto alle nostre macchine.",
-          "Grazie per la ricerca: ricevi 180 monete, due Pozioni e un Antidoto. Ora puoi proseguire: l’uscita a nord di Radicelmo porta alla Salita dei Petali, poi a Petalora.",
-          "Ho lasciato una Pietrafocaia nel vivaio: è la piccola pietra a sud-est di me, sopra il vaso centrale. Raccoglila dopo aver registrato il risultato. Potrai usarla dallo zaino su un Pokémon compatibile, senza consumarla se annulli."
+          "Grazie per la ricerca: ricevi 180 monete, due Pozioni e un Antidoto. Ora puoi proseguire: lâ€™uscita a nord di Radicelmo porta alla Salita dei Petali, poi a Petalora.",
+          "Ho lasciato una Pietrafocaia nel vivaio: Ã¨ la piccola pietra a sud-est di me, sopra il vaso centrale. Raccoglila dopo aver registrato il risultato. Potrai usarla dallo zaino su un PokÃ©mon compatibile, senza consumarla se annulli.",
+          "Bulbasaur ci ha aiutato a curare il vivaio e vorrebbe esplorare il mondo con te. Ti affido questo nuovo compagno di livello 15: se la squadra è piena, lo troverai al deposito."
         ],
         "questEvent": "interaction/radicelmo/greenhouse/report"
       },
@@ -174,38 +220,38 @@
         "whenFlagMissing": "q_radicelmo_fire_stone_found",
         "lines": [
           "La Pietrafocaia ti aspetta nel vivaio, a sud-est di me e sopra il vaso centrale. Avvicinati alla piccola pietra e raccoglila con il tasto azione.",
-          "Dopo la Medaglia Corolla di Selene, la Bottega delle Pietre a est di me venderà anche Pietraidrica e Pietratuono. Prima di evolvere un compagno, controlla le mosse della nuova forma."
+          "Dopo la Medaglia Corolla di Selene, la Bottega delle Pietre a est di me venderÃ  anche Pietraidrica e Pietratuono. Prima di evolvere un compagno, controlla le mosse della nuova forma."
         ]
       },
       {
         "lines": [
           "Il germoglio resta nel vivaio: da un seme abbiamo ricostruito un piccolo frammento della memoria di Veloria.",
-          "L’uscita a nord di Radicelmo porta alla Salita dei Petali: segui i ponti fino a Petalora.",
-          "La Bottega delle Pietre è a est di me, davanti alla serra. Aprirà dopo la Medaglia Corolla: là troverai Pietrafocaia, Pietraidrica e Pietratuono."
+          "Lâ€™uscita a nord di Radicelmo porta alla Salita dei Petali: segui i ponti fino a Petalora.",
+          "La Bottega delle Pietre Ã¨ a est di me, davanti alla serra. AprirÃ  dopo la Medaglia Corolla: lÃ  troverai Pietrafocaia, Pietraidrica e Pietratuono."
         ]
       }
     ]
   },
   "radicelmo_water": {
-    "speaker": "Regolatore dell’acqua",
+    "speaker": "Regolatore dellâ€™acqua",
     "stages": [
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_started",
         "lines": [
-          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+          "Parla prima con Leda, davanti alla serra. Ti spiegherÃ  come risvegliare il seme."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_watered",
         "lines": [
-          "Apri la valvola: un filo d’acqua raggiunge il vaso centrale.",
+          "Apri la valvola: un filo dâ€™acqua raggiunge il vaso centrale.",
           "Terreno umido, senza ristagni. Ora usa il misuratore di luce a destra del vivaio."
         ],
         "questEvent": "interaction/radicelmo/greenhouse/water"
       },
       {
         "lines": [
-          "L’irrigazione è già regolata. Aggiungere altra acqua sommergerebbe il seme."
+          "Lâ€™irrigazione Ã¨ giÃ  regolata. Aggiungere altra acqua sommergerebbe il seme."
         ]
       }
     ]
@@ -216,13 +262,13 @@
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_started",
         "lines": [
-          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+          "Parla prima con Leda, davanti alla serra. Ti spiegherÃ  come risvegliare il seme."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_watered",
         "lines": [
-          "Il terreno è ancora asciutto. Attiva prima il regolatore dell’acqua a sinistra del vivaio."
+          "Il terreno Ã¨ ancora asciutto. Attiva prima il regolatore dellâ€™acqua a sinistra del vivaio."
         ]
       },
       {
@@ -235,7 +281,7 @@
       },
       {
         "lines": [
-          "La luce è stabile. Il riflettore resta rivolto verso il seme."
+          "La luce Ã¨ stabile. Il riflettore resta rivolto verso il seme."
         ]
       }
     ]
@@ -246,19 +292,19 @@
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_started",
         "lines": [
-          "Parla prima con Leda, davanti alla serra. Ti spiegherà come risvegliare il seme."
+          "Parla prima con Leda, davanti alla serra. Ti spiegherÃ  come risvegliare il seme."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_watered",
         "lines": [
-          "Il seme riposa nel vaso. Il terreno è secco: attiva il regolatore dell’acqua a sinistra."
+          "Il seme riposa nel vaso. Il terreno Ã¨ secco: attiva il regolatore dellâ€™acqua a sinistra."
         ]
       },
       {
         "whenFlagMissing": "q_radicelmo_greenhouse_lit",
         "lines": [
-          "Il terreno è umido, ma il seme resta in ombra. Regola il misuratore di luce a destra."
+          "Il terreno Ã¨ umido, ma il seme resta in ombra. Regola il misuratore di luce a destra."
         ]
       },
       {
@@ -271,7 +317,7 @@
       },
       {
         "lines": [
-          "La prima foglia è aperta. Il seme è diventato parte dell’archivio vivente di Radicelmo."
+          "La prima foglia Ã¨ aperta. Il seme Ã¨ diventato parte dellâ€™archivio vivente di Radicelmo."
         ]
       }
     ]
@@ -282,14 +328,14 @@
       {
         "whenFlagMissing": "trainer_r04_nila_defeated",
         "lines": [
-          "Il mio Pidgey segue le correnti fra i ciliegi; Mareep illumina i ponti quando arriva la sera.",
-          "Ti va una sfida? Controlla i tipi: il mio secondo compagno può sorprendere chi si affida soltanto al Volo."
+          "Il mio Pidgey segue le correnti fra i ciliegi; Voltorb scatta come una scintilla.",
+          "Ti va una sfida? Controlla i tipi: il mio secondo compagno puÃ² sorprendere chi si affida soltanto al Volo."
         ]
       },
       {
         "lines": [
-          "Ben giocato! Prosegui lungo il sentiero chiaro: Petalora è a nord, oltre il secondo ponte.",
-          "Lassù puoi curare la squadra gratuitamente. Le foglie ai lati della salita ospitano altri Pokémon."
+          "Ben giocato! Prosegui lungo il sentiero chiaro: Petalora Ã¨ a nord, oltre il secondo ponte.",
+          "LassÃ¹ puoi curare la squadra gratuitamente. Le foglie ai lati della salita ospitano altri PokÃ©mon."
         ]
       }
     ]
@@ -297,8 +343,8 @@
   "petalora_ivo": {
     "speaker": "Custode Ivo",
     "lines": [
-      "Benvenuto a Petalora! Qui i ciliegi crescono grazie ai canali che portano l’acqua fra le terrazze.",
-      "Alla tua sinistra trovi le cure gratuite, alla tua destra la bottega. Il viale verso nord conduce alla palestra di Dalia: fai arrivare l’acqua alle terrazze per affrontarla.",
+      "Benvenuto a Petalora! Qui i ciliegi crescono grazie ai canali che portano lâ€™acqua fra le terrazze.",
+      "Alla tua sinistra trovi le cure gratuite, alla tua destra la bottega. Il viale verso nord conduce alla palestra di Dalia: fai arrivare lâ€™acqua alle terrazze per affrontarla.",
       "Dopo la Medaglia Corolla puoi uscire a est della piazza: il Viadotto dei Ciliegi conduce alla prima piazza di Vetracielo."
     ]
   },
@@ -315,13 +361,13 @@
         "whenFlagMissing": "gym02_water_source_open",
         "questEvent": "gym02/irrigation/source",
         "lines": [
-          "Apri la sorgente: il primo canale si riempie d’acqua.",
-          "Raggiungi il regolatore ovest, più in alto a sinistra, e devia il flusso."
+          "Apri la sorgente: il primo canale si riempie dâ€™acqua.",
+          "Raggiungi il regolatore ovest, piÃ¹ in alto a sinistra, e devia il flusso."
         ]
       },
       {
         "lines": [
-          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+          "Il passaggio Ã¨ giÃ  regolato. Lâ€™acqua continua a scorrere verso le terrazze."
         ]
       }
     ]
@@ -332,20 +378,20 @@
       {
         "whenFlagMissing": "gym02_water_source_open",
         "lines": [
-          "Il canale è asciutto. Apri prima la sorgente in basso a sinistra."
+          "Il canale Ã¨ asciutto. Apri prima la sorgente in basso a sinistra."
         ]
       },
       {
         "whenFlagMissing": "gym02_water_west_open",
         "questEvent": "gym02/irrigation/west",
         "lines": [
-          "L’acqua sale al primo gradone e gira verso il centro del giardino.",
+          "Lâ€™acqua sale al primo gradone e gira verso il centro del giardino.",
           "Ora raggiungi il regolatore est, sulla terrazza a destra."
         ]
       },
       {
         "lines": [
-          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+          "Il passaggio Ã¨ giÃ  regolato. Lâ€™acqua continua a scorrere verso le terrazze."
         ]
       }
     ]
@@ -363,13 +409,13 @@
         "whenFlagMissing": "gym02_water_east_open",
         "questEvent": "gym02/irrigation/east",
         "lines": [
-          "Il canale si riempie e l’acqua raggiunge la terrazza superiore.",
+          "Il canale si riempie e lâ€™acqua raggiunge la terrazza superiore.",
           "Osserva la Terrazza dei Ciliegi al centro, davanti a Dalia."
         ]
       },
       {
         "lines": [
-          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+          "Il passaggio Ã¨ giÃ  regolato. Lâ€™acqua continua a scorrere verso le terrazze."
         ]
       }
     ]
@@ -380,20 +426,20 @@
       {
         "whenFlagMissing": "gym02_water_east_open",
         "lines": [
-          "Le radici aspettano l’acqua. Apri la sorgente, poi regola ovest ed est."
+          "Le radici aspettano lâ€™acqua. Apri la sorgente, poi regola ovest ed est."
         ]
       },
       {
         "whenFlagMissing": "gym02_irrigation_solved",
         "questEvent": "gym02/irrigation/bloom",
         "lines": [
-          "I fiori si aprono mentre l’acqua raggiunge le radici. Il giardino è tornato a respirare!",
-          "Dalia ti aspetta poco più a nord. Cura la squadra prima della sfida."
+          "I fiori si aprono mentre lâ€™acqua raggiunge le radici. Il giardino Ã¨ tornato a respirare!",
+          "Dalia ti aspetta poco piÃ¹ a nord. Cura la squadra prima della sfida."
         ]
       },
       {
         "lines": [
-          "Il passaggio è già regolato. L’acqua continua a scorrere verso le terrazze."
+          "Il passaggio Ã¨ giÃ  regolato. Lâ€™acqua continua a scorrere verso le terrazze."
         ]
       }
     ]
@@ -404,21 +450,21 @@
       {
         "whenFlagMissing": "gym02_irrigation_solved",
         "lines": [
-          "Benvenuto nel mio giardino. La forza dell’Erba comincia dall’acqua e dalla pazienza.",
-          "Apri la sorgente in basso a sinistra; poi devia l’acqua a ovest e a est e controlla la terrazza centrale. Quando i fiori si apriranno, potremo sfidarci."
+          "Benvenuto nel mio giardino. La forza dellâ€™Erba comincia dallâ€™acqua e dalla pazienza.",
+          "Apri la sorgente in basso a sinistra; poi devia lâ€™acqua a ovest e a est e controlla la terrazza centrale. Quando i fiori si apriranno, potremo sfidarci."
         ]
       },
       {
         "whenFlagMissing": "trainer_gym02_dalia_defeated",
         "lines": [
-          "Hai riportato l’acqua fra i ciliegi. Ora vediamo come ti prendi cura della tua squadra.",
-          "I miei Pokémon Erba usano anche Veleno e sonno: porta una copertura di tipi e controlla gli stati, non soltanto gli HP."
+          "Hai riportato lâ€™acqua fra i ciliegi. Ora vediamo come ti prendi cura della tua squadra.",
+          "I miei PokÃ©mon Erba usano anche Veleno e sonno: porta una copertura di tipi e controlla gli stati, non soltanto gli HP."
         ]
       },
       {
         "lines": [
           "La Medaglia Corolla ricorda che ogni compagno cresce in modo diverso. Hai saputo scegliere e prendertene cura.",
-          "La Medaglia Corolla apre l’uscita est di Petalora. Segui il Viadotto dei Ciliegi fino a Vetracielo: nella Piazza della Monorotaia trovi cure e rifornimenti."
+          "La Medaglia Corolla apre lâ€™uscita est di Petalora. Segui il Viadotto dei Ciliegi fino a Vetracielo: nella Piazza della Monorotaia trovi cure e rifornimenti."
         ]
       }
     ]
@@ -429,14 +475,14 @@
       {
         "whenFlagMissing": "trainer_r05_oren_defeated",
         "lines": [
-          "Da qui vedo i treni di Vetracielo attraversare i ciliegi. Pikachu è veloce, Wooper legge il terreno.",
+          "Da qui vedo i treni di Vetracielo attraversare i ciliegi. Pikachu è veloce, Sandshrew conosce il terreno.",
           "Vuoi provare la tua squadra? Controlla i tipi dei miei due compagni e gli effetti delle tue mosse."
         ]
       },
       {
         "lines": [
           "Continua a nord e poi verso est, sul ponte: Vetracielo ti aspetta. Nella piazza trovi cure gratuite.",
-          "Nelle foglie del viadotto puoi incontrare anche Wooper. Il tipo Terra è immune alle mosse Elettro."
+          "Nelle foglie vicino ai binari del viadotto puoi incontrare Sandshrew. Il tipo Terra è immune alle mosse Elettro."
         ]
       }
     ]
@@ -454,16 +500,16 @@
         "whenFlagMissing": "q_vetracielo_orientation",
         "questEvent": "vetracielo/lea/orientation",
         "lines": [
-          "Benvenuto a Vetracielo! Qui i giardini continuano sui tetti e la monorotaia collega i quartieri. Questa è la nostra prima piazza aperta.",
+          "Benvenuto a Vetracielo! Qui i giardini continuano sui tetti e la monorotaia collega i quartieri. Questa Ã¨ la nostra prima piazza aperta.",
           "A sinistra trovi il punto cure e il deposito, a destra i rifornimenti. Ti lascio due Pozioni per il viaggio.",
-          "La prossima prova riguarda Elettro e Velocità. Studia anche le immunità: Wooper, di tipo Terra, non viene colpito dalle mosse Elettro. Entra nella stazione per la Palestra di Aster: collega le tre linee Giardini, Vetro e Cielo. Gli altri quartieri restano da esplorare in futuro."
+          "La prossima prova riguarda Elettro e Velocità. Studia anche le immunità: Sandshrew, di tipo Terra, non viene colpito dalle mosse Elettro. Entra nella stazione per la Palestra di Aster: collega le tre linee Giardini, Vetro e Cielo."
         ]
       },
       {
         "whenFlagPresent": "badge_circuito_awarded",
         "lines": [
-          "Il terminale della monorotaia è poco più a sud-est di me: cerca il simbolo del treno. Con Circuito puoi tornare gratis nelle città già visitate.",
-          "Per continuare la ricerca esci a est: l’Anello Magnetico porta a Ferraluce. Le strade a piedi restano aperte."
+          "Il terminale della monorotaia Ã¨ poco piÃ¹ a sud-est di me: cerca il simbolo del treno. Con Circuito puoi tornare gratis nelle cittÃ  giÃ  visitate.",
+          "Per continuare la ricerca esci a est: lâ€™Anello Magnetico porta a Ferraluce. Le strade a piedi restano aperte."
         ]
       },
       {
@@ -488,12 +534,12 @@
         "questEvent": "gym03/line/gardens",
         "lines": [
           "La linea Giardini riceve energia. Prima si collegano i quartieri verdi.",
-          "Raggiungi la console 2 Vetro sul lato destro, più in alto."
+          "Raggiungi la console 2 Vetro sul lato destro, piÃ¹ in alto."
         ]
       },
       {
         "lines": [
-          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+          "La linea Ã¨ giÃ  attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
         ]
       }
     ]
@@ -511,13 +557,13 @@
         "whenFlagMissing": "gym03_line_glass_active",
         "questEvent": "gym03/line/glass",
         "lines": [
-          "La linea Vetro si collega ai giardini. La rete può salire verso i tetti.",
+          "La linea Vetro si collega ai giardini. La rete puÃ² salire verso i tetti.",
           "Ora attiva la console 3 Cielo al centro, poco sotto Aster."
         ]
       },
       {
         "lines": [
-          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+          "La linea Ã¨ giÃ  attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
         ]
       }
     ]
@@ -536,12 +582,12 @@
         "questEvent": "gym03/line/sky",
         "lines": [
           "Le tre linee sono collegate! Ogni console mostra il segno di spunta.",
-          "Aster ti aspetta poco più a nord. Cura la squadra prima della sfida: Voltorb 16 e Magnemite 17 uniscono velocità, stati e danni diversi."
+          "Aster ti aspetta poco piÃ¹ a nord. Cura la squadra prima della sfida: Voltorb 16 e Magnemite 17 uniscono velocitÃ , stati e danni diversi."
         ]
       },
       {
         "lines": [
-          "La linea è già attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
+          "La linea Ã¨ giÃ  attiva. Il segno di spunta conferma il collegamento: prosegui verso la prossima console o parla con Aster."
         ]
       }
     ]
@@ -559,16 +605,16 @@
       {
         "whenFlagMissing": "trainer_gym03_aster_defeated",
         "lines": [
-          "Hai collegato i giardini al cielo. Ora vediamo come coordini i tuoi Pokémon.",
-          "Voltorb è rapido; Magnemite può paralizzare e abbassare la Difesa Speciale. Terra risponde a Elettro, ma prepara anche cure e mosse diverse."
+          "Hai collegato i giardini al cielo. Ora vediamo come coordini i tuoi PokÃ©mon.",
+          "Voltorb Ã¨ rapido; Magnemite puÃ² paralizzare e abbassare la Difesa Speciale. Terra risponde a Elettro, ma prepara anche cure e mosse diverse."
         ]
       },
       {
         "whenFlagPresent": "badge_circuito_awarded",
         "lines": [
-          "La Medaglia Circuito ha aperto il varco orientale. Oltre la piazza, l’Anello Magnetico conduce a Ferraluce.",
+          "La Medaglia Circuito ha aperto il varco orientale. Oltre la piazza, lâ€™Anello Magnetico conduce a Ferraluce.",
           "Sulla linea si registrano variazioni inattese. Il gruppo di ricerca di Ferraluce vuole confrontare le letture prima di trarre conclusioni.",
-          "La monorotaia è attiva: fuori dalla stazione trovi il terminale con il simbolo del treno. Ti porta gratis nelle città già visitate."
+          "La monorotaia Ã¨ attiva: fuori dalla stazione trovi il terminale con il simbolo del treno. Ti porta gratis nelle cittÃ  giÃ  visitate."
         ]
       }
     ]
@@ -579,20 +625,20 @@
       {
         "whenFlagMissing": "badge_circuito_awarded",
         "lines": [
-          "Il misuratore è in modalità di attesa. La linea richiede l’autorizzazione della Medaglia Circuito."
+          "Il misuratore Ã¨ in modalitÃ  di attesa. La linea richiede lâ€™autorizzazione della Medaglia Circuito."
         ]
       },
       {
         "whenFlagMissing": "q_r06_measurement",
         "questEvent": "r06/sensor/read",
         "lines": [
-          "La lancetta oscilla in brevi impulsi, poi si stabilizza. Il valore resta fuori dall’intervallo previsto.",
-          "La struttura è integra e le letture non indicano un guasto semplice. Porta il dato a Ivo, a Ferraluce, e confrontalo con le osservazioni locali."
+          "La lancetta oscilla in brevi impulsi, poi si stabilizza. Il valore resta fuori dallâ€™intervallo previsto.",
+          "La struttura Ã¨ integra e le letture non indicano un guasto semplice. Porta il dato a Ivo, a Ferraluce, e confrontalo con le osservazioni locali."
         ]
       },
       {
         "lines": [
-          "Il misuratore conserva la lettura già registrata. Gli impulsi sono irregolari, ma non mostrano da soli la causa della variazione."
+          "Il misuratore conserva la lettura giÃ  registrata. Gli impulsi sono irregolari, ma non mostrano da soli la causa della variazione."
         ]
       }
     ]
@@ -603,8 +649,8 @@
       {
         "whenFlagMissing": "q_r06_measurement",
         "lines": [
-          "Benvenuto nella Piazza dell’Energia di Ferraluce. Qui il vetro e l’acciaio convivono con impianti che recuperano e distribuiscono energia.",
-          "Per confrontare ciò che osserviamo in città con la linea, torna al misuratore dell’Anello Magnetico, a ovest, e leggi i dati."
+          "Benvenuto nella Piazza dellâ€™Energia di Ferraluce. Qui il vetro e lâ€™acciaio convivono con impianti che recuperano e distribuiscono energia.",
+          "Per confrontare ciÃ² che osserviamo in cittÃ  con la linea, torna al misuratore dellâ€™Anello Magnetico, a ovest, e leggi i dati."
         ]
       },
       {
@@ -613,13 +659,14 @@
         "questEvent": "ferraluce/ivo/report",
         "lines": [
           "Hai portato le letture. Anche qui abbiamo notato oscillazioni, ma non basta per attribuirle a una persona o a un impianto. Confrontiamo i registri e segnaliamo la discrepanza al gruppo di ricerca.",
-          "Grazie per aver contribuito: tieni due Pozioni e un Antidoto per il viaggio. Puoi ora raggiungere la Palestra di Rhea: sali sulla pedana P4 a est della piazza, poco a nord del cartello."
+          "Grazie per aver contribuito: tieni due Pozioni e un Antidoto per il viaggio. Puoi ora raggiungere la Palestra di Rhea: sali sulla pedana P4 a est della piazza, poco a nord del cartello.",
+          "Charmander tiene accese le nostre piccole lanterne da campo. Ora può accompagnarti nelle ricerche: ti affido questo compagno di livello 15. Se hai già sei Pokémon in squadra, ti aspetterà al deposito."
         ]
       },
       {
         "lines": [
-          "Hai messo in sicurezza la linea e portato un riscontro verificabile. I registri confermano prove senza autorizzazione: segnaleremo i fatti, senza accusare chi non è coinvolto.",
-          "Grazie! Ricevi 300 monete e due Pozioni. L’anomalia locale è contenuta, ma dobbiamo ancora capire come si colleghi alle altre Vene Luminose."
+          "Hai messo in sicurezza la linea e portato un riscontro verificabile. I registri confermano prove senza autorizzazione: segnaleremo i fatti, senza accusare chi non Ã¨ coinvolto.",
+          "Grazie! Ricevi 300 monete e due Pozioni. Lâ€™anomalia locale Ã¨ contenuta, ma dobbiamo ancora capire come si colleghi alle altre Vene Luminose."
         ],
         "whenFlagMissing": "q_centrale_report",
         "whenFlagPresent": "q_centrale_output",
@@ -627,48 +674,48 @@
       },
       {
         "lines": [
-          "Il rapporto della Centrale è stato consegnato. La linea sperimentale resta isolata; la rete ordinaria è attiva. Hai completato questo intervento, non l’intera indagine di Veloria."
+          "Il rapporto della Centrale Ã¨ stato consegnato. La linea sperimentale resta isolata; la rete ordinaria Ã¨ attiva. Hai completato questo intervento, non lâ€™intera indagine di Veloria."
         ],
         "whenFlagPresent": "q_centrale_report"
       },
       {
         "lines": [
-          "Con la Medaglia Acciaio puoi raggiungere il Condotto dall’uscita est, nella parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro nella Centrale."
+          "Con la Medaglia Acciaio puoi raggiungere il Condotto dallâ€™uscita est, nella parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro nella Centrale."
         ],
         "whenFlagPresent": "badge_acciaio_awarded"
       },
       {
         "lines": [
-          "Il rapporto è registrato. Le misure confermano una variazione condivisa lungo la rete, senza indicarne ancora la causa.",
-          "Puoi curare la squadra e rifornirti nel distretto. La Palestra di Rhea è raggiungibile dalla pedana P4 a est della piazza, poco a nord del cartello. Il Condotto e la Centrale Risonante verranno dopo quella prova."
+          "Il rapporto Ã¨ registrato. Le misure confermano una variazione condivisa lungo la rete, senza indicarne ancora la causa.",
+          "Puoi curare la squadra e rifornirti nel distretto. La Palestra di Rhea Ã¨ raggiungibile dalla pedana P4 a est della piazza, poco a nord del cartello. Il Condotto e la Centrale Risonante verranno dopo quella prova."
         ]
       }
     ]
   },
   "r06_sign": {
-    "speaker": "Segnaletica dell’Anello Magnetico",
+    "speaker": "Segnaletica dellâ€™Anello Magnetico",
     "lines": [
-      "Anello Magnetico · Vetracielo — Ferraluce.",
-      "Le oscillazioni della rete vengono osservate in più punti. Segnalare una variazione aiuta a confrontare i dati, ma non ne identifica da sola l’origine."
+      "Anello Magnetico Â· Vetracielo â€” Ferraluce.",
+      "Le oscillazioni della rete vengono osservate in piÃ¹ punti. Segnalare una variazione aiuta a confrontare i dati, ma non ne identifica da sola lâ€™origine."
     ]
   },
   "ferraluce_gym_sign": {
     "speaker": "Segnaletica del distretto",
     "lines": [
-      "Palestra di Ferraluce · Acciaio · Capopalestra Rhea.",
-      "Dopo il rapporto a Ivo, la pedana P4 conduce all’Officina Magnetica. Con la Medaglia Acciaio puoi proseguire verso il Condotto dall’uscita est, nella parte bassa della piazza."
+      "Palestra di Ferraluce Â· Acciaio Â· Capopalestra Rhea.",
+      "Dopo il rapporto a Ivo, la pedana P4 conduce allâ€™Officina Magnetica. Con la Medaglia Acciaio puoi proseguire verso il Condotto dallâ€™uscita est, nella parte bassa della piazza."
     ]
   },
   "ferraluce_care": {
     "speaker": "Addetta del Centro",
     "lines": [
-      "Cure gratuite e deposito dei Pokémon. Ripristiniamo HP, PP e stati della tua squadra."
+      "Cure gratuite e deposito dei PokÃ©mon. Ripristiniamo HP, PP e stati della tua squadra."
     ]
   },
   "ferraluce_shop": {
     "speaker": "Mercante di Ferraluce",
     "lines": [
-      "Pozioni, Antidoti e Poké Ball per esplorare l’Anello Magnetico."
+      "Pozioni, Antidoti e PokÃ© Ball per esplorare lâ€™Anello Magnetico."
     ]
   },
   "rhea_gym": {
@@ -677,22 +724,22 @@
       {
         "whenFlagMissing": "gym04_magnetic_aligned",
         "lines": [
-          "Benvenuto nell’Officina Magnetica! Rhea, piacere. Porta il segnale dalla Sorgente al Ricevitore: puoi regolare i comandi in qualunque ordine.",
-          "Primo nastro a est, secondo a nord, campo a ovest. Premi A e scegli RUOTA. Le linee si accendono soltanto dove passa l’energia."
+          "Benvenuto nellâ€™Officina Magnetica! Rhea, piacere. Porta il segnale dalla Sorgente al Ricevitore: puoi regolare i comandi in qualunque ordine.",
+          "Primo nastro a est, secondo a nord, campo a ovest. Premi A e scegli RUOTA. Le linee si accendono soltanto dove passa lâ€™energia."
         ]
       },
       {
         "whenFlagMissing": "trainer_gym04_rhea_defeated",
         "lines": [
-          "Il circuito è stabile. Ora prova a leggere le difese dei miei Pokémon Acciaio.",
-          "Magnemite usa Elettro, Skarmory vola e Steelix ha grande Difesa. Le mosse speciali possono aiutarti. Sull’Anello trovi Wooper: è immune a Elettro e impara Colpodifango. Non serve possedere una specie precisa per entrare."
+          "Il circuito Ã¨ stabile. Ora prova a leggere le difese dei miei PokÃ©mon Acciaio.",
+          "Magnemite usa Elettro, Aerodactyl vola e Onix ha grande Difesa. Le mosse speciali possono aiutarti. Vicino ai binari del Viadotto puoi trovare Sandshrew: è immune a Elettro. Non serve possedere una specie precisa per entrare."
         ]
       },
       {
         "whenFlagPresent": "badge_acciaio_awarded",
         "lines": [
-          "Hai dimostrato che una buona strategia sa cambiare direzione. La Medaglia Acciaio è tua.",
-          "Ora puoi raggiungere il Condotto Risonante dall’uscita est della parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro della Centrale."
+          "Hai dimostrato che una buona strategia sa cambiare direzione. La Medaglia Acciaio Ã¨ tua.",
+          "Ora puoi raggiungere il Condotto Risonante dallâ€™uscita est della parte bassa della piazza. Leggi il misuratore lungo la passerella, poi confronta il registro della Centrale."
         ]
       }
     ]
@@ -700,8 +747,8 @@
   "r07_sign": {
     "speaker": "Condotto Risonante",
     "lines": [
-      "Ferraluce a ovest · Centrale Risonante a est.",
-      "Segui la passerella chiara. Il misuratore si trova accanto alla curva centrale; i giardini ai lati ospitano Pokémon."
+      "Ferraluce a ovest Â· Centrale Risonante a est.",
+      "Segui la passerella chiara. Il misuratore si trova accanto alla curva centrale; i giardini ai lati ospitano PokÃ©mon."
     ]
   },
   "r07_sensor": {
@@ -715,7 +762,7 @@
       },
       {
         "lines": [
-          "Il misuratore confronta le letture con quelle dell’Anello. Gli impulsi più forti coincidono con intervalli indicati come prove sperimentali.",
+          "Il misuratore confronta le letture con quelle dellâ€™Anello. Gli impulsi piÃ¹ forti coincidono con intervalli indicati come prove sperimentali.",
           "Dato registrato. Prosegui sulla passerella verso est: nella Centrale puoi consultare il registro delle prove."
         ],
         "whenFlagMissing": "q_r07_measurement",
@@ -729,36 +776,36 @@
     ]
   },
   "centrale_technician": {
-    "speaker": "Tecnico della Centrale",
+    "speaker": "Tecnica della Centrale",
     "stages": [
       {
         "lines": [
-          "Prima di intervenire serve una misura del Condotto. Trovi il misuratore lungo la passerella, all’esterno. Puoi uscire e tornare quando vuoi."
+          "Prima di intervenire serve una misura del Condotto. Trovi il misuratore lungo la passerella, allâ€™esterno. Puoi uscire e tornare quando vuoi."
         ],
         "whenFlagMissing": "q_r07_measurement"
       },
       {
         "lines": [
-          "Grazie per le letture! Controlla il registro sulla postazione a sinistra. La linea sperimentale è separata dalla rete che alimenta la città.",
-          "Se il registro conferma l’anomalia, usa la console a destra per isolare quella linea. Poi verifica il sensore al centro, in fondo alla sala."
+          "Grazie per le letture! Controlla il registro sulla postazione a sinistra. La linea sperimentale Ã¨ separata dalla rete che alimenta la cittÃ .",
+          "Se il registro conferma lâ€™anomalia, usa la console a destra per isolare quella linea. Poi verifica il sensore al centro, in fondo alla sala."
         ],
         "whenFlagMissing": "q_centrale_log"
       },
       {
         "lines": [
-          "Il registro indica una prova priva di autorizzazione. La console sulla destra può isolare la linea sperimentale mantenendo attiva la rete ordinaria."
+          "Il registro indica una prova priva di autorizzazione. La console sulla destra puÃ² isolare la linea sperimentale mantenendo attiva la rete ordinaria."
         ],
         "whenFlagMissing": "q_centrale_isolated"
       },
       {
         "lines": [
-          "Linea sperimentale isolata. Controlla il sensore in fondo alla sala: serve un riscontro prima di concludere l’intervento."
+          "Linea sperimentale isolata. Controlla il sensore in fondo alla sala: serve un riscontro prima di concludere lâ€™intervento."
         ],
         "whenFlagMissing": "q_centrale_output"
       },
       {
         "lines": [
-          "Il riscontro è registrato. Riporta a Ivo, nella piazza di Ferraluce, ciò che abbiamo trovato. Non sappiamo ancora chi abbia avviato queste prove."
+          "Il riscontro Ã¨ registrato. Riporta a Ivo, nella piazza di Ferraluce, ciÃ² che abbiamo trovato. Non sappiamo ancora chi abbia avviato queste prove."
         ]
       }
     ]
@@ -774,15 +821,15 @@
       },
       {
         "lines": [
-          "Gli orari delle prove coincidono con gli impulsi del Condotto. Il registro riporta un aumento del ritmo della linea sperimentale; il campo di autorizzazione è vuoto.",
-          "Non è una prova contro tutti i ricercatori. Per ora possiamo mettere in sicurezza la linea: usa la console sul lato destro della sala."
+          "Gli orari delle prove coincidono con gli impulsi del Condotto. Il registro riporta un aumento del ritmo della linea sperimentale; il campo di autorizzazione Ã¨ vuoto.",
+          "Non Ã¨ una prova contro tutti i ricercatori. Per ora possiamo mettere in sicurezza la linea: usa la console sul lato destro della sala."
         ],
         "whenFlagMissing": "q_centrale_log",
         "questEvent": "centrale/log/read"
       },
       {
         "lines": [
-          "Registro copiato: gli impulsi coincidono con prove energetiche senza autorizzazione registrata. Restano da chiarire responsabilità e portata."
+          "Registro copiato: gli impulsi coincidono con prove energetiche senza autorizzazione registrata. Restano da chiarire responsabilitÃ  e portata."
         ]
       }
     ]
@@ -798,7 +845,7 @@
       },
       {
         "lines": [
-          "Attivi il comando di isolamento predisposto dal tecnico. La linea sperimentale si separa dalla rete; gli indicatori della città restano verdi.",
+          "Attivi il comando di isolamento predisposto dal tecnico. La linea sperimentale si separa dalla rete; gli indicatori della cittÃ  restano verdi.",
           "Ora verifica il sensore al centro, in fondo alla sala."
         ],
         "whenFlagMissing": "q_centrale_isolated",
@@ -830,7 +877,7 @@
       },
       {
         "lines": [
-          "Il riscontro conferma l’arresto degli impulsi sperimentali. Questo intervento riguarda la Centrale: il mistero delle Vene Luminose resta aperto."
+          "Il riscontro conferma lâ€™arresto degli impulsi sperimentali. Questo intervento riguarda la Centrale: il mistero delle Vene Luminose resta aperto."
         ]
       }
     ]
@@ -838,7 +885,7 @@
   "r08_sign": {
     "speaker": "Costa delle Turbine",
     "lines": [
-      "A ovest Ferraluce, a est Portolume. I sentieri laterali conducono agli habitat. Il belvedere sul mare è un punto di pesca: la capitana del porto ti aiuterà a iniziare."
+      "A ovest Ferraluce, a est Portolume. I sentieri laterali conducono agli habitat. Il belvedere sul mare Ã¨ un punto di pesca: la capitana del porto ti aiuterÃ  a iniziare."
     ]
   },
   "portolume_captain": {
@@ -852,15 +899,15 @@
       },
       {
         "lines": [
-          "Benvenuto a Portolume! Ti affido una canna da pesca: usala sui punti d’acqua segnalati. Il battello del molo raggiunge l’osservatorio e torna sempre al porto.",
-          "Leggi il misuratore sull’isola, poi torna da me. Vogliamo confrontare le maree con le rilevazioni della Centrale."
+          "Benvenuto a Portolume! Ti affido una canna da pesca: usala sui punti dâ€™acqua segnalati. Il battello del molo raggiunge lâ€™osservatorio e torna sempre al porto.",
+          "Leggi il misuratore sullâ€™isola, poi torna da me. Vogliamo confrontare le maree con le rilevazioni della Centrale."
         ],
         "whenFlagMissing": "q_portolume_orientation",
         "questEvent": "portolume/captain/orientation"
       },
       {
         "lines": [
-          "Il molo è a destra della piazza. Prendi il battello per l’osservatorio e leggi il misuratore sull’isola; poi torna qui."
+          "Il molo Ã¨ a destra della piazza. Prendi il battello per lâ€™osservatorio e leggi il misuratore sullâ€™isola; poi torna qui."
         ],
         "whenFlagMissing": "q_portolume_tide_read"
       },
@@ -890,14 +937,14 @@
       },
       {
         "lines": [
-          "Misure registrate: intervalli e altezza dell’acqua saranno confrontati con i dati della Centrale. Torna al porto con il battello e riferisci alla capitana."
+          "Misure registrate: intervalli e altezza dellâ€™acqua saranno confrontati con i dati della Centrale. Torna al porto con il battello e riferisci alla capitana."
         ],
         "whenFlagMissing": "q_portolume_tide_read",
         "questEvent": "portolume/tide/read"
       },
       {
         "lines": [
-          "Le misure sono conservate. Il battello al molo dell’isola ti riporta a Portolume."
+          "Le misure sono conservate. Il battello al molo dellâ€™isola ti riporta a Portolume."
         ]
       }
     ]
@@ -913,14 +960,14 @@
       },
       {
         "lines": [
-          "La vasca è compensata: il primo ponte è libero. Attraversalo e raggiungi la console a destra."
+          "La vasca Ã¨ compensata: il primo ponte Ã¨ libero. Attraversalo e raggiungi la console a destra."
         ],
         "whenFlagMissing": "gym05_basin_balanced",
         "questEvent": "gym05/basin/balance"
       },
       {
         "lines": [
-          "La vasca è compensata: il primo ponte è libero. Attraversalo e raggiungi la console a destra."
+          "La vasca Ã¨ compensata: il primo ponte Ã¨ libero. Attraversalo e raggiungi la console a destra."
         ]
       }
     ]
@@ -930,20 +977,20 @@
     "stages": [
       {
         "lines": [
-          "Compensa prima la vasca sulla terrazza d’ingresso."
+          "Compensa prima la vasca sulla terrazza dâ€™ingresso."
         ],
         "whenFlagMissing": "gym05_basin_balanced"
       },
       {
         "lines": [
-          "La chiusa è aperta: il secondo ponte è libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
+          "La chiusa Ã¨ aperta: il secondo ponte Ã¨ libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
         ],
         "whenFlagMissing": "gym05_sluice_open",
         "questEvent": "gym05/sluice/open"
       },
       {
         "lines": [
-          "La chiusa è aperta: il secondo ponte è libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
+          "La chiusa Ã¨ aperta: il secondo ponte Ã¨ libero. Sulla terrazza superiore stabilizza la marea dalla console a sinistra."
         ]
       }
     ]
@@ -994,7 +1041,7 @@
       },
       {
         "lines": [
-          "La Medaglia Marea ricorda la tua capacità di adattarti. Scendi dalla piazza attraverso il giardino delle fontane: le Dune Salmastre conducono al Delta degli Specchi. Cerca la biologa Iris sul pontile d’ingresso."
+          "La Medaglia Marea ricorda la tua capacitÃ  di adattarti. Scendi dalla piazza attraverso il giardino delle fontane: le Dune Salmastre conducono al Delta degli Specchi. Cerca la biologa Iris sul pontile dâ€™ingresso."
         ]
       }
     ]
@@ -1002,13 +1049,13 @@
   "r09_sign": {
     "speaker": "Dune Salmastre",
     "lines": [
-      "A nord torni a Portolume. Segui il sentiero verso est per il Delta degli Specchi: la biologa Iris raccoglie osservazioni sui canali. I prati laterali ospitano Pokémon; il sentiero principale rimane libero."
+      "A nord torni a Portolume. Segui il sentiero verso est per il Delta degli Specchi: la biologa Iris raccoglie osservazioni sui canali. I prati laterali ospitano PokÃ©mon; il sentiero principale rimane libero."
     ]
   },
   "r10_sign": {
     "speaker": "Sentiero delle Canne",
     "lines": [
-      "Acquariva è a nord-est: segui il pontile a destra, risali e svolta ancora a destra. Per il Delta torna a sud-ovest. La campana del salice identifica il ramo nord-occidentale; il pontile laterale scende al piccolo approdo."
+      "Acquariva Ã¨ a nord-est: segui il pontile a destra, risali e svolta ancora a destra. Per il Delta torna a sud-ovest. La campana del salice identifica il ramo nord-occidentale; il pontile laterale scende al piccolo approdo."
     ]
   },
   "delta_iris": {
@@ -1023,14 +1070,14 @@
       {
         "whenFlagMissing": "q_delta_flow_read",
         "lines": [
-          "Mi aiuti a osservare il Delta? Ci sono tre punti: corrente, canneti e vivaio naturale. Puoi visitarli nell’ordine che preferisci.",
-          "Il misuratore della corrente è sul pontile alto a sinistra. Da qui sali lungo il ramo occidentale; poi cerca anche il pannello dei canneti sul pontile alto a destra e quello del vivaio sul ramo a sud."
+          "Mi aiuti a osservare il Delta? Ci sono tre punti: corrente, canneti e vivaio naturale. Puoi visitarli nellâ€™ordine che preferisci.",
+          "Il misuratore della corrente Ã¨ sul pontile alto a sinistra. Da qui sali lungo il ramo occidentale; poi cerca anche il pannello dei canneti sul pontile alto a destra e quello del vivaio sul ramo a sud."
         ]
       },
       {
         "whenFlagMissing": "q_delta_reeds_read",
         "lines": [
-          "Manca l’osservazione dei canneti: cerca il pannello sul tratto orientale del pontile alto. La corrente da sola non racconta tutto l’ecosistema."
+          "Manca lâ€™osservazione dei canneti: cerca il pannello sul tratto orientale del pontile alto. La corrente da sola non racconta tutto lâ€™ecosistema."
         ]
       },
       {
@@ -1043,13 +1090,13 @@
         "whenFlagMissing": "q_delta_report",
         "questEvent": "delta/biologist/report",
         "lines": [
-          "Hai osservato corrente, riparo fra le canne e zone dove crescono i piccoli. Conserveremo queste misure: una variazione non dimostra da sola chi o cosa l’abbia causata.",
-          "Ecco 350 monete e tre Sfere per il tuo viaggio. Ora puoi proseguire a est, lungo il Sentiero delle Canne. Ad Acquariva cerca Tessa nell’osservatorio sul lago."
+          "Hai osservato corrente, riparo fra le canne e zone dove crescono i piccoli. Conserveremo queste misure: una variazione non dimostra da sola chi o cosa lâ€™abbia causata.",
+          "Ecco 350 monete e tre Sfere per il tuo viaggio. Ora puoi proseguire a est, lungo il Sentiero delle Canne. Ad Acquariva cerca Tessa nellâ€™osservatorio sul lago."
         ]
       },
       {
         "lines": [
-          "Il rapporto è conservato. L’uscita orientale del pontile alto conduce al Sentiero delle Canne e poi ad Acquariva. A ovest puoi sempre tornare alle Dune e a Portolume."
+          "Il rapporto Ã¨ conservato. Lâ€™uscita orientale del pontile alto conduce al Sentiero delle Canne e poi ad Acquariva. A ovest puoi sempre tornare alle Dune e a Portolume."
         ]
       }
     ]
@@ -1067,13 +1114,13 @@
         "whenFlagMissing": "q_delta_flow_read",
         "questEvent": "delta/flow/read",
         "lines": [
-          "Annoti direzione e ritmo della corrente in questo punto. Confrontare luoghi e orari diversi aiuta a distinguere un cambiamento duraturo da un’oscillazione.",
-          "Osservazione salvata. Controlla anche canneti e vivaio naturale, poi riferisci a Iris sul pontile d’ingresso."
+          "Annoti direzione e ritmo della corrente in questo punto. Confrontare luoghi e orari diversi aiuta a distinguere un cambiamento duraturo da unâ€™oscillazione.",
+          "Osservazione salvata. Controlla anche canneti e vivaio naturale, poi riferisci a Iris sul pontile dâ€™ingresso."
         ]
       },
       {
         "lines": [
-          "La corrente è già registrata nel rapporto. Iris aspetta tutte e tre le osservazioni sul pontile d’ingresso."
+          "La corrente Ã¨ giÃ  registrata nel rapporto. Iris aspetta tutte e tre le osservazioni sul pontile dâ€™ingresso."
         ]
       }
     ]
@@ -1091,13 +1138,13 @@
         "whenFlagMissing": "q_delta_reeds_read",
         "questEvent": "delta/reeds/read",
         "lines": [
-          "Fra le canne i Pokémon trovano riparo. Annoti la distribuzione della vegetazione senza calpestare le rive: acqua, piante e animali vanno osservati insieme.",
+          "Fra le canne i PokÃ©mon trovano riparo. Annoti la distribuzione della vegetazione senza calpestare le rive: acqua, piante e animali vanno osservati insieme.",
           "Osservazione salvata. Controlla anche corrente e vivaio naturale, poi torna da Iris."
         ]
       },
       {
         "lines": [
-          "I canneti sono già registrati nel rapporto. Per Iris servono anche corrente e vivaio naturale."
+          "I canneti sono giÃ  registrati nel rapporto. Per Iris servono anche corrente e vivaio naturale."
         ]
       }
     ]
@@ -1115,13 +1162,13 @@
         "whenFlagMissing": "q_delta_nursery_read",
         "questEvent": "delta/nursery/read",
         "lines": [
-          "L’acqua poco profonda e la vegetazione offrono riparo ai Pokémon più piccoli. Registri le condizioni del luogo mantenendo le distanze.",
-          "Osservazione salvata. Dopo corrente e canneti, torna da Iris sul pontile d’ingresso."
+          "Lâ€™acqua poco profonda e la vegetazione offrono riparo ai PokÃ©mon piÃ¹ piccoli. Registri le condizioni del luogo mantenendo le distanze.",
+          "Osservazione salvata. Dopo corrente e canneti, torna da Iris sul pontile dâ€™ingresso."
         ]
       },
       {
         "lines": [
-          "Il vivaio è già registrato. Iris confronterà questa osservazione con quelle della corrente e dei canneti."
+          "Il vivaio Ã¨ giÃ  registrato. Iris confronterÃ  questa osservazione con quelle della corrente e dei canneti."
         ]
       }
     ]
@@ -1139,14 +1186,15 @@
         "whenFlagMissing": "q_acquariva_report",
         "questEvent": "acquariva/tessa/report",
         "lines": [
-          "Benvenuto all’osservatorio! Le osservazioni del Delta ci permettono di fare domande migliori sul lago. Confronteremo misure ripetute, senza saltare alle conclusioni.",
-          "Ecco due Pozioni. Selene ti aspetta nella palestra a nord della piazza: orienta gli specchi per portare la luce al ricevitore, poi affronta la sua squadra Psico."
+          "Benvenuto allâ€™osservatorio! Le osservazioni del Delta ci permettono di fare domande migliori sul lago. Confronteremo misure ripetute, senza saltare alle conclusioni.",
+          "Ecco due Pozioni. Selene ti aspetta nella palestra a nord della piazza: orienta gli specchi per portare la luce al ricevitore, poi affronta la sua squadra Psico.",
+          "Squirtle ci aiuta a osservare le rive senza disturbare il lago. Vuole conoscere altri luoghi insieme a te: ti affido questo compagno di livello 15, che raggiungerà il deposito se la squadra è piena."
         ]
       },
       {
         "whenFlagMissing": "badge_riflesso_awarded",
         "lines": [
-          "Il rapporto è conservato. La palestra di Selene è a nord della piazza. Il Centro Pokémon e il mercato sono nelle case a ovest; qui puoi tornare a consultare l’osservatorio."
+          "Il rapporto Ã¨ conservato. La palestra di Selene Ã¨ a nord della piazza. Il Centro PokÃ©mon e il mercato sono nelle case a ovest; qui puoi tornare a consultare lâ€™osservatorio."
         ]
       },
       {
@@ -1162,26 +1210,26 @@
       {
         "whenFlagMissing": "q_acquariva_report",
         "lines": [
-          "Prima confronta con Tessa le osservazioni del Delta. La trovi nell’osservatorio sul lago, a est della piazza."
+          "Prima confronta con Tessa le osservazioni del Delta. La trovi nellâ€™osservatorio sul lago, a est della piazza."
         ]
       },
       {
         "whenFlagMissing": "gym06_reflections_aligned",
         "lines": [
           "Segui la luce dalla sorgente al ricevitore. Usa i quattro controlli per ruotare gli specchi: il fascio visibile mostra fin dove arriva la luce.",
-          "Puoi correggere ogni orientamento e tornare all’ingresso quando vuoi. Quando il ricevitore si illumina, raggiungimi sulla terrazza superiore."
+          "Puoi correggere ogni orientamento e tornare allâ€™ingresso quando vuoi. Quando il ricevitore si illumina, raggiungimi sulla terrazza superiore."
         ]
       },
       {
         "whenFlagMissing": "badge_riflesso_awarded",
         "lines": [
-          "Il ricevitore è illuminato. Ora osserva anche mosse, tipi e status: una buona strategia nasce da quello che accade davvero durante la lotta!"
+          "Il ricevitore Ã¨ illuminato. Ora osserva anche mosse, tipi e status: una buona strategia nasce da quello che accade davvero durante la lotta!"
         ]
       },
       {
         "lines": [
-          "La Medaglia Riflesso premia la tua capacità di osservare e adattarti. La Via delle Cascate è aperta: dall’angolo nord-occidentale di Acquariva raggiungi Vetracielo.",
-          "La tua squadra può tornare qui, riposare al Centro Pokémon e continuare a esplorare il lago."
+          "La Medaglia Riflesso premia la tua capacitÃ  di osservare e adattarti. La Via delle Cascate Ã¨ aperta: dallâ€™angolo nord-occidentale di Acquariva raggiungi Vetracielo.",
+          "La tua squadra puÃ² tornare qui, riposare al Centro PokÃ©mon e continuare a esplorare il lago."
         ]
       }
     ]
@@ -1208,12 +1256,12 @@
       {
         "whenFlagMissing": "trainer_delta_teo_defeated",
         "lines": [
-          "Studiare un ambiente significa notare le differenze. Ti va una sfida facoltativa con due Pokémon che condividono solo una parte dei loro tipi?"
+          "Studiare un ambiente significa notare le differenze. Ti va una sfida facoltativa con due PokÃ©mon che condividono solo una parte dei loro tipi?"
         ]
       },
       {
         "lines": [
-          "Il doppio tipo cambia le resistenze. Per proseguire verso Acquariva, completa le tre osservazioni e riporta il rapporto a Iris sul pontile d’ingresso."
+          "Il doppio tipo cambia le resistenze. Per proseguire verso Acquariva, completa le tre osservazioni e riporta il rapporto a Iris sul pontile dâ€™ingresso."
         ]
       }
     ]
@@ -1229,7 +1277,7 @@
       },
       {
         "lines": [
-          "Ad Acquariva cerca il Centro Pokémon nelle case a ovest della piazza. Poi porta il rapporto a Tessa nell’osservatorio a est; la palestra è a nord."
+          "Ad Acquariva cerca il Centro PokÃ©mon nelle case a ovest della piazza. Poi porta il rapporto a Tessa nellâ€™osservatorio a est; la palestra Ã¨ a nord."
         ]
       }
     ]
@@ -1240,7 +1288,7 @@
       {
         "whenFlagMissing": "badge_riflesso_awarded",
         "lines": [
-          "Il sentiero sarà aperto dopo la Medaglia Riflesso."
+          "Il sentiero sarÃ  aperto dopo la Medaglia Riflesso."
         ]
       },
       {
@@ -1263,14 +1311,14 @@
       {
         "whenFlagMissing": "badge_riflesso_awarded",
         "lines": [
-          "Il sentiero sarà aperto dopo la Medaglia Riflesso."
+          "Il sentiero sarÃ  aperto dopo la Medaglia Riflesso."
         ]
       },
       {
         "whenFlagMissing": "q_r12_temperature_read",
         "questEvent": "r12/temperature/read",
         "lines": [
-          "Sei nel sud-est della valle. Leggi la temperatura; il misuratore del vento è a nord-ovest."
+          "Sei nel sud-est della valle. Leggi la temperatura; il misuratore del vento Ã¨ a nord-ovest."
         ]
       },
       {
@@ -1286,14 +1334,14 @@
       {
         "whenFlagMissing": "badge_riflesso_awarded",
         "lines": [
-          "Il sentiero sarà aperto dopo la Medaglia Riflesso."
+          "Il sentiero sarÃ  aperto dopo la Medaglia Riflesso."
         ]
       },
       {
         "whenFlagMissing": "q_passobrina_snow_read",
         "questEvent": "passobrina/snow/read",
         "lines": [
-          "Questo punto è a nord-est del borgo. Segna quanta neve trovi qui."
+          "Questo punto Ã¨ a nord-est del borgo. Segna quanta neve trovi qui."
         ]
       },
       {
@@ -1315,31 +1363,31 @@
       {
         "whenFlagMissing": "q_r12_wind_read",
         "lines": [
-          "Manca il vento: il misuratore è a nord-ovest della Valle del Vento."
+          "Manca il vento: il misuratore Ã¨ a nord-ovest della Valle del Vento."
         ]
       },
       {
         "whenFlagMissing": "q_r12_temperature_read",
         "lines": [
-          "Manca la temperatura: il termometro è a sud-est della valle."
+          "Manca la temperatura: il termometro Ã¨ a sud-est della valle."
         ]
       },
       {
         "whenFlagMissing": "q_passobrina_snow_read",
         "lines": [
-          "Manca la neve: la misura è a nord-est del borgo di Passobrina."
+          "Manca la neve: la misura Ã¨ a nord-est del borgo di Passobrina."
         ]
       },
       {
         "whenFlagMissing": "q_passobrina_report",
         "questEvent": "passobrina/guide/report",
         "lines": [
-          "Hai raccolto tutte e tre le letture. Le condizioni cambiano da un punto all'altro: il rapporto è pronto. Ora il sentiero per i Tornanti Bianchi è aperto."
+          "Hai raccolto tutte e tre le letture. Le condizioni cambiano da un punto all'altro: il rapporto Ã¨ pronto. Ora il sentiero per i Tornanti Bianchi Ã¨ aperto."
         ]
       },
       {
         "lines": [
-          "Il rapporto è completo. Il sentiero dei Tornanti Bianchi è aperto."
+          "Il rapporto Ã¨ completo. Il sentiero dei Tornanti Bianchi Ã¨ aperto."
         ]
       }
     ]
@@ -1347,13 +1395,13 @@
   "passobrina_cableway_terminal": {
     "speaker": "Terminale della funivia",
     "lines": [
-      "La funivia sarà disponibile più avanti nel viaggio."
+      "La funivia sarÃ  disponibile piÃ¹ avanti nel viaggio."
     ]
   },
   "biancavetta_guide": {
     "speaker": "Guida di Biancavetta",
     "lines": [
-      "Le oscillazioni qui sembrano più regolari. Confronteremo quota, temperatura e orari: una coincidenza non identifica ancora la sorgente della Risonanza.",
+      "Le oscillazioni qui sembrano piÃ¹ regolari. Confronteremo quota, temperatura e orari: una coincidenza non identifica ancora la sorgente della Risonanza.",
       "Il Centro e la bottega sono a ovest della piazza; Nives ti aspetta nella palestra a nord. La funivia a sud riparte dopo la Medaglia Brina."
     ]
   },
@@ -1368,7 +1416,7 @@
       },
       {
         "lines": [
-          "Attraversa il ponte verso est per il Varco del Cristallo. Livia ti aspetta al rifugio prima dell’ingresso della grotta.",
+          "Attraversa il ponte verso est per il Varco del Cristallo. Livia ti aspetta al rifugio prima dellâ€™ingresso della grotta.",
           "Nelle Grotte del Cristallo confronta le letture a quote diverse. Puoi tornare a piedi e usare la funivia da Biancavetta."
         ]
       }
@@ -1377,8 +1425,8 @@
   "gym07_instructions": {
     "speaker": "Le piste della Brina",
     "lines": [
-      "Sul ghiaccio continui diritto finché trovi terra asciutta o un ostacolo. Quando ti fermi puoi scegliere una nuova direzione.",
-      "Accendi i tre sigilli nelle terrazze a nord: puoi farlo in qualsiasi ordine. Poi esamina la console a destra del sigillo centrale. Per tornare all’ingresso scendi lungo le piste."
+      "Sul ghiaccio continui diritto finchÃ© trovi terra asciutta o un ostacolo. Quando ti fermi puoi scegliere una nuova direzione.",
+      "Accendi i tre sigilli nelle terrazze a nord: puoi farlo in qualsiasi ordine. Poi esamina la console a destra del sigillo centrale. Per tornare allâ€™ingresso scendi lungo le piste."
     ]
   },
   "gym07_ice_gate": {
@@ -1411,7 +1459,7 @@
       },
       {
         "lines": [
-          "Il cancello è aperto. Puoi raggiungere Nives passando a nord del sigillo centrale."
+          "Il cancello Ã¨ aperto. Puoi raggiungere Nives passando a nord del sigillo centrale."
         ]
       }
     ]
@@ -1428,7 +1476,7 @@
       },
       {
         "lines": [
-          "La Medaglia Brina è tua! La funivia collega Biancavetta a Passobrina: trovi le cabine a sud della piazza.",
+          "La Medaglia Brina Ã¨ tua! La funivia collega Biancavetta a Passobrina: trovi le cabine a sud della piazza.",
           "Il segnale continua verso il massiccio del Cristallo. Conserveremo le misure mentre le guide controllano il valico."
         ]
       }
@@ -1437,7 +1485,7 @@
   "r14_wind_reading": {
     "speaker": "Belvedere del Cristallo",
     "lines": [
-      "L’aria arriva dalle terrazze più alte. Nelle grotte, confronta la stazione bassa e quella centrale prima di usare la console in cima.",
+      "Lâ€™aria arriva dalle terrazze piÃ¹ alte. Nelle grotte, confronta la stazione bassa e quella centrale prima di usare la console in cima.",
       "Le scale collegano tutte le quote: puoi sempre tornare al rifugio per curare la squadra."
     ]
   },
@@ -1447,52 +1495,52 @@
       {
         "whenFlagMissing": "q_d05_low_read",
         "lines": [
-          "Il rifugio è qui accanto: puoi far riposare la squadra prima della salita. Nella grotta cerca la stazione illuminata in ambra sulla terrazza bassa.",
-          "Poi segui le scale fino al misuratore sulla terrazza centrale. La console delle correnti è sul ripiano più alto. Non serve catturare Pokémon per completare la ricerca."
+          "Il rifugio Ã¨ qui accanto: puoi far riposare la squadra prima della salita. Nella grotta cerca la stazione illuminata in ambra sulla terrazza bassa.",
+          "Poi segui le scale fino al misuratore sulla terrazza centrale. La console delle correnti Ã¨ sul ripiano piÃ¹ alto. Non serve catturare PokÃ©mon per completare la ricerca."
         ]
       },
       {
         "whenFlagMissing": "q_d05_middle_read",
         "lines": [
-          "Hai la lettura bassa. Ora sali la prima scalinata della grotta: il misuratore centrale confronta il movimento dell’aria."
+          "Hai la lettura bassa. Ora sali la prima scalinata della grotta: il misuratore centrale confronta il movimento dellâ€™aria."
         ]
       },
       {
         "whenFlagMissing": "q_d05_climate_balanced",
         "lines": [
-          "Confronta gli appunti: ventilazione delicata e scambio termico moderato. La console è sulla terrazza alta: regola entrambi, poi scegli Verifica equilibrio."
+          "Confronta gli appunti: ventilazione delicata e scambio termico moderato. La console Ã¨ sulla terrazza alta: regola entrambi, poi scegli Verifica equilibrio."
         ]
       },
       {
         "whenFlagMissing": "q_d05_upper_read",
         "lines": [
-          "La console è stabile! Esamina l’arco illuminato sul lato destro della terrazza alta: il ricevitore può finalmente distinguere il segnale."
+          "La console Ã¨ stabile! Esamina lâ€™arco illuminato sul lato destro della terrazza alta: il ricevitore puÃ² finalmente distinguere il segnale."
         ]
       },
       {
         "whenFlagMissing": "q_d05_report",
         "questEvent": "r14/guide/report",
         "lines": [
-          "Le letture sono complete! Le correnti della grotta modificano l’intensità del segnale, ma non spiegano da dove arriva. Il ricevitore alto indica il Passo delle Due Luci.",
+          "Le letture sono complete! Le correnti della grotta modificano lâ€™intensitÃ  del segnale, ma non spiegano da dove arriva. Il ricevitore alto indica il Passo delle Due Luci.",
           "Le tue misure aiuteranno la spedizione a confrontare i dati senza spegnere la rete. Ecco il compenso della ricerca: 700 monete e due Pozioni."
         ]
       },
       {
         "lines": [
-          "Il rapporto è registrato. Conserviamo distinti i dati delle tre quote: in grotta il segnale cambia, oltre il valico potremo seguirne la direzione.",
+          "Il rapporto Ã¨ registrato. Conserviamo distinti i dati delle tre quote: in grotta il segnale cambia, oltre il valico potremo seguirne la direzione.",
           "Puoi allenarti e tornare a Biancavetta. Il cammino resta aperto anche dopo la ricerca."
         ]
       }
     ]
   },
   "d05_low_reading": {
-    "speaker": "Stazione bassa · calore",
+    "speaker": "Stazione bassa Â· calore",
     "stages": [
       {
         "whenFlagMissing": "q_d05_low_read",
         "questEvent": "d05/low/read",
         "lines": [
-          "Vicino alle pozze, la camera bassa trattiene calore. Il regolatore va portato a scambio termico MODERATO: deve disperderlo con gradualità.",
+          "Vicino alle pozze, la camera bassa trattiene calore. Il regolatore va portato a scambio termico MODERATO: deve disperderlo con gradualitÃ .",
           "Appunto nel diario: scambio termico moderato. Le posizioni della console sono livelli del regolatore, non gradi di temperatura."
         ]
       },
@@ -1504,13 +1552,13 @@
     ]
   },
   "d05_middle_reading": {
-    "speaker": "Stazione centrale · correnti",
+    "speaker": "Stazione centrale Â· correnti",
     "stages": [
       {
         "whenFlagMissing": "q_d05_middle_read",
         "questEvent": "d05/middle/read",
         "lines": [
-          "Dall’arco alto arriva aria già fredda. Ai cristalli basta una ventilazione DELICATA: una corrente troppo forte altera la lettura.",
+          "Dallâ€™arco alto arriva aria giÃ  fredda. Ai cristalli basta una ventilazione DELICATA: una corrente troppo forte altera la lettura.",
           "Appunto nel diario: ventilazione delicata. Le due stazioni possono essere esaminate in qualsiasi ordine."
         ]
       },
@@ -1522,12 +1570,12 @@
     ]
   },
   "d05_upper_passage": {
-    "speaker": "Ricevitore dell’arco alto",
+    "speaker": "Ricevitore dellâ€™arco alto",
     "stages": [
       {
         "whenFlagMissing": "q_d05_climate_balanced",
         "lines": [
-          "Le correnti coprono il segnale. Leggi le stazioni sulle terrazze bassa e centrale, poi regola la console vicino all’arco.",
+          "Le correnti coprono il segnale. Leggi le stazioni sulle terrazze bassa e centrale, poi regola la console vicino allâ€™arco.",
           "Appunti: ventilazione delicata, scambio termico moderato. Premi Verifica equilibrio quando entrambe le impostazioni coincidono."
         ]
       },
@@ -1535,14 +1583,14 @@
         "whenFlagMissing": "q_d05_upper_read",
         "questEvent": "d05/upper/read",
         "lines": [
-          "Ora il ricevitore distingue un’onda che arriva da oltre il valico, verso il Passo delle Due Luci. I cristalli ne cambiano l’intensità: questa grotta non basta a identificarne la sorgente.",
+          "Ora il ricevitore distingue unâ€™onda che arriva da oltre il valico, verso il Passo delle Due Luci. I cristalli ne cambiano lâ€™intensitÃ : questa grotta non basta a identificarne la sorgente.",
           "Porta questa lettura alla guida Livia, presso il rifugio fuori dalla grotta. Puoi scendere lungo entrambe le scalinate."
         ]
       },
       {
         "lines": [
-          "Direzione registrata: Passo delle Due Luci. Porta il rapporto a Livia al rifugio, poi attraversa l’arco per raggiungere il passo e Concordia.",
-          "Puoi tornare in qualunque momento: le scale collegano la terrazza alta all’uscita per Biancavetta."
+          "Direzione registrata: Passo delle Due Luci. Porta il rapporto a Livia al rifugio, poi attraversa lâ€™arco per raggiungere il passo e Concordia.",
+          "Puoi tornare in qualunque momento: le scale collegano la terrazza alta allâ€™uscita per Biancavetta."
         ]
       }
     ]
@@ -1554,13 +1602,13 @@
         "whenFlagMissing": "q_r15_nature_read",
         "questEvent": "r15/nature/read",
         "lines": [
-          "L’acqua e le radici producono un segnale regolare, prima che raggiunga i condotti della rete. Qui riconosci lo stesso ritmo registrato sul lago e nella grotta.",
+          "Lâ€™acqua e le radici producono un segnale regolare, prima che raggiunga i condotti della rete. Qui riconosci lo stesso ritmo registrato sul lago e nella grotta.",
           "Appunto: il segnale nasce dagli ecosistemi. La rete lo riceve e lo amplifica, non lo crea. Confronta la stazione dei condotti sulla terrazza a sud-est."
         ]
       },
       {
         "lines": [
-          "Lettura naturale registrata: un ritmo regolare entra nella rete. Cerca l’altra stazione sulla terrazza a sud-est, poi porta entrambe le letture a Elia a Concordia."
+          "Lettura naturale registrata: un ritmo regolare entra nella rete. Cerca lâ€™altra stazione sulla terrazza a sud-est, poi porta entrambe le letture a Elia a Concordia."
         ]
       }
     ]
@@ -1572,13 +1620,13 @@
         "whenFlagMissing": "q_r15_network_read",
         "questEvent": "r15/network/read",
         "lines": [
-          "La rete ripete il segnale naturale con un’intensità molto maggiore. I test registrati alla Centrale hanno aumentato l’amplificazione senza coordinare le stazioni.",
-          "La direzione converge sul nodo sopra Concordia: il Santuario delle Due Luci. Dobbiamo riallineare natura e tecnologia, non spegnere tutto. Elia ti aspetta presso l’osservatorio della città, oltre il ponte a est."
+          "La rete ripete il segnale naturale con unâ€™intensitÃ  molto maggiore. I test registrati alla Centrale hanno aumentato lâ€™amplificazione senza coordinare le stazioni.",
+          "La direzione converge sul nodo sopra Concordia: il Santuario delle Due Luci. Dobbiamo riallineare natura e tecnologia, non spegnere tutto. Elia ti aspetta presso lâ€™osservatorio della cittÃ , oltre il ponte a est."
         ]
       },
       {
         "lines": [
-          "Lettura della rete registrata: il segnale naturale viene amplificato in modo instabile. Elia può confrontare questo dato con quello del giardino."
+          "Lettura della rete registrata: il segnale naturale viene amplificato in modo instabile. Elia puÃ² confrontare questo dato con quello del giardino."
         ]
       }
     ]
@@ -1590,20 +1638,20 @@
         "whenFlagMissing": "q_r15_nature_read",
         "lines": [
           "Sei arrivato a Concordia, {trainer}! Le prove della Centrale e le letture del Cristallo indicano lo stesso ritmo. Prima confrontiamo le due stazioni sul Passo delle Due Luci.",
-          "Quella del giardino è sulla terrazza a nord del sentiero. L’altra è sulla diramazione a sud-est. Poi torna qui: sceglieremo insieme come procedere."
+          "Quella del giardino Ã¨ sulla terrazza a nord del sentiero. Lâ€™altra Ã¨ sulla diramazione a sud-est. Poi torna qui: sceglieremo insieme come procedere."
         ]
       },
       {
         "whenFlagMissing": "q_r15_network_read",
         "lines": [
-          "Hai il ritmo naturale. Manca il confronto con i condotti: segui la diramazione a sud-est del Passo delle Due Luci, poi torna all’osservatorio."
+          "Hai il ritmo naturale. Manca il confronto con i condotti: segui la diramazione a sud-est del Passo delle Due Luci, poi torna allâ€™osservatorio."
         ]
       },
       {
         "whenFlagMissing": "q_concordia_restore_plan",
         "lines": [
-          "Ora le letture coincidono. La Risonanza amplifica i segnali degli ecosistemi; i test non coordinati hanno reso instabile la risposta della rete. Il nodo principale è al Santuario sopra la città.",
-          "Possiamo riallineare i flussi lasciando attive le stazioni che sostengono i giardini. Aurel custodisce l’accesso alla prova di convergenza: la sua palestra insegna a coordinare le due parti."
+          "Ora le letture coincidono. La Risonanza amplifica i segnali degli ecosistemi; i test non coordinati hanno reso instabile la risposta della rete. Il nodo principale Ã¨ al Santuario sopra la cittÃ .",
+          "Possiamo riallineare i flussi lasciando attive le stazioni che sostengono i giardini. Aurel custodisce lâ€™accesso alla prova di convergenza: la sua palestra insegna a coordinare le due parti."
         ],
         "choicePrompt": "Come vuoi procedere?",
         "choices": [
@@ -1617,7 +1665,7 @@
           },
           {
             "id": "restore",
-            "label": "Ripristiniamo l’equilibrio",
+            "label": "Ripristiniamo lâ€™equilibrio",
             "requiresFlags": [
               "q_r15_nature_read",
               "q_r15_network_read"
@@ -1625,7 +1673,7 @@
             "questEvent": "concordia/plan/restore",
             "lines": [
               "Bene. Conserveremo entrambi i flussi e li riallineeremo usando le misure, una stazione alla volta. Nessuno deve rinunciare ai propri giardini per avere energia.",
-              "La palestra a nord è aperta. Aurel usa Pokémon Drago, ma osserva sempre tutti i tipi: Kingdra è Acqua/Drago e Seadra è Acqua. Puoi curare la squadra e fare acquisti a ovest della piazza."
+              "La palestra a nord è aperta. Aurel studia i Pokémon Drago, ma osserva sempre tutti i tipi: Dragonite è Drago/Volante, Seadra Acqua e Gyarados Acqua/Volante. Puoi curare la squadra e fare acquisti a ovest della piazza."
             ]
           }
         ]
@@ -1633,20 +1681,20 @@
       {
         "whenFlagMissing": "badge_drago_awarded",
         "lines": [
-          "Il piano è registrato. Nella palestra a nord, fai convergere entrambi i flussi sul ricevitore. Puoi controllare il percorso di ciascuno prima di ruotare i relè.",
-          "I Drago resistono a Fuoco, Acqua, Erba ed Elettro. Il Ghiaccio aiuta contro Dragonair; Kingdra è anche Acqua e non condivide la stessa debolezza al Ghiaccio."
+          "Il piano Ã¨ registrato. Nella palestra a nord, fai convergere entrambi i flussi sul ricevitore. Puoi controllare il percorso di ciascuno prima di ruotare i relÃ¨.",
+          "I Drago resistono a Fuoco, Acqua, Erba ed Elettro. Ghiaccio aiuta contro Dragonair; Dragonite è anche Volante e lo teme ancora di più. Gyarados invece è Acqua/Volante: Elettro è molto efficace."
         ]
       },
       {
         "whenFlagPresent": "q_resonance_restored",
         "lines": [
-          "Il rapporto del Santuario è registrato: giardino e rete rispondono insieme. Ora puoi seguire il ponte a est di Concordia per il Cammino dell’Equilibrio.",
-          "Il percorso arriva al piazzale della Lega, con cure e rifornimenti. Il portale del piazzale gestisce l’iscrizione alla sfida finale; puoi allenarti con Maia e Tobia lungo la strada."
+          "Il rapporto del Santuario Ã¨ registrato: giardino e rete rispondono insieme. Ora puoi seguire il ponte a est di Concordia per il Cammino dellâ€™Equilibrio.",
+          "Il percorso arriva al piazzale della Lega, con cure e rifornimenti. Il portale del piazzale gestisce lâ€™iscrizione alla sfida finale; puoi allenarti con Maia e Tobia lungo la strada."
         ]
       },
       {
         "lines": [
-          "Otto medaglie! Il Santuario si raggiunge entrando nel padiglione del giardino a est della fontana. Ti aspetterò nella corte: prima leggeremo entrambe le stazioni e concorderemo l’intervento."
+          "Otto medaglie! Il Santuario si raggiunge entrando nel padiglione del giardino a est della fontana. Ti aspetterÃ² nella corte: prima leggeremo entrambe le stazioni e concorderemo lâ€™intervento."
         ]
       }
     ]
@@ -1654,8 +1702,8 @@
   "gym08_instructions": {
     "speaker": "La convergenza",
     "lines": [
-      "Due sorgenti: Acqua del giardino a sinistra e Luce della rete a destra. Ruota i relè e segui le linee menta e lilla fino al ricevitore al centro.",
-      "Il cancello si apre soltanto quando entrambi i flussi arrivano insieme. Un flusso già collegato resta importante: controlla il percorso dell’altro prima di ruotare ancora. Puoi tornare all’ingresso in qualsiasi momento."
+      "Due sorgenti: Acqua del giardino a sinistra e Luce della rete a destra. Ruota i relÃ¨ e segui le linee menta e lilla fino al ricevitore al centro.",
+      "Il cancello si apre soltanto quando entrambi i flussi arrivano insieme. Un flusso giÃ  collegato resta importante: controlla il percorso dellâ€™altro prima di ruotare ancora. Puoi tornare allâ€™ingresso in qualsiasi momento."
     ]
   },
   "aurel_gym": {
@@ -1665,13 +1713,13 @@
         "whenFlagMissing": "trainer_gym08_aurel_defeated",
         "lines": [
           "Hai portato due flussi allo stesso traguardo senza cancellarne nessuno. La forza di una squadra nasce dalle differenze, non da quattro mosse uguali.",
-          "Sono Aurel. Dragonair ti metterà alla prova con paralisi e velocità; osserva anche Seadra e Kingdra prima di scegliere una contromossa. Quando sei pronto, affrontiamo insieme l’ultima palestra."
+          "Sono Aurel. Dragonair ti metterà alla prova con paralisi e velocità; osserva anche Seadra, Gyarados e Dragonite prima di scegliere una contromossa. Quando sei pronto, affrontiamo insieme l’ultima palestra."
         ]
       },
       {
         "lines": [
-          "La Medaglia Armonia è tua! Hai conquistato tutte e otto le medaglie di Veloria.",
-          "Con Elia prepareremo il riallineamento del Santuario. La strada verso la Lega richiederà tutta la squadra, non soltanto il Pokémon più forte."
+          "La Medaglia Armonia Ã¨ tua! Hai conquistato tutte e otto le medaglie di Veloria.",
+          "Con Elia prepareremo il riallineamento del Santuario. La strada verso la Lega richiederÃ  tutta la squadra, non soltanto il PokÃ©mon piÃ¹ forte."
         ]
       }
     ]
@@ -1693,13 +1741,13 @@
       },
       {
         "lines": [
-          "Il Santuario è stabile: natura e rete condividono il ritmo. Puoi tornare a consultare le letture dal padiglione del giardino."
+          "Il Santuario Ã¨ stabile: natura e rete condividono il ritmo. Puoi tornare a consultare le letture dal padiglione del giardino."
         ]
       }
     ]
   },
   "concordia_league_sign": {
-    "speaker": "Cammino dell’Equilibrio",
+    "speaker": "Cammino dellâ€™Equilibrio",
     "stages": [
       {
         "whenFlagMissing": "badge_drago_awarded",
@@ -1710,12 +1758,12 @@
       {
         "whenFlagMissing": "q_resonance_restored",
         "lines": [
-          "Dopo l’ottava medaglia, completa il riallineamento al Santuario: entra nel padiglione del giardino accanto alla fontana, raccogli le letture e parla con Elia."
+          "Dopo lâ€™ottava medaglia, completa il riallineamento al Santuario: entra nel padiglione del giardino accanto alla fontana, raccogli le letture e parla con Elia."
         ]
       },
       {
         "lines": [
-          "La Risonanza è stabile: il Cammino dell’Equilibrio è aperto. Segui il ponte verso est, oltre questo cartello, fino al piazzale della Lega.",
+          "La Risonanza Ã¨ stabile: il Cammino dellâ€™Equilibrio Ã¨ aperto. Segui il ponte verso est, oltre questo cartello, fino al piazzale della Lega.",
           "Maia e Tobia propongono allenamenti facoltativi; gli habitat sono ai lati del sentiero. Al piazzale trovi cure e mercato. Al portale del piazzale puoi iscriverti alla sfida consecutiva del Consiglio e del Campione."
         ]
       }
@@ -1728,19 +1776,19 @@
         "whenFlagMissing": "trainer_r15_nilo_defeated",
         "lines": [
           "Ehi, {trainer}! Da Borgofonte fino a qui: ne abbiamo fatta di strada. Prima della prossima palestra ti va un allenamento? Puoi anche riposare a Concordia e tornare quando vuoi.",
-          "Ho scelto tre Pokémon con ruoli diversi. Osserva tipi e stati, e tieni pronta la squadra di riserva."
+          "Ho scelto tre PokÃ©mon con ruoli diversi. Osserva tipi e stati, e tieni pronta la squadra di riserva."
         ]
       },
       {
         "lines": [
-          "L’allenamento è registrato: la ricompensa non si ripete, ma possiamo continuare a confrontare le nostre strategie.",
-          "Per Aurel preparerei più di una risposta: Dragonair e Kingdra non hanno gli stessi punti deboli. Ci vediamo sul cammino verso la Lega!"
+          "Lâ€™allenamento Ã¨ registrato: la ricompensa non si ripete, ma possiamo continuare a confrontare le nostre strategie.",
+          "Per Aurel preparerei più di una risposta: Dragonair, Gyarados e Dragonite non hanno gli stessi punti deboli. Ci vediamo sul cammino verso la Lega!"
         ]
       }
     ]
   },
   "d06_nature_reading": {
-    "speaker": "Stazione occidentale · giardino",
+    "speaker": "Stazione occidentale Â· giardino",
     "stages": [
       {
         "lines": [
@@ -1750,21 +1798,21 @@
       },
       {
         "lines": [
-          "Le radici e l’acqua mantengono un ritmo regolare. Il flusso attuale è troppo intenso: serve un FLUSSO NATURALE GRADUALE, senza fermare l’acqua del giardino.",
-          "Appunto: flusso graduale. Il ricevitore può seguire il ritmo soltanto se anche la rete lo condivide. Confronta la stazione a est e poi parla con Elia prima di regolare il nodo."
+          "Le radici e lâ€™acqua mantengono un ritmo regolare. Il flusso attuale Ã¨ troppo intenso: serve un FLUSSO NATURALE GRADUALE, senza fermare lâ€™acqua del giardino.",
+          "Appunto: flusso graduale. Il ricevitore puÃ² seguire il ritmo soltanto se anche la rete lo condivide. Confronta la stazione a est e poi parla con Elia prima di regolare il nodo."
         ],
         "whenFlagMissing": "q_d06_nature_read",
         "questEvent": "d06/nature/read"
       },
       {
         "lines": [
-          "Appunto della stazione occidentale: FLUSSO NATURALE GRADUALE. L’acqua deve continuare a raggiungere il giardino e il nodo. Per la sincronia serve un ritmo CONDIVISO con la stazione orientale."
+          "Appunto della stazione occidentale: FLUSSO NATURALE GRADUALE. Lâ€™acqua deve continuare a raggiungere il giardino e il nodo. Per la sincronia serve un ritmo CONDIVISO con la stazione orientale."
         ]
       }
     ]
   },
   "d06_network_reading": {
-    "speaker": "Stazione orientale · rete",
+    "speaker": "Stazione orientale Â· rete",
     "stages": [
       {
         "lines": [
@@ -1774,15 +1822,15 @@
       },
       {
         "lines": [
-          "La rete sta amplificando ogni piccola variazione. Serve un’AMPLIFICAZIONE CONTROLLATA, non la massima potenza e nemmeno spegnere tutto.",
-          "Appunto: amplificazione controllata e SINCRONIA CONDIVISA. I test della divisione di ricerca sono stati avviati senza l’autorizzazione necessaria e senza coordinare le stazioni. Ora i ricercatori ci aiutano a correggere il problema: porta entrambe le letture a Elia."
+          "La rete sta amplificando ogni piccola variazione. Serve unâ€™AMPLIFICAZIONE CONTROLLATA, non la massima potenza e nemmeno spegnere tutto.",
+          "Appunto: amplificazione controllata e SINCRONIA CONDIVISA. I test della divisione di ricerca sono stati avviati senza lâ€™autorizzazione necessaria e senza coordinare le stazioni. Ora i ricercatori ci aiutano a correggere il problema: porta entrambe le letture a Elia."
         ],
         "whenFlagMissing": "q_d06_network_read",
         "questEvent": "d06/network/read"
       },
       {
         "lines": [
-          "Appunto della stazione orientale: AMPLIFICAZIONE CONTROLLATA e SINCRONIA CONDIVISA. La rete può continuare a sostenere i giardini seguendo il ritmo naturale."
+          "Appunto della stazione orientale: AMPLIFICAZIONE CONTROLLATA e SINCRONIA CONDIVISA. La rete puÃ² continuare a sostenere i giardini seguendo il ritmo naturale."
         ]
       }
     ]
@@ -1792,27 +1840,27 @@
     "stages": [
       {
         "lines": [
-          "Il Santuario raccoglie i segnali di tutta Veloria, {trainer}. Prima di toccare il nodo, completa con Aurel la prova di convergenza e conquista la Medaglia Armonia. Puoi tornare a Concordia dall’ingresso a sud."
+          "Il Santuario raccoglie i segnali di tutta Veloria, {trainer}. Prima di toccare il nodo, completa con Aurel la prova di convergenza e conquista la Medaglia Armonia. Puoi tornare a Concordia dallâ€™ingresso a sud."
         ],
         "whenFlagMissing": "badge_drago_awarded"
       },
       {
         "lines": [
           "Siamo arrivati al nodo delle Due Luci. Non dobbiamo scegliere tra giardini e rete: dobbiamo farli collaborare. Esamina prima la stazione occidentale, sul lato del giardino.",
-          "I test della divisione di ricerca non erano stati autorizzati e hanno alterato l’amplificazione. Gli scienziati hanno condiviso i registri e ora lavorano con noi: correggeremo le impostazioni usando le misure."
+          "I test della divisione di ricerca non erano stati autorizzati e hanno alterato lâ€™amplificazione. Gli scienziati hanno condiviso i registri e ora lavorano con noi: correggeremo le impostazioni usando le misure."
         ],
         "whenFlagMissing": "q_d06_nature_read"
       },
       {
         "lines": [
-          "La lettura del giardino è pronta. Esamina anche la stazione orientale, sul lato dei condotti: prima di intervenire dobbiamo confrontare i due segnali."
+          "La lettura del giardino Ã¨ pronta. Esamina anche la stazione orientale, sul lato dei condotti: prima di intervenire dobbiamo confrontare i due segnali."
         ],
         "whenFlagMissing": "q_d06_network_read"
       },
       {
         "lines": [
-          "Le letture concordano: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. La rete resterà attiva, seguendo il ritmo del giardino.",
-          "Ti propongo di applicare queste tre impostazioni e poi verificare il ricevitore centrale. Vuoi procedere? Nessuna regolazione partirà finché non avrai scelto."
+          "Le letture concordano: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. La rete resterÃ  attiva, seguendo il ritmo del giardino.",
+          "Ti propongo di applicare queste tre impostazioni e poi verificare il ricevitore centrale. Vuoi procedere? Nessuna regolazione partirÃ  finchÃ© non avrai scelto."
         ],
         "whenFlagMissing": "q_d06_restore_authorized",
         "choicePrompt": "Come vuoi procedere?",
@@ -1821,13 +1869,13 @@
             "id": "review",
             "label": "RIVEDIAMO LE MISURE",
             "lines": [
-              "A ovest abbiamo misurato il ritmo naturale: serve un flusso GRADUALE. A est abbiamo visto una risposta troppo intensa: serve un’amplificazione CONTROLLATA. Le due stazioni devono avere una sincronia CONDIVISA.",
-              "Regolerai il nodo, poi sceglierai Verifica equilibrio. Infine leggerai il ricevitore centrale e tornerai da me per il rapporto. Puoi rivedere gli strumenti e decidere più tardi."
+              "A ovest abbiamo misurato il ritmo naturale: serve un flusso GRADUALE. A est abbiamo visto una risposta troppo intensa: serve unâ€™amplificazione CONTROLLATA. Le due stazioni devono avere una sincronia CONDIVISA.",
+              "Regolerai il nodo, poi sceglierai Verifica equilibrio. Infine leggerai il ricevitore centrale e tornerai da me per il rapporto. Puoi rivedere gli strumenti e decidere piÃ¹ tardi."
             ]
           },
           {
             "id": "confirm",
-            "label": "RIPRISTINIAMO L’EQUILIBRIO",
+            "label": "RIPRISTINIAMO Lâ€™EQUILIBRIO",
             "lines": [
               "Piano confermato. Al nodo imposta flusso GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA, poi scegli Verifica equilibrio.",
               "Dopo la regolazione, esamina il ricevitore centrale: non basta cambiare le impostazioni, dobbiamo controllare il risultato. Poi torna qui."
@@ -1843,8 +1891,8 @@
       },
       {
         "lines": [
-          "Il piano è confermato. Regola il nodo: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. Scegli Verifica equilibrio quando tutte e tre le impostazioni corrispondono alle letture.",
-          "Il ricevitore centrale servirà a controllare il risultato. Puoi tornare all’ingresso e a Concordia in qualsiasi momento."
+          "Il piano Ã¨ confermato. Regola il nodo: flusso naturale GRADUALE, amplificazione CONTROLLATA e sincronia CONDIVISA. Scegli Verifica equilibrio quando tutte e tre le impostazioni corrispondono alle letture.",
+          "Il ricevitore centrale servirÃ  a controllare il risultato. Puoi tornare allâ€™ingresso e a Concordia in qualsiasi momento."
         ],
         "whenFlagMissing": "q_d06_balance_restored"
       },
@@ -1856,16 +1904,16 @@
       },
       {
         "lines": [
-          "Il ricevitore conferma lo stesso ritmo nelle due stazioni. La Risonanza è tornata in equilibrio: l’acqua sostiene il giardino e la rete accompagna il segnale senza sovrastarlo.",
-          "Grazie, {trainer}. Gli scienziati registreranno ogni nuova regolazione e chiederanno l’autorizzazione prima di altri test. Per il lavoro di ricerca ricevi 1000 monete e due Iperpozioni.",
-          "Puoi tornare a Concordia dall’ingresso a sud. Le stazioni restano consultabili: questo risultato è un punto da cui continuare il viaggio, insieme ai tuoi Pokémon."
+          "Il ricevitore conferma lo stesso ritmo nelle due stazioni. La Risonanza Ã¨ tornata in equilibrio: lâ€™acqua sostiene il giardino e la rete accompagna il segnale senza sovrastarlo.",
+          "Grazie, {trainer}. Gli scienziati registreranno ogni nuova regolazione e chiederanno lâ€™autorizzazione prima di altri test. Per il lavoro di ricerca ricevi 1000 monete e due Iperpozioni.",
+          "Puoi tornare a Concordia dallâ€™ingresso a sud. Le stazioni restano consultabili: questo risultato Ã¨ un punto da cui continuare il viaggio, insieme ai tuoi PokÃ©mon."
         ],
         "whenFlagMissing": "q_resonance_restored",
         "questEvent": "d06/report"
       },
       {
         "lines": [
-          "Il rapporto è registrato. Giardino e rete condividono lo stesso ritmo: abbiamo ripristinato l’equilibrio senza distruggere la tecnologia.",
+          "Il rapporto Ã¨ registrato. Giardino e rete condividono lo stesso ritmo: abbiamo ripristinato lâ€™equilibrio senza distruggere la tecnologia.",
           "Le stazioni restano aperte per confrontare i dati. Puoi tornare a Concordia a sud, allenare la squadra e continuare a esplorare Veloria."
         ]
       }
@@ -1882,8 +1930,8 @@
       },
       {
         "lines": [
-          "Verifica riuscita: il ritmo del giardino e la risposta della rete coincidono. Il segnale resta leggibile senza fermare l’acqua né interrompere le stazioni.",
-          "Lettura di controllo registrata. Torna da Elia per completare il rapporto: la regolazione è stata confermata anche dal ricevitore."
+          "Verifica riuscita: il ritmo del giardino e la risposta della rete coincidono. Il segnale resta leggibile senza fermare lâ€™acqua nÃ© interrompere le stazioni.",
+          "Lettura di controllo registrata. Torna da Elia per completare il rapporto: la regolazione Ã¨ stata confermata anche dal ricevitore."
         ],
         "whenFlagMissing": "q_d06_receiver_confirmed",
         "questEvent": "d06/receiver/confirm"
@@ -1891,7 +1939,7 @@
       {
         "lines": [
           "Verifica registrata: flusso graduale, amplificazione controllata e sincronia condivisa. Le due stazioni rispondono insieme.",
-          "Il rapporto finale va consegnato a Elia. Puoi poi scendere verso l’ingresso a sud e tornare a Concordia."
+          "Il rapporto finale va consegnato a Elia. Puoi poi scendere verso lâ€™ingresso a sud e tornare a Concordia."
         ]
       }
     ]
@@ -1902,13 +1950,13 @@
       {
         "whenFlagMissing": "trainer_r16_maia_defeated",
         "lines": [
-          "Il Cammino dell’Equilibrio prepara alla Lega. Ti va un allenamento? Puoi anche passare e tornare più tardi. Sul piazzale trovi cure e mercato.",
+          "Il Cammino dellâ€™Equilibrio prepara alla Lega. Ti va un allenamento? Puoi anche passare e tornare piÃ¹ tardi. Sul piazzale trovi cure e mercato.",
           "La sfida si avvia soltanto se scegli SFIDA. Prepara la squadra con calma."
         ]
       },
       {
         "lines": [
-          "Un ottimo allenamento! Steelix non teme Elettro, mentre Quagsire soffre molto Erba: controlla sempre entrambi i tipi nel Pokédex.",
+          "Un ottimo allenamento! Onix non teme Elettro, mentre Nidoqueen è Veleno/Terra: controlla sempre entrambi i tipi nel Pokédex.",
           "Puoi proseguire verso nord-est, fino al piazzale della Lega. Il percorso principale resta libero dagli habitat."
         ]
       }
@@ -1920,7 +1968,7 @@
       {
         "whenFlagMissing": "trainer_r16_tobia_defeated",
         "lines": [
-          "La forza non basta: osserva difese fisiche e speciali, precisione e PP. Ti propongo un allenamento facoltativo prima dell’arrivo alla Lega.",
+          "La forza non basta: osserva difese fisiche e speciali, precisione e PP. Ti propongo un allenamento facoltativo prima dellâ€™arrivo alla Lega.",
           "La sfida si avvia soltanto se scegli SFIDA. Prepara la squadra con calma."
         ]
       },
@@ -1938,7 +1986,7 @@
       {
         "whenFlagPresent": "q_league_completed",
         "lines": [
-          "Benvenuto, Campione! Il tuo traguardo è registrato. Puoi rivedere la cerimonia al portale e continuare a esplorare Veloria. Cure, deposito e mercato restano aperti."
+          "Benvenuto, Campione! Il tuo traguardo Ã¨ registrato. Puoi rivedere la cerimonia al portale e continuare a esplorare Veloria. Cure, deposito e mercato restano aperti."
         ]
       },
       {
@@ -1952,14 +2000,14 @@
         "questEvent": "league/reception/welcome",
         "lines": [
           "Benvenuto alla Lega di Veloria, {trainer}! Il Consiglio e il Campione ti aspettano. Servono tutte le otto medaglie e il rapporto verificato del Santuario.",
-          "A ovest trovi cure e deposito; a est il mercato. Durante un tentativo puoi usare gli strumenti, ma non riposare né cambiare i Pokémon dal deposito. Una sconfitta o l’abbandono fanno ripartire dal primo incontro, conservando esperienza e risorse rimaste.",
+          "A ovest trovi cure e deposito; a est il mercato. Durante un tentativo puoi usare gli strumenti, ma non riposare nÃ© cambiare i PokÃ©mon dal deposito. Una sconfitta o lâ€™abbandono fanno ripartire dal primo incontro, conservando esperienza e risorse rimaste.",
           "Quando sei pronto esamina il portale a nord. Ogni incontro parte da una tua scelta: puoi controllare la squadra e ricaricare il gioco fra le sale."
         ]
       },
       {
         "lines": [
           "Il portale a nord gestisce iscrizione e avanzamento nella Lega. Prima prepara HP, PP, squadra e strumenti: non ci sono cure gratuite fra gli incontri.",
-          "Se lasci le sale, confermerai l’abbandono. Esperienza e ricompense già guadagnate restano, ma il prossimo tentativo ricomincia dal primo consigliere."
+          "Se lasci le sale, confermerai lâ€™abbandono. Esperienza e ricompense giÃ  guadagnate restano, ma il prossimo tentativo ricomincia dal primo consigliere."
         ]
       }
     ]
@@ -1997,7 +2045,7 @@
   "league_champion": {
     "speaker": "Enea",
     "lines": [
-      "Siamo arrivati alla sfida finale. La mia squadra rappresenta il viaggio di Veloria: sei pronto a mettere insieme ciò che hai imparato?"
+      "Siamo arrivati alla sfida finale. La mia squadra rappresenta il viaggio di Veloria: sei pronto a mettere insieme ciÃ² che hai imparato?"
     ]
   },
   "r06_iris": {
@@ -2006,12 +2054,12 @@
       {
         "whenFlagMissing": "trainer_r06_iris_defeated",
         "lines": [
-          "Conosci già i tipi Terra e Acciaio? Proviamo insieme con una sfida facoltativa. Puoi continuare verso Ferraluce e tornare quando vuoi."
+          "Conosci giÃ  i tipi Terra e Acciaio? Proviamo insieme con una sfida facoltativa. Puoi continuare verso Ferraluce e tornare quando vuoi."
         ]
       },
       {
         "lines": [
-          "Il Centro Pokémon di Ferraluce è vicino alla piazza: riposa lì prima di sfidare Rhea."
+          "Il Centro PokÃ©mon di Ferraluce Ã¨ vicino alla piazza: riposa lÃ¬ prima di sfidare Rhea."
         ]
       }
     ]
@@ -2027,7 +2075,7 @@
       },
       {
         "lines": [
-          "Il misuratore del Condotto è poco più a nord-est. Per entrare nella Centrale serve la Medaglia Acciaio."
+          "Il misuratore del Condotto Ã¨ poco piÃ¹ a nord-est. Per entrare nella Centrale serve la Medaglia Acciaio."
         ]
       }
     ]
@@ -2059,7 +2107,7 @@
       },
       {
         "lines": [
-          "Torna al Centro Pokémon di Acquariva per recuperare HP e PP. Controlla nel Pokédex i tipi e le mosse degli avversari prima della palestra."
+          "Torna al Centro PokÃ©mon di Acquariva per recuperare HP e PP. Controlla nel PokÃ©dex i tipi e le mosse degli avversari prima della palestra."
         ]
       }
     ]
@@ -2070,7 +2118,7 @@
       {
         "whenFlagMissing": "trainer_r09_noemi_defeated",
         "lines": [
-          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+          "Ti va un allenamento? La sfida Ã¨ facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
         ]
       },
       {
@@ -2086,12 +2134,12 @@
       {
         "whenFlagMissing": "trainer_r10_bruno_defeated",
         "lines": [
-          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+          "Ti va un allenamento? La sfida Ã¨ facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
         ]
       },
       {
         "lines": [
-          "Una mossa di stato può cambiare il ritmo della lotta. Controlla precisione ed effetti nei dettagli; il Centro di Acquariva è vicino."
+          "Una mossa di stato puÃ² cambiare il ritmo della lotta. Controlla precisione ed effetti nei dettagli; il Centro di Acquariva Ã¨ vicino."
         ]
       }
     ]
@@ -2102,7 +2150,7 @@
       {
         "whenFlagMissing": "trainer_r12_ruben_defeated",
         "lines": [
-          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+          "Ti va un allenamento? La sfida Ã¨ facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
         ]
       },
       {
@@ -2118,12 +2166,12 @@
       {
         "whenFlagMissing": "trainer_r13_alma_defeated",
         "lines": [
-          "Ti va un allenamento? La sfida è facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
+          "Ti va un allenamento? La sfida Ã¨ facoltativa: puoi scegliere NON ORA e proseguire sul sentiero."
         ]
       },
       {
         "lines": [
-          "Non tutti i Pokémon della neve sono soltanto Ghiaccio: Seel è Acqua, Jynx è Ghiaccio/Psico e Piloswine è Ghiaccio/Terra. Recupera HP e PP a Biancavetta prima della palestra."
+          "Non tutti i Pokémon della neve sono soltanto Ghiaccio: Seel è Acqua, Jynx Ghiaccio/Psico e Dewgong Acqua/Ghiaccio. Recupera HP e PP a Biancavetta prima della palestra."
         ]
       }
     ]

@@ -9,8 +9,35 @@
   "victoryMessage": "Hai vinto contro Selene. Ricevi 1800 ₿ e la Medaglia Riflesso.",
   "victoryFeedback": "La Medaglia Riflesso è tua! Hai osservato gli effetti delle mosse e adattato la strategia. Gli attacchi Psico non colpiscono il tipo Buio; Slowbro aggiunge il tipo Acqua, quindi non condivide tutte le difese di Hypno ed Espeon. Un cambio al momento giusto può aiutare contro gli status. La Via delle Cascate è ora percorribile: collega il lago a Vetracielo senza interrompere il percorso attraverso il Delta.",
   "team": [
-    { "speciesId": 97, "level": 35, "moveIds": ["psybeam", "hypnosis", "meditate", "pound"] },
-    { "speciesId": 80, "level": 37, "moveIds": ["water-gun", "confusion", "withdraw", "growl"] },
-    { "speciesId": 196, "level": 38, "moveIds": ["psybeam", "swift", "quick-attack", "sand-attack"] }
+    {
+      "speciesId": 97,
+      "level": 35,
+      "moveIds": [
+        "psybeam",
+        "hypnosis",
+        "meditate",
+        "pound"
+      ]
+    },
+    {
+      "speciesId": 80,
+      "level": 37,
+      "moveIds": [
+        "water-gun",
+        "confusion",
+        "withdraw",
+        "growl"
+      ]
+    },
+    {
+      "speciesId": 64,
+      "level": 38,
+      "moveIds": [
+        "psybeam",
+        "role-play",
+        "psycho-cut",
+        "recover"
+      ]
+    }
   ]
 }

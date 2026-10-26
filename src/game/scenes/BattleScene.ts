@@ -112,6 +112,7 @@ export class BattleScene extends Phaser.Scene {
   private messageTimer?: Phaser.Time.TimerEvent;
   private captureCounter = 0;
   private playerForcedToSwitch = false;
+  private batonPassMoveSlot?: number;
   private selectableButtons: SelectableButton[] = [];
   private moveSlotIndexes: number[] = [];
   private selectionIndex = 0;
@@ -249,6 +250,11 @@ export class BattleScene extends Phaser.Scene {
       this.render(this.mode === 'learning'); return;
     }
     if (this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch) return;
+    if (this.batonPassMoveSlot !== undefined) {
+      this.batonPassMoveSlot = undefined;
+      this.mode = 'moves';
+      this.render(); return;
+    }
     if (this.mode === 'menu') return;
     this.mode = 'menu';
     this.render();
@@ -451,7 +457,7 @@ export class BattleScene extends Phaser.Scene {
   private get commandLayout() { return battleCommandLayout(this.viewport.width, this.viewport.height); }
 
   private drawCommandNavigation(): void {
-    const locked = this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch || this.terminalPreparing;
+    const locked = this.mode === 'message' || this.mode === 'learning' || this.playerForcedToSwitch || this.batonPassMoveSlot !== undefined || this.terminalPreparing;
     const tabs: BattleCommandTab[] = [
       { id: 'moves', label: 'LOTTA', icon: '⚔️', enabled: this.activeCreature('player').hp > 0, selected: this.mode === 'moves' || this.mode === 'menu', onSelect: () => this.open('moves') },
       { id: 'items', label: 'BORSA', icon: '🎒', enabled: this.availableItemIds().length > 0, selected: this.mode === 'items', onSelect: () => this.open('items') },
@@ -492,10 +498,18 @@ export class BattleScene extends Phaser.Scene {
       const move = this.moveCatalog[slot.moveId];
       if (!move) return;
       const row = Math.floor(index / columns), column = index % columns;
-      const enabled = slot.pp > 0;
-      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp, this.moveAccuracyLabel(move));
+      const enabled = slot.pp > 0 && (!move.batonPass || this.state.player.creatures.some((candidate, partyIndex) => partyIndex !== this.state.player.activeIndex && candidate.hp > 0));
+      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp, this.moveAccuracyLabel(move), { gravityActive: Boolean(this.state.gravityTurnsRemaining) });
       const selectionIndex = this.selectableButtons.length;
-      const use = () => { this.selectionIndex = selectionIndex; this.act({ kind: 'useMove', moveSlot: index }); };
+      const use = () => {
+        this.selectionIndex = selectionIndex;
+        if (move.batonPass) {
+          this.batonPassMoveSlot = index;
+          this.selectionIndex = 0;
+          this.mode = 'party';
+          this.render();
+        } else this.act({ kind: 'useMove', moveSlot: index });
+      };
       const paint = drawBattleMoveCard(this, this.ui,
         grid.card(index),
         card, this.typeColor(move.type), enabled, this.viewport.density, use,
@@ -560,7 +574,7 @@ export class BattleScene extends Phaser.Scene {
     if (move && slot) {
       this.label(textX, textY, `${MOVE_TYPE_ICONS[move.type]} ${move.name}`, '#afffe3', 19);
       const target = this.activeCreature('opponent');
-      const matchup = describeMoveMatchup(move, target, this.rules);
+      const matchup = describeMoveMatchup(move, target, this.rules, { gravityActive: Boolean(this.state.gravityTurnsRemaining) });
       const forecast = learningDetail ? undefined : this.moveForecast(move);
       const category = move.category === 'status' ? 'Supporto' : move.category === 'physical' ? 'Fisica' : 'Speciale';
       const paragraphs = [
@@ -611,10 +625,13 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private drawPartyChoices(x: number, y: number, width: number): void {
+    if (this.batonPassMoveSlot !== undefined) this.label(x + 8, y + 4, 'SCEGLI IL COMPAGNO PER STAFFETTA', '#bce8ff', 12);
     const options = this.state.player.creatures.map((creature, index) => ({
       label: `${creature.name} · ${creature.hp}/${creature.stats.maxHp} HP`,
       enabled: creature.hp > 0 && index !== this.state.player.activeIndex,
-      callback: () => this.act({ kind: 'switch', partyIndex: index }),
+      callback: () => this.batonPassMoveSlot === undefined
+        ? this.act({ kind: 'switch', partyIndex: index })
+        : this.act({ kind: 'useMove', moveSlot: this.batonPassMoveSlot, batonPassPartyIndex: index }),
     }));
     if (this.playerForcedToSwitch) options.push({ label: 'Ritorno non disponibile', enabled: false, callback: () => undefined });
     this.drawGridButtons(x, y, width, options, 2, 3);
@@ -664,12 +681,12 @@ export class BattleScene extends Phaser.Scene {
       const bounds = { x: knownX + index % 2 * (knownWidth + 8) / 2, y: knownY + Math.floor(index / 2) * 108,
         width: (knownWidth - 8) / 2, height: 100 };
       const choose = automatic ? () => openDetails(index) : () => this.resolveMoveLearning(index);
-      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp);
+      const card = createMoveCard(move, this.activeCreature('opponent'), this.rules, slot.pp, undefined, { gravityActive: Boolean(this.state.gravityTurnsRemaining) });
       const paint = drawBattleMoveCard(this, this.ui, bounds, card, this.typeColor(move.type), true, this.viewport.density, choose, () => openDetails(index));
       this.selectableButtons.push({ row: 1 + Math.floor(index / 2), column: index % 2, callback: choose, paint });
     });
     this.button(x, height - 60, landscape ? leftWidth : this.viewport.width - 24, 44, automatic ? 'Continua' : 'Tieni le mosse', automatic ? () => this.advanceMessage() : () => this.resolveMoveLearning(null), COLORS.blue, true, 3, 0);
-    const card = createMoveCard(candidate, this.activeCreature('opponent'), this.rules, candidate.maxPp);
+    const card = createMoveCard(candidate, this.activeCreature('opponent'), this.rules, candidate.maxPp, undefined, { gravityActive: Boolean(this.state.gravityTurnsRemaining) });
     const paint = drawBattleMoveCard(this, this.ui, { x, y: 84, width: leftWidth, height: 100 }, card,
       this.typeColor(candidate.type), true, this.viewport.density, () => openDetails(knownMoves.length), () => openDetails(knownMoves.length));
     this.selectableButtons.push({ row: 0, column: 0, callback: () => openDetails(knownMoves.length), paint });
@@ -957,6 +974,7 @@ export class BattleScene extends Phaser.Scene {
 
   private act(playerCommand: BattleCommand): void {
     if (this.state.outcome.kind !== 'ongoing') return;
+    this.batonPassMoveSlot = undefined;
     const opponentCommand = this.chooseOpponentCommand();
     this.visualHp = new Map([...this.state.player.creatures, ...this.state.opponent.creatures].map(creature => [creature.instanceId, creature.hp]));
     this.visualActiveIds = new Map<BattleSide, string>([
@@ -1323,6 +1341,7 @@ export class BattleScene extends Phaser.Scene {
     const shownCreature = (side: BattleSide, id: string) => this.unrevealedEvolutions.get(id) ?? this.creatureById(side, id);
     switch (event.type) {
       case 'commandRejected':
+        if (event.reason === 'trapped') return 'Non puoi sostituire una creatura intrappolata.';
         return event.reason === 'captureForbidden' ? 'Non puoi catturare le creature di un allenatore.' : 'Non puoi eseguire questa azione.';
       case 'moveUsed': {
         const creature = shownCreature(event.side, event.creatureId);
@@ -1330,26 +1349,90 @@ export class BattleScene extends Phaser.Scene {
         const moveName = event.moveId === EMERGENCY_MOVE_ID ? EMERGENCY_MOVE_NAME : move?.name ?? event.moveId;
         return `${creature?.name ?? 'La creatura'} usa ${moveName}.`;
       }
+      case 'moveInvoked': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} usa ${this.moveCatalog[event.sourceMoveId]?.name ?? event.sourceMoveId} e richiama ${this.moveCatalog[event.moveId]?.name ?? event.moveId}.`;
+      case 'moveCopied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} imita ${this.moveCatalog[event.moveId]?.name ?? event.moveId}.`;
+      case 'substituteCreated': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} crea un sostituto con ${event.hp} HP.`;
+      case 'substituteDamaged': return `Il sostituto subisce ${event.damage} danni${event.hpRemaining === 0 ? ' e si rompe' : `; restano ${event.hpRemaining} HP`}.`;
+      case 'gravityApplied': return 'La gravità si intensifica per cinque turni.';
+      case 'payDayBonusAdded': return `Sono state sparse ${event.amount} monete: potrai raccoglierle vincendo la lotta.`;
+      case 'gravityEnded': return 'La gravità torna alla normalità.';
+      case 'healingWishTriggered': return `Desiderio Curativo ripristina ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'} al massimo della salute e cura i suoi stati alterati.`;
       case 'recoilApplied':
         return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.amount} danni da contraccolpo.`;
       case 'healingApplied': return `Assorbe energia e recupera ${event.amount} HP.`;
       case 'flinched': return formatFlinched(shownCreature(event.side, event.creatureId)?.name ?? 'Il Pokémon');
       case 'leechSeedApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è colpita da Parassiseme!`;
+      case 'leechSeedCured': return `Parassiseme si è dissolto da ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
       case 'leechSeedPrevented': return event.reason === 'immune' ? 'Parassiseme non ha effetto sui Pokémon Erba.' : 'Il bersaglio è già sotto l’effetto di Parassiseme.';
       case 'leechSeedTick': return `Parassiseme sottrae ${event.damage} HP a ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
       case 'confusionApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è confusa!`;
-      case 'confusionPrevented': return 'Il bersaglio è già confuso.';
+      case 'infatuationApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} si è innamorata di ${shownCreature(event.side === 'player' ? 'opponent' : 'player', event.sourceCreatureId)?.name ?? 'un avversario'}.`;
+      case 'infatuationTick': return event.immobilized ? 'L’infatuazione impedisce di agire.' : null;
+      case 'curseApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è maledetta!`;
+      case 'curseTick': return `La maledizione infligge ${event.damage} danni a ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
+      case 'nightmareApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è intrappolata in un incubo.`;
+      case 'nightmareTick': return `L’incubo infligge ${event.damage} danni a ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
+      case 'destinyBondActivated': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} si lega al suo destino.`;
+      case 'grudgeActivated': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} prepara rancore.`;
+      case 'abilitySuppressed': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} perde l’abilità ${event.abilityId.replaceAll('-', ' ')}.`;
+      case 'magnetRiseEnded': return `L’effetto di Magnetascesa su ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'} è terminato.`;
+      case 'futureSightScheduled': return 'Un attacco si prepara a colpire tra tre turni.';
+      case 'futureSightHit': return `Premonizione infligge ${event.damage} danni a ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
+      case 'perishSongApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} sente il Canto Effimero.`;
+      case 'perishSongTick': return event.turnsRemaining === 0 ? `Il conto alla rovescia di ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'} è terminato.` : `Restano ${event.turnsRemaining} turni per ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'}.`;
+      case 'hazardSet': return event.hazard === 'spikes' ? 'Sono state sparse punte sul campo avversario.' : 'Sono state sparse punte tossiche sul campo avversario.';
+      case 'hazardCleared': return event.hazard === 'spikes' ? 'Le punte sono state rimosse dal campo.' : 'Le punte tossiche sono state rimosse dal campo.';
+      case 'entryHazardDamage': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.damage} danni dalle punte.`;
+      case 'trappingApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è intrappolata!`;
+      case 'trappingTick': return `L’intrappolamento infligge ${event.damage} danni.`;
+      case 'trappingEnded': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} non è più intrappolata.`;
+      case 'escapeBlocked': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} non può fuggire.`;
+      case 'moveEncored': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è costretta a ripetere ${this.moveCatalog[event.moveId]?.name ?? event.moveId}.`;
+      case 'moveDisabled': return `${this.moveCatalog[event.moveId]?.name ?? event.moveId} è disabilitata.`;
+      case 'movePpReduced': return `${this.moveCatalog[event.moveId]?.name ?? event.moveId} perde ${event.amount} PP.`;
+      case 'tauntApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} è provocata!`;
+      case 'tauntEnded': return `La provocazione su ${shownCreature(event.side, event.creatureId)?.name ?? 'la creatura'} è terminata.`;
+      case 'abilityChanged': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ora ha ${event.abilityId.replaceAll('-', ' ')}.`;
+      case 'abilityActivated': return `L’abilità ${event.abilityId.replaceAll('-', ' ')} si attiva.`;
+      case 'weatherApplied': return `Cambia il tempo: ${event.weather}.`;
+      case 'weatherEnded': return `Il tempo ${event.weather} è terminato.`;
+      case 'weatherTick': return `${event.weather} infligge ${event.damage} danni.`;
+      case 'screenApplied': return `${event.screen === 'reflect' ? 'Riflesso' : 'Schermoluce'} protegge la squadra.`;
+      case 'screenEnded': return `L’effetto di ${event.screen === 'reflect' ? 'Riflesso' : 'Schermoluce'} svanisce.`;
+      case 'safeguardApplied': return 'Salvaguardia protegge la squadra dagli stati alterati.';
+      case 'safeguardEnded': return 'La Salvaguardia è terminata.';
+      case 'mistApplied': return 'Nebbia protegge le statistiche della squadra.';
+      case 'mistEnded': return 'La Nebbia è terminata.';
+      case 'luckyChantApplied': return 'Fortuncanto protegge la squadra dai colpi critici.';
+      case 'luckyChantEnded': return 'Fortuncanto è terminato.';
+      case 'tailwindApplied': return 'Ventoincoda raddoppia la Velocità della squadra.';
+      case 'tailwindEnded': return 'Ventoincoda è terminato.';
+      case 'foresightApplied': return event.kind === 'foresight' ? `${shownCreature(event.side, event.creatureId)?.name ?? 'Il bersaglio'} è stato individuato.` : `${shownCreature(event.side, event.creatureId)?.name ?? 'Il bersaglio'} non può più eludere gli attacchi Psico.`;
+      case 'lockOnApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'Il bersaglio'} è stato agganciato.`;
+      case 'imprisonApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ha imprigionato le mosse condivise.`;
+      case 'typeChanged': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ha cambiato tipo.`;
+      case 'drowsinessApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} sembra assonnata.`;
+      case 'drowsinessEnded': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} cede al sonno.`;
+      case 'protectionApplied': return event.kind === 'endure' ? 'La creatura resiste con 1 HP.' : 'La creatura si protegge.';
+      case 'protectionFailed': return 'La protezione non è riuscita.';
+      case 'rechargeRequired': return 'La creatura deve ricaricarsi.';
+      case 'rechargeConsumed': return 'La creatura ha completato la ricarica.';
+      case 'chargeStarted': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} si prepara a caricare ${this.moveCatalog[event.moveId]?.name ?? event.moveId}.`;
+      case 'hpSacrificed': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} sacrifica ${event.amount} HP.`;
+      case 'confusionPrevented': return event.reason === 'ownTempo' ? 'La creatura è immune alla confusione.' : event.reason === 'safeguard' ? 'La Salvaguardia impedisce la confusione.' : 'Il bersaglio è già confuso.';
       case 'confusionTick': return event.turnsRemaining === 0 ? 'La confusione è passata.' : null;
       case 'confusionSelfHit': return `Si colpisce per la confusione! −${event.amount} HP`;
       case 'moveMissed': return 'L’attacco manca il bersaglio.';
-      case 'moveFailed': return event.reason === 'noPp' ? 'Non restano PP per questa mossa.' : event.reason === 'blockedByStatus' ? 'Lo stato impedisce di agire.' : 'Non c’è un bersaglio disponibile.';
+      case 'moveFailed': return event.reason === 'noPp' ? 'Non restano PP per questa mossa.' : event.reason === 'blockedByStatus' ? 'Lo stato impedisce di agire.' : event.reason === 'noTarget' ? 'Non c’è un bersaglio disponibile.' : event.reason === 'disabled' ? 'Questa mossa è disabilitata.' : event.reason === 'taunted' ? 'La provocazione impedisce di usare mosse di stato.' : event.reason === 'recharging' ? 'La creatura deve ricaricarsi.' : event.reason === 'imprisoned' ? 'La mossa è stata imprigionata.' : 'La mossa non ha effetto.';
       case 'damageApplied':
         if (event.effectiveness === 0) return 'Nessun effetto: il bersaglio è immune.';
         if (event.effectiveness > 1) return `Super efficace! −${event.amount} HP`;
         if (event.effectiveness < 1) return `Poco efficace · −${event.amount} HP`;
         return event.critical ? `Colpo critico! −${event.amount} HP` : `A segno · −${event.amount} HP`;
       case 'statusApplied': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} ${this.statusVerb(event.status)}.`;
-      case 'statusPrevented': return event.reason === 'alreadyAfflicted' ? 'La creatura ha già un problema di stato.' : 'Il tipo della creatura la protegge da questo stato.';
+      case 'statusCured': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} non ha più ${event.status}.`;
+      case 'confusionCured': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} non è più confusa.`;
+      case 'statusPrevented': return event.reason === 'alreadyAfflicted' ? 'La creatura ha già un problema di stato.' : event.reason === 'ability' ? 'L’abilità della creatura impedisce questo stato.' : event.reason === 'safeguard' ? 'La Salvaguardia protegge la squadra.' : 'Il tipo della creatura la protegge da questo stato.';
       case 'statusTick':
         if (event.damage) return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} subisce ${event.damage} danni dallo stato.`;
         return event.recovered ? 'La creatura si è ripresa.' : null;
@@ -1364,6 +1447,7 @@ export class BattleScene extends Phaser.Scene {
         return formatStatStageChanged(event.stat, event.change, shownCreature(event.side, event.creatureId)?.name ?? 'La creatura');
       case 'statStageLimited':
         return formatStatStageLimited(event.stat, event.stage, shownCreature(event.side, event.creatureId)?.name ?? 'La creatura');
+      case 'criticalStageChanged': return `${shownCreature(event.side, event.creatureId)?.name ?? 'La creatura'} si concentra sul colpo critico!`;
       case 'creatureEvolved': return `${event.fromName} si sta evolvendo!`;
       case 'creatureSwitched': return `${shownCreature(event.side, event.toId)?.name ?? 'La nuova creatura'} entra in campo.`;
       case 'itemUsed': return 'Hai usato uno strumento.';
@@ -1453,15 +1537,23 @@ export class BattleScene extends Phaser.Scene {
 
   private moveAccuracyLabel(move: MoveDefinition): string {
     if (move.alwaysHits) return '—';
-    const accuracy = effectiveMoveAccuracy(this.activeCreature('player'), this.activeCreature('opponent'), move);
+    const accuracy = effectiveMoveAccuracy(this.activeCreature('player'), this.activeCreature('opponent'), move, this.state.weather?.kind, (this.state.gravityTurnsRemaining ?? 0) > 0);
     return accuracy === move.accuracy ? `${move.accuracy}%` : `${Math.floor(accuracy)}% ORA`;
   }
 
   private moveForecast(move: MoveDefinition) {
     const user = this.activeCreature('player');
     const target = this.activeCreature('opponent');
-    const damage = estimateMoveDamage(user, target, move, this.rules);
-    return damage ? { ...damage, accuracy: effectiveMoveAccuracy(user, target, move) } : undefined;
+    const screenTurns = move.category === 'physical' ? this.state.opponent.reflectTurnsRemaining : this.state.opponent.lightScreenTurnsRemaining;
+    const fieldPowerMultiplier = ((move.type === 'electric' && (user.mudSportActive || target.mudSportActive)) ||
+      (move.type === 'fire' && (user.waterSportActive || target.waterSportActive))) ? 0.5 : 1;
+    const damage = estimateMoveDamage(user, target, move, this.rules, {
+      weather: this.state.weather?.kind, screenMultiplier: screenTurns ? 0.5 : 1, fieldPowerMultiplier,
+      userTailwind: Boolean(this.state.player.tailwindTurnsRemaining),
+      targetTailwind: Boolean(this.state.opponent.tailwindTurnsRemaining),
+      gravityActive: (this.state.gravityTurnsRemaining ?? 0) > 0,
+    });
+    return damage ? { ...damage, accuracy: effectiveMoveAccuracy(user, target, move, this.state.weather?.kind, (this.state.gravityTurnsRemaining ?? 0) > 0) } : undefined;
   }
 
   private statusVerb(status: NonNullable<BattleCreature['status']>['status']): string {

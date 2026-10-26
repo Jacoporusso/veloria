@@ -6780,6 +6780,29 @@
           "height": 32,
           "rotation": 0,
           "visible": true
+        },
+        {
+          "id": 2001,
+          "name": "veloria/special_mewtwo footprint",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "blocksWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "blocksUntilFlag",
+              "type": "string",
+              "value": "q_special_mewtwo_caught"
+            }
+          ]
         }
       ]
     },
@@ -6975,6 +6998,49 @@
               "value": "q_d06_receiver_confirmed"
             }
           ]
+        },
+        {
+          "id": 2000,
+          "name": "Mewtwo",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "id",
+              "type": "string",
+              "value": "veloria/special_mewtwo"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "wild-pokemon"
+            },
+            {
+              "name": "specialEncounterId",
+              "type": "string",
+              "value": "veloria/special_mewtwo"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "pokeapi-gen1-150-v1"
+            },
+            {
+              "name": "visibleWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_special_mewtwo_caught"
+            }
+          ]
         }
       ]
     },
@@ -7055,7 +7121,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 2000,
+  "nextobjectid": 2002,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

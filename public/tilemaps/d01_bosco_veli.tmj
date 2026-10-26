@@ -2751,6 +2751,29 @@
               "value": "forest_ranger_ada"
             }
           ]
+        },
+        {
+          "id": 92,
+          "name": "veloria/special_mew footprint",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 576,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "blocksWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "blocksUntilFlag",
+              "type": "string",
+              "value": "q_special_mew_caught"
+            }
+          ]
         }
       ]
     },
@@ -3844,6 +3867,49 @@
               "value": 0
             }
           ]
+        },
+        {
+          "id": 91,
+          "name": "Mew",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 576,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "id",
+              "type": "string",
+              "value": "veloria/special_mew"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "wild-pokemon"
+            },
+            {
+              "name": "specialEncounterId",
+              "type": "string",
+              "value": "veloria/special_mew"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "pokeapi-gen1-151-v1"
+            },
+            {
+              "name": "visibleWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_special_mew_caught"
+            }
+          ]
         }
       ]
     },
@@ -4006,7 +4072,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 91,
+  "nextobjectid": 93,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

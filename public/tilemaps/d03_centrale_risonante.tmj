@@ -3,7 +3,7 @@
   "height": 24,
   "infinite": false,
   "nextlayerid": 10,
-  "nextobjectid": 48,
+  "nextobjectid": 50,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",
@@ -2508,6 +2508,29 @@
               "value": "collision"
             }
           ]
+        },
+        {
+          "id": 49,
+          "name": "veloria/special_zapdos footprint",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "blocksWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "blocksUntilFlag",
+              "type": "string",
+              "value": "q_special_zapdos_caught"
+            }
+          ]
         }
       ]
     },
@@ -2549,12 +2572,22 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-centrale-technician-v1"
             },
             {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "centrale-technician"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.495
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.95
             }
           ]
         }
@@ -2699,6 +2732,49 @@
               "name": "lineIndex",
               "type": "string",
               "value": "3"
+            }
+          ]
+        },
+        {
+          "id": 48,
+          "name": "Zapdos",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 672,
+          "y": 512,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "id",
+              "type": "string",
+              "value": "veloria/special_zapdos"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "wild-pokemon"
+            },
+            {
+              "name": "specialEncounterId",
+              "type": "string",
+              "value": "veloria/special_zapdos"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "pokeapi-gen1-145-v1"
+            },
+            {
+              "name": "visibleWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_special_zapdos_caught"
             }
           ]
         }

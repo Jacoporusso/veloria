@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test.use({ deviceScaleFactor: 3, reducedMotion: 'reduce' });
-for (const moveId of ['sonic-boom', 'thunder-wave']) test(`${moveId} shows its real effect and resolves against Wooper`, async ({ page }, info) => {
+for (const moveId of ['sonic-boom', 'thunder-wave']) test(`${moveId} shows its real effect and resolves against Geodude`, async ({ page }, info) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {
@@ -15,7 +15,7 @@ for (const moveId of ['sonic-boom', 'thunder-wave']) test(`${moveId} shows its r
     const { createBattleCreature } = await import('/src/core/battle/create-creature.ts' as string);
     const { createBattleState } = await import('/src/core/battle/engine.ts' as string);
     const player = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId: moveId === 'sonic-boom' ? 100 : 81, level: 20, instanceId: 'urban-player', moveIds: [moveId] });
-    const opponent = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId: 194, level: 20, instanceId: 'urban-wooper', moveIds: ['water-gun'] });
+    const opponent = createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId: 74, level: 20, instanceId: 'urban-geodude', moveIds: ['rock-throw'] });
     (window as any).__urbanInitialHp = opponent.hp;
     (window as any).__urbanGame.scene.keys.world.beginBattle(createBattleState({ battleId: 'urban-feedback', battleType: 'wild', seed: 321, rules: veloriaBattleRules, playerTeam: [player], opponentTeam: [opponent] }));
   }, moveId);

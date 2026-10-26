@@ -1,84 +1,138 @@
 {
   "id": "veloria/r09_lagoon_fishing",
   "mapId": "veloria/r09_dune_salmastre",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "fishing",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 72,
-        "weight": 35,
+        "speciesId": 147,
+        "weight": 28,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
-        "weight": 30,
+        "speciesId": 73,
+        "weight": 22,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 170,
-        "weight": 30,
+        "speciesId": 117,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 171,
-        "weight": 5,
+        "speciesId": 119,
+        "weight": 14,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 90,
+        "weight": 8,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 130,
+        "weight": 6,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }
     ],
     "day": [
       {
-        "speciesId": 72,
-        "weight": 35,
+        "speciesId": 73,
+        "weight": 28,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
-        "weight": 30,
+        "speciesId": 117,
+        "weight": 22,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 170,
-        "weight": 30,
+        "speciesId": 147,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 171,
-        "weight": 5,
+        "speciesId": 119,
+        "weight": 14,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 90,
+        "weight": 8,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 130,
+        "weight": 6,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }
     ],
     "night": [
       {
-        "speciesId": 72,
-        "weight": 35,
+        "speciesId": 117,
+        "weight": 28,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 98,
-        "weight": 30,
+        "speciesId": 147,
+        "weight": 22,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 170,
-        "weight": 30,
+        "speciesId": 73,
+        "weight": 18,
         "minLevel": 24,
         "maxLevel": 27
       },
       {
-        "speciesId": 171,
-        "weight": 5,
+        "speciesId": 119,
+        "weight": 14,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 90,
+        "weight": 8,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 130,
+        "weight": 6,
+        "minLevel": 24,
+        "maxLevel": 27
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 24,
         "maxLevel": 27
       }

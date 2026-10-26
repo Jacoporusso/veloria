@@ -1,68 +1,142 @@
 {
   "id": "veloria/r01_tall_grass",
   "mapId": "veloria/r01_sentiero_alba",
-  "version": 1,
+  "version": 2,
+  "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
     "morning": [
       {
         "speciesId": 16,
-        "weight": 50,
+        "weight": 28,
         "minLevel": 2,
         "maxLevel": 4
       },
       {
         "speciesId": 19,
-        "weight": 30,
+        "weight": 22,
         "minLevel": 2,
-        "maxLevel": 3
+        "maxLevel": 4
       },
       {
-        "speciesId": 161,
-        "weight": 20,
+        "speciesId": 10,
+        "weight": 18,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 13,
+        "weight": 14,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 21,
+        "weight": 8,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 29,
+        "weight": 6,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 32,
+        "weight": 4,
         "minLevel": 2,
         "maxLevel": 4
       }
     ],
     "day": [
       {
-        "speciesId": 16,
-        "weight": 40,
-        "minLevel": 2,
-        "maxLevel": 4
-      },
-      {
-        "speciesId": 161,
-        "weight": 30,
-        "minLevel": 2,
-        "maxLevel": 4
-      },
-      {
         "speciesId": 19,
-        "weight": 30,
+        "weight": 28,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 10,
+        "weight": 22,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 16,
+        "weight": 18,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 13,
+        "weight": 14,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 21,
+        "weight": 8,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 29,
+        "weight": 6,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "speciesId": 32,
+        "weight": 4,
         "minLevel": 2,
         "maxLevel": 4
       }
     ],
     "night": [
       {
-        "speciesId": 163,
-        "weight": 50,
-        "minLevel": 3,
+        "speciesId": 10,
+        "weight": 28,
+        "minLevel": 2,
         "maxLevel": 5
       },
       {
-        "speciesId": 167,
-        "weight": 30,
+        "speciesId": 16,
+        "weight": 22,
         "minLevel": 2,
-        "maxLevel": 4
+        "maxLevel": 5
       },
       {
         "speciesId": 19,
-        "weight": 20,
+        "weight": 18,
         "minLevel": 2,
-        "maxLevel": 3
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 13,
+        "weight": 14,
+        "minLevel": 2,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 21,
+        "weight": 8,
+        "minLevel": 2,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 29,
+        "weight": 6,
+        "minLevel": 2,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 32,
+        "weight": 4,
+        "minLevel": 2,
+        "maxLevel": 5
       }
     ]
-  }
+  },
+  "habitatLabel": "Erba ai lati del sentiero"
 }

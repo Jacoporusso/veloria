@@ -36,5 +36,5 @@ test('new supported moves reach every official HGSS learner, including previousl
     }
   }
   assert.ok(species.species['45'].officialLearnset.some(entry => entry.moveId === 'mega-drain' && entry.level === 1));
-  assert.ok(species.species['182'].officialLearnset.some(entry => entry.moveId === 'magical-leaf' && entry.level === 23));
+  assert.ok(species.species['122'].officialLearnset.some(entry => entry.moveId === 'magical-leaf' && entry.level === 1));
 });

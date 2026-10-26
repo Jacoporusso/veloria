@@ -32,3 +32,13 @@ test('support is never presented as super effective and observes engine status r
   assert.equal(describeMoveMatchup({ ...move, category: 'status', leechSeedFraction: 1 / 8 }, target(['grass']), rules).blocked, true);
   assert.equal(describeMoveMatchup({ ...move, category: 'status', leechSeedFraction: 1 / 8 }, target(['normal'], { leechSeed: { sourceSide: 'player', fraction: 1 / 8, moveId: 'seed' } }), rules).blocked, true);
 });
+
+test('matchup observes active grounding, abilities and typeless delayed attacks', () => {
+  const ground = { ...move, type: 'ground' as const };
+  assert.equal(describeMoveMatchup(ground, target(['normal'], { abilityId: 'levitate' }), rules).blocked, true);
+  assert.equal(describeMoveMatchup(ground, target(['normal'], { abilityId: 'levitate', ingrainActive: true }), rules).blocked, false);
+  const sound = { ...move, soundMove: true };
+  assert.equal(describeMoveMatchup(sound, target(['normal'], { abilityId: 'soundproof' }), rules).blocked, true);
+  assert.equal(describeMoveMatchup({ ...sound, category: 'status' }, target(['normal'], { abilityId: 'soundproof' }), rules).blocked, true);
+  assert.equal(describeMoveMatchup({ ...move, type: 'normal', typelessDamage: true, futureSight: true }, target(['ghost']), rules).multiplier, 1);
+});

@@ -11,6 +11,10 @@ import badgeContent from '../../../content/badges/badges.v1.json' with { type: '
 import { trainerPreparation } from '../battle/trainer-challenge.ts';
 import type { GameSave } from '../../persistence/save-types.ts';
 import type { QuestDefinition } from '../../core/quests/apply-quest-event.ts';
+import speciesContent from '../../../content/battle/species.v1.json' with { type: 'json' };
+import specialPokemon from '../../../content/encounters/special-pokemon.v1.json' with { type: 'json' };
+import { areaForMap } from '../../core/world/region-atlas.ts';
+import { caughtSpeciesFromFlags } from '../../core/party/pokedex.ts';
 
 /** Presentation copy follows existing flags; it never grants progress or rewards. */
 export const journeyMilestones = [
@@ -44,7 +48,7 @@ export const journeyMilestones = [
   { flag: 'q_ferraluce_visited', title: 'Acciaio, vetro e giardini', objective: 'Dal misuratore prosegui a est sull’Anello Magnetico fino al primo distretto di Ferraluce.' },
   { flag: 'q_ferraluce_report', title: 'Un segnale da capire', objective: 'Porta le letture a Ivo, al centro della piazza di Ferraluce. Cure gratuite a sinistra e rifornimenti a destra.' },
   { flag: 'gym04_magnetic_aligned', title: 'Il circuito magnetico', objective: 'Dopo il rapporto a Ivo sali sulla pedana P4 a est della piazza, poco a nord del cartello. Nella palestra orienta il primo nastro a est, il secondo a nord e il campo a ovest: segui il segnale fino al ricevitore.' },
-  { flag: 'badge_acciaio_awarded', trainer: rhea, title: 'La Medaglia Acciaio', objective: 'Affronta Rhea al centro-nord dell’Officina Magnetica. Prepara mosse speciali e risposte diverse: Steelix è immune a Elettro, Skarmory a Terra. Wooper si incontra sull’Anello Magnetico.' },
+  { flag: 'badge_acciaio_awarded', trainer: rhea, title: 'La Medaglia Acciaio', objective: 'Affronta Rhea al centro-nord dell’Officina Magnetica. Prepara mosse speciali e risposte diverse: Onix è immune a Elettro, Aerodactyl a Terra. Sandshrew si incontra vicino ai binari del Viadotto.' },
   { flag: 'q_r07_measurement', title: 'Gli impulsi del Condotto', objective: 'Con la Medaglia Acciaio esci a est della parte bassa della piazza di Ferraluce. Nel Condotto Risonante esamina il misuratore vicino alla curva della passerella.' },
   { flag: 'q_centrale_log', title: 'Una prova senza autorizzazione', objective: 'Dal misuratore prosegui a est fino alla Centrale Risonante. Consulta il registro sulla postazione a sinistra della sala.' },
   { flag: 'q_centrale_isolated', title: 'Mettere in sicurezza la linea', objective: 'Dopo aver letto il registro, usa la console sulla destra della Centrale per isolare la linea sperimentale. La rete ordinaria deve restare attiva.' },
@@ -84,7 +88,7 @@ export const journeyMilestones = [
   { flag: 'gym07_ice_center', title: 'La pista centrale', objective: 'Il cristallo della pista centrale ferma lo scivolo. Quando sei fermo puoi cambiare direzione: cerca il passaggio sul lato destro per raggiungere la terrazza del sigillo.' },
   { flag: 'gym07_ice_east', title: 'La pista orientale', objective: 'Sulla pista a est il passaggio libero è a sinistra del cristallo. Scivola fino alla terrazza a nord e attraversa il sigillo; puoi sempre tornare alla passerella a sud.' },
   { flag: 'gym07_ice_complete', title: 'Il cancello dei tre sigilli', objective: 'Con i tre sigilli accesi esamina la console a destra del sigillo centrale. Il cancello apre il passaggio verso Nives.' },
-  { flag: 'badge_ghiaccio_awarded', trainer: nives, title: 'La Medaglia Brina', objective: 'Affronta Nives sulla terrazza oltre il cancello. Dewgong è Acqua/Ghiaccio e Piloswine è Ghiaccio/Terra: osserva entrambi i tipi prima di scegliere una mossa. La vittoria attiva la funivia tra Biancavetta e Passobrina.' },
+  { flag: 'badge_ghiaccio_awarded', trainer: nives, title: 'La Medaglia Brina', objective: 'Affronta Nives sulla terrazza oltre il cancello. Jynx è Ghiaccio/Psico; Dewgong e Lapras sono Acqua/Ghiaccio: osserva entrambi i tipi prima di scegliere una mossa. La vittoria attiva la funivia tra Biancavetta e Passobrina.' },
   {flag:'q_r14_visited',title:'Il Varco del Cristallo',objective:'Con la Medaglia Brina, attraversa il ponte a est della terrazza panoramica di Biancavetta. Il Varco del Cristallo conduce al rifugio e all’ingresso della grotta.'},
   {flag:'q_d05_low_read',title:'Il calore della grotta',objective:'Nel Varco trovi Livia accanto al rifugio, dove puoi curare la squadra. Entra nella grotta e cerca la stazione illuminata in ambra sulla terrazza bassa, a sinistra della prima scalinata.'},
   {flag:'q_d05_middle_read',title:'Le correnti in quota',objective:'Sali la prima scalinata delle Grotte del Cristallo e leggi il misuratore al centro della terrazza. Le due stazioni possono essere esaminate in qualsiasi ordine.'},
@@ -96,7 +100,7 @@ export const journeyMilestones = [
   {flag:'q_r15_network_read',title:'La risposta della rete',objective:'Dalla piazzetta del passo segui la scalinata a sud-est fino alla stazione dei condotti. Confronta il dato con quello del giardino: le letture accettano qualsiasi ordine.'},
   {flag:'q_concordia_restore_plan',title:'Una scelta con Elia',objective:'Attraversa il ponte a est fino a Concordia. Elia ti aspetta presso l’osservatorio a nord-est della piazza. Rivedi le misure e scegli come ripristinare l’equilibrio; il piano apre la palestra a nord.'},
   {flag:'gym08_convergence_complete',title:'Due flussi insieme',objective:'Nella palestra di Concordia ruota i quattro relè. Il flusso menta del giardino e quello lilla della rete devono raggiungere insieme il ricevitore al centro. Controlla entrambi gli esiti nel menu di ciascun relè.'},
-  {flag:'badge_drago_awarded',trainer:aurel,title:'La Medaglia Armonia',objective:'Raggiungi Aurel oltre il cancello della palestra. Dragonair teme il Ghiaccio; Kingdra è Acqua/Drago e non ha la stessa debolezza. Prepara una squadra varia e strumenti per HP e paralisi.'},
+  {flag:'badge_drago_awarded',trainer:aurel,title:'La Medaglia Armonia',objective:'Raggiungi Aurel oltre il cancello della palestra. Dragonair teme il Ghiaccio e Dragonite lo teme ancora di più; Gyarados richiede una risposta diversa. Prepara una squadra varia e strumenti per HP e paralisi.'},
   {flag:'q_d06_visited',title:'Il Santuario delle Due Luci',objective:'Dopo la Medaglia Armonia, entra nel padiglione del giardino a est della fontana di Concordia. Il passaggio conduce al Santuario; puoi tornare in città dall’ingresso a sud.'},
   {flag:'q_d06_nature_read',title:'Il ritmo naturale',objective:'Nel Santuario, esamina il plinto a ovest della corte: annota il flusso GRADUALE. Le due stazioni possono essere lette in qualsiasi ordine.'},
   {flag:'q_d06_network_read',title:'La risposta amplificata',objective:'Esamina il plinto a est: la rete richiede amplificazione CONTROLLATA e sincronia CONDIVISA. Poi confronta le due letture con Elia, vicino all’ingresso.'},
@@ -109,31 +113,44 @@ export const journeyMilestones = [
   {flag:'q_league_orientation',title:'L’arrivo alla Lega',objective:'Parla con l’accoglienza sotto il portale a nord del piazzale. Poi prepara la squadra e usa il portale a nord per iscriverti alla Lega.'},
   {flag:'q_league_completed',title:'Campione di Veloria',objective:'Al portale della Lega conferma il tentativo: quattro consiglieri e il Campione, in ordine. Ogni sala richiede una tua scelta per lottare o proseguire. Non ci sono cure e deposito fra gli incontri; puoi usare gli strumenti. Sconfitta o abbandono fanno ripartire dal primo incontro.'},
   {flag:'q_league_epilogue_seen',title:'Il viaggio continua',objective:'Dopo la vittoria sul Campione, partecipa alla cerimonia e leggi l’epilogo con Elia. Puoi poi tornare al piazzale e continuare a esplorare Veloria con tutti i progressi conservati.'},
-  {flag:'q_r16_maia_helped',optional:true,title:'Allenamento con Maia',objective:'Maia ti aspetta sulla prima piazzetta del Cammino. Sfida facoltativa: Steelix, Dewgong e Ampharos richiedono di osservare tipi e paralisi.'},
+  {flag:'q_r16_maia_helped',optional:true,title:'Allenamento con Maia',objective:'Maia ti aspetta sulla prima piazzetta del Cammino. Sfida facoltativa: Onix, Dewgong e Raichu richiedono di osservare tipi e paralisi.'},
   {flag:'q_r16_tobia_helped',optional:true,title:'Allenamento con Tobia',objective:'Tobia si trova sulla piazzetta centrale del Cammino. Sfida facoltativa: prepara difese fisiche e speciali, e conserva HP e PP.'},
   {flag:'q_r15_nilo_helped',optional:true,trainer:niloR15,title:'Un allenamento con Nilo',objective:'Sul Passo delle Due Luci, Nilo ti aspetta sulla piazzetta del ponte. La sfida è facoltativa: puoi curare la squadra a Concordia e tornare quando sei pronto.'},
+  ...[
+    ['q_fossil_omanyte_received', 'Omanyte'], ['q_fossil_kabuto_received', 'Kabuto'], ['q_fossil_aerodactyl_received', 'Aerodactyl'],
+  ].map(([flag, name]) => ({ flag, optional: true, availableAfterFlag: 'q_league_completed',
+    title: `Una nuova vita per ${name}`, objective: `Torna da Elia nel laboratorio di Borgofonte. Parla con lei e scegli di ridare vita a ${name}: puoi accogliere tutti e tre i Pokémon fossili, uno alla volta.` })),
+  ...specialPokemon.encounters.map(encounter => ({ flag: encounter.capturedFlag, optional: true,
+    availableAfterFlag: encounter.requiredFlag,
+    title: `Un incontro con ${(speciesContent.species as Record<string, {name: string}>)[encounter.speciesId].name}`,
+    objective: `Raggiungi ${areaForMap(encounter.mapId)?.name ?? encounter.mapId}. ${encounter.description} Porta delle Poké Ball: l’obiettivo è la cattura.` })),
 ] as const;
 
 export function selectJourneyProgress(save: Pick<GameSave, 'flags' | 'party' | 'storage' | 'badges'>) {
   const flags = new Set(save.flags);
-  const milestones = journeyMilestones.map(milestone => ({ ...milestone,
+  const caught = new Set([...caughtSpeciesFromFlags(save.flags), ...save.party.map(creature => creature.speciesId), ...save.storage.map(creature => creature.speciesId)]
+    .filter(speciesId => String(speciesId) in speciesContent.species));
+  const milestones = journeyMilestones.filter(milestone => !('availableAfterFlag' in milestone) || flags.has(milestone.availableAfterFlag))
+    .map(milestone => ({ ...milestone,
     optional: ('optional' in milestone && milestone.optional) || ('optionalAfterFlag' in milestone && flags.has(milestone.optionalAfterFlag)),
     complete: flags.has(milestone.flag) }));
   const completed = milestones.filter(milestone => milestone.complete).length;
   const current = milestones.find(milestone => !milestone.complete && !milestone.optional)
+    ?? (flags.has('q_league_epilogue_seen') ? milestones.find(milestone => !milestone.complete && 'availableAfterFlag' in milestone) : undefined)
     ?? milestones.find(milestone => !milestone.complete);
   const trainer = current && 'trainer' in current ? current.trainer : undefined;
   const preparation = trainer ? trainerPreparation(trainer, save.party) : undefined;
   const objective = current?.objective
     ? [current.objective, preparation ? `${trainer!.name} schiera ${preparation.teamLabel}.` : '', ...(preparation?.advice ?? [])].filter(Boolean).join(' ')
-    : 'Hai completato le tappe disponibili. Esplora Veloria e completa la tua collezione.';
+    : caught.size === 151 ? 'Hai completato il Pokédex di Veloria: tutte le 151 specie sono registrate! Puoi continuare a esplorare con i tuoi compagni.'
+    : `Hai completato le tappe disponibili. Esplora Veloria e completa la tua collezione: ${caught.size}/151 specie registrate.`;
   return {
     milestones, completed, total: milestones.length,
     percent: Math.round(completed / milestones.length * 100),
-    title: current?.title ?? 'Il viaggio continua',
+    title: current?.title ?? (caught.size === 151 ? 'Pokédex di Veloria completo' : 'Il viaggio continua'),
     currentFlag: current?.flag,
     objective,
-    speciesCount: new Set([...save.party, ...save.storage].map(creature => creature.speciesId)).size,
+    speciesCount: caught.size,
     badgeCount: save.badges.length,
   };
 }
@@ -143,6 +160,10 @@ export function formatQuestRewards(quest: QuestDefinition, itemNames: Readonly<R
   if (quest.reward?.money) rewards.push(`+${quest.reward.money} monete`);
   for (const [itemId, quantity] of Object.entries(quest.reward?.items ?? {})) {
     if (quantity > 0) rewards.push(`${itemNames[itemId] ?? itemId} ×${quantity}`);
+  }
+  for (const gift of quest.reward?.pokemon ?? []) {
+    const species = (speciesContent.species as Record<string, { name: string }>)[String(gift.speciesId)];
+    rewards.push(`${species?.name ?? `Pokémon ${gift.speciesId}`} · Livello ${gift.level}`);
   }
   const badges = new Set(quest.steps.flatMap(step => step.addBadge ? [step.addBadge] : []));
   for (const badge of badges) rewards.push((badgeContent.badges as Record<string, {name: string}>)[badge]?.name ?? badge);

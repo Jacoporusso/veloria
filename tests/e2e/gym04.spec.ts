@@ -23,8 +23,8 @@ async function prepare(page: Page, report: boolean) {
     ...priorMilestones.map(step => step.flag), 'prologue_complete_seen', 'badge_circuito_awarded', 'q_ferraluce_visited', ...(report ? ['q_ferraluce_report'] : [])])];
   save.badges = ['badge_aurora', 'badge_corolla', 'badge_circuito'];
   save.player = { ...save.player, mapId: 'veloria/ferraluce', spawnPointId: 'from_gym04', x: 34, y: 19, money: 100 };
-  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 195, level: 35, instanceId: 'gym04-integration', moveIds: ['water-gun', 'mud-shot'] });
-  save.party = [{ instanceId: creature.instanceId, speciesId: 195, level: creature.level, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 140, level: 36, instanceId: 'gym04-integration', moveIds: ['mud-shot', 'aqua-jet', 'mega-drain'] });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 140, level: creature.level, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
 }
 

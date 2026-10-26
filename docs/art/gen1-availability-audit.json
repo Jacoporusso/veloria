@@ -1,0 +1,6245 @@
+{
+  "regionId": "veloria",
+  "speciesCount": 151,
+  "scope": "Potential paths only; no claim of reachable items, quests, geography or campaign completion.",
+  "activeTableIds": [
+    "veloria/d01_wet_bank",
+    "veloria/d01_woodland",
+    "veloria/d04_delta_fishing",
+    "veloria/d05_crystal_patch",
+    "veloria/r01_tall_grass",
+    "veloria/r02_grove",
+    "veloria/r02_insect_patch",
+    "veloria/r03_moss_terraces",
+    "veloria/r03_stone_garden",
+    "veloria/r04_petal_ascent",
+    "veloria/r04_stream_patch",
+    "veloria/r05_bank_patch",
+    "veloria/r05_cherry_viaduct",
+    "veloria/r05_rail_patch",
+    "veloria/r06_magnetic_patch",
+    "veloria/r06_moss_patch",
+    "veloria/r07_conduit_patch",
+    "veloria/r07_technical_patch",
+    "veloria/r08_coastal_grass",
+    "veloria/r08_shore_fishing",
+    "veloria/r08_wind_patch",
+    "veloria/r09_dune_patch",
+    "veloria/r09_lagoon_fishing",
+    "veloria/r09_reeds_patch",
+    "veloria/r10_reed_patch",
+    "veloria/r11_cascade_patch",
+    "veloria/r12_wind_patch",
+    "veloria/r13_snow_patch",
+    "veloria/r14_crystal_patch",
+    "veloria/r15_garden_patch",
+    "veloria/r16_garden_patch",
+    "veloria/vetracielo_park"
+  ],
+  "foreignActiveReferences": [],
+  "missingAcquisitionPaths": [],
+  "missingOfficialArtwork": [],
+  "species": [
+    {
+      "speciesId": 1,
+      "name": "Bulbasaur",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "starter-choice"
+        },
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_radicelmo_greenhouse",
+          "level": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 2,
+      "name": "Ivysaur",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 1,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 3,
+      "name": "Venusaur",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 2,
+          "minimumLevel": 32
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 4,
+      "name": "Charmander",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "starter-choice"
+        },
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_ferraluce_report",
+          "level": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 5,
+      "name": "Charmeleon",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 4,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 6,
+      "name": "Charizard",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 5,
+          "minimumLevel": 36
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 7,
+      "name": "Squirtle",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "starter-choice"
+        },
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_acquariva_research",
+          "level": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 8,
+      "name": "Wartortle",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 7,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 9,
+      "name": "Blastoise",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 8,
+          "minimumLevel": 36
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 10,
+      "name": "Caterpie",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 11,
+      "name": "Metapod",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 10,
+          "minimumLevel": 7
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 12,
+      "name": "Butterfree",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 11,
+          "minimumLevel": 10
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 13,
+      "name": "Weedle",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 14,
+      "name": "Kakuna",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 13,
+          "minimumLevel": 7
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 15,
+      "name": "Beedrill",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 14,
+          "minimumLevel": 10
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 16,
+      "name": "Pidgey",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 17,
+      "name": "Pidgeotto",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 16,
+          "minimumLevel": 18
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 18,
+      "name": "Pidgeot",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 17,
+          "minimumLevel": 36
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 19,
+      "name": "Rattata",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 20,
+      "name": "Raticate",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 19,
+          "minimumLevel": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 21,
+      "name": "Spearow",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 22,
+      "name": "Fearow",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 21,
+          "minimumLevel": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 23,
+      "name": "Ekans",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 24,
+      "name": "Arbok",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 23,
+          "minimumLevel": 22
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 25,
+      "name": "Pikachu",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "starter-choice"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 26,
+      "name": "Raichu",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 25,
+          "itemId": "thunder-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 27,
+      "name": "Sandshrew",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 28,
+      "name": "Sandslash",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 27,
+          "minimumLevel": 22
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 29,
+      "name": "Nidoran♀",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 30,
+      "name": "Nidorina",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 29,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 31,
+      "name": "Nidoqueen",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 30,
+          "itemId": "moon-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 32,
+      "name": "Nidoran♂",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "morning",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "day",
+          "minLevel": 2,
+          "maxLevel": 4
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r01_tall_grass",
+          "mapId": "veloria/r01_sentiero_alba",
+          "timeBand": "night",
+          "minLevel": 2,
+          "maxLevel": 5
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 33,
+      "name": "Nidorino",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 32,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 34,
+      "name": "Nidoking",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 33,
+          "itemId": "moon-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 35,
+      "name": "Clefairy",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 36,
+      "name": "Clefable",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 35,
+          "itemId": "moon-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 37,
+      "name": "Vulpix",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 38,
+      "name": "Ninetales",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 37,
+          "itemId": "fire-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 39,
+      "name": "Jigglypuff",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 40,
+      "name": "Wigglytuff",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 39,
+          "itemId": "moon-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 41,
+      "name": "Zubat",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 42,
+      "name": "Golbat",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 41,
+          "minimumLevel": 22
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 43,
+      "name": "Oddish",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 44,
+      "name": "Gloom",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 43,
+          "minimumLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 45,
+      "name": "Vileplume",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 44,
+          "itemId": "leaf-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 46,
+      "name": "Paras",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 47,
+      "name": "Parasect",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 46,
+          "minimumLevel": 24
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 48,
+      "name": "Venonat",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 49,
+      "name": "Venomoth",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 48,
+          "minimumLevel": 31
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 50,
+      "name": "Diglett",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 51,
+      "name": "Dugtrio",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 50,
+          "minimumLevel": 26
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 52,
+      "name": "Meowth",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 53,
+      "name": "Persian",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 52,
+          "minimumLevel": 28
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 54,
+      "name": "Psyduck",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 55,
+      "name": "Golduck",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 54,
+          "minimumLevel": 33
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 56,
+      "name": "Mankey",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 57,
+      "name": "Primeape",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 56,
+          "minimumLevel": 28
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 58,
+      "name": "Growlithe",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 59,
+      "name": "Arcanine",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 58,
+          "itemId": "fire-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 60,
+      "name": "Poliwag",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 61,
+      "name": "Poliwhirl",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 60,
+          "minimumLevel": 25
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 62,
+      "name": "Poliwrath",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 61,
+          "itemId": "water-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 63,
+      "name": "Abra",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 64,
+      "name": "Kadabra",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 63,
+          "minimumLevel": 16
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 65,
+      "name": "Alakazam",
+      "potentialPaths": [
+        {
+          "method": "trade-evolution",
+          "fromSpeciesId": 64
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 66,
+      "name": "Machop",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 67,
+      "name": "Machoke",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 66,
+          "minimumLevel": 28
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 68,
+      "name": "Machamp",
+      "potentialPaths": [
+        {
+          "method": "trade-evolution",
+          "fromSpeciesId": 67
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 69,
+      "name": "Bellsprout",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_grove",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 70,
+      "name": "Weepinbell",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 69,
+          "minimumLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 71,
+      "name": "Victreebel",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 70,
+          "itemId": "leaf-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 72,
+      "name": "Tentacool",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 73,
+      "name": "Tentacruel",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 72,
+          "minimumLevel": 30
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 74,
+      "name": "Geodude",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 75,
+      "name": "Graveler",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 74,
+          "minimumLevel": 25
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 76,
+      "name": "Golem",
+      "potentialPaths": [
+        {
+          "method": "trade-evolution",
+          "fromSpeciesId": 75
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 77,
+      "name": "Ponyta",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 78,
+      "name": "Rapidash",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 77,
+          "minimumLevel": 40
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 79,
+      "name": "Slowpoke",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 80,
+      "name": "Slowbro",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 79,
+          "minimumLevel": 37
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 81,
+      "name": "Magnemite",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 82,
+      "name": "Magneton",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 81,
+          "minimumLevel": 30
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 83,
+      "name": "Farfetch’d",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 84,
+      "name": "Doduo",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 85,
+      "name": "Dodrio",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 84,
+          "minimumLevel": 31
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 86,
+      "name": "Seel",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 87,
+      "name": "Dewgong",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 86,
+          "minimumLevel": 34
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 88,
+      "name": "Grimer",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 89,
+      "name": "Muk",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 88,
+          "minimumLevel": 38
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 90,
+      "name": "Shellder",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 91,
+      "name": "Cloyster",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 90,
+          "itemId": "water-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 92,
+      "name": "Gastly",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 93,
+      "name": "Haunter",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 92,
+          "minimumLevel": 25
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 94,
+      "name": "Gengar",
+      "potentialPaths": [
+        {
+          "method": "trade-evolution",
+          "fromSpeciesId": 93
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 95,
+      "name": "Onix",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 96,
+      "name": "Drowzee",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 97,
+      "name": "Hypno",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 96,
+          "minimumLevel": 26
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 98,
+      "name": "Krabby",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 99,
+      "name": "Kingler",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 98,
+          "minimumLevel": 28
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 100,
+      "name": "Voltorb",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_rail_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 101,
+      "name": "Electrode",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 100,
+          "minimumLevel": 30
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 102,
+      "name": "Exeggcute",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 9
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_woodland",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 6
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 103,
+      "name": "Exeggutor",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 102,
+          "itemId": "leaf-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 104,
+      "name": "Cubone",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_stone_garden",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 105,
+      "name": "Marowak",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 104,
+          "minimumLevel": 28
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 106,
+      "name": "Hitmonlee",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 107,
+      "name": "Hitmonchan",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 108,
+      "name": "Lickitung",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 109,
+      "name": "Koffing",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_conduit_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 110,
+      "name": "Weezing",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 109,
+          "minimumLevel": 35
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 111,
+      "name": "Rhyhorn",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_dune_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "morning",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "day",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r12_wind_patch",
+          "mapId": "veloria/r12_valle_vento",
+          "timeBand": "night",
+          "minLevel": 33,
+          "maxLevel": 37
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 112,
+      "name": "Rhydon",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 111,
+          "minimumLevel": 42
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 113,
+      "name": "Chansey",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "morning",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "day",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r14_crystal_patch",
+          "mapId": "veloria/r14_varco_cristallo",
+          "timeBand": "night",
+          "minLevel": 38,
+          "maxLevel": 42
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 114,
+      "name": "Tangela",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_bank_patch",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 12,
+          "maxLevel": 14
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 115,
+      "name": "Kangaskhan",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 116,
+      "name": "Horsea",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 117,
+      "name": "Seadra",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 116,
+          "minimumLevel": 32
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 118,
+      "name": "Goldeen",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "morning",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "day",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/d01_wet_bank",
+          "mapId": "veloria/d01_bosco_veli",
+          "timeBand": "night",
+          "minLevel": 3,
+          "maxLevel": 5
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_stream_patch",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 119,
+      "name": "Seaking",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 118,
+          "minimumLevel": 33
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 120,
+      "name": "Staryu",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 121,
+      "name": "Starmie",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 120,
+          "itemId": "water-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 122,
+      "name": "Mr. Mime",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "morning",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "day",
+          "minLevel": 27,
+          "maxLevel": 31
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r10_reed_patch",
+          "mapId": "veloria/r10_sentiero_canne",
+          "timeBand": "night",
+          "minLevel": 27,
+          "maxLevel": 31
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 123,
+      "name": "Scyther",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "morning",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "day",
+          "minLevel": 4,
+          "maxLevel": 7
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r02_insect_patch",
+          "mapId": "veloria/r02_viale_fronde",
+          "timeBand": "night",
+          "minLevel": 4,
+          "maxLevel": 6
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_wind_patch",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 124,
+      "name": "Jynx",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 125,
+      "name": "Electabuzz",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_magnetic_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 15,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "morning",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "day",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r11_cascade_patch",
+          "mapId": "veloria/r11_via_cascate",
+          "timeBand": "night",
+          "minLevel": 28,
+          "maxLevel": 32
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 126,
+      "name": "Magmar",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 127,
+      "name": "Pinsir",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "morning",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "day",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r06_moss_patch",
+          "mapId": "veloria/r06_anello_magnetico",
+          "timeBand": "night",
+          "minLevel": 16,
+          "maxLevel": 18
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r09_reeds_patch",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 128,
+      "name": "Tauros",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r08_coastal_grass",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "morning",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "day",
+          "minLevel": 45,
+          "maxLevel": 49
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r16_garden_patch",
+          "mapId": "veloria/r16_cammino_equilibrio",
+          "timeBand": "night",
+          "minLevel": 45,
+          "maxLevel": 49
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 129,
+      "name": "Magikarp",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "morning",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "day",
+          "minLevel": 20,
+          "maxLevel": 23
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r08_shore_fishing",
+          "mapId": "veloria/r08_costa_turbine",
+          "timeBand": "night",
+          "minLevel": 20,
+          "maxLevel": 23
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 130,
+      "name": "Gyarados",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 129,
+          "minimumLevel": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 131,
+      "name": "Lapras",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "morning",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "day",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/d04_delta_fishing",
+          "mapId": "veloria/d04_delta_specchi",
+          "timeBand": "night",
+          "minLevel": 25,
+          "maxLevel": 28
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 132,
+      "name": "Ditto",
+      "potentialPaths": [
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "morning",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "day",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "cave",
+          "tableId": "veloria/d05_crystal_patch",
+          "mapId": "veloria/d05_grotte_cristallo",
+          "timeBand": "night",
+          "minLevel": 39,
+          "maxLevel": 44
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "morning",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "day",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r13_snow_patch",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "timeBand": "night",
+          "minLevel": 35,
+          "maxLevel": 39
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 133,
+      "name": "Eevee",
+      "potentialPaths": [
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "morning",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "day",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r03_moss_terraces",
+          "mapId": "veloria/r03_terrazze_muschio",
+          "timeBand": "night",
+          "minLevel": 6,
+          "maxLevel": 8
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "morning",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "day",
+          "minLevel": 8,
+          "maxLevel": 11
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r04_petal_ascent",
+          "mapId": "veloria/r04_salita_petali",
+          "timeBand": "night",
+          "minLevel": 8,
+          "maxLevel": 10
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/r05_cherry_viaduct",
+          "mapId": "veloria/r05_viadotto_ciliegi",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 13
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "morning",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "day",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r15_garden_patch",
+          "mapId": "veloria/r15_passo_due_luci",
+          "timeBand": "night",
+          "minLevel": 42,
+          "maxLevel": 46
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "morning",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "day",
+          "minLevel": 11,
+          "maxLevel": 15
+        },
+        {
+          "method": "woodland-understory",
+          "tableId": "veloria/vetracielo_park",
+          "mapId": "veloria/vetracielo",
+          "timeBand": "night",
+          "minLevel": 11,
+          "maxLevel": 15
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 134,
+      "name": "Vaporeon",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 133,
+          "itemId": "water-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 135,
+      "name": "Jolteon",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 133,
+          "itemId": "thunder-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 136,
+      "name": "Flareon",
+      "potentialPaths": [
+        {
+          "method": "item-evolution",
+          "fromSpeciesId": 133,
+          "itemId": "fire-stone"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 137,
+      "name": "Porygon",
+      "potentialPaths": [
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "morning",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "day",
+          "minLevel": 18,
+          "maxLevel": 21
+        },
+        {
+          "method": "tall-grass",
+          "tableId": "veloria/r07_technical_patch",
+          "mapId": "veloria/r07_condotto_risonante",
+          "timeBand": "night",
+          "minLevel": 18,
+          "maxLevel": 21
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 138,
+      "name": "Omanyte",
+      "potentialPaths": [
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_fossil_omanyte",
+          "level": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 139,
+      "name": "Omastar",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 138,
+          "minimumLevel": 40
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 140,
+      "name": "Kabuto",
+      "potentialPaths": [
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_fossil_kabuto",
+          "level": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 141,
+      "name": "Kabutops",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 140,
+          "minimumLevel": 40
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 142,
+      "name": "Aerodactyl",
+      "potentialPaths": [
+        {
+          "method": "quest-gift",
+          "questId": "veloria/q_fossil_aerodactyl",
+          "level": 20
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 143,
+      "name": "Snorlax",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_snorlax",
+          "mapId": "veloria/r12_valle_vento",
+          "level": 35,
+          "requiredFlag": "q_acquariva_report"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 144,
+      "name": "Articuno",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_articuno",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "level": 50,
+          "requiredFlag": "q_league_completed"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 145,
+      "name": "Zapdos",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_zapdos",
+          "mapId": "veloria/d03_centrale_risonante",
+          "level": 50,
+          "requiredFlag": "q_league_completed"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 146,
+      "name": "Moltres",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_moltres",
+          "mapId": "veloria/r15_passo_due_luci",
+          "level": 50,
+          "requiredFlag": "q_league_completed"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 147,
+      "name": "Dratini",
+      "potentialPaths": [
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "morning",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "day",
+          "minLevel": 24,
+          "maxLevel": 27
+        },
+        {
+          "method": "fishing",
+          "tableId": "veloria/r09_lagoon_fishing",
+          "mapId": "veloria/r09_dune_salmastre",
+          "timeBand": "night",
+          "minLevel": 24,
+          "maxLevel": 27
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 148,
+      "name": "Dragonair",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 147,
+          "minimumLevel": 30
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 149,
+      "name": "Dragonite",
+      "potentialPaths": [
+        {
+          "method": "level-evolution",
+          "fromSpeciesId": 148,
+          "minimumLevel": 55
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 150,
+      "name": "Mewtwo",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_mewtwo",
+          "mapId": "veloria/d06_santuario_due_luci",
+          "level": 60,
+          "requiredFlag": "q_league_completed"
+        }
+      ],
+      "playthroughVerified": false
+    },
+    {
+      "speciesId": 151,
+      "name": "Mew",
+      "potentialPaths": [
+        {
+          "method": "visible-special-encounter",
+          "encounterId": "veloria/special_mew",
+          "mapId": "veloria/d01_bosco_veli",
+          "level": 50,
+          "requiredFlag": "q_league_completed"
+        }
+      ],
+      "playthroughVerified": false
+    }
+  ]
+}

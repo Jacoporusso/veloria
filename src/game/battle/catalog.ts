@@ -1,5 +1,7 @@
 import levelUpData from '../../../content/battle/level-up-moves.v1.json';
 import itemEvolutionData from '../../../content/battle/item-evolutions.v1.json';
+import tradeEvolutionData from '../../../content/battle/trade-evolutions.v1.json';
+import abilityData from '../../../content/battle/abilities.v1.json';
 import speciesData from '../../../content/battle/species.v1.json';
 import moveData from '../../../content/battle/moves.v1.json';
 import type { EncounterTable } from '../../core/encounters/select-encounter.ts';
@@ -13,7 +15,12 @@ import typeChartData from '../../../content/battle/type-chart.v1.json';
 import type { EvolutionRule, ExperienceCurve, TypeChart } from '../../core/battle/rules.ts';
 
 export const itemEvolutionRules = itemEvolutionData.rules;
+export const tradeEvolutionRules = tradeEvolutionData.rules;
+export const battleAbilities = (abilityData as { abilities: Record<string, { id: string; name: string; englishName: string; shortEffect?: string; effect: string }> }).abilities;
 export const battleSpecies = (speciesData as { species: SpeciesBattleRegistry }).species;
+for (const species of Object.values(battleSpecies)) {
+  if (!species.defaultAbilityId || !battleAbilities[species.defaultAbilityId]) throw new Error(`Unknown default ability for species ${species.speciesId}.`);
+}
 export const battleMoves: BattleMoveRegistry = (moveData as { moves: BattleMoveRegistry }).moves;
 export const trainerCatalog: Readonly<Record<string, TrainerBattleDefinition>> = Object.values(import.meta.glob<TrainerBattleDefinition>('../../../content/trainers/*.trainer.json', {
   eager: true,

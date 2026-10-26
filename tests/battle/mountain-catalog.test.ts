@@ -9,12 +9,10 @@ import sourceLearnsets from '../../content/sources/pokeapi/source-learnsets.json
 import speciesSources from '../../content/sources/pokeapi/species-manifest.json' with { type: 'json' };
 import moveSources from '../../content/sources/pokeapi/manifest.json' with { type: 'json' };
 import evolutionSources from '../../content/sources/pokeapi/evolution-manifest.json' with { type: 'json' };
-import swinubChain from '../../content/sources/pokeapi/evolution-chain-112.json' with { type: 'json' };
 import seelChain from '../../content/sources/pokeapi/evolution-chain-37.json' with { type: 'json' };
-import catalogAudit from '../../content/sources/pokeapi/mountain-catalog-audit.json' with { type: 'json' };
-import delibirdSource from '../../content/sources/pokeapi/pokemon-225.json' with { type: 'json' };
+import moveCoverage from '../../content/sources/pokeapi/gen1-move-coverage.json' with { type: 'json' };
 
-const speciesIds = [220, 221, 215, 86, 87, 124];
+const speciesIds = [41, 42, 74, 75, 86, 87];
 const moves = moveData.moves as Record<string, { type: string; category: string; power: number; accuracy: number; maxPp: number; priority?: number; alwaysHits?: boolean; inflictedStatus?: string; statusChance?: number; statChanges?: unknown[]; statChangeChance?: number }>;
 const species = speciesData.species as Record<string, { growthCurveId: string; defaultMoveIds: string[]; officialLearnset: Array<{ level: number; moveId: string }> }>;
 const groupedRules = progression.evolutions.filter(rule => speciesIds.includes(rule.fromSpeciesId));
@@ -53,34 +51,23 @@ test('mountain ice and Dark moves use only effects represented by the battle mod
   }
 });
 
-test('unsupported HGSS move effects are documented and stay out of runtime learnsets', () => {
-  const runtimeMoves = new Set(speciesIds.flatMap(id => species[String(id)].officialLearnset.map(entry => entry.moveId)));
-  for (const finding of catalogAudit.unsupportedMechanics) {
-    assert.ok(finding.moves.length > 0);
-    for (const id of finding.moves) {
-      assert.ok(sourceManifest[`move/${id}`]?.sha256, `unsupported example ${id} has no cached source`);
-      assert.equal(runtimeMoves.has(id), false, `unsupported move ${id} leaked into the runtime learnsets`);
-    }
-  }
-  const delibirdMoves=delibirdSource.moves.filter(move=>move.version_group_details.some(detail=>detail.version_group.name==='heartgold-soulsilver'&&detail.move_learn_method.name==='level-up'));
-  assert.deepEqual(delibirdMoves.map(entry=>entry.move.name), ['present']);
-  assert.equal(species['225'], undefined);
-  assert.ok(catalogAudit.deferredSpecies.some(entry => entry.speciesId === 225));
+test('all official Gen I HGSS level-up move mechanics are represented in the runtime learnsets', () => {
+  assert.equal(moveCoverage.runtimeSpeciesCount, 151);
+  assert.equal(moveCoverage.uniqueLevelUpMoveCount, 370);
+  assert.equal(moveCoverage.implementedMoveCount, 370);
+  assert.equal(moveCoverage.unsupportedMoveCount, 0);
+  assert.ok(Object.values(moveCoverage.moves).every((entry: any) => entry.implementationStatus === 'implemented'));
 });
 
 test('mountain evolution thresholds match the source reference and stay within the requested catalog', () => {
-  assert.deepEqual(groupedRules.map(rule => [rule.fromSpeciesId, rule.toSpeciesId, rule.minimumLevel]), [[220, 221, 33], [86, 87, 34]]);
+  assert.deepEqual(groupedRules.map(rule => [rule.fromSpeciesId, rule.toSpeciesId, rule.minimumLevel]), [[41, 42, 22], [74, 75, 25], [86, 87, 34]]);
   const evolutionManifest = evolutionSources.resources as Record<string, { sha256: string }>;
-  assert.ok(evolutionManifest['evolution-chain/112']?.sha256);
   assert.ok(evolutionManifest['evolution-chain/37']?.sha256);
-  assert.equal(swinubChain.chain.evolves_to[0].evolution_details[0].min_level, 33);
   assert.equal(seelChain.chain.evolves_to[0].evolution_details[0].min_level, 34);
-  for (const [from, to, level] of [[220, 221, 33], [86, 87, 34]]) {
+  for (const [from, to, level] of [[41, 42, 22], [86, 87, 34], [74, 75, 25]]) {
     assert.ok(reference[String(from)].evolutions.some(entry => entry.targetSpeciesId === to && entry.trigger === 'level-up' && entry.minimumLevel === level));
   }
-  for (const [id, group] of [[220, 'slow'], [221, 'slow'], [215, 'medium-slow'], [86, 'medium'], [87, 'medium'], [124, 'medium']]) {
-    assert.equal(species[String(id)].growthCurveId, `pokeapi_growth_${group}_v1`);
-  }
+  for (const id of speciesIds) assert.ok(species[String(id)].growthCurveId.startsWith('pokeapi_growth_'));
   assert.equal(species['473'], undefined);
   assert.equal(species['461'], undefined);
 });

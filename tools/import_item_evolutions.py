@@ -1,67 +1,85 @@
-"""Import supported item evolutions from cached official chains; no network or invented level gates."""
+"""Import every Gen I stone branch from the cached, official HGSS evolution reference."""
 import argparse
 import hashlib
 import json
 from pathlib import Path
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/sources/pokeapi'
 TARGET = ROOT / 'content/battle/item-evolutions.v1.json'
-STONES = ('fire-stone', 'water-stone', 'thunder-stone', 'leaf-stone', 'sun-stone')
-STONE_SOURCES = {item: item for item in STONES}
-STONE_SOURCES.update({'leaf-stone': 85, 'sun-stone': 80})
-def read(path): return json.loads(path.read_text(encoding='utf-8'))
+STONES = {'fire-stone', 'water-stone', 'thunder-stone', 'leaf-stone', 'sun-stone', 'moon-stone'}
+
+
+def read(path):
+    return json.loads(path.read_text(encoding='utf-8'))
+
+
+def source_record(path):
+    raw = path.read_bytes()
+    stem = path.stem
+    resource_id = stem.removeprefix('evolution-chain-') if stem.startswith('evolution-chain-') else stem.removeprefix('item-')
+    kind = 'evolution-chain' if stem.startswith('evolution-chain-') else 'item'
+    return {'url': f'https://pokeapi.co/api/v2/{kind}/{resource_id}/',
+            'path': path.relative_to(ROOT).as_posix(), 'sha256': hashlib.sha256(raw).hexdigest()}
+
+
 def build(root=ROOT):
     species = read(root / 'content/battle/species.v1.json')['species']
-    declared = read(root / 'content/battle/species-imports.v1.json')
-    expected = []
-    chains = set()
-    for entry in declared['imports']:
-        if 'evolutionItemId' not in entry: continue
-        parent, target, item = entry['templateSpeciesId'], entry['speciesId'], entry['evolutionItemId']
-        if item not in STONES or str(parent) not in species or str(target) not in species:
-            raise ValueError('Unsupported or unregistered declared stone evolution')
-        rule = {'fromSpeciesId': parent, 'toSpeciesId': target, 'itemId': item}
-        if rule in expected: raise ValueError('Duplicate declared stone evolution')
-        expected.append(rule)
-        record = read(root / f'content/sources/pokeapi/pokemon-species-{parent}.json')
-        chains.add(int(record['evolution_chain']['url'].strip('/').split('/')[-1]))
+    if set(map(int, species)) != set(range(1, 152)):
+        raise ValueError('Stone evolution import requires the exact Gen I runtime catalog.')
+    reference = read(root / 'content/battle/evolution-reference.v1.json')['species']
+    imports = read(root / 'content/battle/species-imports.v1.json')['imports']
+    if {entry['speciesId'] for entry in imports} != set(range(1, 152)):
+        raise ValueError('Stone evolution import requires official imports for IDs 1–151.')
+    rules = []
+    source_species = set()
+    used_items = set()
+    for from_id, definition in reference.items():
+        source_id = int(from_id)
+        if source_id > 151:
+            continue
+        for edge in definition['evolutions']:
+            if edge['targetSpeciesId'] > 151 or edge['trigger'] != 'use-item':
+                continue
+            item_id = edge.get('itemId')
+            if item_id not in STONES:
+                raise ValueError(f'Unsupported Gen I item evolution {source_id}->{edge["targetSpeciesId"]}: {edge}')
+            rule = {'fromSpeciesId': source_id, 'toSpeciesId': edge['targetSpeciesId'], 'itemId': item_id}
+            if rule in rules:
+                raise ValueError(f'Duplicate item evolution: {rule}')
+            rules.append(rule)
+            source_species.add(source_id)
+            used_items.add(item_id)
+
     items = read(root / 'content/items/items.v1.json')['items']
-    item_sources = []
-    for item in sorted({rule['itemId'] for rule in expected}):
-        key = STONE_SOURCES[item]
-        path = root / f'content/sources/pokeapi/item-{key}.json'
+    item_records = {}
+    for path in SOURCE.glob('item-*.json'):
         raw = read(path)
-        name = next(entry['name'] for entry in raw['names'] if entry['language']['name'] == 'it')
-        if raw['name'] != item or raw['category']['name'] != 'evolution' or items.get(item, {}).get('name') != name or items[item].get('evolutionStone') is not True:
-            raise ValueError('Evolution item differs from its official source or runtime definition')
-        item_sources.append({'url': f'https://pokeapi.co/api/v2/item/{key}/', 'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    rules, sources = [], []
-    def walk(node):
-        parent = int(node['species']['url'].strip('/').split('/')[-1])
-        for child in node['evolves_to']:
-            target = int(child['species']['url'].strip('/').split('/')[-1])
-            if str(parent) in species and str(target) in species:
-                for detail in child['evolution_details']:
-                    item = (detail.get('item') or {}).get('name')
-                    if detail['trigger']['name'] != 'use-item' or item not in STONES: continue
-                    rule = {'fromSpeciesId': parent, 'toSpeciesId': target, 'itemId': item}
-                    if rule not in expected: continue
-                    # Current data includes regional forms introduced after HGSS.
-                    form = (detail.get('required_pokemon_form') or {}).get('name')
-                    if form and form != node['species']['name']: continue
-                    if detail.get('evolved_pokemon_form') or detail.get('region') or detail.get('location'): continue
-                    if int(detail['version_group']['url'].strip('/').split('/')[-1]) > 11: continue
-                    keys = ('min_level','gender','held_item','known_move','known_move_type','min_happiness','min_beauty','min_affection','party_species','party_type','relative_physical_stats','trade_species','used_move','min_move_count','min_steps','min_damage_taken','condition_expression')
-                    if any(detail.get(key) is not None for key in keys) or detail.get('time_of_day') or any(detail.get(k) for k in ('needs_multiplayer','needs_overworld_rain','turn_upside_down','near_special_rock','allowed_natures')):
-                        raise ValueError('Unsupported stone evolution conditions')
-                    if rule not in rules: rules.append(rule)
-            walk(child)
-    for chain in sorted(chains):
-        path = root / f'content/sources/pokeapi/evolution-chain-{chain}.json'
-        walk(read(path)['chain'])
-        sources.append({'url': f'https://pokeapi.co/api/v2/evolution-chain/{chain}/', 'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    if any(rule not in rules for rule in expected): raise ValueError('Declared stone evolution has no supported official source match')
-    return {'version':1,'versionGroup':'heartgold-soulsilver','rules':sorted(rules,key=lambda r:(r['fromSpeciesId'],r['toSpeciesId'])),'sources':sources,'itemSources':item_sources}
+        if raw.get('name') in used_items:
+            item_records[raw['name']] = (path, raw)
+    item_sources = []
+    for item_id in sorted(used_items):
+        if item_id not in item_records:
+            raise ValueError(f'Missing cached official item resource: {item_id}')
+        path, raw = item_records[item_id]
+        italian = next((name['name'] for name in raw.get('names', []) if name['language']['name'] == 'it'), None)
+        if raw['category']['name'] != 'evolution' or not italian or items.get(item_id, {}).get('name') != italian or items[item_id].get('evolutionStone') is not True:
+            raise ValueError(f'Evolution item differs from its official source/runtime definition: {item_id}')
+        item_sources.append(source_record(path))
+
+    chain_ids = set()
+    for species_id in source_species:
+        raw = read(root / f'content/sources/pokeapi/pokemon-species-{species_id}.json')
+        chain_ids.add(int(raw['evolution_chain']['url'].rstrip('/').split('/')[-1]))
+    sources = []
+    for chain_id in sorted(chain_ids):
+        path = SOURCE / f'evolution-chain-{chain_id}.json'
+        if not path.exists():
+            raise ValueError(f'Missing cached official evolution chain: {chain_id}')
+        sources.append(source_record(path))
+    rules.sort(key=lambda rule: (rule['fromSpeciesId'], rule['toSpeciesId']))
+    return {'version': 1, 'versionGroup': 'heartgold-soulsilver', 'rules': rules, 'sources': sources,
+            'itemSources': item_sources}
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
@@ -70,7 +88,7 @@ def main(argv=None):
     if args.check:
         if read(TARGET)!=value: raise SystemExit('Item evolution catalog differs from cached source')
     else: TARGET.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print(f"Verified {len(value['rules'])} official stone branches with cached source checksums.")
+    print(f"Verified {len(value['rules'])} official Gen I stone branches with cached source checksums.")
 
 
 if __name__ == '__main__':

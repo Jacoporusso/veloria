@@ -25,7 +25,22 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       ['league_council01', 'league_council1'], ['league_council02', 'league_council2'],
       ['league_council03', 'league_council3'], ['league_council04', 'league_council4'],
       ['r01_sentiero_alba', 'trainer_route01_a'], ['r01_sentiero_alba', 'trainer_route01_b'],
+      ['r04_salita_petali', 'nila_r04'], ['r05_viadotto_ciliegi', 'oren_r05'],
+      ['r06_anello_magnetico', 'r06_iris'], ['r07_condotto_risonante', 'r07_dario'],
       ['r03_terrazze_muschio', 'r03_path_guide'], ['league_champion', 'league_champion'],
+      ['vetracielo', 'vetracielo_lea'], ['ferraluce', 'ferraluce_ivo'],
+      ['ferraluce', 'ferraluce_care'], ['ferraluce', 'ferraluce_shop'],
+      ['acquariva', 'acquariva_tessa'], ['portolume', 'portolume_captain'],
+      ['r08_costa_turbine', 'r08_viola'], ['d04_delta_specchi', 'delta_iris'],
+      ['r09_dune_salmastre', 'r09_lina'], ['r09_dune_salmastre', 'r09_noemi'],
+      ['r10_sentiero_canne', 'r10_maya'], ['r10_sentiero_canne', 'r10_bruno'],
+      ['r11_via_cascate', 'r11_celia'], ['r12_valle_vento', 'r12_ruben'],
+      ['r13_tornanti_bianchi', 'r13_alma'], ['d04_delta_specchi', 'delta_teo'],
+      ['biancavetta', 'biancavetta_guide'], ['passobrina', 'passobrina_guide'],
+      ['r14_varco_cristallo', 'r14_guide'], ['radicelmo', 'radicelmo_keeper'],
+      ['league_forecourt', 'league_reception'], ['petalora', 'petalora_ivo'],
+      ['r16_cammino_equilibrio', 'r16_maia'], ['r16_cammino_equilibrio', 'r16_tobia'],
+      ['d03_centrale_risonante', 'centrale_technician'],
     ];
     test.setTimeout(30_000 + cases.length * 6_000);
     for (const [mapName, npcId] of cases) {

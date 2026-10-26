@@ -67,8 +67,17 @@
     },
     {
       "kind": "image",
-      "key": "veloria-ferraluce-illustrated-v2",
-      "path": "assets/scenery/veloria-ferraluce-illustrated-v2.webp"
+      "key": "veloria-ferraluce-service-npcs-v1",
+      "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-illustrated-v3",
+      "path": "assets/scenery/veloria-ferraluce-illustrated-v3.webp"
     }
   ],
   "spawns": [

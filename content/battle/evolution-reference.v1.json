@@ -168,6 +168,34 @@
     "20": {
       "evolutions": []
     },
+    "21": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 22,
+          "targetName": "Fearow",
+          "trigger": "level-up",
+          "minimumLevel": 20,
+          "itemName": null
+        }
+      ]
+    },
+    "22": {
+      "evolutions": []
+    },
+    "23": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 24,
+          "targetName": "Arbok",
+          "trigger": "level-up",
+          "minimumLevel": 22,
+          "itemName": null
+        }
+      ]
+    },
+    "24": {
+      "evolutions": []
+    },
     "25": {
       "evolutions": [
         {
@@ -175,11 +203,123 @@
           "targetName": "Raichu",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietratuono"
+          "itemName": "Pietratuono",
+          "itemId": "thunder-stone"
         }
       ]
     },
     "26": {
+      "evolutions": []
+    },
+    "27": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 28,
+          "targetName": "Sandslash",
+          "trigger": "level-up",
+          "minimumLevel": 22,
+          "itemName": null
+        }
+      ]
+    },
+    "28": {
+      "evolutions": []
+    },
+    "29": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 30,
+          "targetName": "Nidorina",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "30": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 31,
+          "targetName": "Nidoqueen",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietralunare",
+          "itemId": "moon-stone"
+        }
+      ]
+    },
+    "31": {
+      "evolutions": []
+    },
+    "32": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 33,
+          "targetName": "Nidorino",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "33": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 34,
+          "targetName": "Nidoking",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietralunare",
+          "itemId": "moon-stone"
+        }
+      ]
+    },
+    "34": {
+      "evolutions": []
+    },
+    "35": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 36,
+          "targetName": "Clefable",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietralunare",
+          "itemId": "moon-stone"
+        }
+      ]
+    },
+    "36": {
+      "evolutions": []
+    },
+    "37": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 38,
+          "targetName": "Ninetales",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafocaia",
+          "itemId": "fire-stone"
+        }
+      ]
+    },
+    "38": {
+      "evolutions": []
+    },
+    "39": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 40,
+          "targetName": "Wigglytuff",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietralunare",
+          "itemId": "moon-stone"
+        }
+      ]
+    },
+    "40": {
       "evolutions": []
     },
     "41": {
@@ -223,18 +363,119 @@
           "targetName": "Vileplume",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietrafoglia"
+          "itemName": "Pietrafoglia",
+          "itemId": "leaf-stone"
         },
         {
           "targetSpeciesId": 182,
           "targetName": "Bellossom",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietrasolare"
+          "itemName": "Pietrasolare",
+          "itemId": "sun-stone"
         }
       ]
     },
     "45": {
+      "evolutions": []
+    },
+    "46": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 47,
+          "targetName": "Parasect",
+          "trigger": "level-up",
+          "minimumLevel": 24,
+          "itemName": null
+        }
+      ]
+    },
+    "47": {
+      "evolutions": []
+    },
+    "48": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 49,
+          "targetName": "Venomoth",
+          "trigger": "level-up",
+          "minimumLevel": 31,
+          "itemName": null
+        }
+      ]
+    },
+    "49": {
+      "evolutions": []
+    },
+    "50": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 51,
+          "targetName": "Dugtrio",
+          "trigger": "level-up",
+          "minimumLevel": 26,
+          "itemName": null
+        }
+      ]
+    },
+    "51": {
+      "evolutions": []
+    },
+    "52": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 53,
+          "targetName": "Persian",
+          "trigger": "level-up",
+          "minimumLevel": 28,
+          "itemName": null
+        }
+      ]
+    },
+    "53": {
+      "evolutions": []
+    },
+    "54": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 55,
+          "targetName": "Golduck",
+          "trigger": "level-up",
+          "minimumLevel": 33,
+          "itemName": null
+        }
+      ]
+    },
+    "55": {
+      "evolutions": []
+    },
+    "56": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 57,
+          "targetName": "Primeape",
+          "trigger": "level-up",
+          "minimumLevel": 28,
+          "itemName": null
+        }
+      ]
+    },
+    "57": {
+      "evolutions": []
+    },
+    "58": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 59,
+          "targetName": "Arcanine",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafocaia",
+          "itemId": "fire-stone"
+        }
+      ]
+    },
+    "59": {
       "evolutions": []
     },
     "60": {
@@ -255,7 +496,8 @@
           "targetName": "Poliwrath",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietraidrica"
+          "itemName": "Pietraidrica",
+          "itemId": "water-stone"
         },
         {
           "targetSpeciesId": 186,
@@ -268,6 +510,56 @@
       ]
     },
     "62": {
+      "evolutions": []
+    },
+    "63": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 64,
+          "targetName": "Kadabra",
+          "trigger": "level-up",
+          "minimumLevel": 16,
+          "itemName": null
+        }
+      ]
+    },
+    "64": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 65,
+          "targetName": "Alakazam",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null
+        }
+      ]
+    },
+    "65": {
+      "evolutions": []
+    },
+    "66": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 67,
+          "targetName": "Machoke",
+          "trigger": "level-up",
+          "minimumLevel": 28,
+          "itemName": null
+        }
+      ]
+    },
+    "67": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 68,
+          "targetName": "Machamp",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null
+        }
+      ]
+    },
+    "68": {
       "evolutions": []
     },
     "69": {
@@ -288,7 +580,8 @@
           "targetName": "Victreebel",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietrafoglia"
+          "itemName": "Pietrafoglia",
+          "itemId": "leaf-stone"
         }
       ]
     },
@@ -330,6 +623,23 @@
           "itemName": null
         }
       ]
+    },
+    "76": {
+      "evolutions": []
+    },
+    "77": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 78,
+          "targetName": "Rapidash",
+          "trigger": "level-up",
+          "minimumLevel": 40,
+          "itemName": null
+        }
+      ]
+    },
+    "78": {
+      "evolutions": []
     },
     "79": {
       "evolutions": [
@@ -376,6 +686,23 @@
         }
       ]
     },
+    "83": {
+      "evolutions": []
+    },
+    "84": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 85,
+          "targetName": "Dodrio",
+          "trigger": "level-up",
+          "minimumLevel": 31,
+          "itemName": null
+        }
+      ]
+    },
+    "85": {
+      "evolutions": []
+    },
     "86": {
       "evolutions": [
         {
@@ -388,6 +715,60 @@
       ]
     },
     "87": {
+      "evolutions": []
+    },
+    "88": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 89,
+          "targetName": "Muk",
+          "trigger": "level-up",
+          "minimumLevel": 38,
+          "itemName": null
+        }
+      ]
+    },
+    "89": {
+      "evolutions": []
+    },
+    "90": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 91,
+          "targetName": "Cloyster",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietraidrica",
+          "itemId": "water-stone"
+        }
+      ]
+    },
+    "91": {
+      "evolutions": []
+    },
+    "92": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 93,
+          "targetName": "Haunter",
+          "trigger": "level-up",
+          "minimumLevel": 25,
+          "itemName": null
+        }
+      ]
+    },
+    "93": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 94,
+          "targetName": "Gengar",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null
+        }
+      ]
+    },
+    "94": {
       "evolutions": []
     },
     "95": {
@@ -444,6 +825,117 @@
     "101": {
       "evolutions": []
     },
+    "102": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 103,
+          "targetName": "Exeggutor",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietrafoglia",
+          "itemId": "leaf-stone"
+        }
+      ]
+    },
+    "103": {
+      "evolutions": []
+    },
+    "104": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 105,
+          "targetName": "Marowak",
+          "trigger": "level-up",
+          "minimumLevel": 28,
+          "itemName": null
+        }
+      ]
+    },
+    "105": {
+      "evolutions": []
+    },
+    "106": {
+      "evolutions": []
+    },
+    "107": {
+      "evolutions": []
+    },
+    "108": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 463,
+          "targetName": "Lickilicky",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "knownMoveName": "Rotolamento"
+        }
+      ]
+    },
+    "109": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 110,
+          "targetName": "Weezing",
+          "trigger": "level-up",
+          "minimumLevel": 35,
+          "itemName": null
+        }
+      ]
+    },
+    "110": {
+      "evolutions": []
+    },
+    "111": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 112,
+          "targetName": "Rhydon",
+          "trigger": "level-up",
+          "minimumLevel": 42,
+          "itemName": null
+        }
+      ]
+    },
+    "112": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 464,
+          "targetName": "Rhyperior",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Copertura"
+        }
+      ]
+    },
+    "113": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 242,
+          "targetName": "Blissey",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "minimumHappiness": 160
+        }
+      ]
+    },
+    "114": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 465,
+          "targetName": "Tangrowth",
+          "trigger": "level-up",
+          "minimumLevel": null,
+          "itemName": null,
+          "knownMoveName": "Forzantica"
+        }
+      ]
+    },
+    "115": {
+      "evolutions": []
+    },
     "116": {
       "evolutions": [
         {
@@ -467,7 +959,101 @@
         }
       ]
     },
+    "118": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 119,
+          "targetName": "Seaking",
+          "trigger": "level-up",
+          "minimumLevel": 33,
+          "itemName": null
+        }
+      ]
+    },
+    "119": {
+      "evolutions": []
+    },
+    "120": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 121,
+          "targetName": "Starmie",
+          "trigger": "use-item",
+          "minimumLevel": null,
+          "itemName": "Pietraidrica",
+          "itemId": "water-stone"
+        }
+      ]
+    },
+    "121": {
+      "evolutions": []
+    },
+    "122": {
+      "evolutions": []
+    },
+    "123": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 212,
+          "targetName": "Scizor",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Metalcoperta"
+        }
+      ]
+    },
     "124": {
+      "evolutions": []
+    },
+    "125": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 466,
+          "targetName": "Electivire",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Elettritore"
+        }
+      ]
+    },
+    "126": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 467,
+          "targetName": "Magmortar",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Magmatore"
+        }
+      ]
+    },
+    "127": {
+      "evolutions": []
+    },
+    "128": {
+      "evolutions": []
+    },
+    "129": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 130,
+          "targetName": "Gyarados",
+          "trigger": "level-up",
+          "minimumLevel": 20,
+          "itemName": null
+        }
+      ]
+    },
+    "130": {
+      "evolutions": []
+    },
+    "131": {
+      "evolutions": []
+    },
+    "132": {
       "evolutions": []
     },
     "133": {
@@ -477,21 +1063,24 @@
           "targetName": "Vaporeon",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietraidrica"
+          "itemName": "Pietraidrica",
+          "itemId": "water-stone"
         },
         {
           "targetSpeciesId": 135,
           "targetName": "Jolteon",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietratuono"
+          "itemName": "Pietratuono",
+          "itemId": "thunder-stone"
         },
         {
           "targetSpeciesId": 136,
           "targetName": "Flareon",
           "trigger": "use-item",
           "minimumLevel": null,
-          "itemName": "Pietrafocaia"
+          "itemName": "Pietrafocaia",
+          "itemId": "fire-stone"
         },
         {
           "targetSpeciesId": 196,
@@ -540,6 +1129,61 @@
     "136": {
       "evolutions": []
     },
+    "137": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 233,
+          "targetName": "Porygon2",
+          "trigger": "trade",
+          "minimumLevel": null,
+          "itemName": null,
+          "heldItemName": "Upgrade"
+        }
+      ]
+    },
+    "138": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 139,
+          "targetName": "Omastar",
+          "trigger": "level-up",
+          "minimumLevel": 40,
+          "itemName": null
+        }
+      ]
+    },
+    "139": {
+      "evolutions": []
+    },
+    "140": {
+      "evolutions": [
+        {
+          "targetSpeciesId": 141,
+          "targetName": "Kabutops",
+          "trigger": "level-up",
+          "minimumLevel": 40,
+          "itemName": null
+        }
+      ]
+    },
+    "141": {
+      "evolutions": []
+    },
+    "142": {
+      "evolutions": []
+    },
+    "143": {
+      "evolutions": []
+    },
+    "144": {
+      "evolutions": []
+    },
+    "145": {
+      "evolutions": []
+    },
+    "146": {
+      "evolutions": []
+    },
     "147": {
       "evolutions": [
         {
@@ -565,164 +1209,10 @@
     "149": {
       "evolutions": []
     },
-    "161": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 162,
-          "targetName": "Furret",
-          "trigger": "level-up",
-          "minimumLevel": 15,
-          "itemName": null
-        }
-      ]
-    },
-    "162": {
+    "150": {
       "evolutions": []
     },
-    "163": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 164,
-          "targetName": "Noctowl",
-          "trigger": "level-up",
-          "minimumLevel": 20,
-          "itemName": null
-        }
-      ]
-    },
-    "164": {
-      "evolutions": []
-    },
-    "167": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 168,
-          "targetName": "Ariados",
-          "trigger": "level-up",
-          "minimumLevel": 22,
-          "itemName": null
-        }
-      ]
-    },
-    "168": {
-      "evolutions": []
-    },
-    "170": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 171,
-          "targetName": "Lanturn",
-          "trigger": "level-up",
-          "minimumLevel": 27,
-          "itemName": null
-        }
-      ]
-    },
-    "171": {
-      "evolutions": []
-    },
-    "177": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 178,
-          "targetName": "Xatu",
-          "trigger": "level-up",
-          "minimumLevel": 25,
-          "itemName": null
-        }
-      ]
-    },
-    "178": {
-      "evolutions": []
-    },
-    "179": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 180,
-          "targetName": "Flaaffy",
-          "trigger": "level-up",
-          "minimumLevel": 15,
-          "itemName": null
-        }
-      ]
-    },
-    "180": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 181,
-          "targetName": "Ampharos",
-          "trigger": "level-up",
-          "minimumLevel": 30,
-          "itemName": null
-        }
-      ]
-    },
-    "181": {
-      "evolutions": []
-    },
-    "182": {
-      "evolutions": []
-    },
-    "194": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 195,
-          "targetName": "Quagsire",
-          "trigger": "level-up",
-          "minimumLevel": 20,
-          "itemName": null
-        }
-      ]
-    },
-    "195": {
-      "evolutions": []
-    },
-    "196": {
-      "evolutions": []
-    },
-    "208": {
-      "evolutions": []
-    },
-    "215": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 461,
-          "targetName": "Weavile",
-          "trigger": "level-up",
-          "minimumLevel": null,
-          "itemName": null,
-          "heldItemName": "Affilartigli",
-          "timeOfDay": "night"
-        }
-      ]
-    },
-    "220": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 221,
-          "targetName": "Piloswine",
-          "trigger": "level-up",
-          "minimumLevel": 33,
-          "itemName": null
-        }
-      ]
-    },
-    "221": {
-      "evolutions": [
-        {
-          "targetSpeciesId": 473,
-          "targetName": "Mamoswine",
-          "trigger": "level-up",
-          "minimumLevel": null,
-          "itemName": null,
-          "knownMoveName": "Forzantica"
-        }
-      ]
-    },
-    "227": {
-      "evolutions": []
-    },
-    "230": {
+    "151": {
       "evolutions": []
     }
   }

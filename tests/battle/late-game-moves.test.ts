@@ -45,7 +45,7 @@ test('late-game attacks retain official HGSS parameters and every secondary effe
 test('strategic late-game options appear at official levels across the whole roster', () => {
   const species = roster.species as Record<string, { officialLearnset: Array<{ moveId: string; level: number }> }>;
   const learned = learning.species as Record<string, Array<{ moveId: string; level: number }>>;
-  for (const [speciesId, moveId, level] of [['6', 'flamethrower', 42], ['97', 'psychic', 50], ['80', 'psychic', 54], ['20', 'crunch', 24], ['208', 'crunch', 46]] as const) {
+  for (const [speciesId, moveId, level] of [['6', 'flamethrower', 42], ['97', 'psychic', 50], ['80', 'psychic', 54], ['20', 'crunch', 24], ['143', 'crunch', 44], ['94', 'shadow-ball', 33], ['110', 'sludge-bomb', 48]] as const) {
     assert.ok(species[speciesId].officialLearnset.some(entry => entry.moveId === moveId && entry.level === level));
     assert.ok(learned[speciesId].some(entry => entry.moveId === moveId && entry.level === level));
   }
@@ -55,6 +55,7 @@ test('strategic late-game options appear at official levels across the whole ros
     }
     assert.ok(!(sourceReport.unimplemented as Record<string, Array<{ moveId: string }>>)[speciesId].some(entry => ids.includes(entry.moveId)));
   }
-  // The current roster has no HGSS level-up recipients of these two TM attacks; importing an attack must not invent learning permissions.
-  for (const moveId of ['shadow-ball', 'sludge-bomb']) assert.ok(Object.values(species).every(definition => !definition.officialLearnset.some(entry => entry.moveId === moveId)));
+  for (const [speciesId, moveId] of [['94', 'shadow-ball'], ['110', 'sludge-bomb']]) {
+    assert.ok(species[speciesId].officialLearnset.some(entry => entry.moveId === moveId), `${speciesId} keeps its official HGSS level-up permission for ${moveId}`);
+  }
 });

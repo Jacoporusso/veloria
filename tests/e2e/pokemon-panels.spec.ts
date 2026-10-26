@@ -12,14 +12,19 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.evaluate(async text => {
       const { importSave } = await import('/src/persistence/save-backup.ts' as string);
       const { saveGame } = await import('/src/persistence/save-store.ts' as string);
-      await saveGame(importSave(text));
+      const save = importSave(text);
+      save.party = save.party.filter(member => member.speciesId <= 151);
+      save.storage = save.storage.filter(member => member.speciesId <= 151);
+      save.flags = save.flags.filter(flag => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151);
+      save.flags.push('pokedex_seen_74', 'pokedex_seen_98');
+      await saveGame(save);
     }, backup);
     await page.reload(); await enterGame(page);
     const before = await readBrowserSave(page);
     await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
     await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
     const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
-    await panel.getByRole('button', { name: /Wooper.*VISTO/ }).click();
+    await panel.getByRole('button', { name: /Geodude.*VISTO/ }).click();
     const habitats = panel.getByRole('region', { name: 'Dove incontrarlo' });
     await expect(habitats.getByRole('article').first()).not.toContainText('Da esplorare');
     const conduit = habitats.getByRole('article').filter({ hasText: 'Condotto Risonante' });
@@ -29,7 +34,7 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await habitats.scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`wooper-habitats-${width}.png`) });
     await panel.getByRole('button', { name: '← Tutte le specie viste', exact: true }).click();
-    await panel.getByRole('button', { name: /Chinchou/ }).click();
+    await panel.getByRole('button', { name: /Krabby/ }).click();
     const coast = habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Pesca' });
     await expect(coast).toHaveCount(1);
     await expect(coast).toContainText('Postazione di pesca dalla riva');
@@ -181,33 +186,32 @@ test('both panels show level evolutions and final forms near the top of the deta
   for (const view of ['team', 'dex']) {
     for (const [id, name, requirement] of [
       [4, 'Charmander', 'Dal livello 16'], [10, 'Caterpie', 'Dal livello 7'], [12, 'Butterfree', 'Non ha ulteriori evoluzioni'],
-      [82, 'Magneton', 'Aumenta di livello presso Mt. Coronet'], [208, 'Steelix', 'Non ha ulteriori evoluzioni'], [227, 'Skarmory', 'Non ha ulteriori evoluzioni'],
+      [82, 'Magneton', 'Non ha ulteriori evoluzioni'], [95, 'Onix', 'Non ha ulteriori evoluzioni'], [142, 'Aerodactyl', 'Non ha ulteriori evoluzioni'],
       [72, 'Tentacool', 'Dal livello 30'], [73, 'Tentacruel', 'Non ha ulteriori evoluzioni'],
       [98, 'Krabby', 'Dal livello 28'], [99, 'Kingler', 'Non ha ulteriori evoluzioni'],
-      [170, 'Chinchou', 'Dal livello 27'], [171, 'Lanturn', 'Non ha ulteriori evoluzioni'],
+      [138, 'Omanyte', 'Dal livello 40'], [139, 'Omastar', 'Non ha ulteriori evoluzioni'],
       [79, 'Slowpoke', 'Dal livello 37'], [80, 'Slowbro', 'Non ha ulteriori evoluzioni'],
       [96, 'Drowzee', 'Dal livello 26'], [97, 'Hypno', 'Non ha ulteriori evoluzioni'],
-      [177, 'Natu', 'Dal livello 25'], [178, 'Xatu', 'Non ha ulteriori evoluzioni'],
-      [133, 'Eevee', 'amicizia alta'], [196, 'Espeon', 'Non ha ulteriori evoluzioni'],
+      [147, 'Dratini', 'Dal livello 30'], [148, 'Dragonair', 'Dal livello 55'], [149, 'Dragonite', 'Non ha ulteriori evoluzioni'],
+      [133, 'Eevee', 'Usa Pietrafocaia'], [135, 'Jolteon', 'Non ha ulteriori evoluzioni'],
     ] as const) {
       await page.goto(`/?species=${id}&view=${view}`);
       await page.getByRole('button', { name: new RegExp(name) }).click();
       const evolution = page.getByRole('region', { name: 'Evoluzione' });
       await expect(evolution).toContainText(requirement);
       await expect(evolution).not.toContainText('livello null');
-      if (id === 82) await expect(evolution).toContainText('non ancora disponibile nel prototipo');
-      if (id === 79) await expect(evolution).toContainText('Tramite scambio tenendo');
+
+
       if (id === 133) {
-        await expect(evolution).toContainText('di giorno');
-        await expect(evolution).toContainText('di notte');
-        await expect(evolution).not.toContainText('Usa null');
-        await expect(evolution).toContainText('roccia speciale');
+        await expect(evolution).toContainText('Pietrafocaia');
+        await expect(evolution).toContainText('Pietraidrica');
+        await expect(evolution).toContainText('Pietratuono');
       }
-      if ([82, 208, 227, 72, 73, 98, 99, 170, 171].includes(id)) {
+      if ([82, 95, 142, 72, 73, 98, 99, 138, 139].includes(id)) {
         const artUrl = await page.locator('.pokemon-detail .creature-portrait').evaluate(element => getComputedStyle(element).backgroundImage.slice(5, -2));
         await page.evaluate(async url => { const image = new Image(); image.src = url; await image.decode(); }, artUrl);
       }
-      if ([10, 72, 98, 170].includes(id)) await expect(evolution).toContainText('Disponibile nel gioco');
+      if ([10, 72, 98, 138].includes(id)) await expect(evolution).toContainText('Disponibile nel gioco');
       if (id === 4) {
         await expect(evolution).toContainText('Charmeleon');
         await evolution.scrollIntoViewIfNeeded();

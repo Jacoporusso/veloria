@@ -100,51 +100,65 @@
     {
       "mapId": "veloria/r05_viadotto_ciliegi",
       "tiledAsset": "tilemaps/r05_viadotto_ciliegi.tmj",
-      "assetKey": "veloria-r05_viadotto_ciliegi-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
-      "sourceSha256": "27865020ca87ae68a5f8305462167800d673d38c6a4af1c6a75bfddf7a4d038f",
-      "runtimeSha256": "e52d0993444952c909d8ca451f2241b147755f534b2d954ddd8eba959250db20",
-      "width": 1671,
-      "height": 941,
+      "assetKey": "veloria-r05_viadotto_ciliegi-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp",
+      "sourceSha256": "2ba335864abf54f3f69140059985d969f82e881e9d868608d7042b4ec13974fc",
+      "runtimeSha256": "cac8195ae3076713dd932b98f50a22d6453e1d78452feae4477b6a0242a38d27",
+      "width": 1670,
+      "height": 942,
       "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Viadotto dei Ciliegi,aspect23:13. Cherryblossom approach to elegant city. Preserve verticalriverstripx48Ã¢â‚¬â€œ54% acrossfullheight, ONLY stone/wood footbridge aroundy20Ã¢â‚¬â€œ30%. Exact walkingroad enters WESTedgeaty65Ã¢â‚¬â€œ77%, runsright tox30Ã¢â‚¬â€œ37%, turnsUPto y20Ã¢â‚¬â€œ30%, thenRIGHT overbridge toEASTedgeaty20Ã¢â‚¬â€œ30%. The raisedmonorail atTOP10% is a runtime layer: do NOT painttrack,trainsorpillars, leave lowplantbackgroundunderthat strip. Elaboratepinkcanopy onlyexistingtreepositions, softwaterlight, delicatewatersidegroundcover; walkwaybridgemustalignprecisely. Do notaddotherbridges.",
       "references": [
         "C:/Projects/Veloria/.tmp/map-art-before/r05_viadotto_ciliegi.png",
         "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
       ],
-      "revisions": []
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r05-viadotto-ciliegi-illustrated-v3.md",
+          "reason": "Modern matte illustration with clear routes; pending real movement review."
+        }
+      ]
     },
     {
       "mapId": "veloria/vetracielo",
       "tiledAsset": "tilemaps/vetracielo.tmj",
-      "assetKey": "veloria-vetracielo-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-vetracielo-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-vetracielo-illustrated-v2.webp",
-      "sourceSha256": "234e5573b3d037cbfc198cb78beb945a7401f7376bd9bb0c57bff76bc48c88c2",
-      "runtimeSha256": "979bc2e9384745da0d6237b59b762b55f0d1baf5becb42cb77a869df75b409ad",
+      "assetKey": "veloria-vetracielo-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-vetracielo-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-vetracielo-illustrated-v3.webp",
+      "sourceSha256": "9d626ab5c1e886ee04b82ddc37804dc0f2e7e4423709f7ff57df7463e5235f4d",
+      "runtimeSha256": "964791e41a5363535ac6aaf0bbbc14547710adb5cbbafa220f2673f901f01498",
       "width": 1448,
       "height": 1086,
-      "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Vetracielo garden metropolis,aspect4:3. Keep the EXISTING grand blueglass botanicalmonorailstation building exactly in northcenter footprintx22Ã¢â‚¬â€œ78%,y5Ã¢â‚¬â€œ50%, entrancecenterx50%y50%. It is being bakedintothisnewbackground so drawONESTATIONmatchingref, do NOT relocate/enlarge. No trains and no elevatedtrack because trackisanother runtime layer. Broad ivory/cyan glazed pedestrianplaza acrossx0Ã¢â‚¬â€œ100%,y60Ã¢â‚¬â€œ90%, branchupfromcenterx50% tostationentrance. West/eastexitsat y82Ã¢â‚¬â€œ90%, southrouteexitx25Ã¢â‚¬â€œ33%. Lushcherryparks alongtheleft/rightedgesandexistingtreepositions, restrained modern glasscity details onlyperiphery; openplazafloorremainsfree of giant planters/fountains/newbuildings.",
+      "prompt": "ImageGen localized service-clearance edit. Preserve Vetracielo layout; connect Lea (22,19), Centro cure (15,20–21), shop (27,20–21), monorail (24,21–22), and gym stair (20,16) with continuous pale earth paths to the southern plaza. Root visually approved; gameplay geometry unchanged.",
       "references": [
         "C:/Projects/Veloria/.tmp/map-art-before/vetracielo.png",
-        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+        "ImageGen localized service-clearance candidate: C:/Users/jacop/.codex/generated_images/01a16e40-9a76-7c52-b71e-a5f8bd731fa9/exec-9084cfd7-94cf-49ee-ac19-456c4bfedb81.png"
       ],
       "revisions": [
         {
           "id": "vetracielo",
           "prompt": "Precise game-exit correction ONLY. Keep this beautiful Vetracielo station and plaza unchanged. Remove the decorative wall/rail/planters where they block these edge openings: LEFT edge y80Ã¢â‚¬â€œ90%, RIGHT edge y80Ã¢â‚¬â€œ90%, BOTTOM edge x25Ã¢â‚¬â€œ33%. Extend clear pale paved walkway all the way through those edge segments. The bottomcenter x45Ã¢â‚¬â€œ55% is NOT a mapexit: terminate that decorative centralinlay naturally before the edge and use a narrow flowerborder on the very bottom1% there instead of an apparent gateway. Do not add pools/water or any new building/furniture. Keep other art, road proportions and station identical. These are functional exits, so no railing across them.",
           "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-6a715648-1c21-4db8-b47d-570d4b88b1fe.png"
+        },
+        {
+          "promptDocument": "assets/prompts/vetracielo-illustrated-v3.md",
+          "reason": "Modern illustrated city; native service and exit QA pending."
+        },
+        {
+          "promptDocument": "assets/prompts/vetracielo-illustrated-v3.md",
+          "reason": "Root approved service-path clearing artwork; PNG/WebP dimensions and hashes refreshed."
         }
       ]
     },
     {
       "mapId": "veloria/r06_anello_magnetico",
       "tiledAsset": "tilemaps/r06_anello_magnetico.tmj",
-      "assetKey": "veloria-r06_anello_magnetico-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-r06_anello_magnetico-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
-      "sourceSha256": "a5f9f52b744a37af9f0aebe7c66d259adb60af6412c842b9ec1214609f1135b3",
-      "runtimeSha256": "18473557d78122acab27c64116afb853973abadc8474dfc7aa1aebd2c4cec864",
+      "assetKey": "veloria-r06_anello_magnetico-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r06_anello_magnetico-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp",
+      "sourceSha256": "343d2db91038f3a89af04db7160a95320a427964dcae75e8857820bf32336516",
+      "runtimeSha256": "6e2d376164b5a380e06531eb9a426a6d1c23ee62264906b77667ce6a33110ff8",
       "width": 1448,
       "height": 1086,
       "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Anello Magnetico,aspect4:3. Sustainable energyresearchpark with ivory brushedstone, turquoiseinlays,coppertraces,small moss gardens inonlyexisting four cornerhabitatfootprintsx7Ã¢â‚¬â€œ20% or73Ã¢â‚¬â€œ85%,y10Ã¢â‚¬â€œ27% or67Ã¢â‚¬â€œ80%. Preserveopenroundedrectangularwalkingloop acrossx12Ã¢â‚¬â€œ86%,y29Ã¢â‚¬â€œ88% matching bluepaving inreference, exitWESTy47Ã¢â‚¬â€œ57%, exitEASTy80Ã¢â‚¬â€œ90%. The northraisedrail isruntime, OMITrail/pillars. No huge structures/reactors/lakes/fountains, noitemsonthefloor. Lowfloorinlaysandgroundtextures can adddetailwithoutinventingcollision. Matcholdfloorgeometryprecisely;warmcyanreflectionsandvariedcleanmaterials.",
@@ -157,29 +171,42 @@
           "id": "r06",
           "prompt": "Correct ONLY actual exit mouths and unintended barriers in this Anello Magnetico background. Open clear paved ground through LEFT edge y47Ã¢â‚¬â€œ57% and RIGHT edge y80Ã¢â‚¬â€œ90%, removing columns/walls/planters from those edge segments. There must be no apparent exit at bottomcenter: carry a narrow botanical border only along the bottom1%, leaving all the interior floor unchanged. Do not add water/reactors/buildings. Keep the current beautiful brushed ivory/cyan/copper floor, four small garden corners and illustrated lighting exactly. No text or people.",
           "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f4c61f5b-5d6e-49ee-916e-92ff8958331b.png"
+        },
+        {
+          "promptDocument": "assets/prompts/r06-anello-magnetico-illustrated-v3.md",
+          "reason": "Modern matte illustration with clear routes; pending real movement review."
         }
       ]
     },
     {
       "mapId": "veloria/ferraluce",
       "tiledAsset": "tilemaps/ferraluce.tmj",
-      "assetKey": "veloria-ferraluce-illustrated-v2",
-      "sourcePath": "assets/sources/veloria-ferraluce-illustrated-v2.png",
-      "runtimePath": "public/assets/scenery/veloria-ferraluce-illustrated-v2.webp",
-      "sourceSha256": "246620f38c288ba6fa4eb2f5c3c7f6adb487cf134097472e0aee59e5226926de",
-      "runtimeSha256": "0a6ac69681b3f626f305e853dd97f2590027564198eef863c5cdab6974af7447",
+      "assetKey": "veloria-ferraluce-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-ferraluce-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-ferraluce-illustrated-v3.webp",
+      "sourceSha256": "87a0266fc826632dd3920c391166a840d925ea3c15e30cae54702e9ede17be4c",
+      "runtimeSha256": "321247ed77b8c183204e4922f4c3db68c9ef2900519c0b624269b76ba6691863",
       "width": 1448,
       "height": 1086,
-      "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Ferraluce energycity,aspect4:3. Preserve theexistinggrandcopper-and-blueglassgeneratorbuilding EXACT footprintnorthcenterx22Ã¢â‚¬â€œ78%,y8Ã¢â‚¬â€œ50%, goldenverticalreactorwithin. Omittrain/monorailrail runtime topstrip. The forecourt islevelwalkableivorystone withcyan-copperinlays, openaxesfromWESTedgey80Ã¢â‚¬â€œ90% across toEASTedgey73Ã¢â‚¬â€œ90%, branchto liftaccessx86%,y62%. Enrich glazedarchitecture withsmallbotanicaldetail, warmreflections, individualfloorjoints, softshadows, gardensonlyexistingedgeprops, notlargeblockingplanters. Do notinventwallsacrossaccessibleforecourt, nootherbuildings orfalseentrances. Preserve originalbuildingfloorproportions.",
+      "prompt": "ImageGen localized service-clearance edit. Preserve Ferraluce layout; clear continuous lower-plaza walking surface for Centro (9,21–22), care (20,20–21), monorail (24,21–22), shop (30,21–22), and gym approaches. Root visually approved; gameplay geometry unchanged.",
       "references": [
         "C:/Projects/Veloria/.tmp/map-art-before/ferraluce.png",
-        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+        "ImageGen localized service-clearance candidate: C:/Users/jacop/.codex/generated_images/01a16e40-9a76-7c52-b71e-a5f8bd731fa9/exec-6880f0d3-8b52-4534-9dcf-1be2d085188e.png"
       ],
       "revisions": [
         {
           "id": "ferraluce",
           "prompt": "Correct ONLY the access edge geometry and false water of this Ferraluce painting. Remove ALL turquoise water pools/channels in the bottomthird and at left/right edges, replacing with matching dry walkable pale stone/cyan FLOORINLAY (notwater). Preserve the glassgeneratorbuilding and goldreactor exactly. Open paved road mouths at LEFT edge y80Ã¢â‚¬â€œ90%, RIGHT edge y70Ã¢â‚¬â€œ90%; no pillars/railings/trees across these openings. Maintain openwalkableground from plaza to lift point x86%,y62%. No invented bottomcenterdoor; only lowbotanicalfringe at verybottomedge where needed. No new solidfloorobjects or characters. Keep premium illustratedmaterials andlight unchanged.",
           "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f7ddb12e-3c5c-4999-87e0-f9d137ccce22.png"
+        },
+        {
+          "promptDocument": "assets/prompts/ferraluce-illustrated-v3.md",
+          "reason": "Modern illustrated city; native service and exit QA pending."
+        },
+        {
+          "promptDocument": "assets/prompts/ferraluce-illustrated-v3.md",
+          "reason": "Root approved service-path clearing artwork; PNG/WebP dimensions and hashes refreshed."
         }
       ]
     },
@@ -260,19 +287,25 @@
       "assetKey": "veloria-r04_salita_petali-illustrated-v3",
       "sourcePath": "assets/sources/veloria-r04_salita_petali-illustrated-v3.png",
       "runtimePath": "public/assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
-      "sourceSha256": "492b3ded4fd24d18d4b092cff07279baa10b5901677ade5bfb75a003f2ce8d92",
-      "runtimeSha256": "8ae558ae1b6d2c68d050fe8f59789e2ede617ac527f689b71d3f06feb7de61d8",
+      "sourceSha256": "59348dc4d270e8e42b9b6b9e70d4af19ce3b522a8fafae23039966cd7d4c8b24",
+      "runtimeSha256": "ff3593be3cbf16146cb97be33de4a0f6cdd6376a6fd3d010a0e45a14c6b9c26b",
       "width": 1484,
       "height": 1060,
-      "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Salita dei Petali, aspect7:5. Luminous cherryblossom approach, pink white canopy, layered soft greenery, mossy stream banks. EXACT verticalstreamx36Ã¢â‚¬â€œ43% acrossfullheight. ONLY two bridges at y43Ã¢â‚¬â€œ53% andy73Ã¢â‚¬â€œ83% on existingpositions. Preserve path from bottomedge x40Ã¢â‚¬â€œ48% Ã¢â€ â€™ westward y75% Ã¢â€ â€™ north x14Ã¢â‚¬â€œ20% Ã¢â€ â€™ east y45% crossing upperbridge Ã¢â€ â€™ north x69Ã¢â‚¬â€œ76% to TOPEDGE. Routes to both bridges remainopen. No third bridge, no rocks or fences newlyblocking paths, no decorativeexit beyond these. Delicate petals ground, spring light, refinedmaterials.",
+      "prompt": "ImageGen substantive matte 2D restyle, using approved R05/R07 as style references. Preserve 42×30 composition, stream, route widths/centerlines, tree locations, and both bridge decks. Finer canopies, calmer water, organic grass, soft light-earth path borders, restrained wood. Root visually approved.",
       "references": [
         "C:/Projects/Veloria/.tmp/map-art-before/r04_salita_petali.png",
-        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+        "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+        "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v3.png (style only)",
+        "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png (style only)"
       ],
       "revisions": [
         {
           "promptDocument": "assets/prompts/r04-salita-petali-illustrated-v3.md",
           "reason": "Modern matte illustrated scenery; authored navigation geometry preserved. Runtime bridge QA required."
+        },
+        {
+          "promptDocument": "assets/prompts/r04-salita-petali-illustrated-v3.md",
+          "reason": "Root approved substantive restyle; source/runtime hashes and dimensions refreshed."
         }
       ]
     },
@@ -330,6 +363,29 @@
         "public/assets/scenery/veloria-borgofonte-v2.webp"
       ],
       "revisions": []
+    },
+    {
+      "mapId": "veloria/r07_condotto_risonante",
+      "tiledAsset": "tilemaps/r07_condotto_risonante.tmj",
+      "prompt": "New 10:7 built-in ImageGen generation; old R07 used only as normalized layout reference. Matte modern illustrated 2D; static alignment checked against actual exits.",
+      "references": [
+        "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png (layout only)",
+        "assets/sources/veloria-petalora-illustrated-v3.png (style only)",
+        "assets/sources/veloria-borgofonte-illustrated-v3.png (style only)"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r07-condotto-risonante-illustrated-v3.md",
+          "reason": "Regenerated from layout reference on a 10:7 canvas; source/runtime hashes and dimensions updated; exit-band alignment reviewed statically."
+        }
+      ],
+      "assetKey": "veloria-r07_condotto_risonante-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp",
+      "sourceSha256": "3b94b2bfd05d47d78bfcb141664d8d7de63d0b43aa7dd28c8151872ef86a3480",
+      "runtimeSha256": "37612a13f0f61413ede1769f75f0fb718c1756186b17aa3fe91d1d2a62c644a6",
+      "width": 1499,
+      "height": 1049
     }
   ]
 }

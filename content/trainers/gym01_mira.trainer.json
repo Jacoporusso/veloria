@@ -10,11 +10,13 @@
   "victoryFeedback": "Hai superato i sigilli e trovato il tuo ritmo insieme ai tuoi compagni. Ti affido la Medaglia Aurora: che la sua luce ti accompagni sulle Terrazze del Muschio e fino a Radicelmo!",
   "team": [
     {
-      "speciesId": 161,
+      "speciesId": 19,
       "level": 7,
       "moveIds": [
-        "scratch",
-        "defense-curl"
+        "focus-energy",
+        "quick-attack",
+        "tail-whip",
+        "tackle"
       ]
     },
     {

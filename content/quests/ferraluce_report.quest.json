@@ -7,7 +7,10 @@
       "id": "report_to_ivo",
       "trigger": "ferraluce/ivo/report",
       "setFlag": "q_ferraluce_report",
-      "requiresFlags": ["q_ferraluce_visited", "q_r06_measurement"]
+      "requiresFlags": [
+        "q_ferraluce_visited",
+        "q_r06_measurement"
+      ]
     }
   ],
   "completionFlag": "q_ferraluce_report",
@@ -15,6 +18,12 @@
     "items": {
       "potion": 2,
       "antidote": 1
-    }
+    },
+    "pokemon": [
+      {
+        "speciesId": 4,
+        "level": 15
+      }
+    ]
   }
 }

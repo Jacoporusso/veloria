@@ -5394,7 +5394,7 @@
       "id": 5,
       "name": "characters",
       "objects": [
-        {
+                {
           "id": 87,
           "name": "Lea",
           "x": 704,
@@ -5422,12 +5422,22 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-vetracielo-lea-v1"
             },
             {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "vetracielo-lea"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.558
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.876
             }
           ]
         }
@@ -6255,7 +6265,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-vetracielo-illustrated-v2"
+              "value": "veloria-vetracielo-illustrated-v3"
             },
             {
               "name": "renderDepth",

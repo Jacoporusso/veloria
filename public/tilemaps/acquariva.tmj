@@ -4544,12 +4544,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-coastal-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 5
+              "value": 0
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "acquariva-tessa"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.592
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.903
             }
           ]
         }

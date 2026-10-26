@@ -1,66 +1,120 @@
 {
   "id": "veloria/r05_bank_patch",
   "mapId": "veloria/r05_viadotto_ciliegi",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "woodland-understory",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 194,
-        "weight": 40,
+        "speciesId": 54,
+        "weight": 30,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 60,
-        "weight": 40,
+        "speciesId": 79,
+        "weight": 24,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 25,
-        "weight": 20,
+        "speciesId": 98,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 69,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 83,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 114,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }
     ],
     "day": [
       {
-        "speciesId": 194,
-        "weight": 45,
+        "speciesId": 79,
+        "weight": 30,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 60,
-        "weight": 35,
+        "speciesId": 98,
+        "weight": 24,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 25,
-        "weight": 20,
+        "speciesId": 54,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 69,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 83,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 114,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }
     ],
     "night": [
       {
-        "speciesId": 194,
-        "weight": 40,
+        "speciesId": 98,
+        "weight": 30,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 60,
-        "weight": 45,
+        "speciesId": 54,
+        "weight": 24,
         "minLevel": 12,
         "maxLevel": 14
       },
       {
-        "speciesId": 25,
-        "weight": 15,
+        "speciesId": 79,
+        "weight": 18,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 69,
+        "weight": 14,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 83,
+        "weight": 10,
+        "minLevel": 12,
+        "maxLevel": 14
+      },
+      {
+        "speciesId": 114,
+        "weight": 4,
         "minLevel": 12,
         "maxLevel": 14
       }

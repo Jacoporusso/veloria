@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "regionId": "veloria",
+  "note": "Authored Veloria special encounters, repeatable until captured. Parameters/learnsets/artwork are official PokéAPI references.",
+  "encounters": [
+    {
+      "id": "veloria/special_snorlax",
+      "mapId": "veloria/r12_valle_vento",
+      "speciesId": 143,
+      "level": 35,
+      "x": 28,
+      "y": 17,
+      "requiredFlag": "q_acquariva_report",
+      "capturedFlag": "q_special_snorlax_caught",
+      "captureEvent": "special/snorlax/captured",
+      "description": "Snorlax riposa in una radura riparata dal vento. Avvicinati con calma: dopo una fuga o un KO potrai riprovare.",
+      "unlockHint": "Disponibile dopo il rapporto di ricerca di Acquariva."
+    },
+    {
+      "id": "veloria/special_articuno",
+      "mapId": "veloria/r13_tornanti_bianchi",
+      "speciesId": 144,
+      "level": 50,
+      "x": 27,
+      "y": 23,
+      "requiredFlag": "q_league_completed",
+      "capturedFlag": "q_special_articuno_caught",
+      "captureEvent": "special/articuno/captured",
+      "description": "Tra i cristalli di neve si posa Articuno. Puoi affrontarlo e provare a catturarlo; tornerà se lo scontro non finisce con una cattura.",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "id": "veloria/special_zapdos",
+      "mapId": "veloria/d03_centrale_risonante",
+      "speciesId": 145,
+      "level": 50,
+      "x": 21,
+      "y": 16,
+      "requiredFlag": "q_league_completed",
+      "capturedFlag": "q_special_zapdos_caught",
+      "captureEvent": "special/zapdos/captured",
+      "description": "Le scariche della Centrale attirano Zapdos. Preparati: sarà possibile riprovare se fuggi o lo mandi KO.",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "id": "veloria/special_moltres",
+      "mapId": "veloria/r15_passo_due_luci",
+      "speciesId": 146,
+      "level": 50,
+      "x": 24,
+      "y": 15,
+      "requiredFlag": "q_league_completed",
+      "capturedFlag": "q_special_moltres_caught",
+      "captureEvent": "special/moltres/captured",
+      "description": "Moltres illumina la cresta del Passo delle Due Luci. Dopo uno scontro senza cattura, la sua fiamma tornerà qui.",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "id": "veloria/special_mewtwo",
+      "mapId": "veloria/d06_santuario_due_luci",
+      "speciesId": 150,
+      "level": 60,
+      "x": 21,
+      "y": 16,
+      "requiredFlag": "q_league_completed",
+      "capturedFlag": "q_special_mewtwo_caught",
+      "captureEvent": "special/mewtwo/captured",
+      "description": "Una forte presenza psichica abita il Santuario: Mewtwo ti osserva. Puoi prepararti e tornare; nessun tentativo fallito lo farà sparire per sempre.",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    },
+    {
+      "id": "veloria/special_mew",
+      "mapId": "veloria/d01_bosco_veli",
+      "speciesId": 151,
+      "level": 50,
+      "x": 18,
+      "y": 12,
+      "requiredFlag": "q_league_completed",
+      "capturedFlag": "q_special_mew_caught",
+      "captureEvent": "special/mew/captured",
+      "description": "Dopo il tuo viaggio Mew è comparso nel Bosco dei Veli. Scegli tu quando incontrarlo: se non lo catturi, resterà possibile riprovare.",
+      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria."
+    }
+  ]
+}

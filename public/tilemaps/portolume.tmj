@@ -7221,12 +7221,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-coastal-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 3
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "portolume-captain-marina"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.546
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.911
             }
           ]
         }

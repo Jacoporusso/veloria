@@ -93,11 +93,11 @@ test('trainer appearance can be changed, saved and resumed while the PWA is offl
   expect(failures).toEqual([]);
 });
 
-test('a seen Piloswine exposes Ice Fang combined effects on its first offline detail visit', async ({ page, context }, info) => {
+test('a seen Gyarados exposes Ice Fang combined effects on its first offline detail visit', async ({ page, context }, info) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const fixture = await readBrowserSave(page);
-  fixture.flags.push('pokedex_seen_221');
+  fixture.flags.push('pokedex_seen_130');
   await seedBrowserSave(page, fixture);
   const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true); await page.reload(); await enterGame(page);
@@ -105,8 +105,8 @@ test('a seen Piloswine exposes Ice Fang combined effects on its first offline de
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
   const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
-  await panel.getByRole('button', { name: /Piloswine/ }).click();
-  const card = panel.locator('.pokemon-move').filter({ hasText: /Gelodenti · Livello 28/ });
+  await panel.getByRole('button', { name: /Gyarados/ }).click();
+  const card = panel.locator('.pokemon-move').filter({ hasText: /Gelodenti · Livello 32/ });
   await expect(card).toContainText('Potenza 65');
   await expect(card).toContainText('indipendenti');
   await expect(card).toContainText('Ghiaccio sono immuni al gelo');
@@ -120,7 +120,12 @@ test('a seen Piloswine exposes Ice Fang combined effects on its first offline de
 
 test('earned Acquariva team studies Headbutt and the upcoming Bite level after offline backup import', async ({ page, context }, info) => {
   const backup = await readFile(new URL('../../docs/playtests/2026-10-24-natural-eevee-caught-backup-charmander.json', import.meta.url), 'utf8');
-  const earned = JSON.parse(backup).save;
+  const payload = JSON.parse(backup);
+  const earned = payload.save;
+  earned.party = earned.party.filter((member: { speciesId: number }) => member.speciesId <= 151);
+  earned.storage = earned.storage.filter((member: { speciesId: number }) => member.speciesId <= 151);
+  earned.flags = earned.flags.filter((flag: string) => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151);
+  const gen1Backup = JSON.stringify(payload);
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
@@ -128,7 +133,7 @@ test('earned Acquariva team studies Headbutt and the upcoming Bite level after o
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri importazione ed esportazione salvataggio' }).click();
   page.once('dialog', dialog => dialog.accept());
-  await Promise.all([page.waitForEvent('load'), page.locator('#save-file').setInputFiles({ name: 'earned-acquariva.json', mimeType: 'application/json', buffer: Buffer.from(backup) })]);
+  await Promise.all([page.waitForEvent('load'), page.locator('#save-file').setInputFiles({ name: 'earned-acquariva.json', mimeType: 'application/json', buffer: Buffer.from(gen1Backup) })]);
   await enterGame(page);
   const before = await readBrowserSave(page);
   expect(before.party).toEqual(earned.party); expect(before.rngState).toBe(earned.rngState);
@@ -858,7 +863,7 @@ test('the cached Anello Magnetico reading, Ferraluce report and healing work off
     }
   }, resources);
   const save = await readSave(page);
-  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any, speciesId: 195, level: 20, instanceId: 'offline-ferraluce', moveIds: ['water-gun', 'mud-shot'] });
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any, speciesId: 140, level: 21, instanceId: 'offline-ferraluce', moveIds: ['mud-shot', 'sand-attack', 'absorb'] });
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'prologue_complete_seen', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved', 'badge_corolla_awarded', 'q_vetracielo_visited', 'q_vetracielo_orientation', 'gym03_line_gardens_active', 'gym03_line_glass_active', 'gym03_lines_connected', 'badge_circuito_awarded'])];
   save.badges = ['badge_aurora', 'badge_corolla', 'badge_circuito'];
   save.player = { ...save.player, mapId: 'veloria/r06_anello_magnetico', spawnPointId: 'from_vetracielo', x: 18, y: 17 };
@@ -976,10 +981,10 @@ test('the Condotto and Centrale open for the first time offline and retain the i
   expect(failedRequests).toEqual([]);
 });
 
-for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101,162,164,168,180,195]],['coast',[72,73,98,99,170,171]],['lake',[79,80,96,97,133,177,178,196]],['starter-finals',[3,6,9,181]],['stone-evolutions',[26,62,134,135,136]],['botanical',[45,71,182]]] as const) {
+for (const [group, expected] of [['evolution',[2,5,8,17,18,20,44,61,70,101]],['coast',[72,73,98,99]],['lake',[79,80,96,97,133]],['starter-finals',[3,6,9]],['stone-evolutions',[26,62,134,135,136]],['botanical',[45,71]]] as const) {
 test(`${group} artwork decodes on its first request offline`, async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL(`../../assets/pokeapi-${group}-artwork-v1.json`, import.meta.url), 'utf8'));
-  const artwork = manifest.artworks as Array<{ speciesId: number; path: string }>;
+  const artwork = (manifest.artworks as Array<{ speciesId: number; path: string }>).filter(entry => entry.speciesId <= 151);
   expect(artwork.map(entry => entry.speciesId).sort((a, b) => a - b)).toEqual(expected);
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
@@ -998,7 +1003,7 @@ test(`${group} artwork decodes on its first request offline`, async ({ page, con
 
 test('Ferraluce candidate artwork decodes on its first request offline', async ({ page, context }) => {
   const manifest = JSON.parse(await readFile(new URL('../../assets/pokeapi-urban-artwork-v1.json', import.meta.url), 'utf8'));
-  const artwork = manifest.artworks.filter((entry: { speciesId: number }) => [82, 208, 227].includes(entry.speciesId));
+  const artwork = manifest.artworks.filter((entry: { speciesId: number }) => [81, 100, 82].includes(entry.speciesId));
   expect(artwork).toHaveLength(3);
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
@@ -1072,7 +1077,7 @@ test('mountain resources decode on first offline request and cable return surviv
   const names=['r12-wind-valley-v1','passobrina-v1','r13-white-switchbacks-v1','biancavetta-v1','gym07-ice-v1','acquariva-v2'];
   const images=await Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/scenery/veloria-${name}.webp`;await image.decode();return image.naturalWidth>1000;}));
   const widths=await Promise.all(['r12_valle_vento','passobrina','r13_tornanti_bianchi','biancavetta','gym07_biancavetta'].map(async name=>{const r=await fetch(`/tilemaps/${name}.tmj`);if(!r.ok)throw new Error(name);return(await r.json()).width;}));
-  const creatures=await Promise.all([220,221,215,86,87,124].map(async id=>{const im=new Image();im.src=`/assets/creatures/pokeapi-mountain-${id}-v1.webp`;await im.decode();return im.naturalWidth>100;}));return{images,widths,creatures};
+  const creatures=await Promise.all([10,11,12,13,14,15].map(async id=>{const im=new Image();im.src=`/assets/creatures/pokeapi-gen1-${id}-v1.webp`;await im.decode();return im.naturalWidth>100;}));return{images,widths,creatures};
  });
  expect(decoded).toEqual({images:Array(6).fill(true),widths:[40,40,40,40,32],creatures:Array(6).fill(true)});
  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Biancavetta',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');
@@ -1346,14 +1351,14 @@ test('bulk storage and market work offline and persist after reload', async ({ p
   });
   save.storage = [];
   save.player = { ...save.player, mapId: 'veloria/portolume', spawnPointId: 'from_r08', x: 8, y: 15, money: 1000 };
-  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'pokedex_seen_194'])];
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'prologue_complete_seen', 'pokedex_seen_74'])];
   save.inventory = { potion: 0 };
   await seedBrowserSave(page, save);
   page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true); await page.reload(); await enterGame(page);
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
-  await page.getByRole('dialog', { name: 'Pokédex', exact: true }).getByRole('button', { name: /Wooper.*VISTO/ }).click();
+  await page.getByRole('dialog', { name: 'Pokédex', exact: true }).getByRole('button', { name: /Geodude.*VISTO/ }).click();
   const habitats = page.getByRole('region', { name: 'Dove incontrarlo' });
   await expect(habitats).toContainText('Condotto Risonante');
   await expect(habitats).toContainText('Erba alta · Lv.18–21');

@@ -3999,12 +3999,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-coastal-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 0
+              "value": 2
             },
             {
               "name": "trainerId",
@@ -4015,6 +4015,21 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r08_viola_defeated"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-viola-r08"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.621
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.88
             }
           ]
         }

@@ -79,6 +79,11 @@
         "columns": 3,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "pokeapi-gen1-151-v1",
+      "path": "assets/creatures/pokeapi-gen1-151-v1.webp"
     }
   ],
   "spawns": [

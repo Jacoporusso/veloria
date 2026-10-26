@@ -7,16 +7,16 @@
   "defeatQuestEvent": "battle/trainer_nives/defeated",
   "rewardMoney": 2100,
   "victoryMessage": "Hai vinto contro Nives. Ricevi 2100 ₿ e la Medaglia Brina.",
-  "victoryFeedback": "La Medaglia Brina è tua! Hai letto il percorso e scelto come affrontare Pokémon con due tipi. Dewgong è Acqua/Ghiaccio: le mosse Elettro possono aiutare. Piloswine è Ghiaccio/Terra e non teme l’Elettro. La funivia collega ora Passobrina e Biancavetta: trovi le cabine a sud della piazza.",
+  "victoryFeedback": "La Medaglia Brina è tua! Jynx è Ghiaccio/Psico, Dewgong e Lapras sono Acqua/Ghiaccio. Leggere entrambi i tipi cambia la scelta della mossa: Elettro aiuta contro i miei compagni acquatici. La funivia collega ora Passobrina e Biancavetta: trovi le cabine a sud della piazza.",
   "team": [
     {
-      "speciesId": 215,
+      "speciesId": 124,
       "level": 41,
       "moveIds": [
-        "feint-attack",
-        "icy-wind",
-        "screech",
-        "quick-attack"
+        "body-slam",
+        "avalanche",
+        "wake-up-slap",
+        "fake-tears"
       ]
     },
     {
@@ -30,13 +30,13 @@
       ]
     },
     {
-      "speciesId": 221,
+      "speciesId": 131,
       "level": 43,
       "moveIds": [
-        "mud-bomb",
-        "icy-wind",
-        "fury-attack",
-        "peck"
+        "safeguard",
+        "brine",
+        "ice-beam",
+        "perish-song"
       ]
     }
   ]

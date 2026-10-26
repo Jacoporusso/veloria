@@ -1,83 +1,119 @@
 {
   "id": "veloria/r13_snow_patch",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 220,
-        "weight": 40,
-        "minLevel": 35,
-        "maxLevel": 39
-      },
-      {
-        "speciesId": 215,
-        "weight": 25,
-        "minLevel": 35,
-        "maxLevel": 39
-      },
-      {
         "speciesId": 86,
-        "weight": 25,
+        "weight": 30,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 87,
+        "weight": 24,
         "minLevel": 35,
         "maxLevel": 39
       },
       {
         "speciesId": 124,
+        "weight": 18,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 132,
+        "weight": 14,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 91,
         "weight": 10,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 35,
         "maxLevel": 39
       }
     ],
     "day": [
       {
-        "speciesId": 220,
-        "weight": 40,
-        "minLevel": 35,
-        "maxLevel": 39
-      },
-      {
-        "speciesId": 215,
-        "weight": 25,
-        "minLevel": 35,
-        "maxLevel": 39
-      },
-      {
-        "speciesId": 86,
-        "weight": 25,
+        "speciesId": 87,
+        "weight": 30,
         "minLevel": 35,
         "maxLevel": 39
       },
       {
         "speciesId": 124,
+        "weight": 24,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 86,
+        "weight": 18,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 132,
+        "weight": 14,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 91,
         "weight": 10,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 35,
         "maxLevel": 39
       }
     ],
     "night": [
       {
-        "speciesId": 215,
-        "weight": 40,
-        "minLevel": 35,
-        "maxLevel": 39
-      },
-      {
-        "speciesId": 221,
-        "weight": 15,
+        "speciesId": 124,
+        "weight": 30,
         "minLevel": 35,
         "maxLevel": 39
       },
       {
         "speciesId": 86,
-        "weight": 25,
+        "weight": 24,
         "minLevel": 35,
         "maxLevel": 39
       },
       {
-        "speciesId": 124,
-        "weight": 20,
+        "speciesId": 87,
+        "weight": 18,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 132,
+        "weight": 14,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 91,
+        "weight": 10,
+        "minLevel": 35,
+        "maxLevel": 39
+      },
+      {
+        "speciesId": 131,
+        "weight": 4,
         "minLevel": 35,
         "maxLevel": 39
       }

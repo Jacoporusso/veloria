@@ -4241,6 +4241,29 @@
           "visible": true,
           "type": "",
           "properties": []
+        },
+        {
+          "id": 1057,
+          "name": "veloria/special_articuno footprint",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 864,
+          "y": 736,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "blocksWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "blocksUntilFlag",
+              "type": "string",
+              "value": "q_special_articuno_caught"
+            }
+          ]
         }
       ],
       "opacity": 1,
@@ -4283,12 +4306,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-delta-route-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 5
+              "value": 3
             },
             {
               "name": "trainerId",
@@ -4299,6 +4322,21 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r13_alma_defeated"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-alma-r13"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.452
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.93
             }
           ]
         }
@@ -4344,6 +4382,49 @@
               "name": "message",
               "type": "string",
               "value": "Segui i tornanti battuti. I prati innevati sono laterali e il cammino principale resta libero."
+            }
+          ]
+        },
+        {
+          "id": 1056,
+          "name": "Articuno",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 864,
+          "y": 736,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "id",
+              "type": "string",
+              "value": "veloria/special_articuno"
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "wild-pokemon"
+            },
+            {
+              "name": "specialEncounterId",
+              "type": "string",
+              "value": "veloria/special_articuno"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "pokeapi-gen1-144-v1"
+            },
+            {
+              "name": "visibleWhenFlag",
+              "type": "string",
+              "value": "q_league_completed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_special_articuno_caught"
             }
           ]
         }
@@ -4487,7 +4568,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1056,
+  "nextobjectid": 1058,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -43,15 +43,29 @@ def select_group_imports(imports, group):
     return selected
 
 
+def parse_species_ids(value):
+    """Explicit media batches are independent of habitat/import grouping."""
+    try:
+        ids = [int(part.strip()) for part in value.split(',')]
+    except ValueError as error:
+        raise argparse.ArgumentTypeError('Species IDs must be comma-separated integers') from error
+    if not ids or any(species_id <= 0 for species_id in ids) or len(set(ids)) != len(ids):
+        raise argparse.ArgumentTypeError('Species IDs must be positive and unique')
+    return ids
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--group', default='urban', help='species artwork group (default: urban)')
+    parser.add_argument('--species-ids', type=parse_species_ids,
+                        help='explicit complete media batch, independent of species import groups')
     parser.add_argument('--fetch', action='store_true')
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args(argv)
     group = validate_group(args.group)
     imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
-    group_imports = select_group_imports(imports, group)
+    group_imports = ([{'speciesId': species_id} for species_id in args.species_ids]
+                     if args.species_ids else select_group_imports(imports, group))
     species = json.loads((ROOT / 'content/battle/species.v1.json').read_text(encoding='utf-8'))['species']
     manifest_rel = artwork_group_paths(group, group_imports[0]['speciesId'])['manifest']
     manifest_path = ROOT / manifest_rel

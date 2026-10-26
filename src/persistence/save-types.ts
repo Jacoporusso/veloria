@@ -6,6 +6,8 @@ export type CreatureStatusSave = {
   status: PersistentMajorStatus;
   /** Active duration for timed major statuses. Sleep requires this value; freeze may be indefinite. */
   turnsRemaining?: number;
+  /** Active HGSS bad-poison counter; ordinary poison has no counter. */
+  toxicCounter?: number;
 };
 
 type CreatureSaveFields = {

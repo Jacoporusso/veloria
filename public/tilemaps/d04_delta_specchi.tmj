@@ -4202,12 +4202,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-coastal-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 2
+              "value": 3
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "delta-biologist-iris"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.57
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.887
             }
           ]
         },
@@ -4239,12 +4254,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-delta-route-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 3
+              "value": 0
             },
             {
               "name": "trainerId",
@@ -4265,6 +4280,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Prima completa la prova di Nerea a Portolume."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "delta-naturalist-teo"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.587
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.966
             }
           ]
         }

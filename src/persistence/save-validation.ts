@@ -58,7 +58,7 @@ function validateCreature(value: unknown, path: string, issues: string[], allowS
 
 function validateStatus(value: unknown, path: string, issues: string[]): void {
   if (!isRecord(value)) { issues.push(`${path}: expected an object`); return; }
-  checkKeys(value, ['status', 'turnsRemaining'], path, issues);
+  checkKeys(value, ['status', 'turnsRemaining', 'toxicCounter'], path, issues);
   const allowed = ['burn', 'poison', 'paralysis', 'sleep', 'freeze'];
   if (typeof value.status !== 'string' || !allowed.includes(value.status)) {
     issues.push(`${path}.status: expected one of ${allowed.join(', ')}`);
@@ -73,6 +73,9 @@ function validateStatus(value: unknown, path: string, issues: string[]): void {
   }
   if (!timed && value.turnsRemaining !== undefined) {
     issues.push(`${path}.turnsRemaining: only sleep and freeze may have a duration`);
+  }
+  if (value.toxicCounter !== undefined && (value.status !== 'poison' || !isIntegerInRange(value.toxicCounter, 1, 15))) {
+    issues.push(`${path}.toxicCounter: expected an integer from 1 to 15 on poison`);
   }
 }
 

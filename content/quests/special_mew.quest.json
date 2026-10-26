@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_mew",
+  "version": 1,
+  "displayName": "Un incontro con Mew",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/mew/captured",
+      "setFlag": "q_special_mew_caught",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_mew_caught"
+}

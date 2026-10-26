@@ -26,6 +26,24 @@
       "kind": "image",
       "key": "veloria-d04-delta-v1",
       "path": "assets/sprites/veloria-d04-delta-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-coastal-cast-v1",
+      "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-delta-route-cast-v1",
+      "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

@@ -54,7 +54,10 @@ test('D06 sanctuary entrance, return path and all authored interactions are reac
   assert.ok(!(spawn.x * 32 >= exit.x && spawn.x * 32 < exit.x + exit.width && spawn.y * 32 >= exit.y && spawn.y * 32 < exit.y + exit.height), 'arrival is outside the return portal');
   assert.equal(seen.size, map.width * map.height - blocked.size, 'every walkable tile can return to the entrance');
 
-  const interactions = layer(map, 'interactions');
+  const specialPokemon = layer(map, 'interactions').filter((item: any) => props(item).kind === 'wild-pokemon');
+  assert.equal(specialPokemon.length, 1, 'Mewtwo is a separate post-League encounter');
+  assert.ok(hasApproach(seen, specialPokemon[0]), 'Mewtwo can be approached when unlocked');
+  const interactions = layer(map, 'interactions').filter((item: any) => props(item).kind !== 'wild-pokemon');
   assert.equal(interactions.length, 4);
   for (const terminal of interactions) {
     assert.ok(hasApproach(seen, terminal), `${terminal.name} has an approachable side`);

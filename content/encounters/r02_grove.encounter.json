@@ -7,60 +7,114 @@
   "timeBands": {
     "morning": [
       {
-        "speciesId": 161,
-        "weight": 40,
+        "speciesId": 43,
+        "weight": 30,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
         "speciesId": 69,
-        "weight": 40,
+        "weight": 24,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
-        "speciesId": 179,
-        "weight": 20,
+        "speciesId": 25,
+        "weight": 18,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 39,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 35,
+        "weight": 10,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 63,
+        "weight": 4,
         "minLevel": 4,
         "maxLevel": 6
       }
     ],
     "day": [
       {
-        "speciesId": 179,
-        "weight": 40,
-        "minLevel": 4,
-        "maxLevel": 6
-      },
-      {
         "speciesId": 69,
-        "weight": 35,
+        "weight": 30,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
-        "speciesId": 161,
-        "weight": 25,
+        "speciesId": 25,
+        "weight": 24,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 43,
+        "weight": 18,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 39,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 35,
+        "weight": 10,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 63,
+        "weight": 4,
         "minLevel": 4,
         "maxLevel": 6
       }
     ],
     "night": [
       {
+        "speciesId": 25,
+        "weight": 30,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
         "speciesId": 43,
-        "weight": 40,
+        "weight": 24,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
-        "speciesId": 163,
-        "weight": 35,
+        "speciesId": 69,
+        "weight": 18,
         "minLevel": 4,
         "maxLevel": 6
       },
       {
-        "speciesId": 19,
-        "weight": 25,
+        "speciesId": 39,
+        "weight": 14,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 35,
+        "weight": 10,
+        "minLevel": 4,
+        "maxLevel": 6
+      },
+      {
+        "speciesId": 63,
+        "weight": 4,
         "minLevel": 4,
         "maxLevel": 6
       }

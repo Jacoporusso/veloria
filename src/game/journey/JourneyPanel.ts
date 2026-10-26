@@ -5,7 +5,9 @@ import { questCatalog } from '../quests/catalog.ts';
 import itemContent from '../../../content/items/items.v1.json';
 import { formatQuestRewards, selectJourneyProgress } from './progress.ts';
 import { badgeCatalog, createBadgeEmblem } from '../ui/BadgeEmblem.ts';
-import { itemEvolutionRules } from '../battle/catalog.ts';
+import { itemEvolutionRules, battleSpecies, battleMoves } from '../battle/catalog.ts';
+import { createCreaturePortrait } from '../battle/creature-art.ts';
+import { battleTypeLabel } from '../battle/presentation.ts';
 import '../../evolution-item-actions.css';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
@@ -106,7 +108,7 @@ export class JourneyPanel {
     if (this.isOpen) this.renderJournal();
   }
 
-  celebrate(completedQuestIds: readonly string[]): void {
+  celebrate(completedQuestIds: readonly string[], receivedSave: GameSave | undefined = this.save): void {
     const quests = completedQuestIds
       .filter(id => !this.celebrated.has(id))
       .map(id => questCatalog.find(quest => quest.id === id) as NamedQuest | undefined)
@@ -118,6 +120,22 @@ export class JourneyPanel {
       this.reward.append(element('strong', 'journey-reward-title', quest.displayName ?? 'Una nuova tappa'));
       const rewards = formatQuestRewards(quest, itemNames);
       this.reward.append(element('span', 'journey-reward-items', rewards.length ? rewards.join(' · ') : 'Nuova tappa del viaggio raggiunta'));
+      for (const [index, gift] of (quest.reward?.pokemon ?? []).entries()) {
+        const instanceId = `quest:${quest.id}:pokemon:${index}`;
+        const member = receivedSave?.party.find(creature => creature.instanceId === instanceId)
+          ?? receivedSave?.storage.find(creature => creature.instanceId === instanceId);
+        const species = battleSpecies[gift.speciesId];
+        const card = element('section', 'journey-companion-reward');
+        const copy = element('div', 'journey-companion-copy');
+        copy.append(element('strong', '', `${species.name} si unisce al viaggio!`),
+          element('span', '', `Livello ${gift.level} · ${species.types.map(battleTypeLabel).join(' / ')}`),
+          element('span', '', receivedSave?.party.some(creature => creature.instanceId === instanceId)
+            ? 'È nella tua squadra.' : 'La squadra è piena: ti aspetta al deposito.'));
+        const moves = member?.moves as { id: string; pp: number }[] | undefined;
+        copy.append(element('small', '', (moves ?? []).map(move => battleMoves[move.id]?.name ?? move.id).join(' · ')));
+        card.append(createCreaturePortrait(gift.speciesId), copy);
+        this.reward.append(card);
+      }
     }
     const dismiss = element('button', 'journey-reward-dismiss', '×');
     dismiss.type = 'button';
@@ -127,7 +145,9 @@ export class JourneyPanel {
     this.reward.hidden = false;
     this.compact();
     clearTimeout(this.celebrationTimer);
-    this.celebrationTimer = setTimeout(() => { this.reward.hidden = true; }, 6500);
+    if (!quests.some(quest => quest.reward?.pokemon?.length)) {
+      this.celebrationTimer = setTimeout(() => { this.reward.hidden = true; }, 6500);
+    }
   }
 
   destroy(): void {

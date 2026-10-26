@@ -18,7 +18,7 @@ async function mount(page: Page, kind: 'capture' | 'box' | 'failed' | 'trainer',
     const { battleSpecies, battleMoves, veloriaBattleRules } = await import('/src/game/battle/catalog.ts' as string);
     document.body.innerHTML = '<div id="reward-fixture" style="width:100vw;height:100vh"></div>';
     const creature = (speciesId: number, id: string) => createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId, level: 8, instanceId: id });
-    const player = creature(179, 'own');
+    const player = creature(25, 'own');
     const opponent = { ...creature(7, 'wild'), hp: 1, experienceYield: 0 };
     const rules = kind === 'failed' ? { ...veloriaBattleRules, captureItems: { 'poke-ball': { baseChance: 0 } } } : veloriaBattleRules;
     const state = createBattleState({ battleId: 'rewards', battleType: kind === 'trainer' ? 'trainer' : 'wild', seed: 1, rules,

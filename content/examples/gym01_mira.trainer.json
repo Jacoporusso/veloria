@@ -6,11 +6,11 @@
   "rewardMoney": 500,
   "team": [
     {
-      "speciesId": 161,
+      "speciesId": 19,
       "level": 8,
       "moveIds": [
-        "scratch",
-        "defense-curl"
+        "focus-energy",
+        "quick-attack"
       ]
     },
     {

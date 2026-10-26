@@ -26,8 +26,9 @@ from import_pokeapi_items import main as verify_item_import
 from import_pokeapi_evolutions import main as verify_evolution_import
 from import_pokeapi_species import main as verify_species_import
 from import_pokeapi_growth import main as verify_growth_import
-from import_pokeapi_evolution_art import main as verify_evolution_art
-from import_pokeapi_species_art import main as verify_species_art
+from import_pokeapi_abilities import main as verify_ability_import
+from validate_pokeapi_artwork import validate_pokeapi_artwork
+from validate_regional_roster import validate_regional_roster
 from import_item_evolutions import main as verify_item_evolutions
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,11 +58,10 @@ verify_item_import(['--check'])
 verify_evolution_import(['--check'])
 verify_species_import(['--check'])
 verify_growth_import(['--check'])
-verify_evolution_art(['--check'])
+verify_ability_import(['--check'])
 verify_item_evolutions(['--check'])
-artwork_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
-for artwork_group in sorted({entry['artworkGroup'] for entry in artwork_imports if entry.get('artworkGroup') and entry['artworkGroup'] != 'evolution'}):
-    verify_species_art(['--group', artwork_group, '--check'])
+print(f'Verified {validate_pokeapi_artwork(ROOT)} recorded official artworks and full runtime coverage.')
+print(f'Verified {validate_regional_roster(ROOT)} regional species and visible encounter wiring.')
 
 def read(name):
     return json.loads((EXAMPLES / name).read_text(encoding="utf-8"))
@@ -205,11 +205,14 @@ item_registry = json.loads(ITEMS_FILE.read_text(encoding="utf-8"))["items"]
 item_evolution_catalog = json.loads((ROOT / "content" / "battle" / "item-evolutions.v1.json").read_text(encoding="utf-8"))
 check(item_evolution_catalog.get("versionGroup") == "heartgold-soulsilver", "Item evolutions must use the HGSS source version group")
 item_evolution_rules = item_evolution_catalog.get("rules", [])
-declared_stone_imports = json.loads((ROOT / 'content/battle/species-imports.v1.json').read_text(encoding='utf-8'))['imports']
-declared_stone_edges = {(entry['templateSpeciesId'], entry['speciesId'], entry['evolutionItemId'])
-                        for entry in declared_stone_imports if 'evolutionItemId' in entry}
+evolution_reference = json.loads((ROOT / 'content/battle/evolution-reference.v1.json').read_text(encoding='utf-8'))['species']
+declared_stone_edges = {(int(source), edge['targetSpeciesId'], edge['itemId'])
+                        for source, reference in evolution_reference.items()
+                        for edge in reference['evolutions']
+                        if edge['trigger'] == 'use-item' and edge.get('itemId') and
+                        1 <= int(source) <= 151 and 1 <= edge['targetSpeciesId'] <= 151}
 check({(rule['fromSpeciesId'], rule['toSpeciesId'], rule['itemId']) for rule in item_evolution_rules} == declared_stone_edges,
-      'Item evolution catalog must match explicitly declared stone branches')
+      'Item evolution catalog must match all official Gen I stone branches')
 item_evolution_keys = set()
 for rule in item_evolution_rules:
     source, target, item_id = rule.get("fromSpeciesId"), rule.get("toSpeciesId"), rule.get("itemId")
@@ -261,9 +264,12 @@ for entry in starter_art["artworks"]:
     content = (PUBLIC / expected_path).read_bytes()
     check(hashlib.sha256(content).hexdigest() == entry["sha256"], f"Starter artwork checksum mismatch: {expected_path}")
     check(expected_path in (PUBLIC / "sw.js").read_text(encoding="utf-8"), f"Starter artwork missing from offline cache: {expected_path}")
-evolution_art = json.loads((ROOT / "assets/pokeapi-evolution-artwork-v1.json").read_text(encoding="utf-8"))
-for entry in evolution_art["artworks"]:
-    check(entry["path"] in (PUBLIC / "sw.js").read_text(encoding="utf-8"), f"Evolution artwork missing from offline cache: {entry['path']}")
+runtime_species_ids = set(json.loads(SPECIES_FILE.read_text(encoding="utf-8"))["species"])
+offline_cache_source = (PUBLIC / "sw.js").read_text(encoding="utf-8")
+for artwork_manifest in (ROOT / "assets").glob("pokeapi-*-artwork-v1.json"):
+    for entry in json.loads(artwork_manifest.read_text(encoding="utf-8"))["artworks"]:
+        if str(entry["speciesId"]) in runtime_species_ids:
+            check(entry["path"] in offline_cache_source, f"Regional artwork missing from offline cache: {entry['path']}")
 
 dependency_rows = validate_dependency_register(ROOT / "package-lock.json", ROOT / "assets" / "DEPENDENCY_LICENSES.csv")
 asset_registry = {asset["asset_id"]: asset for asset in asset_rows}
@@ -299,6 +305,7 @@ quest_defined_flags = set(quest_flags)
 quest_flags.update(challenge_sequence_flags(ROOT, quest_defined_flags))
 check(len({quest["id"] for quest in quests}) == len(quests), "Duplicate quest ID")
 quest_schema = json.loads((SCHEMAS / "quest.v1.schema.json").read_text(encoding="utf-8"))
+veloria_roster = set(json.loads((ROOT / "content/regions/veloria.roster.v1.json").read_text(encoding="utf-8"))["speciesIds"])
 for quest in quests:
     validate_json_schema(quest, quest_schema, f"Runtime quest {quest['id']}")
     step_flags = [step["setFlag"] for step in quest["steps"]]
@@ -319,6 +326,11 @@ for quest in quests:
     for item_id, quantity in quest.get("reward", {}).get("items", {}).items():
         check(item_id in item_registry, f"Unknown quest reward item in {quest['id']}: {item_id}")
         check(isinstance(quantity, int) and quantity >= 0, f"Invalid quest reward quantity in {quest['id']}: {item_id}")
+    for gift in quest.get("reward", {}).get("pokemon", []):
+        check(str(gift["speciesId"]) in species_registry, f"Unknown quest companion in {quest['id']}")
+        if quest["id"].startswith("veloria/"):
+            check(gift["speciesId"] in veloria_roster, f"Companion outside Veloria roster in {quest['id']}")
+        check(type(gift["level"]) is int and 1 <= gift["level"] <= 100, f"Invalid companion level in {quest['id']}")
 check(len(starters) == 4, "Expected four starter partners")
 check(len({starter["speciesId"] for starter in starters}) == len(starters), "Duplicate starter species")
 for species_key, species in species_registry.items():

@@ -9,7 +9,7 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
       import { PokemonPanel } from '/src/game/ui/PokemonPanel.ts';
       import { newGameSave } from '/src/persistence/save-store.ts';
       const save = newGameSave();
-      save.flags.push('pokedex_seen_221');
+      save.flags.push('pokedex_seen_130');
       window.iceFangFixtureSave = save;
       window.iceFangBefore = JSON.stringify(save);
       new PokemonPanel().render(save, 'dex');
@@ -18,8 +18,8 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     ` }));
     await page.goto('/');
     const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
-    await panel.getByRole('button', { name: /Piloswine/ }).click();
-    const card = panel.locator('.pokemon-move').filter({ hasText: /Gelodenti · Livello 28/ });
+    await panel.getByRole('button', { name: /Gyarados/ }).click();
+    const card = panel.locator('.pokemon-move').filter({ hasText: /Gelodenti · Livello 32/ });
     await expect(card).toContainText('Potenza 65');
     await expect(card).toContainText('indipendenti');
     await expect(card).toContainText('Ghiaccio sono immuni al gelo');

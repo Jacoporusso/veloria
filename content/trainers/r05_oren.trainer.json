@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/trainer_r05_oren/defeated",
   "rewardMoney": 240,
   "victoryMessage": "Oren ti saluta dal belvedere. Ricevi 240 ₿.",
-  "victoryFeedback": "La velocità aiuta, ma leggere i tipi cambia la partita. Il mio Wooper non viene colpito dalle mosse Elettro: anche un vantaggio ha una risposta!",
+  "victoryFeedback": "La velocità aiuta, ma leggere i tipi cambia la partita. Il mio Sandshrew non viene colpito dalle mosse Elettro: anche un vantaggio ha una risposta!",
   "team": [
     {
       "speciesId": 25,
@@ -19,11 +19,13 @@
       ]
     },
     {
-      "speciesId": 194,
+      "speciesId": 27,
       "level": 14,
       "moveIds": [
-        "water-gun",
-        "mud-shot"
+        "scratch",
+        "rapid-spin",
+        "poison-sting",
+        "sand-attack"
       ]
     }
   ]

@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_moltres",
+  "version": 1,
+  "displayName": "Un incontro con Moltres",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/moltres/captured",
+      "setFlag": "q_special_moltres_caught",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_moltres_caught"
+}

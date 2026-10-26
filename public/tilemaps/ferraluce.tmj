@@ -12349,7 +12349,7 @@
       "id": 5,
       "name": "characters",
       "objects": [
-        {
+                {
           "id": 512,
           "name": "Ivo",
           "x": 640,
@@ -12377,11 +12377,31 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npc-rami-v1"
+              "value": "veloria-ferraluce-service-npcs-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "ferraluce-ivo"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.472
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.943
             }
           ]
         },
-        {
+                {
           "id": 513,
           "name": "Addetta del Centro Ferraluce",
           "x": 288,
@@ -12414,16 +12434,31 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-ferraluce-service-npcs-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
               "value": 2
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "ferraluce-care"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.598
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.871
             }
           ]
         },
-        {
+                {
           "id": 514,
           "name": "Mercante di Ferraluce",
           "x": 960,
@@ -12456,12 +12491,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-ferraluce-service-npcs-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 4
+              "value": 3
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "ferraluce-shop"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.509
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.856
             }
           ]
         }
@@ -13132,7 +13182,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-ferraluce-illustrated-v2"
+              "value": "veloria-ferraluce-illustrated-v3"
             },
             {
               "name": "renderDepth",

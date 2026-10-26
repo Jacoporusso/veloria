@@ -59,9 +59,11 @@ test('every encounter cell can be reached from the forest entrance without cross
 
 test('woodland species remain varied across the documented local-time bands', () => {
   const bands = woodlandData.timeBands;
-  assert.equal(bands.morning.length, 5);
-  assert.equal(bands.day.length, 7);
-  assert.equal(bands.night.length, 4);
+  assert.equal(bands.morning.length, 6);
+  assert.equal(bands.day.length, 6);
+  assert.equal(bands.night.length, 6);
   const uniqueSpecies = new Set(Object.values(bands).flat().map(entry => entry.speciesId));
-  assert.equal(uniqueSpecies.size, 14);
+  assert.deepEqual([...uniqueSpecies].sort((a, b) => a - b), [37, 39, 43, 48, 63, 102]);
+  assert.deepEqual([bands.morning[0].speciesId, bands.day[0].speciesId, bands.night[0].speciesId], [43, 37, 39]);
+  for (const entries of Object.values(bands)) assert.equal(entries.reduce((sum, entry) => sum + entry.weight, 0), 100);
 });

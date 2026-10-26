@@ -66,6 +66,15 @@
       "kind": "image",
       "key": "veloria-radicelmo-illustrated-v3",
       "path": "assets/scenery/veloria-radicelmo-illustrated-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-guides-and-keepers-v1",
+      "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

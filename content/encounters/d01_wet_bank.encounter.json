@@ -1,78 +1,120 @@
 {
   "id": "veloria/d01_wet_bank",
   "mapId": "veloria/d01_bosco_veli",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "woodland-understory",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 43,
+        "speciesId": 60,
         "weight": 30,
         "minLevel": 3,
         "maxLevel": 5
       },
       {
+        "speciesId": 54,
+        "weight": 24,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
         "speciesId": 69,
-        "weight": 25,
+        "weight": 18,
         "minLevel": 3,
         "maxLevel": 5
       },
       {
-        "speciesId": 194,
-        "weight": 25,
+        "speciesId": 46,
+        "weight": 14,
         "minLevel": 3,
         "maxLevel": 5
       },
       {
-        "speciesId": 60,
-        "weight": 20,
-        "minLevel": 5,
+        "speciesId": 23,
+        "weight": 10,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 118,
+        "weight": 4,
+        "minLevel": 3,
         "maxLevel": 5
       }
     ],
     "day": [
       {
-        "speciesId": 194,
-        "weight": 35,
-        "minLevel": 3,
-        "maxLevel": 5
-      },
-      {
-        "speciesId": 60,
+        "speciesId": 54,
         "weight": 30,
-        "minLevel": 5,
-        "maxLevel": 5
-      },
-      {
-        "speciesId": 43,
-        "weight": 20,
         "minLevel": 3,
         "maxLevel": 5
       },
       {
         "speciesId": 69,
-        "weight": 15,
+        "weight": 24,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 60,
+        "weight": 18,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 46,
+        "weight": 14,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 23,
+        "weight": 10,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 118,
+        "weight": 4,
         "minLevel": 3,
         "maxLevel": 5
       }
     ],
     "night": [
       {
-        "speciesId": 60,
-        "weight": 40,
-        "minLevel": 5,
-        "maxLevel": 5
-      },
-      {
-        "speciesId": 194,
-        "weight": 35,
+        "speciesId": 69,
+        "weight": 30,
         "minLevel": 3,
         "maxLevel": 5
       },
       {
-        "speciesId": 43,
-        "weight": 25,
+        "speciesId": 60,
+        "weight": 24,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 54,
+        "weight": 18,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 46,
+        "weight": 14,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 23,
+        "weight": 10,
+        "minLevel": 3,
+        "maxLevel": 5
+      },
+      {
+        "speciesId": 118,
+        "weight": 4,
         "minLevel": 3,
         "maxLevel": 5
       }

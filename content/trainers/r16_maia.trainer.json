@@ -7,16 +7,16 @@
   "defeatQuestEvent": "battle/r16_maia/defeated",
   "rewardMoney": 1800,
   "victoryMessage": "Hai vinto l’allenamento con Maia.",
-  "victoryFeedback": "Hai osservato entrambi i tipi! Steelix è Acciaio/Terra: Elettro non funziona. Dewgong resiste al Ghiaccio e Ampharos può paralizzare. Sul piazzale della Lega trovi cure e rifornimenti.",
+  "victoryFeedback": "Hai osservato entrambi i tipi! Onix è Roccia/Terra ed è immune a Elettro. Dewgong resiste al Ghiaccio e Raichu può paralizzare. Sul piazzale della Lega trovi cure e rifornimenti.",
   "team": [
     {
-      "speciesId": 208,
+      "speciesId": 95,
       "level": 47,
       "moveIds": [
-        "crunch",
         "dragon-breath",
         "rock-throw",
-        "harden"
+        "harden",
+        "sand-tomb"
       ]
     },
     {
@@ -30,13 +30,13 @@
       ]
     },
     {
-      "speciesId": 181,
+      "speciesId": 26,
       "level": 48,
       "moveIds": [
-        "discharge",
-        "thunder-wave",
-        "thunder-punch",
-        "growl"
+        "thunderbolt",
+        "quick-attack",
+        "tail-whip",
+        "thunder-shock"
       ]
     }
   ]

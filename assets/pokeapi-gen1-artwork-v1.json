@@ -1,0 +1,882 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-25",
+  "scope": "Private prototype gen1-species artwork; follows the user-approved PokeAPI artwork method",
+  "rights": "Image contents copyright The Pokemon Company. PokeAPI hosting does not transfer these rights.",
+  "licenseSource": "https://github.com/PokeAPI/sprites/blob/master/LICENCE.txt",
+  "artworks": [
+    {
+      "speciesId": 10,
+      "name": "Caterpie",
+      "path": "assets/creatures/pokeapi-gen1-10-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/10.png",
+      "sourceSha256": "49eb7f6c88d65d65e938d42df61d5cf47dd46f01c08603b6df620eb003a37457",
+      "sha256": "141a0f2fc175d7e8be94e9bbb92ce15455c746964c37b775abb4184d9dbe3efb"
+    },
+    {
+      "speciesId": 11,
+      "name": "Metapod",
+      "path": "assets/creatures/pokeapi-gen1-11-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/11.png",
+      "sourceSha256": "945f2aca4d6ae55a77a93d132fee41f3f334cf2b91611d3da6e76715f27e778c",
+      "sha256": "a78d8adc59012f929923f6acdf663f52750c3585363f93c84243cbac5ccf150c"
+    },
+    {
+      "speciesId": 12,
+      "name": "Butterfree",
+      "path": "assets/creatures/pokeapi-gen1-12-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/12.png",
+      "sourceSha256": "0d412d9b32b8064f19b414b5f919b2af1ff04f8e2d07bf88e091562ca3583db7",
+      "sha256": "23d200afa41df4522e9404c8e1dbf7da95c0c79250bed0b9ba082f33b828e3ad"
+    },
+    {
+      "speciesId": 13,
+      "name": "Weedle",
+      "path": "assets/creatures/pokeapi-gen1-13-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/13.png",
+      "sourceSha256": "d8cf2e85a0b1b741aedab01cc67c13a4a8dc502e9719a1954228f8346f78f1cd",
+      "sha256": "f7b18809cc5948a0dffe66922d50513e23fb22500f23ba16c7900fb0710ee1d2"
+    },
+    {
+      "speciesId": 14,
+      "name": "Kakuna",
+      "path": "assets/creatures/pokeapi-gen1-14-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/14.png",
+      "sourceSha256": "75eb591f2c404af55a9b635445d04aa5366177a82b3b0668ec7f7dc7ab3febd2",
+      "sha256": "96046caf7c3a7f1e4c8cdb72609cc6db040215f9a847ad7a3f5aa9df9a24b6c3"
+    },
+    {
+      "speciesId": 15,
+      "name": "Beedrill",
+      "path": "assets/creatures/pokeapi-gen1-15-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/15.png",
+      "sourceSha256": "87bec9bd0348a95d7b108fb00737c48b3315d51c335b31ec89a471e21c1a1016",
+      "sha256": "d268d58ca5eb5d3e4ac447b618216625f25319fa1bcfd2ed62501bdd80dd2f68"
+    },
+    {
+      "speciesId": 21,
+      "name": "Spearow",
+      "path": "assets/creatures/pokeapi-gen1-21-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/21.png",
+      "sourceSha256": "4dd0fce599e94bebb323c3bb552174ae399cc73ba30eee6dcd93b578c8fe5136",
+      "sha256": "3eb19feb2e426ccd3e69cb8e826279cef22e8df5e556438b18bb3b3d340d1616"
+    },
+    {
+      "speciesId": 22,
+      "name": "Fearow",
+      "path": "assets/creatures/pokeapi-gen1-22-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/22.png",
+      "sourceSha256": "e34e7a7e619118ee98ece2a95a2d1184bf745b6ee16090dc0a24d6c93b4351d2",
+      "sha256": "d0c3083ec8b82b78f509c597d15d743ff5f33e62f37cdd7be9f368afb9ad8da3"
+    },
+    {
+      "speciesId": 23,
+      "name": "Ekans",
+      "path": "assets/creatures/pokeapi-gen1-23-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/23.png",
+      "sourceSha256": "00d8d5e6ec30c6f62622bfd66eeb14cb3683c7626c5f14ec9a50ae231798ac3d",
+      "sha256": "530072faf6e2a6ad431679ec9510e17c52ba160965f01a8905915ec1ad7983a6"
+    },
+    {
+      "speciesId": 24,
+      "name": "Arbok",
+      "path": "assets/creatures/pokeapi-gen1-24-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/24.png",
+      "sourceSha256": "f1e38593fba1de6e6db3d5db819f1b851307f342abb819f9c2ebfbbea9b93d42",
+      "sha256": "8dee810c0bfa0ca9ef700a8c07b50bc621930571190546d6f2acb8bee7bd2840"
+    },
+    {
+      "speciesId": 27,
+      "name": "Sandshrew",
+      "path": "assets/creatures/pokeapi-gen1-27-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/27.png",
+      "sourceSha256": "6d1a14b1b658a37e766951d75636fc96b95431c4faca96deb6b6f85dfa5fd31d",
+      "sha256": "14b173e8da7f9d11ad0d855328d244927166ef4991550f409d53b4ac02240c19"
+    },
+    {
+      "speciesId": 28,
+      "name": "Sandslash",
+      "path": "assets/creatures/pokeapi-gen1-28-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/28.png",
+      "sourceSha256": "071c435e09ac91450bcc5404c9a454521137ed2508629a052f33ad6dac87429a",
+      "sha256": "144203ff290d438e67fa7589faffd70d2c3946701a868e5c48fb99dccd153efc"
+    },
+    {
+      "speciesId": 29,
+      "name": "Nidoran♀",
+      "path": "assets/creatures/pokeapi-gen1-29-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/29.png",
+      "sourceSha256": "1fa164a62793e12dbdbd006b3c2b8f81cf6b32a42c02e255575f2184cc56aaef",
+      "sha256": "08bd985500b7ace9a4b793eb88fc9bab91dc21eaaf3c7ab92f0fdc2067895131"
+    },
+    {
+      "speciesId": 30,
+      "name": "Nidorina",
+      "path": "assets/creatures/pokeapi-gen1-30-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/30.png",
+      "sourceSha256": "c4063d0461782ecf61686f1ba740596371b7464e6dd9495038105669a4d7183e",
+      "sha256": "8d5baa7bc8468299d07bdb293885f3635fffcdd4edad6ed3425188f585f3f2b1"
+    },
+    {
+      "speciesId": 31,
+      "name": "Nidoqueen",
+      "path": "assets/creatures/pokeapi-gen1-31-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/31.png",
+      "sourceSha256": "811093801d0b6a9323217e393e527c17d2955f4b0aa1a1d6961d3e23a00e4eb8",
+      "sha256": "9f78b6403ee7fe42d06c256893102f2db9c6f7cb7c46874dcc67421123e8d4b0"
+    },
+    {
+      "speciesId": 32,
+      "name": "Nidoran♂",
+      "path": "assets/creatures/pokeapi-gen1-32-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/32.png",
+      "sourceSha256": "4216cc685bdb61152f4f551e4d8f7eed0d0e484821528db946eb4bd495d6699b",
+      "sha256": "7da11c270d03aa1542f9965db5fed8c064deaec9eca11cc081d218fd8fb7f1f2"
+    },
+    {
+      "speciesId": 33,
+      "name": "Nidorino",
+      "path": "assets/creatures/pokeapi-gen1-33-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/33.png",
+      "sourceSha256": "b90aea26f69bc30829a6f522c68d6a894c3e1a824ed0383b67a64e27fad339d6",
+      "sha256": "8b8013099728967b0eb0d4695f252b5d9982652b2c28130210c7d5102c2ec949"
+    },
+    {
+      "speciesId": 34,
+      "name": "Nidoking",
+      "path": "assets/creatures/pokeapi-gen1-34-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/34.png",
+      "sourceSha256": "b018c1967dd92a298f5c8fc513f23e0fc2c2b74eb15e9a2d28758a9379bd5ae7",
+      "sha256": "1944046105ee4055b0ee7339970e514fb3ade20d79a2f23c3b62f220adffbb1e"
+    },
+    {
+      "speciesId": 35,
+      "name": "Clefairy",
+      "path": "assets/creatures/pokeapi-gen1-35-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/35.png",
+      "sourceSha256": "4190637ae539df3c5c08cefbe69a6408c8a903811e82b2157298e7f0ba976b62",
+      "sha256": "96e84bfc3191ac740632d12ac48fd3a5c0fd6e695c8a21f5f8d8fbb64befdcce"
+    },
+    {
+      "speciesId": 36,
+      "name": "Clefable",
+      "path": "assets/creatures/pokeapi-gen1-36-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/36.png",
+      "sourceSha256": "7a3c310640c4ba6671fa34ceaf43116745cfc9cc13621660f60d6215cd202eda",
+      "sha256": "bdee92c23c4836d34b4a90f7b794eb0e435531d7c8be878801cc7223553c5d87"
+    },
+    {
+      "speciesId": 37,
+      "name": "Vulpix",
+      "path": "assets/creatures/pokeapi-gen1-37-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/37.png",
+      "sourceSha256": "cded4e96e175c05c19380a1226e825f3fb2a0b889f3c011d74570e7503853555",
+      "sha256": "89274a39ac2d4f9f246d13e2efb833bec8c70c63f9dc21ca37405dc5fe49a0dc"
+    },
+    {
+      "speciesId": 38,
+      "name": "Ninetales",
+      "path": "assets/creatures/pokeapi-gen1-38-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/38.png",
+      "sourceSha256": "e60b06bf0aa8b23a593958cc32806534a3553707797be10767550a6f4ddb9068",
+      "sha256": "5db953a90e7c39956cbd46cb9df612bc48c3680c649a669f05c61e947ddadaa2"
+    },
+    {
+      "speciesId": 39,
+      "name": "Jigglypuff",
+      "path": "assets/creatures/pokeapi-gen1-39-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/39.png",
+      "sourceSha256": "2d8fa64258727708417495b5ca4d28a148628d962709f58235b9e0837eb41365",
+      "sha256": "29d09abc636ebd00259d98c638fab9e74e081b2df6404015a9dff4c9b64cbcdf"
+    },
+    {
+      "speciesId": 40,
+      "name": "Wigglytuff",
+      "path": "assets/creatures/pokeapi-gen1-40-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/40.png",
+      "sourceSha256": "8150678a4be49542717ac2cdc6c18ecf80e6910172b045d15e79f239a8678a5e",
+      "sha256": "7efc78a370c1648fb99f5c74924b6ce025ba4891bbfcff017d624ad3aae4a8f5"
+    },
+    {
+      "speciesId": 46,
+      "name": "Paras",
+      "path": "assets/creatures/pokeapi-gen1-46-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/46.png",
+      "sourceSha256": "7e46da94be6cd2fd2d2a02785f1cc5bc583b1ddfd45dc3e208d655ed1555e09b",
+      "sha256": "06687769e91a1de033a3cc17b7bd0a9708f949f1a6f407b40c88c87bdd6aa4f3"
+    },
+    {
+      "speciesId": 47,
+      "name": "Parasect",
+      "path": "assets/creatures/pokeapi-gen1-47-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/47.png",
+      "sourceSha256": "ba02844ee4b17f5285e49f19d04d9bb9f3ad20d76ded64bb8b7557fd3ea2abe3",
+      "sha256": "3ba3a603ff176fefa818888db2cc0362455c02ad7d8330187fc54afbbf158ed3"
+    },
+    {
+      "speciesId": 48,
+      "name": "Venonat",
+      "path": "assets/creatures/pokeapi-gen1-48-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/48.png",
+      "sourceSha256": "9cc1605ada7adf9fc71c5da1bcd90aac23464ff05a87ea22a59ee449726d5767",
+      "sha256": "2288f9d2de93427f16d2dd6814663877237b8c24afe768b1755f167758da091c"
+    },
+    {
+      "speciesId": 49,
+      "name": "Venomoth",
+      "path": "assets/creatures/pokeapi-gen1-49-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/49.png",
+      "sourceSha256": "1558c135e597d8cb325a8d33a66a7ba5fc3c8aadf4a98989e65860c8480f42d3",
+      "sha256": "d765ebfec4723d5b0b2ace04e55f05730194e95e5e0b44dd015e9e7c6be4be34"
+    },
+    {
+      "speciesId": 50,
+      "name": "Diglett",
+      "path": "assets/creatures/pokeapi-gen1-50-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/50.png",
+      "sourceSha256": "f7e2775b5ec38e79323bd045ce20045fc4cdd6c382eb83d1105c94e36332b7c1",
+      "sha256": "e34936a0be200e196e83ce20da2d9fe3502f9a81dfe92ce07a0a0ad4914603ec"
+    },
+    {
+      "speciesId": 51,
+      "name": "Dugtrio",
+      "path": "assets/creatures/pokeapi-gen1-51-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/51.png",
+      "sourceSha256": "092f3ff577c722a491e33c7fcac00842a677301021c6e01582647a8eb5e9b84a",
+      "sha256": "99d9c6e8eefc3de0eaff050ba1cd747bad70614ad82c89a265b6cb7ee8a28dd6"
+    },
+    {
+      "speciesId": 52,
+      "name": "Meowth",
+      "path": "assets/creatures/pokeapi-gen1-52-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/52.png",
+      "sourceSha256": "893353baec0dd1ac52a62af4465d28660a959e18beb21c17cd6cd9d3cb2d173c",
+      "sha256": "1e00138dde1835d6cfd3c4a86e078ae1df28906fc8d3d351cff2e03282e4e88e"
+    },
+    {
+      "speciesId": 53,
+      "name": "Persian",
+      "path": "assets/creatures/pokeapi-gen1-53-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/53.png",
+      "sourceSha256": "b477fdc0d93c55455908cc1e430d0959203234f85362d60431a0843eaec332e7",
+      "sha256": "67cc9104c907f4b2eab117f78a43969ab49fae913299585b8a49e67f91bd88dc"
+    },
+    {
+      "speciesId": 54,
+      "name": "Psyduck",
+      "path": "assets/creatures/pokeapi-gen1-54-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/54.png",
+      "sourceSha256": "87110a75d9d9c67e0d82b912abcea3c25a96bc394e366812c65639ea1bacdf40",
+      "sha256": "015f322d616b2db3e9ddb1616c3d575807f0ff3511bbffc4e450190290557318"
+    },
+    {
+      "speciesId": 55,
+      "name": "Golduck",
+      "path": "assets/creatures/pokeapi-gen1-55-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/55.png",
+      "sourceSha256": "343e4f5bca573e0fcaaaf32ae1cd4b7495c336fa6524c7da58e65167fb454609",
+      "sha256": "51f1c1e1a69220427e67e9ce0adba0b4a7be3a9a5d786a5a8d1f76b62b711d6a"
+    },
+    {
+      "speciesId": 56,
+      "name": "Mankey",
+      "path": "assets/creatures/pokeapi-gen1-56-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/56.png",
+      "sourceSha256": "e9b4fcec480f05a61e2e8b9a9f6bd930c3994ac9680da95f4bd309792a327b08",
+      "sha256": "3a12e413b9a3562d8f94aac2b09c42ee8401097632f65562f96a7c38b029a2c8"
+    },
+    {
+      "speciesId": 57,
+      "name": "Primeape",
+      "path": "assets/creatures/pokeapi-gen1-57-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/57.png",
+      "sourceSha256": "b320fad058841c4a5e8f11a22a0e735082b2d6cb37b5ea6ea0ff2e274da18cae",
+      "sha256": "a8e462952e4598cd0d26ebe19351b20fe80c364c8bb7000239db78d1ddb71567"
+    },
+    {
+      "speciesId": 58,
+      "name": "Growlithe",
+      "path": "assets/creatures/pokeapi-gen1-58-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/58.png",
+      "sourceSha256": "05f90f8fec5729ef41ee205acf7d81a97e84cd6a82c5babf6e4eacf5662ee57a",
+      "sha256": "fa4a77047ead78816a248b3a6cd7ef80aecb367a5377588ccf2b6079033b5673"
+    },
+    {
+      "speciesId": 59,
+      "name": "Arcanine",
+      "path": "assets/creatures/pokeapi-gen1-59-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/59.png",
+      "sourceSha256": "4461b18982bbed0d9384ebcf99015347ff47a4e9dc926476d779c83ebd2d7093",
+      "sha256": "590edb74dc29b467f1ed0530e17541173e9798623568caa04a4206dd83dd9722"
+    },
+    {
+      "speciesId": 63,
+      "name": "Abra",
+      "path": "assets/creatures/pokeapi-gen1-63-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/63.png",
+      "sourceSha256": "e1c271b81c1e1424dded3024977dc07876d270e3f14f84b366b70c73746a87a3",
+      "sha256": "efa6078bea64f61c3efb9677737e808198f2da0059a2c637db7b99bb44711c24"
+    },
+    {
+      "speciesId": 64,
+      "name": "Kadabra",
+      "path": "assets/creatures/pokeapi-gen1-64-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/64.png",
+      "sourceSha256": "831d284a281c0d61c1a30cbf9599a4cb34d3957f83d80ac1c5d37e4c93840c8b",
+      "sha256": "89d078048531b0c2f5104b8310f507f44873de356c2f9aebc0616e9c7508e257"
+    },
+    {
+      "speciesId": 65,
+      "name": "Alakazam",
+      "path": "assets/creatures/pokeapi-gen1-65-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/65.png",
+      "sourceSha256": "8f1dfebe7855bf0838dc4110629b01a8862370373cabe527adf3f979bc4fa1e0",
+      "sha256": "e5efe3626f95e20146f039311b6dd0af5138cef1db25235844a66136511a739f"
+    },
+    {
+      "speciesId": 66,
+      "name": "Machop",
+      "path": "assets/creatures/pokeapi-gen1-66-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/66.png",
+      "sourceSha256": "699145a859f7aa9412662fb671b8e7ae52af27d4eaf9ab5b4bbf453dde7f41fb",
+      "sha256": "2b734b8b6b829503b6b61c33ea5401821c28ed28d5c8f9c9e8ed5ff8fa815a49"
+    },
+    {
+      "speciesId": 67,
+      "name": "Machoke",
+      "path": "assets/creatures/pokeapi-gen1-67-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/67.png",
+      "sourceSha256": "6c8151497d31a5969ce5a28cb11a18779159cc720794e079cd9194963189d241",
+      "sha256": "12369a48518cae07e243358b7fd6cf86207a72bc2bf2b404adb7515c28c6df7d"
+    },
+    {
+      "speciesId": 68,
+      "name": "Machamp",
+      "path": "assets/creatures/pokeapi-gen1-68-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/68.png",
+      "sourceSha256": "5d124f441d6690e19de8685e30b1e5d375f2fd6dd91be5cfd164dacf6853f7e6",
+      "sha256": "189c57ff90c0765aed2ab6b98242b54f358207b77a2aad821a3f4af497e2a8eb"
+    },
+    {
+      "speciesId": 76,
+      "name": "Golem",
+      "path": "assets/creatures/pokeapi-gen1-76-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/76.png",
+      "sourceSha256": "c9738e2d60f5df047e9fc10d2ebf2a4b8b30bfe6de35d5385881f073e1f9d5a0",
+      "sha256": "722df76e4b4fd43948ff1aaf3faa43d730498c9b18cb2016eac4d3e586dbb222"
+    },
+    {
+      "speciesId": 77,
+      "name": "Ponyta",
+      "path": "assets/creatures/pokeapi-gen1-77-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/77.png",
+      "sourceSha256": "a4e14c8e403f13cdc307d64918c090ecd112cd9e50fe44ac15fa6b10d342a523",
+      "sha256": "7ae53370353794d6fbb9de7466911a8ba90f52e429faf1df410cd939c9149414"
+    },
+    {
+      "speciesId": 78,
+      "name": "Rapidash",
+      "path": "assets/creatures/pokeapi-gen1-78-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/78.png",
+      "sourceSha256": "62d6b8432e29da9f5e9b35aa1393dd9df40527cf454e10b300bb61461f630bc9",
+      "sha256": "18aabd3883eb38d1bfe0a47b3a39fb16d00c651a3ab30aa63aaad7ab30581b0f"
+    },
+    {
+      "speciesId": 83,
+      "name": "Farfetch’d",
+      "path": "assets/creatures/pokeapi-gen1-83-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/83.png",
+      "sourceSha256": "19cb4412f5c6dd4b24e22b9d3286c27c47831a635564ed6b49aa5b8f421a4cbf",
+      "sha256": "fd5c6ac81937f53c6263176189d9683a4fee4702146f284db4d494976819562f"
+    },
+    {
+      "speciesId": 84,
+      "name": "Doduo",
+      "path": "assets/creatures/pokeapi-gen1-84-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/84.png",
+      "sourceSha256": "c4081df08c813620ccc00316ced73a2592c195dd0dd4486a0607095e004b0125",
+      "sha256": "65daa6517b57be7a3066e80019cf1f3062039298b24a15b259f24ccb2d3b15a3"
+    },
+    {
+      "speciesId": 85,
+      "name": "Dodrio",
+      "path": "assets/creatures/pokeapi-gen1-85-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/85.png",
+      "sourceSha256": "87306fdddb9c21e7aec938743076db2b8192b5bbeaab40936038b6756e8933f2",
+      "sha256": "4e108c401e1d32c8e1c92a69e7113d16f431026a2dfe7bad8f992be725d51acf"
+    },
+    {
+      "speciesId": 88,
+      "name": "Grimer",
+      "path": "assets/creatures/pokeapi-gen1-88-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/88.png",
+      "sourceSha256": "1d032143f4d902a6a26f8776d194ceb696e4aca1bee23fde512f8eb66d2e4b08",
+      "sha256": "ddab3c2c3ad53e09e877b5b8fe10b149c949d2fb7a04b500deed08c00b9d7b62"
+    },
+    {
+      "speciesId": 89,
+      "name": "Muk",
+      "path": "assets/creatures/pokeapi-gen1-89-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/89.png",
+      "sourceSha256": "bbc4d735100cbfdb1e2cb17669d82430d930abe4b3d779de6b679590a68c15f6",
+      "sha256": "fc82bc60bfdab48061a3cee33db3470f9750a18bcf1014049e505b2b7e255aa1"
+    },
+    {
+      "speciesId": 90,
+      "name": "Shellder",
+      "path": "assets/creatures/pokeapi-gen1-90-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/90.png",
+      "sourceSha256": "d1051fa793cf81c8a88935a79da2f4254f8b703e3299f3b20de1ad5290193452",
+      "sha256": "c052e374571b3339011b2a973dadc8de6cbffa8d0c5c7a56a28b052812f815d2"
+    },
+    {
+      "speciesId": 91,
+      "name": "Cloyster",
+      "path": "assets/creatures/pokeapi-gen1-91-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/91.png",
+      "sourceSha256": "4510ded0220c2b574078e2b009884b8c3552c12e3bad843c5a120af26ea4d290",
+      "sha256": "657ca5bc37b1884f691892e3b45f87987f3bc0d1c4170a4900e4a8687785fa22"
+    },
+    {
+      "speciesId": 92,
+      "name": "Gastly",
+      "path": "assets/creatures/pokeapi-gen1-92-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/92.png",
+      "sourceSha256": "23c69f67ece1dd1724666a4bb94ebea14d53045c6f406faa2963db4f04bd5f4b",
+      "sha256": "be1a1d19502d13759bd28c84da5c987d4df34ad13138013dee05fe00a9ce4e25"
+    },
+    {
+      "speciesId": 93,
+      "name": "Haunter",
+      "path": "assets/creatures/pokeapi-gen1-93-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/93.png",
+      "sourceSha256": "e21bab36fe663028b33f1f73d2dfd50f2f8aa4675fac327f24a0f2a9768ba74f",
+      "sha256": "19f97cc45b3b3651bff273fe5f9ddcb39bf8c82570dee08633faf3f1c164885d"
+    },
+    {
+      "speciesId": 94,
+      "name": "Gengar",
+      "path": "assets/creatures/pokeapi-gen1-94-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/94.png",
+      "sourceSha256": "b6549b80537676fcf4a589c8853b38cce42f42b5f707bbe2e63797666175cf06",
+      "sha256": "24cde13217caf67946cf1621415dc608c980d8034144b33919a006c452ef9049"
+    },
+    {
+      "speciesId": 102,
+      "name": "Exeggcute",
+      "path": "assets/creatures/pokeapi-gen1-102-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/102.png",
+      "sourceSha256": "20e609dac93de2c42b1ce347939e92abb96c3b12ae52eff6c5c46bc7aca942c7",
+      "sha256": "9c57deb4ecd5b6c2fb75ddef89ea44a000f6b344d521fd57c5f500c5d96d1fdb"
+    },
+    {
+      "speciesId": 103,
+      "name": "Exeggutor",
+      "path": "assets/creatures/pokeapi-gen1-103-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/103.png",
+      "sourceSha256": "ce28697b48b415c205fa61b740334df270af87a9137284eb3bf28ea955c4fb58",
+      "sha256": "dd826680f3eb729ddc83fd4b5a984259905a41637303c200cca68507982bfe8f"
+    },
+    {
+      "speciesId": 104,
+      "name": "Cubone",
+      "path": "assets/creatures/pokeapi-gen1-104-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/104.png",
+      "sourceSha256": "88ead79f1c78f8dec797b7441ea81cfb736ec75faa3aa239d9990fdd908dffb9",
+      "sha256": "06c29d45b5922975a42293b7525c83d32d219e66d20ec7c0f7e07a0d9468d87e"
+    },
+    {
+      "speciesId": 105,
+      "name": "Marowak",
+      "path": "assets/creatures/pokeapi-gen1-105-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/105.png",
+      "sourceSha256": "223279b38408779cd62ffde410ba5a5082b9ab01f78855c1d483f78dfe4d64e8",
+      "sha256": "9f5d77c676b72877312470c7006d71587565ab7596a408297034d6120f485452"
+    },
+    {
+      "speciesId": 106,
+      "name": "Hitmonlee",
+      "path": "assets/creatures/pokeapi-gen1-106-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/106.png",
+      "sourceSha256": "983cc4ce160b041e2e03f366a3ee06a00df98c3f5164784f269f698c45f20128",
+      "sha256": "69ffab9cc7d70b7c592268bc6e4bbf4f0564521d10e95bccd75c6e34d84f3b3a"
+    },
+    {
+      "speciesId": 107,
+      "name": "Hitmonchan",
+      "path": "assets/creatures/pokeapi-gen1-107-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/107.png",
+      "sourceSha256": "1b811ffdd00f97e724243d73b46c6dfce45480534c77bf9c61534f597d2afa24",
+      "sha256": "0359ae5551ed04371d685e98ebdc4743773a2dea4d89beff6674bf3bb5700ffd"
+    },
+    {
+      "speciesId": 108,
+      "name": "Lickitung",
+      "path": "assets/creatures/pokeapi-gen1-108-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/108.png",
+      "sourceSha256": "76a98212dff09ec686390b6e10bb81293c9b908a8cd563166157900771843de5",
+      "sha256": "dafeeb51eff853f7033cfec32e2dfc74d2d7c0bc09478ef9cef636fdc7e6a789"
+    },
+    {
+      "speciesId": 109,
+      "name": "Koffing",
+      "path": "assets/creatures/pokeapi-gen1-109-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/109.png",
+      "sourceSha256": "fafb96d013ab7b44989cd86501e3ea78c43c42e0baec37a3c1da826859ec7cac",
+      "sha256": "66a5531ce4237deb03475e081f562a89633d30c201edbfa39a44834217f45c63"
+    },
+    {
+      "speciesId": 110,
+      "name": "Weezing",
+      "path": "assets/creatures/pokeapi-gen1-110-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/110.png",
+      "sourceSha256": "2ea5a510c378b6fa2a0fe042bb2cb38ad13c0be17346fd3384acf46544cb9b34",
+      "sha256": "1b696cfc8378d0805b39e273f3b8bae3f2dbefebf9f7950c967e0cb6984d07fd"
+    },
+    {
+      "speciesId": 111,
+      "name": "Rhyhorn",
+      "path": "assets/creatures/pokeapi-gen1-111-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/111.png",
+      "sourceSha256": "6a7478554afcbb28fbe2339ab82dcc6d70eeead9364e511304558cf063dfb057",
+      "sha256": "558ff81a2be4a7fdc4c218181917f7feaefcd186cab136c5f3ea2f89dfee6b0c"
+    },
+    {
+      "speciesId": 112,
+      "name": "Rhydon",
+      "path": "assets/creatures/pokeapi-gen1-112-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/112.png",
+      "sourceSha256": "8fabe62dab35c7f747ff80c073c3ec3dac9a162a20617a83f3b77070c34c8c53",
+      "sha256": "9e1f83549d73d014fa84e2f485b1ff5c03ce999839545b011ebf51a1e9bc8b74"
+    },
+    {
+      "speciesId": 113,
+      "name": "Chansey",
+      "path": "assets/creatures/pokeapi-gen1-113-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/113.png",
+      "sourceSha256": "8233229237ea208457fccd44311aa1efb2401282584fb745a279158e2e2b3cc0",
+      "sha256": "801264c301657be33b927af2a04067cd80eb0778909827976216d50a7267b923"
+    },
+    {
+      "speciesId": 114,
+      "name": "Tangela",
+      "path": "assets/creatures/pokeapi-gen1-114-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/114.png",
+      "sourceSha256": "57e96fb7a3e1a99f89cb5ae5dbe8f212566b49fa04c88e80079d39c16ff18952",
+      "sha256": "2784bc6d582692fa555353fbcb30f0a389771cf043da8eef3eb7fd39b83f0067"
+    },
+    {
+      "speciesId": 115,
+      "name": "Kangaskhan",
+      "path": "assets/creatures/pokeapi-gen1-115-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/115.png",
+      "sourceSha256": "bc2424e71902a870074096821791b089969b88fdf766fc5675927dacd9c29d48",
+      "sha256": "a49d3f90d6bdcb0ebd130b0325aa1f1138ac176ba9a7a119d9582230b561e119"
+    },
+    {
+      "speciesId": 118,
+      "name": "Goldeen",
+      "path": "assets/creatures/pokeapi-gen1-118-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/118.png",
+      "sourceSha256": "38f84d1fa374a4775ebbc50c73439e297b02edef80b5796388da7d47bdefd5ca",
+      "sha256": "d0a837484099b3457d54df1708f4f11d7378987ef754d1aad30d0cd5aa48933e"
+    },
+    {
+      "speciesId": 119,
+      "name": "Seaking",
+      "path": "assets/creatures/pokeapi-gen1-119-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/119.png",
+      "sourceSha256": "44ed5c483773144a22116cc42a9d68758f17af861b38168e325c9422d1e07061",
+      "sha256": "5d6ef362fc36da4c257e81934ed405f92a0353d3048c809cdb8a6284b5a25aa7"
+    },
+    {
+      "speciesId": 120,
+      "name": "Staryu",
+      "path": "assets/creatures/pokeapi-gen1-120-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/120.png",
+      "sourceSha256": "c6d201593a95accb563277077dab8a6dfe3b84eb8a51eef42eb717aae9826e4f",
+      "sha256": "23aac7281d1ff8d94af740a1a2a932050db02098514639ed045c1d1587335e7e"
+    },
+    {
+      "speciesId": 121,
+      "name": "Starmie",
+      "path": "assets/creatures/pokeapi-gen1-121-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/121.png",
+      "sourceSha256": "4e9cebb6042fd5489471341c5d5778a900662be93e343234468edc2dfe94436f",
+      "sha256": "63d96a6679ecf249fe46d927580cdf88bfafcd8821593cf25ceebd6765af22e6"
+    },
+    {
+      "speciesId": 122,
+      "name": "Mr. Mime",
+      "path": "assets/creatures/pokeapi-gen1-122-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/122.png",
+      "sourceSha256": "9c46e52050633b1ca8ed05ffee09cda121ac338021de0d600b9590c0f8590c53",
+      "sha256": "4403f991767229cb5b25103a4a96b5e4f039e2bd7421c0eba5e68747fccaeebd"
+    },
+    {
+      "speciesId": 123,
+      "name": "Scyther",
+      "path": "assets/creatures/pokeapi-gen1-123-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/123.png",
+      "sourceSha256": "0e983e7e5252585364103cd4dddbc015f3d7ca3ead5172a0379e969147709f2f",
+      "sha256": "6dbeb9d7baf02f7bb38230a22b606cc6a5330ab859b25ab99892ed21a1f36bd5"
+    },
+    {
+      "speciesId": 125,
+      "name": "Electabuzz",
+      "path": "assets/creatures/pokeapi-gen1-125-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/125.png",
+      "sourceSha256": "47e0902fb2d49e6286f4878b0bfc67cc5eea4f07755fc65014087fd0656e3e12",
+      "sha256": "236a1e212cab620ccb63c60d293c9e4d78c93c75dc411acc19f558ca72c591f8"
+    },
+    {
+      "speciesId": 126,
+      "name": "Magmar",
+      "path": "assets/creatures/pokeapi-gen1-126-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/126.png",
+      "sourceSha256": "8dc68104e9a1c589e030866c79595dc19da3e40bfa63c9a3b2b5afe9ce662cd7",
+      "sha256": "1506913aa150b8e5689a8edccd7a1afbce9f8c88548c84873c0f8d8fc0dc1390"
+    },
+    {
+      "speciesId": 127,
+      "name": "Pinsir",
+      "path": "assets/creatures/pokeapi-gen1-127-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/127.png",
+      "sourceSha256": "badba34a0d5e77e7fa0b553b7e148c157b4bf15ee3c3d44a6ad1de1067c7c447",
+      "sha256": "ba7c9651420e3185df836032951dcdb9972bfb7e88e3f52f6dd26314f0c919c2"
+    },
+    {
+      "speciesId": 128,
+      "name": "Tauros",
+      "path": "assets/creatures/pokeapi-gen1-128-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/128.png",
+      "sourceSha256": "04ba885a5e71dc1e6970e7a83a098464e3fa29b83502631772a0f709662887e4",
+      "sha256": "f232646ab3bae234e4b6eff764806e840139aa3ff778ed903b86f6276d402799"
+    },
+    {
+      "speciesId": 129,
+      "name": "Magikarp",
+      "path": "assets/creatures/pokeapi-gen1-129-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/129.png",
+      "sourceSha256": "df8fc8a1d11083f25afa148484737b9d70dd2912a9f9f68913116612353ccf75",
+      "sha256": "ecf0eedc1c31a53d7fb9272ab9cd9f9d9c5ea94cc4591325a9305bad0603960b"
+    },
+    {
+      "speciesId": 130,
+      "name": "Gyarados",
+      "path": "assets/creatures/pokeapi-gen1-130-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/130.png",
+      "sourceSha256": "41d17760b81321cc7a3fb2cb1568d3c33010e892b687eeacb3738ba307071f8b",
+      "sha256": "9bf09ad7637b7e9c358b75de7393339db2e42441a390096578e7ccc0470f96f5"
+    },
+    {
+      "speciesId": 131,
+      "name": "Lapras",
+      "path": "assets/creatures/pokeapi-gen1-131-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/131.png",
+      "sourceSha256": "ffd98849dee0a265bb109d9798dbfd18b35346a1c21ca01aa0dab60a72defbc6",
+      "sha256": "6ca1023db73bea3461c595f56745bd3e173ad00c75651e9c312ca0b3cc348289"
+    },
+    {
+      "speciesId": 132,
+      "name": "Ditto",
+      "path": "assets/creatures/pokeapi-gen1-132-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/132.png",
+      "sourceSha256": "5f7be2f22d06658a52b4e863a22e37d8904e539d9d8e23f15d4ea869b095e21f",
+      "sha256": "18a4227c32ba17f8fdc86bf66780067134d29b2aa2bd14e9b58e174b3c92e2b9"
+    },
+    {
+      "speciesId": 137,
+      "name": "Porygon",
+      "path": "assets/creatures/pokeapi-gen1-137-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/137.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/137.png",
+      "sourceSha256": "28a6c05c13e2a1f19dd4fea6e7f89b9ed639421c0f5937e7d6d726b4ce754c5a",
+      "sha256": "5d6ae82ce2889d2ea7ad9ceeb0df181aaf527d47b8aecedbe8791799fe156532"
+    },
+    {
+      "speciesId": 138,
+      "name": "Omanyte",
+      "path": "assets/creatures/pokeapi-gen1-138-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/138.png",
+      "sourceSha256": "dd3980113e3ba2e0e562bfecf91a2b03b829e3d3059460851fe2a332e0126aed",
+      "sha256": "fe26c4226912bd40895bb4abb58d598737af0c35dbe54f706514ae5ad51f01d8"
+    },
+    {
+      "speciesId": 139,
+      "name": "Omastar",
+      "path": "assets/creatures/pokeapi-gen1-139-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/139.png",
+      "sourceSha256": "3535ad249cda49c3362e1aa1beb53b786984c66350d201ef0e1248adf49f341d",
+      "sha256": "67e5f359720a01448456f4d4f7a7a2341cef57ca5314e5b651ae284dd1cc686e"
+    },
+    {
+      "speciesId": 140,
+      "name": "Kabuto",
+      "path": "assets/creatures/pokeapi-gen1-140-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/140.png",
+      "sourceSha256": "92bd67e3f5f92a1791ce695aaec07083ea40823f47abd0a6ff412ccf79c370d1",
+      "sha256": "b49ea3f78bede15f32a687a165c85c04f2c2c76951bc0cacd5758142f60bcef8"
+    },
+    {
+      "speciesId": 141,
+      "name": "Kabutops",
+      "path": "assets/creatures/pokeapi-gen1-141-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/141.png",
+      "sourceSha256": "b651eaec19c1e8ae73b3ae1e5d038f9ca3b3231e9283d37192db8efeeb3e4cdc",
+      "sha256": "2ce9c92e753d7dad41570cba74c45c1ec05bb905b4a81f54066608f827486243"
+    },
+    {
+      "speciesId": 142,
+      "name": "Aerodactyl",
+      "path": "assets/creatures/pokeapi-gen1-142-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/142.png",
+      "sourceSha256": "5427b0a9ac5dbf1fee7fcd19f44de1dfb97d577c82262bb961538865a08bc79a",
+      "sha256": "8adc99bd614d0faefd8fdd7aa29e3b57d233f51daa83e91de0ac904460ef4254"
+    },
+    {
+      "speciesId": 143,
+      "name": "Snorlax",
+      "path": "assets/creatures/pokeapi-gen1-143-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/143.png",
+      "sourceSha256": "1afd32e5f6053a50860d67c5d7cc3bc6ca9a174634097fe65880523a0a13a55a",
+      "sha256": "61c882cc9442bdedd4444bc52691089b1d4c619608168a4b010c3333528cbe68"
+    },
+    {
+      "speciesId": 144,
+      "name": "Articuno",
+      "path": "assets/creatures/pokeapi-gen1-144-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/144.png",
+      "sourceSha256": "d85d2a2dd08e8f0d797298f9db4bab91a6b0ee6e03999333be55fc5cf09b3043",
+      "sha256": "6b3f9c34583f47a7ba1990b98360958a670d95f56ba1a1288f685ad23041cb2f"
+    },
+    {
+      "speciesId": 145,
+      "name": "Zapdos",
+      "path": "assets/creatures/pokeapi-gen1-145-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/145.png",
+      "sourceSha256": "6435d62ab354ac4bfc94eaf8dda48a4ea3cb24f5e64d48cab9dafd5194f458cc",
+      "sha256": "7fcbf43ecf24720a79954ea6c1ad2145cd300ac5c797100e0631cc95f92ccb6f"
+    },
+    {
+      "speciesId": 146,
+      "name": "Moltres",
+      "path": "assets/creatures/pokeapi-gen1-146-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/146.png",
+      "sourceSha256": "f4d46f40e4fc984ebc5eccdaf11540dd1fdd0a756a629b7bb1da72777d5ff85a",
+      "sha256": "e5ec4fd1d37d302a9242260763a314ce24c21d4054ecdae60d27b2bacbc516f2"
+    },
+    {
+      "speciesId": 150,
+      "name": "Mewtwo",
+      "path": "assets/creatures/pokeapi-gen1-150-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/150.png",
+      "sourceSha256": "d99adeb9b4523073ca218a6f472ea5b602b047ccd8af8dea6fa7ae051f80366a",
+      "sha256": "033959ff194ff1c064f4a2fe508dd1620ac5dcb5defa614f7cef7c24b4a0ad4d"
+    },
+    {
+      "speciesId": 151,
+      "name": "Mew",
+      "path": "assets/creatures/pokeapi-gen1-151-v1.webp",
+      "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+      "sourcePath": "assets/sources/pokeapi/gen1/151.png",
+      "sourceSha256": "9991aee5181178b604b99aec636533b0c5a52a321ce246dd3b9c33243a342a64",
+      "sha256": "f15b4f926bdeaec42475f71bac4cd2e7d0316d79e5a3876b2c1423cb81a8be1b"
+    }
+  ]
+}

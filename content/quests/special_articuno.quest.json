@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_articuno",
+  "version": 1,
+  "displayName": "Un incontro con Articuno",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/articuno/captured",
+      "setFlag": "q_special_articuno_caught",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_articuno_caught"
+}

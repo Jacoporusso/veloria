@@ -5847,7 +5847,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npc-rami-v1"
+              "value": "veloria-league-and-cammino-cast-v1"
+            },
+            {
+              "name": "spriteFrame",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "petalora-custodian-ivo"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.479
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.959
             }
           ]
         }

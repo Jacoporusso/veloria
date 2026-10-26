@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/trainer_aurel/defeated",
   "rewardMoney": 2600,
   "victoryMessage": "Hai vinto contro Aurel. Ricevi 2600 ₿ e la Medaglia Armonia.",
-  "victoryFeedback": "La Medaglia Armonia è tua! Otto medaglie: hai osservato tipi, velocità e precisione. Dragonair teme il Ghiaccio, Kingdra è Acqua/Drago e non ha la stessa debolezza. Idropompa è potente ma meno precisa: conserva PP e una squadra pronta a subentrare. Con Elia prepareremo il riallineamento del Santuario.",
+  "victoryFeedback": "La Medaglia Armonia è tua! Otto medaglie: hai osservato tipi, velocità e precisione. Dragonair è Drago, Dragonite è Drago/Volante: entrambi temono Ghiaccio, soprattutto Dragonite. Seadra e Gyarados richiedono risposte diverse. Conserva PP e una squadra pronta a subentrare. Con Elia prepareremo il riallineamento del Santuario.",
   "team": [
     {
       "speciesId": 148,
@@ -30,17 +30,17 @@
       ]
     },
     {
-      "speciesId": 230,
+      "speciesId": 130,
       "level": 48,
       "moveIds": [
         "hydro-pump",
-        "bubble-beam",
-        "smokescreen",
-        "agility"
+        "hyper-beam",
+        "dragon-dance",
+        "rain-dance"
       ]
     },
     {
-      "speciesId": 148,
+      "speciesId": 149,
       "level": 49,
       "moveIds": [
         "dragon-rush",

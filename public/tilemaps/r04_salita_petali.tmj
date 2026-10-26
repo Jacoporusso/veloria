@@ -6707,7 +6707,22 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-route-trainers-r04-r07-v1"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-nila"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.558
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.951
             },
             {
               "name": "trainerId",
@@ -6722,7 +6737,7 @@
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 3
+              "value": 0
             }
           ]
         }

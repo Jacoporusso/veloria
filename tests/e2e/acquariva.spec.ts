@@ -104,7 +104,7 @@ test('Selene reflections persist, award Riflesso once and show the original meda
   const save=await readBrowserSave(page);
   // Deliberately strong integration checkpoint; this does not verify natural progression balance.
   const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:82,level:55,instanceId:'p6-checkpoint',moveIds:['thunder-shock','spark']});
-  const reserve=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:195,level:55,instanceId:'p6-reserve',moveIds:['mud-shot','water-gun']});
+  const reserve=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:138,level:55,instanceId:'p6-reserve',moveIds:['mud-shot','water-gun']});
   // This fixture checks puzzle/reward persistence, not random confusion outcomes.
   save.rngState=0x12345678;
   save.player.money=500;

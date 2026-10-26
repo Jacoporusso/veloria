@@ -3,7 +3,7 @@ export function worldCameraZoom(viewport: { width: number; height: number }, map
   return Math.max(1, Math.min(1.25, viewport.width / 800), viewport.width / Math.max(1, map.width), viewport.height / Math.max(1, map.height));
 }
 
-/** Let edge actors move below the HUD and above touch controls when followed. */
+/** Edge backdrop rendering covers this padding while actors stay clear of the HUD. */
 export function worldCameraBounds(viewport: { width: number; height: number }, map: { width: number; height: number }, logicalZoom: number) {
   const top = (viewport.height > viewport.width ? 128 : 112) / logicalZoom;
   const bottom = 112 / logicalZoom;

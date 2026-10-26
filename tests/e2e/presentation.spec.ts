@@ -44,7 +44,7 @@ test(`illustrated battle remains usable at ${width}x${height}`, async ({ page },
     document.body.innerHTML = '<div id="battle-fixture" style="width:100vw;height:100vh"></div>';
     document.body.style.margin = '0';
     const creature = (speciesId: number, instanceId: string) => createBattleCreature({ species: battleSpecies, moves: battleMoves, speciesId, level: 8, instanceId });
-    const state = createBattleState({ battleId: 'presentation', battleType: 'wild', seed: 25, rules: veloriaBattleRules, playerTeam: [creature(179, 'own-mareep')], opponentTeam: [creature(10, 'wild-caterpie')] });
+    const state = createBattleState({ battleId: 'presentation', battleType: 'wild', seed: 25, rules: veloriaBattleRules, playerTeam: [creature(25, 'own-pikachu')], opponentTeam: [creature(10, 'wild-caterpie')] });
     class Fixture extends Phaser.Scene {
       constructor() { super('fixture'); }
       preload() {

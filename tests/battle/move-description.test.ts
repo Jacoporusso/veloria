@@ -53,3 +53,36 @@ test('canonical move descriptions explain Sonicboom fixed damage and Thunder Wav
   assert.match(wave, /Infligge paralisi all’avversario/);
   assert.match(wave, /Non funziona sui Pokémon immuni al tipo ELETTRO/);
 });
+
+test('healing, transformation and assisted ability effects are explained without misleading no-effect copy', () => {
+  const moves = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves as Record<string, MoveDefinition>;
+  const rest = formatMoveDescription(moves.rest);
+  assert.match(rest, /100% degli HP/);
+  assert.match(rest, /sonno al tuo Pokémon/);
+  assert.doesNotMatch(rest, /sonno all’avversario/);
+  assert.match(formatMoveDescription(moves.transform), /abilità/);
+  assert.match(formatMoveDescription(moves['role-play']), /Copia l’abilità/);
+  assert.doesNotMatch(formatMoveDescription(moves.recover), /Nessun effetto/);
+});
+
+test('details expose historical durations, forced actions and crash risks', () => {
+  const moves = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves as Record<string, MoveDefinition>;
+  assert.match(formatMoveDescription(moves.disable), /4–7 turni/);
+  const rollout = formatMoveDescription(moves.rollout);
+  assert.match(rollout, /per 5 turni/);
+  assert.match(rollout, /Ricciolscudo/);
+  const crash = formatMoveDescription(moves['high-jump-kick']);
+  assert.match(crash, /metà del danno/);
+  assert.match(crash, /HP massimi del bersaglio/);
+  assert.doesNotMatch(crash, /HP massimi del tuo/);
+});
+
+test('catalog details explain switching, countdowns and poison progression before choosing a move', () => {
+  const moves = JSON.parse(readFileSync(new URL('../../content/battle/moves.v1.json', import.meta.url), 'utf8')).moves as Record<string, MoveDefinition>;
+  assert.match(formatMoveDescription(moves['poison-fang']), /veleno progressivo.*30%/);
+  assert.match(formatMoveDescription(moves['poison-fang']), /1\/16/);
+  assert.match(formatMoveDescription(moves['perish-song']), /Sostituire.*annulla/);
+  assert.match(formatMoveDescription(moves['rapid-spin']), /Se colpisce.*rimuove le punte/);
+  assert.match(formatMoveDescription(moves['toxic-spikes']), /2 strati.*progressivo/);
+  assert.match(formatMoveDescription(moves['helping-hand']), /lotte singole di Veloria/);
+});

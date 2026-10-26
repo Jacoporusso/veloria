@@ -25,6 +25,12 @@
   "reward": {
     "items": {
       "potion": 2
-    }
+    },
+    "pokemon": [
+      {
+        "speciesId": 7,
+        "level": 15
+      }
+    ]
   }
 }

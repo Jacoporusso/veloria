@@ -42,18 +42,21 @@ function supportSummary(move: MoveDefinition): string | undefined {
     if (!change.stages) continue;
     effects.push(`${STATS[change.stat]} ${change.target === 'self' ? 'tuo' : 'avversario'} ${change.stages > 0 ? '+' : ''}${change.stages}${(move.statChangeChance ?? 100) < 100 ? ` · ${move.statChangeChance}%` : ''}`);
   }
-  if (move.inflictedStatus) effects.push(`${STATUS[move.inflictedStatus]} avversario · ${move.statusChance ?? 100}%`);
+  if (move.healingPercent) effects.push(`♥ Cura ${move.healingPercent}% HP massimi`);
+  if (move.inflictedStatus) effects.push(`${STATUS[move.inflictedStatus]} ${move.statusTarget === 'self' ? 'tuo' : 'avversario'} · ${move.statusChance ?? 100}%`);
   if (move.inflictedConfusionChance) effects.push(`Confusione avversaria · ${move.inflictedConfusionChance}%`);
   if (move.leechSeedFraction) effects.push(`Seme · ${Number((move.leechSeedFraction * 100).toFixed(2))}% HP massimi/turno`);
   return effects.length ? effects.join(' · ') : 'Consulta gli effetti nei dettagli';
 }
 
 /** Presentation-only card. Accuracy may be supplied by the caller from current stat stages. */
-export function createMoveCard(move: MoveDefinition, target: BattleCreature, rules: BattleRules, currentPp: number, actualAccuracyLabel?: string): MoveCard {
-  const matchup = describeMoveMatchup(move, target, rules);
+export function createMoveCard(move: MoveDefinition, target: BattleCreature, rules: BattleRules, currentPp: number, actualAccuracyLabel?: string, context: { gravityActive?: boolean } = {}): MoveCard {
+  const matchup = describeMoveMatchup(move, target, rules, context);
   const categoryLabel = move.category === 'physical' ? 'Fisica' : move.category === 'special' ? 'Speciale' : 'Supporto';
   const categoryIcon = move.category === 'physical' ? '💥' : move.category === 'special' ? '✨' : '◇';
-  const powerLabel = move.fixedDamage ? `${move.fixedDamage} HP fissi` : move.category === 'status' ? '—' : String(move.power);
+  const formulaDamageLabel = move.fixedDamage ? `${move.fixedDamage} HP fissi` : move.damageByUserLevel ? 'Livello'
+    : move.targetHpFraction !== undefined ? `${move.targetHpFraction * 100}% HP` : move.endeavorDamage ? 'Δ HP' : move.oneHitKO ? 'KO' : undefined;
+  const powerLabel = formulaDamageLabel ?? (move.category === 'status' ? '—' : move.requiresHeldItemContext ? 'Oggetto' : move.powerRule ? 'Variabile' : String(move.power));
   const accuracyLabel = actualAccuracyLabel ?? (move.alwaysHits ? 'Non fallisce per precisione' : `${move.accuracy}%`);
   const ppLabel = `${currentPp}/${move.maxPp} PP`;
   const supportEffect = matchup.blocked ? undefined : supportSummary(move);
@@ -65,13 +68,13 @@ export function createMoveCard(move: MoveDefinition, target: BattleCreature, rul
     || Boolean(move.category === 'status' && move.inflictedStatus && target.types.some(type => rules.statusImmunities[type]?.includes(move.inflictedStatus!)))
   );
   const effectivenessLabel = typeImmunity ? `${matchup.label} · IMMUNITÀ DI TIPO` : matchup.label;
-  const effectiveness = matchup.blocked ? 'immune' : move.category === 'status' ? 'support' : move.fixedDamage ? 'fixed'
+  const effectiveness = matchup.blocked ? 'immune' : move.category === 'status' ? 'support' : formulaDamageLabel ? 'fixed'
     : matchup.multiplier! > 1 ? 'super' : matchup.multiplier! < 1 ? 'resisted' : 'normal';
   const effectivenessShort = effectiveness === 'immune' ? 'Ø' : effectiveness === 'support' ? '◇ Supporto'
-    : effectiveness === 'fixed' ? `${move.fixedDamage} HP` : `${effectiveness === 'super' ? '↑' : effectiveness === 'resisted' ? '↓' : '●'} ${matchupMultiplierLabel(matchup.multiplier!)}`;
+    : effectiveness === 'fixed' ? move.fixedDamage ? `${move.fixedDamage} HP` : formulaDamageLabel! : `${effectiveness === 'super' ? '↑' : effectiveness === 'resisted' ? '↓' : '●'} ${matchupMultiplierLabel(matchup.multiplier!)}`;
   return {
     name: move.name, typeIcon: MOVE_TYPE_ICONS[move.type], typeLabel: battleTypeLabel(move.type), categoryIcon, categoryLabel,
     powerLabel, accuracyLabel, ppLabel, effectivenessLabel, effectivenessShort, effectiveness, supportEffect, riskLabel,
-    accessibleLabel: `${move.name}, ${battleTypeLabel(move.type)}, ${categoryLabel}, ${effectivenessLabel}, ${supportEffect ? `${supportEffect}, ` : ''}${riskLabel ? `Contraccolpo: perdi HP pari al ${move.recoilPercent}% dei danni inflitti, ` : ''}${move.fixedDamage ? 'Danno' : 'Potenza'} ${powerLabel}, precisione ${accuracyLabel}, ${ppLabel}`,
+    accessibleLabel: `${move.name}, ${battleTypeLabel(move.type)}, ${categoryLabel}, ${effectivenessLabel}, ${supportEffect ? `${supportEffect}, ` : ''}${riskLabel ? `Contraccolpo: perdi HP pari al ${move.recoilPercent}% dei danni inflitti, ` : ''}${formulaDamageLabel ? 'Danno' : 'Potenza'} ${powerLabel}, precisione ${accuracyLabel}, ${ppLabel}`,
   };
 }

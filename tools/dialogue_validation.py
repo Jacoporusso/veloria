@@ -22,4 +22,6 @@ def validate_dialogue_choices(dialogues, quest_flags, quest_triggers):
                     check(choice['questEvent'] in quest_triggers, f'Unknown choice quest event: {dialogue_id}')
                 flags = choice.get('requiresFlags', [])
                 check(isinstance(flags, list) and all(text(flag) for flag in flags) and len(flags) == len(set(flags)) and set(flags) <= set(quest_flags), f'Unknown or invalid choice flags: {dialogue_id}')
+                if 'unlessFlag' in choice:
+                    check(text(choice['unlessFlag']) and choice['unlessFlag'] in quest_flags, f'Unknown choice completion flag: {dialogue_id}')
             check(len(ids) == len(set(ids)), f'Duplicate dialogue choice ID: {dialogue_id}')

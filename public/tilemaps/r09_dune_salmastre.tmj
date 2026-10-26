@@ -4052,12 +4052,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-r09-r10-coastal-trainers-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 2
+              "value": 0
             },
             {
               "name": "trainerId",
@@ -4078,6 +4078,21 @@
               "name": "battleLockedMessage",
               "type": "string",
               "value": "Prima completa la prova di Nerea a Portolume."
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-lina-r09"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.597
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.979
             }
           ]
         },
@@ -4110,12 +4125,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-r09-r10-coastal-trainers-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 2
+              "value": 1
             },
             {
               "name": "trainerId",
@@ -4126,6 +4141,21 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r09_noemi_defeated"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-noemi-r09"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.514
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.979
             }
           ]
         }

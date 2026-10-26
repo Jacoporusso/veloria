@@ -7,21 +7,21 @@
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
     "mapsWithExplicitSceneryImage": 32,
-    "mapsWithRegisteredSceneryPath": 35,
+    "mapsWithRegisteredSceneryPath": 36,
     "mapsWithTerrainBase": 31,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
     "mapsWithSceneryImageOnly": 17,
     "mapsWithTerrainBaseOnly": 16,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 35,
+    "registeredSceneryImageAssets": 36,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 16,
     "mapsWithUnreferencedSceneryRegistration": 16,
-    "parityArtworkEntries": 15,
+    "parityArtworkEntries": 16,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
-    "registeredAppearanceProfiles": 19,
-    "unboundCharacterStudies": 3,
+    "registeredAppearanceProfiles": 31,
+    "unboundCharacterStudies": 4,
     "possibleNarrativeAliasesUnresolved": 2
   },
   "identityRules": {
@@ -242,6 +242,138 @@
           "league_champion"
         ],
         "narrativeSource": "content/dialogue/world.v1.json#/league_champion; docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md"
+      },
+      {
+        "profileId": "route-trainer-nila",
+        "description": "Nila, allenatrice facoltativa della Salita dei Petali; soprabito chiaro con accenti petalo, borsa da viaggio e fermaglio riflettente. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "nila_r04"
+        ],
+        "dialogueIds": [
+          "nila_r04"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/nila_r04; content/trainers/r04_nila.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-oren",
+        "description": "Oren, allenatore di percorso del Viadotto dei Ciliegi; giacca ardesia e berry, binocolo e zaino. Non è definito addetto ferroviario; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "oren_r05"
+        ],
+        "dialogueIds": [
+          "oren_r05"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/oren_r05; content/trainers/r05_oren.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-iris-r06",
+        "description": "Iris, allenatrice facoltativa di R06, distinta dalla Biologa Iris del Delta; giacca da allenamento petrolio e grigio minerale con fermaglio bussola. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r06_iris"
+        ],
+        "dialogueIds": [
+          "r06_iris"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r06_iris; content/trainers/r06_iris.trainer.json"
+      },
+      {
+        "profileId": "route-trainer-dario",
+        "description": "Dario, allenatore del Condotto Risonante; abito carbone e rame, fasce ai polsi e strumenti da percorso. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r07_dario"
+        ],
+        "dialogueIds": [
+          "r07_dario"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r07_dario; content/trainers/r07_dario.trainer.json"
+      },
+      {
+        "profileId": "vetracielo-lea",
+        "description": "Lea, guida e accoglienza di Vetracielo; capelli ricci, uniforme azzurra e avorio e borsa con mappa. La raffigurazione femminile adulta è una proposta artistica, non un fatto canonico.",
+        "npcIds": [
+          "vetracielo_lea"
+        ],
+        "dialogueIds": [
+          "vetracielo_lea"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/vetracielo_lea"
+      },
+      {
+        "profileId": "ferraluce-ivo",
+        "description": "Ivo, coordinatore dei dati di Ferraluce; giacca scura con dettagli rame e folio. Distinto da Oren e dall’omonimo Ivo di Petalora; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "ferraluce_ivo"
+        ],
+        "dialogueIds": [
+          "ferraluce_ivo"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_ivo"
+      },
+      {
+        "profileId": "ferraluce-care",
+        "description": "Addetta del Centro Pokémon di Ferraluce; divisa crema e verde acqua con grembiule. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "npcIds": [
+          "ferraluce_care"
+        ],
+        "dialogueIds": [
+          "ferraluce_care"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_care"
+      },
+      {
+        "profileId": "ferraluce-shop",
+        "description": "Mercante di Ferraluce; camicia verde petrolio, grembiule color terracotta e borse vuote per le provviste. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "npcIds": [
+          "ferraluce_shop"
+        ],
+        "dialogueIds": [
+          "ferraluce_shop"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_shop"
+      },
+      {
+        "profileId": "acquariva-tessa",
+        "description": "Tessa, ricercatrice dell’osservatorio di Acquariva: confronta le misure del lago e del Delta con metodo, senza saltare alle conclusioni. Abbigliamento da ricerca sul campo e borsa di campionamento sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "acquariva_tessa"
+        ],
+        "dialogueIds": [
+          "acquariva_tessa"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/acquariva_tessa"
+      },
+      {
+        "profileId": "portolume-captain-marina",
+        "description": "Capitana Marina, guida il porto di Portolume e consegna la canna da pesca per le osservazioni delle maree. Giacca da capitana blu navy e dettagli dorati sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "portolume_captain"
+        ],
+        "dialogueIds": [
+          "portolume_captain"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/portolume_captain"
+      },
+      {
+        "profileId": "route-trainer-viola-r08",
+        "description": "Viola, allenatrice facoltativa di R08: propone una sfida sui tipi prima di Portolume e permette di proseguire lungo la costa anche senza combattere. Abbigliamento sportivo e aspetto apparente sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "r08_viola"
+        ],
+        "dialogueIds": [
+          "r08_viola"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/r08_viola; content/trainers/r08_viola.trainer.json"
+      },
+      {
+        "profileId": "delta-biologist-iris",
+        "description": "Iris, biologa del Delta: guida le osservazioni di corrente, canneti e vivaio naturale. È distinta dall’allenatrice Iris di R06. Gilet e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "npcIds": [
+          "delta_iris"
+        ],
+        "dialogueIds": [
+          "delta_iris"
+        ],
+        "narrativeSource": "content/dialogue/world.v1.json#/delta_iris"
       }
     ],
     "unresolvedRepeatedNpcIds": [],
@@ -253,13 +385,13 @@
             "mapId": "veloria/d04_delta_specchi",
             "npcId": "delta_iris",
             "dialogueId": "delta_iris",
-            "identityKey": "npc:delta_iris"
+            "identityKey": "profile:delta-biologist-iris"
           },
           {
             "mapId": "veloria/r06_anello_magnetico",
             "npcId": "r06_iris",
             "dialogueId": "r06_iris",
-            "identityKey": "npc:r06_iris"
+            "identityKey": "profile:route-trainer-iris-r06"
           }
         ],
         "evidence": "same speaker label with separate content identities; narrative review is required, not proof of one person",
@@ -419,14 +551,50 @@
           "columns": 2,
           "rows": 2
         }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-vetracielo-lea-v1",
+        "path": "assets/sprites/veloria-vetracielo-lea-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ferraluce-service-npcs-v1",
+        "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-coastal-cast-v1",
+        "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
       }
     ],
     "catalogAssetKeys": [
       "veloria-cast-opening-and-champion-v1",
+      "veloria-coastal-cast-v1",
+      "veloria-ferraluce-service-npcs-v1",
       "veloria-gym-leaders-a-v1",
       "veloria-gym-leaders-b-v1",
       "veloria-league-council-v1",
-      "veloria-npcs-v3"
+      "veloria-npcs-v3",
+      "veloria-route-trainers-r04-r07-v1",
+      "veloria-vetracielo-lea-v1"
     ],
     "unboundStudies": [
       {
@@ -454,6 +622,15 @@
         "origin": {
           "x": 0.4346,
           "y": 0.9648
+        }
+      },
+      {
+        "role": "unused-male-lea-study-not-an-npc",
+        "assetKey": "veloria-ferraluce-service-npcs-v1",
+        "frame": 0,
+        "origin": {
+          "x": 0.56,
+          "y": 0.95
         }
       }
     ],
@@ -502,6 +679,38 @@
         "kind": "image",
         "key": "veloria-cast-opening-and-champion-v1",
         "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-vetracielo-lea-v1",
+        "path": "assets/sprites/veloria-vetracielo-lea-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ferraluce-service-npcs-v1",
+        "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      {
+        "kind": "image",
+        "key": "veloria-coastal-cast-v1",
+        "path": "assets/sprites/veloria-coastal-cast-v1.webp",
         "atlas": {
           "columns": 2,
           "rows": 2
@@ -837,6 +1046,209 @@
           "x": 0.5012,
           "y": 0.9075
         }
+      },
+      {
+        "id": "route-trainer-nila",
+        "description": "Nila, allenatrice facoltativa della Salita dei Petali; soprabito chiaro con accenti petalo, borsa da viaggio e fermaglio riflettente. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "nila_r04"
+        ],
+        "npcIds": [
+          "nila_r04"
+        ],
+        "assetKey": "veloria-route-trainers-r04-r07-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/nila_r04; content/trainers/r04_nila.trainer.json",
+        "origin": {
+          "x": 0.558,
+          "y": 0.951
+        }
+      },
+      {
+        "id": "route-trainer-oren",
+        "description": "Oren, allenatore di percorso del Viadotto dei Ciliegi; giacca ardesia e berry, binocolo e zaino. Non è definito addetto ferroviario; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "oren_r05"
+        ],
+        "npcIds": [
+          "oren_r05"
+        ],
+        "assetKey": "veloria-route-trainers-r04-r07-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/oren_r05; content/trainers/r05_oren.trainer.json",
+        "origin": {
+          "x": 0.468,
+          "y": 0.96
+        }
+      },
+      {
+        "id": "route-trainer-iris-r06",
+        "description": "Iris, allenatrice facoltativa di R06, distinta dalla Biologa Iris del Delta; giacca da allenamento petrolio e grigio minerale con fermaglio bussola. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r06_iris"
+        ],
+        "npcIds": [
+          "r06_iris"
+        ],
+        "assetKey": "veloria-route-trainers-r04-r07-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r06_iris; content/trainers/r06_iris.trainer.json",
+        "origin": {
+          "x": 0.593,
+          "y": 0.895
+        }
+      },
+      {
+        "id": "route-trainer-dario",
+        "description": "Dario, allenatore del Condotto Risonante; abito carbone e rame, fasce ai polsi e strumenti da percorso. Abito e aspetto apparente sono proposte artistiche: genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r07_dario"
+        ],
+        "npcIds": [
+          "r07_dario"
+        ],
+        "assetKey": "veloria-route-trainers-r04-r07-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/r07_dario; content/trainers/r07_dario.trainer.json",
+        "origin": {
+          "x": 0.494,
+          "y": 0.901
+        }
+      },
+      {
+        "id": "vetracielo-lea",
+        "description": "Lea, guida e accoglienza di Vetracielo; capelli ricci, uniforme azzurra e avorio e borsa con mappa. La raffigurazione femminile adulta è una proposta artistica, non un fatto canonico.",
+        "dialogueIds": [
+          "vetracielo_lea"
+        ],
+        "npcIds": [
+          "vetracielo_lea"
+        ],
+        "assetKey": "veloria-vetracielo-lea-v1",
+        "narrativeSource": "content/dialogue/world.v1.json#/vetracielo_lea",
+        "origin": {
+          "x": 0.558,
+          "y": 0.876
+        }
+      },
+      {
+        "id": "ferraluce-ivo",
+        "description": "Ivo, coordinatore dei dati di Ferraluce; giacca scura con dettagli rame e folio. Distinto da Oren e dall’omonimo Ivo di Petalora; abito e aspetto apparente sono proposte artistiche, genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "ferraluce_ivo"
+        ],
+        "npcIds": [
+          "ferraluce_ivo"
+        ],
+        "assetKey": "veloria-ferraluce-service-npcs-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_ivo",
+        "origin": {
+          "x": 0.472,
+          "y": 0.943
+        }
+      },
+      {
+        "id": "ferraluce-care",
+        "description": "Addetta del Centro Pokémon di Ferraluce; divisa crema e verde acqua con grembiule. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "dialogueIds": [
+          "ferraluce_care"
+        ],
+        "npcIds": [
+          "ferraluce_care"
+        ],
+        "assetKey": "veloria-ferraluce-service-npcs-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_care",
+        "origin": {
+          "x": 0.598,
+          "y": 0.871
+        }
+      },
+      {
+        "id": "ferraluce-shop",
+        "description": "Mercante di Ferraluce; camicia verde petrolio, grembiule color terracotta e borse vuote per le provviste. Outfit e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+        "dialogueIds": [
+          "ferraluce_shop"
+        ],
+        "npcIds": [
+          "ferraluce_shop"
+        ],
+        "assetKey": "veloria-ferraluce-service-npcs-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_shop",
+        "origin": {
+          "x": 0.509,
+          "y": 0.856
+        }
+      },
+      {
+        "id": "acquariva-tessa",
+        "description": "Tessa, ricercatrice dell’osservatorio di Acquariva: confronta le misure del lago e del Delta con metodo, senza saltare alle conclusioni. Abbigliamento da ricerca sul campo e borsa di campionamento sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "acquariva_tessa"
+        ],
+        "npcIds": [
+          "acquariva_tessa"
+        ],
+        "assetKey": "veloria-coastal-cast-v1",
+        "frame": 0,
+        "narrativeSource": "content/dialogue/world.v1.json#/acquariva_tessa",
+        "origin": {
+          "x": 0.592,
+          "y": 0.903
+        }
+      },
+      {
+        "id": "portolume-captain-marina",
+        "description": "Capitana Marina, guida il porto di Portolume e consegna la canna da pesca per le osservazioni delle maree. Giacca da capitana blu navy e dettagli dorati sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "portolume_captain"
+        ],
+        "npcIds": [
+          "portolume_captain"
+        ],
+        "assetKey": "veloria-coastal-cast-v1",
+        "frame": 1,
+        "narrativeSource": "content/dialogue/world.v1.json#/portolume_captain",
+        "origin": {
+          "x": 0.546,
+          "y": 0.911
+        }
+      },
+      {
+        "id": "route-trainer-viola-r08",
+        "description": "Viola, allenatrice facoltativa di R08: propone una sfida sui tipi prima di Portolume e permette di proseguire lungo la costa anche senza combattere. Abbigliamento sportivo e aspetto apparente sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "r08_viola"
+        ],
+        "npcIds": [
+          "r08_viola"
+        ],
+        "assetKey": "veloria-coastal-cast-v1",
+        "frame": 2,
+        "narrativeSource": "content/dialogue/world.v1.json#/r08_viola; content/trainers/r08_viola.trainer.json",
+        "origin": {
+          "x": 0.621,
+          "y": 0.88
+        }
+      },
+      {
+        "id": "delta-biologist-iris",
+        "description": "Iris, biologa del Delta: guida le osservazioni di corrente, canneti e vivaio naturale. È distinta dall’allenatrice Iris di R06. Gilet e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+        "dialogueIds": [
+          "delta_iris"
+        ],
+        "npcIds": [
+          "delta_iris"
+        ],
+        "assetKey": "veloria-coastal-cast-v1",
+        "frame": 3,
+        "narrativeSource": "content/dialogue/world.v1.json#/delta_iris",
+        "origin": {
+          "x": 0.57,
+          "y": 0.887
+        }
       }
     ],
     "unboundStudies": [
@@ -865,6 +1277,15 @@
         "origin": {
           "x": 0.4346,
           "y": 0.9648
+        }
+      },
+      {
+        "role": "unused-male-lea-study-not-an-npc",
+        "assetKey": "veloria-ferraluce-service-npcs-v1",
+        "frame": 0,
+        "origin": {
+          "x": 0.56,
+          "y": 0.95
         }
       }
     ]
@@ -956,6 +1377,17 @@
           "kind": "image",
           "key": "veloria-acquariva-v2",
           "path": "assets/scenery/veloria-acquariva-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-coastal-cast-v1",
+          "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -1078,14 +1510,17 @@
           "name": "Ricercatrice Tessa",
           "npcId": "acquariva_tessa",
           "dialogueId": "acquariva_tessa",
-          "characterAppearanceId": null,
-          "identityKey": "npc:acquariva_tessa",
-          "profileMatch": null,
+          "characterAppearanceId": "acquariva-tessa",
+          "identityKey": "profile:acquariva-tessa",
+          "profileMatch": "acquariva-tessa",
           "narrativeSpeaker": "Tessa",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 5,
-          "spriteOrigin": null,
+          "sprite": "veloria-coastal-cast-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.592,
+            "y": 0.903
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -1968,7 +2403,7 @@
         "runtimeSha256": "2d35259ad7644f02dc38eaf0d590e5a34d69649db05220922122a2e1e49c2d3c",
         "width": 1536,
         "height": 1024,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Brumalta garden town aspect3:2. Preserve three buildings exactly: healing pavilion footprint x8â€“25%,y8â€“29%; marketx8â€“25%,y62â€“83%; gymx69â€“86%,y8â€“29%, gym entrancex79%,y31%. Refined glass and wood architectures with mint roofs, brass details, flowerbeds hugging existing building edges. Broad city axis across y46â€“58% fromwest toeast, plaza and continuous stone branches to each door. Fountain in footprintx36â€“50%,y17â€“29%, do not enlarge. Fill open plaza with refined varied ivory paving and soft dappled light, no massive green checker tiles, no objects that become new obstacles. Replace olddarkrectangularroads with elegantcontinuouspaving. Monorailterminal is runtime, OMIT fromimage.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Brumalta garden town aspect3:2. Preserve three buildings exactly: healing pavilion footprint x8Ã¢â‚¬â€œ25%,y8Ã¢â‚¬â€œ29%; marketx8Ã¢â‚¬â€œ25%,y62Ã¢â‚¬â€œ83%; gymx69Ã¢â‚¬â€œ86%,y8Ã¢â‚¬â€œ29%, gym entrancex79%,y31%. Refined glass and wood architectures with mint roofs, brass details, flowerbeds hugging existing building edges. Broad city axis across y46Ã¢â‚¬â€œ58% fromwest toeast, plaza and continuous stone branches to each door. Fountain in footprintx36Ã¢â‚¬â€œ50%,y17Ã¢â‚¬â€œ29%, do not enlarge. Fill open plaza with refined varied ivory paving and soft dappled light, no massive green checker tiles, no objects that become new obstacles. Replace olddarkrectangularroads with elegantcontinuouspaving. Monorailterminal is runtime, OMIT fromimage.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/c01_brumalta.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -2495,6 +2930,13 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-151-v1",
+          "path": "assets/creatures/pokeapi-gen1-151-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -2508,7 +2950,7 @@
         "runtimeSha256": "ee5f7c0cde0f14fbbd5bb40dc40e45c56bff2497d036ebc12eba97413c49a648",
         "width": 1536,
         "height": 1024,
-        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45â€“60% from left edge to right edge. Open clearing around x43â€“60%,y50â€“65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73â€“90%,y15â€“30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
+        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Bosco dei Veli, aspect3:2. Ancient tranquil forest with monumental trees and rich moss, ferns, mushrooms, subtle golden sun shafts. Keep the broad open horizontal dirt trail through y45Ã¢â‚¬â€œ60% from left edge to right edge. Open clearing around x43Ã¢â‚¬â€œ60%,y50Ã¢â‚¬â€œ65% for Ada and instrument, WITHOUT drawing them. Pond exactly upperright x73Ã¢â‚¬â€œ90%,y15Ã¢â‚¬â€œ30%. Preserve existing trunk positions and routes between them; canopy must not hide the playable path. Thick layered greenery toward boundaries, varied greens with turquoise shade, details luminous and crisp, no fog obscuring ground. No new tree trunks blocking currently open ground.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/d01_bosco_veli.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -2730,6 +3172,13 @@
           "path": "assets/sprites/veloria-centrale-room-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-145-v1",
+          "path": "assets/creatures/pokeapi-gen1-145-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -2870,6 +3319,17 @@
           "path": "assets/sprites/veloria-d04-delta-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-coastal-cast-v1",
+          "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -2912,14 +3372,17 @@
           "name": "Biologa Iris",
           "npcId": "delta_iris",
           "dialogueId": "delta_iris",
-          "characterAppearanceId": null,
-          "identityKey": "npc:delta_iris",
-          "profileMatch": null,
+          "characterAppearanceId": "delta-biologist-iris",
+          "identityKey": "profile:delta-biologist-iris",
+          "profileMatch": "delta-biologist-iris",
           "narrativeSpeaker": "Iris",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 2,
-          "spriteOrigin": null,
+          "sprite": "veloria-coastal-cast-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.57,
+            "y": 0.887
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -3170,6 +3633,13 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-150-v1",
+          "path": "assets/creatures/pokeapi-gen1-150-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
@@ -3272,7 +3742,7 @@
           "layer": "decorations",
           "stableObjectId": 2301,
           "name": "ferraluce illustrated environment v2",
-          "spriteKey": "veloria-ferraluce-illustrated-v2",
+          "spriteKey": "veloria-ferraluce-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -3301,14 +3771,14 @@
           "layer": "decorations",
           "stableObjectId": 2301,
           "name": "ferraluce illustrated environment v2",
-          "spriteKey": "veloria-ferraluce-illustrated-v2",
+          "spriteKey": "veloria-ferraluce-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-ferraluce-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-ferraluce-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -3316,8 +3786,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-ferraluce-illustrated-v2",
-          "path": "assets/scenery/veloria-ferraluce-illustrated-v2.webp",
+          "key": "veloria-ferraluce-illustrated-v3",
+          "path": "assets/scenery/veloria-ferraluce-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -3404,8 +3874,19 @@
         },
         {
           "kind": "image",
-          "key": "veloria-ferraluce-illustrated-v2",
-          "path": "assets/scenery/veloria-ferraluce-illustrated-v2.webp",
+          "key": "veloria-ferraluce-service-npcs-v1",
+          "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-ferraluce-illustrated-v3",
+          "path": "assets/scenery/veloria-ferraluce-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -3414,23 +3895,32 @@
       "parityArtwork": {
         "mapId": "veloria/ferraluce",
         "tiledAsset": "tilemaps/ferraluce.tmj",
-        "assetKey": "veloria-ferraluce-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-ferraluce-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-ferraluce-illustrated-v2.webp",
-        "sourceSha256": "246620f38c288ba6fa4eb2f5c3c7f6adb487cf134097472e0aee59e5226926de",
-        "runtimeSha256": "0a6ac69681b3f626f305e853dd97f2590027564198eef863c5cdab6974af7447",
+        "assetKey": "veloria-ferraluce-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-ferraluce-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-ferraluce-illustrated-v3.webp",
+        "sourceSha256": "87a0266fc826632dd3920c391166a840d925ea3c15e30cae54702e9ede17be4c",
+        "runtimeSha256": "321247ed77b8c183204e4922f4c3db68c9ef2900519c0b624269b76ba6691863",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Ferraluce energycity,aspect4:3. Preserve theexistinggrandcopper-and-blueglassgeneratorbuilding EXACT footprintnorthcenterx22â€“78%,y8â€“50%, goldenverticalreactorwithin. Omittrain/monorailrail runtime topstrip. The forecourt islevelwalkableivorystone withcyan-copperinlays, openaxesfromWESTedgey80â€“90% across toEASTedgey73â€“90%, branchto liftaccessx86%,y62%. Enrich glazedarchitecture withsmallbotanicaldetail, warmreflections, individualfloorjoints, softshadows, gardensonlyexistingedgeprops, notlargeblockingplanters. Do notinventwallsacrossaccessibleforecourt, nootherbuildings orfalseentrances. Preserve originalbuildingfloorproportions.",
+        "prompt": "ImageGen localized service-clearance edit. Preserve Ferraluce layout; clear continuous lower-plaza walking surface for Centro (9,21–22), care (20,20–21), monorail (24,21–22), shop (30,21–22), and gym approaches. Root visually approved; gameplay geometry unchanged.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/ferraluce.png",
-          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+          "ImageGen localized service-clearance candidate: C:/Users/jacop/.codex/generated_images/01a16e40-9a76-7c52-b71e-a5f8bd731fa9/exec-6880f0d3-8b52-4534-9dcf-1be2d085188e.png"
         ],
         "revisions": [
           {
             "id": "ferraluce",
-            "prompt": "Correct ONLY the access edge geometry and false water of this Ferraluce painting. Remove ALL turquoise water pools/channels in the bottomthird and at left/right edges, replacing with matching dry walkable pale stone/cyan FLOORINLAY (notwater). Preserve the glassgeneratorbuilding and goldreactor exactly. Open paved road mouths at LEFT edge y80â€“90%, RIGHT edge y70â€“90%; no pillars/railings/trees across these openings. Maintain openwalkableground from plaza to lift point x86%,y62%. No invented bottomcenterdoor; only lowbotanicalfringe at verybottomedge where needed. No new solidfloorobjects or characters. Keep premium illustratedmaterials andlight unchanged.",
+            "prompt": "Correct ONLY the access edge geometry and false water of this Ferraluce painting. Remove ALL turquoise water pools/channels in the bottomthird and at left/right edges, replacing with matching dry walkable pale stone/cyan FLOORINLAY (notwater). Preserve the glassgeneratorbuilding and goldreactor exactly. Open paved road mouths at LEFT edge y80Ã¢â‚¬â€œ90%, RIGHT edge y70Ã¢â‚¬â€œ90%; no pillars/railings/trees across these openings. Maintain openwalkableground from plaza to lift point x86%,y62%. No invented bottomcenterdoor; only lowbotanicalfringe at verybottomedge where needed. No new solidfloorobjects or characters. Keep premium illustratedmaterials andlight unchanged.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f7ddb12e-3c5c-4999-87e0-f9d137ccce22.png"
+          },
+          {
+            "promptDocument": "assets/prompts/ferraluce-illustrated-v3.md",
+            "reason": "Modern illustrated city; native service and exit QA pending."
+          },
+          {
+            "promptDocument": "assets/prompts/ferraluce-illustrated-v3.md",
+            "reason": "Root approved service-path clearing artwork; PNG/WebP dimensions and hashes refreshed."
           }
         ]
       },
@@ -3550,14 +4040,17 @@
           "name": "Ivo",
           "npcId": "ferraluce_ivo",
           "dialogueId": "ferraluce_ivo",
-          "characterAppearanceId": null,
-          "identityKey": "npc:ferraluce_ivo",
-          "profileMatch": null,
+          "characterAppearanceId": "ferraluce-ivo",
+          "identityKey": "profile:ferraluce-ivo",
+          "profileMatch": "ferraluce-ivo",
           "narrativeSpeaker": "Ivo",
           "kind": "npc",
-          "sprite": "veloria-npc-rami-v1",
-          "spriteFrame": null,
-          "spriteOrigin": null,
+          "sprite": "veloria-ferraluce-service-npcs-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.472,
+            "y": 0.943
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -3573,14 +4066,17 @@
           "name": "Addetta del Centro Ferraluce",
           "npcId": "ferraluce_care",
           "dialogueId": "ferraluce_care",
-          "characterAppearanceId": null,
-          "identityKey": "npc:ferraluce_care",
-          "profileMatch": null,
+          "characterAppearanceId": "ferraluce-care",
+          "identityKey": "profile:ferraluce-care",
+          "profileMatch": "ferraluce-care",
           "narrativeSpeaker": "Addetta del Centro",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
+          "sprite": "veloria-ferraluce-service-npcs-v1",
           "spriteFrame": 2,
-          "spriteOrigin": null,
+          "spriteOrigin": {
+            "x": 0.598,
+            "y": 0.871
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -3596,14 +4092,17 @@
           "name": "Mercante di Ferraluce",
           "npcId": "ferraluce_shop",
           "dialogueId": "ferraluce_shop",
-          "characterAppearanceId": null,
-          "identityKey": "npc:ferraluce_shop",
-          "profileMatch": null,
+          "characterAppearanceId": "ferraluce-shop",
+          "identityKey": "profile:ferraluce-shop",
+          "profileMatch": "ferraluce-shop",
           "narrativeSpeaker": "Mercante di Ferraluce",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 4,
-          "spriteOrigin": null,
+          "sprite": "veloria-ferraluce-service-npcs-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.509,
+            "y": 0.856
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -3761,7 +4260,7 @@
         "runtimeSha256": "86531e0c7006bcbd1a620c4c183aaf6f2af4d432f3bf749dff27bf92942b2788",
         "width": 1484,
         "height": 1060,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. First Gym, aspect7:5, indoor botanical training conservatory. Keep exact floor and wall footprint: one-tile perimeter walls except a bottom-center door opening x46â€“54%. The rest is luminous walkable pale stone, soft cream/brass/wood material, glass roof light and subtly patterned training lanes. Preserve the three existing horizontal hedge lanes at y30%,50%,70% with openings where reference already shows pale path. Keep sparse existing six tree/planter footprintson thetwoedges; premium botanical foliage, blueglass alcoves, fine wall detail at perimeter. No enormouscenterpiece, no new furniture, no additional doorways. Runtime puzzle switches/plates and trainer OMIT entirely.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. First Gym, aspect7:5, indoor botanical training conservatory. Keep exact floor and wall footprint: one-tile perimeter walls except a bottom-center door opening x46Ã¢â‚¬â€œ54%. The rest is luminous walkable pale stone, soft cream/brass/wood material, glass roof light and subtly patterned training lanes. Preserve the three existing horizontal hedge lanes at y30%,50%,70% with openings where reference already shows pale path. Keep sparse existing six tree/planter footprintson thetwoedges; premium botanical foliage, blueglass alcoves, fine wall detail at perimeter. No enormouscenterpiece, no new furniture, no additional doorways. Runtime puzzle switches/plates and trainer OMIT entirely.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/gym01_brumalta.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -3769,7 +4268,7 @@
         "revisions": [
           {
             "id": "gym01",
-            "prompt": "Correct ONLY the hedge geometry of this beautiful botanical gym painting. Current number/positions of hedges are wrong. There must be EXACTLY THREE HORIZONTAL hedge rows, no fourth row. Row1 from TOP y30â€“35% with ONE walkable gap at x64.3â€“67.9%; Row2 y50â€“55% with ONE walkable gap atx28.6â€“32.1%; Row3 y70â€“75% with ONE walkable gap atx46.4â€“50.0%. Each hedge occupies full horizontal width between the sidewalls except its stated gap. Remove any hedge at y18â€“24% completely and replace with matching clear ivory floor. Openings must visually connect upper/lower floor, no bars across them. Preserve walls, bottomcenterdoor, six existing edge trees, botanical detail and painted premium material quality. No text, characters or switches. This is a collision-aligned gamebackground: honor these exact normalized coordinates.",
+            "prompt": "Correct ONLY the hedge geometry of this beautiful botanical gym painting. Current number/positions of hedges are wrong. There must be EXACTLY THREE HORIZONTAL hedge rows, no fourth row. Row1 from TOP y30Ã¢â‚¬â€œ35% with ONE walkable gap at x64.3Ã¢â‚¬â€œ67.9%; Row2 y50Ã¢â‚¬â€œ55% with ONE walkable gap atx28.6Ã¢â‚¬â€œ32.1%; Row3 y70Ã¢â‚¬â€œ75% with ONE walkable gap atx46.4Ã¢â‚¬â€œ50.0%. Each hedge occupies full horizontal width between the sidewalls except its stated gap. Remove any hedge at y18Ã¢â‚¬â€œ24% completely and replace with matching clear ivory floor. Openings must visually connect upper/lower floor, no bars across them. Preserve walls, bottomcenterdoor, six existing edge trees, botanical detail and painted premium material quality. No text, characters or switches. This is a collision-aligned gamebackground: honor these exact normalized coordinates.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-e09d8db0-f924-4134-82ff-f19eb9c4e8d4.png"
           }
         ]
@@ -6230,7 +6729,7 @@
         "runtimeSha256": "0902cd872f3e2b70d81a3772f69789725afdb4c5177ceaff68e48df896dbec8a",
         "width": 1461,
         "height": 1077,
-        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Petalora cherrygarden town, exactaspect19:14. Rich cherryblossoms and crafted rural-modern roofs, ivory stone with rosepetalaccents. Keep two buildings at oldpositions: healinghousex18â€“34%,y10â€“29%,shopx66â€“82%,y10â€“29%. Preserve center verticalpathx45â€“53% fromtopedge tobottomedge; broad horizontal plaza at y40â€“50% to rightedgeexit y43%. Horizontal turquoise river ONLY y61â€“68% acrossthewholewidth. ONLY bridge at x45â€“53% spanningthe river. No newbridges. Connectbuildingdoors gently to plaza, keepruntimeNPC/monorail/props area x45â€“70%,y30â€“55% OPEN. No large gym drawncentral (gym is beyondnorthedge). Preserve exits exact centers top48%,bottom48%,righty45%.",
+        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Petalora cherrygarden town, exactaspect19:14. Rich cherryblossoms and crafted rural-modern roofs, ivory stone with rosepetalaccents. Keep two buildings at oldpositions: healinghousex18Ã¢â‚¬â€œ34%,y10Ã¢â‚¬â€œ29%,shopx66Ã¢â‚¬â€œ82%,y10Ã¢â‚¬â€œ29%. Preserve center verticalpathx45Ã¢â‚¬â€œ53% fromtopedge tobottomedge; broad horizontal plaza at y40Ã¢â‚¬â€œ50% to rightedgeexit y43%. Horizontal turquoise river ONLY y61Ã¢â‚¬â€œ68% acrossthewholewidth. ONLY bridge at x45Ã¢â‚¬â€œ53% spanningthe river. No newbridges. Connectbuildingdoors gently to plaza, keepruntimeNPC/monorail/props area x45Ã¢â‚¬â€œ70%,y30Ã¢â‚¬â€œ55% OPEN. No large gym drawncentral (gym is beyondnorthedge). Preserve exits exact centers top48%,bottom48%,righty45%.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/petalora.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -6456,6 +6955,17 @@
           "path": "assets/sprites/veloria-portolume-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-coastal-cast-v1",
+          "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6597,14 +7107,17 @@
           "name": "Capitana Marina",
           "npcId": "portolume_captain",
           "dialogueId": "portolume_captain",
-          "characterAppearanceId": null,
-          "identityKey": "npc:portolume_captain",
-          "profileMatch": null,
+          "characterAppearanceId": "portolume-captain-marina",
+          "identityKey": "profile:portolume-captain-marina",
+          "profileMatch": "portolume-captain-marina",
           "narrativeSpeaker": "Capitana Marina",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-coastal-cast-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.546,
+            "y": 0.911
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -6758,7 +7271,7 @@
         "runtimeSha256": "a0e3436b3de644d8915e71bcac956efd1b3b49beaa136ed84aae6a842efc637c",
         "width": 1536,
         "height": 1024,
-        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Sentiero dell'Alba, aspect 3:2. Sunny rural meadow transition from Borgofonte to forest. Cream dirt road crosses west edge at y50%, follows x0â€“100% across y45â€“60%, northeast branch reaches east edge at y40%; preserve broad southern bypass. Small turquoise stream in top-middle x33â€“43%,y15â€“45%, stopping before the road. Four existing tree clusters, meadow wildflowers, smooth mossy rocks only at existing positions. Rich green ranges, warm ochre path, reflective shallow water with reeds. Match old map proportions precisely.",
+        "prompt": "Create ONE production-ready full-map background for Veloria, modern illustrated 2D overhead orthographic RPG, exquisitely detailed painterly game environment, crisp natural materials, warm grazing sunlight, delicate soft depth, lush botanical layering. Reference image 1 is the EXACT GAMEPLAY LAYOUT to preserve; reference image 2 (Centrale Risonante) is QUALITY/detail/light direction only, not subject matter. Transform the sparse repeated tile art into a continuous beautiful hand-painted environment at the same aspect ratio. Keep every open walkable area unobstructed, preserve the exact path centerlines and water footprint. Decoration density at borders and existing tree positions; keep central paths low-noise and clear. No grid, pixel art, UI, text, letters, people, creatures, markers, signs, pickup items, sensors. Do not introduce walls, new buildings, gates, bridges or extra exits. Flat top-down game camera with north at top, not a perspective landscape. MAP: Sentiero dell'Alba, aspect 3:2. Sunny rural meadow transition from Borgofonte to forest. Cream dirt road crosses west edge at y50%, follows x0Ã¢â‚¬â€œ100% across y45Ã¢â‚¬â€œ60%, northeast branch reaches east edge at y40%; preserve broad southern bypass. Small turquoise stream in top-middle x33Ã¢â‚¬â€œ43%,y15Ã¢â‚¬â€œ45%, stopping before the road. Four existing tree clusters, meadow wildflowers, smooth mossy rocks only at existing positions. Rich green ranges, warm ochre path, reflective shallow water with reeds. Match old map proportions precisely.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r01_sentiero_alba.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -6766,7 +7279,7 @@
         "revisions": [
           {
             "id": "r01",
-            "prompt": "Edit ONLY the stream in this generated Veloria map: it MUST be a short enclosed pool/channel from x33â€“43% and y15â€“45% of the image. The TOP 15% at that x position must be grassy ground, not water, so do not let water reach the top edge. Keep stream south edge exactly where it is before the road. Maintain all roads, trees, meadow, style and composition unchanged. No new objects, text or UI.",
+            "prompt": "Edit ONLY the stream in this generated Veloria map: it MUST be a short enclosed pool/channel from x33Ã¢â‚¬â€œ43% and y15Ã¢â‚¬â€œ45% of the image. The TOP 15% at that x position must be grassy ground, not water, so do not let water reach the top edge. Keep stream south edge exactly where it is before the road. Maintain all roads, trees, meadow, style and composition unchanged. No new objects, text or UI.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-8983045e-758b-41d2-bb54-45e90333b30f.png"
           },
           {
@@ -7093,7 +7606,7 @@
         "runtimeSha256": "664ce9d8e69f9f5ac1806ff19e64d6f75b285fe9bd5316a11f710a11838267c6",
         "width": 1484,
         "height": 1060,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40â€“55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Viale delle Fronde, aspect7:5. Quiet forest avenue opening toward a modern garden town. Preserve full width horizontal path at y40Ã¢â‚¬â€œ55%, west dirt blending smoothly into ivory stone startingx64%; exits atleft/right y45%. Existing northern and southern tree trunks only; enrich canopy, ferns, wildflowers at same footprints. Remove the little isolated building from old reference (it has no collision/access), replacing that area with low grass and distant delicate skyline beyond northern foliage. No water, no bridges, no walls across road.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r02_viale_fronde.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -7556,6 +8069,17 @@
           "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-route-trainers-r04-r07-v1",
+          "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -7565,19 +8089,25 @@
         "assetKey": "veloria-r04_salita_petali-illustrated-v3",
         "sourcePath": "assets/sources/veloria-r04_salita_petali-illustrated-v3.png",
         "runtimePath": "public/assets/scenery/veloria-r04_salita_petali-illustrated-v3.webp",
-        "sourceSha256": "64a7c2a28a6eb174085d5606351c4b2a3be1293679d43f56451e1e1725bb8afd",
-        "runtimeSha256": "379c032ab6b7efff100a46233f27728857b83593ceb32ececf6296207cffdaa3",
+        "sourceSha256": "59348dc4d270e8e42b9b6b9e70d4af19ce3b522a8fafae23039966cd7d4c8b24",
+        "runtimeSha256": "ff3593be3cbf16146cb97be33de4a0f6cdd6376a6fd3d010a0e45a14c6b9c26b",
         "width": 1484,
         "height": 1060,
-        "prompt": "Create ONE production-ready Veloria full-map background. EDIT image1, the EXACT old gameplay layout, using image2 Centrale Risonante only for premium richly detailed painterly quality and light. Modern illustrated 2D overhead orthographic game camera northup, crisp textures and soft depth, NOT pixelart/isometric. Preserve exact path centerlines, width, bridge positions, water footprints and collision tree locations. Replace repeated tiles with continuous detailed painted terrain and foliage; clear low-noise walkable routes. Do NOT add new solid obstacles. No people/creatures/UI/text/signs/markers/sensors/pickups/puzzle devices. Do not invent routes/exits or buildings. All current open floor remains traversable. Salita dei Petali, aspect7:5. Luminous cherryblossom approach, pink white canopy, layered soft greenery, mossy stream banks. EXACT verticalstreamx36â€“43% acrossfullheight. ONLY two bridges at y43â€“53% andy73â€“83% on existingpositions. Preserve path from bottomedge x40â€“48% â†’ westward y75% â†’ north x14â€“20% â†’ east y45% crossing upperbridge â†’ north x69â€“76% to TOPEDGE. Routes to both bridges remainopen. No third bridge, no rocks or fences newlyblocking paths, no decorativeexit beyond these. Delicate petals ground, spring light, refinedmaterials.",
+        "prompt": "ImageGen substantive matte 2D restyle, using approved R05/R07 as style references. Preserve 42×30 composition, stream, route widths/centerlines, tree locations, and both bridge decks. Finer canopies, calmer water, organic grass, soft light-earth path borders, restrained wood. Root visually approved.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r04_salita_petali.png",
-          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+          "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v3.png (style only)",
+          "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png (style only)"
         ],
         "revisions": [
           {
             "promptDocument": "assets/prompts/r04-salita-petali-illustrated-v3.md",
             "reason": "Modern matte illustrated scenery; authored navigation geometry preserved. Runtime bridge QA required."
+          },
+          {
+            "promptDocument": "assets/prompts/r04-salita-petali-illustrated-v3.md",
+            "reason": "Root approved substantive restyle; source/runtime hashes and dimensions refreshed."
           }
         ]
       },
@@ -7668,14 +8198,17 @@
           "name": "Nila",
           "npcId": "nila_r04",
           "dialogueId": "nila_r04",
-          "characterAppearanceId": null,
-          "identityKey": "npc:nila_r04",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-nila",
+          "identityKey": "profile:route-trainer-nila",
+          "profileMatch": "route-trainer-nila",
           "narrativeSpeaker": "Nila",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 3,
-          "spriteOrigin": null,
+          "sprite": "veloria-route-trainers-r04-r07-v1",
+          "spriteFrame": 0,
+          "spriteOrigin": {
+            "x": 0.558,
+            "y": 0.951
+          },
           "trainerId": "veloria/trainer_r04_nila",
           "battleOnceFlag": "trainer_r04_nila_defeated",
           "frame": null,
@@ -7727,7 +8260,7 @@
           "layer": "decorations",
           "stableObjectId": 165,
           "name": "r05_viadotto_ciliegi illustrated environment v2",
-          "spriteKey": "veloria-r05_viadotto_ciliegi-illustrated-v2",
+          "spriteKey": "veloria-r05_viadotto_ciliegi-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -7741,14 +8274,14 @@
           "layer": "decorations",
           "stableObjectId": 165,
           "name": "r05_viadotto_ciliegi illustrated environment v2",
-          "spriteKey": "veloria-r05_viadotto_ciliegi-illustrated-v2",
+          "spriteKey": "veloria-r05_viadotto_ciliegi-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 46.0,
             "height": 26.0
           },
-          "assetPath": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7756,8 +8289,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r05_viadotto_ciliegi-illustrated-v2",
-          "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
+          "key": "veloria-r05_viadotto_ciliegi-illustrated-v3",
+          "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7837,8 +8370,19 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r05_viadotto_ciliegi-illustrated-v2",
-          "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
+          "key": "veloria-r05_viadotto_ciliegi-illustrated-v3",
+          "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-route-trainers-r04-r07-v1",
+          "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7847,19 +8391,24 @@
       "parityArtwork": {
         "mapId": "veloria/r05_viadotto_ciliegi",
         "tiledAsset": "tilemaps/r05_viadotto_ciliegi.tmj",
-        "assetKey": "veloria-r05_viadotto_ciliegi-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
-        "sourceSha256": "27865020ca87ae68a5f8305462167800d673d38c6a4af1c6a75bfddf7a4d038f",
-        "runtimeSha256": "e52d0993444952c909d8ca451f2241b147755f534b2d954ddd8eba959250db20",
-        "width": 1671,
-        "height": 941,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Viadotto dei Ciliegi,aspect23:13. Cherryblossom approach to elegant city. Preserve verticalriverstripx48â€“54% acrossfullheight, ONLY stone/wood footbridge aroundy20â€“30%. Exact walkingroad enters WESTedgeaty65â€“77%, runsright tox30â€“37%, turnsUPto y20â€“30%, thenRIGHT overbridge toEASTedgeaty20â€“30%. The raisedmonorail atTOP10% is a runtime layer: do NOT painttrack,trainsorpillars, leave lowplantbackgroundunderthat strip. Elaboratepinkcanopy onlyexistingtreepositions, softwaterlight, delicatewatersidegroundcover; walkwaybridgemustalignprecisely. Do notaddotherbridges.",
+        "assetKey": "veloria-r05_viadotto_ciliegi-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r05_viadotto_ciliegi-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v3.webp",
+        "sourceSha256": "2ba335864abf54f3f69140059985d969f82e881e9d868608d7042b4ec13974fc",
+        "runtimeSha256": "cac8195ae3076713dd932b98f50a22d6453e1d78452feae4477b6a0242a38d27",
+        "width": 1670,
+        "height": 942,
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Viadotto dei Ciliegi,aspect23:13. Cherryblossom approach to elegant city. Preserve verticalriverstripx48Ã¢â‚¬â€œ54% acrossfullheight, ONLY stone/wood footbridge aroundy20Ã¢â‚¬â€œ30%. Exact walkingroad enters WESTedgeaty65Ã¢â‚¬â€œ77%, runsright tox30Ã¢â‚¬â€œ37%, turnsUPto y20Ã¢â‚¬â€œ30%, thenRIGHT overbridge toEASTedgeaty20Ã¢â‚¬â€œ30%. The raisedmonorail atTOP10% is a runtime layer: do NOT painttrack,trainsorpillars, leave lowplantbackgroundunderthat strip. Elaboratepinkcanopy onlyexistingtreepositions, softwaterlight, delicatewatersidegroundcover; walkwaybridgemustalignprecisely. Do notaddotherbridges.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r05_viadotto_ciliegi.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
         ],
-        "revisions": []
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r05-viadotto-ciliegi-illustrated-v3.md",
+            "reason": "Modern matte illustration with clear routes; pending real movement review."
+          }
+        ]
       },
       "parityArtworkRecord": true,
       "encounterZones": [
@@ -7948,14 +8497,17 @@
           "name": "Oren",
           "npcId": "oren_r05",
           "dialogueId": "oren_r05",
-          "characterAppearanceId": null,
-          "identityKey": "npc:oren_r05",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-oren",
+          "identityKey": "profile:route-trainer-oren",
+          "profileMatch": "route-trainer-oren",
           "narrativeSpeaker": "Oren",
           "kind": "npc",
-          "sprite": "veloria-npc-rami-v1",
-          "spriteFrame": null,
-          "spriteOrigin": null,
+          "sprite": "veloria-route-trainers-r04-r07-v1",
+          "spriteFrame": 1,
+          "spriteOrigin": {
+            "x": 0.468,
+            "y": 0.96
+          },
           "trainerId": "veloria/trainer_r05_oren",
           "battleOnceFlag": "trainer_r05_oren_defeated",
           "frame": null,
@@ -8006,8 +8558,8 @@
         {
           "layer": "decorations",
           "stableObjectId": 281,
-          "name": "r06_anello_magnetico illustrated environment v2",
-          "spriteKey": "veloria-r06_anello_magnetico-illustrated-v2",
+          "name": "r06_anello_magnetico illustrated environment v3",
+          "spriteKey": "veloria-r06_anello_magnetico-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -8020,15 +8572,15 @@
         {
           "layer": "decorations",
           "stableObjectId": 281,
-          "name": "r06_anello_magnetico illustrated environment v2",
-          "spriteKey": "veloria-r06_anello_magnetico-illustrated-v2",
+          "name": "r06_anello_magnetico illustrated environment v3",
+          "spriteKey": "veloria-r06_anello_magnetico-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -8036,8 +8588,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r06_anello_magnetico-illustrated-v2",
-          "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
+          "key": "veloria-r06_anello_magnetico-illustrated-v3",
+          "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -8117,8 +8669,19 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r06_anello_magnetico-illustrated-v2",
-          "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
+          "key": "veloria-r06_anello_magnetico-illustrated-v3",
+          "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-route-trainers-r04-r07-v1",
+          "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -8127,14 +8690,14 @@
       "parityArtwork": {
         "mapId": "veloria/r06_anello_magnetico",
         "tiledAsset": "tilemaps/r06_anello_magnetico.tmj",
-        "assetKey": "veloria-r06_anello_magnetico-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-r06_anello_magnetico-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
-        "sourceSha256": "a5f9f52b744a37af9f0aebe7c66d259adb60af6412c842b9ec1214609f1135b3",
-        "runtimeSha256": "18473557d78122acab27c64116afb853973abadc8474dfc7aa1aebd2c4cec864",
+        "assetKey": "veloria-r06_anello_magnetico-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r06_anello_magnetico-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp",
+        "sourceSha256": "343d2db91038f3a89af04db7160a95320a427964dcae75e8857820bf32336516",
+        "runtimeSha256": "6e2d376164b5a380e06531eb9a426a6d1c23ee62264906b77667ce6a33110ff8",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Anello Magnetico,aspect4:3. Sustainable energyresearchpark with ivory brushedstone, turquoiseinlays,coppertraces,small moss gardens inonlyexisting four cornerhabitatfootprintsx7â€“20% or73â€“85%,y10â€“27% or67â€“80%. Preserveopenroundedrectangularwalkingloop acrossx12â€“86%,y29â€“88% matching bluepaving inreference, exitWESTy47â€“57%, exitEASTy80â€“90%. The northraisedrail isruntime, OMITrail/pillars. No huge structures/reactors/lakes/fountains, noitemsonthefloor. Lowfloorinlaysandgroundtextures can adddetailwithoutinventingcollision. Matcholdfloorgeometryprecisely;warmcyanreflectionsandvariedcleanmaterials.",
+        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Anello Magnetico,aspect4:3. Sustainable energyresearchpark with ivory brushedstone, turquoiseinlays,coppertraces,small moss gardens inonlyexisting four cornerhabitatfootprintsx7Ã¢â‚¬â€œ20% or73Ã¢â‚¬â€œ85%,y10Ã¢â‚¬â€œ27% or67Ã¢â‚¬â€œ80%. Preserveopenroundedrectangularwalkingloop acrossx12Ã¢â‚¬â€œ86%,y29Ã¢â‚¬â€œ88% matching bluepaving inreference, exitWESTy47Ã¢â‚¬â€œ57%, exitEASTy80Ã¢â‚¬â€œ90%. The northraisedrail isruntime, OMITrail/pillars. No huge structures/reactors/lakes/fountains, noitemsonthefloor. Lowfloorinlaysandgroundtextures can adddetailwithoutinventingcollision. Matcholdfloorgeometryprecisely;warmcyanreflectionsandvariedcleanmaterials.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/r06_anello_magnetico.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -8142,8 +8705,12 @@
         "revisions": [
           {
             "id": "r06",
-            "prompt": "Correct ONLY actual exit mouths and unintended barriers in this Anello Magnetico background. Open clear paved ground through LEFT edge y47â€“57% and RIGHT edge y80â€“90%, removing columns/walls/planters from those edge segments. There must be no apparent exit at bottomcenter: carry a narrow botanical border only along the bottom1%, leaving all the interior floor unchanged. Do not add water/reactors/buildings. Keep the current beautiful brushed ivory/cyan/copper floor, four small garden corners and illustrated lighting exactly. No text or people.",
+            "prompt": "Correct ONLY actual exit mouths and unintended barriers in this Anello Magnetico background. Open clear paved ground through LEFT edge y47Ã¢â‚¬â€œ57% and RIGHT edge y80Ã¢â‚¬â€œ90%, removing columns/walls/planters from those edge segments. There must be no apparent exit at bottomcenter: carry a narrow botanical border only along the bottom1%, leaving all the interior floor unchanged. Do not add water/reactors/buildings. Keep the current beautiful brushed ivory/cyan/copper floor, four small garden corners and illustrated lighting exactly. No text or people.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-f4c61f5b-5d6e-49ee-916e-92ff8958331b.png"
+          },
+          {
+            "promptDocument": "assets/prompts/r06-anello-magnetico-illustrated-v3.md",
+            "reason": "Modern matte illustration with clear routes; pending real movement review."
           }
         ]
       },
@@ -8234,14 +8801,17 @@
           "name": "Iris",
           "npcId": "r06_iris",
           "dialogueId": "r06_iris",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r06_iris",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-iris-r06",
+          "identityKey": "profile:route-trainer-iris-r06",
+          "profileMatch": "route-trainer-iris-r06",
           "narrativeSpeaker": "Iris",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-route-trainers-r04-r07-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.593,
+            "y": 0.895
+          },
           "trainerId": "veloria/trainer_r06_iris",
           "battleOnceFlag": "trainer_r06_iris_defeated",
           "frame": null,
@@ -8293,7 +8863,7 @@
           "layer": "decorations",
           "stableObjectId": 56,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-r07-conduit-v1",
+          "spriteKey": "veloria-r07_condotto_risonante-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -8307,19 +8877,27 @@
           "layer": "decorations",
           "stableObjectId": 56,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-r07-conduit-v1",
+          "spriteKey": "veloria-r07_condotto_risonante-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 28.0
           },
-          "assetPath": "assets/sprites/veloria-r07-conduit-v1.webp",
+          "assetPath": "assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-r07_condotto_risonante-illustrated-v3",
+          "path": "assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -8377,8 +8955,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r07-conduit-v1",
-          "path": "assets/sprites/veloria-r07-conduit-v1.webp",
+          "key": "veloria-r07_condotto_risonante-illustrated-v3",
+          "path": "assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -8392,11 +8970,44 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-route-trainers-r04-r07-v1",
+          "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/r07_condotto_risonante",
+        "tiledAsset": "tilemaps/r07_condotto_risonante.tmj",
+        "prompt": "New 10:7 built-in ImageGen generation; old R07 used only as normalized layout reference. Matte modern illustrated 2D; static alignment checked against actual exits.",
+        "references": [
+          "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png (layout only)",
+          "assets/sources/veloria-petalora-illustrated-v3.png (style only)",
+          "assets/sources/veloria-borgofonte-illustrated-v3.png (style only)"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r07-condotto-risonante-illustrated-v3.md",
+            "reason": "Regenerated from layout reference on a 10:7 canvas; source/runtime hashes and dimensions updated; exit-band alignment reviewed statically."
+          }
+        ],
+        "assetKey": "veloria-r07_condotto_risonante-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r07_condotto_risonante-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r07_condotto_risonante-illustrated-v3.webp",
+        "sourceSha256": "3b94b2bfd05d47d78bfcb141664d8d7de63d0b43aa7dd28c8151872ef86a3480",
+        "runtimeSha256": "37612a13f0f61413ede1769f75f0fb718c1756186b17aa3fe91d1d2a62c644a6",
+        "width": 1499,
+        "height": 1049
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 19,
@@ -8459,14 +9070,17 @@
           "name": "Dario",
           "npcId": "r07_dario",
           "dialogueId": "r07_dario",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r07_dario",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-dario",
+          "identityKey": "profile:route-trainer-dario",
+          "profileMatch": "route-trainer-dario",
           "narrativeSpeaker": "Dario",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-route-trainers-r04-r07-v1",
+          "spriteFrame": 3,
+          "spriteOrigin": {
+            "x": 0.494,
+            "y": 0.901
+          },
           "trainerId": "veloria/trainer_r07_dario",
           "battleOnceFlag": "trainer_r07_dario_defeated",
           "frame": null,
@@ -8588,6 +9202,17 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-coastal-cast-v1",
+          "path": "assets/sprites/veloria-coastal-cast-v1.webp",
+          "atlas": {
+            "columns": 2,
+            "rows": 2
+          },
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -8655,14 +9280,17 @@
           "name": "Viola",
           "npcId": "r08_viola",
           "dialogueId": "r08_viola",
-          "characterAppearanceId": null,
-          "identityKey": "npc:r08_viola",
-          "profileMatch": null,
+          "characterAppearanceId": "route-trainer-viola-r08",
+          "identityKey": "profile:route-trainer-viola-r08",
+          "profileMatch": "route-trainer-viola-r08",
           "narrativeSpeaker": "Viola",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 0,
-          "spriteOrigin": null,
+          "sprite": "veloria-coastal-cast-v1",
+          "spriteFrame": 2,
+          "spriteOrigin": {
+            "x": 0.621,
+            "y": 0.88
+          },
           "trainerId": "veloria/trainer_r08_viola",
           "battleOnceFlag": "trainer_r08_viola_defeated",
           "frame": null,
@@ -9398,6 +10026,13 @@
           "path": "assets/scenery/veloria-r12-wind-valley-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-143-v1",
+          "path": "assets/creatures/pokeapi-gen1-143-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -9564,6 +10199,13 @@
           "kind": "image",
           "key": "veloria-r13-white-switchbacks-v1",
           "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-144-v1",
+          "path": "assets/creatures/pokeapi-gen1-144-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -9908,6 +10550,13 @@
             "columns": 3,
             "rows": 2
           },
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "pokeapi-gen1-146-v1",
+          "path": "assets/creatures/pokeapi-gen1-146-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -10355,7 +11004,7 @@
         "runtimeSha256": "1d34ebb223dea1e84763dcdd34bae3a020ba7b4e678e110c20caec1294e34501",
         "width": 1536,
         "height": 1024,
-        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Radicelmo research village aspect3:2. Preserve footprints: healing housex5â€“22%,y12â€“33%, herbalistx28â€“44%,y12â€“33%, greenhousex58â€“81%,y8â€“33%; doors at center loweredge ofeach. Flower-rich wood/glass craftwork, mossed masonry and copper botanical glazing. Broad horizontal village road y54â€“66% westâ†’east, branches tohouses; CONNECT an open northbound roadatx47â€“55% to the TOPEDGE for the actual route exit. Existing sparseearthpaths become layered pale stone with rounded grass transitions. Research gardenx58â€“83%,y41â€“79% MUST REMAIN OPEN ground: no pots/figures/consoles/counter/stonepickup drawn there because allare runtime. Centralplaza easyread, botanicalbeds hugboundaries/oldtrunks only.",
+        "prompt": "Production game background for Veloria, illustrated modern 2D orthographic top-down RPG. EDIT image1 (old map exact layout), use image2 Centrale Risonante ONLY for exquisite material detail, lighting and refined painterly rendering. Replace repetitive tile texture with a coherent seamless hand-painted scene. Preserve exact relative coordinates and footprints of buildings, open roads and water; keep all currently open ground traversable and clearly legible. Do not add new solid objects on walkable floor. Layered plant detail around boundaries/old tree positions, warm sunlight, natural shadow, crisp edges, rich restrained color, no pixel art. No characters/people/creatures, no UI, labels, text, icons, signs, pickups, sensors, terminal devices. Do not bake interactive props. No false exits or new doors. Single full rectangular map, north up. Radicelmo research village aspect3:2. Preserve footprints: healing housex5Ã¢â‚¬â€œ22%,y12Ã¢â‚¬â€œ33%, herbalistx28Ã¢â‚¬â€œ44%,y12Ã¢â‚¬â€œ33%, greenhousex58Ã¢â‚¬â€œ81%,y8Ã¢â‚¬â€œ33%; doors at center loweredge ofeach. Flower-rich wood/glass craftwork, mossed masonry and copper botanical glazing. Broad horizontal village road y54Ã¢â‚¬â€œ66% westÃ¢â€ â€™east, branches tohouses; CONNECT an open northbound roadatx47Ã¢â‚¬â€œ55% to the TOPEDGE for the actual route exit. Existing sparseearthpaths become layered pale stone with rounded grass transitions. Research gardenx58Ã¢â‚¬â€œ83%,y41Ã¢â‚¬â€œ79% MUST REMAIN OPEN ground: no pots/figures/consoles/counter/stonepickup drawn there because allare runtime. Centralplaza easyread, botanicalbeds hugboundaries/oldtrunks only.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/radicelmo.png",
           "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
@@ -10363,7 +11012,7 @@
         "revisions": [
           {
             "id": "radicelmo",
-            "prompt": "Precise geometry correction only. In this Radicelmo painting the vertical road reaching TOP EDGE is too far right. Move its TOP EDGE mouth and vertical upper section to center x51.4% with width8.3% (x47.2â€“55.5%), preserving its continuous connection into the lower village plaza. Do not move buildings or any other road. Keep greenhouse and wide researchgardenbelow it untouched. Same beautiful botanicaldetail, materials and lighting. No new paths/exits/people/text.",
+            "prompt": "Precise geometry correction only. In this Radicelmo painting the vertical road reaching TOP EDGE is too far right. Move its TOP EDGE mouth and vertical upper section to center x51.4% with width8.3% (x47.2Ã¢â‚¬â€œ55.5%), preserving its continuous connection into the lower village plaza. Do not move buildings or any other road. Keep greenhouse and wide researchgardenbelow it untouched. Same beautiful botanicaldetail, materials and lighting. No new paths/exits/people/text.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4f568100-5da7-4037-baec-3aeccaa4adf0.png"
           },
           {
@@ -10533,7 +11182,7 @@
           "layer": "decorations",
           "stableObjectId": 216,
           "name": "vetracielo illustrated environment v2",
-          "spriteKey": "veloria-vetracielo-illustrated-v2",
+          "spriteKey": "veloria-vetracielo-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -10562,14 +11211,14 @@
           "layer": "decorations",
           "stableObjectId": 216,
           "name": "vetracielo illustrated environment v2",
-          "spriteKey": "veloria-vetracielo-illustrated-v2",
+          "spriteKey": "veloria-vetracielo-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 40.0,
             "height": 30.0
           },
-          "assetPath": "assets/scenery/veloria-vetracielo-illustrated-v2.webp",
+          "assetPath": "assets/scenery/veloria-vetracielo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -10577,8 +11226,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-vetracielo-illustrated-v2",
-          "path": "assets/scenery/veloria-vetracielo-illustrated-v2.webp",
+          "key": "veloria-vetracielo-illustrated-v3",
+          "path": "assets/scenery/veloria-vetracielo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -10665,8 +11314,15 @@
         },
         {
           "kind": "image",
-          "key": "veloria-vetracielo-illustrated-v2",
-          "path": "assets/scenery/veloria-vetracielo-illustrated-v2.webp",
+          "key": "veloria-vetracielo-lea-v1",
+          "path": "assets/sprites/veloria-vetracielo-lea-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-vetracielo-illustrated-v3",
+          "path": "assets/scenery/veloria-vetracielo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -10675,23 +11331,32 @@
       "parityArtwork": {
         "mapId": "veloria/vetracielo",
         "tiledAsset": "tilemaps/vetracielo.tmj",
-        "assetKey": "veloria-vetracielo-illustrated-v2",
-        "sourcePath": "assets/sources/veloria-vetracielo-illustrated-v2.png",
-        "runtimePath": "public/assets/scenery/veloria-vetracielo-illustrated-v2.webp",
-        "sourceSha256": "234e5573b3d037cbfc198cb78beb945a7401f7376bd9bb0c57bff76bc48c88c2",
-        "runtimeSha256": "979bc2e9384745da0d6237b59b762b55f0d1baf5becb42cb77a869df75b409ad",
+        "assetKey": "veloria-vetracielo-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-vetracielo-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-vetracielo-illustrated-v3.webp",
+        "sourceSha256": "9d626ab5c1e886ee04b82ddc37804dc0f2e7e4423709f7ff57df7463e5235f4d",
+        "runtimeSha256": "964791e41a5363535ac6aaf0bbbc14547710adb5cbbafa220f2673f901f01498",
         "width": 1448,
         "height": 1086,
-        "prompt": "Create ONE full-map background for Veloria. Edit image1 exact old map layout; image2 Centrale Risonante is the reference for lavishly detailed modern illustrated 2D rendering, premium materials, warm light, soft depth and crisp botanical detail. Orthographic overhead northup gamecamera. Preserve all road/water/bridge/architecture footprints, continuously connect actual exits. Replace flat tiled fields with coherent painted environment, avoid repeating texture. No people, creatures, UI,text,signs,pickups,sensors,terminaldevices,railtrains or mapmarkers. Keep playable routes open, no inventedsolidobstacles or newexits. Vetracielo garden metropolis,aspect4:3. Keep the EXISTING grand blueglass botanicalmonorailstation building exactly in northcenter footprintx22â€“78%,y5â€“50%, entrancecenterx50%y50%. It is being bakedintothisnewbackground so drawONESTATIONmatchingref, do NOT relocate/enlarge. No trains and no elevatedtrack because trackisanother runtime layer. Broad ivory/cyan glazed pedestrianplaza acrossx0â€“100%,y60â€“90%, branchupfromcenterx50% tostationentrance. West/eastexitsat y82â€“90%, southrouteexitx25â€“33%. Lushcherryparks alongtheleft/rightedgesandexistingtreepositions, restrained modern glasscity details onlyperiphery; openplazafloorremainsfree of giant planters/fountains/newbuildings.",
+        "prompt": "ImageGen localized service-clearance edit. Preserve Vetracielo layout; connect Lea (22,19), Centro cure (15,20–21), shop (27,20–21), monorail (24,21–22), and gym stair (20,16) with continuous pale earth paths to the southern plaza. Root visually approved; gameplay geometry unchanged.",
         "references": [
           "C:/Projects/Veloria/.tmp/map-art-before/vetracielo.png",
-          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp"
+          "C:/Projects/Veloria/public/assets/sprites/veloria-centrale-room-v1.webp",
+          "ImageGen localized service-clearance candidate: C:/Users/jacop/.codex/generated_images/01a16e40-9a76-7c52-b71e-a5f8bd731fa9/exec-9084cfd7-94cf-49ee-ac19-456c4bfedb81.png"
         ],
         "revisions": [
           {
             "id": "vetracielo",
-            "prompt": "Precise game-exit correction ONLY. Keep this beautiful Vetracielo station and plaza unchanged. Remove the decorative wall/rail/planters where they block these edge openings: LEFT edge y80â€“90%, RIGHT edge y80â€“90%, BOTTOM edge x25â€“33%. Extend clear pale paved walkway all the way through those edge segments. The bottomcenter x45â€“55% is NOT a mapexit: terminate that decorative centralinlay naturally before the edge and use a narrow flowerborder on the very bottom1% there instead of an apparent gateway. Do not add pools/water or any new building/furniture. Keep other art, road proportions and station identical. These are functional exits, so no railing across them.",
+            "prompt": "Precise game-exit correction ONLY. Keep this beautiful Vetracielo station and plaza unchanged. Remove the decorative wall/rail/planters where they block these edge openings: LEFT edge y80Ã¢â‚¬â€œ90%, RIGHT edge y80Ã¢â‚¬â€œ90%, BOTTOM edge x25Ã¢â‚¬â€œ33%. Extend clear pale paved walkway all the way through those edge segments. The bottomcenter x45Ã¢â‚¬â€œ55% is NOT a mapexit: terminate that decorative centralinlay naturally before the edge and use a narrow flowerborder on the very bottom1% there instead of an apparent gateway. Do not add pools/water or any new building/furniture. Keep other art, road proportions and station identical. These are functional exits, so no railing across them.",
             "path": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-6a715648-1c21-4db8-b47d-570d4b88b1fe.png"
+          },
+          {
+            "promptDocument": "assets/prompts/vetracielo-illustrated-v3.md",
+            "reason": "Modern illustrated city; native service and exit QA pending."
+          },
+          {
+            "promptDocument": "assets/prompts/vetracielo-illustrated-v3.md",
+            "reason": "Root approved service-path clearing artwork; PNG/WebP dimensions and hashes refreshed."
           }
         ]
       },
@@ -10824,14 +11489,17 @@
           "name": "Lea",
           "npcId": "vetracielo_lea",
           "dialogueId": "vetracielo_lea",
-          "characterAppearanceId": null,
-          "identityKey": "npc:vetracielo_lea",
-          "profileMatch": null,
+          "characterAppearanceId": "vetracielo-lea",
+          "identityKey": "profile:vetracielo-lea",
+          "profileMatch": "vetracielo-lea",
           "narrativeSpeaker": "Lea",
           "kind": "npc",
-          "sprite": "veloria-npcs-v2",
-          "spriteFrame": 1,
-          "spriteOrigin": null,
+          "sprite": "veloria-vetracielo-lea-v1",
+          "spriteFrame": null,
+          "spriteOrigin": {
+            "x": 0.558,
+            "y": 0.876
+          },
           "trainerId": null,
           "battleOnceFlag": null,
           "frame": null,
@@ -10863,14 +11531,17 @@
       "name": "Ricercatrice Tessa",
       "npcId": "acquariva_tessa",
       "dialogueId": "acquariva_tessa",
-      "characterAppearanceId": null,
-      "identityKey": "npc:acquariva_tessa",
-      "profileMatch": null,
+      "characterAppearanceId": "acquariva-tessa",
+      "identityKey": "profile:acquariva-tessa",
+      "profileMatch": "acquariva-tessa",
       "narrativeSpeaker": "Tessa",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 5,
-      "spriteOrigin": null,
+      "sprite": "veloria-coastal-cast-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.592,
+        "y": 0.903
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11043,14 +11714,17 @@
       "name": "Biologa Iris",
       "npcId": "delta_iris",
       "dialogueId": "delta_iris",
-      "characterAppearanceId": null,
-      "identityKey": "npc:delta_iris",
-      "profileMatch": null,
+      "characterAppearanceId": "delta-biologist-iris",
+      "identityKey": "profile:delta-biologist-iris",
+      "profileMatch": "delta-biologist-iris",
       "narrativeSpeaker": "Iris",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 2,
-      "spriteOrigin": null,
+      "sprite": "veloria-coastal-cast-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.57,
+        "y": 0.887
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11118,14 +11792,17 @@
       "name": "Ivo",
       "npcId": "ferraluce_ivo",
       "dialogueId": "ferraluce_ivo",
-      "characterAppearanceId": null,
-      "identityKey": "npc:ferraluce_ivo",
-      "profileMatch": null,
+      "characterAppearanceId": "ferraluce-ivo",
+      "identityKey": "profile:ferraluce-ivo",
+      "profileMatch": "ferraluce-ivo",
       "narrativeSpeaker": "Ivo",
       "kind": "npc",
-      "sprite": "veloria-npc-rami-v1",
-      "spriteFrame": null,
-      "spriteOrigin": null,
+      "sprite": "veloria-ferraluce-service-npcs-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.472,
+        "y": 0.943
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11142,14 +11819,17 @@
       "name": "Addetta del Centro Ferraluce",
       "npcId": "ferraluce_care",
       "dialogueId": "ferraluce_care",
-      "characterAppearanceId": null,
-      "identityKey": "npc:ferraluce_care",
-      "profileMatch": null,
+      "characterAppearanceId": "ferraluce-care",
+      "identityKey": "profile:ferraluce-care",
+      "profileMatch": "ferraluce-care",
       "narrativeSpeaker": "Addetta del Centro",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
+      "sprite": "veloria-ferraluce-service-npcs-v1",
       "spriteFrame": 2,
-      "spriteOrigin": null,
+      "spriteOrigin": {
+        "x": 0.598,
+        "y": 0.871
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11166,14 +11846,17 @@
       "name": "Mercante di Ferraluce",
       "npcId": "ferraluce_shop",
       "dialogueId": "ferraluce_shop",
-      "characterAppearanceId": null,
-      "identityKey": "npc:ferraluce_shop",
-      "profileMatch": null,
+      "characterAppearanceId": "ferraluce-shop",
+      "identityKey": "profile:ferraluce-shop",
+      "profileMatch": "ferraluce-shop",
       "narrativeSpeaker": "Mercante di Ferraluce",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 4,
-      "spriteOrigin": null,
+      "sprite": "veloria-ferraluce-service-npcs-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.509,
+        "y": 0.856
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11613,14 +12296,17 @@
       "name": "Capitana Marina",
       "npcId": "portolume_captain",
       "dialogueId": "portolume_captain",
-      "characterAppearanceId": null,
-      "identityKey": "npc:portolume_captain",
-      "profileMatch": null,
+      "characterAppearanceId": "portolume-captain-marina",
+      "identityKey": "profile:portolume-captain-marina",
+      "profileMatch": "portolume-captain-marina",
       "narrativeSpeaker": "Capitana Marina",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-coastal-cast-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.546,
+        "y": 0.911
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,
@@ -11718,14 +12404,17 @@
       "name": "Nila",
       "npcId": "nila_r04",
       "dialogueId": "nila_r04",
-      "characterAppearanceId": null,
-      "identityKey": "npc:nila_r04",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-nila",
+      "identityKey": "profile:route-trainer-nila",
+      "profileMatch": "route-trainer-nila",
       "narrativeSpeaker": "Nila",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 3,
-      "spriteOrigin": null,
+      "sprite": "veloria-route-trainers-r04-r07-v1",
+      "spriteFrame": 0,
+      "spriteOrigin": {
+        "x": 0.558,
+        "y": 0.951
+      },
       "trainerId": "veloria/trainer_r04_nila",
       "battleOnceFlag": "trainer_r04_nila_defeated",
       "frame": null,
@@ -11742,14 +12431,17 @@
       "name": "Oren",
       "npcId": "oren_r05",
       "dialogueId": "oren_r05",
-      "characterAppearanceId": null,
-      "identityKey": "npc:oren_r05",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-oren",
+      "identityKey": "profile:route-trainer-oren",
+      "profileMatch": "route-trainer-oren",
       "narrativeSpeaker": "Oren",
       "kind": "npc",
-      "sprite": "veloria-npc-rami-v1",
-      "spriteFrame": null,
-      "spriteOrigin": null,
+      "sprite": "veloria-route-trainers-r04-r07-v1",
+      "spriteFrame": 1,
+      "spriteOrigin": {
+        "x": 0.468,
+        "y": 0.96
+      },
       "trainerId": "veloria/trainer_r05_oren",
       "battleOnceFlag": "trainer_r05_oren_defeated",
       "frame": null,
@@ -11766,14 +12458,17 @@
       "name": "Iris",
       "npcId": "r06_iris",
       "dialogueId": "r06_iris",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r06_iris",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-iris-r06",
+      "identityKey": "profile:route-trainer-iris-r06",
+      "profileMatch": "route-trainer-iris-r06",
       "narrativeSpeaker": "Iris",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-route-trainers-r04-r07-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.593,
+        "y": 0.895
+      },
       "trainerId": "veloria/trainer_r06_iris",
       "battleOnceFlag": "trainer_r06_iris_defeated",
       "frame": null,
@@ -11790,14 +12485,17 @@
       "name": "Dario",
       "npcId": "r07_dario",
       "dialogueId": "r07_dario",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r07_dario",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-dario",
+      "identityKey": "profile:route-trainer-dario",
+      "profileMatch": "route-trainer-dario",
       "narrativeSpeaker": "Dario",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-route-trainers-r04-r07-v1",
+      "spriteFrame": 3,
+      "spriteOrigin": {
+        "x": 0.494,
+        "y": 0.901
+      },
       "trainerId": "veloria/trainer_r07_dario",
       "battleOnceFlag": "trainer_r07_dario_defeated",
       "frame": null,
@@ -11814,14 +12512,17 @@
       "name": "Viola",
       "npcId": "r08_viola",
       "dialogueId": "r08_viola",
-      "characterAppearanceId": null,
-      "identityKey": "npc:r08_viola",
-      "profileMatch": null,
+      "characterAppearanceId": "route-trainer-viola-r08",
+      "identityKey": "profile:route-trainer-viola-r08",
+      "profileMatch": "route-trainer-viola-r08",
       "narrativeSpeaker": "Viola",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 0,
-      "spriteOrigin": null,
+      "sprite": "veloria-coastal-cast-v1",
+      "spriteFrame": 2,
+      "spriteOrigin": {
+        "x": 0.621,
+        "y": 0.88
+      },
       "trainerId": "veloria/trainer_r08_viola",
       "battleOnceFlag": "trainer_r08_viola_defeated",
       "frame": null,
@@ -12129,14 +12830,17 @@
       "name": "Lea",
       "npcId": "vetracielo_lea",
       "dialogueId": "vetracielo_lea",
-      "characterAppearanceId": null,
-      "identityKey": "npc:vetracielo_lea",
-      "profileMatch": null,
+      "characterAppearanceId": "vetracielo-lea",
+      "identityKey": "profile:vetracielo-lea",
+      "profileMatch": "vetracielo-lea",
       "narrativeSpeaker": "Lea",
       "kind": "npc",
-      "sprite": "veloria-npcs-v2",
-      "spriteFrame": 1,
-      "spriteOrigin": null,
+      "sprite": "veloria-vetracielo-lea-v1",
+      "spriteFrame": null,
+      "spriteOrigin": {
+        "x": 0.558,
+        "y": 0.876
+      },
       "trainerId": null,
       "battleOnceFlag": null,
       "frame": null,

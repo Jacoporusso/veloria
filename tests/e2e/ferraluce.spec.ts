@@ -25,7 +25,7 @@ test('Circuito opens R06, the reading reaches Ivo once, and Ferraluce services s
   await page.goto('/'); await enterGame(page);
   await expect.poll(async () => (await readBrowserSave(page))?.flags).toContain('intro_completed');
   const save = await readBrowserSave(page);
-  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 195, level: 20, instanceId: 'ferraluce-traveler', moveIds: ['water-gun', 'mud-shot'] });
+  const creature = createBattleCreature({ species: species.species as any, moves: moves.moves as any, speciesId: 140, level: 21, instanceId: 'ferraluce-traveler', moveIds: ['sand-attack', 'mud-shot', 'absorb'] });
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'prologue_complete_seen', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved', 'badge_corolla_awarded', 'q_vetracielo_visited', 'q_vetracielo_orientation', 'gym03_line_gardens_active', 'gym03_line_glass_active', 'gym03_lines_connected'])];
   save.player = { ...save.player, mapId: 'veloria/vetracielo', spawnPointId: 'from_r06', x: 38, y: 25, money: 500 };
   save.party = [{ instanceId: creature.instanceId, speciesId: creature.speciesId, level: creature.level, experience: 0, hp: 5, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];

@@ -1,5 +1,6 @@
 """Import reference evolutions for the current species catalog; offline and reproducible."""
 import argparse
+import csv
 import json
 from import_pokeapi_battle import ROOT, resource
 
@@ -55,6 +56,7 @@ def build_evolution_entries(registry, version_group, load):
                     raise ValueError(f'Unsupported evolution conditions for {species_id}: {extra}')
                 trigger = detail['trigger']['name']
                 item_name = None
+                item_id = None
                 location_name = None
                 held_item_name = None
                 known_move_name = None
@@ -84,6 +86,7 @@ def build_evolution_entries(registry, version_group, load):
                         raise ValueError(f'Missing Italian/English location name for {species_id}')
                 if trigger == 'use-item' and detail['item']:
                     item = load('item', key_of(detail['item']))
+                    item_id = item['name']
                     item_name = next(name['name'] for name in item['names'] if name['language']['name'] == 'it')
                 elif trigger == 'trade':
                     pass  # Reference only; this does not enable a multiplayer evolution.
@@ -92,6 +95,8 @@ def build_evolution_entries(registry, version_group, load):
                 entry = {'targetSpeciesId': target_id,
                          'targetName': next(name['name'] for name in target['names'] if name['language']['name'] == 'it'),
                          'trigger': trigger, 'minimumLevel': detail['min_level'], 'itemName': item_name}
+                if item_id:
+                    entry['itemId'] = item_id
                 if location_name:
                     entry['locationName'] = location_name
                 if detail.get('near_special_rock'):
@@ -126,7 +131,43 @@ def main(argv=None):
     version_group = load('version-group', 'heartgold-soulsilver')
     entries = build_evolution_entries(registry, version_group, load)
 
-    progression = json.loads((ROOT / 'content/battle/progression.v2.json').read_text(encoding='utf-8'))
+    progression_path = ROOT / 'content/battle/progression.v2.json'
+    progression = json.loads(progression_path.read_text(encoding='utf-8'))
+    with (ROOT / 'assets/ASSET_REGISTER.csv').open(encoding='utf-8', newline='') as handle:
+        registered_assets = {row['asset_id'] for row in csv.DictReader(handle)}
+    previous_rules = {(rule['fromSpeciesId'], rule['toSpeciesId']): rule
+                      for rule in progression['evolutions']}
+    level_rules = []
+    trade_rules = []
+    for species_id, species_entry in entries.items():
+        source_id = int(species_id)
+        if source_id > 151:
+            continue
+        for evolution in species_entry['evolutions']:
+            target_id = evolution['targetSpeciesId']
+            if target_id > 151:
+                continue
+            if evolution['trigger'] == 'level-up':
+                if (not isinstance(evolution['minimumLevel'], int) or evolution.get('locationName') or evolution.get('heldItemName')
+                        or evolution.get('knownMoveName') or evolution.get('minimumHappiness') or evolution.get('timeOfDay')):
+                    raise ValueError(f'Gen I level evolution has unsupported conditions: {source_id} -> {target_id}: {evolution}')
+                rule = {'fromSpeciesId': source_id, 'toSpeciesId': target_id, 'minimumLevel': evolution['minimumLevel']}
+                previous = previous_rules.get((source_id, target_id))
+                if previous and previous.get('assetId'):
+                    rule['assetId'] = previous['assetId']
+                else:
+                    candidate = f'pokeapi-gen1-{target_id}-v1-webp'
+                    if candidate not in registered_assets:
+                        raise ValueError(f'Evolution target {target_id} has no registered official Gen-I artwork asset: {candidate}')
+                    rule['assetId'] = candidate
+                level_rules.append(rule)
+            elif evolution['trigger'] == 'trade':
+                trade_rules.append({'fromSpeciesId': source_id, 'toSpeciesId': target_id})
+    progression['evolutions'] = sorted(level_rules, key=lambda rule: (rule['fromSpeciesId'], rule['toSpeciesId']))
+    trade_catalog = {'version': 1, 'versionGroup': 'heartgold-soulsilver',
+                     'note': 'Official trade-trigger branches whose source and target are both National Dex 1–151; an NPC trade service can enable these in the single-player region.',
+                     'rules': sorted(trade_rules, key=lambda rule: (rule['fromSpeciesId'], rule['toSpeciesId'])),
+                     'sourceManifest': 'content/sources/pokeapi/evolution-manifest.json'}
     for rule in progression['evolutions']:
         if not any(entry['targetSpeciesId'] == rule['toSpeciesId'] and entry['trigger'] == 'level-up'
                    and entry['minimumLevel'] == rule['minimumLevel']
@@ -134,6 +175,8 @@ def main(argv=None):
             raise ValueError(f'Runtime evolution disagrees with its API source: {rule}')
 
     outputs = {
+        progression_path: progression,
+        ROOT / 'content/battle/trade-evolutions.v1.json': trade_catalog,
         ROOT / 'content/battle/evolution-reference.v1.json': {
             'version': 1, 'source': 'PokeAPI', 'scope': 'Evolution reference through Generation IV for the registered species; informational targets do not extend the Gen I–II runtime roster',
             'sourceManifest': 'content/sources/pokeapi/evolution-manifest.json', 'species': entries,

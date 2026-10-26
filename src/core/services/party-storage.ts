@@ -87,9 +87,11 @@ function toPartyCreature(stored: StoredCreatureSave): CreatureSave | undefined {
     const value = status as Record<string, unknown>;
     if (['burn', 'poison', 'paralysis', 'sleep', 'freeze'].includes(String(value.status)) &&
         (value.turnsRemaining === undefined || (Number.isInteger(value.turnsRemaining) && (value.turnsRemaining as number) > 0))) {
-      creature.status = value.turnsRemaining === undefined
-        ? { status: value.status as NonNullable<CreatureSave['status']>['status'] }
-        : { status: value.status as NonNullable<CreatureSave['status']>['status'], turnsRemaining: value.turnsRemaining as number };
+      creature.status = {
+        status: value.status as NonNullable<CreatureSave['status']>['status'],
+        ...(value.turnsRemaining === undefined ? {} : { turnsRemaining: value.turnsRemaining as number }),
+        ...(value.toxicCounter === undefined ? {} : { toxicCounter: value.toxicCounter as number }),
+      };
     }
   }
   return creature;

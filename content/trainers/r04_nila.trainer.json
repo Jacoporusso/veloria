@@ -18,11 +18,12 @@
       ]
     },
     {
-      "speciesId": 179,
+      "speciesId": 100,
       "level": 10,
       "moveIds": [
-        "growl",
-        "thunder-shock"
+        "sonic-boom",
+        "tackle",
+        "charge"
       ]
     }
   ]

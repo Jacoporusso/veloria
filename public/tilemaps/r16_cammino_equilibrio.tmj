@@ -13439,12 +13439,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-league-and-cammino-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 1
+              "value": 2
             },
             {
               "name": "trainerId",
@@ -13460,6 +13460,21 @@
               "name": "battleRequiredFlag",
               "type": "string",
               "value": "q_resonance_restored"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-maia-r16"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.538
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.915
             }
           ]
         },
@@ -13492,12 +13507,12 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-league-and-cammino-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 1
+              "value": 3
             },
             {
               "name": "trainerId",
@@ -13513,6 +13528,21 @@
               "name": "battleRequiredFlag",
               "type": "string",
               "value": "q_resonance_restored"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-tobia-r16"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.539
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.921
             }
           ]
         }

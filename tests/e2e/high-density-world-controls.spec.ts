@@ -48,10 +48,10 @@ async function seedCheckpoint(page: Page, checkpoint: Checkpoint) {
   const creature = createBattleCreature({
     species: speciesData.species as any,
     moves: moveData.moves as any,
-    speciesId: 194,
-    level: 24,
+    speciesId: 138,
+    level: 25,
     instanceId: `high-density-${checkpoint.milestoneFlag}`,
-    moveIds: ['mud-shot', 'water-gun', 'slam'],
+    moveIds: ['mud-shot', 'water-gun', 'rollout'],
   });
   save.flags = [...new Set([...save.flags.filter(flag => flag === 'intro_completed'), ...flags])];
   save.badges = flags.includes('badge_circuito_awarded')

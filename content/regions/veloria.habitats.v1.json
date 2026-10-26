@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "regionId": "veloria",
+  "note": "Authored game-design distribution, not an official Pokemon geographic distribution. Levels and encounter method remain defined by each table. Rare starters complement future optional gift missions. Fossils and legendary encounters are separate work.",
+  "tables": {
+    "veloria/r01_tall_grass": {
+      "speciesIds": [
+        16,
+        19,
+        10,
+        13,
+        21,
+        29,
+        32
+      ]
+    },
+    "veloria/r02_grove": {
+      "speciesIds": [
+        43,
+        69,
+        25,
+        39,
+        35,
+        63
+      ]
+    },
+    "veloria/r02_insect_patch": {
+      "speciesIds": [
+        10,
+        13,
+        46,
+        48,
+        12,
+        123
+      ]
+    },
+    "veloria/d01_woodland": {
+      "speciesIds": [
+        43,
+        37,
+        39,
+        102,
+        63,
+        48
+      ]
+    },
+    "veloria/d01_wet_bank": {
+      "speciesIds": [
+        60,
+        54,
+        69,
+        46,
+        23,
+        118
+      ]
+    },
+    "veloria/r03_moss_terraces": {
+      "speciesIds": [
+        52,
+        56,
+        23,
+        43,
+        114,
+        133
+      ]
+    },
+    "veloria/r03_stone_garden": {
+      "speciesIds": [
+        74,
+        27,
+        50,
+        66,
+        95,
+        104
+      ]
+    },
+    "veloria/r04_petal_ascent": {
+      "speciesIds": [
+        30,
+        33,
+        44,
+        48,
+        39,
+        133
+      ]
+    },
+    "veloria/r04_stream_patch": {
+      "speciesIds": [
+        54,
+        60,
+        118,
+        79,
+        69,
+        108
+      ]
+    },
+    "veloria/r05_cherry_viaduct": {
+      "speciesIds": [
+        17,
+        84,
+        77,
+        22,
+        133,
+        83
+      ]
+    },
+    "veloria/r05_bank_patch": {
+      "speciesIds": [
+        54,
+        79,
+        98,
+        69,
+        83,
+        114
+      ]
+    },
+    "veloria/r05_rail_patch": {
+      "speciesIds": [
+        81,
+        100,
+        66,
+        95,
+        27,
+        58
+      ]
+    },
+    "veloria/vetracielo_park": {
+      "speciesIds": [
+        52,
+        58,
+        96,
+        133,
+        132,
+        113
+      ]
+    },
+    "veloria/r06_magnetic_patch": {
+      "speciesIds": [
+        81,
+        100,
+        88,
+        109,
+        125,
+        26
+      ]
+    },
+    "veloria/r06_moss_patch": {
+      "speciesIds": [
+        70,
+        114,
+        102,
+        44,
+        48,
+        127
+      ]
+    },
+    "veloria/r07_technical_patch": {
+      "speciesIds": [
+        20,
+        67,
+        89,
+        82,
+        101,
+        137
+      ]
+    },
+    "veloria/r07_conduit_patch": {
+      "speciesIds": [
+        92,
+        109,
+        88,
+        104,
+        41,
+        93
+      ]
+    },
+    "veloria/r08_coastal_grass": {
+      "speciesIds": [
+        83,
+        84,
+        102,
+        56,
+        128,
+        115
+      ]
+    },
+    "veloria/r08_wind_patch": {
+      "speciesIds": [
+        22,
+        85,
+        77,
+        78,
+        57,
+        123
+      ]
+    },
+    "veloria/r08_shore_fishing": {
+      "speciesIds": [
+        129,
+        72,
+        98,
+        116,
+        120,
+        90
+      ]
+    },
+    "veloria/r09_dune_patch": {
+      "speciesIds": [
+        27,
+        28,
+        50,
+        51,
+        111,
+        105
+      ]
+    },
+    "veloria/r09_reeds_patch": {
+      "speciesIds": [
+        54,
+        55,
+        61,
+        79,
+        108,
+        127
+      ]
+    },
+    "veloria/r09_lagoon_fishing": {
+      "speciesIds": [
+        147,
+        73,
+        117,
+        119,
+        90,
+        130,
+        131
+      ]
+    },
+    "veloria/r10_reed_patch": {
+      "speciesIds": [
+        79,
+        80,
+        70,
+        114,
+        108,
+        122
+      ]
+    },
+    "veloria/r11_cascade_patch": {
+      "speciesIds": [
+        17,
+        55,
+        125,
+        61,
+        119,
+        123
+      ]
+    },
+    "veloria/d04_delta_fishing": {
+      "speciesIds": [
+        129,
+        118,
+        60,
+        90,
+        120,
+        86,
+        131
+      ]
+    },
+    "veloria/r12_wind_patch": {
+      "speciesIds": [
+        22,
+        85,
+        78,
+        111,
+        106,
+        107
+      ]
+    },
+    "veloria/r13_snow_patch": {
+      "speciesIds": [
+        86,
+        87,
+        124,
+        132,
+        91,
+        131
+      ]
+    },
+    "veloria/r14_crystal_patch": {
+      "speciesIds": [
+        75,
+        95,
+        105,
+        111,
+        112,
+        113
+      ]
+    },
+    "veloria/d05_crystal_patch": {
+      "speciesIds": [
+        111,
+        95,
+        104,
+        132,
+        113,
+        126
+      ]
+    },
+    "veloria/r15_garden_patch": {
+      "speciesIds": [
+        114,
+        102,
+        133,
+        132,
+        1,
+        4,
+        7
+      ]
+    },
+    "veloria/r16_garden_patch": {
+      "speciesIds": [
+        123,
+        127,
+        128,
+        115,
+        126,
+        125
+      ]
+    }
+  }
+}

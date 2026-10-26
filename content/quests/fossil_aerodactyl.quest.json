@@ -1,0 +1,24 @@
+{
+  "id": "veloria/q_fossil_aerodactyl",
+  "version": 1,
+  "displayName": "Una nuova vita per Aerodactyl",
+  "steps": [
+    {
+      "id": "restore",
+      "trigger": "lab/fossil/aerodactyl/restore",
+      "setFlag": "q_fossil_aerodactyl_received",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_fossil_aerodactyl_received",
+  "reward": {
+    "pokemon": [
+      {
+        "speciesId": 142,
+        "level": 20
+      }
+    ]
+  }
+}

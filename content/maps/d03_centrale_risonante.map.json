@@ -49,6 +49,16 @@
       "kind": "image",
       "key": "veloria-centrale-room-v1",
       "path": "assets/sprites/veloria-centrale-room-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "pokeapi-gen1-145-v1",
+      "path": "assets/creatures/pokeapi-gen1-145-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-v1",
+      "path": "assets/sprites/veloria-centrale-technician-v1.webp"
     }
   ],
   "spawns": [

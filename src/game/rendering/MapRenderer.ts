@@ -14,6 +14,20 @@ import { renderEncounterHabitatGrass } from './encounter-habitat-grass.ts';
 import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 
 const TILE = 32;
+
+/** Reflect only static scenery beyond the playable rectangle. The seam shares
+ * identical edge texels; actors, collision, exits and map scale stay unchanged.
+ * Reuse the texture instead of allocating enlarged bitmap copies per map.
+ */
+function renderVerticalBackdrop(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
+  texture: string | Phaser.Textures.Texture, width: number, height: number, depth: number): void {
+  for (const edge of ['top', 'bottom'] as const) {
+    const image = scene.add.image(0, edge === 'top' ? 0 : height, texture)
+      .setOrigin(0, edge === 'top' ? 1 : 0).setDisplaySize(width, height)
+      .setFlipY(true).setDepth(depth).setName('map-edge-backdrop');
+    container.add(image);
+  }
+}
 type RenderedMap = {
   container: Phaser.GameObjects.Container;
   occupied: Set<string>;
@@ -121,6 +135,7 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
   }
   terrainSurface.setOrigin(0, 0).setDepth(-10);
   container.add(terrainSurface);
+  renderVerticalBackdrop(scene, container, terrainSurface.texture, terrainWidth, terrainHeight, -11);
   for (const layer of terrainLayers) layer.destroy();
 
   const occupied = collectMapCollision(tilemap.getObjectLayer('collision')?.objects ?? [], tilemap.width, tilemap.height, collectedFlags);
@@ -143,6 +158,10 @@ export function renderMap(scene: Phaser.Scene, definition: RegisteredMap, collec
       };
       if (layerName !== 'decorations') interactables.push(item);
       const activatedFlag = propString(properties, 'activatedFlag');
+      if (item.kind === 'scenery-image' && item.x === 0 && item.y === 0 && item.width === terrainWidth && item.height === terrainHeight) {
+        const sprite = propString(item.properties, 'sprite');
+        if (sprite && imageKeys.has(sprite)) renderVerticalBackdrop(scene, container, sprite, terrainWidth, terrainHeight, propNumber(item.properties, 'renderDepth') ?? -4);
+      }
       renderObject(scene, container, item, imageKeys, imageAtlases, !activatedFlag || collectedFlags.includes(activatedFlag), collectedFlags);
       const completedFlag = propString(properties, 'completedFlag');
       if (completedFlag && collectedFlags.includes(completedFlag)) {
@@ -348,6 +367,21 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
     case 'npc':
       renderNpc(scene, container, item, imageKeys, imageAtlases);
       break;
+    case 'wild-pokemon': {
+      const sprite = propString(item.properties, 'sprite');
+      if (!sprite) throw new Error(`Special Pokémon ${item.id} has no artwork.`);
+      requireImageAsset(imageKeys, sprite, item);
+      scene.textures.get(sprite).setFilter(Phaser.Textures.FilterMode.LINEAR);
+      const centerX = x + item.width / 2, feetY = y + item.height / 2 + 19;
+      attach(container, scene.add.ellipse(centerX, feetY - 3, 34, 10, 0x142c35, .24).setDepth(depth));
+      attach(container, scene.add.image(centerX, feetY, sprite).setOrigin(.5, .94)
+        .setDisplaySize(88, 88).setDepth(depth + 22).setName('special-pokemon-sprite'));
+      attach(container, scene.add.text(centerX, feetY - 88, item.name, {
+        fontFamily: 'system-ui, sans-serif', fontSize: '10px', color: '#fff8dd',
+        stroke: '#153746', strokeThickness: 3, resolution: 4,
+      }).setOrigin(.5, 1).setDepth(depth + 23));
+      break;
+    }
     case 'sign':
       renderSign(scene, container, item, depth, imageKeys, imageAtlases);
       break;

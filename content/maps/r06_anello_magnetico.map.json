@@ -62,8 +62,17 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r06_anello_magnetico-illustrated-v2",
-      "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp"
+      "key": "veloria-r06_anello_magnetico-illustrated-v3",
+      "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainers-r04-r07-v1",
+      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

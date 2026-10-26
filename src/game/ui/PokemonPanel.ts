@@ -6,13 +6,15 @@ import { areaForMap, visitedAreaIds } from '../../core/world/region-atlas.ts';
 import { BATTLE_TYPES, type MoveDefinition } from '../../core/battle/types.ts';
 import { effectivenessFor } from '../../core/battle/rules.ts';
 import { calculateStats } from '../../core/battle/create-creature.ts';
-import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, itemCatalog, encounterCatalog } from '../battle/catalog.ts';
+import { battleMoves, battleSpecies, veloriaBattleRules, itemEvolutionRules, tradeEvolutionRules, itemCatalog, encounterCatalog } from '../battle/catalog.ts';
 import '../../evolution-item-actions.css';
 import '../management-dialog.css';
 import { battleTypeLabel } from '../battle/presentation.ts';
 import { describeMoveEffects } from '../battle/move-description.ts';
 import { createCreaturePortrait } from '../battle/creature-art.ts';
 import evolutionData from '../../../content/battle/evolution-reference.v1.json';
+import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
+import { questCatalog } from '../quests/catalog.ts';
 
 const evolutionReference: Readonly<Record<string, { evolutions: readonly {
   targetSpeciesId: number; targetName: string; trigger: string; minimumLevel: number | null; itemName: string | null; locationName?: string;
@@ -136,7 +138,7 @@ export class PokemonPanel {
     evolutionSection.append(node('h3', 'Evoluzione'));
     const reference = evolutionReference[speciesId];
     if (!reference) evolutionSection.append(node('p', 'Informazioni evolutive non ancora disponibili.'));
-    else if (!reference.evolutions.length) evolutionSection.append(node('p', 'Non ha ulteriori evoluzioni fino alla quarta generazione.'));
+    else if (!reference.evolutions.length) evolutionSection.append(node('p', 'Non ha ulteriori evoluzioni nel Pokédex di Veloria.'));
     for (const evolution of reference?.evolutions ?? []) {
       const requirement = evolution.trigger === 'trade'
         ? `Tramite scambio${evolution.heldItemName ? ` tenendo ${evolution.heldItemName}` : ''} · non dipende dal livello`
@@ -153,9 +155,10 @@ export class PokemonPanel {
       evolutionSection.append(node('strong', `${species.name} → ${evolution.targetName}`), node('p', requirement, 'pokemon-evolution-requirement'));
       const stoneRule = itemEvolutionRules.find(rule => rule.fromSpeciesId === speciesId && rule.toSpeciesId === evolution.targetSpeciesId && battleSpecies[String(rule.toSpeciesId)]);
       const levelRule = (veloriaBattleRules.evolutions[speciesId] ?? []).find(rule => rule.target.speciesId === evolution.targetSpeciesId && rule.minimumLevel === evolution.minimumLevel);
-      const available = Boolean(stoneRule || levelRule);
-      evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : evolution.targetSpeciesId > 251
-        ? 'Evoluzione ufficiale non ancora disponibile nel prototipo: fuori dal catalogo Gen I–II.'
+      const tradeRule = tradeEvolutionRules.find(rule => rule.fromSpeciesId === speciesId && rule.toSpeciesId === evolution.targetSpeciesId);
+      const available = Boolean(stoneRule || levelRule || tradeRule);
+      evolutionSection.append(node('p', available ? 'Disponibile nel gioco.' : evolution.targetSpeciesId > 151
+        ? 'Questa evoluzione appartiene a una generazione successiva a quella di Veloria.'
         : 'Evoluzione ufficiale non ancora disponibile nel prototipo.', 'pokemon-note'));
       if (levelRule) {
         if (creature && creature.level >= levelRule.minimumLevel) {
@@ -179,6 +182,9 @@ export class PokemonPanel {
       }
     }
     body.append(evolutionSection);
+    if (tradeEvolutionRules.some(rule => rule.fromSpeciesId === speciesId)) {
+      evolutionSection.append(node('p', 'Per evolvere tramite scambio, porta questo compagno in un Centro Pokémon con deposito e scegli SCAMBI. Il personale te lo restituisce subito evoluto.', 'pokemon-note'));
+    }
     const habitats = node('section');
     habitats.setAttribute('aria-label', 'Dove incontrarlo');
     habitats.append(node('h3', 'Dove incontrarlo'));
@@ -200,7 +206,51 @@ export class PokemonPanel {
       }
       habitats.append(card);
     }
-    habitats.append(node('p', locations.length ? 'Cerca le zone segnate dalle foglie. Per pescare serve la canna; alcune zone si aprono proseguendo l’avventura.' : 'Nessun habitat selvatico segnalato.', 'pokemon-note'));
+    let otherAcquisitions = 0;
+    const evolutionSources: { sourceId: number; requirement: string }[] = [];
+    for (const [sourceId, rules] of Object.entries(veloriaBattleRules.evolutions)) {
+      for (const rule of rules) if (rule.target.speciesId === speciesId) {
+        evolutionSources.push({ sourceId: Number(sourceId), requirement: `Dal livello ${rule.minimumLevel}, guadagnando esperienza in lotta e restando in piedi a fine turno.` });
+      }
+    }
+    for (const rule of itemEvolutionRules) if (rule.toSpeciesId === speciesId) {
+      evolutionSources.push({ sourceId: rule.fromSpeciesId, requirement: `Usa ${itemCatalog[rule.itemId]?.name ?? rule.itemId} sul compagno. Non richiede un livello minimo.` });
+    }
+    for (const rule of tradeEvolutionRules) if (rule.toSpeciesId === speciesId) {
+      evolutionSources.push({ sourceId: rule.fromSpeciesId, requirement: 'Porta il compagno in un Centro Pokémon con deposito e scegli SCAMBI. Ti viene restituito evoluto.' });
+    }
+    for (const source of evolutionSources) {
+      const ancestor = battleSpecies[String(source.sourceId)];
+      if (!ancestor) continue;
+      otherAcquisitions++;
+      const card = node('article', '', 'pokemon-move');
+      card.append(node('h4', `✦ Evoluzione di ${ancestor.name}`), node('p', source.requirement),
+        node('p', `Consulta ${ancestor.name} nel Pokédex per scoprire dove incontrarlo.`, 'pokemon-note'));
+      habitats.append(card);
+    }
+    for (const encounter of Object.values(specialEncounterCatalog).filter(encounter => encounter.speciesId === speciesId)) {
+      otherAcquisitions++;
+      const name = listMaps().find(map => map.metadata.id === encounter.mapId)?.metadata.displayName ?? encounter.mapId;
+      const card = node('article', '', 'pokemon-move');
+      card.append(node('h4', `✨ ${name}`), node('p', `Incontro visibile · Livello ${encounter.level}`),
+        node('p', encounter.unlockHint, 'pokemon-note'),
+        node('p', 'Puoi riprovare dopo una fuga o un KO. Dopo la cattura questo incontro è completato.', 'pokemon-note'));
+      habitats.append(card);
+    }
+    for (const quest of questCatalog) {
+      for (const gift of quest.reward?.pokemon ?? []) {
+        if (gift.speciesId !== speciesId) continue;
+        otherAcquisitions++;
+        const card = node('article', '', 'pokemon-move');
+        card.append(node('h4', '🎁 Compagno della ricerca'), node('p',
+          `${(quest as { displayName?: string }).displayName ?? quest.id} · Livello ${gift.level}`),
+          node('p', save.flags.includes(quest.completionFlag) ? 'Hai già ricevuto questo compagno.'
+            : 'Completa la missione e parla con il personaggio che segue la ricerca.', 'pokemon-note'));
+        habitats.append(card);
+      }
+    }
+    habitats.append(node('p', locations.length ? 'Cerca le zone segnate dalle foglie. Per pescare serve la canna; alcune zone si aprono proseguendo l’avventura.'
+      : otherAcquisitions ? 'Segui i metodi indicati qui sopra per incontrare questo compagno.' : 'Nessun habitat selvatico segnalato. Controlla anche le evoluzioni dei compagni della sua famiglia.', 'pokemon-note'));
     body.append(habitats);
     body.append(node('h3', 'Affinità difensive'));
     for (const [label, predicate] of [

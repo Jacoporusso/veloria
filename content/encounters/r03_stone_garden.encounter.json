@@ -1,66 +1,120 @@
 {
   "id": "veloria/r03_stone_garden",
   "mapId": "veloria/r03_terrazze_muschio",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "woodland-understory",
   "timeBands": {
     "morning": [
       {
         "speciesId": 74,
-        "weight": 50,
-        "minLevel": 6,
-        "maxLevel": 8
-      },
-      {
-        "speciesId": 161,
         "weight": 30,
         "minLevel": 6,
         "maxLevel": 8
       },
       {
-        "speciesId": 69,
-        "weight": 20,
+        "speciesId": 27,
+        "weight": 24,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 50,
+        "weight": 18,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 66,
+        "weight": 14,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 95,
+        "weight": 10,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 104,
+        "weight": 4,
         "minLevel": 6,
         "maxLevel": 8
       }
     ],
     "day": [
       {
+        "speciesId": 27,
+        "weight": 30,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 50,
+        "weight": 24,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
         "speciesId": 74,
-        "weight": 60,
+        "weight": 18,
         "minLevel": 6,
         "maxLevel": 8
       },
       {
-        "speciesId": 161,
-        "weight": 25,
+        "speciesId": 66,
+        "weight": 14,
         "minLevel": 6,
         "maxLevel": 8
       },
       {
-        "speciesId": 69,
-        "weight": 15,
+        "speciesId": 95,
+        "weight": 10,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 104,
+        "weight": 4,
         "minLevel": 6,
         "maxLevel": 8
       }
     ],
     "night": [
       {
+        "speciesId": 50,
+        "weight": 30,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
         "speciesId": 74,
-        "weight": 40,
+        "weight": 24,
         "minLevel": 6,
         "maxLevel": 8
       },
       {
-        "speciesId": 41,
-        "weight": 45,
+        "speciesId": 27,
+        "weight": 18,
         "minLevel": 6,
         "maxLevel": 8
       },
       {
-        "speciesId": 167,
-        "weight": 15,
+        "speciesId": 66,
+        "weight": 14,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 95,
+        "weight": 10,
+        "minLevel": 6,
+        "maxLevel": 8
+      },
+      {
+        "speciesId": 104,
+        "weight": 4,
         "minLevel": 6,
         "maxLevel": 8
       }

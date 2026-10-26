@@ -35,6 +35,15 @@
       "kind": "image",
       "key": "veloria-r11-cascades-v1",
       "path": "assets/sprites/veloria-r11-cascades-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-delta-route-cast-v1",
+      "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
+      "atlas": {
+        "columns": 2,
+        "rows": 2
+      }
     }
   ],
   "spawns": [

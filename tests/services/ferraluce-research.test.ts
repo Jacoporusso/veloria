@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { applyQuestEvent, type QuestDefinition } from '../../src/core/quests/apply-quest-event.ts';
+import { applyQuestEvent, type QuestDefinition } from '../helpers/quest-event.ts';
 import type { GameSave } from '../../src/persistence/save-types.ts';
 
 const readQuest = (name: string) => JSON.parse(readFileSync(`content/quests/${name}.quest.json`, 'utf8')) as QuestDefinition;

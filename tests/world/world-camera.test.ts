@@ -15,14 +15,18 @@ test('expanding a map retains readable outdoor exploration rather than fitting t
   assert.equal(zoom, 1);
 });
 
-test('camera edges reserve consistent CSS space for the HUD and touch controls at every zoom', () => {
-  const map = { width: 1024, height: 640 };
-  for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
-    for (const zoom of [1, 1.25, 2]) {
+test('camera padding stays inside the decorative edge backdrop and keeps HUD clearance', () => {
+  for (const map of [{ width: 1024, height: 640 }, { width: 1280, height: 960 }, { width: 768, height: 512 }]) {
+    for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1920, height: 1080 }]) {
+      const zoom = worldCameraZoom(viewport, map);
       const bounds = worldCameraBounds(viewport, map, zoom);
+      assert.equal(bounds.x, 0);
       assert.equal(bounds.width, map.width);
       assert.equal(-bounds.y * zoom, viewport.height > viewport.width ? 128 : 112);
-      assert.ok(Math.abs((bounds.y + bounds.height - map.height) * zoom - 112) < .0001);
+      assert.ok(bounds.y >= -map.height, 'reflected top scenery covers the complete camera padding');
+      assert.ok(bounds.y + bounds.height <= map.height * 2, 'reflected bottom scenery covers the complete camera padding');
+      assert.ok(viewport.width / zoom <= bounds.width + 0.0001);
+      assert.ok(viewport.height / zoom <= bounds.height + 0.0001);
     }
   }
 });

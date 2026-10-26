@@ -7,16 +7,16 @@
   "defeatQuestEvent": "battle/trainer_r15_nilo/defeated",
   "rewardMoney": 1600,
   "victoryMessage": "Hai vinto l’allenamento con Nilo. Ricevi 1600 ₿.",
-  "victoryFeedback": "Che squadra! Se Ampharos ti paralizza, puoi cambiare Pokémon o usare uno strumento. Golbat mescola attacco e confusione: osserva cosa cambia tra un turno e l’altro. A Concordia trovi cure e un mercato: arriviamoci preparati.",
+  "victoryFeedback": "Che squadra! Se Raichu ti paralizza, puoi cambiare Pokémon o usare uno strumento. Golbat mescola attacco e confusione: osserva cosa cambia tra un turno e l’altro. A Concordia trovi cure e un mercato: arriviamoci preparati.",
   "team": [
     {
-      "speciesId": 181,
+      "speciesId": 26,
       "level": 43,
       "moveIds": [
-        "discharge",
-        "thunder-wave",
-        "thunder-punch",
-        "growl"
+        "thunderbolt",
+        "quick-attack",
+        "tail-whip",
+        "thunder-shock"
       ]
     },
     {

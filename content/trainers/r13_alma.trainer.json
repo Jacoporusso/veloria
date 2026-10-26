@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/r13_alma/defeated",
   "rewardMoney": 1900,
   "victoryMessage": "Hai vinto contro Alma. Ricevi 1900 ₿.",
-  "victoryFeedback": "Non tutti i Pokémon della neve sono soltanto Ghiaccio: Seel è Acqua, Jynx è Ghiaccio/Psico e Piloswine è Ghiaccio/Terra. Recupera HP e PP a Biancavetta prima della palestra.",
+  "victoryFeedback": "Non tutti i Pokémon della neve sono soltanto Ghiaccio: Seel è Acqua, Jynx Ghiaccio/Psico e Dewgong Acqua/Ghiaccio. Recupera HP e PP a Biancavetta prima della palestra.",
   "team": [
     {
       "speciesId": 86,
@@ -28,13 +28,13 @@
       ]
     },
     {
-      "speciesId": 221,
+      "speciesId": 87,
       "level": 39,
       "moveIds": [
-        "powder-snow",
-        "mud-bomb",
         "icy-wind",
-        "fury-attack"
+        "take-down",
+        "sheer-cold",
+        "brine"
       ]
     }
   ]

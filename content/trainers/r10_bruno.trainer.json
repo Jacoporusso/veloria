@@ -28,12 +28,13 @@
       ]
     },
     {
-      "speciesId": 163,
+      "speciesId": 21,
       "level": 31,
       "moveIds": [
-        "hypnosis",
         "peck",
-        "confusion"
+        "assurance",
+        "agility",
+        "mirror-move"
       ]
     }
   ]

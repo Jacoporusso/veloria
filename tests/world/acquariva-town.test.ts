@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import metadata from '../../content/maps/acquariva.map.json' with {type:'json'};
 import quest from '../../content/quests/acquariva_research.quest.json' with {type:'json'};
 import {collectMapCollision} from '../../src/core/world/map-collision.ts';
-import {applyQuestEvent} from '../../src/core/quests/apply-quest-event.ts';
+import {applyQuestEvent} from '../helpers/quest-event.ts';
 import type {GameSave} from '../../src/persistence/save-types.ts';
 
 test('Acquariva services, observatory and exits connect without crossing the lake',()=>{

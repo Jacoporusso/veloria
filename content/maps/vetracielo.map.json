@@ -72,8 +72,13 @@
     },
     {
       "kind": "image",
-      "key": "veloria-vetracielo-illustrated-v2",
-      "path": "assets/scenery/veloria-vetracielo-illustrated-v2.webp"
+      "key": "veloria-vetracielo-lea-v1",
+      "path": "assets/sprites/veloria-vetracielo-lea-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-vetracielo-illustrated-v3",
+      "path": "assets/scenery/veloria-vetracielo-illustrated-v3.webp"
     }
   ],
   "spawns": [

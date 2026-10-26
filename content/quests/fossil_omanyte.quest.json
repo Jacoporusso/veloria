@@ -1,0 +1,24 @@
+{
+  "id": "veloria/q_fossil_omanyte",
+  "version": 1,
+  "displayName": "Una nuova vita per Omanyte",
+  "steps": [
+    {
+      "id": "restore",
+      "trigger": "lab/fossil/omanyte/restore",
+      "setFlag": "q_fossil_omanyte_received",
+      "requiresFlags": [
+        "q_league_completed"
+      ]
+    }
+  ],
+  "completionFlag": "q_fossil_omanyte_received",
+  "reward": {
+    "pokemon": [
+      {
+        "speciesId": 138,
+        "level": 20
+      }
+    ]
+  }
+}

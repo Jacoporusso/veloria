@@ -3646,12 +3646,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-route-trainers-r04-r07-v1"
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "route-trainer-dario"
             },
             {
               "name": "spriteFrame",
               "type": "int",
-              "value": 1
+              "value": 3
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.494
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.901
             },
             {
               "name": "trainerId",
@@ -3917,7 +3932,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r07-conduit-v1"
+              "value": "veloria-r07_condotto_risonante-illustrated-v3"
             },
             {
               "name": "renderDepth",

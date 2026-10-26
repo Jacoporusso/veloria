@@ -24,7 +24,7 @@ for (const [width, height] of [[320, 568], [844, 390]]) {
         return { ...creature, moves: creature.moves.map((slot: any) => ({ ...slot, pp: 0 })) };
       };
       const state = createBattleState({ battleId: 'exhausted-teams', battleType: 'trainer', seed: 321,
-        rules: veloriaBattleRules, playerTeam: [exhausted(1, 'player')], opponentTeam: [exhausted(161, 'opponent')] });
+        rules: veloriaBattleRules, playerTeam: [exhausted(1, 'player')], opponentTeam: [exhausted(19, 'opponent')] });
       class Fixture extends Phaser.Scene {
         constructor() { super('fixture'); }
         preload() { preloadCreatureArt(this); }

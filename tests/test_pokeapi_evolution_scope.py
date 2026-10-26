@@ -83,7 +83,7 @@ class EvolutionScopeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Unsupported evolution conditions for 221'):
             build_evolution_entries({'221': {}}, {'id': 10}, lambda kind, key: sources[(kind, key)])
 
-    def test_cached_official_reference_restores_magnezone_and_eevee_without_runtime_expansion(self):
+    def test_gen1_reference_keeps_eevee_later_generation_targets_without_runtime_expansion(self):
         import json
         from import_pokeapi_battle import resource
         progression_path = ROOT / 'content/battle/progression.v2.json'
@@ -98,10 +98,10 @@ class EvolutionScopeTests(unittest.TestCase):
         self.assertTrue(eevee[470]['nearSpecialRock'])
         self.assertTrue(eevee[471]['nearSpecialRock'])
         self.assertNotIn(700, eevee)
-        self.assertEqual(entries['221']['evolutions'][0]['knownMoveName'], 'Forzantica')
-        self.assertEqual(entries['215']['evolutions'][0]['heldItemName'], 'Affilartigli')
+        self.assertEqual(set(map(int, entries)), set(range(1, 152)))
         rules = json.loads(before)['evolutions']
-        self.assertTrue(all(rule['toSpeciesId'] <= 251 for rule in rules))
+        self.assertEqual(len(rules), 52)
+        self.assertTrue(all(1 <= rule['fromSpeciesId'] <= 151 and rule['toSpeciesId'] <= 151 for rule in rules))
         for rule in rules:
             self.assertTrue(any(entry['targetSpeciesId'] == rule['toSpeciesId'] and entry['minimumLevel'] == rule['minimumLevel'] for entry in entries[str(rule['fromSpeciesId'])]['evolutions']))
         self.assertEqual(progression_path.read_bytes(), before)

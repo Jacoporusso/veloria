@@ -11085,12 +11085,27 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v2"
+              "value": "veloria-league-and-cammino-cast-v1"
             },
             {
               "name": "spriteFrame",
               "type": "int",
               "value": 0
+            },
+            {
+              "name": "characterAppearanceId",
+              "type": "string",
+              "value": "league-receptionist"
+            },
+            {
+              "name": "spriteOriginX",
+              "type": "float",
+              "value": 0.54
+            },
+            {
+              "name": "spriteOriginY",
+              "type": "float",
+              "value": 0.951
             }
           ]
         }

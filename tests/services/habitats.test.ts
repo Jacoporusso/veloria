@@ -25,15 +25,15 @@ test('groups real bindings by map and method, preserving periods and level range
   assert.deepEqual(findSpeciesHabitats(170, [{ id: 'veloria/elsewhere', displayName: 'Altrove', encounterTableIds: ['a', 'missing'] }], tables), []);
 });
 
-test('registered coast fishing and conduit grass report exact authored Chinchou and Wooper levels', () => {
+test('registered coast fishing and conduit grass report exact authored Horsea and Gastly levels', () => {
   const read = (file: string) => JSON.parse(readFileSync(new URL(`../../content/${file}`, import.meta.url), 'utf8'));
   const maps = [read('maps/r08_costa_turbine.map.json'), read('maps/r07_condotto_risonante.map.json')];
   const tables = Object.fromEntries(['r08_shore_fishing', 'r07_conduit_patch'].map(name => {
     const data = read(`encounters/${name}.encounter.json`); return [data.id, data];
   }));
-  assert.deepEqual(findSpeciesHabitats(170, maps, tables).map(({ mapId, method, minLevel, maxLevel }) => ({ mapId, method, minLevel, maxLevel })),
+  assert.deepEqual(findSpeciesHabitats(116, maps, tables).map(({ mapId, method, minLevel, maxLevel }) => ({ mapId, method, minLevel, maxLevel })),
     [{ mapId: 'veloria/r08_costa_turbine', method: 'fishing', minLevel: 20, maxLevel: 23 }]);
-  assert.deepEqual(findSpeciesHabitats(194, maps, tables).map(({ mapId, method, minLevel, maxLevel }) => ({ mapId, method, minLevel, maxLevel })),
+  assert.deepEqual(findSpeciesHabitats(92, maps, tables).map(({ mapId, method, minLevel, maxLevel }) => ({ mapId, method, minLevel, maxLevel })),
     [{ mapId: 'veloria/r07_condotto_risonante', method: 'tall-grass', minLevel: 18, maxLevel: 21 }]);
 });
 

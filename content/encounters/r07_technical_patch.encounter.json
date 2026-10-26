@@ -1,90 +1,120 @@
 {
   "id": "veloria/r07_technical_patch",
   "mapId": "veloria/r07_condotto_risonante",
-  "version": 1,
+  "version": 2,
   "status": "prototype",
   "method": "tall-grass",
   "timeBands": {
     "morning": [
       {
-        "speciesId": 81,
-        "weight": 40,
+        "speciesId": 20,
+        "weight": 30,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 100,
-        "weight": 25,
+        "speciesId": 67,
+        "weight": 24,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 74,
-        "weight": 25,
+        "speciesId": 89,
+        "weight": 18,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 95,
+        "speciesId": 82,
+        "weight": 14,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 101,
         "weight": 10,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 137,
+        "weight": 4,
         "minLevel": 18,
         "maxLevel": 21
       }
     ],
     "day": [
       {
-        "speciesId": 81,
-        "weight": 40,
+        "speciesId": 67,
+        "weight": 30,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 100,
-        "weight": 25,
+        "speciesId": 89,
+        "weight": 24,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 74,
-        "weight": 25,
+        "speciesId": 20,
+        "weight": 18,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 95,
+        "speciesId": 82,
+        "weight": 14,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 101,
         "weight": 10,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 137,
+        "weight": 4,
         "minLevel": 18,
         "maxLevel": 21
       }
     ],
     "night": [
       {
-        "speciesId": 81,
+        "speciesId": 89,
         "weight": 30,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 100,
-        "weight": 30,
+        "speciesId": 20,
+        "weight": 24,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 74,
-        "weight": 20,
+        "speciesId": 67,
+        "weight": 18,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 95,
+        "speciesId": 82,
+        "weight": 14,
+        "minLevel": 18,
+        "maxLevel": 21
+      },
+      {
+        "speciesId": 101,
         "weight": 10,
         "minLevel": 18,
         "maxLevel": 21
       },
       {
-        "speciesId": 41,
-        "weight": 10,
+        "speciesId": 137,
+        "weight": 4,
         "minLevel": 18,
         "maxLevel": 21
       }

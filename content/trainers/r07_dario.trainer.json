@@ -7,24 +7,26 @@
   "defeatQuestEvent": "battle/r07_dario/defeated",
   "rewardMoney": 850,
   "victoryMessage": "Hai vinto contro Dario. Ricevi 850 ₿.",
-  "victoryFeedback": "Nel Condotto convivono Pokémon Elettro e Terra. Le mosse Elettro non colpiscono Wooper, mentre una mossa Erba può sfruttare la sua debolezza. Osserva i tipi prima di scegliere.",
+  "victoryFeedback": "Nel Condotto convivono Pokémon Elettro e Terra. Le mosse Elettro non colpiscono Sandshrew, mentre una mossa Erba può sfruttare la sua debolezza. Osserva i tipi prima di scegliere.",
   "team": [
     {
-      "speciesId": 179,
+      "speciesId": 100,
       "level": 21,
       "moveIds": [
-        "thunder-shock",
-        "thunder-wave",
-        "tackle"
+        "tackle",
+        "screech",
+        "rollout",
+        "spark"
       ]
     },
     {
-      "speciesId": 194,
+      "speciesId": 27,
       "level": 22,
       "moveIds": [
-        "water-gun",
-        "mud-shot",
-        "slam"
+        "rollout",
+        "fury-swipes",
+        "swift",
+        "rapid-spin"
       ]
     },
     {

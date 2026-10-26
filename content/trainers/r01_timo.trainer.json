@@ -10,11 +10,12 @@
   "victoryFeedback": "Bella sfida! La prossima volta proverò una strategia diversa. Ci vediamo sul sentiero!",
   "team": [
     {
-      "speciesId": 161,
+      "speciesId": 19,
       "level": 4,
       "moveIds": [
-        "scratch",
-        "defense-curl"
+        "quick-attack",
+        "tail-whip",
+        "tackle"
       ]
     },
     {

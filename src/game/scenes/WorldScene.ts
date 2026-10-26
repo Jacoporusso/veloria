@@ -50,6 +50,10 @@ import { recordSpeciesSeen, recordSpeciesCaught } from '../../core/party/pokedex
 import { PokemonPanel } from '../ui/PokemonPanel.ts';
 import { applyItemEvolution, pendingEvolutionReceipts, queueEvolutionReceipts, evolutionReceiptFlag } from '../../core/services/item-evolution.ts';
 import { itemEvolutionRules } from '../battle/catalog.ts';
+import { tradeEvolutionRules } from '../battle/catalog.ts';
+import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
+import { specialEncounterAvailability, type SpecialEncounter } from '../../core/encounters/special-encounter.ts';
+import { applyTradeEvolution } from '../../core/services/trade-evolution.ts';
 import { chooseItemEvolution } from '../ui/ItemEvolutionMenu.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
 import { ensureSavedProgress } from '../ui/SaveRetryDialog.ts';
@@ -59,6 +63,7 @@ import { TravelerAnimation, TRAVELER_TEXTURE } from '../rendering/traveler-anima
 import { JourneyPanel } from '../journey/JourneyPanel.ts';
 import { WorldGuidance } from '../ui/WorldGuidance.ts';
 import { worldCameraBounds, worldCameraZoom } from '../rendering/world-camera.ts';
+import { payDayReward } from '../battle/pay-day-reward.ts';
 import { worldFollowDeadzone } from '../rendering/camera-follow.ts';
 import { gameViewport } from '../rendering/game-size.ts';
 import { playFishingCast } from '../rendering/fishing-cast';
@@ -693,6 +698,10 @@ export class WorldScene extends Phaser.Scene {
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop?.kind === 'wild-pokemon') {
+      this.showSpecialEncounterMenu(String(prop.properties.specialEncounterId));
+      return;
+    }
     if (prop && (prop.kind === 'challenge-sequence' || typeof prop.properties.challengeId === 'string')) {
       this.showChallengeSequenceMenu(String(prop.properties.challengeId), typeof prop.properties.challengeStageId === 'string' ? prop.properties.challengeStageId : undefined);
       return;
@@ -951,7 +960,30 @@ export class WorldScene extends Phaser.Scene {
     this.startWildBattle(selected.speciesId, selected.level);
   }
 
-  private startWildBattle(speciesId: number, level: number) {
+  private showSpecialEncounterMenu(id: string): void {
+    const encounter = specialEncounterCatalog[id];
+    if (!encounter || this.previewMode || this.battleActive) return;
+    const availability = specialEncounterAvailability(encounter, this.map.metadata.id, this.save.flags,
+      this.save.party.some(creature => creature.hp > 0));
+    if (availability !== 'available') {
+      this.showToast(availability === 'exhausted' ? 'Cura almeno un Pokémon prima di questo incontro.'
+        : availability === 'caught' ? 'Hai già accolto questo Pokémon.' : 'Potrai incontrare questo Pokémon dopo aver proseguito il viaggio.');
+      return;
+    }
+    this.afterDialogue = null;
+    this.showServiceOptions(battleSpecies[encounter.speciesId].name,
+      `${encounter.description} Livello ${encounter.level}.`, [
+        { label: 'INCONTRA', icon: 'pokeball', action: () => {
+          if (specialEncounterAvailability(encounter, this.map.metadata.id, this.save.flags,
+            this.save.party.some(creature => creature.hp > 0)) === 'available') {
+            this.startWildBattle(encounter.speciesId, encounter.level, encounter);
+          }
+        } },
+        { label: 'MI PREPARO', icon: 'close', action: () => undefined },
+      ]);
+  }
+
+  private startWildBattle(speciesId: number, level: number, special?: SpecialEncounter) {
     const state = createWildBattle({
       save: this.save,
       speciesId,
@@ -960,7 +992,7 @@ export class WorldScene extends Phaser.Scene {
       rules: veloriaBattleRules,
       battleId: createUniqueId(),
     });
-    this.beginBattle(state);
+    this.beginBattle(state, undefined, undefined, special);
   }
 
   private showFishingMenu(prop: MapInteractable) {
@@ -1172,7 +1204,7 @@ export class WorldScene extends Phaser.Scene {
     try {
       const { showLeagueCompletion } = await import('../ui/LeagueCompletion');
       await showLeagueCompletion(this.save);
-      const result = applyQuestEvent(this.save, 'league/epilogue/seen', questCatalog);
+      const result = applyQuestEvent(this.save, 'league/epilogue/seen', questCatalog, { species: battleSpecies, moves: battleMoves });
       this.save = result.save;
       await this.requireChallengeSave(() => { this.challengeOperationActive = false; });
     } catch (error) {
@@ -1209,7 +1241,7 @@ export class WorldScene extends Phaser.Scene {
     }
   }
 
-  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }) {
+  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }, special?: SpecialEncounter) {
     if (this.battleActive) return;
     this.battleActive = true;
     const gameRegion = document.querySelector<HTMLElement>('#game');
@@ -1260,6 +1292,7 @@ export class WorldScene extends Phaser.Scene {
           if (completionHandled) return;
           completionHandled = true;
           const previousMoney = this.save.player.money;
+          const scatteredCoins = payDayReward(finalState);
           const previousBadges = new Set(this.save.badges);
           this.save = mergeBattlePlayerState(this.save, finalState);
           this.save = queueEvolutionReceipts(this.save, events.flatMap(event =>
@@ -1270,9 +1303,10 @@ export class WorldScene extends Phaser.Scene {
             const outcome = finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player' ? 'won'
               : finalState.outcome.kind === 'draw' ? 'draw' : 'lost';
             try {
-              const settled = settleChallengeSave(this.save, challenge.sequence, challenge.stageId, outcome, trainer.rewardMoney, questCatalog);
+              const settled = settleChallengeSave(this.save, challenge.sequence, challenge.stageId, outcome, trainer.rewardMoney, questCatalog, { species: battleSpecies, moves: battleMoves });
               this.save = settled.save;
-              earnedMoney = settled.earnedMoney;
+              if (settled.result.accepted) this.save.player.money += scatteredCoins;
+              earnedMoney = settled.earnedMoney + (settled.result.accepted ? scatteredCoins : 0);
               leagueCompletion = settled.newCompletion;
               challengeReturn = settled.result.checkpoint !== null;
               this.pendingQuestCelebrations.push(...settled.completedQuestIds);
@@ -1288,6 +1322,7 @@ export class WorldScene extends Phaser.Scene {
             challengeSaved = this.persistProgress();
             return;
           }
+          this.save.player.money += scatteredCoins;
           if (finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player') {
             if (trainer && !this.save.flags.includes(trainer.battleOnceFlag)) {
               this.save.player.money += trainer.rewardMoney;
@@ -1298,7 +1333,9 @@ export class WorldScene extends Phaser.Scene {
               dismissMessage = trainer.victoryMessage;
             } else dismissMessage = 'Hai vinto lo scontro.';
           } else if (finalState.outcome.kind === 'captured') {
-            dismissMessage = 'La nuova creatura è stata aggiunta alla squadra.';
+            if (special) this.applyQuestEvent(special.captureEvent);
+            dismissMessage = finalState.outcome.destination === 'storage'
+              ? 'Il nuovo Pokémon ti aspetta al deposito.' : 'Il nuovo Pokémon si è unito alla squadra.';
           } else if (finalState.outcome.kind === 'fled') {
             dismissMessage = 'Sei riuscito a fuggire.';
           } else if (finalState.outcome.kind === 'draw' || finalState.outcome.kind === 'won' && finalState.outcome.winner === 'opponent') {
@@ -1308,6 +1345,7 @@ export class WorldScene extends Phaser.Scene {
               dismissMessage = 'La squadra è stata soccorsa e curata dopo lo scontro.';
             } else dismissMessage = 'La squadra non può continuare. Riprendi fiato e prova ancora.';
           }
+          if (scatteredCoins > 0) dismissMessage += ` Hai raccolto ${scatteredCoins} monete.`;
           this.persistProgress();
         },
         onDismiss: (event?: KeyboardEvent) => {
@@ -1335,6 +1373,10 @@ export class WorldScene extends Phaser.Scene {
           }
           this.journey?.celebrate(this.pendingQuestCelebrations);
           this.pendingQuestCelebrations = [];
+          if (special) {
+            this.refreshMapVisuals();
+            if (!this.save.flags.includes(special.capturedFlag)) dismissMessage += ' Potrai ritrovare questo Pokémon qui e riprovare.';
+          }
           this.persistProgress();
           this.showToast(dismissMessage);
           if (!hadAuroraBadge && this.save.flags.includes('badge_aurora_awarded') && !this.previewMode) void this.presentPrologueCompletion(event?.key);
@@ -1492,6 +1534,7 @@ export class WorldScene extends Phaser.Scene {
         this.showToast('La squadra è in piena forma.');
       } },
       ...(includeStorage ? [{ label: 'DEPOSITO', icon: 'storage' as const, action: () => this.showStorageMenu(name) }] : []),
+      ...(includeStorage ? [{ label: 'SCAMBI', icon: 'trade' as const, action: () => void this.openTradeEvolution(name) }] : []),
       { label: 'DOPO', icon: 'close', action: () => undefined },
     ]);
   }
@@ -1528,10 +1571,12 @@ export class WorldScene extends Phaser.Scene {
   private showDialogueChoices(dialogue: Dialogue): void {
     this.afterDialogue = null;
     const choices = (dialogue.choices ?? []).filter(choice =>
-      (choice.requiresFlags ?? []).every(flag => this.save.flags.includes(flag)));
+      (choice.requiresFlags ?? []).every(flag => this.save.flags.includes(flag)) &&
+      (!choice.unlessFlag || !this.save.flags.includes(choice.unlessFlag)));
     this.showServiceOptions(dialogue.speaker, dialogue.choicePrompt ?? 'Come vuoi procedere?', [
       ...choices.map(choice => ({ label: choice.label, icon: 'challenge' as const, action: () => {
         if (!(choice.requiresFlags ?? []).every(flag => this.save.flags.includes(flag))) return;
+        if (choice.unlessFlag && this.save.flags.includes(choice.unlessFlag)) return;
         this.afterDialogue = () => {
           if (choice.questEvent && this.applyQuestEvent(choice.questEvent)) this.refreshMapVisuals();
         };
@@ -1711,10 +1756,10 @@ export class WorldScene extends Phaser.Scene {
   }
 
   private applyQuestEvent(trigger: string): boolean {
-    const result = applyQuestEvent(this.save, trigger, questCatalog);
+    const result = applyQuestEvent(this.save, trigger, questCatalog, { species: battleSpecies, moves: battleMoves });
     this.save = result.save;
     if (this.battleActive) this.pendingQuestCelebrations.push(...result.completedQuestIds);
-    else this.journey?.celebrate(result.completedQuestIds);
+    else this.journey?.celebrate(result.completedQuestIds, this.save);
     if (result.progressed) this.persistProgress();
     return result.progressed;
   }
@@ -1745,6 +1790,22 @@ export class WorldScene extends Phaser.Scene {
       setTimeout(()=>window.location.reload(),500);
     } catch(error) { this.showToast(error instanceof Error?`Backup non importato: ${error.message}`:'Backup non importato.'); }
     document.querySelector<HTMLElement>('#save-menu')!.hidden=true;
+  }
+
+  private async openTradeEvolution(serviceName: string): Promise<void> {
+    if (this.previewMode || this.navigationOpen || this.battleActive || !this.challengeServicePermitted('storage')) return;
+    this.completionActive = true;
+    const signal = this.presentationAbort.signal;
+    try {
+      const selected = await chooseItemEvolution({ method: 'trade', serviceName: `${serviceName} · Scambio assistito`,
+        save: this.save, rules: tradeEvolutionRules, species: battleSpecies, moves: battleMoves, signal });
+      if (!selected || signal.aborted) return;
+      const result = applyTradeEvolution(this.save, selected, tradeEvolutionRules, battleSpecies);
+      if (!result.ok) { this.showToast('Questo compagno non può evolversi tramite scambio.'); return; }
+      this.save = result.save;
+      if (!await ensureSavedProgress(() => this.persistProgress(), signal)) return;
+      await this.presentPendingEvolutions();
+    } finally { this.completionActive = false; }
   }
 
   private async openItemEvolution(itemId: string, creatureId?: string): Promise<void> {

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "versionGroup": "heartgold-soulsilver",
+  "note": "Official trade-trigger branches whose source and target are both National Dex 1–151; an NPC trade service can enable these in the single-player region.",
+  "rules": [
+    {
+      "fromSpeciesId": 64,
+      "toSpeciesId": 65
+    },
+    {
+      "fromSpeciesId": 67,
+      "toSpeciesId": 68
+    },
+    {
+      "fromSpeciesId": 75,
+      "toSpeciesId": 76
+    },
+    {
+      "fromSpeciesId": 93,
+      "toSpeciesId": 94
+    }
+  ],
+  "sourceManifest": "content/sources/pokeapi/evolution-manifest.json"
+}

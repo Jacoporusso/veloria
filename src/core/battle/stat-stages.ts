@@ -1,4 +1,4 @@
-import type { BattleCreature, BattleStat, DerivedBattleStat, MoveDefinition } from './types.ts';
+import type { BattleCreature, BattleStat, BattleWeather, DerivedBattleStat, MoveDefinition } from './types.ts';
 
 export const BATTLE_STATS: readonly BattleStat[] = ['attack', 'defense', 'specialAttack', 'specialDefense', 'speed', 'accuracy', 'evasion'];
 export const MIN_STAT_STAGE = -6;
@@ -12,11 +12,14 @@ export function effectiveStat(creature: BattleCreature, stat: DerivedBattleStat)
 }
 
 /** Gen IV applies accuracy and evasion stages separately, each bounded to -6..6. */
-export function effectiveMoveAccuracy(user: BattleCreature, target: BattleCreature, move: MoveDefinition): number {
+export function effectiveMoveAccuracy(user: BattleCreature, target: BattleCreature, move: MoveDefinition, weather?: BattleWeather, gravityActive = false): number {
   if (move.alwaysHits) return 100;
+  const gravityMultiplier = gravityActive ? 5 / 3 : 1;
+  const sandVeil = weather === 'sandstorm' && target.abilityId === 'sand-veil' ? 0.8 : 1;
+  if (move.ignoresAccuracyEvasionStages) return Math.min(100, move.accuracy * gravityMultiplier * (user.abilityId === 'compound-eyes' ? 1.3 : 1) * sandVeil);
   const multiplier = (stage: number) => {
     const bounded = Math.max(MIN_STAT_STAGE, Math.min(MAX_STAT_STAGE, stage));
     return bounded >= 0 ? (3 + bounded) / 3 : 3 / (3 - bounded);
   };
-  return Math.min(100, move.accuracy * multiplier(user.statStages?.accuracy ?? 0) / multiplier(target.statStages?.evasion ?? 0));
+  return Math.min(100, move.accuracy * gravityMultiplier * (user.abilityId === 'compound-eyes' ? 1.3 : 1) * multiplier(user.statStages?.accuracy ?? 0) / multiplier(target.statStages?.evasion ?? 0) * sandVeil);
 }

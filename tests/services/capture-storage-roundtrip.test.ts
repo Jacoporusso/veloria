@@ -16,7 +16,7 @@ const moves = moveData.moves as BattleMoveRegistry;
 const registries = { species, moves };
 
 test('full party capture, deposit and backup reload keep the new instance exactly once', () => {
-  const party = [25, 16, 19, 161, 163, 167].map((speciesId, index) => {
+  const party = [25, 16, 19, 21, 23, 46].map((speciesId, index) => {
     const creature = createBattleCreature({ ...registries, speciesId, level: 5, instanceId: `party-${index + 1}` });
     return {
       instanceId: creature.instanceId,

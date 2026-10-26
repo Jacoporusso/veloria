@@ -23,8 +23,10 @@ export type ExperienceCurve =
 export interface EvolutionTarget {
   readonly speciesId: number;
   readonly name: string;
+  readonly defaultAbilityId?: string;
   readonly types: readonly BattleType[];
   readonly baseStats: BattleBaseStats;
+  readonly weightKg?: number;
   readonly experienceYield: number;
   readonly growthCurveId?: string;
 }

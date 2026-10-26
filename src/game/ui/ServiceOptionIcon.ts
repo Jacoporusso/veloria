@@ -5,6 +5,7 @@ export type ServiceOptionIconKind =
   | 'pokeball'
   | 'rest'
   | 'storage'
+  | 'trade'
   | 'shop'
   | 'close'
   | 'challenge'
@@ -44,6 +45,8 @@ export function decorateServiceOption(button: HTMLButtonElement, kind: ServiceOp
     path('M8 32L24 7l5 3-16 25', 'line');
     path('M25 8h8v16a5 5 0 0 1-10 0v-2', 'line');
     path('M4 35h32', 'line');
+  } else if (kind === 'trade') {
+    path('M7 13h25m-7-7 7 7-7 7M33 27H8m7-7-7 7 7 7', 'line');
   } else if (kind === 'rotate') {
     path('M30 15a12 12 0 1 0 1 10M30 6v10H20', 'line');
   } else if (kind === 'potion') {

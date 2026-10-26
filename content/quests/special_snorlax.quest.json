@@ -1,0 +1,16 @@
+{
+  "id": "veloria/q_special_snorlax",
+  "version": 1,
+  "displayName": "Un incontro con Snorlax",
+  "steps": [
+    {
+      "id": "capture",
+      "trigger": "special/snorlax/captured",
+      "setFlag": "q_special_snorlax_caught",
+      "requiresFlags": [
+        "q_acquariva_report"
+      ]
+    }
+  ],
+  "completionFlag": "q_special_snorlax_caught"
+}

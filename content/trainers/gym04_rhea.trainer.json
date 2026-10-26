@@ -7,7 +7,7 @@
   "defeatQuestEvent": "battle/trainer_rhea/defeated",
   "rewardMoney": 1100,
   "victoryMessage": "Hai vinto contro Rhea. Ricevi 1100 ₿ e la Medaglia Acciaio.",
-  "victoryFeedback": "La Medaglia Acciaio è tua! Una Difesa alta non protegge allo stesso modo dagli attacchi speciali. Acqua e Fuoco possono aiutare contro Acciaio; Elettro funziona bene contro Skarmory, ma Steelix è immune. Hai trovato un percorso per la tua squadra. Conserviamo le rilevazioni: puoi ora raggiungere il Condotto dall’uscita est della parte bassa della piazza e indagare nella Centrale Risonante.",
+  "victoryFeedback": "La Medaglia Acciaio è tua! Una Difesa alta non protegge allo stesso modo dagli attacchi speciali. Fuoco aiuta contro Magnemite, Acqua contro Onix ed Elettro contro Aerodactyl; Onix invece è immune a Elettro. Hai trovato un percorso per la tua squadra. Puoi ora raggiungere il Condotto dall’uscita est della parte bassa della piazza e indagare nella Centrale Risonante.",
   "team": [
     {
       "speciesId": 81,
@@ -20,17 +20,17 @@
       ]
     },
     {
-      "speciesId": 227,
+      "speciesId": 142,
       "level": 21,
       "moveIds": [
-        "peck",
         "agility",
-        "fury-attack",
-        "sand-attack"
+        "roar",
+        "scary-face",
+        "bite"
       ]
     },
     {
-      "speciesId": 208,
+      "speciesId": 95,
       "level": 22,
       "moveIds": [
         "tackle",

@@ -1,4 +1,6 @@
-# Proposta — Veloria Gen I, disponibilità e ricompense Pokémon
+> Aggiornamento: l’utente ha autorizzato la migrazione completa in parallelo alla grafica, senza retrocompatibilità per i salvataggi Gen II. Il vincolo di sola discussione riportato nel contesto storico seguente è superato. Esecuzione e accettazione nel documento61.
+
+# Veloria Gen I, disponibilità e ricompense Pokémon
 
 Vincolo espresso dall’utente il 25/10/2026: prima lega Veloria dedicata alla prima generazione; città, regioni e leghe successive introdurranno le generazioni successive. Questa proposta raccoglie la discussione richiesta prima di cambiare la distribuzione. Non attesta implementazione del roster o disponibilità delle specie mancanti.
 

@@ -4,8 +4,12 @@ import type { BattleBaseStats, BattleCreature, BattleStats, BattleType, MoveDefi
 export interface SpeciesBattleDefinition {
   readonly speciesId: number;
   readonly name: string;
+  readonly defaultAbilityId?: string;
+  /** PokéAPI female ratio in eighths; -1 means genderless. */
+  readonly genderRate?: number;
   readonly types: readonly BattleType[];
   readonly baseStats: Omit<BattleStats, 'maxHp'> & { readonly hp: number };
+  readonly weightKg?: number;
   readonly experienceYield: number;
   readonly defaultMoveIds: readonly string[];
   /** Supported entries imported from the selected official version-group, never invented levels. */
@@ -64,9 +68,13 @@ export function createBattleCreature(options: CreateBattleCreatureOptions): Batt
     instanceId,
     speciesId,
     name: species.name,
+    abilityId: species.defaultAbilityId,
+    gender: species.genderRate === undefined || species.genderRate < 0 ? 'genderless'
+      : stableGender(instanceId, species.genderRate),
     level,
     types: [...species.types],
     baseStats: { ...species.baseStats },
+    weightKg: species.weightKg,
     growthCurveId: species.growthCurveId ?? 'veloria_medium_fast_v1',
     stats,
     hp: stats.maxHp,
@@ -74,6 +82,12 @@ export function createBattleCreature(options: CreateBattleCreatureOptions): Batt
     experienceYield: species.experienceYield,
     moves,
   };
+}
+
+function stableGender(instanceId: string, femaleRate: number): 'male' | 'female' {
+  let hash = 2166136261;
+  for (const character of instanceId) hash = Math.imul(hash ^ character.charCodeAt(0), 16777619) >>> 0;
+  return hash % 8 < femaleRate ? 'female' : 'male';
 }
 
 /** Rehydrates saved HP/experience/move IDs, capping legacy PP at the sourced maximum. */
@@ -112,7 +126,8 @@ function cloneSavedStatus(status: CreatureSave['status'], instanceId: string): B
   if (!['burn', 'poison', 'paralysis', 'sleep', 'freeze'].includes(status.status) ||
       (status.turnsRemaining !== undefined && (!Number.isInteger(status.turnsRemaining) || status.turnsRemaining < 1)) ||
       (status.status === 'sleep' && status.turnsRemaining === undefined) ||
-      (!isTimed && status.turnsRemaining !== undefined)) {
+      (!isTimed && status.turnsRemaining !== undefined) ||
+      (status.toxicCounter !== undefined && (status.status !== 'poison' || !Number.isInteger(status.toxicCounter) || status.toxicCounter < 1 || status.toxicCounter > 15))) {
     throw new Error(`Saved major status is invalid for creature ${instanceId}.`);
   }
   return { ...status };
