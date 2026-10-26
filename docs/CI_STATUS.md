@@ -1,3 +1,13 @@
+## 0.4.0 — Catalogo Gen I e lotto illustrato — 26 ottobre 2026
+
+Runtime `35a2365894cc4239dfa74ddcfbbee60bc25b17a9` pubblicato. [Verify40301261972](https://github.com/Jacoporusso/veloria/actions/runs/40301261972) SUCCESS: tutti21 job conclusi, inclusi progressione e risorse offline. [Deploy40304577265](https://github.com/Jacoporusso/veloria/actions/runs/40304577265) SUCCESS. Main aggiornato tramite fast-forward allo stesso commit verificato.
+
+Veloria contiene151 specie Gen I,370 mosse ufficiali apprese per livello senza omissioni, distribuzioni regionali, doni, fossili, incontri speciali ed evoluzioni a pietra/scambio. Nessuna conversione delle partite con Pokémon Gen II. Verifiche locali:765 test dominio,31 persistenza,140 Python; tutti151 artwork decodificati alla prima visita offline. Corretti testi con codifica corrotta e aggiornamento della cache delle immagini a nome invariato.
+
+Grafica: lotto R04–R07, Ferraluce/Vetracielo e cast con51 presenze verificate nei due orientamenti; camera ai bordi senza barre nere. I16 fondali nel manifest parity non certificano il completamento delle48 mappe: review complessiva e animazioni direzionali restano aperte. Prossime priorità individuate: Costa delle Turbine, Portolume, Acquariva.
+
+Sito pubblico verificato: pagina e artwork143/144/150/151 HTTP200; service worker `veloria-shell-v163`. La verifica avviata automaticamente dal push main è un'esecuzione aggiuntiva: l'attestazione completa sopra riguarda lo stesso identico commit già verificato prima della pubblicazione.
+
 ## 0.3.141 — Petalora, Salita dei Petali e quattro identità
 
 Nuovi fondali v3 per Petalora/R04 e atlante Sera/Timo/Rami/Enea. Catalogo 19 profili, 22 presenze; 29 presenze ancora da rifare. Movimento d’attesa lieve con piede ancorato, disattivato nelle animazioni ridotte; direzioni e animazioni complete restano aperte. Geometria, missioni e roster Pokémon invariati.
