@@ -16,7 +16,7 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
       save.party = save.party.filter(member => member.speciesId <= 151);
       save.storage = save.storage.filter(member => member.speciesId <= 151);
       save.flags = save.flags.filter(flag => !/^pokedex_(seen|caught)_\d+$/.test(flag) || Number(flag.split('_').at(-1)) <= 151);
-      save.flags.push('pokedex_seen_74', 'pokedex_seen_98');
+      save.flags = [...new Set([...save.flags, 'pokedex_seen_104', 'pokedex_seen_98', 'pokedex_seen_83'])];
       await saveGame(save);
     }, backup);
     await page.reload(); await enterGame(page);
@@ -24,7 +24,7 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
     await page.getByRole('button', { name: 'Apri il Pokédex' }).click();
     const panel = page.getByRole('dialog', { name: 'Pokédex', exact: true });
-    await panel.getByRole('button', { name: /Geodude.*VISTO/ }).click();
+    await panel.getByRole('button', { name: /Cubone.*VISTO/ }).click();
     const habitats = panel.getByRole('region', { name: 'Dove incontrarlo' });
     await expect(habitats.getByRole('article').first()).not.toContainText('Da esplorare');
     const conduit = habitats.getByRole('article').filter({ hasText: 'Condotto Risonante' });
@@ -32,19 +32,22 @@ for (const [width, height] of [[390, 844], [844, 390]]) {
     await expect(conduit).toContainText('Muschio occidentale');
     await expect(conduit).toContainText('Erba alta · Lv.18–21 · A ogni ora');
     await habitats.scrollIntoViewIfNeeded();
-    await page.screenshot({ path: info.outputPath(`wooper-habitats-${width}.png`) });
+    await page.screenshot({ path: info.outputPath(`cubone-habitats-${width}.png`) });
     await panel.getByRole('button', { name: '← Tutte le specie viste', exact: true }).click();
     await panel.getByRole('button', { name: /Krabby/ }).click();
     const coast = habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Pesca' });
     await expect(coast).toHaveCount(1);
     await expect(coast).toContainText('Postazione di pesca dalla riva');
     await expect(coast).toContainText('Pesca · Lv.20–23 · A ogni ora');
-    await expect(habitats.getByRole('article').filter({ hasText: 'Costa delle Turbine' }).filter({ hasText: 'Erba alta' })).toHaveCount(1);
+    const viaductHabitat = habitats.getByRole('article').filter({ hasText: 'Viadotto dei Ciliegi' }).filter({ hasText: 'Sottobosco' });
+    await expect(viaductHabitat).toHaveCount(1);
+    await expect(viaductHabitat).toContainText('Sponde del Viadotto, lato est');
+    await expect(viaductHabitat).toContainText('Sottobosco · Lv.12–14 · A ogni ora');
     await panel.getByRole('button', { name: '← Tutte le specie viste', exact: true }).click();
-    await panel.getByRole('button', { name: /Pikachu/ }).click();
+    await panel.getByRole('button', { name: /Farfetch’d/ }).click();
     const viaduct = habitats.getByRole('article').filter({ hasText: 'Viadotto dei Ciliegi' });
     await expect(viaduct).toHaveCount(1);
-    await expect(viaduct).toContainText('Giardino dei Binari, lato ovest · Lv.12–14 · A ogni ora');
+    await expect(viaduct).toContainText('Ciliegi e belvedere · Lv.11–13 · A ogni ora');
     await expect(viaduct).toContainText('Sponde del Viadotto, lato est · Lv.12–14 · A ogni ora');
     await viaduct.scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`pikachu-microhabitats-${width}.png`) });
@@ -186,7 +189,7 @@ test('both panels show level evolutions and final forms near the top of the deta
   for (const view of ['team', 'dex']) {
     for (const [id, name, requirement] of [
       [4, 'Charmander', 'Dal livello 16'], [10, 'Caterpie', 'Dal livello 7'], [12, 'Butterfree', 'Non ha ulteriori evoluzioni'],
-      [82, 'Magneton', 'Non ha ulteriori evoluzioni'], [95, 'Onix', 'Non ha ulteriori evoluzioni'], [142, 'Aerodactyl', 'Non ha ulteriori evoluzioni'],
+      [82, 'Magneton', 'Questa evoluzione appartiene a una generazione successiva a quella di Veloria.'], [95, 'Onix', 'Questa evoluzione appartiene a una generazione successiva a quella di Veloria.'], [142, 'Aerodactyl', 'Non ha ulteriori evoluzioni'],
       [72, 'Tentacool', 'Dal livello 30'], [73, 'Tentacruel', 'Non ha ulteriori evoluzioni'],
       [98, 'Krabby', 'Dal livello 28'], [99, 'Kingler', 'Non ha ulteriori evoluzioni'],
       [138, 'Omanyte', 'Dal livello 40'], [139, 'Omastar', 'Non ha ulteriori evoluzioni'],
@@ -200,6 +203,8 @@ test('both panels show level evolutions and final forms near the top of the deta
       const evolution = page.getByRole('region', { name: 'Evoluzione' });
       await expect(evolution).toContainText(requirement);
       await expect(evolution).not.toContainText('livello null');
+      if (id === 82) await expect(evolution).not.toContainText('Disponibile nel gioco');
+      if (id === 95) await expect(evolution).not.toContainText('Disponibile nel gioco');
 
 
       if (id === 133) {

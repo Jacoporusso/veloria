@@ -230,7 +230,7 @@ async function getMvpResourcePaths(): Promise<string[]> {
   const resources = new Set(['index.html', 'build-manifest.json', 'assets/ui/veloria-region-atlas-v1.webp']);
   for (const file of ['pokeapi-starter-artwork-v1.json', 'pokeapi-route-artwork-v1.json', 'pokeapi-evolution-artwork-v1.json', 'pokeapi-urban-artwork-v1.json']) {
     const artwork = JSON.parse(await readFile(new URL(`../../assets/${file}`, import.meta.url), 'utf8'));
-    for (const entry of artwork.artworks) resources.add(entry.path);
+    for (const entry of artwork.artworks) if (entry.speciesId <= 151) resources.add(entry.path);
   }
   for (const direction of ['down', 'up', 'left', 'right']) {
     resources.add(`assets/sprites/veloria-traveler-${direction}.png`);

@@ -14,16 +14,17 @@ def read(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
-def source_record(path):
+def source_record(path, root=ROOT):
     raw = path.read_bytes()
     stem = path.stem
     resource_id = stem.removeprefix('evolution-chain-') if stem.startswith('evolution-chain-') else stem.removeprefix('item-')
     kind = 'evolution-chain' if stem.startswith('evolution-chain-') else 'item'
     return {'url': f'https://pokeapi.co/api/v2/{kind}/{resource_id}/',
-            'path': path.relative_to(ROOT).as_posix(), 'sha256': hashlib.sha256(raw).hexdigest()}
+            'path': path.relative_to(root).as_posix(), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
 def build(root=ROOT):
+    source = root / 'content/sources/pokeapi'
     species = read(root / 'content/battle/species.v1.json')['species']
     if set(map(int, species)) != set(range(1, 152)):
         raise ValueError('Stone evolution import requires the exact Gen I runtime catalog.')
@@ -53,7 +54,9 @@ def build(root=ROOT):
 
     items = read(root / 'content/items/items.v1.json')['items']
     item_records = {}
-    for path in SOURCE.glob('item-*.json'):
+    # Numeric and named endpoints can cache the same item. Prefer the named
+    # snapshot deterministically, independent of filesystem enumeration order.
+    for path in sorted(source.glob('item-*.json')):
         raw = read(path)
         if raw.get('name') in used_items:
             item_records[raw['name']] = (path, raw)
@@ -65,7 +68,7 @@ def build(root=ROOT):
         italian = next((name['name'] for name in raw.get('names', []) if name['language']['name'] == 'it'), None)
         if raw['category']['name'] != 'evolution' or not italian or items.get(item_id, {}).get('name') != italian or items[item_id].get('evolutionStone') is not True:
             raise ValueError(f'Evolution item differs from its official source/runtime definition: {item_id}')
-        item_sources.append(source_record(path))
+        item_sources.append(source_record(path, root))
 
     chain_ids = set()
     for species_id in source_species:
@@ -73,10 +76,10 @@ def build(root=ROOT):
         chain_ids.add(int(raw['evolution_chain']['url'].rstrip('/').split('/')[-1]))
     sources = []
     for chain_id in sorted(chain_ids):
-        path = SOURCE / f'evolution-chain-{chain_id}.json'
+        path = source / f'evolution-chain-{chain_id}.json'
         if not path.exists():
             raise ValueError(f'Missing cached official evolution chain: {chain_id}')
-        sources.append(source_record(path))
+        sources.append(source_record(path, root))
     rules.sort(key=lambda rule: (rule['fromSpeciesId'], rule['toSpeciesId']))
     return {'version': 1, 'versionGroup': 'heartgold-soulsilver', 'rules': rules, 'sources': sources,
             'itemSources': item_sources}

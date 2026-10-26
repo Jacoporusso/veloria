@@ -2,11 +2,21 @@ import json
 import shutil
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 from tools.import_item_evolutions import ROOT, build
 
 
 class ItemEvolutionImportTest(unittest.TestCase):
+    def test_duplicate_item_endpoints_do_not_depend_on_filesystem_order(self):
+        expected = build()['itemSources']
+        original_glob = Path.glob
+        def reverse_items(path, pattern):
+            entries = list(original_glob(path, pattern))
+            return iter(reversed(entries)) if pattern == 'item-*.json' else iter(entries)
+        with patch.object(Path, 'glob', reverse_items):
+            self.assertEqual(build()['itemSources'], expected)
+
     def fixture(self):
         temp = tempfile.TemporaryDirectory(dir=ROOT / '.tmp')
         self.addCleanup(temp.cleanup)

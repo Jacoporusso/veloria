@@ -316,7 +316,7 @@ test('battle reveals evolution through a ceremony before showing the new sprite'
       evolutionQueued: scene.pendingMessages.some((message: any) => message.event?.type === 'creatureEvolved'),
       spriteTexture: image?.texture?.key, spriteFrame: image?.frame?.name,
     };
-  })).toEqual({ speciesId: 11, terminalEvolution: true, evolutionQueued: true, spriteTexture: 'veloria-creatures-3-v1', spriteFrame: 'species-10' });
+  })).toEqual({ speciesId: 11, terminalEvolution: true, evolutionQueued: true, spriteTexture: 'pokeapi-gen1-10-v1', spriteFrame: '__BASE' });
   const visibleLabels = await page.evaluate(() => {
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     return scene.ui.list.filter((child: any) => child.type === 'Text' && child.visible).map((child: any) => child.text).join(' ');
@@ -347,7 +347,7 @@ test('battle reveals evolution through a ceremony before showing the new sprite'
     const scene = (window as any).battleRulesFixture.scene.getScene('battle');
     const image = scene.actors.player.list.find((child: any) => child.type === 'Image');
     return { frame: image?.frame?.name, completions: (window as any).battleCompletionCount };
-  })).toEqual({ frame: 'species-11', completions: 1 });
+  })).toEqual({ frame: '__BASE', completions: 1 });
   expect(errors).toEqual([]);
 });
 
