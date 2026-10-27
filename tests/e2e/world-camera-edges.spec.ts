@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { collectMapCollision } from '../../src/core/world/map-collision';
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }, { width: 390, height: 1100 }]) {
-  for (const mapName of viewport.height === 1100 ? ['biancavetta'] : ['r04_salita_petali', 'r07_condotto_risonante', 'ferraluce', 'borgofonte_lab', 'biancavetta', 'r14_varco_cristallo', 'd05_grotte_cristallo', 'r15_passo_due_luci', 'concordia']) {
+  for (const mapName of viewport.height === 1100 ? ['biancavetta'] : ['r04_salita_petali', 'r07_condotto_risonante', 'ferraluce', 'borgofonte_lab', 'biancavetta', 'r14_varco_cristallo', 'd05_grotte_cristallo', 'r15_passo_due_luci', 'concordia', 'd06_santuario_due_luci']) {
     test(`painted camera edges stay covered in ${mapName} at ${viewport.width}x${viewport.height}`, async ({ page }, info) => {
       await page.setViewportSize(viewport);
       const metadata = JSON.parse(await readFile(`content/maps/${mapName}.map.json`, 'utf8'));

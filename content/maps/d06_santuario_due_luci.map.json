@@ -4,11 +4,6 @@
   "displayName": "Santuario delle Due Luci",
   "biomeId": "resonance_sanctuary",
   "tiledAsset": "tilemaps/d06_santuario_due_luci.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-sanctuary-two-lights-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -20,8 +15,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-sanctuary-two-lights-v1",
-      "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp"
+      "key": "veloria-d06_santuario_due_luci-illustrated-v3",
+      "path": "assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -62,5 +57,5 @@
     "veloria/q_sanctuary_restoration"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-sanctuary-two-lights-v1"
+  "battleBackgroundKey": "veloria-d06_santuario_due_luci-illustrated-v3"
 }

@@ -10,6 +10,11 @@ test('Sanctuary requires medal, readings, consent, verification and report; retu
  await page.goto('/');await enterGame(page);const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','q_concordia_restore_plan','q_r15_nature_read','q_r15_network_read'])];save.player={...save.player,mapId:'veloria/concordia',spawnPointId:'from_sanctuary',x:31,y:14,money:500};await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  await walkTo(page,'concordia.tmj',31,13);await expect(page.locator('#toast')).toContainText('Medaglia Armonia');expect((await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');
  const unlocked=await readBrowserSave(page);unlocked.flags.push('badge_drago_awarded');unlocked.badges.push('badge_armonia');unlocked.player={...unlocked.player,x:31,y:14};await seedBrowserSave(page,unlocked);await page.reload();await enterGame(page);await walkTo(page,'concordia.tmj',31,13);await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/d06_santuario_due_luci');
+ for(const [label,x,y] of [['natural',9,10],['network',21,10],['receiver',16,6],['elia',18,18]] as const){
+  await walkTo(page,'d06_santuario_due_luci.tmj',x,y);
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`sanctuary-${label}-${viewport.width}.png`)});}
+  await page.setViewportSize({width:390,height:844});
+ }
  await walkTo(page,'d06_santuario_due_luci.tmj',16,16);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await expect(page.getByRole('button',{name:'VERIFICA EQUILIBRIO',exact:true})).toBeHidden();await page.getByRole('button',{name:'CHIUDI',exact:true}).tap();
  await inspect(page,16,6);expect((await readBrowserSave(page)).flags).not.toContain('q_d06_receiver_confirmed');
  await inspect(page,21,10);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d06_network_read');await page.reload();await enterGame(page);await inspect(page,9,10);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d06_nature_read');

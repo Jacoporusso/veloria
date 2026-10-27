@@ -6,18 +6,18 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 38,
+    "mapsWithExplicitSceneryImage": 39,
     "mapsWithRegisteredSceneryPath": 42,
-    "mapsWithTerrainBase": 25,
+    "mapsWithTerrainBase": 24,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 23,
-    "mapsWithTerrainBaseOnly": 10,
+    "mapsWithSceneryImageOnly": 24,
+    "mapsWithTerrainBaseOnly": 9,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
     "registeredSceneryImageAssets": 42,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 10,
-    "mapsWithUnreferencedSceneryRegistration": 10,
-    "parityArtworkEntries": 31,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 9,
+    "mapsWithUnreferencedSceneryRegistration": 9,
+    "parityArtworkEntries": 32,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -4466,11 +4466,7 @@
         "height": 24
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-sanctuary-two-lights-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 0,
@@ -4478,26 +4474,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 2002,
+          "name": "Santuario illustrato",
+          "spriteKey": "veloria-d06_santuario_due_luci-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 32.0,
+            "height": 24.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 2002,
+          "name": "Santuario illustrato",
+          "spriteKey": "veloria-d06_santuario_due_luci-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 32.0,
+            "height": 24.0
+          },
+          "assetPath": "assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-sanctuary-two-lights-v1",
-          "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp",
+          "key": "veloria-d06_santuario_due_luci-illustrated-v3",
+          "path": "assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-sanctuary-two-lights-v1",
-          "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -4511,8 +4528,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-sanctuary-two-lights-v1",
-          "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp",
+          "key": "veloria-d06_santuario_due_luci-illustrated-v3",
+          "path": "assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -4535,9 +4552,31 @@
           "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "tiledAsset": "tilemaps/d06_santuario_due_luci.tmj",
+        "assetKey": "veloria-d06_santuario_due_luci-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-d06_santuario_due_luci-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp",
+        "sourceSha256": "37a674f609967ba8500b78c96b6f83016f5ec16454e3c5006111fde4ffb49363",
+        "runtimeSha256": "5b3af09bd49e47d261c8e987614cc45094a918fcc72e59109a3122738b28054d",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Production background for an illustrated 2D adventure game: Sanctuary of the Two Lights. Image1 is AUTHORITATIVE 1024x768 playable geometry (32x24 grid): TAN regions are unobstructed pale stone floor and must remain exactly open; blue-gray regions are blocked walls/garden/water/instrument footprints. Preserve exact 4:3 composition, all corridor widths, central floor notch and small square instrument cutouts. Image2 is old sanctuary CONCEPT reference only: overgrown ivory stone, teal natural light on west, violet technological crystal light on east, receiver at north, entry at bottom. Image3 is modern neighboring Concordia STYLE: modern painted 2D adventure illustration, rounded shapes, clear broad surfaces, warm limestone and turquoise, restrained low-contrast detail, soft flowers. Repaint the sanctuary to match this newer illustrated world. Fixed overhead orthographic layout, no isometric projection, no horizon, no foreground foliage concealing walking routes. Room floor from roughly x19-81%,y25-84%, with south doorway x44-56% continuing to bottom edge. Northern receiver lies x44-56%,y17-25%: an inset luminous wall receiver, no duplicate giant props below it; the runtime resonance light is drawn separately. Two station footprints x28-34%,y33-42% (natural, west) and x66-72%,y33-42% (network,east), draw small restrained inset instrument plinths ONLY within these cutouts, with unobstructed approaches directly south. Central console footprint near x50-53%,y62-67% stays an open socket or subtle flush plate because runtime console is drawn separately; no raised pedestal blocking surrounding paths. Keep floor under runtime Elia at58%,74% and runtime Mewtwo at67%,72% empty. The warm tan shapes in geometry reference are sacred walking floor; no water, railings, rocks, tree roots, plants, furniture, pillars or step faces there. Add at least20worldpx south clearance beneath tan edges for character foot anchor. Soft moss/fern borders, a flowing teal channel only in west blocked margin, restrained amethyst fragments only in east blocked margin, warm soft daylight. Flat readable paving with tiny inlaid two-light motif, not massive ornament. No people, creatures, Pokemon, text, labels, icons, arrows, grid, interface, borders, heavy gold frame, photorealism or 3D render. Final production background only.\n",
+        "references": [
+          "assets/prompts/d06-production-layout-v1.png",
+          "assets/sources/veloria-sanctuary-two-lights-v1.png",
+          "assets/sources/veloria-concordia-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/d06_santuario_due_luci-illustrated-v3.md",
+            "reason": "Modern illustrated 2D sanctuary from exact Tiled floor and instrument footprints; neighboring Concordia style."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [

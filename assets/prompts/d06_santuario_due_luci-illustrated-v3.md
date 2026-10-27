@@ -1,0 +1,16 @@
+# Santuario delle Due Luci — illustrazione 2D v3
+
+Built-in ImageGen, 27 ottobre 2026. PNG raw copiato senza crop o resize; unica conversione WebP lossless.
+
+Sorgente: `assets/sources/veloria-d06_santuario_due_luci-illustrated-v3.png` (1448×1086, SHA256 `37a674f609967ba8500b78c96b6f83016f5ec16454e3c5006111fde4ffb49363`).
+Runtime: `public/assets/scenery/veloria-d06_santuario_due_luci-illustrated-v3.webp` (SHA256 `5b3af09bd49e47d261c8e987614cc45094a918fcc72e59109a3122738b28054d`).
+Output selezionato: `exec-94c87c2a-cb72-4b20-9fc8-3d66acd24eef.png`.
+
+## Prompt di produzione e vincoli
+
+Production background for an illustrated 2D adventure game: Sanctuary of the Two Lights. Image1 is AUTHORITATIVE 1024x768 playable geometry (32x24 grid): TAN regions are unobstructed pale stone floor and must remain exactly open; blue-gray regions are blocked walls/garden/water/instrument footprints. Preserve exact 4:3 composition, all corridor widths, central floor notch and small square instrument cutouts. Image2 is old sanctuary CONCEPT reference only: overgrown ivory stone, teal natural light on west, violet technological crystal light on east, receiver at north, entry at bottom. Image3 is modern neighboring Concordia STYLE: modern painted 2D adventure illustration, rounded shapes, clear broad surfaces, warm limestone and turquoise, restrained low-contrast detail, soft flowers. Repaint the sanctuary to match this newer illustrated world. Fixed overhead orthographic layout, no isometric projection, no horizon, no foreground foliage concealing walking routes. Room floor from roughly x19-81%,y25-84%, with south doorway x44-56% continuing to bottom edge. Northern receiver lies x44-56%,y17-25%: an inset luminous wall receiver, no duplicate giant props below it; the runtime resonance light is drawn separately. Two station footprints x28-34%,y33-42% (natural, west) and x66-72%,y33-42% (network,east), draw small restrained inset instrument plinths ONLY within these cutouts, with unobstructed approaches directly south. Central console footprint near x50-53%,y62-67% stays an open socket or subtle flush plate because runtime console is drawn separately; no raised pedestal blocking surrounding paths. Keep floor under runtime Elia at58%,74% and runtime Mewtwo at67%,72% empty. The warm tan shapes in geometry reference are sacred walking floor; no water, railings, rocks, tree roots, plants, furniture, pillars or step faces there. Add at least20worldpx south clearance beneath tan edges for character foot anchor. Soft moss/fern borders, a flowing teal channel only in west blocked margin, restrained amethyst fragments only in east blocked margin, warm soft daylight. Flat readable paving with tiny inlaid two-light motif, not massive ornament. No people, creatures, Pokemon, text, labels, icons, arrows, grid, interface, borders, heavy gold frame, photorealism or 3D render. Final production background only.
+
+
+Riferimenti: `assets/prompts/d06-production-layout-v1.png`, `assets/sources/veloria-sanctuary-two-lights-v1.png`, `assets/sources/veloria-concordia-illustrated-v3.png`
+
+Collisioni, missioni, interazioni e uscite Tiled conservate. Sei casi browser e due produzione offline passati; prove e limiti in `docs/76_SANCTUARY_ILLUSTRATED_v0.1.md`. La sola integrazione non certifica il completamento.
