@@ -123,8 +123,10 @@ jobs:
         include:
           - suite: journey
             filter: --grep=E2E-06
-          - suite: resources
-            filter: --grep-invert=E2E-06
+          - suite: resources-1
+            filter: --grep-invert=E2E-06 --shard=1/2
+          - suite: resources-2
+            filter: --grep-invert=E2E-06 --shard=2/2
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -138,6 +140,9 @@ jobs:
           python-version: '3.12'
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Verify offline shard coverage
+        if: matrix.suite == 'resources-1'
+        run: node tools/check_offline_shard_coverage.mjs
       - name: Test complete cached adventure
         timeout-minutes: 20
         run: npm run test:e2e:offline -- --workers=1 ${{ matrix.filter }}
