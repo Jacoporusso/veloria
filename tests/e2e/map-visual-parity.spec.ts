@@ -44,14 +44,37 @@ test('illustrated maps render and retain visible world objects in portrait and l
     await page.setViewportSize(viewport);
     for (const map of mapDefinitions) {
       await openMap(page, map.metadata.id);
-      const result = await page.evaluate(({ destinationNames, assetKey }: { destinationNames: string[]; assetKey: string }) => {
+      const result = await page.evaluate(async ({ destinationNames, assetKey }: { destinationNames: string[]; assetKey: string }) => {
         const game = (window as any).__mapParityGame;
         const world = game.scene.keys.world;
         const metadata = world.map.metadata;
         const tiled = world.mapLayer.list;
         const backgroundAsset = metadata.renderAssets.find((asset: any) => asset.key === assetKey);
-        const image = tiled.find((item: any) => item.type === 'Image' && item.texture.key === backgroundAsset?.key && item.width > 0 && item.name !== 'map-edge-backdrop');
-        const source = image && world.textures.get(image.texture.key).getSourceImage() as HTMLImageElement;
+        const composed = metadata.terrainBase?.assetKey === assetKey;
+        const image = composed
+          ? tiled.find((item: any) => item.type === 'RenderTexture' && item.depth === -10)
+          : tiled.find((item: any) => item.type === 'Image' && item.texture.key === assetKey && item.width > 0 && item.name !== 'map-edge-backdrop');
+        const source = backgroundAsset && world.textures.get(assetKey).getSourceImage() as HTMLImageElement;
+        const decoded = source instanceof HTMLImageElement && source.complete && source.naturalWidth > 0 && source.naturalHeight > 0;
+        const rasterSamples: boolean[] = [];
+        if (composed && image && decoded) {
+          // The base image is drawn into a RenderTexture and then destroyed.
+          // Compare actual GPU pixels with the decoded source, rather than
+          // requiring the temporary Image to survive composition.
+          const width = world.renderedMap.width * 32, height = world.renderedMap.height * 32;
+          const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+          const context = canvas.getContext('2d')!;
+          context.drawImage(source, 0, 0, width, height);
+          for (const [fx, fy] of [[.25, .25], [.5, .5], [.75, .75]]) {
+            const x = Math.floor(width * fx), y = Math.floor(height * fy);
+            const expected = context.getImageData(x, y, 1, 1).data;
+            const actual = await new Promise<any>(resolve => image.snapshotPixel(x, y, resolve));
+            rasterSamples.push(actual.alpha >= 250 &&
+              Math.abs(actual.red - expected[0]) <= 12 &&
+              Math.abs(actual.green - expected[1]) <= 12 &&
+              Math.abs(actual.blue - expected[2]) <= 12);
+          }
+        }
         const npcInteractables = world.renderedMap.interactables.filter((item: any) => item.kind === 'npc');
         const npcSprites = npcInteractables.map((npc: any) => tiled.some((item: any) => item.type === 'Image' && item.texture.key === npc.properties.sprite));
         const exitLabels = tiled.filter((item: any) => item.type === 'Text' && destinationNames.includes(String(item.text).split('\n')[0]));
@@ -59,7 +82,7 @@ test('illustrated maps render and retain visible world objects in portrait and l
           mapWidth: world.renderedMap.width * 32, mapHeight: world.renderedMap.height * 32,
           assetKey: backgroundAsset?.key,
           imageFound: Boolean(image), imageBounds: image && { x: image.x, y: image.y, width: image.displayWidth, height: image.displayHeight },
-          decoded: Boolean(source?.complete && source.naturalWidth > 0 && source.naturalHeight > 0),
+          decoded, composed, rasterSamples,
           textureExists: Boolean(backgroundAsset && world.textures.exists(backgroundAsset.key)),
           npcCount: npcInteractables.length, npcSprites,
           exitCount: world.renderedMap.triggers.filter((trigger: any) => trigger.kind === 'map-exit' && trigger.destinationMapId).length,
@@ -70,6 +93,7 @@ test('illustrated maps render and retain visible world objects in portrait and l
       expect(result.textureExists, map.stem).toBe(true);
       expect(result.decoded, map.stem).toBe(true);
       expect(result.imageFound, map.stem).toBe(true);
+      if (result.composed) expect(result.rasterSamples, map.stem).toEqual([true, true, true]);
       expect(result.imageBounds.x, map.stem).toBe(0);
       expect(result.imageBounds.y, map.stem).toBe(0);
       // Phaser computes display sizes through scale; non-integral source

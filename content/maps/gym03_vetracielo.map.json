@@ -44,6 +44,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aster-idle-south-v1",
+      "path": "assets/sprites/veloria-aster-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aster-idle-west-v1",
+      "path": "assets/sprites/veloria-aster-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aster-idle-east-v1",
+      "path": "assets/sprites/veloria-aster-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aster-idle-north-v1",
+      "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
     }
   ],
   "spawns": [

@@ -4,6 +4,43 @@ import {readBrowserSave,seedBrowserSave,walkTo} from './helpers/world-navigation
 import {tapBattleLabel} from './helpers/battle-touch';
 import {sequence,confirm,finishDialogue,seedLeague,portal,startAttempt,challengeOpponent,finishLeagueBattle,closeVictory} from './helpers/league';
 const names=['Nerea','Silvo','Brando','Luce','Enea'];
+
+test('Silvo chamber keeps its boundary approaches, real battle and next-stage transition usable in both orientations', async ({page}, info) => {
+ test.setTimeout(process.env.CI ? 240_000 : 180_000);
+ const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+ const save=await seedLeague(page);
+ // A completed first stage is a checkpoint fixture, not a claim of natural campaign balance.
+ save.flags=[...new Set([...save.flags,sequence.activeFlag,sequence.stages[0].attemptWonFlag,sequence.stages[0].firstRewardFlag,sequence.stages[0].battleOnceFlag])];
+ save.player={...save.player,mapId:sequence.stages[1].mapId,spawnPointId:'from_entry',x:15,y:21};
+ await seedBrowserSave(page,save);await page.reload();await enterGame(page);
+ const before=await readBrowserSave(page);
+ expect(before.player.mapId).toBe('veloria/league_council02');
+ for(const [x,y] of [[6,6],[25,6],[25,19],[6,19],[15,21]] as const){
+  await walkTo(page,'league_council02.tmj',x,y);
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){
+   await page.setViewportSize(viewport);
+   await page.screenshot({path:info.outputPath(`silvo-floor-${x}-${y}-${viewport.width}.png`)});
+  }
+  await page.setViewportSize({width:390,height:844});
+ }
+ await page.reload();await enterGame(page);
+ const after=await readBrowserSave(page);
+ expect(after.player.mapId).toBe(before.player.mapId);
+ for(const key of ['party','inventory','rngState','badges'] as const)expect(after[key]).toEqual(before[key]);
+ expect(after.player.money).toBe(before.player.money);
+ await challengeOpponent(page,1);
+ await expect.poll(()=>page.evaluate(()=>{
+  const scene=(window as any).leagueGame.scene.keys.battle;
+  return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-league_council02-illustrated-v3')??false;
+ })).toBe(true);
+ await page.screenshot({path:info.outputPath('silvo-arena.png')});
+ await finishLeagueBattle(page);await closeVictory(page,'Silvo');
+ expect((await readBrowserSave(page)).player.money).toBe(before.player.money+3000);
+ await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm(page).tap();
+ await page.getByRole('button',{name:'PROSEGUI ALLA PROSSIMA PROVA',exact:true}).tap();
+ await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe(sequence.stages[2].mapId);
+ expect(errors).toEqual([]);
+});
 test('League requires all badges; abort resets attempts, repeated wins pay once, all five fights complete and epilogue persists',async({page},info)=>{
  test.setTimeout(process.env.CI?900_000:600_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await seedLeague(page,false,true);await portal(page);await expect(page.locator('#dialogue-box')).toBeVisible();await expect(page.getByRole('button',{name:'INIZIA IL TENTATIVO',exact:true})).toBeHidden();await finishDialogue(page);const save=await readBrowserSave(page);save.badges=sequence.requiredBadgeIds;await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  await startAttempt(page);

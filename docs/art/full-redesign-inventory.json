@@ -17,7 +17,7 @@
     "registeredSceneryImageAssets": 46,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 41,
+    "parityArtworkEntries": 42,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -911,6 +911,26 @@
         "kind": "image",
         "key": "veloria-dalia-idle-north-v1",
         "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-south-v1",
+        "path": "assets/sprites/veloria-aster-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-west-v1",
+        "path": "assets/sprites/veloria-aster-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-east-v1",
+        "path": "assets/sprites/veloria-aster-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-north-v1",
+        "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -918,6 +938,10 @@
       "veloria-ada-idle-north-v2",
       "veloria-ada-idle-south-v2",
       "veloria-ada-idle-west-v2",
+      "veloria-aster-idle-east-v1",
+      "veloria-aster-idle-north-v1",
+      "veloria-aster-idle-south-v1",
+      "veloria-aster-idle-west-v1",
       "veloria-cast-opening-and-champion-v1",
       "veloria-centrale-technician-v1",
       "veloria-coastal-cast-v1",
@@ -1209,6 +1233,26 @@
         "kind": "image",
         "key": "veloria-dalia-idle-north-v1",
         "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-south-v1",
+        "path": "assets/sprites/veloria-aster-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-west-v1",
+        "path": "assets/sprites/veloria-aster-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-east-v1",
+        "path": "assets/sprites/veloria-aster-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aster-idle-north-v1",
+        "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1477,12 +1521,45 @@
         "npcIds": [
           "aster_gym"
         ],
-        "assetKey": "veloria-gym-leaders-a-v1",
-        "frame": 2,
+        "assetKey": "veloria-aster-idle-south-v1",
         "narrativeSource": "content/trainers/gym03_aster.trainer.json",
         "origin": {
-          "x": 0.6116,
-          "y": 0.9553
+          "x": 0.54856,
+          "y": 0.9681
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-aster-idle-south-v1",
+            "origin": {
+              "x": 0.54856,
+              "y": 0.9681
+            },
+            "displaySize": 58.3555
+          },
+          "left": {
+            "assetKey": "veloria-aster-idle-west-v1",
+            "origin": {
+              "x": 0.52856,
+              "y": 0.9707
+            },
+            "displaySize": 59.15818
+          },
+          "right": {
+            "assetKey": "veloria-aster-idle-east-v1",
+            "origin": {
+              "x": 0.51384,
+              "y": 0.97917
+            },
+            "displaySize": 58.63395
+          },
+          "up": {
+            "assetKey": "veloria-aster-idle-north-v1",
+            "origin": {
+              "x": 0.51299,
+              "y": 0.9681
+            },
+            "displaySize": 58.71399
+          }
         }
       },
       {
@@ -6075,6 +6152,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aster-idle-south-v1",
+          "path": "assets/sprites/veloria-aster-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aster-idle-west-v1",
+          "path": "assets/sprites/veloria-aster-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aster-idle-east-v1",
+          "path": "assets/sprites/veloria-aster-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aster-idle-north-v1",
+          "path": "assets/sprites/veloria-aster-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6140,11 +6245,11 @@
           "profileMatch": "gym-leader-aster",
           "narrativeSpeaker": "Aster",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-a-v1",
-          "spriteFrame": 2,
+          "sprite": "veloria-aster-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.6116,
-            "y": 0.9553
+            "x": 0.54856,
+            "y": 0.9681
           },
           "trainerId": "veloria/trainer_aster_gym03",
           "battleOnceFlag": "trainer_gym03_aster_defeated",
@@ -7381,7 +7486,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-league-council02-v1",
+        "assetKey": "veloria-league_council02-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -7397,8 +7502,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-council02-v1",
-          "path": "assets/scenery/veloria-league-council02-v1.webp",
+          "key": "veloria-league_council02-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council02-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7406,8 +7511,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-league-council02-v1",
-          "path": "assets/scenery/veloria-league-council02-v1.webp",
+          "key": "veloria-league_council02-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council02-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7436,8 +7541,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-council02-v1",
-          "path": "assets/scenery/veloria-league-council02-v1.webp",
+          "key": "veloria-league_council02-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council02-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7454,8 +7559,30 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/league_council02",
+        "tiledAsset": "tilemaps/league_council02.tmj",
+        "assetKey": "veloria-league_council02-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_council02-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_council02-illustrated-v3.webp",
+        "sourceSha256": "37b796ae6f6130b40d1b3db7d20136e9851c0d4dce8b2182a0ed1751e61c1ed8",
+        "runtimeSha256": "e1b681a6a3543c2eba6f839a80539cc187b6d6949bd69ab690743db4b79894ea",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Edit target Image1 is a TECHNICAL MATERIAL BLOCKOUT for Silvo's botanical League council room in Veloria. Refine into finished modern hand-painted2D game scenery, preserving EXACTLY the silhouette of pale limestone versus blocked botanical border. Image2 is authoritative geometry, tan=pale floor, bluegray=blocked nature/architecture. Main floor must start25% down the image and extend to85.9375% of imageheight, x18.75%-81.25%, straight squared edges. South exit is narrow central strip x43.75%-56.25% and continues to bottom. Do not widen or shorten the main floor, do not move its top edge upward. Image3 supplies thematic identity ONLY: lush green trees and intertwined roots, white/lilac flowers, airy stained mint glass, warm dappled sunlight and ivory greenhouse architecture. Replace all repeated miniature windows inImage1 with coherent original botanics, tree trunks and glass ONLY in the blocked perimeter, outside the exact pale mask. No water/cascades: this room is a green arboretum, not an aquatic room. The main floor is quiet flat warm limestone with subtle nonrepeating slab texture; no giant gold medallion or heavy gold frames. Keep all roots, foliage, columns and railings outside playable pale mask. No inward-curved rails, side paths, pale floor in blocked side bands, extra north opening or large stair dais. North blocked band may have an ornamental stained-glass botanical wall, but no traversable-looking doorway. South is the only actual exit. Silvo at tile16,7 and runtime challenge console18,19 omitted, leave flat unmarked stone under both. No painted consoles, command plates, devices, people,Pokemon,text,UI or grid. Opaque fullbleed4:3landscape orthographic north-up modern illustrated2D, no3D/isometric/pixelart. Geometry follows Image1 and2, not Image3's too-wide floor.",
+        "references": [
+          "assets/prompts/league02-production-layout-v1.png",
+          "assets/prompts/league02-exact-material-reference.png",
+          "assets/sources/veloria-league-council02-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_council02-illustrated-v3.md",
+            "reason": "Align visible floor with actual collision and preserve botanical theme; console and NPC remain runtime objects."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -14133,11 +14260,11 @@
       "profileMatch": "gym-leader-aster",
       "narrativeSpeaker": "Aster",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-a-v1",
-      "spriteFrame": 2,
+      "sprite": "veloria-aster-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.6116,
-        "y": 0.9553
+        "x": 0.54856,
+        "y": 0.9681
       },
       "trainerId": "veloria/trainer_aster_gym03",
       "battleOnceFlag": "trainer_gym03_aster_defeated",

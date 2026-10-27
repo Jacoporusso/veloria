@@ -998,6 +998,29 @@
           "reason": "Align visible floor edges to actual collision; leave opponent and challenge terminal to runtime rendering."
         }
       ]
+    },
+    {
+      "mapId": "veloria/league_council02",
+      "tiledAsset": "tilemaps/league_council02.tmj",
+      "assetKey": "veloria-league_council02-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-league_council02-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-league_council02-illustrated-v3.webp",
+      "sourceSha256": "37b796ae6f6130b40d1b3db7d20136e9851c0d4dce8b2182a0ed1751e61c1ed8",
+      "runtimeSha256": "e1b681a6a3543c2eba6f839a80539cc187b6d6949bd69ab690743db4b79894ea",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Edit target Image1 is a TECHNICAL MATERIAL BLOCKOUT for Silvo's botanical League council room in Veloria. Refine into finished modern hand-painted2D game scenery, preserving EXACTLY the silhouette of pale limestone versus blocked botanical border. Image2 is authoritative geometry, tan=pale floor, bluegray=blocked nature/architecture. Main floor must start25% down the image and extend to85.9375% of imageheight, x18.75%-81.25%, straight squared edges. South exit is narrow central strip x43.75%-56.25% and continues to bottom. Do not widen or shorten the main floor, do not move its top edge upward. Image3 supplies thematic identity ONLY: lush green trees and intertwined roots, white/lilac flowers, airy stained mint glass, warm dappled sunlight and ivory greenhouse architecture. Replace all repeated miniature windows inImage1 with coherent original botanics, tree trunks and glass ONLY in the blocked perimeter, outside the exact pale mask. No water/cascades: this room is a green arboretum, not an aquatic room. The main floor is quiet flat warm limestone with subtle nonrepeating slab texture; no giant gold medallion or heavy gold frames. Keep all roots, foliage, columns and railings outside playable pale mask. No inward-curved rails, side paths, pale floor in blocked side bands, extra north opening or large stair dais. North blocked band may have an ornamental stained-glass botanical wall, but no traversable-looking doorway. South is the only actual exit. Silvo at tile16,7 and runtime challenge console18,19 omitted, leave flat unmarked stone under both. No painted consoles, command plates, devices, people,Pokemon,text,UI or grid. Opaque fullbleed4:3landscape orthographic north-up modern illustrated2D, no3D/isometric/pixelart. Geometry follows Image1 and2, not Image3's too-wide floor.",
+      "references": [
+        "assets/prompts/league02-production-layout-v1.png",
+        "assets/prompts/league02-exact-material-reference.png",
+        "assets/sources/veloria-league-council02-v1.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/league_council02-illustrated-v3.md",
+          "reason": "Align visible floor with actual collision and preserve botanical theme; console and NPC remain runtime objects."
+        }
+      ]
     }
   ]
 }
