@@ -1,3 +1,9 @@
+## Verifica dopo0.4.17 — Percorso completo delle grotte in CI
+
+Audit della traccia: il ritorno avanza ancora prima del cutoff300s; l’ultimo read è censurato dalla fine del test e non prova uno stallo di IndexedDB. Budget complessivo del solo percorso portato a480s in CI,300s locale; tragitto e aspettative conservati. Tocco normale per ruolo/nome limitato a8s dentro il pad, controllo del cambio di posizione persistita ancora a8s. Nessun polling/cache nuovo nel gioco. [Misure, motivazione e limiti](83_CRYSTAL_CI_JOURNEY_BUDGET_v0.1.md).
+
+Locale: sei casi passati su console/percorso/ritorno e ghiaccio; due prove offline passate su P4 e R16/Piazzale con risorse e ritorno. Build passata; discovery350 casi verificata. Runtime e cache pubblica invariati v180. Nuova CI da attestare; nessuna dichiarazione di risoluzione definitiva del timeout prima del suo esito.
+
 ## 0.4.17 — Palestre Vetracielo e Ferraluce illustrate
 
 Due fondali dalla geometria effettiva, mantenendo console, linee e circuito nel runtime. Primi candidati corretti per rimuovere false placche. P3 ulteriormente rifinita dopo una review browser che mostrava i piedi sulla balaustra: pavimento esteso dalla geometria Tiled e fascia esterna rifinita. Collisioni e puzzle invariati. [Asset, iterazioni, verifiche e limiti](82_VETRACIELO_FERRALUCE_GYMS_ILLUSTRATED_v0.1.md).

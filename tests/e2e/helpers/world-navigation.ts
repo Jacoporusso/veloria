@@ -33,7 +33,7 @@ export async function walkDirection(page: Page, direction: 'up'|'down'|'left'|'r
   const labels={up:'Vai in alto',down:'Vai in basso',left:'Vai a sinistra',right:'Vai a destra'};
   const before=(beforeSave ?? await readBrowserSave(page)).player;
   let observed: GameSave;
-  await page.getByRole('button',{name:labels[direction],exact:true}).tap();
+  await page.locator('.dpad').getByRole('button',{name:labels[direction],exact:true}).tap({timeout:8_000});
   await expect.poll(async()=>{
     observed=await readBrowserSave(page);
     const p=observed.player;

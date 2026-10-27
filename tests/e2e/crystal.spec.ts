@@ -27,7 +27,9 @@ test('cavern console explains prerequisites, preserves partial adjustments and r
  await solve(page);await page.setViewportSize({width:390,height:844});await page.screenshot({path:info.outputPath('crystal-console-portrait.png')});
 });
 test('Brina gates the crystal bridge; all cavern readings and report persist with a complete walking return',async({page},info)=>{
- test.setTimeout(300_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ // CI trace40468192040 reaches the final return at300s after ~260 directional
+ // taps. Keep the whole journey; per-step touch and saved-position guards stay8s.
+ test.setTimeout(process.env.CI ? 480_000 : 300_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await checkpoint(page,'veloria/biancavetta','from_r14',38,15,[]);
  await page.getByRole('button',{name:'Vai a destra',exact:true}).tap();await expect(page.locator('#toast')).toContainText('Medaglia Brina');
  const save=await readBrowserSave(page);save.flags.push('badge_ghiaccio_awarded');save.badges.push('badge_brina');await seedBrowserSave(page,save);await page.reload();await enterGame(page);
@@ -46,6 +48,8 @@ test('Brina gates the crystal bridge; all cavern readings and report persist wit
  const before=await readBrowserSave(page);await inspect(page,'r14_varco_cristallo.tmj',29,12);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_report');
  const reward=await readBrowserSave(page);expect(reward.player.money).toBe(before.player.money+700);expect(reward.inventory.potion??0).toBe((before.inventory.potion??0)+2);
  await a(page).tap();await dialogue(page);expect((await readBrowserSave(page)).player.money).toBe(reward.player.money);await page.screenshot({path:info.outputPath('crystal-report.png')});
- await walkTo(page,'r14_varco_cristallo.tmj',0,16,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');await page.reload();await enterGame(page);
- expect((await readBrowserSave(page)).flags).toContain('q_d05_report');expect(errors).toEqual([]);
+ await test.step('Complete the walking return from R14 and verify the saved report after reload', async()=>{
+  await walkTo(page,'r14_varco_cristallo.tmj',0,16,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');await page.reload();await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain('q_d05_report');expect(errors).toEqual([]);
+ });
 });
