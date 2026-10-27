@@ -46,6 +46,11 @@ test('Vetracielo lines, Aster and the third medal persist without duplicate rewa
   }
   async function inspect(x: number, y: number, name: string) {
     await walkTo(page, 'gym03_vetracielo.tmj', x, y + 2); await walkDirection(page, 'up');
+    for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+      await page.setViewportSize(viewport);
+      await page.screenshot({ path: info.outputPath(`gym03-${x}-${y}-${viewport.width}.png`) });
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.getByRole('button', { name: 'Conferma e interagisci' }).click();
     await expect(page.locator('#dialogue-speaker')).toHaveText(name);
   }

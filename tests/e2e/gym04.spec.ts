@@ -50,6 +50,12 @@ test('Ferraluce lift gates on the report; magnetic orientations persist and conn
   await expect(page.locator('.journey-heading')).toHaveText('Il circuito magnetico');
   for (const [index, id] of ['field', 'first', 'second'].entries()) {
     const node = router.nodes.find(node => node.id === id)!;
+    await walkTo(page, 'gym04_ferraluce.tmj', node.x, node.y + 1);
+    for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+      await page.setViewportSize(viewport);
+      await page.screenshot({ path: info.outputPath(`gym04-${id}-${viewport.width}.png`) });
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
     await inspect(page, node.x, node.y);
     await expect(page.locator('#dialogue-text')).toContainText('Direzione:');
     await page.getByRole('button', { name: 'RUOTA', exact: true }).click();

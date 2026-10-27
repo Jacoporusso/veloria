@@ -33,8 +33,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-gym04-magnetic-room-v1",
-      "path": "assets/sprites/veloria-gym04-magnetic-room-v1.webp"
+      "key": "veloria-gym04_ferraluce-illustrated-v3",
+      "path": "assets/scenery/veloria-gym04_ferraluce-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -71,5 +71,5 @@
     "quest/gym04_badge"
   ],
   "musicId": "gym01_theme",
-  "battleBackgroundKey": "veloria-gym04-magnetic-room-v1"
+  "battleBackgroundKey": "veloria-gym04_ferraluce-illustrated-v3"
 }

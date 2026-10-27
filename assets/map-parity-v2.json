@@ -823,6 +823,61 @@
           "reason": "Modern illustrated 2D League forecourt from exact service and portal geometry; no false east exit."
         }
       ]
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "tiledAsset": "tilemaps/gym03_vetracielo.tmj",
+      "assetKey": "veloria-gym03_vetracielo-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-gym03_vetracielo-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-gym03_vetracielo-illustrated-v3.webp",
+      "sourceSha256": "1372312ca746669965408d3d2a7bc40848731f910b62c79f649d613cd615f52a",
+      "runtimeSha256": "c4fe583d65180f73dcd4cf416ec36fcaed738d3b813ff9edcf42c6f68b3ad397",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Production background for Veloria's Vetracielo rooftop gym, modern illustrated 2D children's adventure game. OUTPUT SQUARE1:1 matching Image1, not landscape. Image1 is AUTHORITATIVE960x960 floor geometry (30x30 tiles): tan is unobstructed warm pale ceramic walking floor, blue-gray is blocked architecture/gardens. Preserve every tan footprint and the20worldpx south foot margin. Three small interior blue cutouts are occupied by RUNTIME console sprites; keep these as simple flush floor sockets, no baked controls. Image2 is OLD CONCEPT only: elevated rail garden, turquoise glass, trains beyond rooftop. Image3 is updated Concordia STYLE: warm painted illustration, softly rounded architecture, clear broad surfaces, lush restrained flowers, modern bright adventurous feel. Repaint substantially in this lighter modern illustrated style. Fixed overhead orthographic adventure-game view, north up, NOT isometric, no strong perspective vanishing point. Keep tan geometry from Image1 EXACTLY: clear floor starts around y30%, interior x13-87% with broad side bays, south open floor spans x13-87%,y70-88%; south exit walkway x43-60% continues below this through bottom edge. North center is a decorative rooftop pavilion in BLOCKED region; no usable map exit north. Reserve empty runtime Aster standing area at x51.67%,y36.98%, with clear approach south at x51.67%,y40.3%. Runtime rail console centers: line1 gardens x25%,y80.3%; line2 glass x78.33%,y66.98%; line3 sky x51.67%,y53.65%. NO figures, plinths, rails, text or foliage over these cutouts or their south approaches. No permanent colored connections on walking floor: line activation state is drawn by the game. Background can include pale cyan ceramic and restrained ivory inlaid shapes, no harsh tile grid. Scenic monorail tracks and a small sleek train are allowed ONLY in blocked north beyond the playable floor, with softly painted sky-city garden terraces around outer edges. Keep all tan floor open; don't round path edges inward. No heavy gold railings or raised barriers on walkable edge cells, no gigantic gold floor emblem, no furniture on floor. No characters, creatures, text, letters, labels, numbers, logos, UI, signs, arrows, colored geometry, borders, photoreal or 3D render. Opaque final production background only.",
+      "references": [
+        "assets/prompts/gym03-production-layout-v1.png",
+        "public/assets/sprites/veloria-gym03-rooftop-v1.webp",
+        "assets/sources/veloria-concordia-illustrated-v3.png",
+        "assets/prompts/gym03-exact-floor-reference.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/gym03_vetracielo-illustrated-v3.md",
+          "reason": "Modern illustrated gym from exact floor geometry; remove fake socket markers, preserve runtime puzzle devices and state."
+        },
+        {
+          "promptDocument": "assets/prompts/gym03_vetracielo-illustrated-v3.md",
+          "reason": "Native review found player feet on the painted southwest railing; extend floor from exact Tiled geometry before ImageGen refinement."
+        },
+        {
+          "promptDocument": "assets/prompts/gym03_vetracielo-illustrated-v3.md",
+          "reason": "Finish the lower platform fascia outside the unchanged walking floor; remove old curved rail remnants."
+        }
+      ]
+    },
+    {
+      "mapId": "veloria/gym04_ferraluce",
+      "tiledAsset": "tilemaps/gym04_ferraluce.tmj",
+      "assetKey": "veloria-gym04_ferraluce-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-gym04_ferraluce-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-gym04_ferraluce-illustrated-v3.webp",
+      "sourceSha256": "4d48c58749ae85e4098f94142dd60e8b895be910b12f63dfe2778b630286f860",
+      "runtimeSha256": "befe32d37aac3d857845416a10f4a06b03db78297bff1efd44c6ad786ee526e9",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Production background for Veloria's Ferraluce magnetic gym, modern illustrated 2D children's adventure game. OUTPUT4:3 landscape matching Image1 (1024x768,32x24 tiles). Image1 is AUTHORITATIVE exact floor geometry: tan must remain continuous unobstructed pale ceramic/limestone floor, blue-gray is blocked room walls and equipment margins. Preserve all tan edges including20worldpx south foot margin. Tiny interior blue cutouts are occupied by RUNTIME puzzle hardware, not invitation to add scenery obstacles: leave small flush neutral sockets there, without baking arrows, circuitry, buttons or consoles. Image2 is OLD ROOM CONCEPT only: friendly sustainable magnetic engineering atelier, silver/ivory/cyan materials, lilac coils, broad arched windows and potted greenery. Image3 is updated Concordia illustrated STYLE reference: warm modern painted 2D, rounded shapes, clear broad surfaces, restrained details and readable silhouettes. Reinterpret workshop in this lighter coherent style, no photoreal shine or 3D diorama. Fixed overhead orthographic north-up view; no isometric diamond or strong receding perspective. Exact playable floor: central rectangular expanse x9.375-90.625%, y33.33-94.27%, with centered south entrance x37.5-62.5% continuing to bottom edge. Keep north wall/equipment entirely above y33.33%; narrow side walls outside x9.375-90.625%. Six occupied footprints source(6,15), first(10,15), second(20,15), field(20,8), receiver(10,8), Rhea(15,10) on32x24 grid. All interaction sprites and luminous routing lines are runtime; background MUST NOT draw any routing/conveyor track, electrical arrow, center switches, source/receiver machines or NPC. Preserve empty ground for Rhea at x48.44%,y46.22% and approach directly south. Pale ivory floor with soft cyan accents, large quiet painted slabs, subtle cast daylight; induction coils only at far north corners in blocked region, silver/turquoise roof braces, lilac highlights, potted plants only on blocked perimeter. No yellow/gold-heavy borders, no raised barriers on tan cells, no edge vegetation hiding passable floor. No people, Pokemon, text, letters, numbers, UI, signs, icons, grid or geometry colors. Opaque whole-frame production background, not isolated transparent cutout.",
+      "references": [
+        "assets/prompts/gym04-production-layout-v1.png",
+        "public/assets/sprites/veloria-gym04-magnetic-room-v1.webp",
+        "assets/sources/veloria-concordia-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/gym04_ferraluce-illustrated-v3.md",
+          "reason": "Modern illustrated gym from exact floor geometry; remove fake socket markers, preserve runtime puzzle devices and state."
+        }
+      ]
     }
   ]
 }
