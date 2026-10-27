@@ -24,6 +24,11 @@ test('D05 opens R15 and Concordia; observations, explicit plan, medicine purchas
  await inspect(page,'r15_passo_due_luci.tmj',29,19);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_r15_network_read');await page.reload();await enterGame(page);
  await inspect(page,'r15_passo_due_luci.tmj',17,4);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_r15_nature_read');
  await walkTo(page,'r15_passo_due_luci.tmj',39,9,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');
+ for(const [label,x,y] of [['healing',8,11],['market',13,12],['station',20,24],['sanctuary',31,14],['league-sign',37,17]] as const){
+  await walkTo(page,'concordia.tmj',x,y,{avoidEncounters:true});
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`concordia-${label}-${viewport.width}.png`)});}
+  await page.setViewportSize({width:390,height:844});
+ }
  await walkTo(page,'concordia.tmj',20,4,{avoidEncounters:true});await expect(page.locator('#toast')).toContainText('Elia');
  await walkTo(page,'concordia.tmj',29,11,{avoidEncounters:true});await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await untilChoices(page);
  await page.getByRole('button',{name:'Rivediamo le misure',exact:true}).tap();await dialogue(page);expect((await readBrowserSave(page)).flags).not.toContain('q_concordia_restore_plan');

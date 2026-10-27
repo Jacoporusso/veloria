@@ -1280,7 +1280,7 @@ test('P8 relays, crystal and dragon resources, and Concordia rail work offline',
  const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'tutorial_habitat_seen','q_starter_selected','q_concordia_restore_plan','q_d05_report','badge_circuito_awarded','badge_ghiaccio_awarded','q_concordia_visited','q_vetracielo_visited','atlas_visited_veloria/concordia','atlas_visited_veloria/vetracielo'])];save.badges=[...new Set([...save.badges,'badge_circuito','badge_brina'])];save.player={...save.player,mapId:'veloria/gym08_concordia',spawnPointId:'from_city',x:15,y:22};await seedBrowserSave(page,save);
  const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/gym08_concordia');
  const decoded=await page.evaluate(async()=>{
-  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp',
+  const images=['assets/scenery/veloria-concordia-illustrated-v3.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp',
    'assets/creatures/pokeapi-dragon-116-v1.webp','assets/creatures/pokeapi-dragon-117-v1.webp','assets/creatures/pokeapi-dragon-147-v1.webp',
    'assets/creatures/pokeapi-dragon-148-v1.webp','assets/creatures/pokeapi-dragon-149-v1.webp','assets/creatures/pokeapi-gen1-130-v1.webp'];
   const imageResults=await Promise.all(images.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>100&&image.naturalHeight>100;}));

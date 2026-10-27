@@ -3299,6 +3299,11 @@
               "name": "message",
               "type": "string",
               "value": "Cure e deposito al Centro Pokémon di Concordia."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "heal"
             }
           ]
         },
@@ -3327,6 +3332,11 @@
               "name": "message",
               "type": "string",
               "value": "Rifornimenti per il viaggio."
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "shop"
             }
           ]
         },
@@ -3584,11 +3594,40 @@
       "opacity": 1,
       "visible": true,
       "draworder": "topdown",
-      "objects": []
+      "objects": [
+        {
+          "id": 173,
+          "name": "Concordia illustrata",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-concordia-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ]
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 173,
+  "nextobjectid": 174,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

@@ -4,11 +4,6 @@
   "displayName": "Concordia",
   "biomeId": "convergence_city",
   "tiledAsset": "tilemaps/concordia.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-concordia-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -20,8 +15,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-concordia-v1",
-      "path": "assets/scenery/veloria-concordia-v1.webp"
+      "key": "veloria-concordia-illustrated-v3",
+      "path": "assets/scenery/veloria-concordia-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -105,5 +100,5 @@
     "veloria/q_concordia_research"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-concordia-v1"
+  "battleBackgroundKey": "veloria-concordia-illustrated-v3"
 }
