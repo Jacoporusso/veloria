@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { collectIceTiles, iceSlideContinues } from '../../src/core/world/ice-movement.ts';
 import { tryGridMove, type CardinalDirection, type GridPoint } from '../../src/core/world/grid-movement.ts';
+import { collectMapCollision } from '../../src/core/world/map-collision.ts';
 
 interface Layout {
   grid: { width: number; height: number; tileSize: number };
@@ -62,6 +63,24 @@ function reachableStops(start: GridPoint): Map<string, GridPoint> {
 function canReachExit(start: GridPoint): boolean {
   return reachableStops(start).has(key(layout.exit));
 }
+
+test('runtime ice gym rectangles match the designed maze, with only the completed gate removed', () => {
+  const tiled = JSON.parse(readFileSync(new URL('../../public/tilemaps/gym07_biancavetta.tmj', import.meta.url), 'utf8'));
+  const objects = tiled.layers.find((layer: any) => layer.name === 'collision').objects;
+  assert.deepEqual([...collectIceTiles(tiled.layers.find((layer: any) => layer.name === 'movement_surfaces').objects, width, height)].sort(), [...ice].sort());
+  const closed = collectMapCollision(objects, width, height, []);
+  assert.deepEqual([...closed].sort(), [...blocked].sort(), 'runtime must use the complete design walls, not single-cell anchors');
+  const open = collectMapCollision(objects, width, height, ['gym07_ice_complete']);
+  const expectedOpen = new Set(blocked);
+  for (let x = 14; x <= 18; x++) expectedOpen.delete(`${x},2`);
+  assert.deepEqual([...open].sort(), [...expectedOpen].sort());
+  assert.equal(closed.size, 462);
+  assert.equal(open.size, 457);
+  const markers = tiled.layers.find((layer: any) => layer.name === 'decorations').objects.filter((o: any) => o.properties?.some((p: any) => p.name === 'kind' && p.value === 'quest-sigil'));
+  assert.deepEqual(markers.map((o: any) => ({ x: o.x / 32, y: o.y / 32,
+    flag: o.properties.find((p: any) => p.name === 'activatedFlag').value })),
+    layout.sigils.map(sigil => ({ ...sigil.landing, flag: `gym07_ice_${sigil.id}` })));
+});
 
 test('Gym07 draft solution in JSON reaches each sigil using complete forced slides', () => {
   assert.deepEqual(layout.sigils.map(sigil => sigil.id), ['west', 'center', 'east']);

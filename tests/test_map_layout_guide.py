@@ -2,7 +2,7 @@ import copy
 import unittest
 import xml.etree.ElementTree as ET
 
-from tools.generate_map_layout_guide import BLOCKED, FLOOR, HABITAT, generate_svg
+from tools.generate_map_layout_guide import BLOCKED, FLOOR, HABITAT, ICE, generate_svg
 
 
 def rectangle(x, y, width=32, height=32, kind=None):
@@ -50,6 +50,23 @@ class MapLayoutGuideTest(unittest.TestCase):
         self.tiled["layers"][0]["objects"][0]["rotation"] = 45
         with self.assertRaises(ValueError):
             generate_svg(self.tiled)
+
+    def test_ambiguous_custom_collision_dimensions_are_rejected(self):
+        self.tiled["layers"][0]["objects"][0]["properties"] = [dict(name="width", value=3)]
+        with self.assertRaisesRegex(ValueError, "Tiled rectangle fields"):
+            generate_svg(self.tiled)
+
+    def test_ice_stays_on_free_surface_cells_without_recoloring_dry_landings(self):
+        surface = rectangle(0, 0, 32, 64)
+        surface["properties"] = [dict(name="surface", value="ice")]
+        self.tiled["layers"].append(dict(name="movement_surfaces", type="objectgroup", objects=[surface]))
+        original = copy.deepcopy(self.tiled)
+        svg = generate_svg(self.tiled)
+        self.assertEqual(self.color_at(svg, 16, 16), ICE)
+        self.assertEqual(self.color_at(svg, 16, 33), FLOOR)  # foot margin, not another ice cell
+        self.assertEqual(self.color_at(svg, 16, 55), BLOCKED)
+        self.assertEqual(self.color_at(svg, 48, 16), FLOOR)
+        self.assertEqual(self.tiled, original)
 
 
 if __name__ == "__main__":

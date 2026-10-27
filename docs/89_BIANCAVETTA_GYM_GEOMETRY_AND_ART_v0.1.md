@@ -1,0 +1,21 @@
+# Biancavetta — collisioni reali e fondale illustrato
+
+L'adeguamento grafico ha rilevato un difetto del labirinto:78 rettangoli di collisione conservavano dimensioni in celle nelle proprietà descrittive, ma il Tiled esponeva rettangoli32×32px. Il runtime legge correttamente i rettangoli in pixel, quindi permetteva di attraversare parti dei muri previsti dal progetto.
+
+Il confronto con il layout parametrico conferma462 celle solide col cancello chiuso e457 col cancello aperto, contro83 precedenti. Corretti i rettangoli sia nel Tiled pubblico sia nel Tiled di authoring; coordinate, superfici ghiaccio, sigilli, console, NPC e ordine/requisiti dei flag conservati. La scansione delle48 mappe trova questo errore solo in P7. Nessun adattamento del renderer per interpretare proprietà dimensionali ambigue.
+
+Un test dominio confronta cella per cella collisioni e ghiaccio del runtime con il progetto. Conservati i test della soluzione, del ritorno da ogni fermata raggiungibile e dell'impossibilità di raggiungere sigilli camminando soltanto sul terreno asciutto. Validatore e generatore delle guide rifiutano ora custom properties width/height nelle collisioni, prevenendo un nuovo export ambiguo.
+
+Nuovo fondale raw1448×1086: `assets/sources/veloria-gym07_biancavetta-illustrated-v3.png`, output ImageGen `exec-b290bcff-547a-4b67-a0db-241a4f9ced9b.png`; WebP lossless omonimo in `public/assets/scenery/`, pixel RGBA identici. Prompt/iterazioni e hash nei rispettivi manifest. Il primo candidato era basato sul riferimento precedente alla diagnosi e viene rifiutato. Il riferimento materiali definitivo usa i rettangoli corretti; edit separati rifiniscono rocce/ostacoli e superfici di ghiaccio/pietra. Il composito tecnico non diventa artwork finale.
+
+`terrainBase` e arena battaglia condividono la nuova chiave. Il validatore di provenienza accetta il vero collegamento terreno base, controllando tileset, GID e dati ground; continua a verificare i bounds per scenery-image e a rifiutare duplicati. La guida tecnica distingue ghiaccio e piazzole asciutte senza estendere le superfici scivolose oltre le loro celle.
+
+Tre sigilli vettoriali runtime sono collegati ai flag della missione: fiocco prima dell'attivazione e spunta dopo, riconoscibili anche senza il solo colore. Sono decorazioni del pavimento, non ostacoli o comandi extra. Il nuovo fondale omette icone, console e cancelli dipinti; le tre destinazioni restano quindi visibili e aggiornate in base ai progressi reali.
+
+La prova nativa percorre le tre piste con scivolamento forzato, reload parziale, console/cancello, sfida Nives, arena aggiornata, medaglia, premio unico e ritorno. Fixture forte per integrazione, non bilanciamento naturale. Controlli camera ai bordi nei due orientamenti. Il recupero di un salvataggio precedentemente fermo in una nuova cella murata usa il fallback già esistente all'ingresso: coordinate salvate corrette, progressi/squadra/dotazioni conservati, nuova visita all'atlante registrata regolarmente. Nessuna ripartenza da zero richiesta.
+
+Verifiche locali:788 dominio +31 persistenza passati;153 test Python passati. Prima discovery Python in sandbox interrotta da WinError5 sulla cartella temporanea; ripetizione con temp isolata nel workspace e fuori sandbox completata. Quattro casi nativi distinti passati: percorso P7 completo con tre marker aggiornati, recupero vecchia posizione e due casi camera. La prima aspettativa del recupero ignorava il nuovo flag di visita all'atlante; corretta senza cambiare il gioco. Log `.tmp/gym07-sigils-final.log`, `.tmp/gym07-save-recovery.log`, `.tmp/gym07-final-native.log` per camera.
+
+Due prove produzione offline passate: prima visita alle tre piste con scivolate complete, reload parziale, sigilli, console/cancello e ritorno33,6s; prima decodifica dei38 fondali non iniziali3,2s. Review del marker con spunta dopo attivazione confermata anche nella schermata offline. Build passata; validatore687 asset/39 fondali/48 mappe passato. Discovery361 casi browser assegnati esattamente una volta,41 risorse offline distribuite21+20. Log `.tmp/gym07-offline.log`.
+
+Pubblicazione in CI_STATUS.md. Cache prevista v185/contenuti0.4.22. Revisione complessiva delle48 mappe,45 profili direzionali, cicli di camminata e campagna naturale ancora aperti.

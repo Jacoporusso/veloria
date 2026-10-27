@@ -69,6 +69,36 @@ def _image_dimensions(path: Path) -> tuple[int, int]:
     raise AssertionError(f"Could not read PNG/WebP dimensions: {path}")
 
 
+def validate_full_map_binding(metadata, tiled, asset_key, map_id):
+    """Validate scenery and/or terrainBase without inventing a duplicate scenery layer."""
+    whole_map = [obj for layer in tiled.get("layers", []) if layer.get("name") == "decorations"
+                 for obj in layer.get("objects", [])
+                 if (obj.get("class") or obj.get("type") or _properties(obj).get("kind")) == "scenery-image"
+                 and _properties(obj).get("sprite") == asset_key]
+    terrain = metadata.get("terrainBase", {})
+    terrain_matches = terrain.get("assetKey") == asset_key
+    if len(whole_map) > 1 or not (whole_map or terrain_matches):
+        raise AssertionError(f"Expected one full-map scenery and/or terrainBase binding for {map_id}")
+    if terrain_matches:
+        name, index = terrain.get("tilesetName"), terrain.get("tileIndex")
+        declared = [asset for asset in metadata.get("renderAssets", [])
+                    if asset.get("kind") == "tileset" and asset.get("tiledName") == name]
+        tilesets = [tileset for tileset in tiled.get("tilesets", []) if tileset.get("name") == name]
+        grounds = [layer for layer in tiled.get("layers", []) if layer.get("name") == "ground" and layer.get("type") == "tilelayer"]
+        if len(declared) != 1 or len(tilesets) != 1 or len(grounds) != 1 or type(index) is not int or index < 0:
+            raise AssertionError(f"Invalid full-map terrainBase tileset/ground binding for {map_id}")
+        gid = tilesets[0].get("firstgid", 0) + index
+        data = grounds[0].get("data", [])
+        if gid < 1 or len(data) != tiled["width"] * tiled["height"] or any(tile not in (0, gid) for tile in data):
+            raise AssertionError(f"Full-map terrainBase may only replace its declared ground tile for {map_id}")
+    if whole_map:
+        background = whole_map[0]
+        if (background.get("x") != 0 or background.get("y") != 0 or
+                abs(background.get("width", 0) - tiled["width"] * tiled["tilewidth"]) > 1 or
+                abs(background.get("height", 0) - tiled["height"] * tiled["tileheight"]) > 1):
+            raise AssertionError(f"Full-map artwork bounds do not cover the world for {map_id}")
+
+
 def validate_map_parity_art(repository_root: Path) -> int:
     """Validate manifest hashes, dimensions, map bindings, registry and precache."""
     root = repository_root.resolve()
@@ -159,18 +189,7 @@ def validate_map_parity_art(repository_root: Path) -> int:
         actual_aspect = source_size[0] / source_size[1]
         if abs(actual_aspect / expected_aspect - 1) > 0.005:
             raise AssertionError(f"Artwork aspect ratio differs from map world by more than 0.5%: {map_id}")
-        whole_map = [
-            obj for layer in tiled.get("layers", []) if layer.get("name") == "decorations"
-            for obj in layer.get("objects", [])
-            if (obj.get("class") or obj.get("type") or _properties(obj).get("kind")) == "scenery-image" and _properties(obj).get("sprite") == asset_key
-        ]
-        if len(whole_map) != 1:
-            raise AssertionError(f"Expected one full-map scenery image binding for {map_id}")
-        background = whole_map[0]
-        if (background.get("x") != 0 or background.get("y") != 0 or
-                abs(background.get("width", 0) - tiled["width"] * tiled["tilewidth"]) > 1 or
-                abs(background.get("height", 0) - tiled["height"] * tiled["tileheight"]) > 1):
-            raise AssertionError(f"Full-map artwork bounds do not cover the world for {map_id}")
+        validate_full_map_binding(metadata, tiled, asset_key, map_id)
 
         for path in (source_path, runtime_path):
             row = registered.get(path.resolve())

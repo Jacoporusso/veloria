@@ -245,6 +245,20 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
   if (item.properties.visualBaked === true && item.kind !== 'fishing-spot') return;
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    case 'quest-sigil': {
+      const cx = x + item.width / 2, cy = y + item.height / 2;
+      const marker = attach(container, scene.add.graphics().setDepth(-1).setName('quest-sigil-marker')
+        .setData('activatedFlag', item.properties.activatedFlag).setData('activated', active));
+      marker.fillStyle(active ? 0x207e88 : 0x214a68, active ? .75 : .12).fillCircle(cx, cy, 13);
+      marker.lineStyle(1.5, active ? 0xc1ffed : 0x49758b, 1).strokeCircle(cx, cy, 13);
+      marker.lineStyle(2, active ? 0xf0fff8 : 0x49758b, 1);
+      if (active) marker.beginPath().moveTo(cx - 6, cy).lineTo(cx - 1, cy + 5).lineTo(cx + 7, cy - 6).strokePath();
+      else for (let ray = 0; ray < 6; ray++) {
+        const angle = ray * Math.PI / 3;
+        marker.lineBetween(cx, cy, cx + Math.cos(angle) * 8, cy + Math.sin(angle) * 8);
+      }
+      break;
+    }
     case 'fishing-spot': {
       // One shared ground marker per authored spot; it never blocks movement.
       const cx = x + item.width / 2, cy = y + item.height / 2 + 19;

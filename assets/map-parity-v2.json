@@ -930,6 +930,29 @@
           "reason": "Reject false or contracted walkways; preserve exact floor/water geometry and refine materials only."
         }
       ]
+    },
+    {
+      "mapId": "veloria/gym07_biancavetta",
+      "tiledAsset": "tilemaps/gym07_biancavetta.tmj",
+      "assetKey": "veloria-gym07_biancavetta-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-gym07_biancavetta-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-gym07_biancavetta-illustrated-v3.webp",
+      "sourceSha256": "ef4c78f54f5fa7ddef409f24bfc27fdf109ff06bc351bf32a45776592dfae235",
+      "runtimeSha256": "e156a9edfb176e3fa6026ff72fe65ff8fa4cc4dd7944aa49f1bb3481c3206cca",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Production background for Veloria Biancavetta ice gym, modern illustrated2D adventure game. Opaque4:3 landscape full rectangular map. Image1 is AUTHORITATIVE exact geometry: tan=unobstructed dry warm ivory stone; pale cyan=slippery flat ICE (NOT water); blue-gray=solid snow-rock perimeter and separators. Preserve all three colors' relative footprints and every squared corner, north landing, southern walkway and entrance. Image2 is OLD CONCEPT for identity/style only: luminous winter conservatory, azure ice-glass vault, snowy rock gardens, restrained lavender crystals, amber lanterns. Reinterpret this as crisp detailed hand-painted2D, quieter readable surfaces, lighter paths, no pixel art, photorealistic3D or isometric view. Fixed overhead north-up. Three ice lanes strictly at x18.75%-31.25%,x40.625%-59.375%,x68.75%-84.375%, all y20.833%-70.833%. Dry north landings and southern foyer exactly as tan geometry, do not round them inward or shrink foot margins. Dry south walkway connects all three mouths at y70.833%-83.33%, then a centered narrow entry stem to bottom edge; Image1 governs steps/notches. Every tan cell has20worldpx south foot clearance, keep free of rails/plants. Only ONE actual ice obstruction exists: a small low frosted rock/crystal at tile24,10 (right lane), confined to that exact footprint. NO central-lane crystal obstruction: the old image's central purple cluster was false and MUST be removed. The solid side separators between lanes can be snowy rocks and tiny conifers, do not spill onto cyan ice or dry landings. Runtime draws all three sigils, their activation, the console at tile18,3, gate acrossx14-18,y2, and leader at16,1: omit these entirely from image. No pedestal, round symbol plates, stars drawn on floor, gate bars, arrows, route markings, controls, NPC or Pokemon. North edge closes with ice-glass wall, no false north door; only actual south entrance is open. Pale turquoise ice with delicate elongated frost and subtle soft cracks, dry stone distinctly matte cream, gentle amber light on blocked margins. Keep middle north dais at its exact footprint with no decorative rim over walking floor. No text, UI, numbers, grid, geometry colors, empty black border or huge gold trim. Entire production background, not transparent cutout.",
+      "references": [
+        "assets/prompts/gym07-production-layout-v1.png",
+        "assets/prompts/gym07-exact-material-reference.png",
+        "assets/sources/veloria-gym07-ice-v1.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/gym07_biancavetta-illustrated-v3.md",
+          "reason": "Match corrected collision rectangles and ice surfaces; preserve runtime gate, sigils and console."
+        }
+      ]
     }
   ]
 }

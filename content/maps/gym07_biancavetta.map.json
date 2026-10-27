@@ -24,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-gym07-ice-v1",
-      "path": "assets/scenery/veloria-gym07-ice-v1.webp"
+      "key": "veloria-gym07_biancavetta-illustrated-v3",
+      "path": "assets/scenery/veloria-gym07_biancavetta-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -59,9 +59,9 @@
   ],
   "scriptRefs": [],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-gym07-ice-v1",
+  "battleBackgroundKey": "veloria-gym07_biancavetta-illustrated-v3",
   "terrainBase": {
-    "assetKey": "veloria-gym07-ice-v1",
+    "assetKey": "veloria-gym07_biancavetta-illustrated-v3",
     "tilesetName": "veloria_terrain",
     "tileIndex": 0
   }

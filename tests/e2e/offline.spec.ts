@@ -16,12 +16,51 @@ import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-che
 import { selectWildEncounter } from '../../src/core/encounters/select-encounter.ts';
 import { exportSave } from '../../src/persistence/save-backup.ts';
 import { newGameSave } from '../../src/persistence/save-store.ts';
+import { walkIceTo } from './helpers/ice-navigation';
 import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' with { type: 'json' };
 
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
 
 test.use({ reducedMotion: 'reduce' });
+
+test('Biancavetta illustrated ice gym completes three forced-slide lanes and opens its gate on a first offline visit', async ({ page, context }, info) => {
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('gym07_biancavetta-illustrated-v3.webp')))).toBe(false);
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'badge_riflesso_awarded', 'q_passobrina_report'])];
+  save.player = { ...save.player, mapId: 'veloria/gym07_biancavetta', spawnPointId: 'from_city', x: 15, y: 22 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect(await page.evaluate(async () => {
+    const image = new Image(); image.src = '/assets/scenery/veloria-gym07_biancavetta-illustrated-v3.webp';
+    await image.decode(); return [image.naturalWidth, image.naturalHeight];
+  })).toEqual([1448, 1086]);
+  for (const [x, flag] of [[24, 'gym07_ice_east'], [8, 'gym07_ice_west'], [16, 'gym07_ice_center']] as const) {
+    await walkIceTo(page, 'gym07_biancavetta.tmj', x, 3);
+    await expect.poll(async () => (await readBrowserSave(page)).flags).toContain(flag);
+    if (x === 8) { await page.reload(); await enterGame(page); }
+  }
+  expect((await readBrowserSave(page)).flags).not.toContain('gym07_ice_complete');
+  await walkIceTo(page, 'gym07_biancavetta.tmj', 17, 3);
+  await page.getByRole('button', { name: 'Vai a destra', exact: true }).tap();
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await action.tap();
+  for (let i = 0; i < 24 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+  await expect(page.locator('#dialogue-box')).toBeHidden();
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('gym07_ice_complete');
+  await walkIceTo(page, 'gym07_biancavetta.tmj', 16, 2);
+  await page.screenshot({ path: info.outputPath('biancavetta-gate-offline.png') });
+  await page.reload(); await enterGame(page);
+  await walkIceTo(page, 'gym07_biancavetta.tmj', 15, 22);
+  await walkDirection(page, 'down');
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');
+  expect(failures).toEqual([]);
+});
 
 test('Acquariva illustrated reflection gym aligns on its first offline visit and returns after reload', async ({ page, context }, info) => {
   test.setTimeout(process.env.CI ? 240_000 : 120_000);

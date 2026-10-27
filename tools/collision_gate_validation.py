@@ -7,6 +7,7 @@ def validate_collision_gates(objects, quest_flags):
         props = {item['name']: item.get('value') for item in raw} if isinstance(raw, list) else raw
         if not isinstance(props, dict):
             continue
+        assert not {'width', 'height'} & props.keys(), 'Collision dimensions must use Tiled rectangle fields, not custom properties'
         for field in ('blocksUntilFlag', 'blocksWhenFlag'):
             if field not in props:
                 continue

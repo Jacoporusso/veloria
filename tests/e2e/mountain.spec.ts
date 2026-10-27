@@ -1,10 +1,7 @@
 import {expect,test,type Page} from '@playwright/test';
-import {readFileSync} from 'node:fs';
 import {enterGame} from './helpers/enter-game';
 import {readBrowserSave,seedBrowserSave,walkTo} from './helpers/world-navigation';
-import {collectMapCollision} from '../../src/core/world/map-collision.ts';
-import {collectIceTiles,iceSlideContinues} from '../../src/core/world/ice-movement.ts';
-import {tryGridMove,type CardinalDirection} from '../../src/core/world/grid-movement.ts';
+import {planIceRoute} from './helpers/ice-navigation';
 import species from '../../content/battle/species.v1.json' with {type:'json'};
 import moves from '../../content/battle/moves.v1.json' with {type:'json'};
 import {createBattleCreature} from '../../src/core/battle/create-creature.ts';
@@ -24,19 +21,7 @@ async function checkpoint(page:Page,mapId:string,spawnPointId:string,x:number,y:
  await seedBrowserSave(page,save);await page.reload();await enterGame(page);
 }
 async function iceTo(page:Page,x:number,y:number){
- const map=JSON.parse(readFileSync('public/tilemaps/gym07_biancavetta.tmj','utf8'));const save=await readBrowserSave(page);
- const blocked=collectMapCollision(map.layers.find((l:any)=>l.name==='collision').objects,map.width,map.height,save.flags);
- const ice=collectIceTiles(map.layers.find((l:any)=>l.name==='movement_surfaces').objects,map.width,map.height);
- const start={x:save.player.x!,y:save.player.y!};const key=(p:{x:number;y:number})=>`${p.x},${p.y}`;
- const queue=[start],previous=new Map<string,{from:string;direction:CardinalDirection;point:{x:number;y:number}}>();const seen=new Set([key(start)]);
- for(let i=0;i<queue.length&&!seen.has(`${x},${y}`);i++)for(const direction of ['up','down','left','right'] as const){
-  const first=tryGridMove(queue[i],direction,map.width,map.height,blocked);if(!first.moved)continue;
-  let point=first.position;while(iceSlideContinues(point,direction,map.width,map.height,blocked,ice))point=tryGridMove(point,direction,map.width,map.height,blocked).position;
-  if(point.y===23||seen.has(key(point)))continue;seen.add(key(point));queue.push(point);previous.set(key(point),{from:key(queue[i]),direction,point});
- }
- expect(seen.has(`${x},${y}`),'reachable ice landing').toBe(true);
- const route=[];for(let k=`${x},${y}`;k!==key(start);){const step=previous.get(k)!;route.push(step);k=step.from;}
- for(const step of route.reverse()){
+ for(const step of await planIceRoute(page,'gym07_biancavetta.tmj',x,y)){
   await page.getByRole('button',{name:labels[step.direction],exact:true}).tap();
   await expect.poll(()=>page.evaluate(()=>{const w=(window as any).mountainGame.scene.keys.world;return {x:w.playerTile.x,y:w.playerTile.y,moving:w.moving,sliding:w.slidingDirection};}),{intervals:[50,100]}).toEqual({...step.point,moving:false,sliding:null});
  }
@@ -51,6 +36,13 @@ test('P7 three real ice lanes persist through reload and the console opens Nives
  await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  for(const [x,y,flag]of [[24,3,'gym07_ice_east'],[8,3,'gym07_ice_west'],[16,3,'gym07_ice_center']]as const){
   await iceTo(page,x,y);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain(flag);
+  expect(await page.evaluate(flag=>{
+   const markers=(window as any).mountainGame.scene.keys.world.mapLayer.list.filter((item:any)=>item.name==='quest-sigil-marker');
+   return {count:markers.length,active:markers.find((item:any)=>item.getData('activatedFlag')===flag)?.getData('activated')};
+  },flag)).toEqual({count:3,active:true});
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){
+   await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`ice-landing-${x}-${viewport.width}.png`)});
+  }
   if(flag==='gym07_ice_west'){await page.reload();await enterGame(page);}
  }
  expect((await readBrowserSave(page)).flags).not.toContain('gym07_ice_complete');
@@ -61,14 +53,34 @@ test('P7 three real ice lanes persist through reload and the console opens Nives
  await page.getByRole('button',{name:labels.up,exact:true}).tap();await confirm(page).tap();
  for(let i=0;i<12&&!await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible();i++)await confirm(page).tap();
  await page.getByRole('button',{name:'SFIDA',exact:true}).tap();
+ await expect.poll(()=>page.evaluate(()=>{
+  const scene=(window as any).mountainGame.scene.keys.battle;
+  return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-gym07_biancavetta-illustrated-v3')??false;
+ })).toBe(true);
+ await page.screenshot({path:info.outputPath('p7-battle-background.png')});
  await fightWithTouch(page,'mountainGame',{6:'Lanciafiamme'});
  const banner=page.getByRole('dialog',{name:'Medaglia Brina conquistata!'});await expect(banner).toBeVisible();await expect(banner).toContainText('Nives');
  await expect(banner.locator('[data-badge-id="badge_brina"] svg')).toBeVisible();await page.screenshot({path:info.outputPath('brina-medal.png')});
  await banner.getByRole('button',{name:'Continua',exact:true}).tap();
  await expect.poll(async()=>(await readBrowserSave(page)).badges).toContain('badge_brina');expect((await readBrowserSave(page)).player.money).toBe(2600);
  await page.reload();await enterGame(page);expect((await readBrowserSave(page)).badges.filter(b=>b==='badge_brina')).toHaveLength(1);
- await iceTo(page,15,22);expect(errors).toEqual([]);
+ await iceTo(page,15,22);await page.getByRole('button',{name:labels.down,exact:true}).tap();
+ await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');expect(errors).toEqual([]);
 });
+test('a save on a formerly open P7 wall resumes at the entrance without losing progress',async({page})=>{
+ await checkpoint(page,'veloria/gym07_biancavetta','from_city',11,10,['badge_riflesso_awarded','q_passobrina_report','gym07_ice_west']);
+ const before=await readBrowserSave(page);
+ expect(await page.evaluate(()=>{const w=(window as any).mountainGame.scene.keys.world;return w.playerTile;})).toEqual({x:15,y:22});
+ await page.getByRole('button',{name:'Salva la partita',exact:true}).tap();
+ await expect.poll(async()=>{const s=await readBrowserSave(page);return{x:s.player.x,y:s.player.y};}).toEqual({x:15,y:22});
+ const after=await readBrowserSave(page);
+ expect(new Set(after.flags)).toEqual(new Set([...before.flags,'atlas_visited_veloria/gym07_biancavetta']));
+ for(const field of ['party','inventory','badges','rngState'] as const)expect(after[field]).toEqual(before[field]);
+ await page.reload();await enterGame(page);
+ await page.getByRole('button',{name:labels.up,exact:true}).tap();
+ await expect.poll(async()=>{const s=await readBrowserSave(page);return{x:s.player.x,y:s.player.y};}).toEqual({x:15,y:21});
+});
+
 test('Brina cable is locked before badge and makes both trips without consuming resources',async({page})=>{
  test.setTimeout(90_000);
  await checkpoint(page,'veloria/passobrina','cable_arrival',29,22,['badge_riflesso_awarded','q_passobrina_report']);
