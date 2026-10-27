@@ -20,6 +20,11 @@ test('R16 requires the Sanctuary report; safe walking path reaches League servic
   await page.setViewportSize({width:390,height:844});
  }
  await walkTo(page,'r16_cammino_equilibrio.tmj',31,6,{avoidEncounters:true});await page.screenshot({path:info.outputPath('r16-portrait.png')});await page.reload();await enterGame(page);await walkTo(page,'r16_cammino_equilibrio.tmj',39,1,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/league_forecourt');
+ for(const [label,x,y] of [['center',9,15],['market',31,15],['reception',20,8],['portal',20,6],['lookout',20,28]] as const){
+  await walkTo(page,'league_forecourt.tmj',x,y);
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`forecourt-${label}-${viewport.width}.png`)});}
+  await page.setViewportSize({width:390,height:844});
+ }
  await walkTo(page,'league_forecourt.tmj',9,15);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await page.getByRole('button',{name:'RIPOSA',exact:true}).tap();await dialogue(page);await expect.poll(async()=>(await readBrowserSave(page)).party[0].hp).toBe(c.stats.maxHp);expect((await readBrowserSave(page)).party[0].moves[0].pp).toBe(moves.moves['flamethrower'].maxPp);
  await walkTo(page,'league_forecourt.tmj',31,15);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await buyFromShop(page, 'Iperpozione');await expect.poll(async()=>(await readBrowserSave(page)).inventory['hyper-potion']).toBe(1);expect((await readBrowserSave(page)).player.money).toBe(3500);
  await walkTo(page,'league_forecourt.tmj',20,8);await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await dialogue(page);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_league_orientation');await page.setViewportSize({width:844,height:390});await page.screenshot({path:info.outputPath('league-landscape.png')});

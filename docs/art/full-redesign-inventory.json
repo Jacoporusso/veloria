@@ -6,18 +6,18 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 40,
+    "mapsWithExplicitSceneryImage": 41,
     "mapsWithRegisteredSceneryPath": 42,
-    "mapsWithTerrainBase": 23,
+    "mapsWithTerrainBase": 22,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 25,
-    "mapsWithTerrainBaseOnly": 8,
+    "mapsWithSceneryImageOnly": 26,
+    "mapsWithTerrainBaseOnly": 7,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
     "registeredSceneryImageAssets": 42,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 8,
-    "mapsWithUnreferencedSceneryRegistration": 8,
-    "parityArtworkEntries": 33,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
+    "mapsWithUnreferencedSceneryRegistration": 7,
+    "parityArtworkEntries": 34,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -7136,11 +7136,7 @@
         "height": 30
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-league-forecourt-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 0,
@@ -7148,26 +7144,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 2000,
+          "name": "Piazzale illustrato",
+          "spriteKey": "veloria-league_forecourt-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 2000,
+          "name": "Piazzale illustrato",
+          "spriteKey": "veloria-league_forecourt-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          },
+          "assetPath": "assets/scenery/veloria-league_forecourt-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-forecourt-v1",
-          "path": "assets/scenery/veloria-league-forecourt-v1.webp",
+          "key": "veloria-league_forecourt-illustrated-v3",
+          "path": "assets/scenery/veloria-league_forecourt-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-league-forecourt-v1",
-          "path": "assets/scenery/veloria-league-forecourt-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -7192,8 +7209,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-forecourt-v1",
-          "path": "assets/scenery/veloria-league-forecourt-v1.webp",
+          "key": "veloria-league_forecourt-illustrated-v3",
+          "path": "assets/scenery/veloria-league_forecourt-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7209,9 +7226,31 @@
           "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/league_forecourt",
+        "tiledAsset": "tilemaps/league_forecourt.tmj",
+        "assetKey": "veloria-league_forecourt-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_forecourt-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_forecourt-illustrated-v3.webp",
+        "sourceSha256": "5b2e66683dcd1845c82177581f21a89320f538794fbd56670efa0890aca4a831",
+        "runtimeSha256": "148d35875dd0759928fd8b42487a54066a118008a725484ace204bef9361a842",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create a modern illustrated 2D adventure-game production map background for the League Forecourt. Image1 is AUTHORITATIVE 1280x960,40x30 collision geometry: every TAN pixel is open warm limestone walking floor and must remain exactly unobstructed, including all broad plaza corners, west access band and narrow north and south floor extensions. Blue-gray pixels are blocked gardens/architecture/water where solid decoration belongs. Preserve4:3 aspect and the20worldpx south foot clearance already included in tan guide. Image2 is OLD NARRATIVE CONCEPT only, not geometry: welcoming fantasy League hall, healing pavilion left, market right, waterfalls. Image3 is adjacent updated Concordia STYLE reference: modern painted illustrated 2D, warm pale stone, turquoise/sky-blue glass, softly rounded architecture, clean broad surfaces and light flowers, no gold-heavy ornament. Repaint forecourt in this coherent newer style, with dramatically simpler ground inlays and lighter edge details than old concept. Fixed overhead orthographic game camera, no isometric or perspective horizon. Hall entrance threshold exactly x51.25%,y20.3%, reception waiting area clear at x51.25%,y27%. Put monumental but friendly turquoise-glass League facade in BLOCKED north-center behind threshold, not over the open north approach. Healing pavilion left with warm pink roof, entrance feet at x23.75%,y50.3%, accessible from SOUTH. Market right with restrained lavender canopy, entrance feet at x78.75%,y50.3%, accessible from SOUTH. Keep runtime service markers and NPC off the image: no figures, no decorative object at these feet. Both service doors must actually open onto TAN floor, never a painted wall. Main west access at y46.7-62.1% continues cleanly through left image edge to Cammino. There is NO east map exit: do NOT copy the old image's fake right-edge bridge or road. There is NO south map exit: south tan extension is part of a small stone lookout plaza, never a road or bridge disappearing into the distance. Keep all its tan pixels open, distinguish it as a quiet paved viewpoint with gentle floor pattern, no false portal. Surround blocked outer areas with soft teal water channels, rounded planted banks, sparse pink/white flowers and sculpted greenery. No heavy balustrades across walkable cells, no giant raised central fountain, no massive gold floor emblems, no clutter. No people, Pokemon, animals, text, labels, signs, arrows, UI, icons, geometric guide colors or borders. No photorealism or 3D rendered aesthetic. Final production background only.\n",
+        "references": [
+          "assets/prompts/league-forecourt-production-layout-v1.png",
+          "assets/sources/veloria-league-forecourt-v1.png",
+          "assets/sources/veloria-concordia-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_forecourt-illustrated-v3.md",
+            "reason": "Modern illustrated 2D League forecourt from exact service and portal geometry; no false east exit."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
