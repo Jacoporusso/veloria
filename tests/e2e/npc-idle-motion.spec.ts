@@ -5,14 +5,14 @@ test('NPC breathing keeps the foot anchor and stops cleanly with reduced animati
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'full'));
   await page.route('**/src/main.ts', async route => {
     const response = await route.fetch();
-    const body = (await response.text()).replace(/x: spawn\.x,\s*y: spawn\.y/, 'x: 12, y: 8');
+    const body = await response.text();
     await route.fulfill({ response, body: body + '\nwindow.__idleGame=game;' });
   });
-  await page.goto('/?previewMap=veloria/borgofonte_lab');
+  await page.goto('/?previewMap=veloria/borgofonte');
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
   const read = () => page.evaluate(() => {
     const world = (window as any).__idleGame.scene.getScene('world');
-    const npc = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite');
+    const npc = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'nilo');
     return { x: npc.x, y: npc.y, originX: npc.originX, originY: npc.originY, scaleY: npc.scaleY, tweens: world.tweens.getTweensOf(npc).length };
   });
   const initial = await read();
@@ -23,7 +23,7 @@ test('NPC breathing keeps the foot anchor and stops cleanly with reduced animati
     .toEqual({ x: initial.x, y: initial.y, originX: initial.originX, originY: initial.originY });
   await page.evaluate(() => {
     const world = (window as any).__idleGame.scene.getScene('world');
-    (window as any).__oldIdleSprite = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite');
+    (window as any).__oldIdleSprite = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'nilo');
   });
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();

@@ -3,6 +3,7 @@ import type { CardinalDirection } from './grid-movement.ts';
 export interface NpcIdleView {
   readonly assetKey: string;
   readonly origin: Readonly<{ x: number; y: number }>;
+  /** Full source image height in world pixels; rendering preserves its aspect ratio. */
   readonly displaySize: number;
 }
 

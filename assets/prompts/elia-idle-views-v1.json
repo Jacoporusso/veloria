@@ -1,0 +1,84 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-27",
+  "identityReference": "assets/sources/veloria-npcs-v3.png top-left figure",
+  "prompts": {
+    "south": "Use case: game-character-sprite. Asset type: one independent transparent full-body idle character image, south-facing view for a modern illustrated 2D adventure game. Input Image 1 is an identity reference atlas only: use ONLY the older female botanical researcher in the TOP-LEFT cell as character reference; do not copy or include any other figure or any atlas background. Draw Professor Elia in a calm neutral SOUTH-facing idle, front toward camera, standing naturally, arms relaxed, hands empty. Polished hand-painted storybook 2D art matching the soft dimensional shading and warm palette of the top-left figure, modest readable RPG proportions. Orthographic game sprite view from slightly above, full body centered, hair and shoes entirely visible, feet aligned to a clear common baseline, generous margins. Identity: older woman, silver curly hair gathered in loose bun, round glasses, warm thoughtful face, short cream botanical lab coat over sage green shirt, teal trousers, brown belt and brown shoulder satchel with a simple strap. Preserve consistent face and outfit. Truly transparent background with alpha. No held plant or sprig, tools, new props, beard, text, other people, atlas/cell/grid, ground, shadow, border, glow, backdrop. Neutral idle, no walking or gesturing.\n",
+    "west": "Use case: game-character-sprite. Asset type: one independent transparent full-body idle character image, WEST-facing left profile for a modern illustrated 2D adventure game. Input Image 1 is the top-left older female researcher identity reference atlas (ignore all other atlas figures/background). Input Image 2 is the newly generated south-view candidate of this same Professor Elia; use it only to keep face, hair, proportions, colors, outfit, and satchel consistent, not as a pose to rotate or mirror. Draw an authentic separate left-facing side-profile view: face and nose point to the LEFT; show a natural one-eye/round-glasses profile, coherent loose silver curly bun, coat side silhouette and shoulder-satchel depth. Neutral standing idle, arms comfortably relaxed, hands empty. Polished hand-painted storybook 2D illustration matching reference shading and warm palette, modest readable RPG proportions. Orthographic top-down game sprite view with mild elevated angle, single full-body figure centered, entire hair and both shoes visible, clear common feet baseline and generous margins. Identity: older woman, silver curls in loose bun, round glasses, short cream botanical lab coat over sage shirt, teal trousers, brown belt, brown shoulder satchel and simple strap. Preserve same identity and clothes from south candidate. Truly transparent background with alpha. No held plant/sprig, tools, added props, beard, text, atlas/grid, other people, ground, shadow, glow, border, backdrop. Must be a genuine left profile drawing, no horizontal flip of the front view. Neutral idle, no walking/gesturing.\n",
+    "east": "Use case: game-character-sprite. Asset type: one independent transparent full-body idle character image, EAST-facing right profile for a modern illustrated 2D adventure game. Input Image 1 is Professor Elia's south-view candidate; Input Image 2 is the left-profile candidate of the same character. Use these only to preserve identity, proportions, colors, outfit and satchel. Draw an authentic separate right-facing side-profile: face and nose point to the RIGHT, natural one-eye round-glasses profile; maintain the same silver curly hair gathered in loose bun, cream short lab coat over sage shirt, teal trousers, brown belt, and brown shoulder satchel. For consistency, place the bag on the same character-relative shoulder/hip as in the left view, showing the opposite projection naturally; do not mirror/flip an image. Neutral idle with relaxed arms and empty hands. Polished hand-painted storybook 2D matching the reference shading, modest readable RPG proportions. Orthographic top-down game sprite view from mildly above. One full-body figure centered, all hair and both shoes visible, common feet baseline, generous transparent margins. True transparent alpha background. No plant or sprig, tools, new props, beard, text, other figures, atlas/grid, ground/shadow/glow/border/backdrop. Genuine right-side view, no rotated/flip front pose, no walking or gesture.\n",
+    "north": "Use case: game-character-sprite. Asset type: one independent transparent full-body idle character image, NORTH-facing rear view for a modern illustrated 2D adventure game. Input Image 1 and Image 2 are two separate directional candidates of the same Professor Elia; preserve their identity, proportions, exact palette, outfit and satchel. Draw an authentic rear view with Elia facing away from viewer: show the back of her silver curly hair in the same loose bun, back of short cream botanical lab coat, sage collar, teal trousers, brown shoulder-bag strap crossing naturally over the back and the same brown satchel resting at her character-relative left hip. The rear silhouette and fabric seams should make sense from behind. No face visible. Calm neutral stance, arms relaxed, hands empty. Polished hand-painted storybook 2D matching the candidates, modest readable RPG proportions. Orthographic top-down game sprite view from mildly above; one centered full-body figure; hair and both shoes fully visible; clear feet baseline; generous margin. Truly transparent background with alpha. No plant/sprig, tools, new props, beard, text, other figures, atlas/cell/grid, ground, shadow, glow, border, backdrop. Must be a genuinely drawn rear view, not a rotated/flip of another view. Neutral idle, no walk or gesture.\n",
+    "north-bag-correction": "Edit this exact transparent character sprite. Preserve the existing rear-facing Professor Elia exactly: same genuine north/rear pose, framing, full-body scale, feet baseline, hair silhouette, coat, colors, rendering, pixels everywhere outside the satchel/strap correction. Change only the satchel's anatomical side. In this rear view, the brown satchel currently hangs at viewer-right / character-right. Move it to viewer-left / character-left hip. Route the strap over her character-left shoulder (viewer-left) and down to that left-side bag, naturally across the back. Keep the same bag design and size. Maintain true transparency and clean zero alpha background with no glow, haze, ground, shadow, or backdrop. Do not alter the figure, outfit, face visibility, pose, silhouette, framing, proportions, or feet. Do not add anything.\n",
+    "north-strap-correction": "Edit Image 1, the exact transparent north/rear Professor Elia idle with the satchel on viewer-left / her character-left hip. Use Image 2 only as a strap consistency reference: in the south/front view her brown strap descends vertically from the same character-left shoulder to the same character-left hip. On Image 1 change only the strap routing: move its origin to viewer-left / character-left shoulder, keep it descending on that same viewer-left side down to the viewer-left/character-left satchel, with no diagonal cross-back strap. Retain the satchel's exact existing size and position on viewer-left, its design, the rear-facing pose, identity, hair, coat, clothing, figure, framing, full-body scale, foot baseline, colors and rendering. Preserve everything else in Image 1 unchanged. Maintain true transparency. Do not introduce any glow, haze, ground, shadow, backdrop, new detail, or prop. Do not move the bag, add the hand, turn the figure, alter the image crop, or change anything except routing the strap over the character-left shoulder and down the same side.\n"
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-elia-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-elia-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-elia-idle-south-v1.webp",
+      "sourceSha256": "12a712c2b4ec533d2df417e75102209423bf806c377134aec53dc21fd924e301",
+      "runtimeSha256": "4790270c9a40a0616346001016cee0ca2db0f58f1398b49c9e6310702071952e",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.54417,
+        "y": 0.96159
+      },
+      "displaySize": 59.65,
+      "outputId": "exec-bb52b2be-a862-42b1-b2f2-ce7d08070076.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-elia-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-elia-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-elia-idle-west-v1.webp",
+      "sourceSha256": "23a40926f625fa9ceda7ce7fb6647d342b7e429bab45720dae78a6f973101d10",
+      "runtimeSha256": "5f749cde3c035794aa65873a19e51dee6005ef39bc988acfead7cc52e0b64faa",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.5182,
+        "y": 0.97396
+      },
+      "displaySize": 58.79,
+      "outputId": "exec-ae01a3c3-080d-474b-9988-d12fbb4704b4.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-elia-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-elia-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-elia-idle-east-v1.webp",
+      "sourceSha256": "00b71988785e6914b954b2b1393a069696fa99f79364465cb583edf28d2a8727",
+      "runtimeSha256": "a5ab393986328535417455cd5d1d3b55c784380dfffa6296be33f5dc246eb76d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49964,
+        "y": 0.97786
+      },
+      "displaySize": 58.16,
+      "outputId": "exec-3b2d35c3-b35c-4111-bdb9-27171e0b00c4.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-elia-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-elia-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-elia-idle-north-v1.webp",
+      "sourceSha256": "f02f54aeade7de9897860b15c1631c4bddad01e7b1846010535ea911b868e10c",
+      "runtimeSha256": "b3a5ead1e39ea970cc884461683b86b7828a028682d9060c77c36d6624138da2",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50073,
+        "y": 0.96159
+      },
+      "displaySize": 58.83,
+      "outputId": "exec-2e197da0-53b5-47ef-90c2-ae6e0a045774.png"
+    }
+  ],
+  "rejectedNorthOutputs": [
+    "exec-b37ec7bd-55bf-46eb-90bd-d3b7c244597a.png",
+    "exec-a6b31bd9-a491-49a8-9250-b5ba6434f62c.png"
+  ],
+  "calibration": "Optical height56worldpx from alpha128 body bounds; feet anchor from bottom50px opacity centroid, confirmed by native game review documented in docs/81_ELIA_DIRECTIONAL_IDLE_v0.1.md. No raster edits; exact RGBA lossless conversion."
+}

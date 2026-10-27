@@ -71,6 +71,77 @@
           "outputId": "exec-a7f55473-ee9f-48a5-b1c7-3658c69d628f.png"
         }
       ]
+    },
+    {
+      "profileId": "professor-elia",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/elia-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-elia-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-elia-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-idle-south-v1.webp",
+          "sourceSha256": "12a712c2b4ec533d2df417e75102209423bf806c377134aec53dc21fd924e301",
+          "runtimeSha256": "4790270c9a40a0616346001016cee0ca2db0f58f1398b49c9e6310702071952e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.54417,
+            "y": 0.96159
+          },
+          "displaySize": 59.65,
+          "outputId": "exec-bb52b2be-a862-42b1-b2f2-ce7d08070076.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-elia-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-elia-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-idle-west-v1.webp",
+          "sourceSha256": "23a40926f625fa9ceda7ce7fb6647d342b7e429bab45720dae78a6f973101d10",
+          "runtimeSha256": "5f749cde3c035794aa65873a19e51dee6005ef39bc988acfead7cc52e0b64faa",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.5182,
+            "y": 0.97396
+          },
+          "displaySize": 58.79,
+          "outputId": "exec-ae01a3c3-080d-474b-9988-d12fbb4704b4.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-elia-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-elia-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-idle-east-v1.webp",
+          "sourceSha256": "00b71988785e6914b954b2b1393a069696fa99f79364465cb583edf28d2a8727",
+          "runtimeSha256": "a5ab393986328535417455cd5d1d3b55c784380dfffa6296be33f5dc246eb76d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.49964,
+            "y": 0.97786
+          },
+          "displaySize": 58.16,
+          "outputId": "exec-3b2d35c3-b35c-4111-bdb9-27171e0b00c4.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-elia-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-elia-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-idle-north-v1.webp",
+          "sourceSha256": "f02f54aeade7de9897860b15c1631c4bddad01e7b1846010535ea911b868e10c",
+          "runtimeSha256": "b3a5ead1e39ea970cc884461683b86b7828a028682d9060c77c36d6624138da2",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50073,
+            "y": 0.96159
+          },
+          "displaySize": 58.83,
+          "outputId": "exec-2e197da0-53b5-47ef-90c2-ae6e0a045774.png"
+        }
+      ]
     }
   ]
 }

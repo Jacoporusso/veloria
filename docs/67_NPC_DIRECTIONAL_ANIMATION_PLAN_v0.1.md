@@ -48,3 +48,7 @@ Le quattro immagini idle Ada v2 sono ora registrate e collegate al runtime. La r
 Le misure sono state verificate nei quattro approcci reali nei due orientamenti. Il renderer rispetta origine e dimensione per vista senza riapplicare una scala cosmetica catturata dalla posa precedente. Mancano i fotogrammi autentici di camminata. Asset e prove in [documento72](72_ADA_DIRECTIONAL_IDLE_v0.1.md).
 
 `src/core/world/npc-facing.ts` calcola la direzione NPC→osservatore: asse prevalente, parità verticale, stessa cella conserva la posa tramite `undefined`, coordinate non finite rifiutate. Quattro test passano; non usa RNG né modifica coordinate. Il contratto `npc-idle-views.ts` ha cinque test di validazione e l’adattatore Phaser seleziona la vista al dialogo; nessun flip o movimento artificiale.
+
+## Elia: secondo profilo direzionale
+
+Quattro immagini verticali2:3 di Elia collegate alle tre presenze narrative, con calibrazione per vista e scala uniforme. Il contratto `displaySize` indica l’altezza dell’immagine completa; le pose quadrate Ada mantengono il comportamento precedente. [Provenienza, prove e limiti](81_ELIA_DIRECTIONAL_IDLE_v0.1.md). Due profili idle direzionali non completano le46 identità rimanenti, le camminate o il budget texture.

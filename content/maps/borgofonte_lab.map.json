@@ -26,6 +26,26 @@
         "columns": 3,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-idle-south-v1",
+      "path": "assets/sprites/veloria-elia-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-idle-west-v1",
+      "path": "assets/sprites/veloria-elia-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-idle-east-v1",
+      "path": "assets/sprites/veloria-elia-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-idle-north-v1",
+      "path": "assets/sprites/veloria-elia-idle-north-v1.webp"
     }
   ],
   "spawns": [

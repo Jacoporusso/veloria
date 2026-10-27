@@ -1027,12 +1027,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-npcs-v3"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-elia-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -1042,12 +1037,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.6953
+              "value": 0.54417
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9863
+              "value": 0.96159
             }
           ]
         }

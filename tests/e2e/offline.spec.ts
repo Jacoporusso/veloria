@@ -56,10 +56,15 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
   expect(failures).toEqual([]); expect(errors).toEqual([]);
 });
 
-test('Ada directional idle images load on a first offline visit and every side remains interactive', async ({ page, context }, info) => {
+for (const npc of [
+  { name: 'Ada', speaker: 'Ada', profile: 'ranger-ada', map: 'd01_bosco_veli', spawn: 'from_r01', x: 13, y: 10,
+    start: { x: 1, y: 10 }, dimensions: [1254, 1254], flags: [] },
+  { name: 'Elia', speaker: 'Professoressa Elia', profile: 'professor-elia', map: 'borgofonte_lab', spawn: 'from_village', x: 12, y: 7,
+    start: { x: 12, y: 8 }, dimensions: [1024, 1536], flags: ['q_research_sample_received'] },
+]) test(`${npc.name} directional idle images load on a first offline visit and every side remains interactive`, async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
-  const profile = catalog.profiles.find((entry: any) => entry.id === 'ranger-ada');
+  const profile = catalog.profiles.find((entry: any) => entry.id === npc.profile);
   const paths = Object.values(profile.idleViews).map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path);
   expect(paths).toHaveLength(4);
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
@@ -72,11 +77,11 @@ test('Ada directional idle images load on a first offline visit and every side r
   expect(warmed).toEqual([]);
   const save = await readBrowserSave(page);
   const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
-    speciesId: 1, level: 8, instanceId: 'offline-ada-idles' });
+    speciesId: 1, level: 8, instanceId: `offline-${npc.name}-idles` });
   save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 8, experience: 0,
     hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
-  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen'])];
-  save.player = { ...save.player, mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 1, y: 10 };
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen', ...npc.flags])];
+  save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, ...npc.start };
   await seedBrowserSave(page, save);
   const errors: string[] = [], failures: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -86,27 +91,27 @@ test('Ada directional idle images load on a first offline visit and every side r
     const image = new Image(); image.src = `/${path}`; await image.decode();
     return [image.naturalWidth, image.naturalHeight];
   })), paths);
-  expect(dimensions).toEqual(Array.from({ length: 4 }, () => [1254, 1254]));
+  expect(dimensions).toEqual(Array.from({ length: 4 }, () => npc.dimensions));
   const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
   for (const stop of [
-    { x: 13, y: 11, label: 'Vai in alto', pose: 'down' },
-    { x: 12, y: 10, label: 'Vai a destra', pose: 'left' },
-    { x: 13, y: 9, label: 'Vai in basso', pose: 'up' },
-    { x: 14, y: 10, label: 'Vai a sinistra', pose: 'right' },
+    { x: npc.x, y: npc.y + 1, label: 'Vai in alto', pose: 'down' },
+    { x: npc.x - 1, y: npc.y, label: 'Vai a destra', pose: 'left' },
+    { x: npc.x, y: npc.y - 1, label: 'Vai in basso', pose: 'up' },
+    { x: npc.x + 1, y: npc.y, label: 'Vai a sinistra', pose: 'right' },
   ]) {
-    await walkTo(page, 'd01_bosco_veli.tmj', stop.x, stop.y);
+    await walkTo(page, `${npc.map}.tmj`, stop.x, stop.y);
     await page.getByRole('button', { name: stop.label, exact: true }).tap();
     const before = await readBrowserSave(page);
-    await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
+    await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
     for (let i = 0; i < 20 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
     await expect(page.locator('#dialogue-box')).toBeHidden();
     const after = await readBrowserSave(page);
-    expect(after.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: stop.x, y: stop.y });
+    expect(after.player).toMatchObject({ mapId: `veloria/${npc.map}`, x: stop.x, y: stop.y });
     expect(after.rngState).toBe(before.rngState);
-    await page.screenshot({ path: info.outputPath(`ada-offline-${stop.pose}.png`) });
+    await page.screenshot({ path: info.outputPath(`${npc.name}-offline-${stop.pose}.png`) });
   }
   await page.reload(); await enterGame(page);
-  expect((await readBrowserSave(page)).player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 14, y: 10 });
+  expect((await readBrowserSave(page)).player).toMatchObject({ mapId: `veloria/${npc.map}`, x: npc.x + 1, y: npc.y });
   expect(failures).toEqual([]); expect(errors).toEqual([]);
 });
 
