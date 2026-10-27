@@ -21,6 +21,60 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('Ada directional idle images load on a first offline visit and every side remains interactive', async ({ page, context }, info) => {
+  test.setTimeout(120_000);
+  const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
+  const profile = catalog.profiles.find((entry: any) => entry.id === 'ranger-ada');
+  const paths = Object.values(profile.idleViews).map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path);
+  expect(paths).toHaveLength(4);
+  await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const warmed = await page.evaluate(paths => {
+    const resources = performance.getEntriesByType('resource').map(entry => entry.name);
+    return paths.filter(path => resources.some(url => url.includes(`/${path}`)));
+  }, paths);
+  expect(warmed).toEqual([]);
+  const save = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 1, level: 8, instanceId: 'offline-ada-idles' });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 8, experience: 0,
+    hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/d01_bosco_veli', spawnPointId: 'from_r01', x: 1, y: 10 };
+  await seedBrowserSave(page, save);
+  const errors: string[] = [], failures: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  const dimensions = await page.evaluate(async paths => Promise.all(paths.map(async path => {
+    const image = new Image(); image.src = `/${path}`; await image.decode();
+    return [image.naturalWidth, image.naturalHeight];
+  })), paths);
+  expect(dimensions).toEqual(Array.from({ length: 4 }, () => [1254, 1254]));
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  for (const stop of [
+    { x: 13, y: 11, label: 'Vai in alto', pose: 'down' },
+    { x: 12, y: 10, label: 'Vai a destra', pose: 'left' },
+    { x: 13, y: 9, label: 'Vai in basso', pose: 'up' },
+    { x: 14, y: 10, label: 'Vai a sinistra', pose: 'right' },
+  ]) {
+    await walkTo(page, 'd01_bosco_veli.tmj', stop.x, stop.y);
+    await page.getByRole('button', { name: stop.label, exact: true }).tap();
+    const before = await readBrowserSave(page);
+    await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText('Ada');
+    for (let i = 0; i < 20 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+    const after = await readBrowserSave(page);
+    expect(after.player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: stop.x, y: stop.y });
+    expect(after.rngState).toBe(before.rngState);
+    await page.screenshot({ path: info.outputPath(`ada-offline-${stop.pose}.png`) });
+  }
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player).toMatchObject({ mapId: 'veloria/d01_bosco_veli', x: 14, y: 10 });
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
+});
+
 test('special encounter Journal guidance opens the destination Atlas without a network or moving the player', async ({ page, context }, info) => {
   test.setTimeout(120_000);
   await page.goto('/'); await enterGame(page);

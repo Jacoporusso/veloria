@@ -6,6 +6,8 @@ export function addNpcIdleMotion(scene: Phaser.Scene, layer: Phaser.GameObjects.
   const targets: Phaser.GameObjects.Image[] = [];
   for (const child of layer.list) {
     if (!(child instanceof Phaser.GameObjects.Image) || child.name !== 'npc-sprite') continue;
+    // Authored views have per-pose optical scales; a captured scale tween would overwrite them.
+    if (child.getData('directionalIdle')) continue;
     const identity = String(child.getData('npcId') ?? 'npc');
     let phase = 0;
     for (const character of identity) phase = (Math.imul(phase, 31) + character.charCodeAt(0)) >>> 0;

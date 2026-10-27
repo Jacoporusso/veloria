@@ -84,6 +84,26 @@
       "kind": "image",
       "key": "pokeapi-gen1-151-v1",
       "path": "assets/creatures/pokeapi-gen1-151-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-idle-south-v2",
+      "path": "assets/sprites/veloria-ada-idle-south-v2.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-idle-west-v2",
+      "path": "assets/sprites/veloria-ada-idle-west-v2.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-idle-east-v2",
+      "path": "assets/sprites/veloria-ada-idle-east-v2.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-idle-north-v2",
+      "path": "assets/sprites/veloria-ada-idle-north-v2.webp"
     }
   ],
   "spawns": [

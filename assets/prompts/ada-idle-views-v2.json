@@ -1,0 +1,34 @@
+{
+  "status": "Four independent idle views bound and verified for Ada in portrait, landscape and offline; no walk frames",
+  "tool": "built-in image_gen.imagegen",
+  "referencePaths": [
+    "assets/sources/veloria-npcs-v3.png"
+  ],
+  "referenceUse": "Top-middle cell only, profile ranger-ada / NPC forest_ranger_ada; identity and style reference.",
+  "outputs": [
+    {
+      "direction": "south",
+      "outputId": "exec-48db2ddd-fa2f-4506-b480-3cec6ad52e77.png",
+      "savedAs": "ada-idle-south-v2.png",
+      "prompt": "Create one isolated, transparent-background, full-body idle sprite of Ada for a modern softly illustrated orthogonal 2D RPG. Reference Image 1 only for visual identity and style, specifically its top-middle character: Ada, the field ranger/researcher with warm brown skin, dark curly hair, plum jacket, cream field clothes, brown field boots, leather satchel and round brass/teal measuring instrument. Keep these attributes faithful; do not copy any other person in the reference.\nThis image is the SOUTH / front-facing idle view. Ada stands relaxed and neutral, facing directly toward the viewer with both feet planted; face and torso front-on. Keep her instrument and satchel attached to her body naturally. This is one genuine authored front view, not a side pose or a rotated image.\nTransparent PNG background. Square canvas, Ada fully visible and centered, with at least 20% empty transparent padding on all four sides. Head must remain below y=20%; the soles contact a common baseline at y=80% (or nearest consistent proportional placement); no hair, limbs, boots, satchel, or instrument cut off. The figure should occupy about 60% of canvas height, matching the eventual same-scale north/east/west images.\nSoft modern 2D painted illustration matching the Veloria NPC reference, clean silhouette, subtle shading, readable details. No scene, shadow, labels, text, grid, frame, additional people, props detached from Ada, watermark, or background color."
+    },
+    {
+      "direction": "west",
+      "outputId": "exec-a6c282b5-f15f-487b-8cbe-8c74c554c9f2.png",
+      "savedAs": "ada-idle-west-v2.png",
+      "prompt": "Create one isolated transparent-background full-body idle sprite of the same Ada, for a modern softly illustrated orthogonal 2D RPG. Use only the top-middle character in reference Image 1 for identity/style: Ada, field ranger/researcher, warm brown skin, curly dark hair, plum jacket, cream clothes, brown field boots, leather satchel, brass/teal round measuring instrument. Preserve her face, hair, clothes, colors and proportions. Do not include any other person.\nDirection: WEST, a true LEFT-facing side profile (Ada's nose points to the left edge of the image). Show one eye/profile, side-facing torso and feet; side profile must be genuinely drawn, not a front view rotated or a mirrored copy. Neutral idle stance with feet planted, naturally holding her instrument and wearing satchel.\nCanvas: square transparent PNG. Full figure centered with at least 20% empty transparent padding at top, bottom, left and right; no silhouette pixel within 20% of canvas edges. Keep the sole contact baseline at 80% of image height so it aligns with the other three separate direction images. Scale the full-body drawing to about 60% of canvas height.\nMatch the soft modern 2D painted illustration style of the reference. Clear readable silhouette and subtle shading. Nothing else: no environment, background color, text, labels, lines, shadow outside her body, extra characters, props detached from her, watermark."
+    },
+    {
+      "direction": "east",
+      "outputId": "exec-001166a6-5afb-4963-b451-510b4b1f39e9.png",
+      "savedAs": "ada-idle-east-v2.png",
+      "prompt": "Create one isolated transparent-background full-body idle sprite of the same Ada, for a modern softly illustrated orthogonal 2D RPG. Use only the top-middle character in reference Image 1 for identity/style: Ada, field ranger/researcher, warm brown skin, curly dark hair, plum jacket, cream clothes, brown field boots, leather satchel, brass/teal round measuring instrument. Preserve her face, hair, clothes, colors and proportions. Do not include any other person.\nDirection: EAST, a true RIGHT-facing side profile (Ada's nose points to the right edge of the image). Show one eye/profile, side-facing torso and feet; side profile must be genuinely drawn, not a front view rotated or a mirrored copy of the west view. Neutral idle stance with feet planted, naturally holding her instrument and wearing satchel.\nCanvas: square transparent PNG. Full figure centered with at least 20% empty transparent padding at top, bottom, left and right; no silhouette pixel within 20% of canvas edges. Keep the sole contact baseline at 80% of image height so it aligns with the other three separate direction images. Scale the full-body drawing to about 60% of canvas height.\nMatch the soft modern 2D painted illustration style of the reference. Clear readable silhouette and subtle shading. Nothing else: no environment, background color, text, labels, lines, shadow outside her body, extra characters, props detached from her, watermark."
+    },
+    {
+      "direction": "north",
+      "outputId": "exec-a7f55473-ee9f-48a5-b1c7-3658c69d628f.png",
+      "savedAs": "ada-idle-north-v2.png",
+      "prompt": "Create one isolated transparent-background full-body idle sprite of the same Ada, for a modern softly illustrated orthogonal 2D RPG. Use only the top-middle character in reference Image 1 for identity/style: Ada, field ranger/researcher, warm brown skin, dark curly hair, plum jacket, cream clothes, brown field boots, leather field satchel and round brass/teal measuring instrument. Preserve her face/hair identity and outfit construction consistently. Do not include any other person.\nDirection: NORTH, a true rear view of Ada facing away from the viewer. Show the back of her curly hair, jacket and satchel; no face/eyes visible. Neutral idle stance, both feet planted and naturally separated.\nCanvas: square transparent PNG. Full figure centered with at least 20% empty transparent padding at top, bottom, left and right; no silhouette pixel within 20% of canvas edges. Keep the sole contact baseline at 80% of image height so it aligns with the other three separate direction images. Scale the full-body drawing to about 60% of canvas height.\nMatch the soft modern 2D painted illustration style of the reference. Clear readable silhouette and subtle shading. Nothing else: no environment, background color, text, labels, lines, shadow outside her body, extra characters, props detached from her, watermark."
+    }
+  ]
+}

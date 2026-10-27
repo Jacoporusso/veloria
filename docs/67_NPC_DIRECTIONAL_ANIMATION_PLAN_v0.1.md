@@ -2,17 +2,17 @@
 
 ## Stato verificato
 
-L’inventario `docs/art/full-redesign-inventory.json` censisce 48 profili/identità e 51 presenze NPC. Il catalogo `content/characters/appearances.v2.json` ha 48 profili e 14 asset immagine. I profili collegano identità, apparizioni, asset, frame statico ed origine; il descrittore di atlante specifica solo righe e colonne.
+L’inventario `docs/art/full-redesign-inventory.json` censisce48 profili/identità e51 presenze NPC. Il catalogo `content/characters/appearances.v2.json` ha48 profili e18 asset immagine. I profili collegano identità, apparizioni, asset e origine; Ada dichiara ora quattro viste idle indipendenti. Il descrittore di atlante dei profili statici specifica righe e colonne.
 
-In `src/game/rendering/MapRenderer.ts`, `atlasFrame` ritaglia una cella e `renderNpc` crea un’immagine Phaser con quel frame, una dimensione di visualizzazione di 60×60 e l’origine dichiarata. Il rendering non sceglie pose secondo la direzione del giocatore e non avanza frame di movimento. Un singolo profilo può essere condiviso da più presenze canoniche, ma ognuna mostra la stessa immagine statica.
+In `src/game/rendering/MapRenderer.ts`, i profili statici continuano a usare immagine/frame, dimensione60×60 e origine dichiarata. Ada usa `idleViews`: immagine, scala e origine per direzione. All’interazione `WorldScene` sceglie la posa rivolta al protagonista senza spostare NPC o collider. Non vengono ancora avanzati fotogrammi di camminata. Un profilo condiviso da più presenze canoniche conserva la medesima identità.
 
-`src/game/rendering/npc-idle-motion.ts` applica un tween sinusoidale che varia `scaleY` del personaggio dell’1,2% e mantiene posizione e origine. La preferenza per animazioni ridotte omette il tween; `tests/e2e/npc-idle-motion.spec.ts` verifica variazione della scala, ancoraggio invariato e arresto. È un effetto cosmetico di attesa, non una posa aggiuntiva né un ciclo di camminata.
+`src/game/rendering/npc-idle-motion.ts` applica ai profili statici un tween sinusoidale che varia `scaleY` dell’1,2% e mantiene posizione e origine. La preferenza per animazioni ridotte omette il tween; il test dedicato su Elia verifica variazione, ancoraggio e arresto. I profili con viste calibrate, oggi Ada, non ricevono quel tween per evitare che sovrascriva la scala della nuova posa. Il respiro non è un ciclo di camminata.
 
-`tests/world/npc-identities.test.ts` controlla riferimenti, associazioni, unicità asset/frame e origini. `tests/e2e/npc-identities.spec.ts` attraversa le 51 presenze in portrait e landscape e verifica asset, frame, origine, identità e visibilità; non verifica cambi di direzione o animazioni. Di conseguenza la copertura corrente attesta identità e rendering della posa statica, non la completezza direzionale richiesta da `docs/58_FULL_WORLD_AND_CAST_REDESIGN_v0.1.md` e lasciata aperta da `docs/61_GRAPHICS_AND_GEN1_MIGRATION_v0.1.md`.
+`tests/world/npc-identities.test.ts` controlla riferimenti, associazioni, unicità asset/frame e origini, oltre a tutte le immagini direzionali e agli hash delle sorgenti. La galleria E2E delle51 presenze verifica la posa base nei due orientamenti; il nuovo `npc-directional-idle.spec.ts` verifica separatamente quattro lati, ancoraggio, scala, ordine visivo e dialogo di Ada, con movimento reale. Mancano ancora camminate e copertura direzionale degli altri47 profili richieste dai documenti58 e61.
 
 ## Prima tranche proposta: Ada
 
-Usare il profilo reale `ranger-ada` in `appearances.v2.json`: NPC `forest_ranger_ada`, dialogo `ada_quest`, sprite attuale `veloria-npcs-v3`, frame 1 e origine `{x: 0.5332, y: 0.998}`. La fonte narrativa registrata è `content/dialogue/world.v1.json#/ada_quest`; la descrizione del profilo la identifica come guardaboschi e ricercatrice sul campo, con giacca prugna e misuratore. Questi ultimi dettagli descrivono il profilo artistico già catalogato; non aggiungere età o genere non documentati. Ada è una buona prova perché ha una singola apparizione/ID NPC e un ruolo di campo che rende leggibili fronte, retro e profili laterali.
+Usare il profilo reale `ranger-ada` in `appearances.v2.json`: NPC `forest_ranger_ada`, dialogo `ada_quest`. Prima del collegamento delle nuove viste usava `veloria-npcs-v3`, frame1 e origine `{x:0.5332,y:0.998}`; quel disegno resta il riferimento di identità della produzione. La fonte narrativa è `content/dialogue/world.v1.json#/ada_quest`; il profilo la identifica come guardaboschi e ricercatrice sul campo, con giacca prugna e misuratore. Non aggiungere età o genere non documentati. Ha una singola apparizione/ID NPC e un ruolo di campo adatto a verificare fronte, retro e profili laterali.
 
 Produrre artwork dedicato di Ada in quattro viste ortogonali autentiche (nord, sud, est, ovest), mantenendo volto, acconciatura, giacca e strumento coerenti. Per la prima tranche aggiungere un ciclo di camminata con almeno due disegni effettivi per direzione. Non ricavare le viste laterali da una rotazione o da un flip della figura frontale; non simulare passi scalando, traslando o deformando un’unica immagine. Tenere identiche dimensioni di cella e scala ottica; disegnare ogni posa con i piedi allineati alla stessa linea di appoggio e registrare un’origine normalizzata stabile, misurata sul contenuto visibile.
 
@@ -36,7 +36,7 @@ Questa tranche dimostra la pipeline e il contratto per un NPC solo. Non completa
 
 ## Misure candidate e contratto di orientamento — 27 ottobre
 
-Le quattro immagini idle Ada v2 sono ancora studi privati, non asset runtime. La revisione del composito Chrome conferma fronte, retro e due profili distinti, con identità coerente; il conteggio globale dei pixel rossi non distingue un alone da dettagli leciti come i lacci e non è un criterio autonomo di rifiuto. Misurando alpha≥128 e la mediana delle suole nel5% finale del bbox opaco, un’altezza ottica56px richiede queste calibrazioni per frame quadrato1254px:
+Le quattro immagini idle Ada v2 sono ora registrate e collegate al runtime. La revisione del composito Chrome conferma fronte, retro e due profili distinti, con identità coerente; il conteggio globale dei pixel rossi non distingue un alone da dettagli leciti come i lacci e non è un criterio autonomo di rifiuto. Misurando alpha≥128 e la mediana delle suole nel5% finale del bbox opaco, un’altezza ottica56px usa queste calibrazioni per frame quadrato1254px:
 
 | Vista | Origine x/y | Dimensione di visualizzazione quadrata |
 |---|---|---:|
@@ -45,6 +45,6 @@ Le quattro immagini idle Ada v2 sono ancora studi privati, non asset runtime. La
 | Est | .51754 / .87998 | 73.76 |
 | Nord | .54944 / .89673 | 70.44 |
 
-Sono misure candidate: nessun binding accettato prima della prova di contatto al suolo nell’interazione reale. Il renderer dovrà rispettare origine e dimensione per vista, senza riapplicare una scala cosmetica catturata dalla posa precedente. Mancano i fotogrammi autentici di camminata.
+Le misure sono state verificate nei quattro approcci reali nei due orientamenti. Il renderer rispetta origine e dimensione per vista senza riapplicare una scala cosmetica catturata dalla posa precedente. Mancano i fotogrammi autentici di camminata. Asset e prove in [documento72](72_ADA_DIRECTIONAL_IDLE_v0.1.md).
 
-`src/core/world/npc-facing.ts` introduce il calcolo puro della direzione NPC→osservatore: asse prevalente, parità verticale, stessa cella conserva la posa corrente tramite `undefined`, coordinate non finite rifiutate. Quattro test passano; non usa RNG né modifica coordinate. Questo contratto da solo non cambia la grafica: adattatore Phaser e collegamento delle quattro viste restano da implementare e verificare.
+`src/core/world/npc-facing.ts` calcola la direzione NPC→osservatore: asse prevalente, parità verticale, stessa cella conserva la posa tramite `undefined`, coordinate non finite rifiutate. Quattro test passano; non usa RNG né modifica coordinate. Il contratto `npc-idle-views.ts` ha cinque test di validazione e l’adattatore Phaser seleziona la vista al dialogo; nessun flip o movimento artificiale.

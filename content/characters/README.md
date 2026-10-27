@@ -13,3 +13,7 @@ Per aggiungere un’identità:
 7. Eseguire i test delle identità e verificare nel browser la resa, l’avvicinamento e il dialogo nei due orientamenti.
 
 Il renderer mantiene il comportamento precedente per gli NPC senza ancoraggi espliciti. Un’origine personalizzata deve fornire entrambe le coordinate finite fra 0 e 1. Gli studi in `unboundStudies` descrivono asset/frame disponibili, non personaggi già collocati nel gioco.
+
+Un profilo può dichiarare `idleViews` con quattro viste indipendenti `up`, `down`, `left`, `right`: ciascuna contiene `assetKey`, `origin: {x,y}` e `displaySize` quadrata. La vista `down` deve corrispondere all’asset e all’origine base del profilo/Tiled. Tutte le immagini devono essere dichiarate sia nel catalogo sia nelle MapDefinition di ogni apparizione. `validateNpcIdleViews` controlla direzioni, riferimenti distinti, origine e dimensioni; `assets/npc-idle-views-v1.json` conserva sorgenti, hash e calibrazione.
+
+All’interazione il renderer sceglie la vista rivolta al protagonista e mantiene lo stesso punto piedi nel mondo; non ruota o specchia le immagini. Questi profili non ricevono il tween cosmetico di respiro, che sovrascriverebbe le scale specifiche delle pose. Una vista idle non è un ciclo di camminata: i fotogrammi di movimento vanno prodotti e dichiarati separatamente. Prima di estendere il set ad altri profili verificare anche il costo delle texture e l’ancoraggio nei due orientamenti.

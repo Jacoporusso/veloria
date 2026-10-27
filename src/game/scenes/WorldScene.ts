@@ -42,6 +42,7 @@ import type { MapTrigger, MapInteractable, RegisteredMap } from '../maps/map-typ
 import { resolveMapRenderAssets } from '../maps/map-render-assets';
 import { getNpcDialogue, type Dialogue } from '../interactions/dialogue-catalog';
 import { renderMap } from '../rendering/MapRenderer';
+import { faceNpcTowardObserver } from '../rendering/npc-idle-views.ts';
 import { createAmbientEffectPoints, createGrassSwayPoints, createWaterShimmerPoints, getGrassSwayTween, getWaterShimmerTween } from '../rendering/ambient-effects.ts';
 import { battleMoves, battleSpecies, encounterCatalog, trainerCatalog, veloriaBattleRules } from '../battle/catalog.ts';
 import { createTrainerBattle, createWildBattle, mergeBattlePlayerState } from '../battle/create-battle-state.ts';
@@ -196,6 +197,7 @@ export class WorldScene extends Phaser.Scene {
     this.drawFace();
     this.mapLayer.add(this.player);
     this.player.setPosition(this.playerTile.x * TILE + TILE / 2, this.playerTile.y * TILE + TILE / 2).setDepth(this.player.y + 20);
+    this.mapLayer.sort('depth');
     this.fitWorldCamera();
     this.dialogueBox=document.querySelector<HTMLElement>('#dialogue-box')!;
     this.starterChoices=document.querySelector<HTMLElement>('#starter-choices')!;
@@ -472,6 +474,7 @@ export class WorldScene extends Phaser.Scene {
     this.drawWorld();
     this.mapLayer.add(this.player);
     this.player.setDepth(this.player.y + 20);
+    this.mapLayer.sort('depth');
   }
 
   private closePokedex() {
@@ -665,7 +668,10 @@ export class WorldScene extends Phaser.Scene {
     this.journey?.compact();
     this.moving=true;this.playerTile={x,y};
     this.traveler.step(direction, this.time.now, this.reducedAnimations);
-    this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Linear',onUpdate:()=>this.player.setDepth(this.player.y+20),onComplete:()=>{
+    this.tweens.add({targets:this.player,x:x*TILE+TILE/2,y:y*TILE+TILE/2,duration:132,ease:'Linear',onUpdate:()=>{
+      this.player.setDepth(this.player.y+20);
+      this.mapLayer.sort('depth');
+    },onComplete:()=>{
       this.moving=false;
       const centerX=x*TILE+TILE/2,centerY=y*TILE+TILE/2;
       const trigger = selectAreaTrigger(this.renderedMap.triggers, { x: centerX, y: centerY });
@@ -699,6 +705,7 @@ export class WorldScene extends Phaser.Scene {
     if (this.fishingActive) return;
     const {x,y}=adjacentGridPoint(this.playerTile,this.facing);
     const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
+    if (prop?.kind === 'npc') faceNpcTowardObserver(this.mapLayer, prop, this.playerTile);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
     if (prop?.kind === 'wild-pokemon') {
@@ -875,6 +882,7 @@ export class WorldScene extends Phaser.Scene {
     this.releaseMapRenderAssets(previous, destination);
     this.mapLayer.add(this.player);
     this.player.setPosition(spawn.x*TILE+TILE/2,spawn.y*TILE+TILE/2).setDepth(this.player.y+20);
+    this.mapLayer.sort('depth');
     this.fitWorldCamera();
     // A spawn may overlap an entry threshold: it must be left before it can
     // trigger again, regardless of whether movement was held during loading.

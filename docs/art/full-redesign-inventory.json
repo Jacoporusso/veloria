@@ -811,9 +811,33 @@
         "kind": "image",
         "key": "veloria-centrale-technician-v1",
         "path": "assets/sprites/veloria-centrale-technician-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-south-v2",
+        "path": "assets/sprites/veloria-ada-idle-south-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-west-v2",
+        "path": "assets/sprites/veloria-ada-idle-west-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-east-v2",
+        "path": "assets/sprites/veloria-ada-idle-east-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-north-v2",
+        "path": "assets/sprites/veloria-ada-idle-north-v2.webp"
       }
     ],
     "catalogAssetKeys": [
+      "veloria-ada-idle-east-v2",
+      "veloria-ada-idle-north-v2",
+      "veloria-ada-idle-south-v2",
+      "veloria-ada-idle-west-v2",
       "veloria-cast-opening-and-champion-v1",
       "veloria-centrale-technician-v1",
       "veloria-coastal-cast-v1",
@@ -989,6 +1013,26 @@
         "kind": "image",
         "key": "veloria-centrale-technician-v1",
         "path": "assets/sprites/veloria-centrale-technician-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-south-v2",
+        "path": "assets/sprites/veloria-ada-idle-south-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-west-v2",
+        "path": "assets/sprites/veloria-ada-idle-west-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-east-v2",
+        "path": "assets/sprites/veloria-ada-idle-east-v2.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-ada-idle-north-v2",
+        "path": "assets/sprites/veloria-ada-idle-north-v2.webp"
       }
     ],
     "profiles": [
@@ -1022,12 +1066,45 @@
         "npcIds": [
           "forest_ranger_ada"
         ],
-        "assetKey": "veloria-npcs-v3",
-        "frame": 1,
+        "assetKey": "veloria-ada-idle-south-v2",
         "narrativeSource": "content/dialogue/world.v1.json#/ada_quest",
         "origin": {
-          "x": 0.5332,
-          "y": 0.998
+          "x": 0.55423,
+          "y": 0.8744
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-ada-idle-south-v2",
+            "origin": {
+              "x": 0.55423,
+              "y": 0.8744
+            },
+            "displaySize": 75.51
+          },
+          "left": {
+            "assetKey": "veloria-ada-idle-west-v2",
+            "origin": {
+              "x": 0.50399,
+              "y": 0.87281
+            },
+            "displaySize": 77.6
+          },
+          "right": {
+            "assetKey": "veloria-ada-idle-east-v2",
+            "origin": {
+              "x": 0.51754,
+              "y": 0.87998
+            },
+            "displaySize": 73.76
+          },
+          "up": {
+            "assetKey": "veloria-ada-idle-north-v2",
+            "origin": {
+              "x": 0.54944,
+              "y": 0.89673
+            },
+            "displaySize": 70.44
+          }
         }
       },
       {
@@ -3574,6 +3651,34 @@
           "path": "assets/creatures/pokeapi-gen1-151-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-ada-idle-south-v2",
+          "path": "assets/sprites/veloria-ada-idle-south-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-ada-idle-west-v2",
+          "path": "assets/sprites/veloria-ada-idle-west-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-ada-idle-east-v2",
+          "path": "assets/sprites/veloria-ada-idle-east-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-ada-idle-north-v2",
+          "path": "assets/sprites/veloria-ada-idle-north-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -3667,11 +3772,11 @@
           "profileMatch": "ranger-ada",
           "narrativeSpeaker": "Ada",
           "kind": "npc",
-          "sprite": "veloria-npcs-v3",
-          "spriteFrame": 1,
+          "sprite": "veloria-ada-idle-south-v2",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.5332,
-            "y": 0.998
+            "x": 0.55423,
+            "y": 0.8744
           },
           "trainerId": null,
           "battleOnceFlag": null,
@@ -12859,11 +12964,11 @@
       "profileMatch": "ranger-ada",
       "narrativeSpeaker": "Ada",
       "kind": "npc",
-      "sprite": "veloria-npcs-v3",
-      "spriteFrame": 1,
+      "sprite": "veloria-ada-idle-south-v2",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.5332,
-        "y": 0.998
+        "x": 0.55423,
+        "y": 0.8744
       },
       "trainerId": null,
       "battleOnceFlag": null,

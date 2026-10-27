@@ -15,6 +15,7 @@ import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 import { renderWeatherInstrument } from './weather-instrument.ts';
 import { renderWayfindingMarker } from './wayfinding-marker.ts';
 import { renderMapEdgeBackdrop } from './map-edge-backdrop.ts';
+import { npcIdleViews } from './npc-idle-views.ts';
 
 const TILE = 32;
 
@@ -483,11 +484,15 @@ function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
   if (!sprite) throw new Error('NPC ' + item.id + ' must declare a character sprite.');
   requireImageAsset(imageKeys, sprite, item);
   const frame = propNumber(item.properties, 'spriteFrame') ?? 0;
-  const origin = npcSpriteOrigin(item.properties);
+  const views = npcIdleViews(item.properties.characterAppearanceId);
+  if (views) for (const view of Object.values(views)) requireImageAsset(imageKeys, view.assetKey, item);
+  const origin = views?.down.origin ?? npcSpriteOrigin(item.properties);
+  const displaySize = views?.down.displaySize ?? 60;
   attach(container, scene.add.ellipse(x, y + 14, 21, 7, 0x142c35, .22).setDepth(y + 10));
   attach(container, scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, imageAtlases, frame))
-    .setOrigin(origin.x, origin.y).setDisplaySize(60, 60).setDepth(y + 22)
-    .setName('npc-sprite').setData('npcId', item.properties.npcId).setData('appearanceId', item.properties.characterAppearanceId));
+    .setOrigin(origin.x, origin.y).setDisplaySize(displaySize, displaySize).setDepth(y + 22)
+    .setName('npc-sprite').setData('npcId', item.properties.npcId).setData('appearanceId', item.properties.characterAppearanceId)
+    .setData('directionalIdle', Boolean(views)).setData('npcFacing', views ? 'down' : undefined));
   attach(container, scene.add.text(x, y - 43, item.name, {
     fontFamily: 'system-ui, sans-serif', fontSize: '8px', fontStyle: 'bold', color: '#effcff', stroke: '#153746', strokeThickness: 2, resolution: 4,
   }).setOrigin(.5).setDepth(y + 23));

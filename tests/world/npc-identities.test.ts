@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { npcSpriteOrigin } from '../../src/game/rendering/npc-sprite-origin.ts';
+import { validateNpcIdleViews } from '../../src/core/world/npc-idle-views.ts';
+import { createHash } from 'node:crypto';
 
 const read = (path: string) => JSON.parse(readFileSync(new URL(`../../${path}`, import.meta.url), 'utf8'));
 const catalog = read('content/characters/appearances.v2.json');
@@ -27,6 +29,15 @@ for (const profile of catalog.profiles) {
         assert.ok(read('content/dialogue/world.v1.json')[props.dialogueId]);
         const mapAsset = map.renderAssets.find((candidate: any) => candidate.key === asset.key);
         assert.deepEqual(mapAsset, asset);
+        if (profile.idleViews) {
+          const views = validateNpcIdleViews(profile.idleViews, new Set(catalog.assets.map((entry: any) => entry.key)));
+          assert.equal(profile.assetKey, views.down.assetKey);
+          assert.deepEqual(profile.origin, views.down.origin);
+          for (const view of Object.values(views)) {
+            assert.deepEqual(map.renderAssets.find((entry: any) => entry.key === view.assetKey), assetByKey.get(view.assetKey),
+              `map ${map.id} must load every idle direction of ${profile.id}`);
+          }
+        }
       }
     }
     assert.deepEqual(found.sort(), [...profile.npcIds].sort());
@@ -57,6 +68,29 @@ test('profile asset references exist and asset/frame identity pairs are unique',
     const asset: any = assetByKey.get(study.assetKey);
     assert.ok(asset, `unbound study references missing asset ${study.assetKey}`);
     if (asset.atlas) assert.ok(Number.isInteger(study.frame) && study.frame >= 0 && study.frame < asset.atlas.columns * asset.atlas.rows);
+  }
+});
+
+test('directional idle artwork has intact source/runtime provenance and calibrated catalog bindings', () => {
+  const provenance = read('assets/npc-idle-views-v1.json');
+  const declared = catalog.profiles.filter((profile: any) => profile.idleViews);
+  assert.deepEqual(provenance.profiles.map((entry: any) => entry.profileId).sort(), declared.map((profile: any) => profile.id).sort());
+  for (const entry of provenance.profiles) {
+    const profile = declared.find((candidate: any) => candidate.id === entry.profileId);
+    assert.equal(entry.views.length, 4);
+    assert.equal(new Set(entry.views.map((view: any) => view.direction)).size, 4);
+    for (const view of entry.views) {
+      assert.deepEqual(profile.idleViews[view.direction], { assetKey: view.assetKey, origin: view.origin, displaySize: view.displaySize });
+      const asset: any = assetByKey.get(view.assetKey);
+      assert.equal(`public/${asset.path}`, view.runtimePath);
+      for (const kind of ['source', 'runtime']) {
+        const bytes = readFileSync(new URL(`../../${view[`${kind}Path`]}`, import.meta.url));
+        assert.equal(createHash('sha256').update(bytes).digest('hex'), view[`${kind}Sha256`]);
+      }
+      const png = readFileSync(new URL(`../../${view.sourcePath}`, import.meta.url));
+      assert.equal(png.readUInt32BE(16), view.width);
+      assert.equal(png.readUInt32BE(20), view.height);
+    }
   }
 });
 
