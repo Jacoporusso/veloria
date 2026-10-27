@@ -4,7 +4,7 @@ Il nuovo fondale della prima sala della Lega allinea i bordi del pavimento ai pe
 
 Verifiche locali:788 test dominio+31persistenza passati; validatori707media/41fondali/48mappe. Cinque casi Chrome passati: Lega completa con interruzione/ripartenza, cinque avversari, premi unici ed epilogo, due bordi camera Nerea e due profili movimento Dalia con quattro lati, orientazioni e reload. Tre casi offline passati: risorse cinque sale e battaglia finale/epilogo da checkpoint, primo decode fondali registrati, primo accesso alle pose Dalia con interazioni e reload. La prima battaglia di Nerea è stata giocata online; offline per Nerea attesta il fondale, non una seconda battaglia. Build offline riuscita; avviso dimensione chunk Phaser presente. Audit discovery369casi browser senza omissioni/duplicazioni;43risorse offline divise22+21. Squadre forti dei checkpoint non attestano bilanciamento della campagna naturale.
 
-Contenuti0.4.24/cachev187 preparati; commit/push e conferma Pages da registrare. Goal complessivo aperto: revisione delle altre quattro sale della Lega e delle scene restanti,43profili direzionali, cicli di camminata e campagna naturale.
+Runtime `1ac7d2b827719011f08a32de34a908377d1bfa4e` inviato a main. Contenuti0.4.24/cachev187. [Deploy40571767514](https://github.com/Jacoporusso/veloria/actions/runs/40571767514) IN PROGRESS e [Verify40571767484](https://github.com/Jacoporusso/veloria/actions/runs/40571767484) PENDING all’ultimo controllo. Conferma pubblica Pages ancora da ottenere. Goal complessivo aperto: revisione delle altre quattro sale della Lega e delle scene restanti,43profili direzionali, cicli di camminata e campagna naturale.
 
 ## 0.4.23 — Concordia e Mira direzionale
 
