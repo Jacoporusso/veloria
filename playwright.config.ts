@@ -10,16 +10,19 @@ const executablePath = configuredChrome ?? (localChrome && existsSync(localChrom
 const viteCliPath = resolve(process.cwd(), 'node_modules', 'vite', 'bin', 'vite.js');
 export const viteCommand = `"${process.execPath}" "${viteCliPath}"`;
 const existingServerUrl = process.env.VELORIA_E2E_BASE_URL;
+const worldPathSpecs = ['**/*-paths.spec.ts', '**/redesigned-interiors.spec.ts'];
 
 export default defineConfig({
   testDir: './tests/e2e',
   testIgnore: ['**/offline.spec.ts', '**/gen1-offline.spec.ts', ...(process.env.VELORIA_E2E_SUITE === 'chapters' ? [
     '**/mvp.spec.ts', '**/high-density-world-controls.spec.ts', '**/league.spec.ts',
     '**/acquariva.spec.ts', '**/concordia.spec.ts', '**/crystal.spec.ts', '**/mountain.spec.ts', '**/monorail.spec.ts',
+    ...worldPathSpecs,
   ] : [])],
   ...(process.env.VELORIA_E2E_SUITE === 'mvp' ? { testMatch: '**/mvp.spec.ts' } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'controls' ? { testMatch: '**/high-density-world-controls.spec.ts' } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'league' ? { testMatch: '**/league.spec.ts' } : {}),
+  ...(process.env.VELORIA_E2E_SUITE === 'world' ? { testMatch: worldPathSpecs } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'journeys' ? { testMatch: ['**/acquariva.spec.ts', '**/concordia.spec.ts', '**/crystal.spec.ts', '**/mountain.spec.ts', '**/monorail.spec.ts'] } : {}),
   // CI shards individual isolated cases, including the long MVP file. Each
   // runner still uses one worker so high-density canvases do not compete.

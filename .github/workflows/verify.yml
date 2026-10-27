@@ -37,6 +37,12 @@ jobs:
           - {suite: chapters, shard: 10, total: 12}
           - {suite: chapters, shard: 11, total: 12}
           - {suite: chapters, shard: 12, total: 12}
+          # Run 40471009557 exhausted the browser step after 19 passing world
+          # path cases. Keep their full journeys and the same time limits.
+          - {suite: world, shard: 1, total: 4}
+          - {suite: world, shard: 2, total: 4}
+          - {suite: world, shard: 3, total: 4}
+          - {suite: world, shard: 4, total: 4}
           - {suite: journeys, shard: 1, total: 4}
           - {suite: journeys, shard: 2, total: 4}
           - {suite: journeys, shard: 3, total: 4}
@@ -86,6 +92,10 @@ jobs:
 
       - name: Run Python validator tests
         run: python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Audit browser suite coverage
+        if: matrix.suite == 'chapters' && matrix.shard == 1
+        run: node tools/check_browser_suite_coverage.mjs
 
       - name: Run browser end-to-end tests
         timeout-minutes: 24
