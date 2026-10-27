@@ -1,3 +1,10 @@
+## 0.4.19 — Palestra di Portolume illustrata
+
+Fondale dalle terrazze e dai passaggi reali, con console e chiuse esclusivamente runtime. Primo candidato rifiutato dopo review dei piedi sul parapetto; pavimento corretto dal riferimento geometrico e giunzione nord rifinita con ImageGen. [Produzione, prompt, verifiche e limiti](86_PORTOLUME_GYM_ILLUSTRATED_v0.1.md).
+
+Locale:818 dominio/persistenza passati; tre casi Chrome sul raw finale passati, comprese tre console, battaglia Nerea, medaglia, premio unico/reload/ritorno e camera portrait/landscape. Due prove produzione offline passate: primo ingresso e circuito completo con reload/ritorno, prima decodifica dei36 fondali non iniziali. Build passata; validatori675 asset/37 fondali/48 mappe passati. Discovery352 casi browser e38 risorse offline distribuite19+19 verificate. Tiled confrontato strutturalmente con revisione precedente: unica differenza chiave scenery, nessun cambio collisioni o progressione.
+
+Runtime `cf6117ba336009d700309671efb4fd4372037aac` inviato a main. Cache prevista v182/contenuti0.4.19; [Deploy40514643193](https://github.com/Jacoporusso/veloria/actions/runs/40514643193) QUEUED, [Verify40514643240](https://github.com/Jacoporusso/veloria/actions/runs/40514643240) PENDING all’ultimo controllo. Endpoint pubblico ancora v181: nuova palestra non ancora attestata sul sito. Deploy precedente40512278078 SUCCESS, Verify40512277905 ancora QUEUED. Nessuna dichiarazione di completamento del cast, delle48 mappe o della campagna naturale.
 ## 0.4.18 — Filtri atlante e budget texture NPC
 
 Filtri cliccabili Doni/Pesca/Incontri, isolamento degli indicatori e velo scuro più leggibile. Verificato il prossimo punto dal diario. Superfici direzionali statiche Ada512×512/Elia340×510, originali e proporzioni conservati. [Dettagli e limiti](84_ATLAS_FILTERS_NPC_TEXTURE_BUDGET_v0.1.md).
