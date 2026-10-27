@@ -1,3 +1,10 @@
+## 0.4.18 — Filtri atlante e budget texture NPC
+
+Filtri cliccabili Doni/Pesca/Incontri, isolamento degli indicatori e velo scuro più leggibile. Verificato il prossimo punto dal diario. Superfici direzionali statiche Ada512×512/Elia340×510, originali e proporzioni conservati. [Dettagli e limiti](84_ATLAS_FILTERS_NPC_TEXTURE_BUDGET_v0.1.md).
+
+Locale: 787 dominio +31 persistenza passati; sette casi Chrome e tre casi produzione offline passati; build, validatori673 asset/36 fondali/48 mappe e discovery350 casi passati. Runtime `4b66b5cf97352fe041ef898b0221b47ae19230e4` inviato a main. [Deploy40511941724](https://github.com/Jacoporusso/veloria/actions/runs/40511941724): build SUCCESS, deploy QUEUED all’ultimo controllo; endpoint pubblico sw.js già restituisce v181, senza dichiarare concluso il job. [Verify40511941703](https://github.com/Jacoporusso/veloria/actions/runs/40511941703) PENDING.
+
+Audit precedente Verify40508853603: journeys3 SUCCESS; Offline resources raggiunge il limite aggregato20min dopo35 casi passati su37, senza fallimenti singoli nel log. Distribuzione risorse in due shard19+18 con controllo discovery reale, nessuna prova omessa: [motivazione](85_OFFLINE_RESOURCE_SHARDS_v0.1.md). Commit `6c1a085a2ab8b80dcb0616ef14ac7c47e777ca38` inviato a main; [Verify40512277905](https://github.com/Jacoporusso/veloria/actions/runs/40512277905) e [Deploy40512278078](https://github.com/Jacoporusso/veloria/actions/runs/40512278078) QUEUED. Runtime invariato rispetto a0.4.18. Revisione completa mappe, cast e campagna naturale ancora aperta.
 ## Verifica dopo0.4.17 — Percorso completo delle grotte in CI
 
 Audit della traccia: il ritorno avanza ancora prima del cutoff300s; l’ultimo read è censurato dalla fine del test e non prova uno stallo di IndexedDB. Budget complessivo del solo percorso portato a480s in CI,300s locale; tragitto e aspettative conservati. Tocco normale per ruolo/nome limitato a8s dentro il pad, controllo del cambio di posizione persistita ancora a8s. Nessun polling/cache nuovo nel gioco. [Misure, motivazione e limiti](83_CRYSTAL_CI_JOURNEY_BUDGET_v0.1.md).
