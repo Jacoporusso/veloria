@@ -21,6 +21,38 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('Portolume illustrated gym opens both sluices on its first offline visit and returns after reload', async ({ page, context }, info) => {
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('gym05_portolume-illustrated-v3.webp')))).toBe(false);
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'q_centrale_report', 'q_portolume_visited', 'q_portolume_orientation', 'q_portolume_tide_read', 'q_portolume_tide_report'])];
+  save.player = { ...save.player, mapId: 'veloria/gym05_portolume', spawnPointId: 'from_portolume', x: 15, y: 22 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect(await page.evaluate(async () => {
+    const image = new Image(); image.src = '/assets/scenery/veloria-gym05_portolume-illustrated-v3.webp';
+    await image.decode(); return [image.naturalWidth, image.naturalHeight];
+  })).toEqual([1448, 1086]);
+  for (const [x, y, flag] of [[8,17,'gym05_basin_balanced'], [24,10,'gym05_sluice_open'], [8,4,'gym05_tide_stable']] as const) {
+    await walkTo(page, 'gym05_portolume.tmj', x, y + 1);
+    await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+    await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
+    for (let i = 0; i < 16 && await page.locator('#dialogue-box').isVisible(); i++) await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+    await expect.poll(async () => (await readBrowserSave(page)).flags).toContain(flag);
+  }
+  await page.screenshot({ path: info.outputPath('portolume-sluices-offline.png') });
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toEqual(expect.arrayContaining(['gym05_basin_balanced', 'gym05_sluice_open', 'gym05_tide_stable']));
+  await walkTo(page, 'gym05_portolume.tmj', 15, 23);
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/portolume');
+  expect(failures).toEqual([]);
+});
+
 test('R15 first offline visit keeps the Moltres clearing and light readings interactive', async ({ page, context }, info) => {
   test.setTimeout(120_000);
   await page.goto('/'); await enterGame(page);

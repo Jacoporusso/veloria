@@ -63,7 +63,12 @@ test('Nerea sluices open in order and the Marea medal survives reload', async({p
   save.party=[{instanceId:creature.instanceId,speciesId:139,level:45,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
   for(const [x,y,flag]of [[8,17,'gym05_basin_balanced'],[24,10,'gym05_sluice_open'],[8,4,'gym05_tide_stable']]as const){
-    await walkTo(page,'gym05_portolume.tmj',x,y+1);await face(page,'Vai in alto');await a(page).tap();await finishDialogue(page);
+    await walkTo(page,'gym05_portolume.tmj',x,y+1);await face(page,'Vai in alto');
+    for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+      await page.setViewportSize(viewport);
+      await page.screenshot({path:info.outputPath(`sluice-${x}-${y}-${viewport.width}.png`)});
+    }
+    await a(page).tap();await finishDialogue(page);
     await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain(flag);
   }
   await page.reload();await enterGame(page);
@@ -98,6 +103,8 @@ test('Nerea sluices open in order and the Marea medal survives reload', async({p
   expect((await readBrowserSave(page)).player.money).toBe(1900);
   await page.reload();await enterGame(page);
   expect((await readBrowserSave(page)).badges.filter(id=>id==='badge_marea')).toHaveLength(1);
+  await walkTo(page,'gym05_portolume.tmj',15,23);
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/portolume');
 });
 
 test('Ferraluce reaches Portolume by the coast and fishing starts a coastal wild battle',async({page},info)=>{
