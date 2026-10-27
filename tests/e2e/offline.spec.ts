@@ -14,6 +14,7 @@ import magneticRouter from '../../content/puzzles/gym04_magnetic.v1.json' with {
 import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-check';
 import { selectWildEncounter } from '../../src/core/encounters/select-encounter.ts';
 import { exportSave } from '../../src/persistence/save-backup.ts';
+import { newGameSave } from '../../src/persistence/save-store.ts';
 import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' with { type: 'json' };
 
 // Keep the offline journey independent of decorative animation throughput on CI.
@@ -90,9 +91,11 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 
 for (const npc of [
   { name: 'Ada', speaker: 'Ada', profile: 'ranger-ada', map: 'd01_bosco_veli', spawn: 'from_r01', x: 13, y: 10,
-    start: { x: 1, y: 10 }, dimensions: [1254, 1254], flags: [] },
+    start: { x: 1, y: 10 }, dimensions: [1254, 1254], flags: [], coldStart: false },
   { name: 'Elia', speaker: 'Professoressa Elia', profile: 'professor-elia', map: 'borgofonte_lab', spawn: 'from_village', x: 12, y: 7,
-    start: { x: 12, y: 8 }, dimensions: [1024, 1536], flags: ['q_research_sample_received'] },
+    start: { x: 12, y: 8 }, dimensions: [1024, 1536], flags: ['q_research_sample_received'], coldStart: false },
+  { name: 'Nilo', speaker: 'Nilo', profile: 'rival-nilo', map: 'borgofonte', spawn: 'start', x: 26, y: 17,
+    start: { x: 26, y: 18 }, dimensions: [1024, 1536], flags: [], coldStart: true },
 ]) test(`${npc.name} directional idle images load on a first offline visit and every side remains interactive`, async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
@@ -100,7 +103,17 @@ for (const npc of [
   const paths = Object.values(profile.idleViews).map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path);
   expect(paths).toHaveLength(4);
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
-  await page.goto('/'); await enterGame(page);
+  await page.goto('/');
+  if (npc.coldStart) {
+    // Start in the laboratory before entering any world scene: Borgofonte also
+    // contains Nilo, so starting there would silently warm all four textures.
+    await expect(page.getByRole('button', { name: 'Nuova partita', exact: true })).toBeVisible();
+    const cold = newGameSave();
+    cold.player = { ...cold.player, mapId: 'veloria/borgofonte_lab', spawnPointId: 'from_village', x: 12, y: 11 };
+    cold.flags.push('q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen');
+    await seedBrowserSave(page, cold); await page.reload();
+  }
+  await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const warmed = await page.evaluate(paths => {
     const resources = performance.getEntriesByType('resource').map(entry => entry.name);
@@ -131,7 +144,7 @@ for (const npc of [
     { x: npc.x, y: npc.y - 1, label: 'Vai in basso', pose: 'up' },
     { x: npc.x + 1, y: npc.y, label: 'Vai a sinistra', pose: 'right' },
   ]) {
-    await walkTo(page, `${npc.map}.tmj`, stop.x, stop.y);
+    await walkTo(page, `${npc.map === 'borgofonte' ? 'bg_borgofonte' : npc.map}.tmj`, stop.x, stop.y);
     await page.getByRole('button', { name: stop.label, exact: true }).tap();
     const before = await readBrowserSave(page);
     await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);

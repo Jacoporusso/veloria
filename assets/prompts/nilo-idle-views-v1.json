@@ -1,0 +1,119 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-27",
+  "identityReference": "assets/sources/veloria-npcs-v3.png top-right figure frame2",
+  "sourceReferences": [
+    {
+      "path": "assets/sources/veloria-npcs-v3.png",
+      "role": "identity; only top-right figure in top row (frame 2)",
+      "note": "Atlas visibly inspected before use."
+    },
+    {
+      "path": "assets/sources/veloria-elia-idle-south-v1.png",
+      "role": "rendering style reference",
+      "note": "Visibly inspected before use."
+    },
+    {
+      "path": "assets/sources/veloria-ada-idle-south-v2.png",
+      "role": "rendering style reference",
+      "note": "Visibly inspected before use."
+    },
+    {
+      "path": "content/characters/appearances.v2.json",
+      "role": "identity profile selection",
+      "note": "rival-nilo, asset veloria-npcs-v3, frame 2."
+    }
+  ],
+  "prompts": {
+    "south": "Create one standalone full-body character illustration, transparent RGBA background. Use reference image 1 only for the TOP-RIGHT figure in the six-character atlas (Nilo, top row right): preserve that exact identity, youthful face, tousled medium-brown hair, teal open hoodie over cream shirt, cream cropped trousers ending mid-calf, teal-and-cream sneakers, and small brown leather crossbody satchel hanging at his anatomical LEFT hip. Strap originates at his anatomical RIGHT shoulder and crosses diagonally to the left-hip bag. References 2 and 3 are style and rendering quality only: match their polished modern 2D storybook RPG character painting, softly modeled color, clean delicate outlines, warm expressive face, detailed but controlled fabrics. Direction: SOUTH, directly facing viewer, whole body visible from hair to shoe soles, neutral relaxed balanced idle stance, arms hanging naturally at sides with open relaxed hands, neither hand in pocket and hands empty. Keep body proportions and overall figure size suitable for an NPC idle sprite; centered with generous clear margins, straight-on orthographic character view, consistent anatomy. Make the left-hip bag anatomically correct (viewer-right in this front view). Transparent background only, no floor, no base, no shadow, no glow, no halo, no text, no extra objects, no cropping. Do not include any atlas layout or other character.",
+    "west": "Create one independent full-body idle illustration of the SAME Nilo character shown in reference image 1. Match identity, face, medium-brown tousled wavy hair, exact outfit colors and painterly modern 2D storybook RPG rendering. Direction: WEST, true left-facing side profile (nose and toes point to viewer-left), not front three-quarter. Keep the brown leather crossbody satchel on Nilo's anatomical LEFT hip, connected by strap originating at anatomical RIGHT shoulder and crossing the torso correctly; maintain the same anatomical assignment as reference, do not mirror or reverse the bag/strap. Side view can show the strap wrapping over the far shoulder naturally. Outfit: open petrol-teal hoodie, cream shirt, cream trousers ending mid-calf, petrol-teal and cream sneakers. Full figure centered, head to soles, match reference's character proportions and relative scale, relaxed neutral idle stance, both arms resting naturally at sides with hands relaxed and empty, no hands in pockets. Transparent RGBA only, no floor, base, cast shadow, backdrop, gradient, glow, halo, text, crop, props or extra characters. One character only.",
+    "east": "Edit the reference image of Nilo. Preserve the existing EAST-facing profile exactly: same right-facing head and gaze, hair, facial features, petrol-teal hoodie, cream shirt and cropped trousers, shoes, relaxed hands, body proportions, full-body vertical framing, scale, and transparent background. Change ONLY the crossbody satchel and strap so they follow the correct anatomy and occlusion. Nilo faces viewer-right. His satchel belongs on his anatomical LEFT hip, which in this side view is the FAR hip. Therefore almost all of the brown bag must be hidden behind his near-side torso, arm and leg; show at most a narrow, subtle edge of the bag peeking behind the far hip on the viewer-right/back contour. Do not show a broad bag face on the viewer-left near side. The strap originates at anatomical RIGHT shoulder and crosses the torso toward the anatomical LEFT hip; from this right-facing view, show only the physically plausible portion of strap on the visible near side, with the far portion naturally hidden by his body. Preserve the east direction and do not mirror, flip, or turn the pose. Keep the same composition and rendering as source, transparent RGBA background, no added ground, shadow, glow, halo, text or objects.",
+    "north": "Create a corrected rear-facing NORTH idle view of the SAME Nilo in reference image 1, a full-body polished modern 2D RPG illustration. Preserve identity and proportions: young boy with tousled medium-brown hair, petrol-teal hoodie, cream cropped trousers ending mid-calf, teal-and-cream sneakers. Direct back view, facing away. Use the reference only for character identity and style; correct the accessory placement exactly as follows: from the VIEWER'S perspective, the leather satchel is on the LEFT side of the image, at Nilo's anatomical LEFT hip. The strap starts at Nilo's anatomical RIGHT shoulder, on the VIEWER'S RIGHT shoulder, and crosses diagonally down across his back to the bag on VIEWER'S LEFT. Thus the diagonal slopes from upper-right to lower-left. This exact viewer-left bag and viewer-right shoulder origin is essential. Do not reverse these positions, mirror or flip the image. Natural neutral upright idle stance; arms at sides with empty relaxed hands; no pockets. Full figure centered, shoes visible, transparent RGBA, no background, ground, base, shadow, glow, halo, props, or cropping. One character only."
+  },
+  "rejectedCandidates": [
+    {
+      "direction": "north",
+      "outputId": "exec-962bf0d3-31bd-4b77-bc6b-034ac3dad5d3.png",
+      "reason": "Rear view had satchel on viewer-right and strap origin viewer-left, opposite required anatomy; superseded by the corrected north candidate."
+    },
+    {
+      "direction": "east",
+      "candidatePath": ".tmp/nilo-idles-candidates/nilo-idle-east-rejected-v1.png",
+      "outputId": "exec-1e447df5-3327-429a-87f4-aaaaf3cf367a.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17d9c-526b-7b62-9fcb-219121564ac1\\exec-1e447df5-3327-429a-87f4-aaaaf3cf367a.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "reason": "Rejected after review: bag face incorrectly exposed on near side for an east-facing Nilo; corrected candidate tucks the bag behind the far hip.",
+      "prompt": "Create one independent full-body idle illustration of exactly the same Nilo from reference image 1 (which is his west-facing profile). Preserve his youthful face and medium-brown wavy tousled hair, teal open hoodie over cream shirt, cream trousers ending mid-calf, teal-and-cream sneakers, and the small brown leather crossbody satchel. Draw the opposite, EAST direction: true right-facing side profile, nose and toes point to viewer-right; this is a freshly drawn view, never mirror or flip the reference. Preserve anatomy and carry assignment: satchel rests at his anatomical LEFT hip, with strap originating at anatomical RIGHT shoulder and running across the torso to the left hip, wrapping naturally around the side; do not swap sides to imitate the reference. Keep the same figure proportions and overall scale as reference. Full figure from hair to soles, centered with generous margins, neutral relaxed idle stance, arms at sides, hands relaxed and empty, neither hand in pocket. Transparent RGBA background, no setting, floor, shadow, base, glow, halo, text, cropping or other objects. One character only."
+    }
+  ],
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-nilo-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-nilo-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nilo-idle-south-v1.webp",
+      "sourceSha256": "82646d87b4632c9557c9fbdf5e3d5c0be174493814134908a2d607e9120c1748",
+      "runtimeSha256": "64082131c414315aa01658c6aa239e657f65ac19b2008202b310399b17b7dd27",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51575,
+        "y": 0.96549
+      },
+      "displaySize": 59.49,
+      "outputId": "exec-1a451246-14cd-4e0c-8727-e7d5181eaab6.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-nilo-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-nilo-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nilo-idle-west-v1.webp",
+      "sourceSha256": "cc376a2221e491ed2a7d5ff491b4b9658c65f4dde1f816e1ae01220fb52e51d8",
+      "runtimeSha256": "edfe04fd526b343157dbb591a2c4e5f5d16c6ac76b2c12ea52a13e0bba8b55bb",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51165,
+        "y": 0.97786
+      },
+      "displaySize": 58.12,
+      "outputId": "exec-d100d255-194d-45b1-976e-22f2acf7dea7.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-nilo-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-nilo-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nilo-idle-east-v1.webp",
+      "sourceSha256": "eb7dc5b795dcb492cce6da4d6539315d93f8f538ea78b58191c0be9742e09fb3",
+      "runtimeSha256": "a581b877d95e09153f1e9993e715367943869f5e5da4eaca44d3c36eadd686c4",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.48997,
+        "y": 0.97591
+      },
+      "displaySize": 57.92,
+      "outputId": "exec-343f3122-975b-4ec8-8a1f-41cdac34e9d9.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-nilo-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-nilo-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nilo-idle-north-v1.webp",
+      "sourceSha256": "0341d243b6a9bc3629158eb5e668a8dc003225dfa44a81bf001f10df8bbbf78d",
+      "runtimeSha256": "548280b6836367764fbc7085beeb5fd0c6647b57170c17a12773f9f8e3e0eb36",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50029,
+        "y": 0.97656
+      },
+      "displaySize": 57.92,
+      "outputId": "exec-52336ed9-9303-4e2b-8ced-5c1ef78617f6.png"
+    }
+  ],
+  "calibration": "Optical height56worldpx from alpha>=128 body bounds; feet origin from bottom50px alpha centroid. Raw PNG unchanged and exact RGBA lossless WebP; native acceptance recorded separately."
+}

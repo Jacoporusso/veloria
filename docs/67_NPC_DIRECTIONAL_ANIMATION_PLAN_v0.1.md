@@ -52,3 +52,7 @@ Le misure sono state verificate nei quattro approcci reali nei due orientamenti.
 ## Elia: secondo profilo direzionale
 
 Quattro immagini verticali2:3 di Elia collegate alle tre presenze narrative, con calibrazione per vista e scala uniforme. Il contratto `displaySize` indica l’altezza dell’immagine completa; le pose quadrate Ada mantengono il comportamento precedente. [Provenienza, prove e limiti](81_ELIA_DIRECTIONAL_IDLE_v0.1.md). Due profili idle direzionali non completano le46 identità rimanenti, le camminate o il budget texture.
+
+## Nilo: terzo profilo direzionale
+
+Quattro pose verticali indipendenti condivise da Borgofonte e Passo delle Due Luci. La review corregge il lato della borsa nel retro e la sua occlusione nel profilo est. Borgofonte verifica i quattro approcci; R15 conserva i due approcci reali, sud e ovest, con nord/est bloccati dal bordo esistente. La regressione del respiro statico usa ora Sera, senza applicare deformazioni alle pose calibrate. Tre profili direzionali lasciano45 identità e tutti i cicli di camminata da completare. Dettagli in [documento87](87_NILO_DIRECTIONAL_IDLE_v0.1.md).

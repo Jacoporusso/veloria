@@ -158,6 +158,26 @@
       "kind": "image",
       "key": "veloria-elia-idle-north-v1",
       "path": "assets/sprites/veloria-elia-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-south-v1",
+      "path": "assets/sprites/veloria-nilo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-west-v1",
+      "path": "assets/sprites/veloria-nilo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-east-v1",
+      "path": "assets/sprites/veloria-nilo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-north-v1",
+      "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -276,12 +296,45 @@
         "nilo",
         "r15_nilo"
       ],
-      "assetKey": "veloria-npcs-v3",
-      "frame": 2,
+      "assetKey": "veloria-nilo-idle-south-v1",
       "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81",
       "origin": {
-        "x": 0.3672,
-        "y": 0.9883
+        "x": 0.51575,
+        "y": 0.96549
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-nilo-idle-south-v1",
+          "origin": {
+            "x": 0.51575,
+            "y": 0.96549
+          },
+          "displaySize": 59.49
+        },
+        "left": {
+          "assetKey": "veloria-nilo-idle-west-v1",
+          "origin": {
+            "x": 0.51165,
+            "y": 0.97786
+          },
+          "displaySize": 58.12
+        },
+        "right": {
+          "assetKey": "veloria-nilo-idle-east-v1",
+          "origin": {
+            "x": 0.48997,
+            "y": 0.97591
+          },
+          "displaySize": 57.92
+        },
+        "up": {
+          "assetKey": "veloria-nilo-idle-north-v1",
+          "origin": {
+            "x": 0.50029,
+            "y": 0.97656
+          },
+          "displaySize": 57.92
+        }
       }
     },
     {

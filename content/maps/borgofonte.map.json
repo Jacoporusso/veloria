@@ -62,6 +62,26 @@
         "columns": 3,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-south-v1",
+      "path": "assets/sprites/veloria-nilo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-west-v1",
+      "path": "assets/sprites/veloria-nilo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-east-v1",
+      "path": "assets/sprites/veloria-nilo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nilo-idle-north-v1",
+      "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
     }
   ],
   "spawns": [

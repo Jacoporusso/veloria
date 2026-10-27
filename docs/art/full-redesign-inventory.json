@@ -7,17 +7,17 @@
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
     "mapsWithExplicitSceneryImage": 41,
-    "mapsWithRegisteredSceneryPath": 44,
+    "mapsWithRegisteredSceneryPath": 45,
     "mapsWithTerrainBase": 22,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
     "mapsWithSceneryImageOnly": 26,
     "mapsWithTerrainBaseOnly": 7,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 44,
+    "registeredSceneryImageAssets": 45,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 36,
+    "parityArtworkEntries": 37,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -851,6 +851,26 @@
         "kind": "image",
         "key": "veloria-elia-idle-north-v1",
         "path": "assets/sprites/veloria-elia-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-south-v1",
+        "path": "assets/sprites/veloria-nilo-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-west-v1",
+        "path": "assets/sprites/veloria-nilo-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-east-v1",
+        "path": "assets/sprites/veloria-nilo-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-north-v1",
+        "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -872,6 +892,10 @@
       "veloria-gym-leaders-b-v1",
       "veloria-league-and-cammino-cast-v1",
       "veloria-league-council-v1",
+      "veloria-nilo-idle-east-v1",
+      "veloria-nilo-idle-north-v1",
+      "veloria-nilo-idle-south-v1",
+      "veloria-nilo-idle-west-v1",
       "veloria-npcs-v3",
       "veloria-r09-r10-coastal-trainers-v1",
       "veloria-route-trainers-r04-r07-v1",
@@ -1077,6 +1101,26 @@
         "kind": "image",
         "key": "veloria-elia-idle-north-v1",
         "path": "assets/sprites/veloria-elia-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-south-v1",
+        "path": "assets/sprites/veloria-nilo-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-west-v1",
+        "path": "assets/sprites/veloria-nilo-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-east-v1",
+        "path": "assets/sprites/veloria-nilo-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nilo-idle-north-v1",
+        "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1195,12 +1239,45 @@
           "nilo",
           "r15_nilo"
         ],
-        "assetKey": "veloria-npcs-v3",
-        "frame": 2,
+        "assetKey": "veloria-nilo-idle-south-v1",
         "narrativeSource": "docs/01_GDD_Veloria_v0.1.md:81",
         "origin": {
-          "x": 0.3672,
-          "y": 0.9883
+          "x": 0.51575,
+          "y": 0.96549
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-nilo-idle-south-v1",
+            "origin": {
+              "x": 0.51575,
+              "y": 0.96549
+            },
+            "displaySize": 59.49
+          },
+          "left": {
+            "assetKey": "veloria-nilo-idle-west-v1",
+            "origin": {
+              "x": 0.51165,
+              "y": 0.97786
+            },
+            "displaySize": 58.12
+          },
+          "right": {
+            "assetKey": "veloria-nilo-idle-east-v1",
+            "origin": {
+              "x": 0.48997,
+              "y": 0.97591
+            },
+            "displaySize": 57.92
+          },
+          "up": {
+            "assetKey": "veloria-nilo-idle-north-v1",
+            "origin": {
+              "x": 0.50029,
+              "y": 0.97656
+            },
+            "displaySize": 57.92
+          }
         }
       },
       {
@@ -2676,6 +2753,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-south-v1",
+          "path": "assets/sprites/veloria-nilo-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-west-v1",
+          "path": "assets/sprites/veloria-nilo-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-east-v1",
+          "path": "assets/sprites/veloria-nilo-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-north-v1",
+          "path": "assets/sprites/veloria-nilo-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -2751,11 +2856,11 @@
           "profileMatch": "rival-nilo",
           "narrativeSpeaker": "Nilo",
           "kind": "npc",
-          "sprite": "veloria-npcs-v3",
-          "spriteFrame": 2,
+          "sprite": "veloria-nilo-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.3672,
-            "y": 0.9883
+            "x": 0.51575,
+            "y": 0.96549
           },
           "trainerId": null,
           "battleOnceFlag": null,
@@ -6073,7 +6178,7 @@
           "layer": "decorations",
           "stableObjectId": 55,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-gym05-sluices-v1",
+          "spriteKey": "veloria-gym05_portolume-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6087,19 +6192,27 @@
           "layer": "decorations",
           "stableObjectId": 55,
           "name": "Ambiente illustrato",
-          "spriteKey": "veloria-gym05-sluices-v1",
+          "spriteKey": "veloria-gym05_portolume-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 32.0,
             "height": 24.0
           },
-          "assetPath": "assets/sprites/veloria-gym05-sluices-v1.webp",
+          "assetPath": "assets/scenery/veloria-gym05_portolume-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-gym05_portolume-illustrated-v3",
+          "path": "assets/scenery/veloria-gym05_portolume-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -6125,8 +6238,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym05-sluices-v1",
-          "path": "assets/sprites/veloria-gym05-sluices-v1.webp",
+          "key": "veloria-gym05_portolume-illustrated-v3",
+          "path": "assets/scenery/veloria-gym05_portolume-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -6143,8 +6256,35 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/gym05_portolume",
+        "tiledAsset": "tilemaps/gym05_portolume.tmj",
+        "assetKey": "veloria-gym05_portolume-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-gym05_portolume-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-gym05_portolume-illustrated-v3.webp",
+        "sourceSha256": "3ec849294b40318bbe1da0d74750d945e3c433692f0bfe182b58571fa03dfd57",
+        "runtimeSha256": "0f240c82a57e9f8beab9197f03ef1308c1c411a137cfb3e4e52c68b8c7a0342e",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Production game background for Veloria Portolume water gym, modern illustrated 2D children's exploration adventure. Output landscape 4:3, full opaque rectangular map. Image1 AUTHORITATIVE exact playable geometry (32x24 tiles,1024x768 world); tan is continuous walkable ivory floor including20px south foot allowance, blue-gray is solid perimeter or water. Image2 old water gym concept ONLY for marine conservatory identity: arched glass, turquoise water, ivory stone, little copper mechanisms. Image3 modern Concordia STYLE reference for crisp hand-painted layered detail, gentle warm lighting, rounded shapes, rich restrained color, no pixel art, no photoreal 3D. Fixed overhead north-up orthographic view, never isometric. Strictly preserve ALL tan floor, do not shrink the terraces or bridges. Three horizontal broad terraces: x15.625%-84.375%, y12.5%-27.60%; y37.5%-52.60%; y62.5%-81.77%. Between terraces two water channels at y27.6%-37.5% and52.6%-62.5%, each crossed by a narrow central open bridge x46.875%-53.125%. South entrance x43.75%-56.25% fromy79.17% tobottom edge, remain open and wide. North wall entirely above y12.5%, narrow side walls outside x15.625%-84.375%. Preserve quiet flat floor for three RUNTIME interaction consoles at tile(8,17),(24,10),(8,4), and RUNTIME leader at(16,3), approached from south. DO NOT paint consoles, round plates, valve handles, floor buttons, switch markers, NPC, gates or their state into image; runtime draws these. Especially NO barriers across the two bridge crossings: actual two sluice barriers are runtime. All artwork water and architecture stay in blue-gray regions of geometry; bridge and entrance entirely walkable pale stone. Gentle caustic reflection on adjacent ivory paving, small flowering plants and refined hydraulic pipe details on blocked perimeter only. Keep architecture low and light with quiet walking floor. No fake doors, extra bridges, obstacles on tan, UI, text, labels, lettering, numbers, arrows, grid, Pokemon or people. No heavy gold borders. Entire full-frame production background with north wall and water filling edges, no empty black border.",
+        "references": [
+          "assets/prompts/gym05-production-layout-v1.png",
+          "assets/sources/veloria-gym05-sluices-v1.png",
+          "assets/sources/veloria-concordia-illustrated-v3.png",
+          "assets/prompts/gym05-exact-floor-reference.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/gym05_portolume-illustrated-v3.md",
+            "reason": "Preserve three terraces and runtime sluices; remove baked false command plates."
+          },
+          {
+            "promptDocument": "assets/prompts/gym05_portolume-illustrated-v3.md",
+            "reason": "Native foot review: exact walking floor and lower fascia; remove truncated north mosaic."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -12185,6 +12325,34 @@
           "path": "assets/creatures/pokeapi-gen1-146-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-south-v1",
+          "path": "assets/sprites/veloria-nilo-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-west-v1",
+          "path": "assets/sprites/veloria-nilo-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-east-v1",
+          "path": "assets/sprites/veloria-nilo-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nilo-idle-north-v1",
+          "path": "assets/sprites/veloria-nilo-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -12267,11 +12435,11 @@
           "profileMatch": "rival-nilo",
           "narrativeSpeaker": "Nilo",
           "kind": "npc",
-          "sprite": "veloria-npcs-v3",
-          "spriteFrame": 2,
+          "sprite": "veloria-nilo-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.3672,
-            "y": 0.9883
+            "x": 0.51575,
+            "y": 0.96549
           },
           "trainerId": "veloria/trainer_r15_nilo",
           "battleOnceFlag": "trainer_r15_nilo_defeated",
@@ -13308,11 +13476,11 @@
       "profileMatch": "rival-nilo",
       "narrativeSpeaker": "Nilo",
       "kind": "npc",
-      "sprite": "veloria-npcs-v3",
-      "spriteFrame": 2,
+      "sprite": "veloria-nilo-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.3672,
-        "y": 0.9883
+        "x": 0.51575,
+        "y": 0.96549
       },
       "trainerId": null,
       "battleOnceFlag": null,
@@ -14496,11 +14664,11 @@
       "profileMatch": "rival-nilo",
       "narrativeSpeaker": "Nilo",
       "kind": "npc",
-      "sprite": "veloria-npcs-v3",
-      "spriteFrame": 2,
+      "sprite": "veloria-nilo-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.3672,
-        "y": 0.9883
+        "x": 0.51575,
+        "y": 0.96549
       },
       "trainerId": "veloria/trainer_r15_nilo",
       "battleOnceFlag": "trainer_r15_nilo_defeated",
