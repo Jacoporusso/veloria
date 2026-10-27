@@ -6,18 +6,18 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 35,
+    "mapsWithExplicitSceneryImage": 36,
     "mapsWithRegisteredSceneryPath": 42,
-    "mapsWithTerrainBase": 28,
+    "mapsWithTerrainBase": 27,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 20,
-    "mapsWithTerrainBaseOnly": 13,
+    "mapsWithSceneryImageOnly": 21,
+    "mapsWithTerrainBaseOnly": 12,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
     "registeredSceneryImageAssets": 42,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 13,
-    "mapsWithUnreferencedSceneryRegistration": 13,
-    "parityArtworkEntries": 28,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 12,
+    "mapsWithUnreferencedSceneryRegistration": 12,
+    "parityArtworkEntries": 29,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -4138,11 +4138,7 @@
         "height": 30
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-d05-crystal-caverns-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 1200,
@@ -4150,26 +4146,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 178,
+          "name": "Grotte del Cristallo illustrate",
+          "spriteKey": "veloria-d05_grotte_cristallo-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 178,
+          "name": "Grotte del Cristallo illustrate",
+          "spriteKey": "veloria-d05_grotte_cristallo-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          },
+          "assetPath": "assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-d05-crystal-caverns-v1",
-          "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp",
+          "key": "veloria-d05_grotte_cristallo-illustrated-v3",
+          "path": "assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-d05-crystal-caverns-v1",
-          "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -4194,15 +4211,49 @@
         },
         {
           "kind": "image",
-          "key": "veloria-d05-crystal-caverns-v1",
-          "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp",
+          "key": "veloria-d05_grotte_cristallo-illustrated-v3",
+          "path": "assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "tiledAsset": "tilemaps/d05_grotte_cristallo.tmj",
+        "assetKey": "veloria-d05_grotte_cristallo-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-d05_grotte_cristallo-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp",
+        "sourceSha256": "fe1e502063da5924b2210df201af4283405c2a361823b5b1c1af998d7a75f925",
+        "runtimeSha256": "ceabd5c47398596dca0e13524e19d5126e2853f6d267cbb0f00a31d0d2887089",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create finished modern hand-painted 2D top-down RPG environment, Veloria Grotte del Cristallo. EXACT 4:3 full-map canvas, no border, text, UI, characters, creatures, signs, machines or interactive instruments. First reference is STRICT traversable geometry mask, 40 columns x30 rows: beige = FLAT OPEN WALKABLE FLOOR including all winding corridors, spurs and foot clearance, blue-grey = solid cavern walls/outcrops, green = small reachable alpine cave moss habitat at x82.5..90%,y46.7..55.4%. Preserve every beige and green area at EXACT normalized coordinates; never put crystals, pillars, rocks, water or steps that obstruct it. Second image is STYLE ONLY: same polished detailed modern illustrated2D fantasy family adventure as adjacent snowy Crystal Pass, but interior of a crystal cave; no outside town or snow forest. Replace blue-grey with layered slate-blue cavern walls, rich faceted turquoise/amethyst crystal growths, gentle teal reflected light and softly shadowed recesses. Replace beige with clear pale warm ivory stone floor, subtle natural surface, restrained tiny cracks, no heavy borders. Large blocked northwest mass and southern mass should have rich varied rock/crystal texture, no huge black blank space; no foreground wall hiding floor. Bottom entrance is at tile(11,29): center28.75% width,98.3% height; draw uninterrupted floor extending out bottomedge at this position. Exit to surface in far NE at tile(38,3), center96.25%,11.67%: small cavern arch opening oriented east on the right end of the northern corridor, do not seal the corridor or add an extra stair. Main northwest spur is near(5,13)17? exact floor mask authoritative; preserve nook belowlow station at tile5,14 (13.75%,48.33%), middle station approach18,12 (46.25%,41.67%), console approach29,3 (73.75%,11.67%), receiver approach36,3 (91.25%,11.67%). Runtime will draw all instruments; leave their spaces clear. Add shallow luminous cave pools ONLY in blocked northwest region near lowstation, never on beige. Cliff edges may be organically softened inside blue-grey only, no rocks intruding into beige at elbows. Refined contemporary illustrated adventure, crisp painterly materials, coherent scale, overhead gameplay camera, warm readable floor with cool gem-lit walls, not pixelart, not isometric diorama or 3D render.",
+        "references": [
+          "assets/prompts/d05-production-layout-v1.svg",
+          "assets/sources/veloria-r14_varco_cristallo-illustrated-v3.png",
+          "assets/prompts/d05-exact-floor-reference.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+            "reason": "Modern illustrated crystal cavern; exact collision guide and single true moss habitat, runtime instruments remain aligned to Tiled."
+          },
+          {
+            "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+            "reason": "Browser review found cliff artwork on the central approach and lower station edge. Restore open floor while keeping Tiled geometry authoritative."
+          },
+          {
+            "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+            "reason": "Replace local repairs with a Tiled-authored floor reference; ImageGen refines seams while preserving full playable corridors."
+          },
+          {
+            "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+            "reason": "Final local clearance refinement at three floor-contact samples; verify contacts in real gameplay rather than using hue as an acceptance gate."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 174,
@@ -11464,8 +11515,8 @@
         "assetKey": "veloria-r14_varco_cristallo-illustrated-v3",
         "sourcePath": "assets/sources/veloria-r14_varco_cristallo-illustrated-v3.png",
         "runtimePath": "public/assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp",
-        "sourceSha256": "87588b5de68f130a28e06f97a0cc9fae33ea784befd1bdc62cdfa76d5eb9b3f8",
-        "runtimeSha256": "17bb9812d028d97f9cd46aa470aac88aee8c5c6b42927f2eea11589de8cb5b04",
+        "sourceSha256": "ff999a98057427d00d7c0b0c321db420607dcaa691e1c4d2d7726c7285154521",
+        "runtimeSha256": "bc6957eb70b621d9662630127094b73c2d0a457aa725ccc67409e68eb1b631fe",
         "width": 1448,
         "height": 1086,
         "prompt": "Create a finished modern illustrated 2D top-down RPG full-map environment for Veloria, Varco Cristallo alpine mountain pass. EXACT 4:3 canvas, no border, no UI, no labels, no grid, no characters, no creatures, no markers, no baked interactive sensor. First reference is STRICT geometry: blue-grey = inaccessible snowy cliffs/rocks/conifers; beige = traversable light natural stone path, preserve EVERY beige corridor and spur at exact normalized position and width, never place rocks, posts, trunks or walls on it. Green = small reachable tufted alpine grass habitat lower right, preserve location. Second reference is STYLE ONLY: polished hand-painted contemporary family adventure, detailed crisp painterly surfaces, soft atmospheric light, snowy blue mountains, warm limestone paths, restrained cyan crystals, vivid but cohesive, not pixel art, not isometric 3D render. Composition matches geometry precisely: west entry at x0,y55%; winding path bifurcates into northwestern lookout at x30%,y18%, east climbing route leading to a cave mouth centered x86.25%,y18.33%, southern grass spur at x60%,y66%. Cave mouth must open onto beige path with threshold at normalized (0.8625,0.1833); no invented extra walkways. Northmost 0-16% is cliffs and trees. At east branch around x76%,y42%, a small warm sheltered rest alcove may be carved BEHIND free floor, never on beige. Keep all beige usable flat ground and sufficient foot clearance from source mask. Fill inaccessible remainder with beautifully varied snowy slate outcrops, small crystal formations, clusters of fir trees, distant depth only outside walkable floor; no black void. Light natural paths not dark heavy edging. Preserve flat consistent overhead gameplay scale, no huge foreground occlusion.",
@@ -11477,6 +11528,10 @@
           {
             "promptDocument": "assets/prompts/r14_varco_cristallo-illustrated-v3.md",
             "reason": "Modern illustrated alpine pass; generated collision guide preserves paths and habitat with actor foot clearance."
+          },
+          {
+            "promptDocument": "assets/prompts/r14_varco_cristallo-illustrated-v3.md",
+            "reason": "Browser review found a painted rock inside the refuge approach. Removed rock and habitat edge obstructions through ImageGen; gameplay geometry unchanged."
           }
         ]
       },

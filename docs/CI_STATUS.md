@@ -1,8 +1,16 @@
+## 0.4.9 — Grotte del Cristallo illustrate
+
+Fondale D05 rifinito a partire dalla geometria Tiled, con corridoi ampliati nei punti dove i primi candidati mostravano il protagonista sulle pareti dipinte. Il riferimento canvas resta di authoring: il risultato pubblicabile è raw ImageGen e derivata WebP lossless. Strumenti vettoriali condivisi sulle quattro stazioni; collisioni, incontri e quest invariati. [Provenienza, percorso di revisione e limiti](71_CRYSTAL_CAVERNS_ILLUSTRATED_v0.1.md).
+
+Locale:775 dominio +31 persistenza passati, build finale passata, validatore628 asset/29 fondali/48 mappe passato. Tre casi della console/missione/percorso passati prima dell’ultima rifinitura; sul candidato finale passano percorso ampliato e due casi camera. Due prove produzione offline passate: regolatore con ritorno aR14 e prima richiesta senza rete dei28 fondali non iniziali. Cache v172, contenuti0.4.9. Commit, pubblicazione e nuova CI da attestare dopo push.
+
+Per Ada: misure candidate delle quattro idle e calcolo puro NPC→osservatore con4 test passati; nessuna nuova posa collegata al gioco e camminata ancora da produrre. Nessuna dichiarazione di completamento del cast o delle48 mappe.
+
 ## 0.4.8 — Varco di Cristallo illustrato
 
 Nuovo fondale R14 raw PNG/WebP lossless, generato dalla geometria Tiled e coerente con Biancavetta; pittogrammi condivisi su rifugio e sensore. Primo candidato corretto dopo la revisione browser della roccia che invadeva il punto di cura. Nessuna modifica a collisioni, incontri, missioni o uscite. [Asset, verifiche e limiti](70_CRYSTAL_PASS_ILLUSTRATED_v0.1.md).
 
-Locale:771 dominio +31 persistenza passati; build passata; validatore624 asset/28 fondali/48 mappe passato. Percorso touch completo con cura effettiva, dialoghi, grotta/ritorno e uscita ovest passato; due casi camera passati. Produzione offline: prima richiesta dei27 fondali non iniziali passata; regolatore della grotta e ritorno a R14 passati anche nella ripetizione che richiede i nuovi asset. Cache v171, contenuti0.4.8. Runtime `bf86f1f` inviato a main: [Deploy40422659748](https://github.com/Jacoporusso/veloria/actions/runs/40422659748) IN PROGRESS, [Verify40422659495](https://github.com/Jacoporusso/veloria/actions/runs/40422659495) PENDING all’ultimo controllo. Disponibilità pubblica v171 ancora da attestare. Revisione48 mappe e direzioni/animazioni cast ancora aperte.
+Locale:771 dominio +31 persistenza passati; build passata; validatore624 asset/28 fondali/48 mappe passato. Percorso touch completo con cura effettiva, dialoghi, grotta/ritorno e uscita ovest passato; due casi camera passati. Produzione offline: prima richiesta dei27 fondali non iniziali passata; regolatore della grotta e ritorno a R14 passati anche nella ripetizione che richiede i nuovi asset. Cache v171, contenuti0.4.8. Runtime `bf86f1f` pubblicato: [Deploy40422659748](https://github.com/Jacoporusso/veloria/actions/runs/40422659748) SUCCESS; cache pubblica v171 e fondale R14 HTTP200 verificati. [Verify40422659495](https://github.com/Jacoporusso/veloria/actions/runs/40422659495) PENDING all’ultimo controllo. Revisione48 mappe e direzioni/animazioni cast ancora aperte.
 
 ## 0.4.7 — Guide dei doni Pokémon e margini senza copie
 

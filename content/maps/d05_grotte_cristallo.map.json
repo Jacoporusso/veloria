@@ -4,11 +4,6 @@
   "displayName": "Grotte del Cristallo",
   "biomeId": "crystal_cavern",
   "tiledAsset": "tilemaps/d05_grotte_cristallo.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-d05-crystal-caverns-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -29,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-d05-crystal-caverns-v1",
-      "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp"
+      "key": "veloria-d05_grotte_cristallo-illustrated-v3",
+      "path": "assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp"
     }
   ],
   "spawns": [
@@ -71,5 +66,5 @@
     "veloria/q_crystal_research"
   ],
   "musicId": "ambient_brumalta",
-  "battleBackgroundKey": "veloria-d05-crystal-caverns-v1"
+  "battleBackgroundKey": "veloria-d05_grotte_cristallo-illustrated-v3"
 }

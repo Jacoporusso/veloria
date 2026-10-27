@@ -37,6 +37,11 @@ test('Brina gates the crystal bridge; all cavern readings and report persist wit
  await inspect(page,'d05_grotte_cristallo.tmj',5,14);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_low_read');
  await walkTo(page,'d05_grotte_cristallo.tmj',29,3,{avoidEncounters:true});await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await solve(page);
  await inspect(page,'d05_grotte_cristallo.tmj',36,3,'Vai in basso');await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_upper_read');await page.screenshot({path:info.outputPath('crystal-upper-reading.png')});
+ await walkTo(page,'d05_grotte_cristallo.tmj',37,3,{avoidEncounters:true});
+ await page.getByRole('button',{name:'Vai a destra',exact:true}).tap();
+ await expect(page.locator('#toast')).toContainText('Porta prima le letture a Livia');
+ expect((await readBrowserSave(page)).player).toMatchObject({mapId:'veloria/d05_grotte_cristallo',x:38,y:3});
+ expect((await readBrowserSave(page)).flags).not.toContain('q_d05_report');
  await walkTo(page,'d05_grotte_cristallo.tmj',11,29,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r14_varco_cristallo');
  const before=await readBrowserSave(page);await inspect(page,'r14_varco_cristallo.tmj',29,12);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_d05_report');
  const reward=await readBrowserSave(page);expect(reward.player.money).toBe(before.player.money+700);expect(reward.inventory.potion??0).toBe((before.inventory.potion??0)+2);

@@ -334,6 +334,13 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
     case 'hotspot':
       if (item.properties.weatherInstrument === 'wind' || item.properties.weatherInstrument === 'thermometer') {
         renderWeatherInstrument(scene, container, item, item.properties.weatherInstrument);
+      } else if (item.properties.fieldInstrument === 'gauge') {
+        renderSensor(scene, container, item, depth, imageKeys, imageAtlases);
+      }
+      break;
+    case 'environment-regulator':
+      if (item.properties.fieldInstrument === 'gauge') {
+        renderSensor(scene, container, item, depth, imageKeys, imageAtlases);
       }
       break;
     case 'house': {

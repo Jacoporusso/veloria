@@ -33,3 +33,18 @@ Ada oggi occupa un punto fisso: non introdurre una pattuglia o passi sul posto s
 - Un E2E mirato in `tests/e2e/npc-identities.spec.ts` o `tests/e2e/npc-animation.spec.ts`: muovere davvero il protagonista attorno ad Ada e interagire per osservare le quattro viste di attesa, anche con animazioni ridotte; verificare il cammino separatamente nella scena di prova se non è previsto dai contenuti reali.
 
 Questa tranche dimostra la pipeline e il contratto per un NPC solo. Non completa le animazioni degli altri 47 profili, non certifica tutte le 51 presenze e non chiude la review delle 48 mappe. Ogni profilo restante richiede pose e verifica proprie; eventuali apparizioni collegate condividono l’animazione solo quando il profilo d’identità è esplicitamente condiviso.
+
+## Misure candidate e contratto di orientamento — 27 ottobre
+
+Le quattro immagini idle Ada v2 sono ancora studi privati, non asset runtime. La revisione del composito Chrome conferma fronte, retro e due profili distinti, con identità coerente; il conteggio globale dei pixel rossi non distingue un alone da dettagli leciti come i lacci e non è un criterio autonomo di rifiuto. Misurando alpha≥128 e la mediana delle suole nel5% finale del bbox opaco, un’altezza ottica56px richiede queste calibrazioni per frame quadrato1254px:
+
+| Vista | Origine x/y | Dimensione di visualizzazione quadrata |
+|---|---|---:|
+| Sud | .55423 / .87440 | 75.51 |
+| Ovest | .50399 / .87281 | 77.60 |
+| Est | .51754 / .87998 | 73.76 |
+| Nord | .54944 / .89673 | 70.44 |
+
+Sono misure candidate: nessun binding accettato prima della prova di contatto al suolo nell’interazione reale. Il renderer dovrà rispettare origine e dimensione per vista, senza riapplicare una scala cosmetica catturata dalla posa precedente. Mancano i fotogrammi autentici di camminata.
+
+`src/core/world/npc-facing.ts` introduce il calcolo puro della direzione NPC→osservatore: asse prevalente, parità verticale, stessa cella conserva la posa corrente tramite `undefined`, coordinate non finite rifiutate. Quattro test passano; non usa RNG né modifica coordinate. Questo contratto da solo non cambia la grafica: adattatore Phaser e collegamento delle quattro viste restano da implementare e verificare.

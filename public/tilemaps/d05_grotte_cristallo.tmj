@@ -4448,6 +4448,16 @@
               "name": "dialogueId",
               "type": "string",
               "value": "d05_low_reading"
+            },
+            {
+              "name": "weatherInstrument",
+              "type": "string",
+              "value": "thermometer"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -4470,6 +4480,16 @@
               "name": "dialogueId",
               "type": "string",
               "value": "d05_middle_reading"
+            },
+            {
+              "name": "weatherInstrument",
+              "type": "string",
+              "value": "wind"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -4492,6 +4512,16 @@
               "name": "regulatorId",
               "type": "string",
               "value": "crystalclimate"
+            },
+            {
+              "name": "fieldInstrument",
+              "type": "string",
+              "value": "gauge"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -4514,6 +4544,16 @@
               "name": "dialogueId",
               "type": "string",
               "value": "d05_upper_passage"
+            },
+            {
+              "name": "fieldInstrument",
+              "type": "string",
+              "value": "gauge"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         }
@@ -4632,7 +4672,36 @@
       "draworder": "topdown",
       "id": 9,
       "name": "decorations",
-      "objects": [],
+      "objects": [
+        {
+          "id": 178,
+          "name": "Grotte del Cristallo illustrate",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-d05_grotte_cristallo-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ],
       "opacity": 1,
       "type": "objectgroup",
       "visible": true,
@@ -4641,7 +4710,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 178,
+  "nextobjectid": 179,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

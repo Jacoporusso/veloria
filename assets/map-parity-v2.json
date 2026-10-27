@@ -673,6 +673,41 @@
           "reason": "Browser review found a painted rock inside the refuge approach. Removed rock and habitat edge obstructions through ImageGen; gameplay geometry unchanged."
         }
       ]
+    },
+    {
+      "mapId": "veloria/d05_grotte_cristallo",
+      "tiledAsset": "tilemaps/d05_grotte_cristallo.tmj",
+      "assetKey": "veloria-d05_grotte_cristallo-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-d05_grotte_cristallo-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp",
+      "sourceSha256": "fe1e502063da5924b2210df201af4283405c2a361823b5b1c1af998d7a75f925",
+      "runtimeSha256": "ceabd5c47398596dca0e13524e19d5126e2853f6d267cbb0f00a31d0d2887089",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Create finished modern hand-painted 2D top-down RPG environment, Veloria Grotte del Cristallo. EXACT 4:3 full-map canvas, no border, text, UI, characters, creatures, signs, machines or interactive instruments. First reference is STRICT traversable geometry mask, 40 columns x30 rows: beige = FLAT OPEN WALKABLE FLOOR including all winding corridors, spurs and foot clearance, blue-grey = solid cavern walls/outcrops, green = small reachable alpine cave moss habitat at x82.5..90%,y46.7..55.4%. Preserve every beige and green area at EXACT normalized coordinates; never put crystals, pillars, rocks, water or steps that obstruct it. Second image is STYLE ONLY: same polished detailed modern illustrated2D fantasy family adventure as adjacent snowy Crystal Pass, but interior of a crystal cave; no outside town or snow forest. Replace blue-grey with layered slate-blue cavern walls, rich faceted turquoise/amethyst crystal growths, gentle teal reflected light and softly shadowed recesses. Replace beige with clear pale warm ivory stone floor, subtle natural surface, restrained tiny cracks, no heavy borders. Large blocked northwest mass and southern mass should have rich varied rock/crystal texture, no huge black blank space; no foreground wall hiding floor. Bottom entrance is at tile(11,29): center28.75% width,98.3% height; draw uninterrupted floor extending out bottomedge at this position. Exit to surface in far NE at tile(38,3), center96.25%,11.67%: small cavern arch opening oriented east on the right end of the northern corridor, do not seal the corridor or add an extra stair. Main northwest spur is near(5,13)17? exact floor mask authoritative; preserve nook belowlow station at tile5,14 (13.75%,48.33%), middle station approach18,12 (46.25%,41.67%), console approach29,3 (73.75%,11.67%), receiver approach36,3 (91.25%,11.67%). Runtime will draw all instruments; leave their spaces clear. Add shallow luminous cave pools ONLY in blocked northwest region near lowstation, never on beige. Cliff edges may be organically softened inside blue-grey only, no rocks intruding into beige at elbows. Refined contemporary illustrated adventure, crisp painterly materials, coherent scale, overhead gameplay camera, warm readable floor with cool gem-lit walls, not pixelart, not isometric diorama or 3D render.",
+      "references": [
+        "assets/prompts/d05-production-layout-v1.svg",
+        "assets/sources/veloria-r14_varco_cristallo-illustrated-v3.png",
+        "assets/prompts/d05-exact-floor-reference.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+          "reason": "Modern illustrated crystal cavern; exact collision guide and single true moss habitat, runtime instruments remain aligned to Tiled."
+        },
+        {
+          "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+          "reason": "Browser review found cliff artwork on the central approach and lower station edge. Restore open floor while keeping Tiled geometry authoritative."
+        },
+        {
+          "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+          "reason": "Replace local repairs with a Tiled-authored floor reference; ImageGen refines seams while preserving full playable corridors."
+        },
+        {
+          "promptDocument": "assets/prompts/d05_grotte_cristallo-illustrated-v3.md",
+          "reason": "Final local clearance refinement at three floor-contact samples; verify contacts in real gameplay rather than using hue as an acceptance gate."
+        }
+      ]
     }
   ]
 }
