@@ -50,7 +50,10 @@ test('P8 requires both flows, saves partial convergence and awards the eighth me
  const creature=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:87,level:75,instanceId:'p8-integration',moveIds:['ice-beam','aurora-beam','ice-shard']});
  save.party=[{instanceId:creature.instanceId,speciesId:87,level:75,experience:0,hp:creature.hp,maxHp:creature.stats.maxHp,moves:creature.moves.map(m=>({id:m.moveId,pp:m.pp}))}];await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  for(const [index,x,y]of [[0,21,14],[1,21,8],[2,11,8],[3,11,14]]as const){
-  await walkTo(page,'gym08_concordia.tmj',x,y+1,{avoidEncounters:true});await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await page.getByRole('button',{name:'RUOTA',exact:true}).tap();
+  await walkTo(page,'gym08_concordia.tmj',x,y+1,{avoidEncounters:true});
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`p8-relay-${index}-${viewport.width}.png`)});}
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();await page.getByRole('button',{name:'RUOTA',exact:true}).tap();
   if(index<3){expect((await readBrowserSave(page)).flags).not.toContain('gym08_convergence_complete');if(index===1)await expect(page.locator('#dialogue-text')).toContainText('Luce della rete: raggiunge il ricevitore');await page.getByRole('button',{name:'CHIUDI',exact:true}).tap();}
   else await dialogue(page);
   if(index===1){await page.reload();await enterGame(page);}
@@ -58,6 +61,11 @@ test('P8 requires both flows, saves partial convergence and awards the eighth me
  await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('gym08_convergence_complete');await page.screenshot({path:info.outputPath('p8-convergence.png')});
  await page.setViewportSize({width:844,height:390});await page.screenshot({path:info.outputPath('p8-landscape.png')});
  await walkTo(page,'gym08_concordia.tmj',16,3,{avoidEncounters:true});await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await a(page).tap();for(let i=0;i<12&&!await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible();i++)await a(page).tap();await page.getByRole('button',{name:'SFIDA',exact:true}).tap();
+ await expect.poll(()=>page.evaluate(()=>{
+  const scene=(window as any).concordiaGame.scene.keys.battle;
+  return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-gym08_concordia-illustrated-v3')??false;
+ })).toBe(true);
+ await page.screenshot({path:info.outputPath('p8-battle-background.png')});
  await fightWithTouch(page,'concordiaGame',{87:'Geloraggio'});
  const banner=page.getByRole('dialog',{name:'Medaglia Armonia conquistata!'});await expect(banner).toBeVisible();await expect(banner).toContainText('Aurel');await expect(banner.locator('[data-badge-id="badge_armonia"] svg')).toBeVisible();await page.screenshot({path:info.outputPath('armonia-medal.png')});await banner.getByRole('button',{name:'Continua',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).badges).toContain('badge_armonia');expect((await readBrowserSave(page)).player.money).toBe(3600);
  await page.reload();await enterGame(page);expect((await readBrowserSave(page)).badges.filter(b=>b==='badge_armonia')).toHaveLength(1);await walkTo(page,'gym08_concordia.tmj',15,23,{avoidEncounters:true});await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/concordia');

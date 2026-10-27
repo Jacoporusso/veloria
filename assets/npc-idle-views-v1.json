@@ -213,6 +213,107 @@
           "outputId": "exec-52336ed9-9303-4e2b-8ced-5c1ef78617f6.png"
         }
       ]
+    },
+    {
+      "profileId": "gym-leader-mira",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/mira-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-mira-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-mira-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-mira-idle-south-v1.webp",
+          "sourceSha256": "213f4115d5050c354eef1460ac52c63df55c46d972fb43a3da005c46eb6155c2",
+          "runtimeSha256": "7a0c0b38beff49d23191335074800e50500b9308307495c0fa0638d01cc36ab2",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.56165,
+            "y": 0.9668
+          },
+          "displaySize": 58.55,
+          "alpha128Bounds": [
+            238,
+            17,
+            791,
+            1486
+          ],
+          "outputId": "exec-b225a1fb-5729-4add-8c2f-b945deb597bc.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-b225a1fb-5729-4add-8c2f-b945deb597bc.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-mira-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-mira-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-mira-idle-west-v1.webp",
+          "sourceSha256": "79fc82d605c4891a1b4e0921b52fee5266a7a71cd72539ef077dc6b958a1c41b",
+          "runtimeSha256": "8164a5da600dc6c53445a7197e45d046603227c50bfa6b0a11082f4568e2b9d7",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50589,
+            "y": 0.96745
+          },
+          "displaySize": 58.71,
+          "alpha128Bounds": [
+            353,
+            22,
+            684,
+            1487
+          ],
+          "outputId": "exec-ac002124-3c28-420d-922a-e30d8fe04ff4.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-ac002124-3c28-420d-922a-e30d8fe04ff4.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-mira-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-mira-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-mira-idle-east-v1.webp",
+          "sourceSha256": "2e32a42cf266051b64fbd6eee2513f67744288e656c18248a4ea238482a76c3c",
+          "runtimeSha256": "e101d59d8108ed6a9286187a79c3452d053235c45b9f9df8dcdda5c27d18a3b9",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51916,
+            "y": 0.97266
+          },
+          "displaySize": 58.16,
+          "alpha128Bounds": [
+            328,
+            16,
+            677,
+            1495
+          ],
+          "outputId": "exec-43098a5e-2d11-4b58-b2fb-cff3862a0da2.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-43098a5e-2d11-4b58-b2fb-cff3862a0da2.png",
+          "baseOutputId": "exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png",
+          "baseGeneratorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-mira-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-mira-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-mira-idle-north-v1.webp",
+          "sourceSha256": "1975a19965d5667b34beb9e036c9098a712d1abdb5aaa4d93b77dc2bfa18c9d1",
+          "runtimeSha256": "ca0e829c1cd959ced61e8370e4186ee23508cea42aae886e7a7cd3fe56559696",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.49981,
+            "y": 0.97331
+          },
+          "displaySize": 57.81,
+          "alpha128Bounds": [
+            283,
+            8,
+            741,
+            1496
+          ],
+          "outputId": "exec-af5eddf5-83c7-4290-a16f-0b641f04728c.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-af5eddf5-83c7-4290-a16f-0b641f04728c.png"
+        }
+      ]
     }
   ]
 }

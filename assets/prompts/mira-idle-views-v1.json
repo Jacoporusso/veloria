@@ -1,0 +1,150 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-27",
+  "identityReference": "assets/sources/veloria-gym-leaders-a-v1.png top-left figure frame0 only (profile gym-leader-mira, npc mira)",
+  "sourceReferences": [
+    {
+      "path": "assets/sources/veloria-gym-leaders-a-v1.png",
+      "role": "identity; top-left figure frame0 only",
+      "note": "Visibly inspected; other atlas figures excluded."
+    },
+    {
+      "path": "assets/sources/veloria-elia-idle-south-v1.png",
+      "role": "painterly 2D rendering style reference only"
+    },
+    {
+      "path": "assets/sources/veloria-nilo-idle-south-v1.png",
+      "role": "directional idle composition and painterly rendering style reference only"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Generate a single full-body south/front-facing Mira from Veloria, centered, feet fully visible, neutral natural idle, both arms relaxed at sides, hands visible, empty. Input image 1 identity: only TOP-LEFT character in the 4-person atlas (Mira); ignore the other figures. Preserve her apparent face, brown eyes, warm fair skin, brown wavy half-up hair in a bun. Images 2-4 are style references only: painterly modern 2D game character art, do not copy their subjects/outfits. Mira's exact outfit: short cream jacket with muted green parka panels over dark high-neck turtleneck; small circular pin on anatomical LEFT lapel (viewer-right in front view); brown leather belt and buckle; cream cargo trousers with green inserts; cream/green hiking boots. Match asymmetries in the atlas. Empty hands, no bag. Actual transparent alpha; no floor, ground or shadow. Polished painterly 2D game illustration, warm softly rendered outlines, detailed fabric folds. Avoid extra characters, text, props, backpack, tools, mirrored outfit, hand in pocket, hand at chest, cropping, opaque background, 3D or photorealism.",
+    "west": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Draw a new, authentic WEST-facing full-body side profile of the same Mira shown in Image 1, which is her south/front view. Her nose, chest and toes point directly toward viewer-left; this is the profile that presents Mira's anatomical LEFT side to the camera. Keep her identity, face, brown eyes, brown wavy half-up bun, proportions and clothing identical to Image 1. Exact outfit: short cream jacket with muted green parka panels over dark high-neck turtleneck, brown leather belt with buckle, cream cargo trousers with green inserts, cream/green hiking boots. Respect anatomy and the asymmetries from Image 1: the small circular badge is on her anatomical LEFT lapel, and the long green belt strap hangs from her anatomical LEFT hip; these are on the camera-near side in this WEST-facing view and should be visible in their natural positions. The green cargo pocket is on her anatomical RIGHT hip, on the far side, mostly occluded. Do not swap or duplicate the badge, strap, or pocket. Natural neutral idle, both arms relaxed at sides, visible hands empty. Painterly modern 2D game art with same warm outlined finish as Image 1. True transparent alpha; no glow, halo, floor, backdrop or shadow. Full figure, centered, head and boots fully visible with margin. Avoid three-quarter/frontal pose, mirrored or flipped art, misplaced pin, invented props, bags, tools, hand in pocket, cropped limbs, text, extra characters, photorealism, 3D.",
+    "north": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Generate a single full-body NORTH-facing rear view idle of the exact same Mira as Image 1, intended to accompany her front view in a game sprite set. She faces directly away from the viewer; show the back of her head and clothing, no face visible, not a three-quarter view. Keep her natural neutral stance, both arms at sides, hands visible and empty. Reference image 1 is the identity and outfit anchor: same brown wavy hair gathered half-up into a bun, same body proportions, short cream jacket with muted green panels, dark high-neck turtleneck only where naturally visible, brown leather belt, cream cargo trousers with green inserts and cream/green hiking boots. Draw a plausible, restrained rear continuation of only these known outfit materials and colors; do not invent insignia, bag, tools, or new accessories. Respect anatomical side asymmetries from the reference as they naturally appear from behind: the circular pin belongs on the anatomical left lapel and must not appear on the rear; the left-hip green hanging strap is on Mira's left (viewer-left from behind); the right-hip green cargo pocket stays on Mira's right (viewer-right from behind). Do not mirror or duplicate. Style: polished painterly modern 2D game character illustration, same rendering as Image 1. Transparent alpha background, no backdrop, floor, ground, cast shadow, halo. Full head through boot soles, centered with margin. Avoid: frontal or three-quarter angle, visible face, lapel pin on back, swapped sides, extra characters, text, props, bags, tools, hand in pocket, hand at chest, holding things, crop, opaque background, photorealism, 3D.",
+    "east-base-generation": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Generate a single full-body EAST-facing profile idle of the exact same Mira as Image 1, intended to accompany her front view in a game sprite set. Her nose and gaze point to the viewer's right; anatomically correct left-side profile, not a three-quarter view. Keep her natural neutral stance, both arms at sides, hands visible and empty. Reference image 1 is the identity and outfit anchor: maintain the same face, brown eyes, brown wavy half-up hair gathered into a bun, proportions, colors and clothes. Her outfit: short cream jacket with muted green panels, dark high-neck turtleneck, brown leather belt and buckle, cream cargo trousers with green inserts, cream/green hiking boots. Preserve the anatomical left circular lapel pin and left-hip hanging green strap from the reference; on this left-side profile they are on the near side and may be visible. Keep the right-hip green cargo pocket on its correct side, visible only as perspective allows. Do not duplicate or mirror asymmetries. Style: polished painterly modern 2D game character illustration, same rendering as Image 1. Transparent alpha background, no backdrop, floor, ground, cast shadow, halo. Full head through boot soles, centered with margin. Avoid: frontal or three-quarter angle, mirrored pose, pin or strap on wrong side, extra characters, text, props, bags, tools, hand in pocket, hand at chest, holding things, crop, opaque background, photorealism, 3D.",
+    "east-correction": "Edit Image 1, the existing transparent EAST-facing side profile idle of Mira. Preserve the exact pose, orientation, identity, face, hair, body proportions, jacket, turtleneck, belt, trousers, right-side cargo pocket, boots, framing, rendering, and all pixels outside the specific incorrect belt-strap accessory. This is a true east-facing profile with Mira looking to viewer-right. Mira's long green hanging belt strap and its gold ring/buckle belong to her ANATOMICAL LEFT hip, the FAR side in this right-facing profile. Remove the incorrectly visible hanging green strap, gold ring and strap buckle from the camera-near anatomical RIGHT hip/side completely. Keep the existing green cargo pocket on Mira's anatomical RIGHT hip exactly as it is; do not remove, repaint, or move the cargo pocket or its flap/button. Do not add a strap, ring, or buckle on the near side. If a tiny far-side strap segment naturally peeks beyond the far hip/back contour, it may remain only as a minimal occluded hint; otherwise it is hidden by the body. Maintain the correct east-facing direction. Do not flip or mirror. Preserve true transparent alpha and the original character-sheet framing. No changes to any other outfit details, especially the cargo pocket, pin, face, hands or footwear."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-mira-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-mira-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-mira-idle-south-v1.webp",
+      "sourceSha256": "213f4115d5050c354eef1460ac52c63df55c46d972fb43a3da005c46eb6155c2",
+      "runtimeSha256": "7a0c0b38beff49d23191335074800e50500b9308307495c0fa0638d01cc36ab2",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.56165,
+        "y": 0.9668
+      },
+      "displaySize": 58.55,
+      "alpha128Bounds": [
+        238,
+        17,
+        791,
+        1486
+      ],
+      "outputId": "exec-b225a1fb-5729-4add-8c2f-b945deb597bc.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-b225a1fb-5729-4add-8c2f-b945deb597bc.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-mira-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-mira-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-mira-idle-west-v1.webp",
+      "sourceSha256": "79fc82d605c4891a1b4e0921b52fee5266a7a71cd72539ef077dc6b958a1c41b",
+      "runtimeSha256": "8164a5da600dc6c53445a7197e45d046603227c50bfa6b0a11082f4568e2b9d7",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50589,
+        "y": 0.96745
+      },
+      "displaySize": 58.71,
+      "alpha128Bounds": [
+        353,
+        22,
+        684,
+        1487
+      ],
+      "outputId": "exec-ac002124-3c28-420d-922a-e30d8fe04ff4.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-ac002124-3c28-420d-922a-e30d8fe04ff4.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-mira-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-mira-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-mira-idle-east-v1.webp",
+      "sourceSha256": "2e32a42cf266051b64fbd6eee2513f67744288e656c18248a4ea238482a76c3c",
+      "runtimeSha256": "e101d59d8108ed6a9286187a79c3452d053235c45b9f9df8dcdda5c27d18a3b9",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51916,
+        "y": 0.97266
+      },
+      "displaySize": 58.16,
+      "alpha128Bounds": [
+        328,
+        16,
+        677,
+        1495
+      ],
+      "outputId": "exec-43098a5e-2d11-4b58-b2fb-cff3862a0da2.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-43098a5e-2d11-4b58-b2fb-cff3862a0da2.png",
+      "baseOutputId": "exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png",
+      "baseGeneratorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-mira-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-mira-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-mira-idle-north-v1.webp",
+      "sourceSha256": "1975a19965d5667b34beb9e036c9098a712d1abdb5aaa4d93b77dc2bfa18c9d1",
+      "runtimeSha256": "ca0e829c1cd959ced61e8370e4186ee23508cea42aae886e7a7cd3fe56559696",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49981,
+        "y": 0.97331
+      },
+      "displaySize": 57.81,
+      "alpha128Bounds": [
+        283,
+        8,
+        741,
+        1496
+      ],
+      "outputId": "exec-af5eddf5-83c7-4290-a16f-0b641f04728c.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-af5eddf5-83c7-4290-a16f-0b641f04728c.png"
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "direction": "south",
+      "outputId": "exec-ec9df636-6b3f-4141-bc5d-8ca44e3d15da.png",
+      "reason": "Discarded during review: adds unsupported ear studs and sleeve badges; selected south candidate has closer identity/outfit fidelity.",
+      "prompt": "Use case: game-character-sprite\nAsset type: one 2D game idle character pose, transparent PNG, portrait 2:3\nPrimary request: Create a single full-body idle south-facing pose of Mira from Veloria, as a private candidate for review. Mira faces directly toward the viewer, standing naturally and calmly with both arms relaxed at her sides and both hands visible, empty and relaxed. One character only, centered with comfortable transparent margin, feet fully visible.\nInput images: Image 1 (identity reference): the TOP-LEFT character only in the 4-character atlas; this is Mira. Ignore all other characters in that atlas. Preserve Mira's apparent face identity, warm fair skin, large brown eyes, and brown wavy hair half gathered into a bun with loose waves. Image 2 (style reference): painterly modern 2D game art rendering and finish only; do not copy its character or outfit. Image 3 and Image 4 (style reference): same painterly modern 2D game art rendering only; do not copy their character, outfit, pose, or bag.\nScene/backdrop: fully transparent alpha background, no ground plane, no shadow.\nSubject: Mira, a neutral idle gym leader. Short cream jacket with muted green parka-like panels over a dark high-neck turtleneck, small circular pin on her anatomical LEFT lapel (viewer-right side in this frontal view), brown leather belt with buckle, cream cargo trousers with green inserts/panels, cream-and-green hiking boots. Preserve outfit asymmetries as in Mira reference. Both hands empty, visible, relaxed at sides.\nStyle/medium: polished painterly modern 2D videogame character illustration, matching the warm softly rendered outlines, expressive but natural proportions, detailed fabric folds, restrained highlights and finish of the style references.\nComposition/framing: portrait 2:3, one entire figure from head to soles, straight-on front/south view, neutral idle, centered, consistent character-sheet framing.\nLighting/mood: even soft studio-like illumination, friendly calm expression.\nColor palette: warm cream, muted park green, dark charcoal, brown leather.\nMaterials/textures: surface details.\nText (verbatim): \"\"\nConstraints: authentic front-facing anatomy; preserve apparent identity and specific clothing from Mira identity reference. Pin must remain on Mira's anatomical left lapel (viewer-right when facing front). Both arms hang naturally with hands outside clothing. Transparent background must be actual alpha.\nAvoid: extra figures, text, labels, frame, props, bag, backpack, tools, accessories not in reference, hand in pocket, hand touching chest, crossed arms, holding objects, opaque backdrop, halo, floor shadow, cropped feet, mirrored identity, costume redesign, photorealism, 3D render.",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-ec9df636-6b3f-4141-bc5d-8ca44e3d15da.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\mira-idles-candidates\\mira-south-rejected-v1.png"
+    },
+    {
+      "direction": "west",
+      "outputId": "exec-ff604e95-a35b-4894-aa05-6cb094abb4aa.png",
+      "reason": "Rejected after review: left-facing profile had no visible anatomical-left lapel pin; west view should expose Mira's anatomical left side.",
+      "prompt": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Generate a single full-body WEST-facing profile idle of the exact same Mira as Image 1, intended to accompany her front view in a game sprite set. Her nose and gaze point to the viewer's left; anatomically correct right-side profile, not a three-quarter view. Keep her natural neutral stance, both arms at sides, hands visible and empty. Reference image 1 is the identity and outfit anchor: maintain the same face, brown eyes, brown wavy half-up hair gathered into a bun, proportions, colors and clothes. Her outfit: short cream jacket with muted green panels, dark high-neck turtleneck, brown leather belt and buckle, cream cargo trousers with green inserts, cream/green hiking boots. Preserve the anatomical left circular lapel pin from the reference where perspective allows; on this right-side profile the pin on the far lapel may be mostly or entirely hidden, do not mirror it onto the near lapel. Preserve the right-side silhouette/asymmetries of the reference without adding objects. Style: polished painterly modern 2D game character illustration, same rendering as Image 1. Transparent alpha background, no backdrop, floor, ground, cast shadow, halo. Full head through boot soles, centered with margin. Avoid: frontal or three-quarter angle, mirrored pose, pin on wrong lapel, extra characters, text, props, bags, tools, hand in pocket, hand at chest, holding things, crop, opaque background, photorealism, 3D.",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-ff604e95-a35b-4894-aa05-6cb094abb4aa.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\mira-idles-candidates\\mira-west-rejected-v1.png"
+    },
+    {
+      "direction": "east",
+      "outputId": "exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png",
+      "reason": "Rejected after visual review: green strap and ring/buckle were on the camera-near anatomical right side; those belong to Mira's anatomical left, the far side in east view.",
+      "prompt": "Use case: game-character-sprite. Asset type: one transparent PNG idle pose, portrait 2:3. Generate a single full-body EAST-facing profile idle of the exact same Mira as Image 1, intended to accompany her front view in a game sprite set. Her nose and gaze point to the viewer's right; anatomically correct left-side profile, not a three-quarter view. Keep her natural neutral stance, both arms at sides, hands visible and empty. Reference image 1 is the identity and outfit anchor: maintain the same face, brown eyes, brown wavy half-up hair gathered into a bun, proportions, colors and clothes. Her outfit: short cream jacket with muted green panels, dark high-neck turtleneck, brown leather belt and buckle, cream cargo trousers with green inserts, cream/green hiking boots. Preserve the anatomical left circular lapel pin and left-hip hanging green strap from the reference; on this left-side profile they are on the near side and may be visible. Keep the right-hip green cargo pocket on its correct side, visible only as perspective allows. Do not duplicate or mirror asymmetries. Style: polished painterly modern 2D game character illustration, same rendering as Image 1. Transparent alpha background, no backdrop, floor, ground, cast shadow, halo. Full head through boot soles, centered with margin. Avoid: frontal or three-quarter angle, mirrored pose, pin or strap on wrong side, extra characters, text, props, bags, tools, hand in pocket, hand at chest, holding things, crop, opaque background, photorealism, 3D.",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-9c13cfa4-aadc-454c-9d09-b5e30d15790c.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\mira-idles-candidates\\mira-east-rejected-v1.png"
+    }
+  ],
+  "calibration": "RGBA PNGs preserved without resize, crop, or pixel edits. Optical body height calibrated to about 56 worldpx from alpha>=128 body bounds; origin x is the alpha-weighted centroid in the bottom 50px of the alpha>=128 body, origin y is the last alpha>=128 row. Four independently drawn orientations; no flips. WebP runtime assets use lossless encoding and decode RGBA-identically to the PNG sources."
+}

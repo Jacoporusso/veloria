@@ -178,6 +178,26 @@
       "kind": "image",
       "key": "veloria-nilo-idle-north-v1",
       "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-mira-idle-south-v1",
+      "path": "assets/sprites/veloria-mira-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-mira-idle-west-v1",
+      "path": "assets/sprites/veloria-mira-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-mira-idle-east-v1",
+      "path": "assets/sprites/veloria-mira-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-mira-idle-north-v1",
+      "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -339,19 +359,52 @@
     },
     {
       "id": "gym-leader-mira",
-      "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+      "description": "Mira, capopalestra Normale di Brumalta; giacca crema e verde parco, spilla al bavero sinistro e cinturino verde al fianco sinistro",
       "dialogueIds": [
         "mira_gym"
       ],
       "npcIds": [
         "mira"
       ],
-      "assetKey": "veloria-gym-leaders-a-v1",
-      "frame": 0,
+      "assetKey": "veloria-mira-idle-south-v1",
       "narrativeSource": "content/trainers/gym01_mira.trainer.json",
       "origin": {
-        "x": 0.5667,
-        "y": 0.9761
+        "x": 0.56165,
+        "y": 0.9668
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-mira-idle-south-v1",
+          "origin": {
+            "x": 0.56165,
+            "y": 0.9668
+          },
+          "displaySize": 58.55
+        },
+        "left": {
+          "assetKey": "veloria-mira-idle-west-v1",
+          "origin": {
+            "x": 0.50589,
+            "y": 0.96745
+          },
+          "displaySize": 58.71
+        },
+        "right": {
+          "assetKey": "veloria-mira-idle-east-v1",
+          "origin": {
+            "x": 0.51916,
+            "y": 0.97266
+          },
+          "displaySize": 58.16
+        },
+        "up": {
+          "assetKey": "veloria-mira-idle-north-v1",
+          "origin": {
+            "x": 0.49981,
+            "y": 0.97331
+          },
+          "displaySize": 57.81
+        }
       }
     },
     {

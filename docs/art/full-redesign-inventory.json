@@ -17,7 +17,7 @@
     "registeredSceneryImageAssets": 46,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 39,
+    "parityArtworkEntries": 40,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -69,7 +69,7 @@
       },
       {
         "profileId": "gym-leader-mira",
-        "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+        "description": "Mira, capopalestra Normale di Brumalta; giacca crema e verde parco, spilla al bavero sinistro e cinturino verde al fianco sinistro",
         "npcIds": [
           "mira"
         ],
@@ -871,6 +871,26 @@
         "kind": "image",
         "key": "veloria-nilo-idle-north-v1",
         "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-south-v1",
+        "path": "assets/sprites/veloria-mira-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-west-v1",
+        "path": "assets/sprites/veloria-mira-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-east-v1",
+        "path": "assets/sprites/veloria-mira-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-north-v1",
+        "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -892,6 +912,10 @@
       "veloria-gym-leaders-b-v1",
       "veloria-league-and-cammino-cast-v1",
       "veloria-league-council-v1",
+      "veloria-mira-idle-east-v1",
+      "veloria-mira-idle-north-v1",
+      "veloria-mira-idle-south-v1",
+      "veloria-mira-idle-west-v1",
       "veloria-nilo-idle-east-v1",
       "veloria-nilo-idle-north-v1",
       "veloria-nilo-idle-south-v1",
@@ -1121,6 +1145,26 @@
         "kind": "image",
         "key": "veloria-nilo-idle-north-v1",
         "path": "assets/sprites/veloria-nilo-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-south-v1",
+        "path": "assets/sprites/veloria-mira-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-west-v1",
+        "path": "assets/sprites/veloria-mira-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-east-v1",
+        "path": "assets/sprites/veloria-mira-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-mira-idle-north-v1",
+        "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1282,19 +1326,52 @@
       },
       {
         "id": "gym-leader-mira",
-        "description": "Mira, capopalestra Normale di Brumalta; giacca crema con pannelli verde parco e piccolo sigillo al bavero",
+        "description": "Mira, capopalestra Normale di Brumalta; giacca crema e verde parco, spilla al bavero sinistro e cinturino verde al fianco sinistro",
         "dialogueIds": [
           "mira_gym"
         ],
         "npcIds": [
           "mira"
         ],
-        "assetKey": "veloria-gym-leaders-a-v1",
-        "frame": 0,
+        "assetKey": "veloria-mira-idle-south-v1",
         "narrativeSource": "content/trainers/gym01_mira.trainer.json",
         "origin": {
-          "x": 0.5667,
-          "y": 0.9761
+          "x": 0.56165,
+          "y": 0.9668
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-mira-idle-south-v1",
+            "origin": {
+              "x": 0.56165,
+              "y": 0.9668
+            },
+            "displaySize": 58.55
+          },
+          "left": {
+            "assetKey": "veloria-mira-idle-west-v1",
+            "origin": {
+              "x": 0.50589,
+              "y": 0.96745
+            },
+            "displaySize": 58.71
+          },
+          "right": {
+            "assetKey": "veloria-mira-idle-east-v1",
+            "origin": {
+              "x": 0.51916,
+              "y": 0.97266
+            },
+            "displaySize": 58.16
+          },
+          "up": {
+            "assetKey": "veloria-mira-idle-north-v1",
+            "origin": {
+              "x": 0.49981,
+              "y": 0.97331
+            },
+            "displaySize": 57.81
+          }
         }
       },
       {
@@ -5445,6 +5522,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-mira-idle-south-v1",
+          "path": "assets/sprites/veloria-mira-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-mira-idle-west-v1",
+          "path": "assets/sprites/veloria-mira-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-mira-idle-east-v1",
+          "path": "assets/sprites/veloria-mira-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-mira-idle-north-v1",
+          "path": "assets/sprites/veloria-mira-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -5501,11 +5606,11 @@
           "profileMatch": "gym-leader-mira",
           "narrativeSpeaker": "Mira",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-a-v1",
-          "spriteFrame": 0,
+          "sprite": "veloria-mira-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.5667,
-            "y": 0.9761
+            "x": 0.56165,
+            "y": 0.9668
           },
           "trainerId": "veloria/trainer_mira_gym01",
           "battleOnceFlag": "trainer_gym01_mira_defeated",
@@ -6707,7 +6812,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-gym08-convergence-v1",
+        "assetKey": "veloria-gym08_concordia-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -6723,8 +6828,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-gym08-convergence-v1",
-          "path": "assets/scenery/veloria-gym08-convergence-v1.webp",
+          "key": "veloria-gym08_concordia-illustrated-v3",
+          "path": "assets/scenery/veloria-gym08_concordia-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6732,8 +6837,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-gym08-convergence-v1",
-          "path": "assets/scenery/veloria-gym08-convergence-v1.webp",
+          "key": "veloria-gym08_concordia-illustrated-v3",
+          "path": "assets/scenery/veloria-gym08_concordia-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -6762,8 +6867,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym08-convergence-v1",
-          "path": "assets/scenery/veloria-gym08-convergence-v1.webp",
+          "key": "veloria-gym08_concordia-illustrated-v3",
+          "path": "assets/scenery/veloria-gym08_concordia-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -6780,8 +6885,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/gym08_concordia",
+        "tiledAsset": "tilemaps/gym08_concordia.tmj",
+        "assetKey": "veloria-gym08_concordia-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-gym08_concordia-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-gym08_concordia-illustrated-v3.webp",
+        "sourceSha256": "14a82337cf12c2fd2fb42fde4e5e30033ea8e9b2f40af8bc2b019294f7fef199",
+        "runtimeSha256": "34d16268111565a039e0093a57a97affc10fba70d5103478b465bf9ffafe27d2",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Production full-map background for Veloria Concordia convergence gym, modern illustrated2D children's exploration RPG. Opaque landscape4:3, whole rectangular north-up map. Image1 is AUTHORITATIVE actual walkable footprint: tan is continuous quiet ivory stone including20worldpx south foot clearance; blue-gray is blocked architecture/gardens. Preserve every tan edge and all rectangular widths exactly. Image2 is OLD CONCEPT only for tree-and-glass sanctuary identity: refined ivory pavilions, turquoise water/cascades west and lilac crystalline light east, tree roots and greenery on blocked perimeter. Do not copy its old floor geometry or its heavy gold puzzle ornaments. Main rectangular playable court exactlyx21.875%-81.25%,y29.167%-81.77%; narrow north platform/throatx43.75%-59.375%,y4.167%-31.77%; south entrance stemx43.75%-56.25% fromy79.167% tobottomedge. Respect Image1's squared shape, no inward-curving railings on this walking floor. Keep the north platform flush and open, no raised round dais cutting into footprint. All runtime puzzle devices are OMITTED: two sources at tile7,14 and24,14, relays11,14/11,8/21,14/21,8, receiver16,14, gatex14-18,y5, leader16,2, guide15,20. Leave flat unmarked ivory stone under all these points. Do NOT paint discs, circular command sockets, floor symbols, beam tracks, routing lines, source machines/crystal pillars, consoles, gate bars, NPC, lettering or UI. All game devices, source colors and their links are rendered dynamically. Friendly modern hand-painted2D material detail, rounded tree foliage and low airy glass architecture at solid side margins, no photoreal3D/isometric, no strong perspective. Large quiet pale limestone slabs, subtle dappled warm light, cool mint/lilac highlights. No giant central tree trunk on north walking platform: trees flank it on solid sides. No fake west/east/north doors or walkways, only south entrance. Decorative water/crystals only within blocked left/right margins. Restrained metallic accents, no heavy golden floor diagrams or large gold frames. Full opaque production illustration, crisp terrain boundaries, no people/Pokemon/text/icons/grid/black margins; fixed orthographic slightly elevated view.",
+        "references": [
+          "assets/prompts/gym08-production-layout-v1.png",
+          "assets/sources/veloria-gym08-convergence-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/gym08_concordia-illustrated-v3.md",
+            "reason": "Preserve actual rectangular walkable footprint and leave all puzzle devices to runtime rendering."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -13826,11 +13952,11 @@
       "profileMatch": "gym-leader-mira",
       "narrativeSpeaker": "Mira",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-a-v1",
-      "spriteFrame": 0,
+      "sprite": "veloria-mira-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.5667,
-        "y": 0.9761
+        "x": 0.56165,
+        "y": 0.9668
       },
       "trainerId": "veloria/trainer_mira_gym01",
       "battleOnceFlag": "trainer_gym01_mira_defeated",

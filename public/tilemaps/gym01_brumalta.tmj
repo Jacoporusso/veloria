@@ -2391,12 +2391,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-gym-leaders-a-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-mira-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -2406,12 +2401,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.5667
+              "value": 0.56165
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9761
+              "value": 0.9668
             }
           ]
         }
