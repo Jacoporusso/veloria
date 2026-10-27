@@ -14,4 +14,4 @@ Verifica locale passata:267 chapters,28 world,17 journeys,16 MVP,6 controls,5 le
 
 Lo stesso test passa senza modifiche localmente in1,3min (`.tmp/crystal-ci-recheck.log`) e la CI0.4.12 è interamente passata con25 job (`40469908296`). Nelle run0.4.11 e0.4.13, invece, il percorso supera300s. Non è stata applicata una correzione presunta al motore, né aumentato il limite o accorciato il ritorno. La nuova partizione risolve il sovraccarico di selezione del job chapters; non dimostra di risolvere questo timeout intermittente del singolo caso.
 
-Log acquisiti in `.tmp/d06-ci-chapters9.log` e `.tmp/d06-ci-journeys3.log`. Nuova run CI da attestare dopo il push. Nessuna variazione del runtime o della cache pubblica v176 per questa modifica di verifica.
+Log acquisiti in `.tmp/d06-ci-chapters9.log` e `.tmp/d06-ci-journeys3.log`. Run40479185466 del commit32d5106 completata SUCCESS con29 job passati, compreso il percorso delle grotte. Conferma della copertura eseguita per quella revisione; nessuna prova che il timeout intermittente del singolo caso sia definitivamente risolto. Nessuna variazione del runtime o della cache pubblica v176 per questa modifica di verifica.

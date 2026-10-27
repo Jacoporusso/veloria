@@ -2,7 +2,7 @@
 
 Audit delle sorgenti eseguito in parallelo con agente Luna; nessuna nuova posa è accettata o collegata dal solo brief.
 
-Primo set di quattro candidati prodotto e mantenuto privato in `.tmp/elia-idles-candidates`. Revisione aperta sulla trasparenza effettiva e sulla borsa: la vista posteriore iniziale la mostra su un lato anatomico diverso dalla frontale. Nessun candidato è registrato, calibrato o pubblicato prima di risolvere questi punti e verificare il composito nel gioco.
+Primo set di quattro candidati prodotto e mantenuto privato in `.tmp/elia-idles-candidates`. Audit alpha: alone di anteprima nei campioni esterni sotto alpha0, con sagome strette già ad alpha2 e soli pixel isolati ad alpha1; nessuna pulizia dei pixel applicata. La vista posteriore iniziale mostrava la borsa sul lato anatomico opposto alla frontale: candidato nord corretto tramite ImageGen, originale conservato. Il composito e la coerenza definitiva restano da verificare nel gioco. Nessun candidato è registrato, calibrato o pubblicato prima di risolvere questi punti e verificare il composito nel gioco.
 
 ## Identità condivisa
 
