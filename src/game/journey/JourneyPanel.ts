@@ -13,6 +13,7 @@ import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { getMap } from '../maps/map-registry.ts';
 import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
 import { describePokemonReward } from './pokemon-reward-guidance.ts';
+import { describeQuestMapTarget } from './quest-map-guidance.ts';
 
 type NamedQuest = QuestDefinition & { displayName?: string };
 const itemNames = Object.fromEntries(Object.entries(itemContent.items).map(([id, item]) => [id, item.name]));
@@ -215,6 +216,12 @@ export class JourneyPanel {
     }
     const next = element('div', 'journey-next');
     next.append(element('span', 'journey-eyebrow', 'LA PROSSIMA TAPPA'), element('h3', '', progress.title), element('p', '', progress.objective));
+    const currentQuest = questCatalog.find(quest => quest.steps.some(step => step.setFlag === progress.currentFlag));
+    const nextPoint = currentQuest && describeQuestMapTarget(currentQuest, this.save.flags, this.save.player.mapId, progress.currentFlag);
+    if (nextPoint && this.onShowMap) {
+      const locate = element('button', 'journey-special-map', '🗺️ Mostra il prossimo obiettivo'); locate.type = 'button';
+      locate.onclick = () => { this.close(); this.onShowMap?.(nextPoint.mapId, nextPoint.id); }; next.append(locate);
+    }
     const milestones = element('ol', 'journey-milestones');
     for (const milestone of progress.milestones) {
       const active = milestone.flag === progress.currentFlag;
@@ -277,6 +284,15 @@ export class JourneyPanel {
           guidance.append(locate);
         }
         row.append(guidance);
+      }
+      if (!pokemonReward && !specialEncounters.length && this.onShowMap) {
+        const target = describeQuestMapTarget(quest, this.save.flags, this.save.player.mapId);
+        if (target) {
+          const locate = element('button', 'journey-special-map', '🗺️ Vedi il prossimo obiettivo'); locate.type = 'button';
+          locate.setAttribute('aria-label', `Mostra ${quest.displayName ?? quest.id} sulla mappa`);
+          locate.onclick = () => { this.close(); this.onShowMap?.(target.mapId, target.id); };
+          row.append(locate);
+        }
       }
       this.contents.append(row);
     }

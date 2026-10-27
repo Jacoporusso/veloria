@@ -11,7 +11,20 @@
 .region-map-tools { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; padding: 4px; border-radius: 18px; background: #09283bbb; backdrop-filter: blur(12px); }
 .region-map-tools button { background: #163b50df; border: 0; }
 .region-map-tools button:first-child, .region-map-tools button:nth-child(2) { width: 44px; font-size: 22px; padding: 2px; }
-.region-map-viewport { width: 100%; height: 100%; overflow: auto; background: #52b8c5; touch-action: pan-x pan-y; overscroll-behavior: contain; scrollbar-width: thin; }
+.region-map-viewport { width: 100%; height: 100%; overflow: auto; background: #07192d; touch-action: pan-x pan-y; overscroll-behavior: contain; scrollbar-width: thin; }
+.region-map-shade { fill: #04172c; opacity: .43; pointer-events: none; }
+.region-map-local .region-map-shade { opacity: .35; }
+.region-map-discovery-pin { cursor: pointer; }
+.region-map-discovery-pin:focus-visible { outline: none; }
+.region-map-pin-hit { r: var(--pin-hit,23px); fill: transparent; }
+.region-map-pin-disc { r: var(--pin-radius,18px); fill: #102a40; stroke: #b3fff0; stroke-width: 2px; vector-effect: non-scaling-stroke; filter: drop-shadow(0 2px 4px #000b); }
+.region-map-pin-icon { fill: #ffdf8f; font-family: 'Segoe UI Emoji','Apple Color Emoji',system-ui,sans-serif; font-size: var(--pin-font,20px); pointer-events: none; }
+.region-map-discovery-pin:focus-visible .region-map-pin-disc, .region-map-discovery-pin:hover .region-map-pin-disc { stroke: white; stroke-width: 4px; }
+.region-map-local-target .region-map-pin-disc { fill: #235b67; stroke: white; stroke-width: 3px; }
+.has-discovery-target .region-map-legend, .has-discovery-target .region-map-note, .has-discovery-target .region-map-select { display: none; }
+.region-map-locate { width: 100%; margin-top: 9px; font-size: 12px !important; text-align: left; }
+.region-map-load-status { padding: 70px 20px 20px; color: #effaff; }
+.region-map-tools { max-width: calc(100% - 24px); flex-wrap: wrap; }
 .region-map-chart { display: block; width: 100%; height: auto; min-width: 100%; max-width: none; }
 .region-map-path { fill: none; stroke: #fff1bc; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 7; opacity: .65; pointer-events: none; }
 .region-map-node { cursor: pointer; }

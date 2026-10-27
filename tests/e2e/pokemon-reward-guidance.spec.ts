@@ -46,6 +46,11 @@ test('fossil quest cards explain Elia and locate the lab without moving the play
   await journal.getByRole('button', { name: 'Mostra Aerodactyl sulla mappa', exact: true }).click();
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
   await expect(atlas.locator('.region-map-select')).toHaveValue('borgofonte');
+  await expect(atlas.locator('.region-map-local')).toHaveAttribute('data-map-id', 'veloria/borgofonte_lab');
+  await expect(atlas.locator('.region-map-discovery-pin')).toHaveCount(1);
+  await expect(atlas.locator('.region-map-node')).toHaveCount(0);
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-x', '400');
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-y', '259');
   const gift = atlas.getByRole('region', { name: 'Pokémon in dono: Aerodactyl', exact: true });
   await expect(gift).toContainText('Laboratorio di Elia');
   await expect(gift).toContainText('Da sbloccare');

@@ -31,8 +31,10 @@ from validate_pokeapi_artwork import validate_pokeapi_artwork
 from validate_regional_roster import validate_regional_roster
 from localized_text_validation import validate_localized_text
 from import_item_evolutions import main as verify_item_evolutions
+from build_atlas_quest_targets import build as build_atlas_quest_targets
 
 ROOT = Path(__file__).resolve().parents[1]
+assert json.loads((ROOT / 'content/journey/atlas-quest-targets.v1.json').read_text(encoding='utf-8')) == build_atlas_quest_targets(), 'Atlas quest targets are stale: run python tools/build_atlas_quest_targets.py'
 EXAMPLES = ROOT / "content" / "examples"
 MAPS = ROOT / "content" / "maps"
 SCHEMAS = ROOT / "specs" / "schemas"

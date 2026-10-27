@@ -1,0 +1,1425 @@
+{
+  "version": 1,
+  "events": {
+    "acquariva/tessa/report": [
+      {
+        "mapId": "veloria/acquariva",
+        "objectName": "Ricercatrice Tessa",
+        "x": 1104.0,
+        "y": 483.0,
+        "source": "public/tilemaps/acquariva.tmj#object-73"
+      }
+    ],
+    "area/veloria/acquariva/enter": [
+      {
+        "mapId": "veloria/acquariva",
+        "objectName": "Ingresso · Acquariva",
+        "x": 48,
+        "y": 547,
+        "source": "content/maps/acquariva.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/biancavetta/enter": [
+      {
+        "mapId": "veloria/biancavetta",
+        "objectName": "Ingresso · Biancavetta",
+        "x": 48,
+        "y": 579,
+        "source": "content/maps/biancavetta.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/borgofonte/enter": [
+      {
+        "mapId": "veloria/borgofonte",
+        "objectName": "Ingresso · Borgofonte",
+        "x": 912,
+        "y": 611,
+        "source": "content/maps/borgofonte.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/borgofonte_home/enter": [
+      {
+        "mapId": "veloria/borgofonte_home",
+        "objectName": "Ingresso · Casa di Borgofonte",
+        "x": 400,
+        "y": 419,
+        "source": "content/maps/borgofonte_home.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/borgofonte_lab/enter": [
+      {
+        "mapId": "veloria/borgofonte_lab",
+        "objectName": "Ingresso · Laboratorio di Elia",
+        "x": 400,
+        "y": 387,
+        "source": "content/maps/borgofonte_lab.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/brumalta/enter": [
+      {
+        "mapId": "veloria/brumalta",
+        "objectName": "Ingresso · Brumalta",
+        "x": 48,
+        "y": 419,
+        "source": "content/maps/c01_brumalta.map.json#/spawns/0"
+      },
+      {
+        "mapId": "veloria/brumalta",
+        "objectName": "Arrivo a Brumalta",
+        "x": 128.0,
+        "y": 419.0,
+        "source": "public/tilemaps/c01_brumalta.tmj#object-56"
+      }
+    ],
+    "area/veloria/concordia/enter": [
+      {
+        "mapId": "veloria/concordia",
+        "objectName": "Ingresso · Concordia",
+        "x": 48,
+        "y": 515,
+        "source": "content/maps/concordia.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/d01_bosco_veli/enter": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Ingresso · Bosco dei Veli",
+        "x": 48,
+        "y": 355,
+        "source": "content/maps/d01_bosco_veli.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/d03_centrale_risonante/enter": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Ingresso · Centrale Risonante",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/d03_centrale_risonante.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/d04_delta_specchi/enter": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Ingresso · Delta degli Specchi",
+        "x": 48,
+        "y": 611,
+        "source": "content/maps/d04_delta_specchi.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/d05_grotte_cristallo/enter": [
+      {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "objectName": "Ingresso · Grotte del Cristallo",
+        "x": 368,
+        "y": 931,
+        "source": "content/maps/d05_grotte_cristallo.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/d06_santuario_due_luci/enter": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Ingresso · Santuario delle Due Luci",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/d06_santuario_due_luci.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/ferraluce/enter": [
+      {
+        "mapId": "veloria/ferraluce",
+        "objectName": "Ingresso · Ferraluce · Piazza dell’Energia",
+        "x": 48,
+        "y": 515,
+        "source": "content/maps/ferraluce.map.json#/spawns/0"
+      },
+      {
+        "mapId": "veloria/ferraluce",
+        "objectName": "Ingresso a Ferraluce · arrivo",
+        "x": 48.0,
+        "y": 515.0,
+        "source": "public/tilemaps/ferraluce.tmj#object-509"
+      }
+    ],
+    "area/veloria/gym01_brumalta/enter": [
+      {
+        "mapId": "veloria/gym01_brumalta",
+        "objectName": "Ingresso · Palestra di Brumalta",
+        "x": 432,
+        "y": 579,
+        "source": "content/maps/gym01_brumalta.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym02_petalora/enter": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Ingresso · Palestra di Petalora",
+        "x": 432,
+        "y": 803,
+        "source": "content/maps/gym02_petalora.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym03_vetracielo/enter": [
+      {
+        "mapId": "veloria/gym03_vetracielo",
+        "objectName": "Ingresso · Palestra di Vetracielo",
+        "x": 496,
+        "y": 931,
+        "source": "content/maps/gym03_vetracielo.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym04_ferraluce/enter": [
+      {
+        "mapId": "veloria/gym04_ferraluce",
+        "objectName": "Ingresso · Palestra di Ferraluce",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/gym04_ferraluce.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym05_portolume/enter": [
+      {
+        "mapId": "veloria/gym05_portolume",
+        "objectName": "Ingresso · Palestra di Portolume",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/gym05_portolume.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym06_acquariva/enter": [
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Ingresso · Palestra di Acquariva",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/gym06_acquariva.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym07_biancavetta/enter": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Ingresso · Palestra di Biancavetta",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/gym07_biancavetta.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/gym08_concordia/enter": [
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "Ingresso · Palestra di Concordia",
+        "x": 496,
+        "y": 739,
+        "source": "content/maps/gym08_concordia.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_champion/enter": [
+      {
+        "mapId": "veloria/league_champion",
+        "objectName": "Ingresso · Sala del Campione",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/league_champion.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_council01/enter": [
+      {
+        "mapId": "veloria/league_council01",
+        "objectName": "Ingresso · Sala di Nerea",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/league_council01.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_council02/enter": [
+      {
+        "mapId": "veloria/league_council02",
+        "objectName": "Ingresso · Sala di Silvo",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/league_council02.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_council03/enter": [
+      {
+        "mapId": "veloria/league_council03",
+        "objectName": "Ingresso · Sala di Brando",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/league_council03.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_council04/enter": [
+      {
+        "mapId": "veloria/league_council04",
+        "objectName": "Ingresso · Sala di Luce",
+        "x": 496,
+        "y": 707,
+        "source": "content/maps/league_council04.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/league_forecourt/enter": [
+      {
+        "mapId": "veloria/league_forecourt",
+        "objectName": "Ingresso · Piazzale della Lega",
+        "x": 48,
+        "y": 515,
+        "source": "content/maps/league_forecourt.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/passobrina/enter": [
+      {
+        "mapId": "veloria/passobrina",
+        "objectName": "Ingresso · Passobrina",
+        "x": 48,
+        "y": 515,
+        "source": "content/maps/passobrina.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/petalora/enter": [
+      {
+        "mapId": "veloria/petalora",
+        "objectName": "Ingresso · Petalora",
+        "x": 592,
+        "y": 867,
+        "source": "content/maps/petalora.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/portolume/enter": [
+      {
+        "mapId": "veloria/portolume",
+        "objectName": "Ingresso · Portolume · Porto delle Maree",
+        "x": 48,
+        "y": 579,
+        "source": "content/maps/portolume.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r01_sentiero_alba/enter": [
+      {
+        "mapId": "veloria/r01_sentiero_alba",
+        "objectName": "Ingresso · Sentiero dell'Alba",
+        "x": 48,
+        "y": 355,
+        "source": "content/maps/r01_sentiero_alba.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r02_viale_fronde/enter": [
+      {
+        "mapId": "veloria/r02_viale_fronde",
+        "objectName": "Ingresso · Viale delle Fronde",
+        "x": 48,
+        "y": 323,
+        "source": "content/maps/r02_viale_fronde.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r03_terrazze_muschio/enter": [
+      {
+        "mapId": "veloria/r03_terrazze_muschio",
+        "objectName": "Ingresso · Terrazze del Muschio",
+        "x": 48,
+        "y": 579,
+        "source": "content/maps/r03_terrazze_muschio.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r04_salita_petali/enter": [
+      {
+        "mapId": "veloria/r04_salita_petali",
+        "objectName": "Ingresso · Salita dei Petali",
+        "x": 592,
+        "y": 931,
+        "source": "content/maps/r04_salita_petali.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r05_viadotto_ciliegi/enter": [
+      {
+        "mapId": "veloria/r05_viadotto_ciliegi",
+        "objectName": "Ingresso · Viadotto dei Ciliegi",
+        "x": 48,
+        "y": 611,
+        "source": "content/maps/r05_viadotto_ciliegi.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r06_anello_magnetico/enter": [
+      {
+        "mapId": "veloria/r06_anello_magnetico",
+        "objectName": "Ingresso · Anello Magnetico",
+        "x": 48,
+        "y": 515,
+        "source": "content/maps/r06_anello_magnetico.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r07_condotto_risonante/enter": [
+      {
+        "mapId": "veloria/r07_condotto_risonante",
+        "objectName": "Ingresso · Condotto Risonante",
+        "x": 48,
+        "y": 771,
+        "source": "content/maps/r07_condotto_risonante.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r08_costa_turbine/enter": [
+      {
+        "mapId": "veloria/r08_costa_turbine",
+        "objectName": "Ingresso · Costa delle Turbine",
+        "x": 48,
+        "y": 707,
+        "source": "content/maps/r08_costa_turbine.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r09_dune_salmastre/enter": [
+      {
+        "mapId": "veloria/r09_dune_salmastre",
+        "objectName": "Ingresso · Dune Salmastre",
+        "x": 624,
+        "y": 67,
+        "source": "content/maps/r09_dune_salmastre.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r10_sentiero_canne/enter": [
+      {
+        "mapId": "veloria/r10_sentiero_canne",
+        "objectName": "Ingresso · Sentiero delle Canne",
+        "x": 48,
+        "y": 739,
+        "source": "content/maps/r10_sentiero_canne.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r11_via_cascate/enter": [
+      {
+        "mapId": "veloria/r11_via_cascate",
+        "objectName": "Ingresso · Via delle Cascate",
+        "x": 560,
+        "y": 931,
+        "source": "content/maps/r11_via_cascate.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r12_valle_vento/enter": [
+      {
+        "mapId": "veloria/r12_valle_vento",
+        "objectName": "Ingresso · Valle del Vento",
+        "x": 48,
+        "y": 771,
+        "source": "content/maps/r12_valle_vento.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r13_tornanti_bianchi/enter": [
+      {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "objectName": "Ingresso · Tornanti Bianchi",
+        "x": 48,
+        "y": 803,
+        "source": "content/maps/r13_tornanti_bianchi.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r14_varco_cristallo/enter": [
+      {
+        "mapId": "veloria/r14_varco_cristallo",
+        "objectName": "Ingresso · Varco di Cristallo",
+        "x": 48,
+        "y": 547,
+        "source": "content/maps/r14_varco_cristallo.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r15_passo_due_luci/enter": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Ingresso · Passo delle Due Luci",
+        "x": 80,
+        "y": 355,
+        "source": "content/maps/r15_passo_due_luci.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/r16_cammino_equilibrio/enter": [
+      {
+        "mapId": "veloria/r16_cammino_equilibrio",
+        "objectName": "Ingresso · Cammino dell’Equilibrio",
+        "x": 48,
+        "y": 643,
+        "source": "content/maps/r16_cammino_equilibrio.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/radicelmo/enter": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Ingresso · Radicelmo",
+        "x": 48,
+        "y": 483,
+        "source": "content/maps/radicelmo.map.json#/spawns/0"
+      }
+    ],
+    "area/veloria/vetracielo/enter": [
+      {
+        "mapId": "veloria/vetracielo",
+        "objectName": "Ingresso · Vetracielo · Piazza della Monorotaia",
+        "x": 48,
+        "y": 835,
+        "source": "content/maps/vetracielo.map.json#/spawns/0"
+      }
+    ],
+    "battle/r06_iris/defeated": [
+      {
+        "mapId": "veloria/r06_anello_magnetico",
+        "objectName": "Iris",
+        "x": 688.0,
+        "y": 547.0,
+        "source": "public/tilemaps/r06_anello_magnetico.tmj#object-279"
+      }
+    ],
+    "battle/r07_dario/defeated": [
+      {
+        "mapId": "veloria/r07_condotto_risonante",
+        "objectName": "Dario",
+        "x": 592.0,
+        "y": 611.0,
+        "source": "public/tilemaps/r07_condotto_risonante.tmj#object-59"
+      }
+    ],
+    "battle/r08_viola/defeated": [
+      {
+        "mapId": "veloria/r08_costa_turbine",
+        "objectName": "Viola",
+        "x": 656.0,
+        "y": 387.0,
+        "source": "public/tilemaps/r08_costa_turbine.tmj#object-301"
+      }
+    ],
+    "battle/r09_noemi/defeated": [
+      {
+        "mapId": "veloria/r09_dune_salmastre",
+        "objectName": "Noemi",
+        "x": 912.0,
+        "y": 323.0,
+        "source": "public/tilemaps/r09_dune_salmastre.tmj#object-63"
+      }
+    ],
+    "battle/r10_bruno/defeated": [
+      {
+        "mapId": "veloria/r10_sentiero_canne",
+        "objectName": "Bruno",
+        "x": 528.0,
+        "y": 451.0,
+        "source": "public/tilemaps/r10_sentiero_canne.tmj#object-79"
+      }
+    ],
+    "battle/r11_celia/defeated": [
+      {
+        "mapId": "veloria/r11_via_cascate",
+        "objectName": "Celia",
+        "x": 496.0,
+        "y": 579.0,
+        "source": "public/tilemaps/r11_via_cascate.tmj#object-73"
+      }
+    ],
+    "battle/r12_ruben/defeated": [
+      {
+        "mapId": "veloria/r12_valle_vento",
+        "objectName": "Ruben",
+        "x": 784.0,
+        "y": 259.0,
+        "source": "public/tilemaps/r12_valle_vento.tmj#object-1024"
+      }
+    ],
+    "battle/r13_alma/defeated": [
+      {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "objectName": "Alma",
+        "x": 816.0,
+        "y": 451.0,
+        "source": "public/tilemaps/r13_tornanti_bianchi.tmj#object-1054"
+      }
+    ],
+    "battle/r16_maia/defeated": [
+      {
+        "mapId": "veloria/r16_cammino_equilibrio",
+        "objectName": "Maia",
+        "x": 304.0,
+        "y": 675.0,
+        "source": "public/tilemaps/r16_cammino_equilibrio.tmj#object-1000"
+      }
+    ],
+    "battle/r16_tobia/defeated": [
+      {
+        "mapId": "veloria/r16_cammino_equilibrio",
+        "objectName": "Tobia",
+        "x": 656.0,
+        "y": 451.0,
+        "source": "public/tilemaps/r16_cammino_equilibrio.tmj#object-1002"
+      }
+    ],
+    "battle/trainer_aster/defeated": [
+      {
+        "mapId": "veloria/gym03_vetracielo",
+        "objectName": "Aster",
+        "x": 496.0,
+        "y": 355.0,
+        "source": "public/tilemaps/gym03_vetracielo.tmj#object-14"
+      }
+    ],
+    "battle/trainer_aurel/defeated": [
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "Aurel",
+        "x": 528.0,
+        "y": 99.0,
+        "source": "public/tilemaps/gym08_concordia.tmj#object-157"
+      }
+    ],
+    "battle/trainer_dalia/defeated": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Dalia",
+        "x": 432.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym02_petalora.tmj#object-39"
+      }
+    ],
+    "battle/trainer_delta_teo/defeated": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Naturalista Teo",
+        "x": 784.0,
+        "y": 227.0,
+        "source": "public/tilemaps/d04_delta_specchi.tmj#object-55"
+      }
+    ],
+    "battle/trainer_mira/defeated": [
+      {
+        "mapId": "veloria/gym01_brumalta",
+        "objectName": "Capopalestra Mira",
+        "x": 464.0,
+        "y": 99.0,
+        "source": "public/tilemaps/gym01_brumalta.tmj#object-37"
+      }
+    ],
+    "battle/trainer_nerea/defeated": [
+      {
+        "mapId": "veloria/gym05_portolume",
+        "objectName": "Nerea",
+        "x": 528.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym05_portolume.tmj#object-53"
+      }
+    ],
+    "battle/trainer_nives/defeated": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Nives",
+        "x": 528.0,
+        "y": 67.0,
+        "source": "public/tilemaps/gym07_biancavetta.tmj#object-81"
+      }
+    ],
+    "battle/trainer_r04_nila/defeated": [
+      {
+        "mapId": "veloria/r04_salita_petali",
+        "objectName": "Nila",
+        "x": 336.0,
+        "y": 547.0,
+        "source": "public/tilemaps/r04_salita_petali.tmj#object-129"
+      }
+    ],
+    "battle/trainer_r05_oren/defeated": [
+      {
+        "mapId": "veloria/r05_viadotto_ciliegi",
+        "objectName": "Oren",
+        "x": 592.0,
+        "y": 419.0,
+        "source": "public/tilemaps/r05_viadotto_ciliegi.tmj#object-93"
+      }
+    ],
+    "battle/trainer_r09_lina/defeated": [
+      {
+        "mapId": "veloria/r09_dune_salmastre",
+        "objectName": "Guardaparco Lina",
+        "x": 592.0,
+        "y": 291.0,
+        "source": "public/tilemaps/r09_dune_salmastre.tmj#object-61"
+      }
+    ],
+    "battle/trainer_r10_maya/defeated": [
+      {
+        "mapId": "veloria/r10_sentiero_canne",
+        "objectName": "Esploratrice Maya",
+        "x": 656.0,
+        "y": 291.0,
+        "source": "public/tilemaps/r10_sentiero_canne.tmj#object-77"
+      }
+    ],
+    "battle/trainer_r15_nilo/defeated": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Nilo",
+        "x": 720.0,
+        "y": 419.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-164"
+      }
+    ],
+    "battle/trainer_rhea/defeated": [
+      {
+        "mapId": "veloria/gym04_ferraluce",
+        "objectName": "Rhea",
+        "x": 496.0,
+        "y": 355.0,
+        "source": "public/tilemaps/gym04_ferraluce.tmj#object-15"
+      }
+    ],
+    "battle/trainer_route01_sera/defeated": [
+      {
+        "mapId": "veloria/r01_sentiero_alba",
+        "objectName": "Sera",
+        "x": 240.0,
+        "y": 323.0,
+        "source": "public/tilemaps/r01_sentiero_alba.tmj#object-13"
+      }
+    ],
+    "battle/trainer_route01_timo/defeated": [
+      {
+        "mapId": "veloria/r01_sentiero_alba",
+        "objectName": "Timo",
+        "x": 592.0,
+        "y": 419.0,
+        "source": "public/tilemaps/r01_sentiero_alba.tmj#object-14"
+      }
+    ],
+    "battle/trainer_selene/defeated": [
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Selene",
+        "x": 528.0,
+        "y": 99.0,
+        "source": "public/tilemaps/gym06_acquariva.tmj#object-63"
+      }
+    ],
+    "centrale/log/read": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Registro dei collaudi",
+        "x": 272.0,
+        "y": 355.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-17"
+      }
+    ],
+    "centrale/output/read": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Misuratore di uscita",
+        "x": 496.0,
+        "y": 227.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-19"
+      }
+    ],
+    "centrale/regulator/isolate": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Regolatore di prova",
+        "x": 752.0,
+        "y": 355.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-18"
+      }
+    ],
+    "concordia/plan/restore": [
+      {
+        "mapId": "veloria/concordia",
+        "objectName": "Elia",
+        "x": 944.0,
+        "y": 355.0,
+        "source": "public/tilemaps/concordia.tmj#object-163"
+      }
+    ],
+    "d05/climate/balanced": [
+      {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "objectName": "Regolatore climatico",
+        "x": 944.0,
+        "y": 99.0,
+        "source": "public/tilemaps/d05_grotte_cristallo.tmj#object-171"
+      }
+    ],
+    "d05/low/read": [
+      {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "objectName": "Misuratore inferiore",
+        "x": 176.0,
+        "y": 451.0,
+        "source": "public/tilemaps/d05_grotte_cristallo.tmj#object-169"
+      }
+    ],
+    "d05/middle/read": [
+      {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "objectName": "Misuratore centrale",
+        "x": 592.0,
+        "y": 387.0,
+        "source": "public/tilemaps/d05_grotte_cristallo.tmj#object-170"
+      }
+    ],
+    "d05/upper/read": [
+      {
+        "mapId": "veloria/d05_grotte_cristallo",
+        "objectName": "Passaggio superiore",
+        "x": 1168.0,
+        "y": 163.0,
+        "source": "public/tilemaps/d05_grotte_cristallo.tmj#object-172"
+      }
+    ],
+    "d06/balance/restored": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Console delle Due Luci",
+        "x": 528.0,
+        "y": 515.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-479"
+      }
+    ],
+    "d06/nature/read": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Stazione naturale",
+        "x": 320.0,
+        "y": 307.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-477"
+      }
+    ],
+    "d06/network/read": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Stazione della rete",
+        "x": 704.0,
+        "y": 307.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-478"
+      }
+    ],
+    "d06/plan/confirm": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Elia",
+        "x": 592.0,
+        "y": 579.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-481"
+      }
+    ],
+    "d06/receiver/confirm": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Ricevitore delle Due Luci",
+        "x": 512.0,
+        "y": 179.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-480"
+      }
+    ],
+    "d06/report": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Elia",
+        "x": 592.0,
+        "y": 579.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-481"
+      }
+    ],
+    "delta/biologist/report": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Biologa Iris",
+        "x": 432.0,
+        "y": 611.0,
+        "source": "public/tilemaps/d04_delta_specchi.tmj#object-52"
+      }
+    ],
+    "delta/flow/read": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Corrente a monte",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/d04_delta_specchi.tmj#object-48"
+      }
+    ],
+    "delta/nursery/read": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Vivaio naturale",
+        "x": 624.0,
+        "y": 803.0,
+        "source": "public/tilemaps/d04_delta_specchi.tmj#object-50"
+      }
+    ],
+    "delta/reeds/read": [
+      {
+        "mapId": "veloria/d04_delta_specchi",
+        "objectName": "Osservazione dei canneti",
+        "x": 912.0,
+        "y": 259.0,
+        "source": "public/tilemaps/d04_delta_specchi.tmj#object-49"
+      }
+    ],
+    "event/forest_signal/read": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Misuratore di risonanza",
+        "x": 560.0,
+        "y": 355.0,
+        "source": "public/tilemaps/d01_bosco_veli.tmj#object-54"
+      }
+    ],
+    "ferraluce/ivo/centrale_report": [
+      {
+        "mapId": "veloria/ferraluce",
+        "objectName": "Ivo",
+        "x": 656.0,
+        "y": 675.0,
+        "source": "public/tilemaps/ferraluce.tmj#object-512"
+      }
+    ],
+    "ferraluce/ivo/report": [
+      {
+        "mapId": "veloria/ferraluce",
+        "objectName": "Ivo",
+        "x": 656.0,
+        "y": 675.0,
+        "source": "public/tilemaps/ferraluce.tmj#object-512"
+      }
+    ],
+    "gym01/resonance/middle": [
+      {
+        "mapId": "veloria/gym01_brumalta",
+        "objectName": "Sigillo centrale",
+        "x": 272.0,
+        "y": 355.0,
+        "source": "public/tilemaps/gym01_brumalta.tmj#object-46"
+      }
+    ],
+    "gym01/resonance/north": [
+      {
+        "mapId": "veloria/gym01_brumalta",
+        "objectName": "Sigillo settentrionale",
+        "x": 592.0,
+        "y": 227.0,
+        "source": "public/tilemaps/gym01_brumalta.tmj#object-48"
+      }
+    ],
+    "gym01/resonance/south": [
+      {
+        "mapId": "veloria/gym01_brumalta",
+        "objectName": "Sigillo meridionale",
+        "x": 432.0,
+        "y": 483.0,
+        "source": "public/tilemaps/gym01_brumalta.tmj#object-44"
+      }
+    ],
+    "gym02/irrigation/bloom": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Terrazza dei Ciliegi",
+        "x": 432.0,
+        "y": 227.0,
+        "source": "public/tilemaps/gym02_petalora.tmj#object-25"
+      }
+    ],
+    "gym02/irrigation/east": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Deviazione est",
+        "x": 656.0,
+        "y": 355.0,
+        "source": "public/tilemaps/gym02_petalora.tmj#object-24"
+      }
+    ],
+    "gym02/irrigation/source": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Sorgente del giardino",
+        "x": 176.0,
+        "y": 707.0,
+        "source": "public/tilemaps/gym02_petalora.tmj#object-22"
+      }
+    ],
+    "gym02/irrigation/west": [
+      {
+        "mapId": "veloria/gym02_petalora",
+        "objectName": "Deviazione ovest",
+        "x": 208.0,
+        "y": 515.0,
+        "source": "public/tilemaps/gym02_petalora.tmj#object-23"
+      }
+    ],
+    "gym03/line/gardens": [
+      {
+        "mapId": "veloria/gym03_vetracielo",
+        "objectName": "Linea Giardini",
+        "x": 240.0,
+        "y": 771.0,
+        "source": "public/tilemaps/gym03_vetracielo.tmj#object-7"
+      }
+    ],
+    "gym03/line/glass": [
+      {
+        "mapId": "veloria/gym03_vetracielo",
+        "objectName": "Linea Vetro",
+        "x": 752.0,
+        "y": 643.0,
+        "source": "public/tilemaps/gym03_vetracielo.tmj#object-9"
+      }
+    ],
+    "gym03/line/sky": [
+      {
+        "mapId": "veloria/gym03_vetracielo",
+        "objectName": "Linea Cielo",
+        "x": 496.0,
+        "y": 515.0,
+        "source": "public/tilemaps/gym03_vetracielo.tmj#object-11"
+      }
+    ],
+    "gym04/magnetic/aligned": [
+      {
+        "mapId": "veloria/gym04_ferraluce",
+        "objectName": "Primo nastro",
+        "x": 336.0,
+        "y": 515.0,
+        "source": "public/tilemaps/gym04_ferraluce.tmj#object-8"
+      },
+      {
+        "mapId": "veloria/gym04_ferraluce",
+        "objectName": "Secondo nastro",
+        "x": 656.0,
+        "y": 515.0,
+        "source": "public/tilemaps/gym04_ferraluce.tmj#object-10"
+      },
+      {
+        "mapId": "veloria/gym04_ferraluce",
+        "objectName": "Campo magnetico",
+        "x": 656.0,
+        "y": 291.0,
+        "source": "public/tilemaps/gym04_ferraluce.tmj#object-12"
+      }
+    ],
+    "gym05/basin/balance": [
+      {
+        "mapId": "veloria/gym05_portolume",
+        "objectName": "Vasca di compensazione",
+        "x": 272.0,
+        "y": 579.0,
+        "source": "public/tilemaps/gym05_portolume.tmj#object-50"
+      }
+    ],
+    "gym05/sluice/open": [
+      {
+        "mapId": "veloria/gym05_portolume",
+        "objectName": "Chiusa superiore",
+        "x": 784.0,
+        "y": 355.0,
+        "source": "public/tilemaps/gym05_portolume.tmj#object-51"
+      }
+    ],
+    "gym05/tide/stabilize": [
+      {
+        "mapId": "veloria/gym05_portolume",
+        "objectName": "Stabilizzatore di marea",
+        "x": 272.0,
+        "y": 163.0,
+        "source": "public/tilemaps/gym05_portolume.tmj#object-52"
+      }
+    ],
+    "gym06/reflections/aligned": [
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Specchio delle canne",
+        "x": 336.0,
+        "y": 515.0,
+        "source": "public/tilemaps/gym06_acquariva.tmj#object-55"
+      },
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Specchio del pontile",
+        "x": 336.0,
+        "y": 323.0,
+        "source": "public/tilemaps/gym06_acquariva.tmj#object-57"
+      },
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Specchio delle ninfee",
+        "x": 688.0,
+        "y": 323.0,
+        "source": "public/tilemaps/gym06_acquariva.tmj#object-59"
+      },
+      {
+        "mapId": "veloria/gym06_acquariva",
+        "objectName": "Specchio dell’orizzonte",
+        "x": 688.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym06_acquariva.tmj#object-61"
+      }
+    ],
+    "gym07/ice/center": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Sigillo center",
+        "x": 528.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym07_biancavetta.tmj#object-86"
+      }
+    ],
+    "gym07/ice/east": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Sigillo east",
+        "x": 784.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym07_biancavetta.tmj#object-87"
+      }
+    ],
+    "gym07/ice/open": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Console dei tre sigilli",
+        "x": 592.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym07_biancavetta.tmj#object-82"
+      }
+    ],
+    "gym07/ice/west": [
+      {
+        "mapId": "veloria/gym07_biancavetta",
+        "objectName": "Sigillo west",
+        "x": 272.0,
+        "y": 131.0,
+        "source": "public/tilemaps/gym07_biancavetta.tmj#object-85"
+      }
+    ],
+    "gym08/convergence/connected": [
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "westlower",
+        "x": 368.0,
+        "y": 483.0,
+        "source": "public/tilemaps/gym08_concordia.tmj#object-159"
+      },
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "westupper",
+        "x": 368.0,
+        "y": 291.0,
+        "source": "public/tilemaps/gym08_concordia.tmj#object-160"
+      },
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "eastlower",
+        "x": 688.0,
+        "y": 483.0,
+        "source": "public/tilemaps/gym08_concordia.tmj#object-161"
+      },
+      {
+        "mapId": "veloria/gym08_concordia",
+        "objectName": "eastupper",
+        "x": 688.0,
+        "y": 291.0,
+        "source": "public/tilemaps/gym08_concordia.tmj#object-162"
+      }
+    ],
+    "interaction/ada/report": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Ada",
+        "x": 432.0,
+        "y": 355.0,
+        "source": "public/tilemaps/d01_bosco_veli.tmj#object-53"
+      }
+    ],
+    "interaction/prof_elia/readings": [
+      {
+        "mapId": "veloria/borgofonte_lab",
+        "objectName": "Elia",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/borgofonte_lab.tmj#object-13"
+      }
+    ],
+    "interaction/radicelmo/archive-report": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Custode Leda",
+        "x": 816.0,
+        "y": 387.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-9"
+      }
+    ],
+    "interaction/radicelmo/greenhouse/begin": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Custode Leda",
+        "x": 816.0,
+        "y": 387.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-9"
+      }
+    ],
+    "interaction/radicelmo/greenhouse/light": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Misuratore di luce",
+        "x": 912.0,
+        "y": 547.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-31"
+      }
+    ],
+    "interaction/radicelmo/greenhouse/observe": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Vaso del seme ancestrale",
+        "x": 816.0,
+        "y": 547.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-30"
+      }
+    ],
+    "interaction/radicelmo/greenhouse/report": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Custode Leda",
+        "x": 816.0,
+        "y": 387.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-9"
+      }
+    ],
+    "interaction/radicelmo/greenhouse/water": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Regolatore dell’acqua",
+        "x": 720.0,
+        "y": 547.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-29"
+      }
+    ],
+    "lab/fossil/aerodactyl/restore": [
+      {
+        "mapId": "veloria/borgofonte_lab",
+        "objectName": "Elia",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/borgofonte_lab.tmj#object-13"
+      }
+    ],
+    "lab/fossil/kabuto/restore": [
+      {
+        "mapId": "veloria/borgofonte_lab",
+        "objectName": "Elia",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/borgofonte_lab.tmj#object-13"
+      }
+    ],
+    "lab/fossil/omanyte/restore": [
+      {
+        "mapId": "veloria/borgofonte_lab",
+        "objectName": "Elia",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/borgofonte_lab.tmj#object-13"
+      }
+    ],
+    "league/reception/welcome": [
+      {
+        "mapId": "veloria/league_forecourt",
+        "objectName": "Accoglienza della Lega",
+        "x": 656.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_forecourt.tmj#object-784"
+      }
+    ],
+    "league/stage/champion/won": [
+      {
+        "mapId": "veloria/league_champion",
+        "objectName": "Enea",
+        "x": 528.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_champion.tmj#object-475"
+      }
+    ],
+    "league/stage/council1/won": [
+      {
+        "mapId": "veloria/league_council01",
+        "objectName": "Nerea",
+        "x": 528.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_council01.tmj#object-475"
+      }
+    ],
+    "league/stage/council2/won": [
+      {
+        "mapId": "veloria/league_council02",
+        "objectName": "Silvo",
+        "x": 528.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_council02.tmj#object-475"
+      }
+    ],
+    "league/stage/council3/won": [
+      {
+        "mapId": "veloria/league_council03",
+        "objectName": "Brando",
+        "x": 528.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_council03.tmj#object-475"
+      }
+    ],
+    "league/stage/council4/won": [
+      {
+        "mapId": "veloria/league_council04",
+        "objectName": "Luce",
+        "x": 528.0,
+        "y": 259.0,
+        "source": "public/tilemaps/league_council04.tmj#object-475"
+      }
+    ],
+    "passobrina/guide/report": [
+      {
+        "mapId": "veloria/passobrina",
+        "objectName": "Guida alpina",
+        "x": 912.0,
+        "y": 451.0,
+        "source": "public/tilemaps/passobrina.tmj#object-200"
+      }
+    ],
+    "passobrina/snow/read": [
+      {
+        "mapId": "veloria/passobrina",
+        "objectName": "Lettura della neve",
+        "x": 1040.0,
+        "y": 291.0,
+        "source": "public/tilemaps/passobrina.tmj#object-302"
+      }
+    ],
+    "pickup/r01/first_aid": [
+      {
+        "mapId": "veloria/r01_sentiero_alba",
+        "objectName": "Fascia di primo soccorso",
+        "x": 496.0,
+        "y": 323.0,
+        "source": "public/tilemaps/r01_sentiero_alba.tmj#object-44"
+      }
+    ],
+    "pickup/r03/ancient_seed": [
+      {
+        "mapId": "veloria/r03_terrazze_muschio",
+        "objectName": "Seme custodito",
+        "x": 528.0,
+        "y": 355.0,
+        "source": "public/tilemaps/r03_terrazze_muschio.tmj#object-6"
+      }
+    ],
+    "pickup/radicelmo/greenhouse_fire_stone": [
+      {
+        "mapId": "veloria/radicelmo",
+        "objectName": "Pietrafocaia della serra",
+        "x": 848.0,
+        "y": 483.0,
+        "source": "public/tilemaps/radicelmo.tmj#object-32"
+      }
+    ],
+    "portolume/captain/orientation": [
+      {
+        "mapId": "veloria/portolume",
+        "objectName": "Capitana Marina",
+        "x": 752.0,
+        "y": 515.0,
+        "source": "public/tilemaps/portolume.tmj#object-408"
+      }
+    ],
+    "portolume/captain/report": [
+      {
+        "mapId": "veloria/portolume",
+        "objectName": "Capitana Marina",
+        "x": 752.0,
+        "y": 515.0,
+        "source": "public/tilemaps/portolume.tmj#object-408"
+      }
+    ],
+    "portolume/tide/read": [
+      {
+        "mapId": "veloria/portolume",
+        "objectName": "Misuratore delle maree",
+        "x": 1168.0,
+        "y": 259.0,
+        "source": "public/tilemaps/portolume.tmj#object-412"
+      }
+    ],
+    "r06/sensor/read": [
+      {
+        "mapId": "veloria/r06_anello_magnetico",
+        "objectName": "Misuratore dell’Anello",
+        "x": 592.0,
+        "y": 515.0,
+        "source": "public/tilemaps/r06_anello_magnetico.tmj#object-185"
+      }
+    ],
+    "r07/sensor/read": [
+      {
+        "mapId": "veloria/r07_condotto_risonante",
+        "objectName": "Sensore del Condotto",
+        "x": 656.0,
+        "y": 547.0,
+        "source": "public/tilemaps/r07_condotto_risonante.tmj#object-50"
+      }
+    ],
+    "r10/kit/recover": [
+      {
+        "mapId": "veloria/r10_sentiero_canne",
+        "objectName": "Kit del pontile",
+        "x": 1008.0,
+        "y": 643.0,
+        "source": "public/tilemaps/r10_sentiero_canne.tmj#object-75"
+      }
+    ],
+    "r12/temperature/read": [
+      {
+        "mapId": "veloria/r12_valle_vento",
+        "objectName": "Termometro di valle",
+        "x": 912.0,
+        "y": 643.0,
+        "source": "public/tilemaps/r12_valle_vento.tmj#object-301"
+      }
+    ],
+    "r12/wind/read": [
+      {
+        "mapId": "veloria/r12_valle_vento",
+        "objectName": "Misuratore di raffiche",
+        "x": 400.0,
+        "y": 259.0,
+        "source": "public/tilemaps/r12_valle_vento.tmj#object-300"
+      }
+    ],
+    "r14/guide/report": [
+      {
+        "mapId": "veloria/r14_varco_cristallo",
+        "objectName": "Guida del varco",
+        "x": 944.0,
+        "y": 387.0,
+        "source": "public/tilemaps/r14_varco_cristallo.tmj#object-158"
+      }
+    ],
+    "r15/nature/read": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Lettura naturale",
+        "x": 560.0,
+        "y": 131.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-159"
+      }
+    ],
+    "r15/network/read": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Lettura della rete",
+        "x": 944.0,
+        "y": 611.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-160"
+      }
+    ],
+    "vetracielo/lea/orientation": [
+      {
+        "mapId": "veloria/vetracielo",
+        "objectName": "Lea",
+        "x": 720.0,
+        "y": 611.0,
+        "source": "public/tilemaps/vetracielo.tmj#object-87"
+      }
+    ]
+  }
+}

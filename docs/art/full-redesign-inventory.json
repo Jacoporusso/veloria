@@ -6,18 +6,18 @@
     "mapDefinitions": 48,
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
-    "mapsWithExplicitSceneryImage": 36,
+    "mapsWithExplicitSceneryImage": 37,
     "mapsWithRegisteredSceneryPath": 42,
-    "mapsWithTerrainBase": 27,
+    "mapsWithTerrainBase": 26,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
-    "mapsWithSceneryImageOnly": 21,
-    "mapsWithTerrainBaseOnly": 12,
+    "mapsWithSceneryImageOnly": 22,
+    "mapsWithTerrainBaseOnly": 11,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
     "registeredSceneryImageAssets": 42,
-    "registeredSceneryAssetsNotReferencedBySceneObjects": 12,
-    "mapsWithUnreferencedSceneryRegistration": 12,
-    "parityArtworkEntries": 29,
+    "registeredSceneryAssetsNotReferencedBySceneObjects": 11,
+    "mapsWithUnreferencedSceneryRegistration": 11,
+    "parityArtworkEntries": 30,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -11754,11 +11754,7 @@
         "height": 30
       },
       "aspect": 1.3333,
-      "terrainBase": {
-        "assetKey": "veloria-r15-two-lights-v1",
-        "tilesetName": "veloria_terrain",
-        "tileIndex": 0
-      },
+      "terrainBase": null,
       "groundLayer": {
         "exists": true,
         "nonEmptyTileCount": 1200,
@@ -11766,26 +11762,47 @@
           "veloria_terrain"
         ]
       },
-      "sceneryImageObjects": [],
-      "sceneImages": [],
+      "sceneryImageObjects": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 168,
+          "name": "Passo delle Due Luci illustrato",
+          "spriteKey": "veloria-r15_passo_due_luci-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          }
+        }
+      ],
+      "sceneImages": [
+        {
+          "layer": "decorations",
+          "stableObjectId": 168,
+          "name": "Passo delle Due Luci illustrato",
+          "spriteKey": "veloria-r15_passo_due_luci-illustrated-v3",
+          "cell": {
+            "x": 0.0,
+            "y": 0.0,
+            "width": 40.0,
+            "height": 30.0
+          },
+          "assetPath": "assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-r15-two-lights-v1",
-          "path": "assets/scenery/veloria-r15-two-lights-v1.webp",
+          "key": "veloria-r15_passo_due_luci-illustrated-v3",
+          "path": "assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryAssetsNotReferencedBySceneObjects": [
-        {
-          "kind": "image",
-          "key": "veloria-r15-two-lights-v1",
-          "path": "assets/scenery/veloria-r15-two-lights-v1.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        }
-      ],
+      "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
           "kind": "tileset",
@@ -11799,8 +11816,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-r15-two-lights-v1",
-          "path": "assets/scenery/veloria-r15-two-lights-v1.webp",
+          "key": "veloria-r15_passo_due_luci-illustrated-v3",
+          "path": "assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -11823,9 +11840,31 @@
           "runtimeFilePresent": true
         }
       ],
-      "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
+      "parityArtwork": {
+        "mapId": "veloria/r15_passo_due_luci",
+        "tiledAsset": "tilemaps/r15_passo_due_luci.tmj",
+        "assetKey": "veloria-r15_passo_due_luci-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-r15_passo_due_luci-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp",
+        "sourceSha256": "3d7103f52b224fc02bda191d273c70f678c2631cb13e2a7ea6b4fdb69310a4d7",
+        "runtimeSha256": "3069ef6ca9c908ee46a162af31f3c5b39338c49816a9345d71b1732f2f2e6947",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Create a finished modern illustrated 2D RPG full-map environment for Veloria, Passo delle Due Luci. EXACT4:3 canvas, no borders/text/UI/icons/people/Pokémon/machines/instruments. Reference1 is STRICT exact playable geometry40x30tiles: beige all FLAT OPEN FLOOR incl20px foot clearance; green is ONLY grass encounter habitat near x65..70%,y16.7..22.1%; blue-grey is blocked rocky highland garden. Preserve every beige branch/corridor width and shape exactly, no rocks/cliff faces/railings/trees projecting over beige or green. Reference2 is mood and biome ONLY, not layout: western snowy crystal mountain gradually becoming warm lush alpine garden east, dramatic distant mountain views, soft waterfalls only in blocked places, vibrant yet restrained botanical color, pale warm limestone paths. Reinterpret into crisp modern painterly2D game style rather than a realistic3D diorama. Main path crosses from west cave threshold tile(2,9) center6.25%,31.67% down onto main route near y40%, then climbs toward east exit tile(39,9),98.75%,31.67% on rightedge. EXACT mask controls it. Northern spur leads to open lookout near tile(17,3) and southern spur descends to a separate open reading terrace near(29,18),75%,61.67%. Leave these spaces empty for runtime instruments. Broad central junction near55%,42% and small open clearing tile(24,15),61.25%,51.67%, mustremainflat empty pale floor; no tree/pedestal/statue there because a conditional Pokémon appears at runtime. No baked gold clock/globe machinery. Put rough slate cliffs, cypress/fir shrubs and small alpine flower clusters entirely in blue-grey regions. Keep foreground cliffs behind floor silhouette, wall projections must extend into blocked regions only. The beige floor footprint is non-negotiable, particularly lower/east margins underneath playerfeet. Organic soft light edges, no heavy stone balustrades or gold borders. Warm natural sunlight NW lookout, subtle cool mint/lilac crystal accents behind SE terrace to suggest two light sources without marking fake objectives. The only tall grass is exactly reference green patch. Rich cohesive illustration, no black void or huge blank sky; fill blocked canvas with distant terrain and vegetation at consistent scale.",
+        "references": [
+          "assets/prompts/r15-production-layout-v1.svg",
+          "assets/sources/veloria-r15-two-lights-v1.png",
+          "assets/prompts/r15-exact-floor-reference.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/r15_passo_due_luci-illustrated-v3.md",
+            "reason": "Illustrated highland garden; exact Tiled floor reference preserves bridge and conditional Pokémon clearing."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [
         {
           "stableObjectId": 163,

@@ -3300,6 +3300,16 @@
               "name": "message",
               "type": "string",
               "value": "Misura la luce naturale del passo."
+            },
+            {
+              "name": "fieldInstrument",
+              "type": "string",
+              "value": "gauge"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -3328,6 +3338,16 @@
               "name": "message",
               "type": "string",
               "value": "Misura la luce della rete del passo."
+            },
+            {
+              "name": "fieldInstrument",
+              "type": "string",
+              "value": "gauge"
+            },
+            {
+              "name": "wayfindingIcon",
+              "type": "string",
+              "value": "survey"
             }
           ]
         },
@@ -3481,11 +3501,40 @@
       "opacity": 1,
       "visible": true,
       "draworder": "topdown",
-      "objects": []
+      "objects": [
+        {
+          "id": 168,
+          "name": "Passo delle Due Luci illustrato",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r15_passo_due_luci-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ]
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 168,
+  "nextobjectid": 169,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

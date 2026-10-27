@@ -21,6 +21,41 @@ const walkTo = (page: import('@playwright/test').Page, file: string, x: number, 
 
 test.use({ reducedMotion: 'reduce' });
 
+test('R15 first offline visit keeps the Moltres clearing and light readings interactive', async ({ page, context }, info) => {
+  test.setTimeout(120_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 1, level: 8, instanceId: 'offline-r15' });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 8, experience: 0, hp: creature.hp,
+    maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'q_d05_report', 'q_league_completed', 'q_league_epilogue_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/r15_passo_due_luci', spawnPointId: 'from_cavern', x: 24, y: 16 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = [], errors: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url())); page.on('pageerror', error => errors.push(error.message));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+  await expect(page.locator('#interaction-prompt')).toContainText('Moltres');
+  const before = await readBrowserSave(page);
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await action.tap(); await expect(page.getByRole('button', { name: 'INCONTRA', exact: true })).toBeVisible();
+  await page.screenshot({ path: info.outputPath('r15-moltres-offline.png') });
+  await page.getByRole('button', { name: 'MI PREPARO', exact: true }).tap();
+  expect((await readBrowserSave(page)).rngState).toBe(before.rngState);
+  await walkTo(page, 'r15_passo_due_luci.tmj', 29, 19);
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap(); await action.tap();
+  for (let i = 0; i < 20 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+  await expect(page.locator('#dialogue-box')).toBeHidden();
+  expect((await readBrowserSave(page)).flags).toContain('q_r15_network_read');
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain('q_r15_network_read');
+  expect((await readBrowserSave(page)).flags).not.toContain('q_special_moltres_caught');
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
+});
+
 test('Ada directional idle images load on a first offline visit and every side remains interactive', async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
@@ -96,6 +131,8 @@ test('special encounter Journal guidance opens the destination Atlas without a n
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
   await expect(atlas).toBeVisible();
   await expect(atlas.locator('.region-map-select')).toHaveValue('r12');
+  await expect(atlas.locator('.region-map-local')).toHaveAttribute('data-map-id', 'veloria/r12_valle_vento');
+  await expect(atlas.locator('.region-map-discovery-pin')).toHaveCount(1);
   const encounter = atlas.getByRole('region', { name: 'Incontro con Snorlax' });
   await expect(encounter).toContainText('Da raggiungere');
   await expect(encounter).toContainText('radura orientale');
@@ -114,7 +151,8 @@ test('fossil reward guidance locates Elia from the first offline Journal visit',
   fixture.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 10, experience: 0, hp: creature.hp,
     maxHp: creature.stats.maxHp, moves: creature.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
   fixture.flags = [...new Set([...fixture.flags, 'q_starter_selected', 'q_research_sample_received',
-    'q_league_completed', 'q_league_epilogue_seen', 'prologue_complete_seen'])];
+    'q_league_completed', 'q_league_epilogue_seen', 'prologue_complete_seen',
+    'badge_ghiaccio_awarded', 'q_r14_visited', 'q_d05_visited'])];
   await seedBrowserSave(page, fixture);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
   const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
@@ -127,6 +165,9 @@ test('fossil reward guidance locates Elia from the first offline Journal visit',
   await journal.getByRole('button', { name: 'Mostra Kabuto sulla mappa', exact: true }).click();
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
   await expect(atlas.locator('.region-map-select')).toHaveValue('borgofonte');
+  await expect(atlas.locator('.region-map-local')).toHaveAttribute('data-map-id', 'veloria/borgofonte_lab');
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-x', '400');
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-y', '259');
   const gift = atlas.getByRole('region', { name: 'Pokémon in dono: Kabuto', exact: true });
   await expect(gift).toContainText('Elia'); await expect(gift).toContainText('cupola azzurra');
   await expect(gift).toContainText('Ridona vita a Kabuto');
@@ -135,6 +176,16 @@ test('fossil reward guidance locates Elia from the first offline Journal visit',
     await image.decode(); await new Promise(requestAnimationFrame);
   });
   await page.screenshot({ path: info.outputPath('offline-kabuto-lab-guidance.png') });
+  await atlas.getByRole('button', { name: 'Mostra tutta la regione' }).click();
+  await atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first().click();
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-kind', 'fishing');
+  await expect(atlas.locator('.region-map-discovery-pin')).toHaveCount(1);
+  await atlas.getByRole('button', { name: 'Chiudi ×' }).click();
+  await page.getByRole('button', { name: 'Apri diario del viaggio' }).click();
+  await page.getByRole('button', { name: 'Mostra Le correnti del Cristallo sulla mappa', exact: true }).click();
+  await expect(atlas.locator('.region-map-local')).toHaveAttribute('data-map-id', 'veloria/d05_grotte_cristallo');
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-x', '176');
+  await expect(atlas.locator('.region-map-local-target')).toHaveAttribute('data-map-y', '451');
   const after = await readBrowserSave(page);
   for (const key of ['player', 'party', 'storage', 'inventory', 'flags', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
   expect(failures).toEqual([]);
@@ -1229,7 +1280,7 @@ test('P8 relays, crystal and dragon resources, and Concordia rail work offline',
  const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'tutorial_habitat_seen','q_starter_selected','q_concordia_restore_plan','q_d05_report','badge_circuito_awarded','badge_ghiaccio_awarded','q_concordia_visited','q_vetracielo_visited','atlas_visited_veloria/concordia','atlas_visited_veloria/vetracielo'])];save.badges=[...new Set([...save.badges,'badge_circuito','badge_brina'])];save.player={...save.player,mapId:'veloria/gym08_concordia',spawnPointId:'from_city',x:15,y:22};await seedBrowserSave(page,save);
  const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));await context.setOffline(true);await page.reload();await enterGame(page);expect((await readBrowserSave(page)).player.mapId).toBe('veloria/gym08_concordia');
  const decoded=await page.evaluate(async()=>{
-  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15-two-lights-v1.webp',
+  const images=['assets/scenery/veloria-concordia-v1.webp','assets/scenery/veloria-gym08-convergence-v1.webp','assets/scenery/veloria-r15_passo_due_luci-illustrated-v3.webp',
    'assets/creatures/pokeapi-dragon-116-v1.webp','assets/creatures/pokeapi-dragon-117-v1.webp','assets/creatures/pokeapi-dragon-147-v1.webp',
    'assets/creatures/pokeapi-dragon-148-v1.webp','assets/creatures/pokeapi-dragon-149-v1.webp','assets/creatures/pokeapi-gen1-130-v1.webp'];
   const imageResults=await Promise.all(images.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>100&&image.naturalHeight>100;}));

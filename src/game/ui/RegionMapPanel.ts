@@ -6,6 +6,7 @@ import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
 import { battleSpecies, encounterCatalog } from '../battle/catalog.ts';
 import { pokemonRewardsAt } from '../journey/pokemon-reward-guidance.ts';
+import { atlasBackground, loadAtlasDiscoveries, loadAtlasTiled, type AtlasDiscovery } from './atlas-discoveries.ts';
 
 const ns = 'http://www.w3.org/2000/svg';
 function html<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string) {
@@ -36,6 +37,11 @@ export class RegionMapPanel {
   private save?: Pick<GameSave, 'player' | 'flags'> & Partial<Pick<GameSave, 'inventory'>>;
   private chart?: SVGSVGElement;
   private zoom = 1;
+  private discoveries: AtlasDiscovery[] = [];
+  private discoveryReady: Promise<void> = Promise.resolve();
+  private target?: AtlasDiscovery;
+  private request = 0;
+  private focusRequest = 0;
   private readonly resizeObserver = new ResizeObserver(() => {
     if (this.isOpen) this.setZoom(this.zoom);
   });
@@ -58,7 +64,7 @@ export class RegionMapPanel {
     for (const [label, aria, action] of [
       ['−', 'Riduci mappa', () => this.setZoom(Math.max(1, this.zoom - 0.5))],
       ['+', 'Ingrandisci mappa', () => this.setZoom(Math.min(3, this.zoom + 0.5))],
-      ['Panoramica', 'Mostra tutta la regione', () => this.setZoom(1)],
+      ['Tutti i punti', 'Mostra tutta la regione', () => this.showOverview()],
       ['Sei qui', 'Mostra la tua posizione', () => this.showCurrent()],
     ] as const) {
       const button = html('button', '', label);
@@ -90,6 +96,9 @@ export class RegionMapPanel {
   open(save: Pick<GameSave, 'player' | 'flags'> & Partial<Pick<GameSave, 'inventory'>>, mapId?: string, discoveryId?: string): void {
     if (!this.isOpen) this.focusBeforeOpen = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
     this.save = save;
+    this.target = undefined;
+    this.discoveries = [];
+    const request = ++this.request;
     this.state = deriveAtlasState(save);
     const current = this.state.areas.find(area => area.current);
     this.location.textContent = `Sei qui: ${current?.name ?? 'Posizione non disponibile'}`;
@@ -103,11 +112,20 @@ export class RegionMapPanel {
     if (requested) { this.setZoom(this.viewport.clientWidth < 540 ? 3 : 1.5); this.centerArea(requested.id); }
     else if (this.viewport.clientWidth < 540) this.showCurrent();
     this.closeButton.focus();
+    this.discoveryReady = loadAtlasDiscoveries(save.flags, save.player.mapId).then(points => {
+      if (request !== this.request) return;
+      this.discoveries = points;
+      this.renderDiscoveryPins();
+      if (discoveryId) void this.focusDiscovery(discoveryId);
+    }).catch(() => {
+      if (request === this.request) this.details.append(html('p', '', 'Non riesco a caricare i punti. Chiudi e riapri la mappa per riprovare.'));
+    });
   }
 
   close(): void {
     if (!this.isOpen) return;
     this.overlay.hidden = true;
+    this.request++; this.focusRequest++;
     this.focusBeforeOpen?.focus();
   }
 
@@ -116,6 +134,7 @@ export class RegionMapPanel {
   private showArea(id: string, discoveryId?: string): void {
     const area = this.state?.areas.find(item => item.id === id);
     if (!area) return;
+    if (this.target) { this.target = undefined; this.focusRequest++; this.renderChart(); this.setZoom(1); }
     this.select.value = id;
     const title = html('h3', '', area.name);
     const state = html('strong', 'region-map-state', area.status);
@@ -123,11 +142,18 @@ export class RegionMapPanel {
     const gym = area.gym ? html('p', '', `Palestra · tappa ${area.gym}`) : undefined;
     const gifts = pokemonRewardsAt(area.mapIds, this.save?.flags ?? []);
     const encounters = Object.values(specialEncounterCatalog).filter(item => area.mapIds.includes(item.mapId));
-    const focused = gifts.some(reward => reward.guide.questId === discoveryId) || encounters.some(encounter => encounter.id === discoveryId);
+    const fishingTarget = this.discoveries.find(point => point.id === discoveryId && point.kind === 'fishing');
+    const questTarget = this.discoveries.find(point => point.id === discoveryId && point.kind === 'quest');
+    const focused = Boolean(fishingTarget || questTarget) || gifts.some(reward => reward.guide.questId === discoveryId) || encounters.some(encounter => encounter.id === discoveryId);
     this.dialog.classList.toggle('has-discovery-target', focused);
-    this.details.replaceChildren(title, state, ...(!focused ? [description, ...(gym ? [gym] : [])] : []));
+    this.details.replaceChildren(...(!focused ? [title, state, description, ...(gym ? [gym] : [])] : []));
     this.details.closest<HTMLElement>('.region-map-sidebar')!.scrollTop = 0;
-    if (this.hasFishing(area.mapIds) && !focused) {
+    if (questTarget) {
+      const card = html('section', 'region-map-discovery'); card.setAttribute('aria-label', `Missione: ${questTarget.name}`);
+      card.append(html('h4', '', `◆ ${questTarget.name}`), html('p', '', `Prossimo obiettivo: ${questTarget.objectName}`), html('p', '', questTarget.location));
+      this.details.append(card);
+    }
+    if (this.hasFishing(area.mapIds) && (!focused || fishingTarget)) {
       const fishing = html('section', 'region-map-discovery');
       fishing.setAttribute('aria-label', 'Punti pesca');
       fishing.append(html('h4', '', '🎣 Punti pesca'), html('p', '',
@@ -135,6 +161,9 @@ export class RegionMapPanel {
           ? 'Canna pronta. Cerca il simbolo 🎣 PESCA sul posto, fermati accanto rivolto verso di esso e premi A.'
           : 'Serve la Canna da pesca: parla con la Capitana Marina a Portolume. Sul posto cerca il simbolo 🎣 PESCA.'));
       this.details.append(fishing);
+      for (const point of this.discoveries.filter(point => point.kind === 'fishing' && area.mapIds.includes(point.mapId) && (!focused || point.id === discoveryId))) {
+        fishing.append(this.locateButton(point.id, `🎣 ${point.name}`));
+      }
     }
     for (const reward of gifts.filter(reward => !focused || reward.guide.questId === discoveryId)) {
       const card = html('section', 'region-map-discovery');
@@ -143,6 +172,7 @@ export class RegionMapPanel {
       if (reward.state !== 'received') card.append(html('p', '', reward.guide.actionHint), html('p', '', reward.guide.unlockHint),
         html('p', '', reward.guide.routeHint));
       this.details.append(card);
+      card.append(this.locateButton(reward.guide.questId, `Mostra il punto di ${reward.name}`));
     }
     for (const encounter of encounters.filter(encounter => !focused || encounter.id === discoveryId)) {
       const encounterState = specialEncounterDiscoveryState(encounter, this.save?.flags ?? []);
@@ -153,6 +183,7 @@ export class RegionMapPanel {
       if (encounterState !== 'caught') card.append(html('p', '', encounter.unlockHint), html('p', '', encounter.routeHint),
         html('p', '', 'Fermati accanto al Pokémon, rivolto verso di lui: premi A e scegli INCONTRA.'));
       this.details.append(card);
+      card.append(this.locateButton(encounter.id, `Mostra il punto di ${battleSpecies[encounter.speciesId].name}`));
     }
     for (const node of this.chart?.querySelectorAll('[data-area]') ?? []) node.setAttribute('aria-pressed', String(node.getAttribute('data-area') === id));
   }
@@ -168,13 +199,18 @@ export class RegionMapPanel {
     this.zoom = zoom;
     // Keep terrain under the full viewport in either orientation. The atlas can
     // be panned horizontally in portrait, instead of leaving an empty sea panel.
-    if (this.chart) this.chart.style.width = `${Math.max(this.viewport.clientWidth * zoom, this.viewport.clientHeight * regionAtlas.width / regionAtlas.height)}px`;
+    if (this.chart) {
+      const box = this.chart.viewBox.baseVal;
+      this.chart.style.width = `${Math.max(this.viewport.clientWidth * zoom, this.viewport.clientHeight * box.width / box.height)}px`;
+      this.sizePins();
+    }
     if (this.chart && previousWidth) this.viewport.scrollTo({ left: centerX * this.chart.clientWidth - this.viewport.clientWidth / 2, top: centerY * this.chart.clientWidth - this.viewport.clientHeight / 2, behavior: 'instant' });
   }
 
   private showCurrent(): void {
     const current = this.state?.areas.find(area => area.current);
     if (!current) return;
+    this.location.textContent = `Sei qui: ${current.name}`;
     this.showArea(current.id); this.setZoom(this.viewport.clientWidth < 540 ? 3 : 1.5);
     this.centerArea(current.id);
   }
@@ -182,8 +218,9 @@ export class RegionMapPanel {
   private centerArea(id: string): void {
     const area = this.state?.areas.find(item => item.id === id);
     if (!area) return;
+    const chart = this.chart;
     requestAnimationFrame(() => {
-      if (!this.isOpen || !this.chart) return;
+      if (!this.isOpen || !this.chart || this.chart !== chart) return;
       this.viewport.scrollTo({ left: area.x / regionAtlas.width * this.chart.clientWidth - this.viewport.clientWidth / 2,
         top: area.y / regionAtlas.height * this.chart.clientHeight - this.viewport.clientHeight / 2, behavior: 'instant' });
     });
@@ -192,6 +229,7 @@ export class RegionMapPanel {
   private renderChart(): void {
     const chart = svg('svg', { viewBox: `0 0 ${regionAtlas.width} ${regionAtlas.height}`, class: 'region-map-chart', role: 'group', 'aria-label': 'Luoghi e collegamenti di Veloria' });
     chart.append(svg('image', { href: publicAssetUrl('assets/ui/veloria-region-atlas-v1.webp', import.meta.env.BASE_URL), x: '0', y: '0', width: String(regionAtlas.width), height: String(regionAtlas.height), preserveAspectRatio: 'none', 'aria-hidden': 'true' }));
+    chart.append(svg('rect', { width: String(regionAtlas.width), height: String(regionAtlas.height), class: 'region-map-shade', 'aria-hidden': 'true' }));
     const byId = new Map(this.state!.areas.map(area => [area.id, area]));
     // Only existing paths are traced; the illustration carries the rest of the geography.
     for (const [from, to] of regionAtlas.connections) {
@@ -206,12 +244,6 @@ export class RegionMapPanel {
       if (area.current) node.append(svg('circle', { r: '22', class: 'region-map-pulse' }));
       node.append(svg('circle', { r: area.current ? '13' : area.visited ? '9' : '6', class: 'region-map-dot' }));
       node.append(svg('text', { 'text-anchor': 'middle', y: '5', class: 'region-map-symbol' }, area.current ? '●' : area.visited ? '✓' : ''));
-      const availableEncounter = Object.values(specialEncounterCatalog).some(encounter => area.mapIds.includes(encounter.mapId) &&
-        specialEncounterDiscoveryState(encounter, this.save?.flags ?? []) === 'available');
-      const availableGift = pokemonRewardsAt(area.mapIds, this.save?.flags ?? []).some(reward => reward.state === 'available');
-      if (this.hasFishing(area.mapIds) || availableEncounter || availableGift) node.append(svg('text', {
-        x: '15', y: '-12', class: 'region-map-discovery-symbol', 'aria-hidden': 'true',
-      }, this.hasFishing(area.mapIds) ? '🎣' : availableEncounter ? '✦' : '🎁'));
       const shortName = area.kind === 'route' ? area.name.split(' · ')[0] : area.name;
       node.append(svg('text', { 'text-anchor': 'middle', y: '34', class: 'region-map-label' }, shortName));
       node.addEventListener('click', () => this.showArea(area.id));
@@ -219,13 +251,108 @@ export class RegionMapPanel {
       chart.append(node);
     }
     this.chart = chart; this.viewport.replaceChildren(chart);
+    this.renderDiscoveryPins();
+  }
+
+  private locateButton(id: string, label: string): HTMLButtonElement {
+    const button = html('button', 'region-map-locate', label); button.type = 'button';
+    button.onclick = () => { void this.focusDiscovery(id); };
+    return button;
+  }
+
+  private showOverview(): void {
+    this.focusRequest++; this.target = undefined;
+    this.renderChart(); this.showArea(this.select.value); this.setZoom(1);
+    const current = this.state?.areas.find(area => area.current);
+    this.location.textContent = `Sei qui: ${current?.name ?? 'Posizione non disponibile'}`;
+  }
+
+  private pin(point: AtlasDiscovery): SVGGElement {
+    const kind = point.kind === 'gift' ? 'Dono' : point.kind === 'fishing' ? 'Pesca' : point.kind === 'quest' ? 'Missione' : 'Incontro';
+    const pin = svg('g', { class: 'region-map-discovery-pin', role: 'button', tabindex: '0',
+      'data-discovery-id': point.id, 'data-kind': point.kind, 'aria-label': `${kind}: ${point.name} · ${point.location}` });
+    pin.append(svg('circle', { class: 'region-map-pin-hit' }), svg('circle', { class: 'region-map-pin-disc' }),
+      svg('text', { class: 'region-map-pin-icon', 'text-anchor': 'middle', 'dominant-baseline': 'central' }, point.icon));
+    pin.addEventListener('click', () => { void this.focusDiscovery(point.id); });
+    pin.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); void this.focusDiscovery(point.id); }
+    });
+    return pin;
+  }
+
+  private renderDiscoveryPins(): void {
+    if (!this.chart || this.target) return;
+    this.chart.querySelectorAll('.region-map-discovery-pin').forEach(node => node.remove());
+    for (const area of this.state?.areas ?? []) {
+      const points = this.discoveries.filter(point => point.kind !== 'quest' && area.mapIds.includes(point.mapId));
+      points.forEach((point, index) => {
+        const pin = this.pin(point);
+        pin.dataset.regionX = String(area.x); pin.dataset.regionY = String(area.y);
+        pin.dataset.offset = String(index - (points.length - 1) / 2);
+        this.chart!.append(pin);
+      });
+    }
+    this.sizePins();
+  }
+
+  private sizePins(): void {
+    if (!this.chart?.clientWidth) return;
+    const unit = this.chart.viewBox.baseVal.width / this.chart.clientWidth;
+    this.chart.style.setProperty('--pin-radius', `${18 * unit}px`);
+    this.chart.style.setProperty('--pin-hit', `${23 * unit}px`);
+    this.chart.style.setProperty('--pin-font', `${20 * unit}px`);
+    for (const pin of this.chart.querySelectorAll<SVGGElement>('.region-map-discovery-pin[data-region-x]')) {
+      const margin = 24 * unit, box = this.chart.viewBox.baseVal;
+      const x = Math.max(margin, Math.min(box.width - margin, Number(pin.dataset.regionX) + Number(pin.dataset.offset) * 44 * unit));
+      const y = Math.max(margin, Math.min(box.height - margin, Number(pin.dataset.regionY) - 42 * unit));
+      pin.setAttribute('transform', `translate(${x} ${y})`);
+    }
+  }
+
+  private async focusDiscovery(id: string): Promise<void> {
+    await this.discoveryReady;
+    const target = this.discoveries.find(point => point.id === id);
+    if (!target || !this.isOpen) return;
+    const area = this.state?.areas.find(area => area.mapIds.includes(target.mapId));
+    if (!area) return;
+    this.showArea(area.id, id); this.target = target;
+    const request = ++this.focusRequest;
+    let tiled: Awaited<ReturnType<typeof loadAtlasTiled>>;
+    try { tiled = await loadAtlasTiled(target.mapId); }
+    catch {
+      if (request === this.focusRequest && this.isOpen) {
+        this.chart = undefined;
+        this.viewport.replaceChildren(html('p', 'region-map-load-status', 'La pianta del luogo non è disponibile.'));
+        this.details.append(this.locateButton(id, 'Riprova a caricare il punto'));
+      }
+      return;
+    }
+    if (request !== this.focusRequest || !this.isOpen) return;
+    const width = tiled.width * tiled.tilewidth, height = tiled.height * tiled.tileheight;
+    const chart = svg('svg', { viewBox: `0 0 ${width} ${height}`, class: 'region-map-chart region-map-local',
+      role: 'group', 'aria-label': `Punto esatto: ${target.name} · ${target.location}`, 'data-map-id': target.mapId });
+    const background = atlasBackground(target.mapId, tiled);
+    if (background) chart.append(svg('image', { href: publicAssetUrl(background, import.meta.env.BASE_URL), width: String(width), height: String(height), preserveAspectRatio: 'none', 'aria-hidden': 'true' }));
+    chart.append(svg('rect', { width: String(width), height: String(height), class: 'region-map-shade', 'aria-hidden': 'true' }));
+    const pin = this.pin(target); pin.classList.add('region-map-local-target');
+    pin.dataset.area = area.id; pin.dataset.mapX = String(target.x); pin.dataset.mapY = String(target.y);
+    pin.setAttribute('transform', `translate(${target.x} ${target.y})`); chart.append(pin);
+    this.chart = chart; this.viewport.replaceChildren(chart); this.dialog.classList.add('has-discovery-target');
+    this.location.textContent = `${target.icon} ${target.objectName} · ${target.location}`;
+    this.setZoom(1);
+    requestAnimationFrame(() => {
+      if (this.chart !== chart) return;
+      this.viewport.scrollTo({ left: target.x / width * chart.clientWidth - this.viewport.clientWidth / 2,
+        top: target.y / height * chart.clientHeight - this.viewport.clientHeight / 2, behavior: 'instant' });
+    });
   }
 
   private readonly onKeyDown = (event: KeyboardEvent): void => {
     if (!this.isOpen) return;
     if (event.key === 'Escape' || (event.key.toLowerCase() === 'b' && event.target !== this.select)) { event.preventDefault(); event.stopImmediatePropagation(); this.close(); return; }
     if (event.key === 'Tab') {
-      const nodes = Array.from(this.dialog.querySelectorAll<HTMLElement>('[tabindex="0"], button, select'));
+      const nodes = Array.from(this.dialog.querySelectorAll<HTMLElement>('[tabindex="0"], button, select'))
+        .filter(node => node.getClientRects().length > 0);
       const first = nodes[0], last = nodes[nodes.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }

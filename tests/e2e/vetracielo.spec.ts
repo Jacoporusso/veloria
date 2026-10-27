@@ -23,11 +23,13 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
   await page.goto('/'); await enterGame(page);
   await expect.poll(async () => (await readBrowserSave(page))?.flags).toContain('intro_completed');
   const save = await readBrowserSave(page);
-  const creature = createBattleCreature({ species: speciesData.species as any, moves: moveData.moves as any, speciesId: 2, level: 20, instanceId: 'r05-fixture', moveIds: ['vine-whip', 'tackle', 'sleep-powder'] });
+  // Strong, official Gen I checkpoint for interaction/reward integration, not campaign balance.
+  expect(speciesData.species['3'].officialLearnset.some(entry => entry.moveId === 'vine-whip')).toBe(true);
+  const creature = createBattleCreature({ species: speciesData.species as any, moves: moveData.moves as any, speciesId: 3, level: 40, instanceId: 'r05-fixture', moveIds: ['vine-whip', 'tackle', 'sleep-powder'] });
   save.player = { ...save.player, mapId: 'veloria/petalora', spawnPointId: 'from_r05', x: 35, y: 12, money: 500 };
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'q_research_sample_received', 'q_forest_signal_found', 'q_ada_helped', 'q_brumalta_visited', 'gym01_puzzle_solved', 'badge_aurora_awarded', 'prologue_complete_seen', 'q_petalora_visited', 'gym02_water_source_open', 'gym02_water_west_open', 'gym02_water_east_open', 'gym02_irrigation_solved'])];
   save.badges = ['badge_aurora'];
-  save.party = [{ instanceId: creature.instanceId, speciesId: 2, level: 20, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.party = [{ instanceId: creature.instanceId, speciesId: 3, level: 40, experience: 0, hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
   await walkTo(page, 'petalora.tmj', 37, 12);
   await expect(page.locator('#current-location')).toHaveText('PETALORA');
@@ -96,6 +98,9 @@ test('Corolla opens the viaduct, Oren rewards once, and Vetracielo services pers
     }
   }
   const victory = page.locator('.battle-celebration');
+  const battleResult = await readBrowserSave(page);
+  expect(battleResult.flags).toContain('trainer_r05_oren_defeated');
+  expect(battleResult.party[0].hp).toBeGreaterThan(0);
   await expect(victory).toBeVisible(); await expect(victory).toContainText('240');
   await victory.getByRole('button', { name: 'Continua', exact: true }).click();
   await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('trainer_r05_oren_defeated');
