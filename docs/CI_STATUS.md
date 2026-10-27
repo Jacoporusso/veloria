@@ -1,6 +1,6 @@
 ## Verifica dopo0.4.13 — Partizione dei percorsi illustrati
 
-La suite world riceve28 prove di percorsi/interiori, distribuite su quattro shard dedicati. Tempi limite, worker singolo e aspettative invariati. Discovery Playwright verificata: tutti339 casi non offline appartengono a una sola suite. Nuova CI da attestare. Il timeout intermittente del singolo percorso delle grotte resta aperto; la partizione affronta il job chapters sovraccarico. Runtime pubblico invariato v176. [Evidenza, selezione e limiti](77_BROWSER_SUITE_PARTITION_v0.1.md).
+La suite world riceve28 prove di percorsi/interiori, distribuite su quattro shard dedicati. Tempi limite, worker singolo e aspettative invariati. Discovery Playwright verificata: tutti339 casi non offline appartengono a una sola suite. Commit `32d510646218976c22bae193798325da71534a4b` inviato a main: [Verify40479185466](https://github.com/Jacoporusso/veloria/actions/runs/40479185466) QUEUED, [Deploy40479183999](https://github.com/Jacoporusso/veloria/actions/runs/40479183999) IN PROGRESS all’ultimo controllo. Nuova CI da attestare. Il timeout intermittente del singolo percorso delle grotte resta aperto; la partizione affronta il job chapters sovraccarico. Runtime pubblico invariato v176. [Evidenza, selezione e limiti](77_BROWSER_SUITE_PARTITION_v0.1.md).
 
 ## 0.4.13 — Santuario delle Due Luci illustrato
 
