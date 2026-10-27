@@ -1,3 +1,10 @@
+## 0.4.20 — Nilo direzionale e verifica del ciclo texture
+
+Quattro viste Nilo condivise da Borgofonte e R15, con borsa/tracolla coerenti dopo revisione di nord/est. Calibrazione piedi e copie runtime340×510; originali preservati. [Produzione, calibrazione e limiti](87_NILO_DIRECTIONAL_IDLE_v0.1.md). Inventario mondo/cast rigenerato dai contenuti attuali.
+
+Locale:818 dominio/persistenza passati; cinque casi nativi distinti passati su quattro approcci Borgofonte, due approcci reali R15, preferenze/orientamenti, respiro statico Sera, andata/ritorno laboratorio con rilascio texture e ripristino WebGL a densità3. Due aspettative iniziali del test R15 corrette rispetto a celle solide già esistenti, senza cambiare collisioni. Quattro prove produzione offline passate: primo caricamento Ada/Elia/Nilo, dialoghi e reload, diario fossili. Build passata; validatore683 asset/37 fondali/48 mappe passato. Discovery356 browser e39 risorse offline20+19 verificate, nessuna omissione.
+
+Commit `aaf298d40cab72e645dd950c140a49d58de3d4ea` inviato a main. [Deploy40518541609](https://github.com/Jacoporusso/veloria/actions/runs/40518541609) QUEUED; [Verify40518541733](https://github.com/Jacoporusso/veloria/actions/runs/40518541733) QUEUED all’ultimo controllo. Cache prevista v183/contenuti0.4.20; pubblica ancora v182, quindi Nilo nuovo non ancora attestato sul sito. Deploy Portolume40514643193 SUCCESS e fondale pubblico HTTP200 verificato; Verify40514643240 QUEUED con3 job passati e nessun fallimento all’ultimo controllo. Restano45 profili direzionali, camminate e review complessiva delle48 mappe/campagna naturale.
 ## 0.4.19 — Palestra di Portolume illustrata
 
 Fondale dalle terrazze e dai passaggi reali, con console e chiuse esclusivamente runtime. Primo candidato rifiutato dopo review dei piedi sul parapetto; pavimento corretto dal riferimento geometrico e giunzione nord rifinita con ImageGen. [Produzione, prompt, verifiche e limiti](86_PORTOLUME_GYM_ILLUSTRATED_v0.1.md).
