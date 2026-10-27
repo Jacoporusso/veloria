@@ -16,6 +16,7 @@ import { renderWeatherInstrument } from './weather-instrument.ts';
 import { renderWayfindingMarker } from './wayfinding-marker.ts';
 import { renderMapEdgeBackdrop } from './map-edge-backdrop.ts';
 import { applyNpcIdleView, npcIdleViews } from './npc-idle-views.ts';
+import { prepareNpcIdleTextures } from './npc-idle-texture.ts';
 
 const TILE = 32;
 
@@ -486,6 +487,7 @@ function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
   const frame = propNumber(item.properties, 'spriteFrame') ?? 0;
   const views = npcIdleViews(item.properties.characterAppearanceId);
   if (views) for (const view of Object.values(views)) requireImageAsset(imageKeys, view.assetKey, item);
+  if (views) prepareNpcIdleTextures(scene, views);
   const origin = views?.down.origin ?? npcSpriteOrigin(item.properties);
   attach(container, scene.add.ellipse(x, y + 14, 21, 7, 0x142c35, .22).setDepth(y + 10));
   const image = scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, imageAtlases, frame))

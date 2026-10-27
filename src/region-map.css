@@ -12,8 +12,11 @@
 .region-map-tools button { background: #163b50df; border: 0; }
 .region-map-tools button:first-child, .region-map-tools button:nth-child(2) { width: 44px; font-size: 22px; padding: 2px; }
 .region-map-viewport { width: 100%; height: 100%; overflow: auto; background: #07192d; touch-action: pan-x pan-y; overscroll-behavior: contain; scrollbar-width: thin; }
-.region-map-shade { fill: #04172c; opacity: .43; pointer-events: none; }
-.region-map-local .region-map-shade { opacity: .35; }
+.region-map-shade { fill: #04172c; opacity: .55; pointer-events: none; }
+.region-map-local .region-map-shade { opacity: .46; }
+.has-category-filter .region-map-node, .has-category-filter .region-map-path { display: none; }
+.has-category-filter .region-map-select { display: none; }
+.region-map-legend button[aria-pressed="true"] { background: #236b76; border-color: #b3fff0; }
 .region-map-discovery-pin { cursor: pointer; }
 .region-map-discovery-pin:focus-visible { outline: none; }
 .region-map-pin-hit { r: var(--pin-hit,23px); fill: transparent; }
@@ -39,7 +42,7 @@
 .region-map-node[aria-pressed="true"] .region-map-dot { stroke: #96f2ff; stroke-width: 4; opacity: 1; }
 .region-map-pulse { fill: #6655e833; stroke: white; stroke-width: 2; animation: region-map-breathe 2s ease-in-out infinite; pointer-events: none; }
 @keyframes region-map-breathe { 50% { opacity: .45; } }
-.region-map-legend { position: absolute; bottom: 10px; left: 12px; margin: 0; padding: 7px 12px; background: #0b3044d9; border-radius: 30px; font-size: 12px; pointer-events: none; }
+.region-map-legend { position: absolute; bottom: 10px; left: 12px; margin: 0; padding: 4px; display: flex; gap: 4px; background: #0b3044ed; border-radius: 18px; font-size: 12px; }
 .region-map-location { margin: 0 0 0 auto; color: #b3e6e8; font-size: 13px; }
 .region-map-sidebar { overflow: auto; padding: 14px; background: linear-gradient(155deg,#173d50,#1d2945); }
 .region-map-select { width: 100%; margin-bottom: 12px; font-size: 13px; }

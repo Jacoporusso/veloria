@@ -40,6 +40,7 @@ export class RegionMapPanel {
   private discoveries: AtlasDiscovery[] = [];
   private discoveryReady: Promise<void> = Promise.resolve();
   private target?: AtlasDiscovery;
+  private category?: AtlasDiscovery['kind'];
   private request = 0;
   private focusRequest = 0;
   private readonly resizeObserver = new ResizeObserver(() => {
@@ -76,7 +77,20 @@ export class RegionMapPanel {
     this.viewport.tabIndex = 0;
     this.viewport.setAttribute('aria-label', 'Mappa di Veloria. Ingrandisci e scorri per esplorare.');
     this.details.setAttribute('aria-live', 'polite');
-    const legend = html('p', 'region-map-legend', '● Sei qui   ✓ Visitato   🎣 Pesca   ✦ Incontro   🎁 Dono');
+    const legend = html('div', 'region-map-legend');
+    legend.setAttribute('aria-label', 'Filtra i punti sulla mappa');
+    for (const [kind, label] of [['gift', '🎁 Doni'], ['fishing', '🎣 Pesca'], ['encounter', '✦ Incontri']] as const) {
+      const button = html('button', '', label);
+      button.type = 'button'; button.dataset.kind = kind; button.setAttribute('aria-pressed', 'false');
+      button.onclick = () => {
+        this.showOverview(); this.category = kind;
+        this.dialog.classList.add('has-category-filter');
+        for (const item of legend.querySelectorAll('button')) item.setAttribute('aria-pressed', String(item.dataset.kind === kind));
+        this.renderDiscoveryPins();
+        this.details.replaceChildren(html('h3', '', label), html('p', '', 'Tocca un simbolo sulla mappa per vedere il punto esatto.'));
+      };
+      legend.append(button);
+    }
     const note = html('p', 'region-map-note', 'Scorri la mappa e tocca un luogo. Le aree in preparazione non sono ancora giocabili.');
     const body = html('div', 'region-map-body');
     const mapColumn = html('div', 'region-map-chart-column');
@@ -96,6 +110,8 @@ export class RegionMapPanel {
   open(save: Pick<GameSave, 'player' | 'flags'> & Partial<Pick<GameSave, 'inventory'>>, mapId?: string, discoveryId?: string): void {
     if (!this.isOpen) this.focusBeforeOpen = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
     this.save = save;
+    this.category = undefined;
+    this.dialog.classList.remove('has-category-filter');
     this.target = undefined;
     this.discoveries = [];
     const request = ++this.request;
@@ -134,6 +150,8 @@ export class RegionMapPanel {
   private showArea(id: string, discoveryId?: string): void {
     const area = this.state?.areas.find(item => item.id === id);
     if (!area) return;
+    this.category = undefined; this.dialog.classList.remove('has-category-filter');
+    for (const button of this.dialog.querySelectorAll('.region-map-legend button')) button.setAttribute('aria-pressed', 'false');
     if (this.target) { this.target = undefined; this.focusRequest++; this.renderChart(); this.setZoom(1); }
     this.select.value = id;
     const title = html('h3', '', area.name);
@@ -261,6 +279,8 @@ export class RegionMapPanel {
   }
 
   private showOverview(): void {
+    this.category = undefined; this.dialog.classList.remove('has-category-filter');
+    for (const button of this.dialog.querySelectorAll('.region-map-legend button')) button.setAttribute('aria-pressed', 'false');
     this.focusRequest++; this.target = undefined;
     this.renderChart(); this.showArea(this.select.value); this.setZoom(1);
     const current = this.state?.areas.find(area => area.current);
@@ -284,7 +304,7 @@ export class RegionMapPanel {
     if (!this.chart || this.target) return;
     this.chart.querySelectorAll('.region-map-discovery-pin').forEach(node => node.remove());
     for (const area of this.state?.areas ?? []) {
-      const points = this.discoveries.filter(point => point.kind !== 'quest' && area.mapIds.includes(point.mapId));
+      const points = this.discoveries.filter(point => point.kind !== 'quest' && (!this.category || point.kind === this.category) && area.mapIds.includes(point.mapId));
       points.forEach((point, index) => {
         const pin = this.pin(point);
         pin.dataset.regionX = String(area.x); pin.dataset.regionY = String(area.y);

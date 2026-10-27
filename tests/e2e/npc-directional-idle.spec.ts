@@ -50,6 +50,8 @@ async function adaSpriteState(page: Page) {
     if (!sprite) throw new Error('Ada sprite is missing from the world map layer.');
     return {
       textureKey: sprite.texture.key,
+      surface: { width: sprite.texture.getSourceImage().width, height: sprite.texture.getSourceImage().height,
+        canvas: sprite.texture.getSourceImage() instanceof HTMLCanvasElement },
       origin: { x: sprite.originX, y: sprite.originY },
       display: { width: sprite.displayWidth, height: sprite.displayHeight },
       x: sprite.x,
@@ -142,6 +144,7 @@ test('Ada uses four anchored idle views when approached from each side, independ
       expect(afterInteraction.rngState).toBe(rngBefore);
 
       const state = await adaSpriteState(page);
+      expect(state.surface).toEqual({ width: 512, height: 512, canvas: true });
       const view = idleViews[stop.facing];
       expect(state).toMatchObject({
         textureKey: view.assetKey,

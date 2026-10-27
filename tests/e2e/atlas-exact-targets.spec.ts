@@ -11,6 +11,14 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
   await page.getByRole('button', { name: 'Apri la mappa di Veloria' }).click();
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
   for (const kind of ['gift', 'encounter', 'fishing']) await expect(atlas.locator(`.region-map-discovery-pin[data-kind="${kind}"]`).first()).toBeVisible();
+  for (const [kind, label] of [['gift', '🎁 Doni'], ['encounter', '✦ Incontri'], ['fishing', '🎣 Pesca']] as const) {
+    await atlas.getByRole('button', { name: label, exact: true }).click();
+    await expect(atlas.getByRole('button', { name: label, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(atlas.locator(`.region-map-discovery-pin[data-kind="${kind}"]`).first()).toBeVisible();
+    await expect(atlas.locator(`.region-map-discovery-pin:not([data-kind="${kind}"])`)).toHaveCount(0);
+    await expect(atlas.locator('.region-map-node:visible')).toHaveCount(0);
+    await expect(atlas.locator('.region-map-path:visible')).toHaveCount(0);
+  }
   const fishing = atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first();
   const id = await fishing.getAttribute('data-discovery-id');
   const hit = await fishing.locator('.region-map-pin-hit').boundingBox();
