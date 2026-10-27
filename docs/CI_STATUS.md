@@ -1,3 +1,12 @@
+## 0.4.21 — Palestra di Acquariva illustrata
+
+Fondale dai percorsi effettivi, fasci/specchi runtime e nuovo scenario anche in battaglia. Primi due candidati rifiutati per false passerelle o contrazione dei pontili; partizione acqua/pavimento fissata nel riferimento tecnico, finiture distinte tramite ImageGen. [Produzione, review e limiti](88_ACQUARIVA_GYM_ILLUSTRATED_v0.1.md).
+
+Locale:818 dominio/persistenza passati; tre casi Chrome passati su quattro specchi, reload parziale, battaglia Selene, medaglia/premio unico/reload/ritorno e due orientamenti camera. Screenshot approcci e arena controllati. Due prove produzione offline passate su prima visita/puzzle/reload/ritorno e prima decodifica dei37 fondali non iniziali. Build passata; validatore685 asset/38 fondali/48 mappe passato; discovery358 browser e40 risorse offline20+20 verificate. Tiled invariato salvo chiave scenery; metadati aggiornano immagine e battleBackgroundKey.
+
+Runtime `33feb818db09cc3b647f06e6e47b525cc95cda55` inviato a main. [Deploy40522010815](https://github.com/Jacoporusso/veloria/actions/runs/40522010815) IN PROGRESS; [Verify40522010858](https://github.com/Jacoporusso/veloria/actions/runs/40522010858) PENDING all’ultimo controllo. Cache prevista v184/contenuti0.4.21; pubblica ancora v183, nuova palestra non ancora attestata sul sito.
+
+Nilo: Deploy40518541609 SUCCESS, cache pubblica v183 e artwork sud HTTP200 verificati. Verifica precedente con nuova distribuzione offline40512277905 SUCCESS con30 job passati, inclusi entrambi gli shard risorse e il viaggio offline. Stato Portolume40514643240 incoerente nelle API: run COMPLETED/SUCCESS ma jobs latest riporta29 SUCCESS e journeys3 IN PROGRESS (job122235082775); non attestare chiusura completa finché le fonti non concordano. Verify Nilo40518541733 QUEUED all’ultimo controllo. Restano45 profili direzionali, camminate e review complessiva delle48 mappe/campagna naturale.
 ## 0.4.20 — Nilo direzionale e verifica del ciclo texture
 
 Quattro viste Nilo condivise da Borgofonte e R15, con borsa/tracolla coerenti dopo revisione di nord/est. Calibrazione piedi e copie runtime340×510; originali preservati. [Produzione, calibrazione e limiti](87_NILO_DIRECTIONAL_IDLE_v0.1.md). Inventario mondo/cast rigenerato dai contenuti attuali.
