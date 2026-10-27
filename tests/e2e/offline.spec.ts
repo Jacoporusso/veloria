@@ -11,6 +11,7 @@ import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/
 import { prepareMonorailTraveler, stationArrival, travelResources } from './helpers/monorail';
 import { readBrowserSave } from './helpers/world-navigation';
 import magneticRouter from '../../content/puzzles/gym04_magnetic.v1.json' with { type: 'json' };
+import reflectionRouter from '../../content/puzzles/gym06_reflections.v1.json' with { type: 'json' };
 import { rollEncounterCheck } from '../../src/core/encounters/roll-encounter-check';
 import { selectWildEncounter } from '../../src/core/encounters/select-encounter.ts';
 import { exportSave } from '../../src/persistence/save-backup.ts';
@@ -21,6 +22,42 @@ import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' w
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
 
 test.use({ reducedMotion: 'reduce' });
+
+test('Acquariva illustrated reflection gym aligns on its first offline visit and returns after reload', async ({ page, context }, info) => {
+  test.setTimeout(process.env.CI ? 240_000 : 120_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('gym06_acquariva-illustrated-v3.webp')))).toBe(false);
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'q_delta_report', 'q_acquariva_visited', 'q_acquariva_report'])];
+  save.player = { ...save.player, mapId: 'veloria/gym06_acquariva', spawnPointId: 'from_city', x: 15, y: 22 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect(await page.evaluate(async () => {
+    const image = new Image(); image.src = '/assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp';
+    await image.decode(); return [image.naturalWidth, image.naturalHeight];
+  })).toEqual([1448, 1086]);
+  for (const [index, id] of ['fourth', 'second', 'first', 'third'].entries()) {
+    const node = reflectionRouter.nodes.find(node => node.id === id)!;
+    await walkTo(page, 'gym06_acquariva.tmj', node.x, node.y + 1);
+    await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+    const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+    await action.tap(); await page.getByRole('button', { name: 'RUOTA', exact: true }).tap();
+    if (index < 3) await page.getByRole('button', { name: 'CHIUDI', exact: true }).tap();
+    else for (let i = 0; i < 16 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+    if (index === 0) { await page.reload(); await enterGame(page); }
+  }
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain(reflectionRouter.solvedFlag);
+  await page.screenshot({ path: info.outputPath('acquariva-reflections-offline.png') });
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain(reflectionRouter.solvedFlag);
+  await walkTo(page, 'gym06_acquariva.tmj', 15, 23);
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
+  expect(failures).toEqual([]);
+});
 
 test('Portolume illustrated gym opens both sluices on its first offline visit and returns after reload', async ({ page, context }, info) => {
   test.setTimeout(process.env.CI ? 240_000 : 120_000);

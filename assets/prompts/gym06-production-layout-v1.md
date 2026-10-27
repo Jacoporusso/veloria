@@ -1,0 +1,9 @@
+# Acquariva — geometria del percorso dei riflessi
+
+32×24 celle,1024×768 worldpx. Guida dalle collisioni reali, con20px verso sud per i piedi. Nella sola copia di authoring omessi i sei footprint dei dispositivi runtime; il generatore esclude anche la cella dell'attore Selene. Nessuna collisione dinamica: allineare i riflessi modifica fascio e accesso alla sfida, non la navmesh.
+
+Postazioni: sorgente(5,15), primo(10,15), secondo(10,9), terzo(21,9), quarto(21,3), ricevitore(13,3). Selene(16,2), approccio(16,3). Ingresso(15,22), uscita x15–16,y23. Percorso a pontili con un'unica traversa inferiore alle righe15–16; nessuna seconda passerella a sud. Tutti gli strumenti, i fasci, le frecce e i cerchi sono runtime.
+
+Il primo candidato ImageGen `exec-2a8ff985-e1d7-4291-8b28-1b87b0d21879.png` aggiungeva passerelle inesistenti: rifiutato alla review preliminare. La prima copia tecnica usa campione acqua(230,700,64,64) e pavimento(570,550,64,64). Anche la seconda illustrazione `exec-6e3315d3-7d3e-4877-a030-ca85ae772e68.png` contrae i percorsi, quindi viene rifiutata. Il riferimento tecnico finale `gym06-exact-material-reference.png` parte dalla seconda immagine: riempimento delle celle solide interne con acqua(230,800,64,64), poi pavimento nelle celle libere(570,360,64,64), con20px di margine piedi. Le colonne esterne e la fascia nord rimangono riferimento decorativo. ImageGen corregge solo l'acqua mantenendo la partizione e, in un edit successivo, rifinisce solo il pavimento. I pattern ripetuti sono indicazioni tecniche di materiale; il composito non è l'asset finale.
+
+Fonti: Tiled, metadati, router `gym06_reflections.v1.json`, test servizi/palestra; geometria e dipendenze controllate anche tramite audit Luna. Il fondale è usato anche come arena battaglia: il nuovo riferimento deve essere dichiarato in `battleBackgroundKey` e verificato durante la sfida a Selene.

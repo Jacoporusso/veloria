@@ -7,17 +7,17 @@
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
     "mapsWithExplicitSceneryImage": 41,
-    "mapsWithRegisteredSceneryPath": 45,
+    "mapsWithRegisteredSceneryPath": 46,
     "mapsWithTerrainBase": 22,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
     "mapsWithSceneryImageOnly": 26,
     "mapsWithTerrainBaseOnly": 7,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 45,
+    "registeredSceneryImageAssets": 46,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 37,
+    "parityArtworkEntries": 38,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -6367,7 +6367,7 @@
           "layer": "decorations",
           "stableObjectId": 65,
           "name": "Palestra illustrata",
-          "spriteKey": "veloria-gym06-reflections-v1",
+          "spriteKey": "veloria-gym06_acquariva-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
@@ -6381,19 +6381,27 @@
           "layer": "decorations",
           "stableObjectId": 65,
           "name": "Palestra illustrata",
-          "spriteKey": "veloria-gym06-reflections-v1",
+          "spriteKey": "veloria-gym06_acquariva-illustrated-v3",
           "cell": {
             "x": 0.0,
             "y": 0.0,
             "width": 32.0,
             "height": 24.0
           },
-          "assetPath": "assets/sprites/veloria-gym06-reflections-v1.webp",
+          "assetPath": "assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-gym06_acquariva-illustrated-v3",
+          "path": "assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -6419,8 +6427,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym06-reflections-v1",
-          "path": "assets/sprites/veloria-gym06-reflections-v1.webp",
+          "key": "veloria-gym06_acquariva-illustrated-v3",
+          "path": "assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -6437,8 +6445,31 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/gym06_acquariva",
+        "tiledAsset": "tilemaps/gym06_acquariva.tmj",
+        "assetKey": "veloria-gym06_acquariva-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-gym06_acquariva-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp",
+        "sourceSha256": "dd8c075553514250d0af39248e42f3d5e4fb16d62356aba80eb2c8e4fdd8614d",
+        "runtimeSha256": "796f628b073b2de55a8ea9ea2f2012b6c3fdc9ca3710cc3c7a49ee2cbc958d35",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Production full-map background, Veloria Acquariva reflection gym, modern illustrated 2D children's exploration RPG. Landscape4:3, entire opaque rectangular frame. Image1 is AUTHORITATIVE exact playable geometry 32x24 tiles/1024x768worldpx: every tan pixel is walkable ivory stone including20worldpx south foot clearance; blue-gray is blocked water/perimeter. Preserve tan shape exactly including all squared corners, branching lanes and narrow bridges. Image2 old reflection room is identity reference ONLY: lunar conservatory, lilac glass, water lilies, hanging white blossom vines, pale stone over blue lake water. Image3 updated Portolume is production STYLE reference: crisp modern hand-painted detail, light quiet floors, clear edge fascia and warm soft dimensional color. No pixel art, photorealistic3D, isometric projection or strong perspective; fixed overhead north-up game camera. Main geometry: north terrace aroundx34.375%-68.75%,y8.33%-23.44%; middle horizontal terrace x28.125%-78.125%,y37.5%-48.44%; lower horizontal terrace x6.25%-93.75%,y62.5%-73.44%; vertical links x28.125%-37.5% andx65.625%-75% connect middle to lower, right link also joins north. Narrow south stem x46.875%-53.125% continues all the way to bottom frame, actual only entrance. Image1 governs every extra step/notch; keep all floor and full20worldpx foot clearance at south edges, do not shrink terraces to match Image2's older outlines. Blue-gray areas become still teal-blue lily pools or perimeter architecture; no additional walkable-looking islands or bridges, no extra door at west/east/north. North wall/windows entirely in narrow top band abovey8.33%; side glazing and columns only at far blocked perimeter, not free floor. RUNTIME devices at tile(5,15),(10,15),(10,9),(21,9),(21,3),(13,3), leader(16,2) are deliberately absent from Image1; leave quiet flat floor, never paint round plates, consoles, mirrors, lamps, floor buttons, arrows, beam routes, targets or circles there. Beams and state are drawn by game. No NPC, people, Pokemon, text, UI, signs, numbers or geometry colors. Restrained pale lavender moon motifs only on north glazing, clear water with lily pads restricted to blocked water, subtle reflections, white blossoms on perimeter, no heavy gold trims. Low stone fascia just outside tan floor, no railing/plant/decoration intrusion into walking area. Full opaque production illustration, no black/empty frame margin.",
+        "references": [
+          "assets/prompts/gym06-production-layout-v1.png",
+          "assets/prompts/gym06-exact-material-reference.png",
+          "assets/sources/veloria-gym06-reflections-v1.png",
+          "assets/sources/veloria-gym05_portolume-illustrated-v3.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/gym06_acquariva-illustrated-v3.md",
+            "reason": "Reject false or contracted walkways; preserve exact floor/water geometry and refine materials only."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [

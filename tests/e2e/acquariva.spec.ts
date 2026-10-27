@@ -112,7 +112,12 @@ test('Selene reflections persist, award Riflesso once and show the original meda
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
   for(const [index,id] of ['fourth','second','first','third'].entries()){
     const node=router.nodes.find(node=>node.id===id)!;
-    await walkTo(page,'gym06_acquariva.tmj',node.x,node.y+1);await face(page,'Vai in alto');await confirm(page).tap();
+    await walkTo(page,'gym06_acquariva.tmj',node.x,node.y+1);await face(page,'Vai in alto');
+    for (const viewport of [{width:390,height:844},{width:844,height:390}]) {
+      await page.setViewportSize(viewport);
+      await page.screenshot({path:info.outputPath(`reflection-${id}-${viewport.width}.png`)});
+    }
+    await confirm(page).tap();
     await expect(page.locator('#dialogue-text')).toContainText('Orientamento:');
     await page.getByRole('button',{name:'RUOTA',exact:true}).tap();
     if(index<3)await page.getByRole('button',{name:'CHIUDI',exact:true}).tap();
@@ -127,6 +132,11 @@ test('Selene reflections persist, award Riflesso once and show the original meda
   await walkTo(page,'gym06_acquariva.tmj',16,3);await face(page,'Vai in alto');await confirm(page).tap();
   for(let i=0;i<12&&!await page.getByRole('button',{name:'SFIDA',exact:true}).isVisible();i++)await confirm(page).tap();
   await page.getByRole('button',{name:'SFIDA',exact:true}).tap();
+  await expect.poll(() => page.evaluate(() => {
+    const scene = (window as any).__acquarivaGame.scene.keys.battle;
+    return scene?.ui?.list.some((item:any) => item.texture?.key === 'veloria-gym06_acquariva-illustrated-v3') ?? false;
+  })).toBe(true);
+  await page.screenshot({path:info.outputPath('reflection-battle-background.png')});
   async function tapLabel(prefix:string){
     const point=await page.evaluate(prefix=>{
       const scene=(window as any).__acquarivaGame.scene.keys.battle;
@@ -165,6 +175,8 @@ test('Selene reflections persist, award Riflesso once and show the original meda
   expect((await readBrowserSave(page)).player.money).toBe(2300);
   await page.reload();await enterGame(page);
   expect((await readBrowserSave(page)).badges.filter(id=>id==='badge_riflesso')).toHaveLength(1);
+  await walkTo(page,'gym06_acquariva.tmj',15,23);
+  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/acquariva');
 });
 
 test('Riflesso opens the waterfall shortcut in both cities and both walking returns survive reload',async({page},info)=>{
