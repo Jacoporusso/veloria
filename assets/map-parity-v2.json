@@ -777,6 +777,29 @@
           "reason": "Modern illustrated 2D sanctuary from exact Tiled floor and instrument footprints; neighboring Concordia style."
         }
       ]
+    },
+    {
+      "mapId": "veloria/r16_cammino_equilibrio",
+      "tiledAsset": "tilemaps/r16_cammino_equilibrio.tmj",
+      "assetKey": "veloria-r16_cammino_equilibrio-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-r16_cammino_equilibrio-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-r16_cammino_equilibrio-illustrated-v3.webp",
+      "sourceSha256": "082d72f4cd762078ec998db60f8783ceadc7854a9b56ed5cfe4b1f6b8c5a33bf",
+      "runtimeSha256": "2c6569b694b6ea94129537a3de72e2f782200b51cda1ba3da126b45581a2e601",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Create the final background for Cammino dell'Equilibrio, modern illustrated 2D adventure game. Image1 is AUTHORITATIVE FLOOR GEOMETRY at1280x960,40x30 tiles. Tan pixels MUST be continuous open warm pale stone walkable ground in exactly those locations, including all stair-step margins and side clearings. Green patches are accessible tall-grass habitat exactly at x20-27.5%,y50-58.75%; x50-57.5%,y60-68.75%; x80-87.5%,y33.3-42.1%. Render them as soft meadow grass on the same level as paths, with no fence, wall, rock or drop separating them from tan ground. Blue-gray is blocked terrain where cliffs, water, shrubs may be painted. The floor footprint includes20worldpx south foot margin; do not reclaim this space with cliff faces or shrubs. Image2 is old route concept only: climbing garden terraces among waterfalls towards a League, NOT a geometry reference. Image3 is updated adjacent Concordia STYLE: warm limestone, turquoise waters, purple/pink flowers, modern rounded painted 2D illustration, luminous and clear broad surfaces. Repaint route to match updated illustrated world with distinctly lighter organic walking paths and much less decorative ornament than old concept. Fixed overhead orthographic camera, no perspective horizon, no isometric projection, no photoreal or 3D rendered look. Preserve exactly the diagonal sequence of open terraces from west entry y63.3-72.1% to northeast exit x97.5-100%, y3.3-12.1%, unobstructed to both image edges. Avoid stepping the painted floor inward from tan reference at any bend. Keep ample clear floor for runtime trainer Maia at x23.75%,y70.3%, and Tobia at x51.25%,y47%; no baked people. The three green grass patches are the ONLY walkable meadow islands: do not create fake accessible paths across blue-gray void. Soft rounded rock ledges, low-contrast edges, sparse shrubs in blocked areas, turquoise stream far below, scattered light flowers. No balustrades, gold rails, raised center circles, huge floor emblems, bridges with barriers or heavy formal architecture. Hint of a welcoming League gate ONLY beyond extreme northeast exit, not a fake doorway on inaccessible north-center. No buildings over tan footprint. All tan floor and green habitat must remain exposed and readable from above. No people, creatures, Pokemon, text, map labels, signs, arrows, interface, iconography, grids, colored geometry guides or borders. Final production background only.\n",
+      "references": [
+        "assets/prompts/r16-production-layout-v1.png",
+        "assets/sources/veloria-r16-equilibrium-v1.png",
+        "assets/sources/veloria-concordia-illustrated-v3.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/r16_cammino_equilibrio-illustrated-v3.md",
+          "reason": "Modern illustrated 2D League approach from exact floor and three habitat footprints; light organic path without heavy rails."
+        }
+      ]
     }
   ]
 }

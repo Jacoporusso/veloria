@@ -4,11 +4,6 @@
   "displayName": "Cammino dell’Equilibrio",
   "biomeId": "league_approach",
   "tiledAsset": "tilemaps/r16_cammino_equilibrio.tmj",
-  "terrainBase": {
-    "assetKey": "veloria-r16-equilibrium-v1",
-    "tilesetName": "veloria_terrain",
-    "tileIndex": 0
-  },
   "renderAssets": [
     {
       "kind": "tileset",
@@ -29,8 +24,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r16-equilibrium-v1",
-      "path": "assets/scenery/veloria-r16-equilibrium-v1.webp"
+      "key": "veloria-r16_cammino_equilibrio-illustrated-v3",
+      "path": "assets/scenery/veloria-r16_cammino_equilibrio-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -81,5 +76,5 @@
     "veloria/q_league_approach"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-r16-equilibrium-v1"
+  "battleBackgroundKey": "veloria-r16_cammino_equilibrio-illustrated-v3"
 }

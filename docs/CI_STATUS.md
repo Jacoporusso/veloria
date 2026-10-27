@@ -1,6 +1,12 @@
+## 0.4.14 — Cammino dell’Equilibrio illustrato
+
+Fondale dalla geometria reale, coerente con Concordia, con sentiero leggero e tre habitat collegati senza balaustre sui passaggi. Invariati collisioni, allenatori, specie, probabilità e requisiti. [Provenienza, accessi e limiti](78_EQUILIBRIUM_PATH_ILLUSTRATED_v0.1.md).
+
+Locale: tre casi Chrome passati su accesso vincolato dal rapporto, R16/Piazzale, recupero reale PS/PP, acquisto, orientamento e ritorno completo; soste ai tre habitat e a Tobia nei due orientamenti; camera portrait/landscape. Due prove produzione offline passate su prima visita con servizi/ritorno e prima decodifica dei32 fondali non iniziali. Build passata; validatore652 asset/33 fondali/48 mappe passato. Cache v177, contenuti0.4.14. Pubblicazione da attestare. Revisione completa delle48 mappe, direzioni/camminate del cast e campagna naturale ancora aperte.
+
 ## Verifica dopo0.4.13 — Partizione dei percorsi illustrati
 
-La suite world riceve28 prove di percorsi/interiori, distribuite su quattro shard dedicati. Tempi limite, worker singolo e aspettative invariati. Discovery Playwright verificata: tutti339 casi non offline appartengono a una sola suite. Commit `32d510646218976c22bae193798325da71534a4b` inviato a main: [Verify40479185466](https://github.com/Jacoporusso/veloria/actions/runs/40479185466) QUEUED, [Deploy40479183999](https://github.com/Jacoporusso/veloria/actions/runs/40479183999) IN PROGRESS all’ultimo controllo. Nuova CI da attestare. Il timeout intermittente del singolo percorso delle grotte resta aperto; la partizione affronta il job chapters sovraccarico. Runtime pubblico invariato v176. [Evidenza, selezione e limiti](77_BROWSER_SUITE_PARTITION_v0.1.md).
+La suite world riceve28 prove di percorsi/interiori, distribuite su quattro shard dedicati. Tempi limite, worker singolo e aspettative invariati. Discovery Playwright verificata: tutti339 casi non offline appartengono a una sola suite. Commit `32d510646218976c22bae193798325da71534a4b` inviato a main: [Verify40479185466](https://github.com/Jacoporusso/veloria/actions/runs/40479185466) QUEUED, [Deploy40479183999](https://github.com/Jacoporusso/veloria/actions/runs/40479183999) SUCCESS; Verify ancora in coda/esecuzione con7 job passati e nessun fallimento all’ultimo controllo. Nuova CI da attestare. Il timeout intermittente del singolo percorso delle grotte resta aperto; la partizione affronta il job chapters sovraccarico. Runtime pubblico invariato v176. [Evidenza, selezione e limiti](77_BROWSER_SUITE_PARTITION_v0.1.md).
 
 ## 0.4.13 — Santuario delle Due Luci illustrato
 

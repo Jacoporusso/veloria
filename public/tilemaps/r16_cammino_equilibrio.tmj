@@ -13731,11 +13731,40 @@
       "opacity": 1,
       "visible": true,
       "draworder": "topdown",
-      "objects": []
+      "objects": [
+        {
+          "id": 2000,
+          "name": "Cammino illustrato",
+          "type": "",
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 960,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "scenery-image"
+            },
+            {
+              "name": "sprite",
+              "type": "string",
+              "value": "veloria-r16_cammino_equilibrio-illustrated-v3"
+            },
+            {
+              "name": "renderDepth",
+              "type": "int",
+              "value": -4
+            }
+          ]
+        }
+      ]
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 2000,
+  "nextobjectid": 2001,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",
