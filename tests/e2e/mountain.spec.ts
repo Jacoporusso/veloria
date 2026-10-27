@@ -68,12 +68,19 @@ test('P7 three real ice lanes persist through reload and the console opens Nives
  await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');expect(errors).toEqual([]);
 });
 test('a save on a formerly open P7 wall resumes at the entrance without losing progress',async({page})=>{
- await checkpoint(page,'veloria/gym07_biancavetta','from_city',11,10,['badge_riflesso_awarded','q_passobrina_report','gym07_ice_west']);
+ await checkpoint(page,'veloria/gym07_biancavetta','from_city',15,22,['badge_riflesso_awarded','q_passobrina_report','gym07_ice_west']);
+ const fixture=await readBrowserSave(page);
+ const member=createBattleCreature({species:species.species as any,moves:moves.moves as any,speciesId:6,level:50,instanceId:'p7-wall-recovery-companion'});
+ fixture.player={...fixture.player,x:11,y:10,money:1234};
+ fixture.party=[{instanceId:member.instanceId,speciesId:6,level:50,experience:0,hp:member.hp,maxHp:member.stats.maxHp,moves:member.moves.map(slot=>({id:slot.moveId,pp:slot.pp}))}];
+ fixture.flags=[...new Set([...fixture.flags,'pokedex_seen_6','pokedex_caught_6'])];
+ await seedBrowserSave(page,fixture);await page.reload();await enterGame(page);
  const before=await readBrowserSave(page);
  expect(await page.evaluate(()=>{const w=(window as any).mountainGame.scene.keys.world;return w.playerTile;})).toEqual({x:15,y:22});
  await page.getByRole('button',{name:'Salva la partita',exact:true}).tap();
  await expect.poll(async()=>{const s=await readBrowserSave(page);return{x:s.player.x,y:s.player.y};}).toEqual({x:15,y:22});
  const after=await readBrowserSave(page);
+ expect(after.player.money).toBe(1234);
  expect(new Set(after.flags)).toEqual(new Set([...before.flags,'atlas_visited_veloria/gym07_biancavetta']));
  for(const field of ['party','inventory','badges','rngState'] as const)expect(after[field]).toEqual(before[field]);
  await page.reload();await enterGame(page);
