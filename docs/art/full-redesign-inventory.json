@@ -17,7 +17,7 @@
     "registeredSceneryImageAssets": 46,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 40,
+    "parityArtworkEntries": 41,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -891,6 +891,26 @@
         "kind": "image",
         "key": "veloria-mira-idle-north-v1",
         "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-south-v1",
+        "path": "assets/sprites/veloria-dalia-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-west-v1",
+        "path": "assets/sprites/veloria-dalia-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-east-v1",
+        "path": "assets/sprites/veloria-dalia-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-north-v1",
+        "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -901,6 +921,10 @@
       "veloria-cast-opening-and-champion-v1",
       "veloria-centrale-technician-v1",
       "veloria-coastal-cast-v1",
+      "veloria-dalia-idle-east-v1",
+      "veloria-dalia-idle-north-v1",
+      "veloria-dalia-idle-south-v1",
+      "veloria-dalia-idle-west-v1",
       "veloria-delta-route-cast-v1",
       "veloria-elia-idle-east-v1",
       "veloria-elia-idle-north-v1",
@@ -1165,6 +1189,26 @@
         "kind": "image",
         "key": "veloria-mira-idle-north-v1",
         "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-south-v1",
+        "path": "assets/sprites/veloria-dalia-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-west-v1",
+        "path": "assets/sprites/veloria-dalia-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-east-v1",
+        "path": "assets/sprites/veloria-dalia-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-dalia-idle-north-v1",
+        "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1383,12 +1427,45 @@
         "npcIds": [
           "dalia_gym"
         ],
-        "assetKey": "veloria-gym-leaders-a-v1",
-        "frame": 1,
+        "assetKey": "veloria-dalia-idle-south-v1",
         "narrativeSource": "content/trainers/gym02_dalia.trainer.json",
         "origin": {
-          "x": 0.47,
-          "y": 0.9761
+          "x": 0.50814,
+          "y": 0.95964
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-dalia-idle-south-v1",
+            "origin": {
+              "x": 0.50814,
+              "y": 0.95964
+            },
+            "displaySize": 60.40449
+          },
+          "left": {
+            "assetKey": "veloria-dalia-idle-west-v1",
+            "origin": {
+              "x": 0.47198,
+              "y": 0.95573
+            },
+            "displaySize": 60.53202
+          },
+          "right": {
+            "assetKey": "veloria-dalia-idle-east-v1",
+            "origin": {
+              "x": 0.52459,
+              "y": 0.96354
+            },
+            "displaySize": 58.95545
+          },
+          "up": {
+            "assetKey": "veloria-dalia-idle-north-v1",
+            "origin": {
+              "x": 0.5034,
+              "y": 0.96029
+            },
+            "displaySize": 60.53202
+          }
         }
       },
       {
@@ -5781,6 +5858,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-dalia-idle-south-v1",
+          "path": "assets/sprites/veloria-dalia-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-dalia-idle-west-v1",
+          "path": "assets/sprites/veloria-dalia-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-dalia-idle-east-v1",
+          "path": "assets/sprites/veloria-dalia-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-dalia-idle-north-v1",
+          "path": "assets/sprites/veloria-dalia-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -5831,11 +5936,11 @@
           "profileMatch": "gym-leader-dalia",
           "narrativeSpeaker": "Dalia",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-a-v1",
-          "spriteFrame": 1,
+          "sprite": "veloria-dalia-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.47,
-            "y": 0.9761
+            "x": 0.50814,
+            "y": 0.95964
           },
           "trainerId": "veloria/trainer_dalia_gym02",
           "battleOnceFlag": "trainer_gym02_dalia_defeated",
@@ -7110,7 +7215,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-league-council01-v1",
+        "assetKey": "veloria-league_council01-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -7126,8 +7231,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-council01-v1",
-          "path": "assets/scenery/veloria-league-council01-v1.webp",
+          "key": "veloria-league_council01-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council01-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7135,8 +7240,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-league-council01-v1",
-          "path": "assets/scenery/veloria-league-council01-v1.webp",
+          "key": "veloria-league_council01-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council01-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7165,8 +7270,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-council01-v1",
-          "path": "assets/scenery/veloria-league-council01-v1.webp",
+          "key": "veloria-league_council01-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council01-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7183,8 +7288,30 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/league_council01",
+        "tiledAsset": "tilemaps/league_council01.tmj",
+        "assetKey": "veloria-league_council01-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_council01-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_council01-illustrated-v3.webp",
+        "sourceSha256": "e515951bbd4957dc5086343fb8d2c4fbd603eff7e7bc3ba8c62a894ba6b0915f",
+        "runtimeSha256": "dd500528993ad57ee38b2a2d8abf11a98b35d04c8d0833b2da06e0ecce44a65c",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Production full-map background for Veloria first League council room, Nerea's water-and-flowers sanctuary. Modern illustrated 2D game, opaque 4:3 landscape, north-up orthographic. Reference1 authoritative geometry: TAN is the full playable floor plus 20 world-pixel foot clearance; blue-gray is nonwalkable architecture/water/gardens. Reference2 old art is theme/material reference ONLY. Preserve every edge of reference1 exactly: main rectangular floor x18.75%..81.25%, y25%..85.9375%; south stem x43.75%..56.25% from y83.333% through bottom edge. Do not extend apparent walkable pale floor into side blocked belts or into top blocked band. Main floor must be straight sided and squared at corners, no inward curving rails, no extra apparent side passages. Pale limestone slabs, subtly varied warm light, quiet floor suitable for characters. Water cascades, white-flowered vines, lotus details, airy ivory/glass architecture confined strictly to blocked left/right/top/bottom-corner margins; thin restrained metal accents, no heavy gold frame. Upper wall behind north floor, no fake north door or traversable-looking upper dais. All runtime objects omitted: Nerea at tile16,7 and challenge terminal18,19; no painted people, consoles, command sockets, routing marks or device platforms. No obstacle at tile18,7. Runtime draws console on flat floor at18,19. No false stairs, rows of stepping stones or routes over blocked water. Keep central limestone floor clear with only a very faint small lotus inlay if natural; no giant medallion. Preserve the existing children's modern painterly2D material style, not photoreal3D/isometric/pixelart. Full bleed, no black margins, text, UI, grids or labels.",
+        "references": [
+          "assets/prompts/league01-production-layout-v1.png",
+          "assets/prompts/league01-exact-material-reference.png",
+          "assets/sources/veloria-league-council01-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_council01-illustrated-v3.md",
+            "reason": "Align visible floor edges to actual collision; leave opponent and challenge terminal to runtime rendering."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -13979,11 +14106,11 @@
       "profileMatch": "gym-leader-dalia",
       "narrativeSpeaker": "Dalia",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-a-v1",
-      "spriteFrame": 1,
+      "sprite": "veloria-dalia-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.47,
-        "y": 0.9761
+        "x": 0.50814,
+        "y": 0.95964
       },
       "trainerId": "veloria/trainer_dalia_gym02",
       "battleOnceFlag": "trainer_gym02_dalia_defeated",

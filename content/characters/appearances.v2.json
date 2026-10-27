@@ -198,6 +198,26 @@
       "kind": "image",
       "key": "veloria-mira-idle-north-v1",
       "path": "assets/sprites/veloria-mira-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-south-v1",
+      "path": "assets/sprites/veloria-dalia-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-west-v1",
+      "path": "assets/sprites/veloria-dalia-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-east-v1",
+      "path": "assets/sprites/veloria-dalia-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-north-v1",
+      "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -416,12 +436,45 @@
       "npcIds": [
         "dalia_gym"
       ],
-      "assetKey": "veloria-gym-leaders-a-v1",
-      "frame": 1,
+      "assetKey": "veloria-dalia-idle-south-v1",
       "narrativeSource": "content/trainers/gym02_dalia.trainer.json",
       "origin": {
-        "x": 0.47,
-        "y": 0.9761
+        "x": 0.50814,
+        "y": 0.95964
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-dalia-idle-south-v1",
+          "origin": {
+            "x": 0.50814,
+            "y": 0.95964
+          },
+          "displaySize": 60.40449
+        },
+        "left": {
+          "assetKey": "veloria-dalia-idle-west-v1",
+          "origin": {
+            "x": 0.47198,
+            "y": 0.95573
+          },
+          "displaySize": 60.53202
+        },
+        "right": {
+          "assetKey": "veloria-dalia-idle-east-v1",
+          "origin": {
+            "x": 0.52459,
+            "y": 0.96354
+          },
+          "displaySize": 58.95545
+        },
+        "up": {
+          "assetKey": "veloria-dalia-idle-north-v1",
+          "origin": {
+            "x": 0.5034,
+            "y": 0.96029
+          },
+          "displaySize": 60.53202
+        }
       }
     },
     {

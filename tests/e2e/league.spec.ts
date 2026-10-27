@@ -6,7 +6,19 @@ import {sequence,confirm,finishDialogue,seedLeague,portal,startAttempt,challenge
 const names=['Nerea','Silvo','Brando','Luce','Enea'];
 test('League requires all badges; abort resets attempts, repeated wins pay once, all five fights complete and epilogue persists',async({page},info)=>{
  test.setTimeout(process.env.CI?900_000:600_000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await seedLeague(page,false,true);await portal(page);await expect(page.locator('#dialogue-box')).toBeVisible();await expect(page.getByRole('button',{name:'INIZIA IL TENTATIVO',exact:true})).toBeHidden();await finishDialogue(page);const save=await readBrowserSave(page);save.badges=sequence.requiredBadgeIds;await seedBrowserSave(page,save);await page.reload();await enterGame(page);
- await startAttempt(page);await challengeOpponent(page,0);await finishLeagueBattle(page);await closeVictory(page,names[0]);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain(sequence.stages[0].firstRewardFlag);const first=await readBrowserSave(page);expect(first.player.money).toBe(4000);
+ await startAttempt(page);
+ for(const [x,y] of [[6,6],[25,6],[25,19],[6,19],[15,21]] as const){
+  await walkTo(page,'league_council01.tmj',x,y);
+  for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`nerea-floor-${x}-${y}-${viewport.width}.png`)});}
+  await page.setViewportSize({width:390,height:844});
+ }
+ await challengeOpponent(page,0);
+ await expect.poll(()=>page.evaluate(()=>{
+  const scene=(window as any).leagueGame.scene.keys.battle;
+  return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-league_council01-illustrated-v3')??false;
+ })).toBe(true);
+ await page.screenshot({path:info.outputPath('nerea-new-arena.png')});
+ await finishLeagueBattle(page);await closeVictory(page,names[0]);await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain(sequence.stages[0].firstRewardFlag);const first=await readBrowserSave(page);expect(first.player.money).toBe(4000);
  await walkTo(page,'league_council01.tmj',15,23);await expect(page.getByRole('button',{name:'RESTO NELLA SFIDA',exact:true})).toBeVisible();await page.getByRole('button',{name:'RESTO NELLA SFIDA',exact:true}).tap();expect((await readBrowserSave(page)).flags).toContain(sequence.activeFlag);await confirm(page).tap();
  // Use the nearby terminal after choosing to stay: leaving requires a separate explicit confirmation.
  await walkTo(page,'league_council01.tmj',18,18);await page.getByRole('button',{name:'Vai in basso',exact:true}).tap();await confirm(page).tap();await page.getByRole('button',{name:'INTERROMPI IL TENTATIVO',exact:true}).tap();await page.getByRole('button',{name:'ESCI E INTERROMPI',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/league_forecourt');const aborted=await readBrowserSave(page);expect(aborted.flags).not.toContain(sequence.activeFlag);expect(aborted.flags).not.toContain(sequence.stages[0].attemptWonFlag);expect(aborted.flags).toContain(sequence.stages[0].firstRewardFlag);expect(aborted.party).toEqual(first.party);expect(aborted.player.money).toBe(4000);

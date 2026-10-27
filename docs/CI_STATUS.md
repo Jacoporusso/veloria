@@ -1,10 +1,18 @@
+## 0.4.24 — sala di Nerea e Dalia direzionale
+
+Il nuovo fondale della prima sala della Lega allinea i bordi del pavimento ai percorsi reali, mantenendo acqua e vegetazione del tema originale. Collisioni e sequenza invariati. Dalia usa quattro pose idle indipendenti, calibrate e non specchiate, con fonti PNG inalterate e WebP lossless RGBA-identici.
+
+Verifiche locali:788 test dominio+31persistenza passati; validatori707media/41fondali/48mappe. Cinque casi Chrome passati: Lega completa con interruzione/ripartenza, cinque avversari, premi unici ed epilogo, due bordi camera Nerea e due profili movimento Dalia con quattro lati, orientazioni e reload. Tre casi offline passati: risorse cinque sale e battaglia finale/epilogo da checkpoint, primo decode fondali registrati, primo accesso alle pose Dalia con interazioni e reload. La prima battaglia di Nerea è stata giocata online; offline per Nerea attesta il fondale, non una seconda battaglia. Build offline riuscita; avviso dimensione chunk Phaser presente. Audit discovery369casi browser senza omissioni/duplicazioni;43risorse offline divise22+21. Squadre forti dei checkpoint non attestano bilanciamento della campagna naturale.
+
+Contenuti0.4.24/cachev187 preparati; commit/push e conferma Pages da registrare. Goal complessivo aperto: revisione delle altre quattro sale della Lega e delle scene restanti,43profili direzionali, cicli di camminata e campagna naturale.
+
 ## 0.4.23 — Concordia e Mira direzionale
 
 Nuovo fondale della palestra08, con geometria esistente conservata e rompicapo interamente disegnato dal runtime; stessa illustrazione in lotta. Mira usa quattro viste indipendenti e calibrate, sorgenti PNG inalterate e WebP lossless, senza sprite specchiati. Corrette prima del rilascio le asimmetrie del costume e due metadati rimasti dalla prima candidata.
 
 Verifiche locali: 788 test dominio +31 persistenza passati; validatori697media/40fondali/48mappe. Cinque casi Chrome passati: puzzle/battaglia/ricompensa/ritorno P8, due bordi camera P8, due profili movimento Mira con quattro lati e orientazioni. Tre casi offline passati: puzzle P8 con salvataggio parziale e ritorno/monorotaia; primo decode dei fondali; primo accesso alle quattro pose Mira con interazione e reload. Build offline riuscita, avviso dimensione chunk Phaser presente. Audit discovery365casi browser assegnati una sola volta,42risorse offline divise21+21. Prove con squadre checkpoint forti non attestano il bilanciamento della campagna naturale.
 
-Runtime `2d7147ed77ac6d506dffa6883eff846ec5aacf02` inviato a main. Contenuti0.4.23/cachev186. [Deploy40568374136](https://github.com/Jacoporusso/veloria/actions/runs/40568374136) IN PROGRESS e [Verify40568374140](https://github.com/Jacoporusso/veloria/actions/runs/40568374140) PENDING all’ultimo controllo. Conferma pubblica Pages ancora da ottenere. Goal complessivo ancora aperto: revisione scene rimanenti,44profili direzionali, tutte le camminate e campagna completa. Le sale Lega hanno già illustrazioni dedicate, ma l'allineamento dei bordi pavimento/collisioni è in audit: presenza degli asset non equivale ad accettazione.
+Runtime `2d7147ed77ac6d506dffa6883eff846ec5aacf02` inviato a main. Contenuti0.4.23/cachev186. [Deploy40568374136](https://github.com/Jacoporusso/veloria/actions/runs/40568374136) COMPLETED/SUCCESS. Pages verificata: cachev186 e HTTP200 per il nuovo fondale P8 e la posa est di Mira. [Verify40568374140](https://github.com/Jacoporusso/veloria/actions/runs/40568374140) QUEUED all’ultimo controllo: suite CI completa ancora da attestare. Goal complessivo ancora aperto: revisione scene rimanenti,44profili direzionali, tutte le camminate e campagna completa. Le sale Lega hanno già illustrazioni dedicate, ma l'allineamento dei bordi pavimento/collisioni è in audit: presenza degli asset non equivale ad accettazione.
 
 ## 0.4.22 — Biancavetta: labirinto corretto, sigilli e fondale
 

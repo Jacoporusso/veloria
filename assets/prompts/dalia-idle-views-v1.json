@@ -1,0 +1,133 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-27",
+  "identityReference": "assets/sources/veloria-gym-leaders-a-v1.png top-right figure frame1 only (profile gym-leader-dalia, npc dalia_gym)",
+  "sourceReferences": [
+    {
+      "path": "assets/sources/veloria-gym-leaders-a-v1.png",
+      "role": "identity/outfit; top-right figure frame1 only",
+      "note": "Visibly inspected; other atlas figures excluded."
+    },
+    {
+      "path": "assets/sources/veloria-elia-idle-south-v1.png",
+      "role": "painterly modern 2D rendering style only"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: game-character sprite. Generate one transparent PNG, one full-body neutral idle, portrait 2:3. Figure identity is Dalia only: the TOP-RIGHT character, frame 1, in Image 1 (the 2x2 Veloria gym-leader atlas). Image 1 is identity/outfit reference only. Image 2 is style reference only: polished painterly modern 2D RPG rendering with warm outlines and dimensional fabric shading; do not copy its person or outfit.\n\nCreate Dalia facing directly south/front. Preserve her apparent face and dark brown hair in the long braid over her anatomical RIGHT shoulder (viewer-left in this front view), with the small pink blossoms/ribbons seen in the atlas. Preserve the exact broad outfit design: sage/olive long coat with pink lining and panels, cream top, loose cream trousers, dark brown lace-up boots. Keep the actual narrow brown waist belt and the small existing dark seed pouch at her anatomical LEFT hip (viewer-right in front), with only the modest small botanical detail shown in the atlas. Do not enlarge it, add hanging bags, belts, rings, tools, flowers, leaves or gear. Do not add any second pockets beyond the outfit in Image 1. Both arms relaxed naturally at her sides, hands fully visible and empty. Omit held watering can and leafy sprig from identity atlas. One centered complete figure, head and boot soles visible with generous transparent margin. True transparent alpha; no backdrop, floor, shadow, halo, glow, vignette or scenery. No other characters, labels, grid, text, cropping, mirror-image, camera rotation, 3D or photorealism.",
+    "west": "Use case: game-character sprite. Make one transparent PNG, one full-body neutral idle, portrait 2:3. Image 1 identity reference: Dalia is the TOP-RIGHT figure, frame 1, of the Veloria 2x2 gym-leader atlas. Image 2 style reference only: polished modern 2D painterly RPG art, warm outlines and softly dimensional fabric. Do not copy the other characters.\n\nDraw Dalia in a true WEST-facing exact left profile: nose, gaze, torso and boot toes point to viewer-left. Anatomical LEFT side is the camera-near side. Preserve her identity, dark brown hair and long braid with the pink blossoms/ribbons attached to her anatomical RIGHT shoulder; in this view that braid is on the far shoulder and should be naturally partially occluded, never moved to the near side. Preserve the sage/olive long coat with pink lining/panels and cuffs, cream top, loose cream trousers, dark brown lace-up boots, narrow brown waist belt and the small existing dark seed pouch at anatomical LEFT hip, which is the near hip here. Pouch stays modest, no extra botanical clutter. No held watering can or sprig. Both arms hang relaxed, both empty hands visible in a natural profile silhouette. No hand in pocket; no hand touching belt or coat. Full figure centered, head and soles visible, generous margins. Transparent alpha background, no ground, scenery, shadow, vignette, glow or halo. No added bags, gear, jewelry, rings, flowers, tools or pockets. No mirror image, no front or three-quarter pose, no rotated source image, no extra figures, no cropping, no text, no 3D or photorealism.",
+    "east": "Use case: game-character sprite. Generate one transparent PNG of Dalia, full-body neutral idle, portrait 2:3. Image 1 is the identity/outfit reference: only the TOP-RIGHT figure (frame 1) from the 2x2 Veloria gym-leader atlas. Image 2 is style only: painterly modern 2D RPG, warm outlines, softly dimensional fabric. Do not copy any other character.\n\nTrue EAST-facing exact right profile: nose, face, chest and toes point to viewer-right; anatomical RIGHT side is camera-near (the visible foreground side). Preserve the same Dalia identity and source outfit: dark brown hair with the long flower-and-ribbon-decorated braid on her anatomical RIGHT shoulder; sage/olive long coat, pink lining/panels and cuffs, cream top, loose cream trousers, dark lace-up boots; narrow brown waist belt. The braid belongs to the camera-near anatomical RIGHT shoulder and is naturally visible in this profile. The small dark seed pouch belongs on her anatomical LEFT hip, the far side, so it is mostly hidden by the body from this angle; do not move or duplicate it. The near anatomical RIGHT hip has no pouch, ring, hanging strap, or added buckle. No held watering can or sprig. Both arms at rest, visible empty hands, no hands in pockets or touching clothes. Head-to-boots full figure, centered with generous margin. Request true alpha transparency; no background, floor, shadow, vignette, glow, halo, scenery, text, extra figures or props. No mirrored image, flip, rotation, three-quarter or front pose, added accessories, tools, bags or pockets, cropping, 3D or photorealism.",
+    "north": "Use case: game-character sprite. One transparent PNG, full-body neutral idle, portrait 2:3. Identity reference is Image 1: Dalia, TOP-RIGHT figure (frame 1) in the 2x2 Veloria gym-leader atlas. Image 2 is style reference only: polished painterly modern 2D RPG, warm clean outlines and dimensional shading. Do not copy its character.\n\nDraw a genuine NORTH-facing rear view of Dalia, facing directly away from camera; no face visible. Preserve her recognizable dark brown hair gathered into the long braid over her anatomical RIGHT shoulder, with pink blossoms and ribbons from the atlas; from this rear view her anatomical RIGHT is on viewer-right, so braid and flowers belong on that side, not the left. Preserve exact outfit silhouette and colors: sage/olive long coat with pink lining/panels/cuffs, light cream top, loose cream trousers, dark brown lace-up boots; modest narrow brown waist belt and the small dark seed pouch on her anatomical LEFT hip (viewer-left from directly behind). Keep the pouch small and do not embellish it. Do not invent unseen back features, extra pockets or accessories. Both arms relaxed at sides, hands empty and visible. Held watering can and leafy sprig are omitted. Centered whole figure, head and boot soles visible, generous transparent margins. True transparent alpha; no background, ground, cast shadow, glow, halo, vignette or scenery. No face or front view, no added bag, gear, tools, jewelry, flowers beyond the braid decoration, no mirror/flip, no rotation of source, no extra figures, text, cropping, 3D or photorealism."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-dalia-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-dalia-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dalia-idle-south-v1.webp",
+      "sourceSha256": "d5f027940410c42318b7e99af2cc0c95ed279781b0bebd78833f8b40c52d582e",
+      "runtimeSha256": "0ab4e13be3695f1f79c7e40fb5b48a6dee02c284a11b538bac44572d822e6835",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50814,
+        "y": 0.95964
+      },
+      "displaySize": 60.40449,
+      "alpha128Bounds": [
+        246,
+        51,
+        765,
+        1475
+      ],
+      "outputId": "exec-73b19c6b-0e10-4fd5-b311-610965d417fc.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-73b19c6b-0e10-4fd5-b311-610965d417fc.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-dalia-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-dalia-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dalia-idle-west-v1.webp",
+      "sourceSha256": "9199fbbb2233d6f23e9382d5bee447f27a1b1a951ea348955f015f8d5000978d",
+      "runtimeSha256": "e7223fea995097e84808898f836ee4c8c20859cf4a7fdf2d3cae97c5cb1dc336",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.47198,
+        "y": 0.95573
+      },
+      "displaySize": 60.53202,
+      "alpha128Bounds": [
+        361,
+        48,
+        725,
+        1469
+      ],
+      "outputId": "exec-e2368c98-b5d3-432d-863e-0b2f735c8552.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-e2368c98-b5d3-432d-863e-0b2f735c8552.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-dalia-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-dalia-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dalia-idle-east-v1.webp",
+      "sourceSha256": "f7573c365aa123f013476719f4056b91497771fafae7baab31bb957d0b776e6e",
+      "runtimeSha256": "3eb6fe5aaffe90a30151cc0ce4669b9d1b06ab57fb3916902670a4ae8d874cbd",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.52459,
+        "y": 0.96354
+      },
+      "displaySize": 58.95545,
+      "alpha128Bounds": [
+        333,
+        22,
+        719,
+        1481
+      ],
+      "outputId": "exec-7cdf1dca-131c-4fff-9be8-aa1566667152.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-7cdf1dca-131c-4fff-9be8-aa1566667152.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-dalia-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-dalia-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dalia-idle-north-v1.webp",
+      "sourceSha256": "d9f99debe614b2760351d88f85f334fa97642a22bd7ca525ef61bd3ec26130d6",
+      "runtimeSha256": "03e323a75883bd6bb1aa8c57ecde9b919e8420c68b73b864a3f44351c65355c0",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.5034,
+        "y": 0.96029
+      },
+      "displaySize": 60.53202,
+      "alpha128Bounds": [
+        244,
+        55,
+        780,
+        1476
+      ],
+      "outputId": "exec-87094947-556d-42d3-bfb3-4012df9f500a.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-87094947-556d-42d3-bfb3-4012df9f500a.png"
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "direction": "down",
+      "outputId": "exec-35f820b7-65b8-4d93-b21e-47d8fcd4c14b.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-35f820b7-65b8-4d93-b21e-47d8fcd4c14b.png",
+      "candidatePath": ".tmp/dalia-idles-candidates/dalia-south-rejected.png",
+      "reason": "The dark seed pouch and botanical decoration were enlarged/over-embellished compared to the atlas. Regenerated with stronger constraints."
+    },
+    {
+      "direction": "right",
+      "outputId": "exec-ce1fe041-637f-4fe2-975c-5fcf76e419a4.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-ce1fe041-637f-4fe2-975c-5fcf76e419a4.png",
+      "candidatePath": ".tmp/dalia-idles-candidates/dalia-east-rejected.png",
+      "reason": "Prompt wording contradicted the required anatomical side visibility for the right-facing view. Regenerated with anatomical RIGHT as near and braid visible on that shoulder."
+    }
+  ],
+  "calibration": "RGBA PNGs copied without resize, crop, flip, or pixel edits. Optical body height calibrated to 56 world px using alpha>=128 bounds; displaySize = 56 * sourceHeight / alpha128 body height. Origin x is the alpha-weighted centroid across alpha>=128 pixels in the bottom 50 rows of the alpha128 body; origin y is the last alpha>=128 row divided by source height. Four independently drawn orientations. WebP assets encoded losslessly and verified RGBA-identical to raw PNG sources."
+}

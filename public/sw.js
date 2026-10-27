@@ -1,9 +1,14 @@
-const CACHE = 'veloria-shell-v186';
+const CACHE = 'veloria-shell-v187';
 const SHELL = [
+  './assets/scenery/veloria-league_council01-illustrated-v3.webp',
   './assets/sprites/veloria-mira-idle-south-v1.webp',
   './assets/sprites/veloria-mira-idle-west-v1.webp',
   './assets/sprites/veloria-mira-idle-east-v1.webp',
   './assets/sprites/veloria-mira-idle-north-v1.webp',
+  './assets/sprites/veloria-dalia-idle-south-v1.webp',
+  './assets/sprites/veloria-dalia-idle-west-v1.webp',
+  './assets/sprites/veloria-dalia-idle-east-v1.webp',
+  './assets/sprites/veloria-dalia-idle-north-v1.webp',
   './assets/scenery/veloria-gym08_concordia-illustrated-v3.webp',
   './assets/scenery/veloria-gym07_biancavetta-illustrated-v3.webp',
   './assets/scenery/veloria-gym06_acquariva-illustrated-v3.webp',

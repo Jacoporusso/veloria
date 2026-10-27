@@ -73,6 +73,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-south-v1",
+      "path": "assets/sprites/veloria-dalia-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-west-v1",
+      "path": "assets/sprites/veloria-dalia-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-east-v1",
+      "path": "assets/sprites/veloria-dalia-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dalia-idle-north-v1",
+      "path": "assets/sprites/veloria-dalia-idle-north-v1.webp"
     }
   ],
   "spawns": [

@@ -975,6 +975,29 @@
           "reason": "Preserve actual rectangular walkable footprint and leave all puzzle devices to runtime rendering."
         }
       ]
+    },
+    {
+      "mapId": "veloria/league_council01",
+      "tiledAsset": "tilemaps/league_council01.tmj",
+      "assetKey": "veloria-league_council01-illustrated-v3",
+      "sourcePath": "assets/sources/veloria-league_council01-illustrated-v3.png",
+      "runtimePath": "public/assets/scenery/veloria-league_council01-illustrated-v3.webp",
+      "sourceSha256": "e515951bbd4957dc5086343fb8d2c4fbd603eff7e7bc3ba8c62a894ba6b0915f",
+      "runtimeSha256": "dd500528993ad57ee38b2a2d8abf11a98b35d04c8d0833b2da06e0ecce44a65c",
+      "width": 1448,
+      "height": 1086,
+      "prompt": "Production full-map background for Veloria first League council room, Nerea's water-and-flowers sanctuary. Modern illustrated 2D game, opaque 4:3 landscape, north-up orthographic. Reference1 authoritative geometry: TAN is the full playable floor plus 20 world-pixel foot clearance; blue-gray is nonwalkable architecture/water/gardens. Reference2 old art is theme/material reference ONLY. Preserve every edge of reference1 exactly: main rectangular floor x18.75%..81.25%, y25%..85.9375%; south stem x43.75%..56.25% from y83.333% through bottom edge. Do not extend apparent walkable pale floor into side blocked belts or into top blocked band. Main floor must be straight sided and squared at corners, no inward curving rails, no extra apparent side passages. Pale limestone slabs, subtly varied warm light, quiet floor suitable for characters. Water cascades, white-flowered vines, lotus details, airy ivory/glass architecture confined strictly to blocked left/right/top/bottom-corner margins; thin restrained metal accents, no heavy gold frame. Upper wall behind north floor, no fake north door or traversable-looking upper dais. All runtime objects omitted: Nerea at tile16,7 and challenge terminal18,19; no painted people, consoles, command sockets, routing marks or device platforms. No obstacle at tile18,7. Runtime draws console on flat floor at18,19. No false stairs, rows of stepping stones or routes over blocked water. Keep central limestone floor clear with only a very faint small lotus inlay if natural; no giant medallion. Preserve the existing children's modern painterly2D material style, not photoreal3D/isometric/pixelart. Full bleed, no black margins, text, UI, grids or labels.",
+      "references": [
+        "assets/prompts/league01-production-layout-v1.png",
+        "assets/prompts/league01-exact-material-reference.png",
+        "assets/sources/veloria-league-council01-v1.png"
+      ],
+      "revisions": [
+        {
+          "promptDocument": "assets/prompts/league_council01-illustrated-v3.md",
+          "reason": "Align visible floor edges to actual collision; leave opponent and challenge terminal to runtime rendering."
+        }
+      ]
     }
   ]
 }

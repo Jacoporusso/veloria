@@ -314,6 +314,105 @@
           "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-af5eddf5-83c7-4290-a16f-0b641f04728c.png"
         }
       ]
+    },
+    {
+      "profileId": "gym-leader-dalia",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/dalia-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-dalia-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-dalia-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dalia-idle-south-v1.webp",
+          "sourceSha256": "d5f027940410c42318b7e99af2cc0c95ed279781b0bebd78833f8b40c52d582e",
+          "runtimeSha256": "0ab4e13be3695f1f79c7e40fb5b48a6dee02c284a11b538bac44572d822e6835",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50814,
+            "y": 0.95964
+          },
+          "displaySize": 60.40449,
+          "alpha128Bounds": [
+            246,
+            51,
+            765,
+            1475
+          ],
+          "outputId": "exec-73b19c6b-0e10-4fd5-b311-610965d417fc.png",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-73b19c6b-0e10-4fd5-b311-610965d417fc.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-dalia-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-dalia-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dalia-idle-west-v1.webp",
+          "sourceSha256": "9199fbbb2233d6f23e9382d5bee447f27a1b1a951ea348955f015f8d5000978d",
+          "runtimeSha256": "e7223fea995097e84808898f836ee4c8c20859cf4a7fdf2d3cae97c5cb1dc336",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.47198,
+            "y": 0.95573
+          },
+          "displaySize": 60.53202,
+          "alpha128Bounds": [
+            361,
+            48,
+            725,
+            1469
+          ],
+          "outputId": "exec-e2368c98-b5d3-432d-863e-0b2f735c8552.png",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-e2368c98-b5d3-432d-863e-0b2f735c8552.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-dalia-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-dalia-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dalia-idle-east-v1.webp",
+          "sourceSha256": "f7573c365aa123f013476719f4056b91497771fafae7baab31bb957d0b776e6e",
+          "runtimeSha256": "3eb6fe5aaffe90a30151cc0ce4669b9d1b06ab57fb3916902670a4ae8d874cbd",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52459,
+            "y": 0.96354
+          },
+          "displaySize": 58.95545,
+          "alpha128Bounds": [
+            333,
+            22,
+            719,
+            1481
+          ],
+          "outputId": "exec-7cdf1dca-131c-4fff-9be8-aa1566667152.png",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-7cdf1dca-131c-4fff-9be8-aa1566667152.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-dalia-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-dalia-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dalia-idle-north-v1.webp",
+          "sourceSha256": "d9f99debe614b2760351d88f85f334fa97642a22bd7ca525ef61bd3ec26130d6",
+          "runtimeSha256": "03e323a75883bd6bb1aa8c57ecde9b919e8420c68b73b864a3f44351c65355c0",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.5034,
+            "y": 0.96029
+          },
+          "displaySize": 60.53202,
+          "alpha128Bounds": [
+            244,
+            55,
+            780,
+            1476
+          ],
+          "outputId": "exec-87094947-556d-42d3-bfb3-4012df9f500a.png",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-87094947-556d-42d3-bfb3-4012df9f500a.png"
+        }
+      ]
     }
   ]
 }
