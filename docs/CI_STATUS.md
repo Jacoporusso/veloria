@@ -8,7 +8,7 @@ Locale:820 dominio/persistenza,154 Python, TypeScript e validatori766media/48fon
 
 Indagata Verify40656119251: unico job fallito chapters7, errore ECONNRESET nel fetch del gancio test Ada; altri29job passati. Retry limitati a due per quel fetch, tutte le asserzioni e i timeout preservati; caso Ada passato localmente26,7s. Nessun difetto della casa segnalato da quella CI.
 
-Contenuti0.4.29/cachev192 preparati; invio e pubblicazione ancora da attestare. Goal aperto:37 identità direzionali, pipeline walk autentica Ada e relativa estensione/verifica del cast, progressione naturale dopo la prima medaglia fino alla Lega. Candidate walk Ada e correzioni della coerenza degli accessori restano private e non sono incluse in questo rilascio.
+Runtime `751b85d6f5292cc49dcb39ef64e81e7d5f312a61` inviato a main. Contenuti0.4.29/cachev192. [Deploy40677840281](https://github.com/Jacoporusso/veloria/actions/runs/40677840281) COMPLETED/SUCCESS; Pages verificata cachev192 e HTTP200 per ovest Nives e nord Aurel. [Verify40677840429](https://github.com/Jacoporusso/veloria/actions/runs/40677840429) QUEUED all'ultimo controllo, nessuna attestazione di suite completa passata per questa revisione. Goal aperto:37 identità direzionali, pipeline walk autentica Ada e relativa estensione/verifica del cast, progressione naturale dopo la prima medaglia fino alla Lega. Candidate walk Ada e correzioni della coerenza degli accessori restano private e non sono incluse in questo rilascio.
 
 ## 0.4.28 — casa percorribile e accettazione delle stanze iniziali
 
