@@ -81,7 +81,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {
-    const response = await route.fetch();
+    const response = await route.fetch({ maxRetries: 2 });
     await route.fulfill({ response, body: await response.text() + '\nglobalThis.__naturalGame = game;' });
   });
   await page.goto('/');
@@ -105,7 +105,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     const [backup] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Esporta backup JSON' }).click()]);
     const path = testInfo.outputPath(filename);
     await backup.saveAs(path);
+    const exported = JSON.parse(await readFile(path, 'utf8'));
+    const current = (await observe(page)).save;
+    for (const key of ['party', 'badges', 'flags', 'inventory', 'rngState'] as const) {
+      expect(exported.save[key], `Exported checkpoint preserves ${key}`).toEqual(current[key]);
+    }
     await testInfo.attach(filename, { path, contentType: 'application/json' });
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#save-menu')).toBeHidden();
   }
   async function fight() {
     for (let action=0; action<600; action++) {
@@ -370,6 +377,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       expect((await observe(page)).save.party[0].instanceId).toBe(originalId);
       expect((await observe(page)).save.party).toEqual(victoryParty);
       expect((await observe(page)).save.badges).toContain('badge_aurora');
+      await exportCheckpoint('natural-first-medal-backup.json');
       if (continueRadicelmo) {
         await walk(13,19); // Leave the gym through the actual southern doorway.
         await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
@@ -456,6 +464,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         expect((await observe(page)).save.player.money).toBe(secondMedal.player.money);
         expect((await observe(page)).save.inventory).toEqual(secondMedal.inventory);
         await record('Second medal persists after title resume');
+        await exportCheckpoint('natural-second-medal-backup.json');
       }
       if (continueVetracielo) {
         await walk(13, 25);
