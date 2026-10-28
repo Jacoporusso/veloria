@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "profileId": "gym-leader-aurel",
+  "generator": "built-in imagegen",
+  "createdFrom": "approved private candidates in .tmp/aurel-idles-candidates/prompts-and-candidates.json",
+  "identityReference": {
+    "path": "assets/sources/veloria-gym-leaders-b-v1.png",
+    "frame": 3,
+    "cell": "bottom-right"
+  },
+  "identity": "Aurel, Dragon Gym Leader of Concordia; short softly wavy dark teal hair, ivory geometric overcoat with deep teal panels and restrained antique-gold edging, dark high-neck shirt, trousers and boots; centered two-arc waist clasp; no bag or side-worn accessory; relaxed empty hands.",
+  "sourceReferences": [
+    "assets/sources/veloria-elia-idle-south-v1.png",
+    "assets/sources/veloria-nilo-idle-south-v1.png",
+    "assets/sources/veloria-mira-idle-south-v1.png"
+  ],
+  "calibration": "Alpha threshold >=128. Origin X is alpha-weighted centroid of pixels with alpha >=128 in the lowest 50 px of the visible alpha bounding box; origin Y is (bbox bottom - 1)/1536. Display size is 1536*56/(bbox height). PNGs are original ImageGen RGBA bytes; WebP derivatives are lossless and decode RGBA-identically.",
+  "views": [
+    {
+      "direction": "south",
+      "engineDirection": "down",
+      "assetKey": "veloria-aurel-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-aurel-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-aurel-idle-south-v1.webp",
+      "outputId": "exec-b58a37f2-fc35-4199-8d1e-4e31fda92a0b.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-b58a37f2-fc35-4199-8d1e-4e31fda92a0b.png",
+      "sourceSha256": "9da93b57499261ff096faac6e8ba84d3c6301bb5a62e1835828b1d757039b050",
+      "runtimeSha256": "e5659300143404ad156d45cf4efa17ebcee2ef00966ffabfcccf14a771cee43b",
+      "dimensions": "1024x1536 RGBA",
+      "references": [
+        "assets/sources/veloria-gym-leaders-b-v1.png (frame 3 identity)",
+        "assets/sources/veloria-elia-idle-south-v1.png (style)",
+        "assets/sources/veloria-nilo-idle-south-v1.png (style)",
+        "assets/sources/veloria-mira-idle-south-v1.png (style)"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body south-facing idle character for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only Aurel in the bottom-right cell, frame 3. Images 2–4 (Elia, Nilo, Mira) are painterly style references only; do not copy their people or outfits.\nPrimary request: Create one independent south-facing idle illustration of Aurel, Dragon Gym Leader of Concordia, facing the viewer with the anatomical front visible. Calm upright balanced standing pose, both feet visible, both arms naturally at sides, hands relaxed and empty.\nIdentity and outfit: preserve the exact Aurel identity from the source cell: short softly wavy dark teal hair, same facial shape, skin tone, dark eyes, and open natural gender presentation. Preserve the long ivory overcoat with its asymmetrical geometric deep-teal panels and restrained antique-gold edge lines; dark high-neck inner shirt, dark trousers, dark boots. Keep the worn gold waist clasp made of two opposing arcs centered at the belt, exactly as in the source. The lifted hand in the atlas is only its posed hand; no object is held. Do not add a necklace, pendant, chest ornament, brooch, pin, bag, gloves, or any other accessory. There is no accessory at the neck: keep the high-neck shirt plain.\nStyle: polished soft painterly 2D game character art, warm gentle highlights and fine fabric texture consistent with the style references; not pixel art, anime redesign, photorealism or 3D.\nFraming: one centered full-body character, portrait 1024×1536, complete hair and boots, generous transparent breathing room, no cropping. True transparent background only.\nConstraints: preserve coat and pants asymmetry and anatomical sides, do not mirror. No horns, scales, tail, crown, weapon, prop, held object, extra decoration, extra characters, ground or shadow, glow, text, logo, border, duplicated limbs or fingers, red/green fringe, or background. Independent illustration, not a crop or grid.",
+      "origin": {
+        "x": 0.61166,
+        "y": 0.9681
+      },
+      "displaySize": 59.48548
+    },
+    {
+      "direction": "west",
+      "engineDirection": "left",
+      "assetKey": "veloria-aurel-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-aurel-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-aurel-idle-west-v1.webp",
+      "outputId": "exec-4603f68d-613d-415b-a5b8-305d9674f13c.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-4603f68d-613d-415b-a5b8-305d9674f13c.png",
+      "sourceSha256": "4c27c7ebad5ea68ad1d67c0b0dab84526ce9871e18c32c3dffa7d6796ca43adf",
+      "runtimeSha256": "66b0dc923d197a25ac23521d6e7367550c588d68e36b798770ae35c3069e9a54",
+      "dimensions": "1024x1536 RGBA",
+      "references": [
+        "assets/sources/veloria-gym-leaders-b-v1.png (frame 3 identity)",
+        "assets/sources/veloria-elia-idle-south-v1.png (style)",
+        "assets/sources/veloria-nilo-idle-south-v1.png (style)",
+        "assets/sources/veloria-mira-idle-south-v1.png (style)"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body west-facing idle character for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only the bottom-right Aurel cell, frame 3. Images 2–4 (Elia, Nilo, Mira) are painterly 2D style references only; do not copy those people or outfits.\nPrimary request: Create one independent west-facing idle view of Aurel, facing toward the viewer’s LEFT in a clean left-facing side profile. Aurel’s anatomical LEFT side is camera-near. Upright restful stance, both shoes visible, both hands relaxed and empty at the sides.\nIdentity: same short softly wavy dark teal hair, face/profile, skin tone, proportions and open natural gender presentation from the Aurel reference. Preserve the long ivory overcoat with its deep teal panels, asymmetrical geometric construction and restrained antique-gold edge details; dark high-neck shirt, dark trousers and dark boots. Keep the distinctive worn two-arc clasp centered on the waist belt, visible only as naturally allowed from this profile. Preserve which coat panels belong to each anatomical side; do not mirror them or invent a new back/side design. No bag exists in the reference. The lifted hand in the source is only a pose; no item in either hand. No necklace, pendant, chest ornament, brooch, pin, bag, gloves, or other new accessory; keep the high-neck shirt plain.\nStyle: polished painterly modern 2D character art, warm gentle light, fine fabric texture, readable silhouette, matching the inspected style images; not pixel art, anime redesign, photorealism or 3D.\nComposition: single centered full-body figure, portrait 1024×1536, complete hair and boots, generous transparent space, no cropping. True transparent background.\nConstraints: true west-facing profile toward screen-left; anatomically correct sides, no mirroring. Relaxed empty hands. Preserve clothing asymmetry and the centered clasp. No props, dragon horns/scales/tail, crown, weapons, extra ornaments, extra people, ground/shadow, glow, text, border, extra limbs/fingers, red/green fringe, or backdrop. Independent view, not a crop or composite.",
+      "origin": {
+        "x": 0.53249,
+        "y": 0.97526
+      },
+      "displaySize": 58.3555
+    },
+    {
+      "direction": "east",
+      "engineDirection": "right",
+      "assetKey": "veloria-aurel-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-aurel-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-aurel-idle-east-v1.webp",
+      "outputId": "exec-d0740a7c-0c17-41c7-95d5-69c327e11480.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-d0740a7c-0c17-41c7-95d5-69c327e11480.png",
+      "sourceSha256": "4b4b38b6d20a3fe8bd49841fc86ac00a219e318147b9647aac658bd8e00f8d92",
+      "runtimeSha256": "ad291c7477548c7590ee0abe6ca9f0d243c0736c1ac0f7e1926241b37f17f85f",
+      "dimensions": "1024x1536 RGBA",
+      "references": [
+        "assets/sources/veloria-gym-leaders-b-v1.png (frame 3 identity)",
+        "assets/sources/veloria-elia-idle-south-v1.png (style)",
+        "assets/sources/veloria-nilo-idle-south-v1.png (style)",
+        "assets/sources/veloria-mira-idle-south-v1.png (style)"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body east-facing idle character for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only Aurel in the bottom-right cell, frame 3. Images 2–4 (Elia, Nilo, Mira) are painterly 2D style references only; do not copy those people or outfits.\nPrimary request: Create one independent east-facing idle view of Aurel, Dragon Gym Leader of Concordia, facing toward the viewer’s RIGHT in a clear right-facing three-quarter side view. Aurel’s anatomical RIGHT side is camera-near. Calm upright pose, full body and both boots visible, arms at sides and hands empty.\nPreserve Aurel’s identity: short wavy dark teal hair, same facial shape, skin tone, proportions, open natural gender presentation. Preserve the long ivory overcoat and exact asymmetrical deep teal geometric panels with antique-gold fabric edging, dark high-neck shirt, dark trousers and dark boots. The ONLY metal ornament is the source’s two-arc gold belt clasp centered at the front waist. It is not on the hip, side, back, collar, or chest; do not duplicate it. Coat edging is trim, not hardware. The source has no bag, side buckle, hip ring, dangling item, necklace, pendant, pin, or brooch: add none. No handheld object; hands empty.\nStyle: soft polished modern painterly 2D, gentle warm light and delicate fabric texture, consistent with style references; not pixel art, anime redesign, photorealism or 3D.\nFraming: centered single full-body portrait 1024×1536, hair and both boots fully inside, generous transparent breathing room. True transparent background.\nConstraints: facing screen-right and anatomically correct, no flipping. Keep the original coat panel asymmetry on its correct body sides. Keep the single two-arc clasp at center-front waist; no other hardware or accessory. No dragon horns, scales, tail, crown, weapons, props, extra characters, ground/shadow, glow, text, borders, extra limbs/fingers, fringe, backdrop, grid or composite.",
+      "origin": {
+        "x": 0.41791,
+        "y": 0.97982
+      },
+      "displaySize": 57.76763
+    },
+    {
+      "direction": "north",
+      "engineDirection": "up",
+      "assetKey": "veloria-aurel-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-aurel-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-aurel-idle-north-v1.webp",
+      "outputId": "exec-69a59cd7-588b-4b13-b2de-5863876fc9cf.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-69a59cd7-588b-4b13-b2de-5863876fc9cf.png",
+      "sourceSha256": "fbe44947b965880fb84532d9c5c0e6d90c8aac04b2b3ed22d24deef971ddc7d2",
+      "runtimeSha256": "73fee7bbf2334c1842d18664df3294bc678e11e71b3af76047231a365cb6fca5",
+      "dimensions": "1024x1536 RGBA",
+      "references": [
+        "assets/sources/veloria-gym-leaders-b-v1.png (frame 3 identity)",
+        "exec-b58a37f2-fc35-4199-8d1e-4e31fda92a0b.png (selected south continuity)",
+        "exec-d0740a7c-0c17-41c7-95d5-69c327e11480.png (selected east continuity)",
+        "assets/sources/veloria-elia-idle-south-v1.png (style)"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body north-facing idle character illustration for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only Aurel in the bottom-right cell, frame 3. Image 2 is the selected south-facing Aurel view and Image 3 the selected east-facing Aurel view, for identity/outfit continuity only. Image 4 is Elia’s south idle image for painterly style only; do not copy Elia or any other person.\nPrimary request: Create one independent north-facing REAR view of Aurel, facing away from the viewer. Upright calm idle pose, arms at sides, hands empty, complete full body and both boots visible.\nPreserve Aurel’s identity from the references: short softly wavy dark teal hair, same body proportions and open natural gender presentation; long ivory overcoat with deep teal geometric panels and antique-gold fabric edging; dark trousers and dark boots. Show the back of the same overcoat as a plausible continuation of its visible construction: ivory central back with the established deep-teal side/panel colors and restrained gold edge trim. Keep the back uncluttered; do not invent a crest, dragon symbol, cape, pouch, strap or new seam ornament. Aurel has no bag or side-worn accessories. The two-arc clasp belongs at the center-front of the belt and should naturally be hidden in this rear view, not moved onto the back or hip. No neck jewelry or pendant. The source raised-hand pose contained no object; both hands empty.\nStyle: polished painterly modern 2D game illustration with soft warm highlights, clear forms and delicate fabric texture, consistent with the style reference; not pixel art, anime redesign, photorealism or 3D.\nFraming: one centered full-body person seen from behind, portrait 1024×1536, hair and boots fully inside, generous transparent breathing room, no cropping. True transparent background only.\nConstraints: true back view facing north/away; no flipping, no extra items. Preserve hair, body and outfit identity. No horns, scales, tail, crown, weapon, props, extra jewelry, bags, companions, ground/shadow, glow, text, border, extra limbs/fingers, red/green fringe, backdrop, grid or composite.",
+      "origin": {
+        "x": 0.52336,
+        "y": 0.9681
+      },
+      "displaySize": 58.87474
+    }
+  ],
+  "discardedOutputs": [
+    {
+      "direction": "south",
+      "outputId": "exec-1f539771-1008-47f2-ab3c-a67c6cb28f43.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-1f539771-1008-47f2-ab3c-a67c6cb28f43.png",
+      "sha256": "483BB5689F5547781EFAB4662510E09F53C048AB26F423863AE5FBBC800FEF23",
+      "reason": "Added a triangular chest ornament not clearly present in the identity source; replaced with a cleaner south render where the two-arc belt clasp is the sole focal ornament.",
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body directional idle character illustration for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only the bottom-right cell, Aurel (frame 3). Images 2–4 are painterly 2D style references only (Elia, Nilo, Mira); do not copy those people or their outfits.\nPrimary request: Create one new independent south-facing idle illustration of Aurel, Dragon Gym Leader of Concordia. Face the viewer with Aurel’s established anatomical front visible. Use a calm, upright, balanced idle stance with both feet visible and both arms resting naturally at the sides; hands relaxed and empty.\nSubject: preserve Aurel’s specific identity from the bottom-right cell of Image 1: short softly wavy dark teal hair, same face and skin tone, same open and natural gender presentation and apparent age as shown, ivory long geometric overcoat with deep teal lapels/panels and restrained antique-gold edge details, dark high-neck inner clothing, dark trousers and dark boots. Preserve the distinctive worn two-arc gold clasp centered on the belt at the waist. Preserve the source coat’s asymmetrical front panel and hem construction without mirroring or simplifying it. The source’s raised hand is only a pose; do not put any object in either hand. Do not add a bag or any other accessory.\nStyle/medium: polished modern painterly 2D character art matching the soft warm brushwork, delicate fabric texture and readable finish of Images 2–4. Illustrated, not pixel art, anime redesign, photorealistic or 3D.\nComposition/framing: single centered full-body figure, portrait 1024×1536, complete hair and boots, generous transparent breathing room, no crop.\nScene/backdrop: true transparent background only.\nLighting/mood: gentle highlights, composed and quietly confident.\nConstraints: one character only; maintain anatomical left/right, keep the two-arc clasp centered on the waist, preserve the coat’s original asymmetry. Empty relaxed hands. No held objects, props, horns, scales, tail, crown, extra jewelry, bags, extra characters, ground shadow, glow, text, border, extra limbs/fingers, red/green fringe, or background. Independent illustration, not a crop, grid or composite."
+    },
+    {
+      "direction": "east",
+      "outputId": "exec-d6a0fcc0-7109-4ee7-8231-71784a094b9e.png",
+      "originalGeneratedPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-d6a0fcc0-7109-4ee7-8231-71784a094b9e.png",
+      "sha256": "56D05D8808B3A1AEE59DAA1576189003157628A24F72B88FF3AB49E035288863",
+      "reason": "Introduced a separate gold loop at the hip beyond the centered source clasp and coat edging; regenerated with hardware explicitly limited to the single original clasp.",
+      "prompt": "Use case: stylized-concept\nAsset type: one standalone full-body east-facing idle character for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only Aurel in the bottom-right cell, frame 3. Images 2–4 (Elia, Nilo, Mira) are painterly 2D style references only; do not copy those people or outfits.\nPrimary request: Create one independent east-facing idle view of Aurel, facing toward the viewer’s RIGHT in a clear right-facing side profile / slight natural three-quarter. Aurel’s anatomical RIGHT side is camera-near. Upright restful idle pose, full body and both boots visible, both arms resting naturally at sides with empty hands.\nIdentity: same short softly wavy dark teal hair, face/profile, skin tone, proportions and open natural gender presentation as the Aurel identity reference. Preserve the ivory long geometric overcoat with deep teal panels, restrained antique-gold fabric edging, dark high-neck inner shirt, dark trousers and boots. The distinctive two-arc gold clasp stays worn at the center front of the waist belt; from this side it may be partly obscured by the coat and perspective, but do not move it to the near hip or back. Preserve the source coat panel asymmetry on its correct anatomical sides and do not mirror. There is no bag or side-worn accessory in the source. The hand-raised pose in the atlas is not a prop: keep both hands empty. No neck jewelry, pendant, brooch, pin, bag, gloves or new accessory.\nStyle: polished painterly modern 2D with warm gentle light, delicate fabric texture and readable silhouette, consistent with inspected style references; not pixel art, anime redesign, photorealism or 3D.\nComposition: a single centered full-body character, portrait 1024×1536, complete hair and boots, generous transparent space, no crop. True transparent background.\nConstraints: face screen-right; anatomically correct, not flipped. Maintain coat asymmetry, clasp centered at waist, empty hands. No props, dragon horns/scales/tail, crown, weapons, extra ornaments, companions, ground/shadow, glow, text, border, extra limbs/fingers, red/green fringe, backdrop, grid or composite. Independent view, not a crop."
+    }
+  ],
+  "failedGenerationAttempts": [
+    {
+      "direction": "north",
+      "outputId": null,
+      "reason": "The first ImageGen invocation was rejected before generation because selected south/east candidate paths had not yet been copied into the private directory; no output image was created. The next invocation used valid original paths and succeeded."
+    }
+  ]
+}

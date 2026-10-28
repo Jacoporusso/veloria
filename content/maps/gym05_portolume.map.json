@@ -29,15 +29,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-gym-leaders-b-v1",
-      "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-nerea-portolume-idle-south-v1",
       "path": "assets/sprites/veloria-nerea-portolume-idle-south-v1.webp"
     },

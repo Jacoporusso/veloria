@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v191';
+const CACHE = 'veloria-shell-v192';
 const SHELL = [
   './assets/scenery/borgofonte-lab-interior-v2.webp',
   './assets/sprites/veloria-selene-idle-south-v1.webp',
@@ -27,6 +27,14 @@ const SHELL = [
   './assets/sprites/veloria-nerea-portolume-idle-east-v1.webp',
   './assets/sprites/veloria-nerea-portolume-idle-west-v1.webp',
   './assets/sprites/veloria-nerea-portolume-idle-south-v1.webp',
+  './assets/sprites/veloria-nives-idle-south-v1.webp',
+  './assets/sprites/veloria-nives-idle-west-v1.webp',
+  './assets/sprites/veloria-nives-idle-east-v1.webp',
+  './assets/sprites/veloria-nives-idle-north-v1.webp',
+  './assets/sprites/veloria-aurel-idle-south-v1.webp',
+  './assets/sprites/veloria-aurel-idle-west-v1.webp',
+  './assets/sprites/veloria-aurel-idle-east-v1.webp',
+  './assets/sprites/veloria-aurel-idle-north-v1.webp',
   './assets/sprites/veloria-rhea-idle-north-v1.webp',
   './assets/sprites/veloria-rhea-idle-east-v1.webp',
   './assets/sprites/veloria-rhea-idle-west-v1.webp',

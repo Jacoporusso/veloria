@@ -1,0 +1,75 @@
+{
+  "version": "0.4.29",
+  "scope": "Only per-map renderAssets; no files, catalog entries, register rows or precache removed",
+  "evidence": "No Tiled sprite, base profile or directional view in these maps references the removed atlas",
+  "theoreticalOnly": true,
+  "measuredGpuMemory": false,
+  "perVisitedGymRgba8SurfaceBytes": 6290064,
+  "note": "One legacy atlas per gym. Do not sum eight alternative visits as simultaneous memory or claim a PWA download reduction.",
+  "maps": [
+    {
+      "mapId": "veloria/gym01_brumalta",
+      "removedKey": "veloria-gym-leaders-a-v1",
+      "retainedProfileIds": [
+        "gym-leader-mira"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "removedKey": "veloria-gym-leaders-a-v1",
+      "retainedProfileIds": [
+        "gym-leader-dalia"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "removedKey": "veloria-gym-leaders-a-v1",
+      "retainedProfileIds": [
+        "gym-leader-aster"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym04_ferraluce",
+      "removedKey": "veloria-gym-leaders-a-v1",
+      "retainedProfileIds": [
+        "gym-leader-rhea"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym05_portolume",
+      "removedKey": "veloria-gym-leaders-b-v1",
+      "retainedProfileIds": [
+        "gym-leader-nerea-portolume"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym06_acquariva",
+      "removedKey": "veloria-gym-leaders-b-v1",
+      "retainedProfileIds": [
+        "gym-leader-selene"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym07_biancavetta",
+      "removedKey": "veloria-gym-leaders-b-v1",
+      "retainedProfileIds": [
+        "gym-leader-nives"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    },
+    {
+      "mapId": "veloria/gym08_concordia",
+      "removedKey": "veloria-gym-leaders-b-v1",
+      "retainedProfileIds": [
+        "gym-leader-aurel"
+      ],
+      "rgba8SurfaceBytes": 6290064
+    }
+  ]
+}

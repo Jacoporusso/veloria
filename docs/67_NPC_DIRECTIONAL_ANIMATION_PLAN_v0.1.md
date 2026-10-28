@@ -1,5 +1,9 @@
 # Piano per direzioni e animazioni NPC
 
+## Aggiornamento del 28 ottobre
+
+La tranche Nives/Aurel porta a undici i profili con quattro viste idle; le otto palestre sono tutte coperte. Le sezioni successive conservano la storia e i conteggi delle tranche precedenti. La camminata autentica di Ada resta un deliverable aperto: almeno due disegni per direzione, contratto idle/walk, avanzamento frame, test e scena isolata dove manca una rotta reale. Non viene considerata soddisfatta dalle pose idle, né richiede di inventare pattuglie nella campagna. Ogni identità restante conserva il proprio obbligo di produzione e verifica. Dettaglio del lotto in `105_NIVES_AUREL_DIRECTIONAL_IDLE_v0.1.md`.
+
 ## Stato verificato
 
 L’inventario `docs/art/full-redesign-inventory.json` censisce48 profili/identità e51 presenze NPC. Il catalogo `content/characters/appearances.v2.json` ha48 profili e18 asset immagine. I profili collegano identità, apparizioni, asset e origine; Ada dichiara ora quattro viste idle indipendenti. Il descrittore di atlante dei profili statici specifica righe e colonne.

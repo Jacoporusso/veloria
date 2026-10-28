@@ -809,6 +809,176 @@
           "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-2bcd388a-a0b8-426f-89c7-2bdf43f0cbac.png"
         }
       ]
+    },
+    {
+      "profileId": "gym-leader-nives",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/nives-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-nives-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-nives-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-nives-idle-south-v1.webp",
+          "sourceSha256": "a713d7f6c231e6a9a3bee50a490c05614271643d6f56507fe8971f9f1046f341",
+          "runtimeSha256": "42d2f875e2c20bebb3075b39aed0d29157558a6cebc51141e714dcbb99019405",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            196,
+            37,
+            819,
+            1468
+          ],
+          "origin": {
+            "x": 0.50372,
+            "y": 0.95573
+          },
+          "displaySize": 60.10901,
+          "outputId": "exec-b8eb3c0c-b109-4d2f-932a-8e9323a9ea5b.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-b8eb3c0c-b109-4d2f-932a-8e9323a9ea5b.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-nives-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-nives-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-nives-idle-west-v1.webp",
+          "sourceSha256": "28892fa6bb51869d85436571ccca286351fd09ab9c872cfc16e2f226725f8554",
+          "runtimeSha256": "cc935c1fdd87e7c15fac97f0da5852172c9a078f07981b1f1a94c32e89d0a26a",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            309,
+            29,
+            755,
+            1477
+          ],
+          "origin": {
+            "x": 0.49427,
+            "y": 0.96159
+          },
+          "displaySize": 59.40331,
+          "outputId": "exec-7ce24d40-0fae-4125-a50b-558e75df3fb2.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-7ce24d40-0fae-4125-a50b-558e75df3fb2.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-nives-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-nives-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-nives-idle-east-v1.webp",
+          "sourceSha256": "2ac53d681faf48e7fde8d6885e1d3b865dc186aeedeaae74bc7a76a55b0895c6",
+          "runtimeSha256": "fc01e16c2e1d2beaf218aa43d7fdaef97345d18350a758297a61c87f616a9aeb",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            287,
+            46,
+            722,
+            1478
+          ],
+          "origin": {
+            "x": 0.52684,
+            "y": 0.96224
+          },
+          "displaySize": 60.06704,
+          "outputId": "exec-616376f6-c132-443a-809b-84a3eabe51e2.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-616376f6-c132-443a-809b-84a3eabe51e2.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-nives-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-nives-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-nives-idle-north-v1.webp",
+          "sourceSha256": "6e72b03f5f8055da168c5d3a074d2fb6c0f7b23825ed9dc143beef20c65c621a",
+          "runtimeSha256": "9809a65a12bfe99961d115caf137fd088abe454e88f8c8184b430817c0adec26",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            201,
+            31,
+            823,
+            1498
+          ],
+          "origin": {
+            "x": 0.49876,
+            "y": 0.97526
+          },
+          "displaySize": 58.63395,
+          "outputId": "exec-b234c969-3ecc-4662-b0e4-1bd9550143c5.png",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-b234c969-3ecc-4662-b0e4-1bd9550143c5.png"
+        }
+      ]
+    },
+    {
+      "profileId": "gym-leader-aurel",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/aurel-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-aurel-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-aurel-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-aurel-idle-south-v1.webp",
+          "sourceSha256": "9da93b57499261ff096faac6e8ba84d3c6301bb5a62e1835828b1d757039b050",
+          "runtimeSha256": "e5659300143404ad156d45cf4efa17ebcee2ef00966ffabfcccf14a771cee43b",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.61166,
+            "y": 0.9681
+          },
+          "displaySize": 59.48548,
+          "outputId": "exec-b58a37f2-fc35-4199-8d1e-4e31fda92a0b.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-aurel-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-aurel-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-aurel-idle-west-v1.webp",
+          "sourceSha256": "4c27c7ebad5ea68ad1d67c0b0dab84526ce9871e18c32c3dffa7d6796ca43adf",
+          "runtimeSha256": "66b0dc923d197a25ac23521d6e7367550c588d68e36b798770ae35c3069e9a54",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.53249,
+            "y": 0.97526
+          },
+          "displaySize": 58.3555,
+          "outputId": "exec-4603f68d-613d-415b-a5b8-305d9674f13c.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-aurel-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-aurel-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-aurel-idle-east-v1.webp",
+          "sourceSha256": "4b4b38b6d20a3fe8bd49841fc86ac00a219e318147b9647aac658bd8e00f8d92",
+          "runtimeSha256": "ad291c7477548c7590ee0abe6ca9f0d243c0736c1ac0f7e1926241b37f17f85f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.41791,
+            "y": 0.97982
+          },
+          "displaySize": 57.76763,
+          "outputId": "exec-d0740a7c-0c17-41c7-95d5-69c327e11480.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-aurel-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-aurel-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-aurel-idle-north-v1.webp",
+          "sourceSha256": "fbe44947b965880fb84532d9c5c0e6d90c8aac04b2b3ed22d24deef971ddc7d2",
+          "runtimeSha256": "73fee7bbf2334c1842d18664df3294bc678e11e71b3af76047231a365cb6fca5",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52336,
+            "y": 0.9681
+          },
+          "displaySize": 58.87474,
+          "outputId": "exec-69a59cd7-588b-4b13-b2de-5863876fc9cf.png"
+        }
+      ]
     }
   ]
 }

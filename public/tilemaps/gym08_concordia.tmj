@@ -2297,12 +2297,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-gym-leaders-b-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-aurel-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -2327,12 +2322,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.4853
+              "value": 0.61166
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9761
+              "value": 0.9681
             }
           ]
         }

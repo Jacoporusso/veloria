@@ -1,3 +1,15 @@
+## 0.4.29 — Nives/Aurel direzionali e caricamento delle palestre
+
+Le otto palestre hanno ora capipalestra con quattro pose idle indipendenti: Nives e Aurel completano il gruppo. Undici profili direzionali su48 identità;37 restano da migrare. PNG raw immutati e WebP lossless RGBA-identici, prompt e scarti registrati; ovest Nives corretta per il moschettone sinistro. Geometria e progressione invariate. Nives ha tre approcci reali attraverso le scivolate, con nord bloccato; Aurel quattro dopo il varco. Dettagli in `105_NIVES_AUREL_DIRECTIONAL_IDLE_v0.1.md`.
+
+Rimossi i vecchi atlanti A/B solo dai renderAssets delle otto palestre. Catalogo, file, registro e precache conservati; nessuna riduzione dei download PWA dichiarata. Audit preciso in `art/retired-gym-map-atlases-0.4.29.json`. I53 test identità esistenti passano intatti. Assenza della texture B verificata in Chrome nelle due nuove palestre, e nessuna richiesta B dopo reload offline. Il costo RGBA8 teorico del singolo atlante è circa6MiB; memoria GPU e prestazioni non sono state misurate.
+
+Locale:820 dominio/persistenza,154 Python, TypeScript e validatori766media/48fondali/48mappe passati. Sette casi Chrome distinti passati: quattro modalità/approcci Nives/Aurel, rendering e identità globali, Ada. Le sei prove ambiente/personaggi sono ripetute con esito positivo dopo la rimozione degli atlanti. Tre casi produzione offline passati sulla build finale: primo accesso pose/interazioni Nives/Aurel e primo decode48fondali. Screenshot runtime rivisti in portrait/landscape. Build passata con avviso chunk Phaser. Discovery400browser una sola volta,50risorse offline divise25+25.
+
+Indagata Verify40656119251: unico job fallito chapters7, errore ECONNRESET nel fetch del gancio test Ada; altri29job passati. Retry limitati a due per quel fetch, tutte le asserzioni e i timeout preservati; caso Ada passato localmente26,7s. Nessun difetto della casa segnalato da quella CI.
+
+Contenuti0.4.29/cachev192 preparati; invio e pubblicazione ancora da attestare. Goal aperto:37 identità direzionali, pipeline walk autentica Ada e relativa estensione/verifica del cast, progressione naturale dopo la prima medaglia fino alla Lega. Candidate walk Ada e correzioni della coerenza degli accessori restano private e non sono incluse in questo rilascio.
+
 ## 0.4.28 — casa percorribile e accettazione delle stanze iniziali
 
 Collisioni della casa allineate al pavimento dipinto e ai piedi del personaggio: corridoio nord e laterali aperti, ritorni in legno, arredi e parete sud solidi. Fonte e pixel invariati. Laboratorio conservato con copia canonica byte-identica; geometria invariata dopo review. Dettagli e rettangoli in `104_OPENING_INTERIORS_GEOMETRY_v0.1.md`. Tutti i 48 ambienti hanno ora fonte, prompt, hash e binding del fondale registrati; questo non equivale al completamento dell'intero progetto.
@@ -6,7 +18,7 @@ Verifiche locali: 820 test dominio/persistenza, 154 Python, TypeScript e validat
 
 Nuova evidenza naturale sul runtime0.4.27: partita da zero con Charmander fino alla medaglia Aurora, con catture, allenamento, acquisti e reload reali; un caso passato in5,3minuti. Report integrale sintetico in `playtests/2026-10-28-current-gen1-first-medal-report.json`, analisi e limiti in `playtests/2026-10-28-current-gen1-first-medal.md`. Non prova le sette medaglie successive o la Lega. I vecchi checkpoint GenII restano esclusi come evidenza della campagna corrente.
 
-Runtime `56ff2ce02c7335c2ffa5d7c4652f91ff89562cdd` inviato a main. Contenuti0.4.28/cachev191. [Deploy40656119388](https://github.com/Jacoporusso/veloria/actions/runs/40656119388) COMPLETED/SUCCESS. Pages verificata: cachev191, laboratorio canonico HTTP200 e collisione nord della casa con altezza96 nel TMJ pubblico. [Verify40656119251](https://github.com/Jacoporusso/veloria/actions/runs/40656119251) QUEUED all'ultimo controllo, non ancora attestata completa. Goal aperto:39 profili direzionali ancora da migrare, cicli di camminata e progressione naturale restante. Candidate Aurel riviste e accettate in privato; ovest Nives in revisione per accessorio laterale. Nessuno dei due profili è incluso in questo rilascio.
+Runtime `56ff2ce02c7335c2ffa5d7c4652f91ff89562cdd` inviato a main. Contenuti0.4.28/cachev191. [Deploy40656119388](https://github.com/Jacoporusso/veloria/actions/runs/40656119388) COMPLETED/SUCCESS. Pages verificata: cachev191, laboratorio canonico HTTP200 e collisione nord della casa con altezza96 nel TMJ pubblico. [Verify40656119251](https://github.com/Jacoporusso/veloria/actions/runs/40656119251) COMPLETED/FAILURE:29job SUCCESS e solo chapters7 fallito sul fetch osservativo Ada con ECONNRESET. Correzione limitata e verifica locale nella0.4.29; suite completa non dichiarata passata per questa revisione.
 
 ## 0.4.27 — selezione atlante, Nerea/Selene e Centrale
 

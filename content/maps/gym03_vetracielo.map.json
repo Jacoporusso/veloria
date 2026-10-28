@@ -38,15 +38,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-gym-leaders-a-v1",
-      "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-aster-idle-south-v1",
       "path": "assets/sprites/veloria-aster-idle-south-v1.webp"
     },

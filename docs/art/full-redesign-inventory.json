@@ -991,6 +991,46 @@
         "kind": "image",
         "key": "veloria-selene-idle-north-v1",
         "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-south-v1",
+        "path": "assets/sprites/veloria-nives-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-west-v1",
+        "path": "assets/sprites/veloria-nives-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-east-v1",
+        "path": "assets/sprites/veloria-nives-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-north-v1",
+        "path": "assets/sprites/veloria-nives-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-south-v1",
+        "path": "assets/sprites/veloria-aurel-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-west-v1",
+        "path": "assets/sprites/veloria-aurel-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-east-v1",
+        "path": "assets/sprites/veloria-aurel-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-north-v1",
+        "path": "assets/sprites/veloria-aurel-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -1002,6 +1042,10 @@
       "veloria-aster-idle-north-v1",
       "veloria-aster-idle-south-v1",
       "veloria-aster-idle-west-v1",
+      "veloria-aurel-idle-east-v1",
+      "veloria-aurel-idle-north-v1",
+      "veloria-aurel-idle-south-v1",
+      "veloria-aurel-idle-west-v1",
       "veloria-cast-opening-and-champion-v1",
       "veloria-centrale-technician-v1",
       "veloria-coastal-cast-v1",
@@ -1032,6 +1076,10 @@
       "veloria-nilo-idle-north-v1",
       "veloria-nilo-idle-south-v1",
       "veloria-nilo-idle-west-v1",
+      "veloria-nives-idle-east-v1",
+      "veloria-nives-idle-north-v1",
+      "veloria-nives-idle-south-v1",
+      "veloria-nives-idle-west-v1",
       "veloria-npcs-v3",
       "veloria-r09-r10-coastal-trainers-v1",
       "veloria-rhea-idle-east-v1",
@@ -1385,6 +1433,46 @@
         "kind": "image",
         "key": "veloria-selene-idle-north-v1",
         "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-south-v1",
+        "path": "assets/sprites/veloria-nives-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-west-v1",
+        "path": "assets/sprites/veloria-nives-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-east-v1",
+        "path": "assets/sprites/veloria-nives-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nives-idle-north-v1",
+        "path": "assets/sprites/veloria-nives-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-south-v1",
+        "path": "assets/sprites/veloria-aurel-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-west-v1",
+        "path": "assets/sprites/veloria-aurel-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-east-v1",
+        "path": "assets/sprites/veloria-aurel-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-aurel-idle-north-v1",
+        "path": "assets/sprites/veloria-aurel-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1853,12 +1941,45 @@
         "npcIds": [
           "nives_gym"
         ],
-        "assetKey": "veloria-gym-leaders-b-v1",
-        "frame": 2,
+        "assetKey": "veloria-nives-idle-south-v1",
         "narrativeSource": "content/trainers/gym07_nives.trainer.json",
         "origin": {
-          "x": 0.5682,
-          "y": 0.9585
+          "x": 0.50372,
+          "y": 0.95573
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-nives-idle-south-v1",
+            "origin": {
+              "x": 0.50372,
+              "y": 0.95573
+            },
+            "displaySize": 60.10901
+          },
+          "left": {
+            "assetKey": "veloria-nives-idle-west-v1",
+            "origin": {
+              "x": 0.49427,
+              "y": 0.96159
+            },
+            "displaySize": 59.40331
+          },
+          "right": {
+            "assetKey": "veloria-nives-idle-east-v1",
+            "origin": {
+              "x": 0.52684,
+              "y": 0.96224
+            },
+            "displaySize": 60.06704
+          },
+          "up": {
+            "assetKey": "veloria-nives-idle-north-v1",
+            "origin": {
+              "x": 0.49876,
+              "y": 0.97526
+            },
+            "displaySize": 58.63395
+          }
         }
       },
       {
@@ -1870,12 +1991,45 @@
         "npcIds": [
           "aurel_gym"
         ],
-        "assetKey": "veloria-gym-leaders-b-v1",
-        "frame": 3,
+        "assetKey": "veloria-aurel-idle-south-v1",
         "narrativeSource": "content/trainers/gym08_aurel.trainer.json",
         "origin": {
-          "x": 0.4853,
-          "y": 0.9761
+          "x": 0.61166,
+          "y": 0.9681
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-aurel-idle-south-v1",
+            "origin": {
+              "x": 0.61166,
+              "y": 0.9681
+            },
+            "displaySize": 59.48548
+          },
+          "left": {
+            "assetKey": "veloria-aurel-idle-west-v1",
+            "origin": {
+              "x": 0.53249,
+              "y": 0.97526
+            },
+            "displaySize": 58.3555
+          },
+          "right": {
+            "assetKey": "veloria-aurel-idle-east-v1",
+            "origin": {
+              "x": 0.41791,
+              "y": 0.97982
+            },
+            "displaySize": 57.76763
+          },
+          "up": {
+            "assetKey": "veloria-aurel-idle-north-v1",
+            "origin": {
+              "x": 0.52336,
+              "y": 0.9681
+            },
+            "displaySize": 58.87474
+          }
         }
       },
       {
@@ -5972,17 +6126,6 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-a-v1",
-          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
           "key": "veloria-mira-idle-south-v1",
           "path": "assets/sprites/veloria-mira-idle-south-v1.webp",
           "extension": ".webp",
@@ -6231,17 +6374,6 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-a-v1",
-          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
           "key": "veloria-dalia-idle-south-v1",
           "path": "assets/sprites/veloria-dalia-idle-south-v1.webp",
           "extension": ".webp",
@@ -6443,17 +6575,6 @@
           "kind": "image",
           "key": "veloria-gym03_vetracielo-illustrated-v3",
           "path": "assets/scenery/veloria-gym03_vetracielo-illustrated-v3.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
-          "key": "veloria-gym-leaders-a-v1",
-          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -6680,17 +6801,6 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-a-v1",
-          "path": "assets/sprites/veloria-gym-leaders-a-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
           "key": "veloria-rhea-idle-south-v1",
           "path": "assets/sprites/veloria-rhea-idle-south-v1.webp",
           "extension": ".webp",
@@ -6887,17 +6997,6 @@
           "kind": "image",
           "key": "veloria-gym05_portolume-illustrated-v3",
           "path": "assets/scenery/veloria-gym05_portolume-illustrated-v3.webp",
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
-          "key": "veloria-gym-leaders-b-v1",
-          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7109,17 +7208,6 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-b-v1",
-          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
-          "extension": ".webp",
-          "runtimeFilePresent": true
-        },
-        {
-          "kind": "image",
           "key": "veloria-selene-idle-south-v1",
           "path": "assets/sprites/veloria-selene-idle-south-v1.webp",
           "extension": ".webp",
@@ -7305,12 +7393,29 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-b-v1",
-          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
+          "key": "veloria-nives-idle-south-v1",
+          "path": "assets/sprites/veloria-nives-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nives-idle-west-v1",
+          "path": "assets/sprites/veloria-nives-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nives-idle-east-v1",
+          "path": "assets/sprites/veloria-nives-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nives-idle-north-v1",
+          "path": "assets/sprites/veloria-nives-idle-north-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7369,11 +7474,11 @@
           "profileMatch": "gym-leader-nives",
           "narrativeSpeaker": "Nives",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-b-v1",
-          "spriteFrame": 2,
+          "sprite": "veloria-nives-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.5682,
-            "y": 0.9585
+            "x": 0.50372,
+            "y": 0.95573
           },
           "trainerId": "veloria/trainer_nives_gym07",
           "battleOnceFlag": "trainer_gym07_nives_defeated",
@@ -7472,12 +7577,29 @@
         },
         {
           "kind": "image",
-          "key": "veloria-gym-leaders-b-v1",
-          "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-          "atlas": {
-            "columns": 2,
-            "rows": 2
-          },
+          "key": "veloria-aurel-idle-south-v1",
+          "path": "assets/sprites/veloria-aurel-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aurel-idle-west-v1",
+          "path": "assets/sprites/veloria-aurel-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aurel-idle-east-v1",
+          "path": "assets/sprites/veloria-aurel-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-aurel-idle-north-v1",
+          "path": "assets/sprites/veloria-aurel-idle-north-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7535,11 +7657,11 @@
           "profileMatch": "gym-leader-aurel",
           "narrativeSpeaker": "Aurel",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-b-v1",
-          "spriteFrame": 3,
+          "sprite": "veloria-aurel-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.4853,
-            "y": 0.9761
+            "x": 0.61166,
+            "y": 0.9681
           },
           "trainerId": "veloria/trainer_aurel_gym08",
           "battleOnceFlag": "trainer_gym08_aurel_defeated",
@@ -14819,11 +14941,11 @@
       "profileMatch": "gym-leader-nives",
       "narrativeSpeaker": "Nives",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-b-v1",
-      "spriteFrame": 2,
+      "sprite": "veloria-nives-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.5682,
-        "y": 0.9585
+        "x": 0.50372,
+        "y": 0.95573
       },
       "trainerId": "veloria/trainer_nives_gym07",
       "battleOnceFlag": "trainer_gym07_nives_defeated",
@@ -14846,11 +14968,11 @@
       "profileMatch": "gym-leader-aurel",
       "narrativeSpeaker": "Aurel",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-b-v1",
-      "spriteFrame": 3,
+      "sprite": "veloria-aurel-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.4853,
-        "y": 0.9761
+        "x": 0.61166,
+        "y": 0.9681
       },
       "trainerId": "veloria/trainer_aurel_gym08",
       "battleOnceFlag": "trainer_gym08_aurel_defeated",

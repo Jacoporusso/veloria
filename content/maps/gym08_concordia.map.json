@@ -34,12 +34,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-gym-leaders-b-v1",
-      "path": "assets/sprites/veloria-gym-leaders-b-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-aurel-idle-south-v1",
+      "path": "assets/sprites/veloria-aurel-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-west-v1",
+      "path": "assets/sprites/veloria-aurel-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-east-v1",
+      "path": "assets/sprites/veloria-aurel-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-north-v1",
+      "path": "assets/sprites/veloria-aurel-idle-north-v1.webp"
     }
   ],
   "spawns": [

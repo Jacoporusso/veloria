@@ -298,6 +298,46 @@
       "kind": "image",
       "key": "veloria-selene-idle-north-v1",
       "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nives-idle-south-v1",
+      "path": "assets/sprites/veloria-nives-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nives-idle-west-v1",
+      "path": "assets/sprites/veloria-nives-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nives-idle-east-v1",
+      "path": "assets/sprites/veloria-nives-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nives-idle-north-v1",
+      "path": "assets/sprites/veloria-nives-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-south-v1",
+      "path": "assets/sprites/veloria-aurel-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-west-v1",
+      "path": "assets/sprites/veloria-aurel-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-east-v1",
+      "path": "assets/sprites/veloria-aurel-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-aurel-idle-north-v1",
+      "path": "assets/sprites/veloria-aurel-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -766,12 +806,45 @@
       "npcIds": [
         "nives_gym"
       ],
-      "assetKey": "veloria-gym-leaders-b-v1",
-      "frame": 2,
+      "assetKey": "veloria-nives-idle-south-v1",
       "narrativeSource": "content/trainers/gym07_nives.trainer.json",
       "origin": {
-        "x": 0.5682,
-        "y": 0.9585
+        "x": 0.50372,
+        "y": 0.95573
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-nives-idle-south-v1",
+          "origin": {
+            "x": 0.50372,
+            "y": 0.95573
+          },
+          "displaySize": 60.10901
+        },
+        "left": {
+          "assetKey": "veloria-nives-idle-west-v1",
+          "origin": {
+            "x": 0.49427,
+            "y": 0.96159
+          },
+          "displaySize": 59.40331
+        },
+        "right": {
+          "assetKey": "veloria-nives-idle-east-v1",
+          "origin": {
+            "x": 0.52684,
+            "y": 0.96224
+          },
+          "displaySize": 60.06704
+        },
+        "up": {
+          "assetKey": "veloria-nives-idle-north-v1",
+          "origin": {
+            "x": 0.49876,
+            "y": 0.97526
+          },
+          "displaySize": 58.63395
+        }
       }
     },
     {
@@ -783,12 +856,45 @@
       "npcIds": [
         "aurel_gym"
       ],
-      "assetKey": "veloria-gym-leaders-b-v1",
-      "frame": 3,
+      "assetKey": "veloria-aurel-idle-south-v1",
       "narrativeSource": "content/trainers/gym08_aurel.trainer.json",
       "origin": {
-        "x": 0.4853,
-        "y": 0.9761
+        "x": 0.61166,
+        "y": 0.9681
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-aurel-idle-south-v1",
+          "origin": {
+            "x": 0.61166,
+            "y": 0.9681
+          },
+          "displaySize": 59.48548
+        },
+        "left": {
+          "assetKey": "veloria-aurel-idle-west-v1",
+          "origin": {
+            "x": 0.53249,
+            "y": 0.97526
+          },
+          "displaySize": 58.3555
+        },
+        "right": {
+          "assetKey": "veloria-aurel-idle-east-v1",
+          "origin": {
+            "x": 0.41791,
+            "y": 0.97982
+          },
+          "displaySize": 57.76763
+        },
+        "up": {
+          "assetKey": "veloria-aurel-idle-north-v1",
+          "origin": {
+            "x": 0.52336,
+            "y": 0.9681
+          },
+          "displaySize": 58.87474
+        }
       }
     },
     {

@@ -73,7 +73,7 @@ test('Ada uses four anchored idle views when approached from each side, independ
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {
-    const response = await route.fetch();
+    const response = await route.fetch({ maxRetries: 2 });
     await route.fulfill({ response, body: await response.text() + '\nwindow.__adaIdleGame = game;' });
   });
   await page.setViewportSize({ width: 390, height: 844 });

@@ -208,6 +208,17 @@ for (const npc of [
       { x: 15, y: 2, label: 'Vai a destra', pose: 'left' },
       { x: 17, y: 2, label: 'Vai a sinistra', pose: 'right' },
     ], blockedApproach: { x: 16, y: 1 } },
+  { name: 'Nives', speaker: 'Nives', profile: 'gym-leader-nives', map: 'gym07_biancavetta', spawn: 'from_city', x: 16, y: 1,
+    start: { x: 15, y: 22 }, dimensions: [1024, 1536], navigation: 'ice',
+    flags: ['gym07_ice_complete', 'trainer_gym07_nives_defeated', 'badge_ghiaccio_awarded'], coldStart: false,
+    approaches: [
+      { x: 16, y: 2, label: 'Vai in alto', pose: 'down' },
+      { x: 15, y: 1, label: 'Vai a destra', pose: 'left' },
+      { x: 17, y: 1, label: 'Vai a sinistra', pose: 'right' },
+    ], blockedApproach: { x: 16, y: 0 } },
+  { name: 'Aurel', speaker: 'Aurel', profile: 'gym-leader-aurel', map: 'gym08_concordia', spawn: 'from_city', x: 16, y: 2,
+    start: { x: 15, y: 22 }, dimensions: [1024, 1536],
+    flags: ['gym08_convergence_complete', 'trainer_gym08_aurel_defeated', 'badge_drago_awarded'], coldStart: false },
 ]) test(`${npc.name} directional idle images load offline and configured approaches remain interactive`, async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
@@ -264,7 +275,9 @@ for (const npc of [
     { x: npc.x + 1, y: npc.y, label: 'Vai a sinistra', pose: 'right' },
   ];
   for (const stop of approaches) {
-    await walkTo(page, `${npc.map === 'borgofonte' ? 'bg_borgofonte' : npc.map}.tmj`, stop.x, stop.y);
+    const mapFile = `${npc.map === 'borgofonte' ? 'bg_borgofonte' : npc.map}.tmj`;
+    if ('navigation' in npc && npc.navigation === 'ice') await walkIceTo(page, mapFile, stop.x, stop.y);
+    else await walkTo(page, mapFile, stop.x, stop.y);
     await page.getByRole('button', { name: stop.label, exact: true }).tap();
     const before = await readBrowserSave(page);
     await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
@@ -277,6 +290,9 @@ for (const npc of [
   }
   await page.reload(); await enterGame(page);
   expect((await readBrowserSave(page)).player).toMatchObject({ mapId: `veloria/${npc.map}`, x: npc.x + 1, y: npc.y });
+  if (npc.map === 'gym07_biancavetta' || npc.map === 'gym08_concordia') {
+    expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-gym-leaders-b-v1.webp')))).toBe(false);
+  }
   expect(failures).toEqual([]); expect(errors).toEqual([]);
 });
 

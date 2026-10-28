@@ -2610,12 +2610,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-gym-leaders-b-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-nives-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -2645,12 +2640,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.5682
+              "value": 0.50372
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9585
+              "value": 0.95573
             }
           ]
         }
