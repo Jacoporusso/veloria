@@ -1,5 +1,7 @@
 # Laboratorio di Elia — illustrazione moderna v2
 
+Nota del 28/10/2026: fonte e pixel restano invariati; il derivato è copiato nella cartella canonica `public/assets/scenery/`. Il vecchio file in `public/assets/sprites/` resta disponibile. Geometria invariata; accettazione runtime in `docs/104_OPENING_INTERIORS_GEOMETRY_v0.1.md`.
+
 Strumento: OpenAI ImageGen integrato, modifica del fondale v1. Sorgente `assets/sources/borgofonte-lab-interior-v2.png`; derivato WebP lossless in `public/assets/sprites/`. Camera e geometria Tiled invariati. Primo ambiente del rifacimento completo, non completamento dell’intero obiettivo.
 
 ## Prompt

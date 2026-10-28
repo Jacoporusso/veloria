@@ -815,7 +815,7 @@
           "x": 0,
           "y": 0,
           "width": 768,
-          "height": 160,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -832,8 +832,8 @@
           "class": "collision",
           "x": 0,
           "y": 160,
-          "width": 96,
-          "height": 256,
+          "width": 64,
+          "height": 224,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -848,10 +848,10 @@
           "id": 3,
           "name": "east-wall",
           "class": "collision",
-          "x": 672,
+          "x": 704,
           "y": 160,
-          "width": 96,
-          "height": 256,
+          "width": 64,
+          "height": 224,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -867,9 +867,9 @@
           "name": "south-west-wall",
           "class": "collision",
           "x": 0,
-          "y": 416,
+          "y": 384,
           "width": 352,
-          "height": 96,
+          "height": 128,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -885,9 +885,9 @@
           "name": "south-east-wall",
           "class": "collision",
           "x": 416,
-          "y": 416,
+          "y": 384,
           "width": 352,
-          "height": 96,
+          "height": 128,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -903,9 +903,9 @@
           "name": "desk",
           "class": "collision",
           "x": 128,
-          "y": 160,
+          "y": 128,
           "width": 128,
-          "height": 64,
+          "height": 96,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -921,9 +921,9 @@
           "name": "bed",
           "class": "collision",
           "x": 544,
-          "y": 160,
+          "y": 96,
           "width": 128,
-          "height": 128,
+          "height": 192,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -939,9 +939,81 @@
           "name": "potted-plant",
           "class": "collision",
           "x": 96,
-          "y": 160,
+          "y": 96,
           "width": 32,
           "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "west-wall-upper",
+          "class": "collision",
+          "x": 0,
+          "y": 96,
+          "width": 96,
+          "height": 64,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "east-wall-upper",
+          "class": "collision",
+          "x": 672,
+          "y": 96,
+          "width": 96,
+          "height": 64,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "bookcase",
+          "class": "collision",
+          "x": 288,
+          "y": 96,
+          "width": 160,
+          "height": 32,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "collision"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "bedside-table",
+          "class": "collision",
+          "x": 512,
+          "y": 96,
+          "width": 32,
+          "height": 64,
           "rotation": 0,
           "visible": true,
           "properties": [
@@ -1155,7 +1227,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 14,
+  "nextobjectid": 18,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

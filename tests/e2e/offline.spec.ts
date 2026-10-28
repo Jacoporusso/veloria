@@ -361,6 +361,53 @@ test('fossil reward guidance locates Elia from the first offline Journal visit',
   expect(failures).toEqual([]);
 });
 
+test('opening interiors are first visited offline with reachable floor, dialogue and return paths', async ({ page, context }, info) => {
+  test.setTimeout(process.env.CI ? 180_000 : 120_000);
+  await page.goto('/'); await enterGame(page);
+  const fixture = await readBrowserSave(page);
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 4, level: 5, instanceId: 'offline-opening-interiors' });
+  fixture.party = [{ instanceId: creature.instanceId, speciesId: 4, level: 5, experience: 0, hp: creature.hp,
+    maxHp: creature.stats.maxHp, moves: creature.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
+  fixture.flags = [...new Set([...fixture.flags, 'q_starter_selected', 'q_research_sample_received',
+    'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen'])];
+  await seedBrowserSave(page, fixture); await page.reload(); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const paths = await illustratedMapPaths(['borgofonte_home', 'borgofonte_lab']);
+  expect(await page.evaluate(paths => performance.getEntriesByType('resource').some(entry => paths.some(path => entry.name.includes(path))), paths)).toBe(false);
+  const before = await readBrowserSave(page);
+  const failures: string[] = []; page.on('requestfailed', request => failures.push(request.url()));
+  await context.setOffline(true);
+  await walkTo(page, 'bg_borgofonte.tmj', 13, 9); await walkDirection(page, 'up');
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte_home');
+  await walkTo(page, 'borgofonte_home.tmj', 15, 3);
+  await page.screenshot({ path: info.outputPath('home-north-floor-offline.png') });
+  const home = await readBrowserSave(page);
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player).toEqual(home.player);
+  await walkTo(page, 'borgofonte_home.tmj', 12, 13); await walkDirection(page, 'down');
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
+  await walkTo(page, 'bg_borgofonte.tmj', 21, 26); await walkDirection(page, 'up');
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte_lab');
+  await walkTo(page, 'borgofonte_lab.tmj', 12, 8);
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+  await expect(page.locator('#interaction-prompt')).toContainText('Elia');
+  await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
+  await expect(page.locator('#dialogue-speaker')).toContainText('Elia');
+  for (let i = 0; i < 10 && await page.locator('#dialogue-box').isVisible(); i++) {
+    await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
+  }
+  await expect(page.locator('#dialogue-box')).toBeHidden();
+  await walkTo(page, 'borgofonte_lab.tmj', 12, 13); await walkDirection(page, 'down');
+  await expect.poll(async () => (await readBrowserSave(page)).player.mapId).toBe('veloria/borgofonte');
+  await page.reload(); await enterGame(page);
+  const after = await readBrowserSave(page);
+  for (const key of ['party', 'inventory', 'badges', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
+  expect(after.player.money).toBe(before.player.money);
+  expect(after.flags).toEqual(expect.arrayContaining([...before.flags, 'atlas_visited_veloria/borgofonte_home', 'atlas_visited_veloria/borgofonte_lab']));
+  expect(failures).toEqual([]);
+});
+
 test('canonical NPC artwork and redesigned scenery decode offline without changing progress', async ({ page, context }) => {
   await page.goto('/'); await enterGame(page);
   await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
@@ -369,7 +416,7 @@ test('canonical NPC artwork and redesigned scenery decode offline without changi
   await context.setOffline(true); await page.reload(); await enterGame(page);
   const decoded = await page.evaluate(async () => {
     const paths = ['assets/sprites/veloria-npcs-v3.webp', 'assets/scenery/veloria-c01_brumalta-illustrated-v2.webp',
-      'assets/sprites/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp',
+      'assets/scenery/borgofonte-lab-interior-v2.webp', 'assets/scenery/veloria-borgofonte-home-interior-v2.webp',
       'assets/scenery/veloria-borgofonte-illustrated-v3.webp', 'assets/scenery/veloria-r02_viale_fronde-illustrated-v3.webp',
       'assets/scenery/veloria-d01_bosco_veli-illustrated-v3.webp', 'assets/sprites/veloria-gym-leaders-a-v1.webp',
       'assets/sprites/veloria-gym-leaders-b-v1.webp', 'assets/sprites/veloria-league-council-v1.webp',

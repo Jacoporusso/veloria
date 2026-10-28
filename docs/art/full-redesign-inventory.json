@@ -7,17 +7,17 @@
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
     "mapsWithExplicitSceneryImage": 41,
-    "mapsWithRegisteredSceneryPath": 47,
+    "mapsWithRegisteredSceneryPath": 48,
     "mapsWithTerrainBase": 22,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
     "mapsWithSceneryImageOnly": 26,
     "mapsWithTerrainBaseOnly": 7,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 47,
+    "registeredSceneryImageAssets": 48,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 46,
+    "parityArtworkEntries": 48,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -3427,8 +3427,26 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/borgofonte_home",
+        "tiledAsset": "tilemaps/borgofonte_home.tmj",
+        "assetKey": "veloria-borgofonte-home-interior-v2",
+        "sourcePath": "assets/sources/veloria-borgofonte-home-interior-v2.png",
+        "runtimePath": "public/assets/scenery/veloria-borgofonte-home-interior-v2.webp",
+        "sourceSha256": "726089fb9147c40c69da2ba907660ef548912f92996a3b4b07828c5b832ba8dd",
+        "runtimeSha256": "3952eb74781232a6e8801407da1017531d1c1f0d81399bfc91a60dd0e7f2c8a2",
+        "width": 1536,
+        "height": 1024,
+        "prompt": "Use case: precise-object-edit  \nAsset type: playable full-map bedroom scenery, 24×16 grid, 3:2, Borgofonte  \nInput image: Image 1 is the current warm painted bedroom illustration. Preserve its style, room footprint, windows, wall pictures, bookcase, bed, plants, and bedside table.  \nPrimary request: correct only the exact scale/position of the sage rug, doorway and desk to align them more closely with the 24×16 Tiled map.  \nComposition/geometry: keep image dimensions and north-up orthographic layout. The doorway in the south wall must be a centered 2-tile opening, exactly 8.33% of the full image width (x=45.83–54.17%). Narrow the current opening; remove any outside porch/platform beyond the bottom map edge. The walkable floor should meet the two-tile door gap directly. The arrival spawn tile center is x=52.08%, y=78.13%, just inside the threshold. Keep the vertical route from that point to the doorway unobstructed and visually clear. Reduce the rug to a small rectangular mat centered on the room: x=40–60% of image width and y=56–76% of image height. Keep it flat and walkable. Move the desk downward so its body is inside x=16.67–33.33%, y=31.25–43.75%; the tabletop/journal may extend slightly into the interaction area above, but should not cross north of y=25%. Keep the bookcase on the north wall at x=37.5–54.17%, the bed upper right, and other furniture in place.  \nStyle: retain the current soft matte hand-painted modern 2D illustration, warm cream/honey/sage colors and natural soft shadows.  \nConstraints: do not change any other room geometry, wall position, window or furniture. Keep central corridor open. No new furniture, exterior platform, labels, people, characters, creatures, UI, border or watermark.  \nAvoid: oversized rug, wide doorway, extra steps, objects in the spawn route, clutter, pixel art, retro rendering, hard outlines, glossy 3D.",
+        "references": [],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/borgofonte-home-interior-v2.md",
+            "reason": "Existing modern illustrated interior retained without changing pixels; geometry and live interactions reviewed separately."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -3523,12 +3541,20 @@
             "width": 24.0,
             "height": 16.0
           },
-          "assetPath": "assets/sprites/borgofonte-lab-interior-v2.webp",
+          "assetPath": "assets/scenery/borgofonte-lab-interior-v2.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "borgofonte-lab-interior-v2",
+          "path": "assets/scenery/borgofonte-lab-interior-v2.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -3544,7 +3570,7 @@
         {
           "kind": "image",
           "key": "borgofonte-lab-interior-v2",
-          "path": "assets/sprites/borgofonte-lab-interior-v2.webp",
+          "path": "assets/scenery/borgofonte-lab-interior-v2.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -3589,8 +3615,26 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/borgofonte_lab",
+        "tiledAsset": "tilemaps/borgofonte_lab.tmj",
+        "assetKey": "borgofonte-lab-interior-v2",
+        "sourcePath": "assets/sources/borgofonte-lab-interior-v2.png",
+        "runtimePath": "public/assets/scenery/borgofonte-lab-interior-v2.webp",
+        "sourceSha256": "c6bb481df1243c1d43a74f5f19ef0f2272a8f9390b08a53aaeb30fe6b1f9f9a4",
+        "runtimeSha256": "bbd7bd3a8ed5e008423bc1a65d6cb148861dbfa4ca092ee9b195dd07b1a9b6ec",
+        "width": 1536,
+        "height": 1024,
+        "prompt": "Edit target: existing Borgofonte laboratory background. Redraw as a premium MODERN HAND ILLUSTRATED 2D adventure game background, smooth clean painted shapes, soft warm daylight, cream plaster, light oak, sage/teal botanical research equipment, subtle coral accents. No pixel art, no 3D rendering, no isometric camera. Preserve EXACT orthogonal overhead composition and furniture footprints: image 3:2, displayed768x512; north blocked wall y0-160, side walls x0-96 and672-768; left workbench x96-288 y160-224, right workbench x480-672 y160-224; seed archive x288-480 y160-192. All floor below benches y224-384 MUST BE CLEAR, spacious and walkable. South walls y384-512 with exactly centered open doorway x352-416 extending through bottom edge. Match doorway at45.83%-54.17% image width. Simplify heavy timber beams, ornate tile border and excessive slab seams into attractive lighter continuous limestone floor and softly rounded cabinets, contemporary illustrated children adventure feel. Keep microscopy, fern dome, books, plant specimens as clear large charming details confined to north furniture. Absolutely no people, creatures, text, UI, central furniture, decorative floor obstacles. Outside cutaway walls very dark muted teal. Preserve original map alignment strictly.",
+        "references": [],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/borgofonte-lab-interior-v2.md",
+            "reason": "Existing modern illustrated interior retained without changing pixels; geometry and live interactions reviewed separately."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [

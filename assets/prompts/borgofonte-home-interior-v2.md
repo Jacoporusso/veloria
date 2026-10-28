@@ -1,5 +1,7 @@
 # Interno Casa di Borgofonte v2
 
+Nota del 28/10/2026: il documento seguente conserva il prompt e la geometria richiesti durante la generazione del 24/10. La review del risultato ha poi rilevato collisioni incoerenti con il pavimento effettivamente dipinto. L'illustrazione resta byte-identica; l'allineamento Tiled successivo è descritto in `docs/104_OPENING_INTERIORS_GEOMETRY_v0.1.md`.
+
 Asset generato e integrato il 24/10/2026 con il tool ImageGen integrato. Le reference `world-readability-v2` e `characters-direction-v1` sono state usate solo per palette e trattamento pittorico; non sono stati inclusi personaggi. La nuova immagine è una reinterpretazione dipinta del fondale della camera, senza cambiare la geometria Tiled o gli hotspot.
 
 ## Asset

@@ -154,7 +154,20 @@ test('Borgofonte home and laboratory interactions remain reachable from their en
   ]);
   assertMapTargetsReachable('borgofonte_home.map.json', 'from_village', states, [
     { label: 'punto di riposo', select: props => props.kind === 'hotspot' && props.serviceId === 'rest_point' },
+    { label: 'diario', select: props => props.kind === 'hotspot' && String(props.message).startsWith('Il primo giorno') },
+    { label: 'scaffale', select: props => props.kind === 'hotspot' && String(props.message).startsWith('Vecchi diari') },
   ]);
+});
+
+test('the painted home floor reaches its north gap and side aisles while walls and furniture stay solid', () => {
+  const tiled = readJson<TiledMap>(path.join(root, 'public/tilemaps/borgofonte_home.tmj'));
+  const blocked = collectMapCollision(layerObjects(tiled.layers, 'collision'), tiled.width, tiled.height, []);
+  for (const [x, y] of [[2, 5], [14, 3], [15, 3], [21, 5], [2, 11], [21, 11], [11, 4], [12, 12], [12, 14]]) {
+    assert.ok(legalRoute({ x: 12, y: 12 }, new Set([`${x},${y}`]), tiled.width, tiled.height, blocked), `painted floor ${x},${y} must be reachable`);
+  }
+  for (const [x, y] of [[15, 2], [1, 7], [22, 7], [2, 3], [21, 4], [6, 5], [11, 3], [18, 6], [16, 4], [3, 3], [5, 12], [20, 12]]) {
+    assert.ok(blocked.has(`${x},${y}`), `wall or furniture ${x},${y} must stay solid`);
+  }
 });
 
 test('Ada and the forest sensor remain reachable with the quest gate closed and open', () => {
