@@ -6,7 +6,7 @@ Cinque casi Chrome passati: quattro approcci/due qualità/due orientamenti per i
 
 Partita naturale dal checkpoint guadagnato dopo Aster: rapporto Ferraluce, allenamento, puzzle e sfida Rhea raggiunti; sconfitta contro Aerodactyl, quarta medaglia non verificata. Backup UI pre/post sfida conservati. La successiva preparazione ha vinto Iris e catturato Psyduck, ma il primo habitat R06 scelto era inadatto: PsyduckKO senza XP, testfallito. La preparazione rivista usa matchup favorevoli R05, cure ed export dopo ogni round, mantenendo target22/Idropulsar e checkpoint senza progressi artificiali. Esiti e limiti in `playtests/2026-10-28-gen1-rhea-attempts.md`; nessuna attestazione di vittoria su Rhea.
 
-Contenuti0.4.33/cachev196. Pubblicazione e nuova CI da registrare dopo il push. Goal intero aperto:32identità direzionali, animazioni/verifica del cast e progressione naturale dalle altre cinque palestre alla Lega.
+Runtime `2cce98d4527e1d9144ec4e9aae9563f01053881c` pubblicato su main, contenuti0.4.33/cachev196. [Deploy40715794041](https://github.com/Jacoporusso/veloria/actions/runs/40715794041) e [Verify40715794017](https://github.com/Jacoporusso/veloria/actions/runs/40715794017) COMPLETED/SUCCESS. Verificata Pages: cachev196, HTTP200 per tutte12pose Rami/Leda/Lea, binding sud nei tre TMJ pubblici. Anche la precedente [Verify40703339154](https://github.com/Jacoporusso/veloria/actions/runs/40703339154) è COMPLETED/SUCCESS. Goal intero aperto:32identità direzionali, animazioni/verifica del cast e progressione naturale dalle altre cinque palestre alla Lega.
 
 ## 0.4.32 — Timo direzionale e diagnosi della progressione verso Aster
 
