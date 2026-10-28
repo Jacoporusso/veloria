@@ -6,7 +6,7 @@ Verifiche locali: 820 test dominio/persistenza, 154 Python, TypeScript e validat
 
 Nuova evidenza naturale sul runtime0.4.27: partita da zero con Charmander fino alla medaglia Aurora, con catture, allenamento, acquisti e reload reali; un caso passato in5,3minuti. Report integrale sintetico in `playtests/2026-10-28-current-gen1-first-medal-report.json`, analisi e limiti in `playtests/2026-10-28-current-gen1-first-medal.md`. Non prova le sette medaglie successive o la Lega. I vecchi checkpoint GenII restano esclusi come evidenza della campagna corrente.
 
-Contenuti0.4.28/cachev191 preparati, invio e pubblicazione ancora da attestare. Goal aperto:39 profili direzionali ancora da migrare, cicli di camminata e progressione naturale restante. Candidate Nives e Aurel in preparazione privata; non incluse nel rilascio finché non riviste e verificate.
+Runtime `56ff2ce02c7335c2ffa5d7c4652f91ff89562cdd` inviato a main. Contenuti0.4.28/cachev191. [Deploy40656119388](https://github.com/Jacoporusso/veloria/actions/runs/40656119388) COMPLETED/SUCCESS. Pages verificata: cachev191, laboratorio canonico HTTP200 e collisione nord della casa con altezza96 nel TMJ pubblico. [Verify40656119251](https://github.com/Jacoporusso/veloria/actions/runs/40656119251) QUEUED all'ultimo controllo, non ancora attestata completa. Goal aperto:39 profili direzionali ancora da migrare, cicli di camminata e progressione naturale restante. Candidate Aurel riviste e accettate in privato; ovest Nives in revisione per accessorio laterale. Nessuno dei due profili è incluso in questo rilascio.
 
 ## 0.4.27 — selezione atlante, Nerea/Selene e Centrale
 
@@ -20,7 +20,7 @@ Correzioni della precedente Verify40646841662: tre test offline costruivano nomi
 
 Verifiche locali complessive: 819 test dominio/persistenza; 154 Python; validatori 749 media/46 fondali/48 mappe; 14 casi Chrome distinti (11 ambiente/personaggi/R15 e tre atlante). Sette casi produzione offline passati: nuove pose Nerea/Selene, Acquariva, Portolume, montagna, Condotto/Centrale e primo decode di tutti i fondali registrati. Build offline passata con avviso chunk Phaser. Discovery: 391 casi browser assegnati una sola volta, 47 risorse offline divise 24+23. I checkpoint non attestano il bilanciamento naturale della campagna.
 
-Runtime `930ebfe5ca74055fbe30ec61f25f6f6f7906b2e1` inviato a main. Contenuti 0.4.27/cache v190. [Deploy40652928846](https://github.com/Jacoporusso/veloria/actions/runs/40652928846) COMPLETED/SUCCESS; Pages verificata cachev190 e HTTP200 per pose Nerea/Selene e fondale canonico Centrale. [Verify40652928872](https://github.com/Jacoporusso/veloria/actions/runs/40652928872) IN PROGRESS: ultimo dettaglio API28job completati, due attivi e nessun fallimento; suite completa non ancora attestata. La nuova partita corrente con Charmander è poi arrivata alla prima medaglia: evidenza durevole registrata nella versione0.4.28.
+Runtime `930ebfe5ca74055fbe30ec61f25f6f6f7906b2e1` inviato a main. Contenuti 0.4.27/cache v190. [Deploy40652928846](https://github.com/Jacoporusso/veloria/actions/runs/40652928846) COMPLETED/SUCCESS; Pages verificata cachev190 e HTTP200 per pose Nerea/Selene e fondale canonico Centrale. [Verify40652928872](https://github.com/Jacoporusso/veloria/actions/runs/40652928872) COMPLETED/SUCCESS: dettaglio API conferma30job tutti passati e nessuno incompleto/fallito. La nuova partita corrente con Charmander è poi arrivata alla prima medaglia: evidenza durevole registrata nella versione0.4.28.
 
 ## 0.4.26 — cinque sale Lega coerenti, Rhea e PWA alleggerita
 
