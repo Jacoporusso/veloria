@@ -44,6 +44,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-south-v1",
+      "path": "assets/sprites/veloria-rhea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-west-v1",
+      "path": "assets/sprites/veloria-rhea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-east-v1",
+      "path": "assets/sprites/veloria-rhea-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-north-v1",
+      "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
     }
   ],
   "spawns": [

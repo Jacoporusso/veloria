@@ -1,3 +1,15 @@
+## 0.4.26 — cinque sale Lega coerenti, Rhea e PWA alleggerita
+
+Nuovi fondali per Brando, Luce ed Enea: completato il gruppo dei cinque ambienti della Lega con contorno coerente e temi distinti, senza cambiare collisioni. Rhea usa quattro pose indipendenti con guanto magnetico sul lato corretto, PNG raw inalterati e WebP lossless RGBA-identici. Review visiva eseguita su angoli Brando/Luce/Enea e pose Rhea in portrait/landscape.
+
+PWA:43 fondali superati esclusi dal precache,106.186.948 byte (101,27MiB) non più scaricati per quella lista. File conservati; tre fondali ancora usati dalla versione pubblicata0.4.25 mantenuti nella finestra di aggiornamento. Audit preciso con hash/binding in `docs/art/retired-full-map-precache-0.4.26.json`. Dopo la riduzione, validatore conferma che i renderAssets di tutte48mappe restano precachati.
+
+Verifiche locali:788 dominio+31persistenza passati; validatori731media/45fondali/48mappe. Quattordici casi Chrome passati: Silvo/Brando/Luce con angoli, reload, battaglie e avanzamento; campionato completo con finale, ricompense uniche, cerimonia ed epilogo; bordi camera delle tre nuove sale nelle due orientazioni; due profili movimento Rhea con quattro lati/reload; rendering45fondali nelle due orientazioni e identità NPC/uscite. Tre casi offline passati DOPO la riduzione cache: quattro pose Rhea al primo accesso/interazioni/reload; risorse cinque sale+finale/epilogo da checkpoint; primo decode fondali registrati. Build offline riuscita, avviso chunk Phaser presente. Discovery384casi browser senza omissioni/duplicazioni;45risorse offline divise23+22.
+
+Il campionato usa una squadra preparata e non attesta bilanciamento naturale. Audit dei backup storici: progressione fino aP5 appartiene ai contenuti0.3.114 e include specie195/170, quindi non vale come prova del catalogo corrente GenI. Serve nuova partita guadagnata sul roster attuale; dettaglio in `docs/playtests/2026-10-27-natural-campaign-evidence-audit.md`.
+
+Contenuti0.4.26/cachev189 preparati; commit/push e Pages da registrare. Goal aperto: casa/laboratorio/Centrale ancora da accettare nel gruppo finale delle mappe,41profili direzionali, animazioni e campagna naturale. Il rendering di45fondali non equivale alla certificazione completa del progetto.
+
 ## 0.4.25 — sala di Silvo, Aster e controllo superfici composte
 
 Fondale botanico di Silvo riallineato alla geometria reale senza cambiare collisioni; quattro pose indipendenti di Aster con fonti raw e WebP lossless RGBA-identici. Review visiva degli angoli di Silvo e delle pose Aster in entrambe le orientazioni effettuata.
@@ -6,7 +18,7 @@ Verifiche locali:788 test dominio+31persistenza passati; validatori717media/42fo
 
 Indagata Verify40563895310 (Biancavetta): falliva il solo controllo map-visual-parity che cercava un'Image permanente anche nei terrainBase. Il renderer compone una RenderTexture e distrugge l'Image temporanea. Il test ora controlla sorgente decodificata, superficie/bounds e tre campioni GPU confrontati con la bitmap sorgente per ogni fondale composto; nessuna mappa saltata. Entrambi i casi map-parity completi passati localmente. Verify40564520079 e40568374140 risultano CANCELLED; la suite completa CI più recente non viene dichiarata passata.
 
-Runtime `5f86a01451044f660869e3e7ddee4cb259ca6de7` inviato a main. Contenuti0.4.25/cachev188. [Deploy40575423267](https://github.com/Jacoporusso/veloria/actions/runs/40575423267) QUEUED e [Verify40575423496](https://github.com/Jacoporusso/veloria/actions/runs/40575423496) PENDING all’ultimo controllo. Nuova versione ancora da attestare su Pages. Goal aperto: tre sale Lega e altre scene ancora da accettare,42profili direzionali, tutti i cicli di camminata e verifica della campagna naturale.
+Runtime `5f86a01451044f660869e3e7ddee4cb259ca6de7` inviato a main. Contenuti0.4.25/cachev188. [Deploy40575423267](https://github.com/Jacoporusso/veloria/actions/runs/40575423267) COMPLETED/SUCCESS. Pages verificata: cachev188 e HTTP200 per nuovo fondale Silvo e posa est Aster. [Verify40575423496](https://github.com/Jacoporusso/veloria/actions/runs/40575423496) PENDING all’ultimo controllo, senza attestazione di suite CI completa. Goal aperto: tre sale Lega e altre scene ancora da accettare,42profili direzionali, tutti i cicli di camminata e verifica della campagna naturale.
 
 ## 0.4.24 — sala di Nerea e Dalia direzionale
 

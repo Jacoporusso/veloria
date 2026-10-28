@@ -1,0 +1,9 @@
+# Sala di Luce — Lega illustrata v3
+
+Built-in ImageGen, 27 ottobre 2026. Selezionato exec-055599c3-03d8-4cec-a635-7b714a4d3601.png. PNG raw invariato, WebP lossless RGBA-identico. Collisioni e progressione invariati.
+
+Riferimento di geometria: sala Nerea accettata, con gli stessi 474 rettangoli di collisione. Riferimento di tema: osservatorio celeste originale.
+
+## initial
+
+Edit target Image1 (geometry-accepted Nerea League room): LOCK its exact pale floor silhouette and replace only its exterior theme with Luce's celestial observatory from Image2. Image2 is thematic reference ONLY, its wider curved floor is wrong. Keep rectangular main floor x18.75%-81.25%,y25%-85.94%; narrow central south passage x43.75%-56.25% tobottom. Do not move any of these borders. Inside mask keep quiet flat pale ivory/lavender limestone with subtle natural nonrepeating slabs and gentle moonlit light; no central huge gold compass/medallion, devices or ornament circles. Outside mask replace water/cascades/lotus with solid observatory walls and deep blue/lilac glass panels showing painted stars/constellations, restrained small astronomical globes and a celestial feature wall in blocked upper band. These are nonwalkable vertical wall materials, not pale terraces or exterior balconies. Slender ivory/metal architecture, soft mint/indigo highlights, small vines/white-lilac flowers on perimeter. No water, no waterfalls, no steppingstones, no apparent sidepaths, northdoor, upper stairs or raised dais on playable floor. All walls, globes, foliage and ornament must stay strictly outside mask, south lower shoulders included. CharacterLuce at16,7 and runtimechallengeconsole18,19 omitted; flat unmarked floor underboth. Keep same fullmapnorthup perspective and friendly modern hand-painted2D quality, opaque fullbleed4:3landscape. Not3D/isometric/pixelart. No people,Pokemon,text,UI/grid. Shape fromImage1, celestialidentity fromImage2.

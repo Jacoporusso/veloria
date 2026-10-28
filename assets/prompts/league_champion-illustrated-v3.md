@@ -1,0 +1,9 @@
+# Sala di Enea — Lega illustrata v3
+
+Built-in ImageGen, 27 ottobre 2026. Selezionato exec-1d691dc6-eefc-41be-97d2-d46ef9eaa8d1.png. PNG raw invariato, WebP lossless RGBA-identico. Collisioni e progressione invariati.
+
+Riferimento di geometria: sala Nerea accettata, con gli stessi 474 rettangoli di collisione. Riferimento di tema: santuario luminoso del Campione originale.
+
+## initial
+
+Edit target Image1: LOCK exact accepted League floor silhouette and replace its exterior aquatic theme with Enea's radiant Champion sanctuary from Image2. Image2 supplies theme only; its wide floor and giant emblem are wrong. Main playable pale rectangle x18.75%-81.25%, y25%-85.94%; narrow southstrip43.75%-56.25% throughbottom. All floor boundaries, framing and perspective must remain unchanged fromImage1. Inside floor preserve quiet warmivory limestone, subtle nonrepeating slabs, gentle colorful daylight reflections, no large medallion/compass/goldcircles/devices. Outside mask replace ALL water,cascades,lotus with solid vertical greenhouse/stainedglass architecture, luminous mint/aqua/pearl glass, restrained branching metal/ivory forms, lilac flowering vines, airy distant sky and gardens visible BEHIND glass. Upper blocked band has a luminous tree-of-light stained-glass feature WALL, not a door, stairs or traversable dais. No pale walking terraces or balconies outside floor: side strips must clearly read as vertical glass/stone/foliage, lowercorners too. Champion Enea at16,7 and runtime console18,19 omitted, flat unmarked floor beneath. No people,Pokemon,text,UI,grid. One actual south opening only; no false north or side exits. Refined triumphant but childfriendly modern painterly2D, fullopaque4:3north-up orthographic map; no3D/isometric/pixelart, no excessive goldframe. Strict geometry fromImage1, bright champion identity fromImage2.

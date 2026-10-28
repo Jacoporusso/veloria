@@ -1,0 +1,471 @@
+{
+  "version": "0.4.26",
+  "baselineRevision": "c5fa2cabbeb195cda2a8bb3d0cfed3c065caba22",
+  "scope": "Full-map backgrounds unused by current maps and by the published 0.4.25 map bindings; files remain available in the repository and public directory.",
+  "removedFromPrecache": [
+    {
+      "path": "assets/scenery/veloria-acquariva-v2.webp",
+      "bytes": 2520824,
+      "sha256": "43157b7bc0a6ec8d068b7e0d15ae6de3966872b2ab506c7e337a0085332b3c91",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-biancavetta-v1.webp",
+      "bytes": 2785260,
+      "sha256": "80fd662c4030f3e0afa6b12a19993362cb0282d16dea5e23188f373f494dfeb1",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-biancavetta-v2.webp",
+      "bytes": 2543222,
+      "sha256": "5f97b00f985ddaa5fcc63c6ce42180ecf7b3c80281f82765b6322dccecd0f088",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-borgofonte-v2.webp",
+      "bytes": 2907168,
+      "sha256": "d1581f40a17ecab397f4c4799946cc4a35f0f376b07edf7839977ff8632fdab2",
+      "width": 1470,
+      "height": 1070,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-concordia-v1.webp",
+      "bytes": 2834010,
+      "sha256": "e349cc8f3fef83ce46cd72a3eaec6683cee4ab0e6bab9bbd29025386c1934d26",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-d01_bosco_veli-illustrated-v2.webp",
+      "bytes": 2861952,
+      "sha256": "1fd4e07940ceef4447714203c12151e1563c8a1cd0f5ce90c29b891a14082bf3",
+      "width": 1536,
+      "height": 1024,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-d05-crystal-caverns-v1.webp",
+      "bytes": 2553738,
+      "sha256": "584ab569c43c97c7b8e6299b0077a60d0f436088632bbbf2d767747655629018",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-ferraluce-illustrated-v2.webp",
+      "bytes": 2275650,
+      "sha256": "0a6ac69681b3f626f305e853dd97f2590027564198eef863c5cdab6974af7447",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-gym07-ice-v1.webp",
+      "bytes": 1836982,
+      "sha256": "408a884444397e0836c4dbdc5fba07af7c95d175782805afbe5ab14bc794cbbb",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-gym08-convergence-v1.webp",
+      "bytes": 2511670,
+      "sha256": "75e857a036f8174291ab66f28711bb5f3cd555465848fa03d9b5b28d8b255745",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-league-council01-v1.webp",
+      "bytes": 2158498,
+      "sha256": "70347b139a4e1611539e3dfa7e6ea16c3b0ae5c75eaf7611f625070199d094ba",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-league-council02-v1.webp",
+      "bytes": 2358612,
+      "sha256": "976e0610bff7aff76fce4151a65a2af4c3dce403019851efcefeb81c9940da1a",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-league-forecourt-v1.webp",
+      "bytes": 2520614,
+      "sha256": "f96ad0a6768269e6d28788e7283c0ba498c8bdb0386b281f70d60edccc52702d",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-passobrina-v1.webp",
+      "bytes": 2934608,
+      "sha256": "dd669b163c6bf37438d8f84f3ebee0edea522db32ec313634414cac2822c08a9",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-petalora-illustrated-v2.webp",
+      "bytes": 3011306,
+      "sha256": "b54362250cce629615c2336f32611f77c1feed8d115b1ccca1b54a94e30fb177",
+      "width": 1461,
+      "height": 1076,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r01_sentiero_alba-illustrated-v2.webp",
+      "bytes": 2434376,
+      "sha256": "35507ff767df16cc52d088944fb1d4638e2c600f5b6c2766ef71dc814b0f3daa",
+      "width": 1536,
+      "height": 1024,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r02_viale_fronde-illustrated-v2.webp",
+      "bytes": 2697246,
+      "sha256": "18c86d9bd34eb354a80148a8b94cf48061699592b94943b5b769386c1c6dc03b",
+      "width": 1484,
+      "height": 1060,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r03_terrazze_muschio-illustrated-v2.webp",
+      "bytes": 2829902,
+      "sha256": "8e91a7dd70afca11106f873e34a7c77c80c38a627196cd15b9a6be9baa38b323",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r04_salita_petali-illustrated-v2.webp",
+      "bytes": 2983242,
+      "sha256": "4abc1eec748f1dcb32602598be789dc14150c21042dc6b4757fb74e744470e05",
+      "width": 1484,
+      "height": 1060,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r05_viadotto_ciliegi-illustrated-v2.webp",
+      "bytes": 2996164,
+      "sha256": "e52d0993444952c909d8ca451f2241b147755f534b2d954ddd8eba959250db20",
+      "width": 1671,
+      "height": 941,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r06_anello_magnetico-illustrated-v2.webp",
+      "bytes": 2147374,
+      "sha256": "18473557d78122acab27c64116afb853973abadc8474dfc7aa1aebd2c4cec864",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r12-wind-valley-v1.webp",
+      "bytes": 2916466,
+      "sha256": "d757c0a30a4ec6e6a2d3b247e1e810fab8c6618ccde10d7522c371d0ce2023b3",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r13-white-switchbacks-v1.webp",
+      "bytes": 2659044,
+      "sha256": "6ba787c85c9258588a42fcf12d27915320954b41f5d6998031f148864e491af9",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r14-crystal-pass-v1.webp",
+      "bytes": 2701988,
+      "sha256": "5a97302498dea6254a0c0d5b7a777e19b2752eeeee3b1a08aa3bd10d81c29405",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r15-two-lights-v1.webp",
+      "bytes": 2789530,
+      "sha256": "0c230c1d74577f873d85bc1b884bda0d0e44409d3c45e2da3195d1dc90fcab00",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-r16-equilibrium-v1.webp",
+      "bytes": 2761418,
+      "sha256": "a8136c413de46e16a35b60df729e9f8149c8d0faa7a0b6f54f5bb9a47791fa9b",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-radicelmo-illustrated-v2.webp",
+      "bytes": 2681808,
+      "sha256": "ffe9598caa112b8e3c214160f66fb50eb8bd078d6b78865fc90ecc529f9e050a",
+      "width": 1536,
+      "height": 1024,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-sanctuary-two-lights-v1.webp",
+      "bytes": 2302944,
+      "sha256": "e15058885e7396c979e57386937b630872f196b5a67ae6eaa7deef25cdeee355",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/scenery/veloria-vetracielo-illustrated-v2.webp",
+      "bytes": 2390960,
+      "sha256": "979bc2e9384745da0d6237b59b762b55f0d1baf5becb42cb77a869df75b409ad",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/borgofonte-home-interior-v1.webp",
+      "bytes": 199842,
+      "sha256": "30a433d898ea47cedaafc17c29208d21094d9018960740805c63eab5b3e5826b",
+      "width": 1536,
+      "height": 1024,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/borgofonte-lab-interior-v1.webp",
+      "bytes": 256248,
+      "sha256": "6f813544a097c3e72fd3968c52b4d13c3852ad2ae07fe4b548f1346692008612",
+      "width": 1536,
+      "height": 1024,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-acquariva-v1.webp",
+      "bytes": 2697482,
+      "sha256": "44a44e817b07598a7afc215137e02a1658e9ed632105fa6192633354d8fe1ae1",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-d04-delta-v1.webp",
+      "bytes": 2887422,
+      "sha256": "f0b4c2ab943d07f23563ef69f0add76fce41a3d1991526b73510b00e359f07a1",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-gym03-rooftop-v1.webp",
+      "bytes": 434736,
+      "sha256": "ffbc49f99d676351507843a38beacfdd12f05230c79b022e9553757a020889e7",
+      "width": 1254,
+      "height": 1254,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-gym04-magnetic-room-v1.webp",
+      "bytes": 1639024,
+      "sha256": "d4a2f41d339dbf2e65bda07554956eaac24c8835243cabc344dafac7d297971e",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-gym05-sluices-v1.webp",
+      "bytes": 2437152,
+      "sha256": "65604e770a05cddd6306c3a3e95a73c075c9b4fe8f9b67c9a36c565c1c02042b",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-gym06-reflections-v1.webp",
+      "bytes": 2508404,
+      "sha256": "56733ede0faa9c5069c73d589ebf4886678325f8dde0fdbe5dd6eb50e0959642",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-portolume-v1.webp",
+      "bytes": 2865128,
+      "sha256": "25bcee38bd2bdfbdef35c8fb66fde11476607319fd2fd770a39e4de735b14abf",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-r07-conduit-v1.webp",
+      "bytes": 2948864,
+      "sha256": "1c5091684a8ac4486a2398b77aa1e887c639b13b0904a3f65a7baca588b083ab",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-r08-coast-v1.webp",
+      "bytes": 2892090,
+      "sha256": "cc50e181e64d945c97d7c713746f9a917bca316a23971470fa5efbe282c8c291",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-r09-dunes-v1.webp",
+      "bytes": 2750518,
+      "sha256": "e6f9a204ef9d39dfc477f9e26b50e5467f844c1001459388b81f4a53bc1717b3",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-r10-reeds-v1.webp",
+      "bytes": 2833904,
+      "sha256": "f44519d26af8ff72903210dfc873a3f38594d41b4724d958450d9c63d50f057a",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    },
+    {
+      "path": "assets/sprites/veloria-r11-cascades-v1.webp",
+      "bytes": 2929558,
+      "sha256": "7d7a11cc34a87d476d7dcabd1f02cb78ec15f84629b1569c765dd0b556fa30ce",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": false,
+      "status": "unused-in-current-and-head"
+    }
+  ],
+  "retainedForPublishedBuild": [
+    {
+      "path": "assets/scenery/veloria-league-champion-v1.webp",
+      "bytes": 2141932,
+      "sha256": "9d402a5eb082d9cbd5569a3df6dce06a44fa26c2881004c8f1e4bcd4261e6c99",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": true,
+      "status": "current-unused-but-head-used"
+    },
+    {
+      "path": "assets/scenery/veloria-league-council03-v1.webp",
+      "bytes": 2080598,
+      "sha256": "185f36a7a7c70f20c42327950080147114b4d499989cbd92c7dfb6790994a448",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": true,
+      "status": "current-unused-but-head-used"
+    },
+    {
+      "path": "assets/scenery/veloria-league-council04-v1.webp",
+      "bytes": 2103052,
+      "sha256": "00594e11c231ce284f2768bd993b3d660da33d257beeed7831233d29f485a84b",
+      "width": 1448,
+      "height": 1086,
+      "usedByCurrentMaps": false,
+      "usedByHead0425Maps": true,
+      "status": "current-unused-but-head-used"
+    }
+  ],
+  "removedCount": 43,
+  "removedBytes": 106186948
+}

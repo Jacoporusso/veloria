@@ -238,6 +238,26 @@
       "kind": "image",
       "key": "veloria-aster-idle-north-v1",
       "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-south-v1",
+      "path": "assets/sprites/veloria-rhea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-west-v1",
+      "path": "assets/sprites/veloria-rhea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-east-v1",
+      "path": "assets/sprites/veloria-rhea-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rhea-idle-north-v1",
+      "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -556,12 +576,45 @@
       "npcIds": [
         "rhea_gym"
       ],
-      "assetKey": "veloria-gym-leaders-a-v1",
-      "frame": 3,
+      "assetKey": "veloria-rhea-idle-south-v1",
       "narrativeSource": "content/trainers/gym04_rhea.trainer.json",
       "origin": {
-        "x": 0.4843,
-        "y": 0.9553
+        "x": 0.50552,
+        "y": 0.97591
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-rhea-idle-south-v1",
+          "origin": {
+            "x": 0.50552,
+            "y": 0.97591
+          },
+          "displaySize": 58.15822
+        },
+        "left": {
+          "assetKey": "veloria-rhea-idle-west-v1",
+          "origin": {
+            "x": 0.53201,
+            "y": 0.97396
+          },
+          "displaySize": 58.59401
+        },
+        "right": {
+          "assetKey": "veloria-rhea-idle-east-v1",
+          "origin": {
+            "x": 0.50089,
+            "y": 0.97852
+          },
+          "displaySize": 58.00135
+        },
+        "up": {
+          "assetKey": "veloria-rhea-idle-north-v1",
+          "origin": {
+            "x": 0.49774,
+            "y": 0.96549
+          },
+          "displaySize": 59.07692
+        }
       }
     },
     {

@@ -5,7 +5,7 @@
   "biomeId": "league_chamber",
   "tiledAsset": "tilemaps/league_council04.tmj",
   "terrainBase": {
-    "assetKey": "veloria-league-council04-v1",
+    "assetKey": "veloria-league_council04-illustrated-v3",
     "tilesetName": "veloria_terrain",
     "tileIndex": 0
   },
@@ -29,8 +29,8 @@
     },
     {
       "kind": "image",
-      "key": "veloria-league-council04-v1",
-      "path": "assets/scenery/veloria-league-council04-v1.webp"
+      "key": "veloria-league_council04-illustrated-v3",
+      "path": "assets/scenery/veloria-league_council04-illustrated-v3.webp"
     },
     {
       "kind": "image",
@@ -66,5 +66,5 @@
     "veloria/q_league_championship"
   ],
   "musicId": "ambient_route02",
-  "battleBackgroundKey": "veloria-league-council04-v1"
+  "battleBackgroundKey": "veloria-league_council04-illustrated-v3"
 }

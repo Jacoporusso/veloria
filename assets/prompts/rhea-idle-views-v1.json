@@ -1,0 +1,193 @@
+{
+  "profileId": "gym-leader-rhea",
+  "npcId": "rhea_gym",
+  "trainerId": "veloria/trainer_rhea_gym04",
+  "mapId": "veloria/gym04_ferraluce",
+  "identityAudit": {
+    "appearanceRecord": "content/characters/appearances.v2.json#/profiles/gym-leader-rhea",
+    "dialogue": "content/dialogue/world.v1.json#/rhea_gym (speaker Rhea)",
+    "trainer": "content/trainers/gym04_rhea.trainer.json",
+    "identitySource": "assets/sources/veloria-gym-leaders-a-v1.png, bottom-right figure, frame 3 only",
+    "canonicalDescription": "Rhea, capopalestra Acciaio di Ferraluce; grembiule d’officina corto e guanto magnetico",
+    "visibleAtlasDetails": "Copper/auburn hair gathered back; round workshop goggles worn atop the head; navy short-sleeve workwear; cream bib apron with brown straps; brown utility belt and pouches; navy work trousers with lighter reinforced panels; dark/navy boots with light toe/side accents; one large two-disc magnetic gauntlet worn on anatomical RIGHT forearm/hand (viewer-left in front), with an ordinary dark work glove on anatomical LEFT hand. The atlas also shows a handheld wrench; omitted in idle. Gender and age are not stated and are not inferred."
+  },
+  "styleReferences": [
+    "assets/sources/veloria-elia-idle-south-v1.png",
+    "assets/sources/veloria-nilo-idle-south-v1.png",
+    "assets/sources/veloria-mira-idle-south-v1.png",
+    "assets/sources/veloria-dalia-idle-south-v1.png",
+    ".tmp/aster-idles-candidates/aster-south.png"
+  ],
+  "styleReferenceConstraint": "ImageGen takes the identity atlas plus four style-only images per generation. The first three directions used Nilo, Mira, Dalia, and Aster; the final north variant used Elia, Nilo, Mira, and Dalia. Across the chosen candidates, all five named style references are represented. No style reference contributes identity or outfit details.",
+  "candidates": [
+    {
+      "direction": "south",
+      "outputId": "exec-1bf8ea27-fa3d-4671-86ab-897b25c89a0c.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-1bf8ea27-fa3d-4671-86ab-897b25c89a0c.png",
+      "rawCandidate": ".tmp/rhea-idles-candidates/rhea-south.png",
+      "styleImagesAttached": [
+        "Nilo",
+        "Mira",
+        "Dalia",
+        "Aster"
+      ],
+      "prompt": "Create one transparent full-body SOUTH/front idle character PNG, portrait 2:3. Image 1 is the sole identity and outfit source: use ONLY Rhea, the BOTTOM-RIGHT figure (frame 3), in the Veloria Gym Leaders A atlas. Images 2-5 are only references for the series' painterly modern 2D RPG rendering style. Do not copy their subjects or accessories. Match the atlas closely and keep the clothing simple. Rhea has the same apparent face, copper/auburn hair tied back, and one pair of workshop goggles worn on top of the head. Outfit is the pictured dark navy short-sleeved workshop coveralls, a modest cream bib apron with brown leather straps and hem, a brown work belt with the same few small pouches/hardware visible in the atlas, navy work trousers with the same restrained lighter knee panels, and simple dark navy work boots with the atlas's light toe/side accents. Do not redesign the silhouette or add fashion details. Exactly ONE heavy magnetic gauntlet is worn on Rhea's ANATOMICAL RIGHT forearm and hand (viewer-LEFT when facing front). Keep only the integrated round metal mechanisms that are part of this gauntlet. The ANATOMICAL LEFT arm has only the simple dark work glove shown in the atlas; no gauntlet there. The round workshop goggles stay on the head, not held. The wrench visible in the source is held equipment: omit it. Both arms hang naturally relaxed at the sides; both hands are empty, no hand on hip and no hand in pockets. IMPORTANT: The boots have NO circular mechanism, disc, dial, badge, medallion or extra hardware; never copy the wrist gauntlet onto the footwear. Avoid adding extra straps, clips, rings, knee guards, tools, pouches, logos or other details beyond those clearly present in the atlas. One centered figure, hair and soles visible with margin, actual transparent alpha. No background, floor, shadow, glow, halo, vignette, text, extra characters, bags, props, mirrored outfit, 3D or photorealism."
+    },
+    {
+      "direction": "west",
+      "outputId": "exec-fa5a7d2f-dc12-4108-afb6-17dce33696c8.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-fa5a7d2f-dc12-4108-afb6-17dce33696c8.png",
+      "rawCandidate": ".tmp/rhea-idles-candidates/rhea-west.png",
+      "styleImagesAttached": [
+        "Nilo",
+        "Mira",
+        "Dalia",
+        "Aster"
+      ],
+      "prompt": "Create one transparent full-body WEST-facing idle sprite of Rhea, portrait 2:3. Image 1 is identity/outfit reference only: use ONLY the bottom-right Rhea figure (frame 3) in the Gym Leaders A atlas. Images 2-5 are style only for painterly modern 2D RPG art; do not copy the other characters. Authentic exact LEFT profile: Rhea's face, nose, chest and toes point directly to viewer-left. This puts Rhea's ANATOMICAL LEFT side nearest camera. Preserve the same apparent face identity, copper/auburn tied-back hair and round workshop goggles worn on the head. Keep the atlas outfit: navy short-sleeved work coveralls, cream bib apron with brown straps and waist belt/pouches, navy trousers with the source's restrained lighter knee details, and dark navy work boots with light toe/side accents. Do not invent extra trim or accessories. Asymmetry is critical: the one heavy magnetic gauntlet belongs to Rhea's ANATOMICAL RIGHT forearm and hand, on the FAR side in this west-facing view, so hide it naturally behind the torso or show only a small occluded edge. The near anatomical LEFT arm has only the ordinary work glove from the atlas; never place a gauntlet/device on this arm. Goggles remain on top of the head. Omit the source's handheld wrench; both hands hang relaxed and empty at the sides, outside pockets, not touching the belt. The boots have no discs, dials, badges or circular hardware. No duplicated gauntlet, no tool held, no extra tools on belt, no shoulder badges, no invented straps or accessories. True side profile, not frontal or three-quarter. One centered full figure, hair through soles visible, generous transparent margin and true alpha. No backdrop, floor, shadow, glow, halo, vignette, text, extra figure, bag, flip, mirror, crop, 3D or photorealism."
+    },
+    {
+      "direction": "east",
+      "outputId": "exec-2dfb2762-a747-4856-aeb0-325e06ac4637.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-2dfb2762-a747-4856-aeb0-325e06ac4637.png",
+      "rawCandidate": ".tmp/rhea-idles-candidates/rhea-east.png",
+      "styleImagesAttached": [
+        "Nilo",
+        "Mira",
+        "Dalia",
+        "Aster"
+      ],
+      "prompt": "One transparent full-body EAST-facing idle sprite of Rhea, portrait 2:3. Image 1 is the identity source: ONLY Rhea, bottom-right figure frame 3, in the Veloria Gym Leaders A atlas. Images 2-5 are painterly 2D RPG style references only; do not copy their characters or outfits. Draw a true exact RIGHT profile: nose, torso and toes point viewer-right; Rhea's ANATOMICAL RIGHT side is camera-near. Keep the same apparent face, copper/auburn hair gathered back and round workshop goggles worn on the head. Match the atlas clothing: navy short-sleeved workshop coveralls, cream bib apron with brown straps/hem, the brown work belt with its few source pouches, navy trousers with restrained lighter knee panels, dark navy work boots with light toe/side accents. The substantial magnetic gauntlet is worn ONLY on Rhea's anatomical RIGHT forearm and hand; that is the near arm here, so show the atlas's integrated round metal mechanisms on the near forearm/hand. The far anatomical LEFT hand has only the ordinary dark work glove, mostly occluded; do not put a gauntlet or extra device there. The source's wrench is handheld and must be omitted. Both hands hang calmly and empty outside the pockets, no hand on hip, no object held. Goggles remain worn on top of the head. Do not add circular devices to boots or belt, no badges on sleeves, no extra armor, jewelry, straps, pouches or tools beyond those in the atlas. One true side profile, not three-quarter; one centered whole figure, head to soles visible with margin, actual transparent alpha. No backdrop/floor/shadow/halo/glow/vignette, text, extra figure, props, flip, mirror, crop, 3D or photorealism."
+    },
+    {
+      "direction": "north",
+      "outputId": "exec-7467966b-336c-426f-be97-fab8ac057940.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-7467966b-336c-426f-be97-fab8ac057940.png",
+      "rawCandidate": ".tmp/rhea-idles-candidates/rhea-north.png",
+      "styleImagesAttached": [
+        "Elia",
+        "Nilo",
+        "Mira",
+        "Dalia"
+      ],
+      "prompt": "Create one transparent full-body NORTH-facing rear idle sprite of Rhea, portrait 2:3. Image 1 is the sole identity/outfit source: ONLY Rhea, bottom-right figure frame 3, in the Veloria Gym Leaders A atlas. Images 2-5 (Elia, Nilo, Mira, Dalia) are references for the painterly modern 2D RPG series style only; do not copy their identities or clothes. Exact back view of the same Rhea: copper/auburn hair gathered back, workshop goggles worn on top of the head, face fully hidden. Match the atlas: navy short-sleeve work coveralls, cream bib apron with brown leather shoulder straps and hem, brown belt and only the small belt pouches present in the source, navy work pants with the source's restrained lighter knee panels, dark navy work boots with simple light toe/side accents. Continue the back simply in these same materials; invent no logo, bag, extra pocket, harness, tool or decoration. The one substantial mechanical magnetic gauntlet is worn ONLY on Rhea's ANATOMICAL RIGHT arm; from behind, the right side is viewer-RIGHT. Show its two integrated round metal mechanisms on that right forearm/hand only. The viewer-LEFT arm remains the ordinary glove/arm shown in the atlas. The source wrench is handheld: omit it. Both hands hang relaxed and empty at the sides. No circular device or medallion on boots, no extra gauntlet, no sleeve badges or invented armor. Direct rear orientation, face unseen, not three-quarter. One centered complete figure, hair through soles visible with transparent margin, true alpha. No backdrop, floor, cast shadow, glow, halo, vignette, text, scenery, other figure, props, flip/mirror, crop, 3D or photorealism."
+    }
+  ],
+  "discardedCandidates": [
+    {
+      "direction": "south",
+      "outputId": "exec-50d41069-9c7c-4d0e-ab77-e1b8edf1d793.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-50d41069-9c7c-4d0e-ab77-e1b8edf1d793.png",
+      "reason": "Invented circular metal devices on both boots by repeating the wrist gauntlet; replaced by the selected south candidate with plain work boots.",
+      "prompt": "Use case: game-character sprite. Generate one full-body neutral SOUTH/front idle character sprite, portrait 2:3, transparent background. Image 1 is the identity anchor: ONLY the BOTTOM-RIGHT figure (frame 3), Rhea, in the Veloria 2x2 Gym Leaders A atlas. Images 2-5 are style-only references for the same painterly modern 2D RPG finish; do not copy their characters, outfits or props. Preserve Rhea's apparent face identity, warm copper/auburn hair gathered back with loose pieces, and the round workshop goggles worn on top of the head/forehead. Do not assume age or gender. Match the actual outfit and its asymmetries: short-sleeved dark navy workshop jacket/coveralls, cream canvas bib apron with brown leather straps and trim, the brown leather waist belt with only the small utility pouches and hardware visible in the atlas, navy work trousers with their shown lighter reinforced knee panels, and navy/light work boots. Keep the substantial mechanical magnetic gauntlet as a worn, attached part on Rhea's ANATOMICAL RIGHT forearm/hand (viewer-LEFT in this frontal view), with the atlas's round metal components and dark straps in the same placement. The anatomical LEFT arm/hand remains the ordinary sleeve and glove shown in the atlas; do not copy the magnetic apparatus onto it. Preserve the goggles as worn headwear, not held. The atlas also shows a hand-held wrench/tool: omit that object completely. Both arms hang naturally relaxed at the sides; both hands are empty, no hand on hip, no object held, no hand in a pocket. One centered complete figure with hair, boots and soles visible and transparent margin. True alpha, no opaque background, no ground, floor, cast shadow, halo, glow or vignette. No extra props, extra tools on belt, bag, backpack, cables, weapons, text, logo, other character, cropped limbs, mirrored outfit, 3D or photorealism."
+    },
+    {
+      "direction": "north",
+      "outputId": "exec-775a832d-0bc2-483a-9bd3-543033cd1f9c.png",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a17ebc-34fc-7463-8675-234006190177/exec-775a832d-0bc2-483a-9bd3-543033cd1f9c.png",
+      "reason": "Superseded by a visually similar back-view candidate generated with Elia included among the style-only references, so all five style assets are represented across the selected set."
+    }
+  ],
+  "notes": "All four candidate PNGs are direct raw copies of ImageGen outputs, with no resizing, crop, flip, alpha cleanup or pixel edits. Candidates remain private under .tmp; no runtime, catalog, registry, map or test files modified.",
+  "calibration": {
+    "visibleAlphaThreshold": 128,
+    "visibleBodyHeightWorldPx": 56,
+    "originX": "alpha-weighted centroid of alpha>=128 pixels in the bottom 50px of the visible body bounding box, normalized by image width",
+    "originY": "exclusive bottom of visible alpha>=128 body bounding box, normalized by image height",
+    "note": "Source PNGs are preserved as generated; runtime WebP files decode to pixel-identical RGBA."
+  },
+  "runtimeViews": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-rhea-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-rhea-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rhea-idle-south-v1.webp",
+      "sourceSha256": "9fe9d1e6aa6afcac4998a4a220d9ca8de68adfcc23f5049329854ee2ca756860",
+      "runtimeSha256": "faeb89c7357cbadc4d3f193573620a2ad960f564ad4196d6183d5d78bd9123f0",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50552,
+        "y": 0.97591
+      },
+      "displaySize": 58.15822,
+      "alpha128Bounds": [
+        233,
+        20,
+        798,
+        1499
+      ],
+      "outputId": "exec-1bf8ea27-fa3d-4671-86ab-897b25c89a0c.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-1bf8ea27-fa3d-4671-86ab-897b25c89a0c.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-rhea-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-rhea-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rhea-idle-west-v1.webp",
+      "sourceSha256": "ea61fa05925df5f19d167bc59e33b9cf4226d9763d6f44e07fb71358d962aaf5",
+      "runtimeSha256": "5ea2fa75e29708fd5a4389147141a6c311b6c69978f031253641b8d98006bb39",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.53201,
+        "y": 0.97396
+      },
+      "displaySize": 58.59401,
+      "alpha128Bounds": [
+        323,
+        28,
+        685,
+        1496
+      ],
+      "outputId": "exec-fa5a7d2f-dc12-4108-afb6-17dce33696c8.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-fa5a7d2f-dc12-4108-afb6-17dce33696c8.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-rhea-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-rhea-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rhea-idle-east-v1.webp",
+      "sourceSha256": "2c7c39bb081cca4dddad53df8f18c89e0af1680afaeb6ce97c97ab98b6277caf",
+      "runtimeSha256": "db184f7bf66af140fcc4b428c659adbcf2443e1ae2c91a7fcf18d3a9972496e0",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50089,
+        "y": 0.97852
+      },
+      "displaySize": 58.00135,
+      "alpha128Bounds": [
+        330,
+        20,
+        716,
+        1503
+      ],
+      "outputId": "exec-2dfb2762-a747-4856-aeb0-325e06ac4637.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-2dfb2762-a747-4856-aeb0-325e06ac4637.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-rhea-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-rhea-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rhea-idle-north-v1.webp",
+      "sourceSha256": "6a5bd9929bbeda90e10c1d58ee65d91cca87ee4c99e2620cd74442dd23aeed70",
+      "runtimeSha256": "eeac2a1ada6b8881d69a4d4d425e91e78da567804929345748d3908706b29b6a",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49774,
+        "y": 0.96549
+      },
+      "displaySize": 59.07692,
+      "alpha128Bounds": [
+        246,
+        27,
+        802,
+        1483
+      ],
+      "outputId": "exec-7467966b-336c-426f-be97-fab8ac057940.png",
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-7467966b-336c-426f-be97-fab8ac057940.png"
+    }
+  ]
+}

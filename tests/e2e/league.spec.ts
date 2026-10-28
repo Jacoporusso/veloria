@@ -5,21 +5,26 @@ import {tapBattleLabel} from './helpers/battle-touch';
 import {sequence,confirm,finishDialogue,seedLeague,portal,startAttempt,challengeOpponent,finishLeagueBattle,closeVictory} from './helpers/league';
 const names=['Nerea','Silvo','Brando','Luce','Enea'];
 
-test('Silvo chamber keeps its boundary approaches, real battle and next-stage transition usable in both orientations', async ({page}, info) => {
+for(const [chamberName,stageIndex,artKey] of [
+ ['Silvo',1,'veloria-league_council02-illustrated-v3'],
+ ['Brando',2,'veloria-league_council03-illustrated-v3'],
+ ['Luce',3,'veloria-league_council04-illustrated-v3'],
+] as const) test(`${chamberName} chamber keeps its boundary approaches, real battle and next-stage transition usable in both orientations`, async ({page}, info) => {
  test.setTimeout(process.env.CI ? 240_000 : 180_000);
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
  const save=await seedLeague(page);
- // A completed first stage is a checkpoint fixture, not a claim of natural campaign balance.
- save.flags=[...new Set([...save.flags,sequence.activeFlag,sequence.stages[0].attemptWonFlag,sequence.stages[0].firstRewardFlag,sequence.stages[0].battleOnceFlag])];
- save.player={...save.player,mapId:sequence.stages[1].mapId,spawnPointId:'from_entry',x:15,y:21};
+ const stage=sequence.stages[stageIndex];
+ // Previous victories are checkpoint fixtures, not a claim of natural campaign balance.
+ save.flags=[...new Set([...save.flags,sequence.activeFlag,...sequence.stages.slice(0,stageIndex).flatMap(previous=>[previous.attemptWonFlag,previous.firstRewardFlag,previous.battleOnceFlag])])];
+ save.player={...save.player,mapId:stage.mapId,spawnPointId:'from_entry',x:15,y:21};
  await seedBrowserSave(page,save);await page.reload();await enterGame(page);
  const before=await readBrowserSave(page);
- expect(before.player.mapId).toBe('veloria/league_council02');
+ expect(before.player.mapId).toBe(stage.mapId);
  for(const [x,y] of [[6,6],[25,6],[25,19],[6,19],[15,21]] as const){
-  await walkTo(page,'league_council02.tmj',x,y);
+  await walkTo(page,`${stage.mapId.split('/')[1]}.tmj`,x,y);
   for(const viewport of [{width:390,height:844},{width:844,height:390}]){
    await page.setViewportSize(viewport);
-   await page.screenshot({path:info.outputPath(`silvo-floor-${x}-${y}-${viewport.width}.png`)});
+   await page.screenshot({path:info.outputPath(`${chamberName.toLowerCase()}-floor-${x}-${y}-${viewport.width}.png`)});
   }
   await page.setViewportSize({width:390,height:844});
  }
@@ -28,17 +33,17 @@ test('Silvo chamber keeps its boundary approaches, real battle and next-stage tr
  expect(after.player.mapId).toBe(before.player.mapId);
  for(const key of ['party','inventory','rngState','badges'] as const)expect(after[key]).toEqual(before[key]);
  expect(after.player.money).toBe(before.player.money);
- await challengeOpponent(page,1);
- await expect.poll(()=>page.evaluate(()=>{
+ await challengeOpponent(page,stageIndex);
+ await expect.poll(()=>page.evaluate(expectedKey=>{
   const scene=(window as any).leagueGame.scene.keys.battle;
-  return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-league_council02-illustrated-v3')??false;
- })).toBe(true);
- await page.screenshot({path:info.outputPath('silvo-arena.png')});
- await finishLeagueBattle(page);await closeVictory(page,'Silvo');
+  return scene?.ui?.list.some((item:any)=>item.texture?.key===expectedKey)??false;
+ },artKey)).toBe(true);
+ await page.screenshot({path:info.outputPath(`${chamberName.toLowerCase()}-arena.png`)});
+ await finishLeagueBattle(page);await closeVictory(page,chamberName);
  expect((await readBrowserSave(page)).player.money).toBe(before.player.money+3000);
  await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm(page).tap();
  await page.getByRole('button',{name:'PROSEGUI ALLA PROSSIMA PROVA',exact:true}).tap();
- await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe(sequence.stages[2].mapId);
+ await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe(sequence.stages[stageIndex+1].mapId);
  expect(errors).toEqual([]);
 });
 test('League requires all badges; abort resets attempts, repeated wins pay once, all five fights complete and epilogue persists',async({page},info)=>{
@@ -61,7 +66,22 @@ test('League requires all badges; abort resets attempts, repeated wins pay once,
  await walkTo(page,'league_council01.tmj',18,18);await page.getByRole('button',{name:'Vai in basso',exact:true}).tap();await confirm(page).tap();await page.getByRole('button',{name:'INTERROMPI IL TENTATIVO',exact:true}).tap();await page.getByRole('button',{name:'ESCI E INTERROMPI',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/league_forecourt');const aborted=await readBrowserSave(page);expect(aborted.flags).not.toContain(sequence.activeFlag);expect(aborted.flags).not.toContain(sequence.stages[0].attemptWonFlag);expect(aborted.flags).toContain(sequence.stages[0].firstRewardFlag);expect(aborted.party).toEqual(first.party);expect(aborted.player.money).toBe(4000);
  await startAttempt(page);
  for(let i=0;i<5;i++){
-  await challengeOpponent(page,i);await finishLeagueBattle(page);if(i===4){await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_league_completed');await page.reload();await enterGame(page);break;}
+  if(i===4){
+   for(const [x,y] of [[6,6],[25,6],[25,19],[6,19],[15,21]] as const){
+    await walkTo(page,'league_champion.tmj',x,y);
+    for(const viewport of [{width:390,height:844},{width:844,height:390}]){await page.setViewportSize(viewport);await page.screenshot({path:info.outputPath(`champion-floor-${x}-${y}-${viewport.width}.png`)});}
+    await page.setViewportSize({width:390,height:844});
+   }
+  }
+  await challengeOpponent(page,i);
+  if(i===4){
+   await expect.poll(()=>page.evaluate(()=>{
+    const scene=(window as any).leagueGame.scene.keys.battle;
+    return scene?.ui?.list.some((item:any)=>item.texture?.key==='veloria-league_champion-illustrated-v3')??false;
+   })).toBe(true);
+   await page.screenshot({path:info.outputPath('champion-new-arena.png')});
+  }
+  await finishLeagueBattle(page);if(i===4){await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_league_completed');await page.reload();await enterGame(page);break;}
   await closeVictory(page,names[i]);const done=await readBrowserSave(page);expect(done.player.money).toBe(4000+i*3000);expect(done.flags).toContain(sequence.stages[i].attemptWonFlag);
   if(i===1){await page.reload();await enterGame(page);expect((await readBrowserSave(page)).flags).toContain(sequence.stages[i].attemptWonFlag);await page.setViewportSize({width:844,height:390});}
   await page.getByRole('button',{name:'Vai in alto',exact:true}).tap();await confirm(page).tap();await page.getByRole('button',{name:'PROSEGUI ALLA PROSSIMA PROVA',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe(sequence.stages[i+1].mapId);

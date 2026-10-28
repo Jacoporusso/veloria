@@ -17,7 +17,7 @@
     "registeredSceneryImageAssets": 46,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 42,
+    "parityArtworkEntries": 45,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -931,6 +931,26 @@
         "kind": "image",
         "key": "veloria-aster-idle-north-v1",
         "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-south-v1",
+        "path": "assets/sprites/veloria-rhea-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-west-v1",
+        "path": "assets/sprites/veloria-rhea-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-east-v1",
+        "path": "assets/sprites/veloria-rhea-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-north-v1",
+        "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -970,6 +990,10 @@
       "veloria-nilo-idle-west-v1",
       "veloria-npcs-v3",
       "veloria-r09-r10-coastal-trainers-v1",
+      "veloria-rhea-idle-east-v1",
+      "veloria-rhea-idle-north-v1",
+      "veloria-rhea-idle-south-v1",
+      "veloria-rhea-idle-west-v1",
       "veloria-route-trainers-r04-r07-v1",
       "veloria-vetracielo-lea-v1"
     ],
@@ -1253,6 +1277,26 @@
         "kind": "image",
         "key": "veloria-aster-idle-north-v1",
         "path": "assets/sprites/veloria-aster-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-south-v1",
+        "path": "assets/sprites/veloria-rhea-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-west-v1",
+        "path": "assets/sprites/veloria-rhea-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-east-v1",
+        "path": "assets/sprites/veloria-rhea-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-rhea-idle-north-v1",
+        "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1571,12 +1615,45 @@
         "npcIds": [
           "rhea_gym"
         ],
-        "assetKey": "veloria-gym-leaders-a-v1",
-        "frame": 3,
+        "assetKey": "veloria-rhea-idle-south-v1",
         "narrativeSource": "content/trainers/gym04_rhea.trainer.json",
         "origin": {
-          "x": 0.4843,
-          "y": 0.9553
+          "x": 0.50552,
+          "y": 0.97591
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-rhea-idle-south-v1",
+            "origin": {
+              "x": 0.50552,
+              "y": 0.97591
+            },
+            "displaySize": 58.15822
+          },
+          "left": {
+            "assetKey": "veloria-rhea-idle-west-v1",
+            "origin": {
+              "x": 0.53201,
+              "y": 0.97396
+            },
+            "displaySize": 58.59401
+          },
+          "right": {
+            "assetKey": "veloria-rhea-idle-east-v1",
+            "origin": {
+              "x": 0.50089,
+              "y": 0.97852
+            },
+            "displaySize": 58.00135
+          },
+          "up": {
+            "assetKey": "veloria-rhea-idle-north-v1",
+            "origin": {
+              "x": 0.49774,
+              "y": 0.96549
+            },
+            "displaySize": 59.07692
+          }
         }
       },
       {
@@ -6384,6 +6461,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-rhea-idle-south-v1",
+          "path": "assets/sprites/veloria-rhea-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-rhea-idle-west-v1",
+          "path": "assets/sprites/veloria-rhea-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-rhea-idle-east-v1",
+          "path": "assets/sprites/veloria-rhea-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-rhea-idle-north-v1",
+          "path": "assets/sprites/veloria-rhea-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6440,11 +6545,11 @@
           "profileMatch": "gym-leader-rhea",
           "narrativeSpeaker": "Rhea",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-a-v1",
-          "spriteFrame": 3,
+          "sprite": "veloria-rhea-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.4843,
-            "y": 0.9553
+            "x": 0.50552,
+            "y": 0.97591
           },
           "trainerId": "veloria/trainer_rhea_gym04",
           "battleOnceFlag": "trainer_gym04_rhea_defeated",
@@ -7187,7 +7292,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-league-champion-v1",
+        "assetKey": "veloria-league_champion-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -7203,8 +7308,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-champion-v1",
-          "path": "assets/scenery/veloria-league-champion-v1.webp",
+          "key": "veloria-league_champion-illustrated-v3",
+          "path": "assets/scenery/veloria-league_champion-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7212,8 +7317,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-league-champion-v1",
-          "path": "assets/scenery/veloria-league-champion-v1.webp",
+          "key": "veloria-league_champion-illustrated-v3",
+          "path": "assets/scenery/veloria-league_champion-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7231,8 +7336,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-champion-v1",
-          "path": "assets/scenery/veloria-league-champion-v1.webp",
+          "key": "veloria-league_champion-illustrated-v3",
+          "path": "assets/scenery/veloria-league_champion-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7249,8 +7354,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/league_champion",
+        "tiledAsset": "tilemaps/league_champion.tmj",
+        "assetKey": "veloria-league_champion-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_champion-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_champion-illustrated-v3.webp",
+        "sourceSha256": "26a824124e80455e8fee4d092864219ef990d054545b5008035d1cb21582ab24",
+        "runtimeSha256": "0cc7de661d4cffb74293af215416e1feb1921d818302a509495dd53bd5b0167c",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Edit target Image1: LOCK exact accepted League floor silhouette and replace its exterior aquatic theme with Enea's radiant Champion sanctuary from Image2. Image2 supplies theme only; its wide floor and giant emblem are wrong. Main playable pale rectangle x18.75%-81.25%, y25%-85.94%; narrow southstrip43.75%-56.25% throughbottom. All floor boundaries, framing and perspective must remain unchanged fromImage1. Inside floor preserve quiet warmivory limestone, subtle nonrepeating slabs, gentle colorful daylight reflections, no large medallion/compass/goldcircles/devices. Outside mask replace ALL water,cascades,lotus with solid vertical greenhouse/stainedglass architecture, luminous mint/aqua/pearl glass, restrained branching metal/ivory forms, lilac flowering vines, airy distant sky and gardens visible BEHIND glass. Upper blocked band has a luminous tree-of-light stained-glass feature WALL, not a door, stairs or traversable dais. No pale walking terraces or balconies outside floor: side strips must clearly read as vertical glass/stone/foliage, lowercorners too. Champion Enea at16,7 and runtime console18,19 omitted, flat unmarked floor beneath. No people,Pokemon,text,UI,grid. One actual south opening only; no false north or side exits. Refined triumphant but childfriendly modern painterly2D, fullopaque4:3north-up orthographic map; no3D/isometric/pixelart, no excessive goldframe. Strict geometry fromImage1, bright champion identity fromImage2.",
+        "references": [
+          "assets/sources/veloria-league_council01-illustrated-v3.png",
+          "assets/sources/veloria-league-champion-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_champion-illustrated-v3.md",
+            "reason": "Align visible floor with actual collision and preserve radiant champion sanctuary theme; console and NPC remain runtime objects."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -7652,7 +7778,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-league-council03-v1",
+        "assetKey": "veloria-league_council03-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -7668,8 +7794,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-council03-v1",
-          "path": "assets/scenery/veloria-league-council03-v1.webp",
+          "key": "veloria-league_council03-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council03-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7677,8 +7803,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-league-council03-v1",
-          "path": "assets/scenery/veloria-league-council03-v1.webp",
+          "key": "veloria-league_council03-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council03-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7707,8 +7833,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-council03-v1",
-          "path": "assets/scenery/veloria-league-council03-v1.webp",
+          "key": "veloria-league_council03-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council03-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7725,8 +7851,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/league_council03",
+        "tiledAsset": "tilemaps/league_council03.tmj",
+        "assetKey": "veloria-league_council03-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_council03-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_council03-illustrated-v3.webp",
+        "sourceSha256": "35725999b7fc007639f9d572968998f283307f24d17377700e5e291a520ef393",
+        "runtimeSha256": "f1a87547d0bdc13a41681df7f3a0bac04c15efa4600c20c469937705bd26707a",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Edit target Image1: preserve its EXACT floor silhouette, map framing and perspective. This is the already geometry-accepted League room; do NOT move floor edges or entrance. Convert ONLY its botanical WATER perimeter into Brando's crystalline League council chamber, using Image2 as thematic/material reference ONLY. Keep Image1's pale main floor rectangle x18.75%-81.25%, y25%-85.94%, and narrow south passage x43.75%-56.25% tobottom. All these boundaries locked. Main floor flat and clear, optionally recolored very subtly toward cool ivory/opal limestone, without changing its existing quiet slab texture. Replace turquoise water/cascades/lotus pools OUTSIDE the floor with coherent solid crystal-and-glass architecture: restrained pale violet and mint crystals, luminous opalescent stained glass, ivory stone, slim metallic trim, sparse white-flowered vines. Blocked upper band becomes a crystalline feature wall/window, NO apparent north door, dais or stairs. No water, no waterfalls, no lotus pools retained. No extra exits, stepping stones or side paths. Keep crystal clusters, stone columns, glass and vines strictly outside the locked playable floor mask, including lower shoulders; no object intrudes onto floor. Brando at tile16,7 and runtime challenge terminal18,19 omitted, unmarked floor underboth. Do not copy Image2's too-wide floor or huge central medallion; no giant goldframe or floorsymbols. Friendly modern hand-painted2D detail, north-up orthographic game background, fullbleed opaque4:3landscape, no3D/isometric/pixelart/people/Pokemon/text/UI/grid. This is a theme replacement with exact geometry preserved from Image1.",
+        "references": [
+          "assets/sources/veloria-league_council01-illustrated-v3.png",
+          "assets/sources/veloria-league-council03-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_council03-illustrated-v3.md",
+            "reason": "Align visible floor with actual collision and preserve crystalline theme; console and NPC remain runtime objects."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -7796,7 +7943,7 @@
       },
       "aspect": 1.3333,
       "terrainBase": {
-        "assetKey": "veloria-league-council04-v1",
+        "assetKey": "veloria-league_council04-illustrated-v3",
         "tilesetName": "veloria_terrain",
         "tileIndex": 0
       },
@@ -7812,8 +7959,8 @@
       "registeredSceneryImageAssets": [
         {
           "kind": "image",
-          "key": "veloria-league-council04-v1",
-          "path": "assets/scenery/veloria-league-council04-v1.webp",
+          "key": "veloria-league_council04-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council04-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7821,8 +7968,8 @@
       "registeredSceneryAssetsNotReferencedBySceneObjects": [
         {
           "kind": "image",
-          "key": "veloria-league-council04-v1",
-          "path": "assets/scenery/veloria-league-council04-v1.webp",
+          "key": "veloria-league_council04-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council04-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
@@ -7851,8 +7998,8 @@
         },
         {
           "kind": "image",
-          "key": "veloria-league-council04-v1",
-          "path": "assets/scenery/veloria-league-council04-v1.webp",
+          "key": "veloria-league_council04-illustrated-v3",
+          "path": "assets/scenery/veloria-league_council04-illustrated-v3.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -7869,8 +8016,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-terrainBase-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/league_council04",
+        "tiledAsset": "tilemaps/league_council04.tmj",
+        "assetKey": "veloria-league_council04-illustrated-v3",
+        "sourcePath": "assets/sources/veloria-league_council04-illustrated-v3.png",
+        "runtimePath": "public/assets/scenery/veloria-league_council04-illustrated-v3.webp",
+        "sourceSha256": "d3092c6e7135751f56c595f9cf31f9327e8a6b029c12d1b20953a22eba04035b",
+        "runtimeSha256": "3500fc5315fe24d811dba4112acf166a5ff6cef4282b5bb1d24c71d1cace7946",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Edit target Image1 (geometry-accepted Nerea League room): LOCK its exact pale floor silhouette and replace only its exterior theme with Luce's celestial observatory from Image2. Image2 is thematic reference ONLY, its wider curved floor is wrong. Keep rectangular main floor x18.75%-81.25%,y25%-85.94%; narrow central south passage x43.75%-56.25% tobottom. Do not move any of these borders. Inside mask keep quiet flat pale ivory/lavender limestone with subtle natural nonrepeating slabs and gentle moonlit light; no central huge gold compass/medallion, devices or ornament circles. Outside mask replace water/cascades/lotus with solid observatory walls and deep blue/lilac glass panels showing painted stars/constellations, restrained small astronomical globes and a celestial feature wall in blocked upper band. These are nonwalkable vertical wall materials, not pale terraces or exterior balconies. Slender ivory/metal architecture, soft mint/indigo highlights, small vines/white-lilac flowers on perimeter. No water, no waterfalls, no steppingstones, no apparent sidepaths, northdoor, upper stairs or raised dais on playable floor. All walls, globes, foliage and ornament must stay strictly outside mask, south lower shoulders included. CharacterLuce at16,7 and runtimechallengeconsole18,19 omitted; flat unmarked floor underboth. Keep same fullmapnorthup perspective and friendly modern hand-painted2D quality, opaque fullbleed4:3landscape. Not3D/isometric/pixelart. No people,Pokemon,text,UI/grid. Shape fromImage1, celestialidentity fromImage2.",
+        "references": [
+          "assets/sources/veloria-league_council01-illustrated-v3.png",
+          "assets/sources/veloria-league-council04-v1.png"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/league_council04-illustrated-v3.md",
+            "reason": "Align visible floor with actual collision and preserve celestial observatory theme; console and NPC remain runtime objects."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -14287,11 +14455,11 @@
       "profileMatch": "gym-leader-rhea",
       "narrativeSpeaker": "Rhea",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-a-v1",
-      "spriteFrame": 3,
+      "sprite": "veloria-rhea-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.4843,
-        "y": 0.9553
+        "x": 0.50552,
+        "y": 0.97591
       },
       "trainerId": "veloria/trainer_rhea_gym04",
       "battleOnceFlag": "trainer_gym04_rhea_defeated",
