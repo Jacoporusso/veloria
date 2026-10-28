@@ -50,6 +50,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-south-v1",
+      "path": "assets/sprites/veloria-sera-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-north-v1",
+      "path": "assets/sprites/veloria-sera-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-west-v1",
+      "path": "assets/sprites/veloria-sera-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-east-v1",
+      "path": "assets/sprites/veloria-sera-idle-east-v1.webp"
     }
   ],
   "ambientEffects": [

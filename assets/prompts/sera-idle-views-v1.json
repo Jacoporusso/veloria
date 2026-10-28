@@ -1,0 +1,95 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "identityReference": "assets/sources/veloria-cast-opening-and-champion-v1.png frame 0; profile route-trainer-sera",
+  "sourceReferences": [
+    {
+      "path": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+      "role": "Sera identity reference",
+      "note": "Frame 0; original atlas retained for Timo and other appearances."
+    },
+    {
+      "path": "content/characters/appearances.v2.json",
+      "role": "identity and narrative appearance",
+      "note": "route-trainer-sera; optional trainer of Sentiero dell’Alba."
+    },
+    {
+      "path": "content/dialogue/world.v1.json#/sera_route01",
+      "role": "narrative role",
+      "note": "Sera trains on the path before Brumalta."
+    }
+  ],
+  "prompts": {
+    "south": "Use case: stylized-concept. Production game sprite for Veloria, a modern illustrated 2D children's adventure. Reference image is a FOUR-person atlas: use ONLY Sera in the TOP LEFT as identity and outfit reference; ignore the other three people. Generate ONE single full-body character, Sera, standing idle facing exactly SOUTH toward the viewer, symmetrical frontal body and face, both feet grounded, gentle overhead world-game perspective, not a portrait crop. Preserve her warm youthful face, brown curly hair tied loosely back, olive headband, cream short hooded jacket with moss-green sleeve bands, charcoal high-neck shirt, olive cargo trousers, brown hiking boots, olive hiking backpack centered on back with both shoulder straps. Both hands lightly hold the backpack straps. The rectangular pale-green route card hangs from HER ANATOMICAL LEFT hip (viewer RIGHT in this front view); preserve that side. Compact clean readable silhouette, warm matte painterly shading, restrained soft detail, contemporary illustrated RPG, no pixel art, no realistic 3D render. Entire single figure fits with generous transparent margin and boots fully visible; portrait 2:3 canvas. Actual transparent RGBA background. No ground, scenery, drop-shadow disk, halo, extra figures, labels, text, frames or UI. This is an independent idle pose, not a sprite sheet.",
+    "north": "Use case: stylized-concept. Generate ONE new independent full-body idle directional sprite of Sera for the same modern illustrated 2D adventure. Reference is her approved SOUTH identity view, preserve EXACT same brown curls, olive headband, warm complexion, cream hooded jacket with moss-green sleeve bands, charcoal undershirt, olive cargo trousers, brown hiking boots, olive hiking backpack centered on back, small route card hanging ONLY from HER ANATOMICAL LEFT hip and round brass compass near that hip. Preserve matte painterly style and proportions, both feet planted, hands holding backpack straps, slight gentle overhead game perspective. ONE character on actual transparent RGBA portrait 2:3 canvas with generous transparent margins and boots fully visible. No scenery, background wash, halo, ground, shadow disk, text, labels, other characters, sheet or UI. Do not flip/mirror the front image. View NORTH: exact straight REAR view, face not visible, both shoulders and back of head visible symmetrically, backpack centered over back, hood rests above pack; route card on anatomical LEFT is viewer LEFT in this rear view and peeks at the LEFT outer hip, never move it to viewer right. Draw new rear anatomy and clothes.",
+    "west": "Use case: stylized-concept. Generate ONE new independent full-body idle directional sprite of Sera for the same modern illustrated 2D adventure. Reference is her approved SOUTH identity view, preserve EXACT same brown curls, olive headband, warm complexion, cream hooded jacket with moss-green sleeve bands, charcoal undershirt, olive cargo trousers, brown hiking boots, olive hiking backpack centered on back, small route card hanging ONLY from HER ANATOMICAL LEFT hip and round brass compass near that hip. Preserve matte painterly style and proportions, both feet planted, hands holding backpack straps, slight gentle overhead game perspective. ONE character on actual transparent RGBA portrait 2:3 canvas with generous transparent margins and boots fully visible. No scenery, background wash, halo, ground, shadow disk, text, labels, other characters, sheet or UI. Do not flip/mirror the front image. View WEST: exact LEFT-FACING lateral profile, nose and toes point viewer LEFT. The visible near side is her ANATOMICAL LEFT: the route card is visibly hanging on this near LEFT outer hip. Far right eye and far right shoulder mostly occluded. Backpack behind her torso toward viewer RIGHT. Draw a genuine lateral side silhouette, not frontal three-quarter.",
+    "east": "Use case: stylized-concept. Produce ONE independent EAST idle sprite of Sera matching the reference SOUTH character exactly. Exact RIGHT-FACING lateral profile: nose and toes point viewer RIGHT; near side is HER ANATOMICAL RIGHT. The pale-green rectangular route card and round compass belong ONLY on HER ANATOMICAL LEFT hip, which is the FAR side here: they should be mostly occluded by torso/legs, at most a very narrow far-side edge visible. Do NOT place either card or compass on the visible near right hip. Preserve brown curly tied-back hair, olive headband, warm face, cream hooded jacket with moss-green sleeve bands, charcoal shirt, olive cargo trousers, brown hiking boots, olive hiking backpack centered on back, hands holding backpack straps. Backpack behind torso toward viewer LEFT. Grounded neutral idle, both boots visible, same proportions and soft matte modern illustrated 2D RPG rendering. Genuine side drawing, not flipped front, no frontal three-quarter. ONE full body on portrait 2:3 actual transparent RGBA canvas, generous margins. No scenery, background glow, halo, shadow disk, extra figures, text, labels, borders or UI."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-sera-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-sera-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-sera-idle-south-v1.webp",
+      "sourceSha256": "2d6cce96d9fc1cfc8df215f72f00ae80e6969209dc42acdf57d6893130240dfe",
+      "runtimeSha256": "cfbfc6e1357eb94398b44abf3f0354bfccb70adb46a64ec6ea1becac42be1275",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.53878,
+        "y": 0.93815
+      },
+      "displaySize": 61.79,
+      "outputId": "exec-19df3126-c8b4-488b-bd72-e5363722577a.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-sera-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-sera-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-sera-idle-north-v1.webp",
+      "sourceSha256": "dce1f93f50ea1c13e40601aa6c14d5d31c48963bca498e7733a3addf5b02d904",
+      "runtimeSha256": "eefc274f2177ba7d11eb71cf3773a1b73a1d52bff6f15336a07eb195dd627735",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49946,
+        "y": 0.95182
+      },
+      "displaySize": 60.15,
+      "outputId": "exec-b1576d49-a6d1-43ed-8990-1ea232157ef3.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-sera-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-sera-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-sera-idle-west-v1.webp",
+      "sourceSha256": "51fc14bded7202601a11db8708be8c4c954e35f3f2c5d6c8512155cd583c1348",
+      "runtimeSha256": "ae65d197c4bd3189e85be9d25c2b32159f664520515efa32e523ad97ebfc8569",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50273,
+        "y": 0.95182
+      },
+      "displaySize": 59.98,
+      "outputId": "exec-18e6b9c5-c128-452a-9e12-5415fc2e0ba0.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-sera-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-sera-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-sera-idle-east-v1.webp",
+      "sourceSha256": "6417e70e6c45b8c7c0ffb5e52f9d9d9338f14620a0c054418d7993e071e67811",
+      "runtimeSha256": "51e91e9c3a238a9f1f6feaae5ff206a0e200e02f8a0bf8d7ab793bd21c644d14",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.5205,
+        "y": 0.95378
+      },
+      "displaySize": 60.66,
+      "outputId": "exec-95432c91-d432-418d-8154-bd84e9f102a3.png"
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 bbox. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling of source PNG. Runtime WebP lossless with exact RGBA pixel equality; runtime four-direction interaction and compositing review recorded in docs/107_SERA_DIRECTIONAL_IDLE_v0.1.md."
+}

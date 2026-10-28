@@ -1,3 +1,13 @@
+## 0.4.31 — Sera direzionale e progressione GenI fino a Dalia
+
+Quattro idle indipendenti di Sera, senza specchiatura, ancorate e calibrate per direzione. Scheda percorso sul fianco sinistro e zaino coerente; originali immutati, WebP lossless, prompt/hash/provenienza registrati. Nessun cambiamento a geometria, progressione o roster. Dodici profili direzionali su48,36 ancora da migrare; camminata Sera assente. Dettagli in `107_SERA_DIRECTIONAL_IDLE_v0.1.md`.
+
+Sei casi Chrome passati: Sera con quattro approcci/due qualità/due orientamenti, due Aster, due gallery51presenze e respiro legacy Timo. Una prova produzione offline passa primo decode e interazioni di Sera. Screenshot delle quattro direzioni rivisti.828 dominio/persistenza,154 Python, validatore794media/48fondali/48mappe, TypeScript e build passati; avviso chunk Phaser presente. Discovery404browser una volta,51risorse offline in26+25.
+
+Nuova evidenza naturale corrente sul runtime0.4.30: importato invariato il checkpoint realmente guadagnato dopo Mira, poi cure, seme, archivio Radicelmo, Nila, Petalora, allenamento reale e vittoria su Dalia. Due medaglie persistenti, backup esportato e confrontato, nessun pageerror; un caso passato in6minuti. Charmander14 a25/34PS, Spearow2, Paras8;1050monete, due Pozioni, tre Poké Ball. Report durevole e limiti in `playtests/2026-10-28-gen1-second-medal.md`. Non certifica le sei palestre successive o la Lega.
+
+Indagato job122833230114 della Verify40693256771: ECONNRESET sul fetch osservativo Aster prima delle asserzioni, con26casi del job passati. Aggiunti due retry al solo fetch, timeout/assert immutati; entrambi i casi Aster passati localmente. Alla verifica API successiva26job riusciti, uno fallito e tre ancora in corso: nessuna attestazione di CI completa verde. La nuova ricevuta di pubblicazione segue il push. Contenuti0.4.31/cachev194; goal complessivo aperto.
+
 ## 0.4.30 — Ada animata in prova e atlante resistente ai caricamenti parziali
 
 Otto passi autentici di Ada (due per direzione), correzione anatomica delle idle nord/est e pipeline estendibile idle/walk. Scena isolata solo DEV con `?npcAnimationPreview=ranger-ada`; nella campagna Ada resta ferma e interattiva. Fonti immutate, WebP lossless, prompt/hash/scarti registrati; origini orizzontali stabilizzate fra i passi. Dettagli e limiti in `106_ADA_WALK_PIPELINE_v0.1.md`. Undici profili idle direzionali su48; un solo prototipo walk,37 identità idle ancora mancanti.

@@ -15,7 +15,7 @@ for (const reducedMotion of ['reduce', 'no-preference'] as const) test.describe(
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.route('**/src/main.ts*', async route => {
-      const response = await route.fetch();
+      const response = await route.fetch({ maxRetries: 2 });
       await route.fulfill({ response, body: await response.text() + '\nwindow.__asterIdleGame = game;' });
     });
     await page.addInitScript(mode => localStorage.setItem('veloria-animation-quality', mode), reducedMotion === 'reduce' ? 'reduced' : 'full');

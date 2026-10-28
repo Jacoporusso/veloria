@@ -388,6 +388,26 @@
       "kind": "image",
       "key": "veloria-ada-walk-east-b-v1",
       "path": "assets/sprites/veloria-ada-walk-east-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-south-v1",
+      "path": "assets/sprites/veloria-sera-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-north-v1",
+      "path": "assets/sprites/veloria-sera-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-west-v1",
+      "path": "assets/sprites/veloria-sera-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-sera-idle-east-v1",
+      "path": "assets/sprites/veloria-sera-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -1101,12 +1121,45 @@
       "npcIds": [
         "trainer_route01_a"
       ],
-      "assetKey": "veloria-cast-opening-and-champion-v1",
-      "frame": 0,
+      "assetKey": "veloria-sera-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/sera_route01; content/trainers/r01_sera.trainer.json",
       "origin": {
-        "x": 0.5762,
-        "y": 0.9601
+        "x": 0.53878,
+        "y": 0.93815
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-sera-idle-south-v1",
+          "origin": {
+            "x": 0.53878,
+            "y": 0.93815
+          },
+          "displaySize": 61.79
+        },
+        "up": {
+          "assetKey": "veloria-sera-idle-north-v1",
+          "origin": {
+            "x": 0.49946,
+            "y": 0.95182
+          },
+          "displaySize": 60.15
+        },
+        "left": {
+          "assetKey": "veloria-sera-idle-west-v1",
+          "origin": {
+            "x": 0.50273,
+            "y": 0.95182
+          },
+          "displaySize": 59.98
+        },
+        "right": {
+          "assetKey": "veloria-sera-idle-east-v1",
+          "origin": {
+            "x": 0.5205,
+            "y": 0.95378
+          },
+          "displaySize": 60.66
+        }
       }
     },
     {

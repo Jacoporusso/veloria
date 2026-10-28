@@ -16,6 +16,7 @@ import { runWooperTraining } from './helpers/wooper-training';
 import { tapBattleLabel } from '../e2e/helpers/battle-touch';
 import { expect, test, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
 // The harness exposes only an observation handle. All actions below use DOM/touch/keyboard.
 async function observe(page: Page): Promise<any> {
@@ -38,6 +39,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const report: any[] = [];
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
+  const resumeFirstFile = process.env.PLAYTEST_RESUME_FIRST_BACKUP;
   const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
   const acquarivaSearch = process.env.PLAYTEST_ACQUARIVA_SEARCH === '1';
@@ -56,8 +58,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
   const wooperTraining = process.env.PLAYTEST_TRAIN_WOOPER === '1';
   expect([nereaChallenge, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
-  const resumeBackupFile = resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
-  expect([resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
+  const resumeBackupFile = resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
+  expect([resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const coastRotation = process.env.PLAYTEST_COAST_ROTATION === '1';
   const nereaRotation = process.env.PLAYTEST_NEREA_ROTATION === '1';
@@ -286,14 +288,21 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   try {
     await settle();
     if (resumeBackupFile) {
-      const backup = JSON.parse(await readFile(resumeBackupFile, 'utf8'));
-      if (resumeFifthFile) {
+      const checkpointText = await readFile(resumeBackupFile, 'utf8');
+      const backup = JSON.parse(checkpointText);
+      report.push({ label: 'Earned checkpoint source', sha256: createHash('sha256').update(checkpointText).digest('hex') });
+      if (resumeFirstFile) {
+        expect(backup.save.player.mapId).toBe('veloria/gym01_brumalta');
+        expect(backup.save.badges).toEqual(['badge_aurora']);
+        expect(backup.save.flags).toContain('badge_aurora_awarded');
+        expect(backup.save.party.every((member: any) => member.speciesId >= 1 && member.speciesId <= 151)).toBe(true);
+      } else if (resumeFifthFile) {
         expect(['veloria/gym05_portolume', 'veloria/portolume', 'veloria/acquariva', 'veloria/gym06_acquariva']).toContain(backup.save.player.mapId);
         expect(backup.save.flags).toContain('badge_marea_awarded');
         expect(backup.save.badges).toHaveLength(5);
       } else if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine', 'veloria/gym05_portolume']).toContain(backup.save.player.mapId);
       else expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
-      expect(backup.save.flags).toContain('gym04_magnetic_aligned');
+      if (!resumeFirstFile) expect(backup.save.flags).toContain('gym04_magnetic_aligned');
       if (resumeNereaFile) expect(backup.save.flags).toContain('q_portolume_tide_report');
       if (resumeFifthFile || resumePortolumeFile || resumeNereaFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
       else expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
@@ -308,76 +317,80 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       expect((await observe(page)).save.inventory).toEqual(backup.save.inventory);
       expect((await observe(page)).save.player.money).toBe(backup.save.player.money);
       expect((await observe(page)).save.rngState).toBe(backup.save.rngState);
+      expect((await observe(page)).save.flags).toEqual(backup.save.flags);
+      expect((await observe(page)).save.badges).toEqual(backup.save.badges);
       startingRngState = backup.save.rngState;
-      await record(resumeFifthFile ? 'Resumed unchanged earned fifth medal checkpoint' : resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
+      await record(resumeFirstFile ? 'Resumed unchanged earned first medal checkpoint' : resumeFifthFile ? 'Resumed unchanged earned fifth medal checkpoint' : resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
     }
-    if (!resumeBackupFile) {
-      await walk(21,25);
-      await interact(12,7);
-      await expect(page.getByRole('button',{name:starter,exact:true})).toBeVisible();
-      await page.getByRole('button',{name:starter,exact:true}).click();
-      const starterIds: Record<string,number> = {Charmander:4,Bulbasaur:1,Squirtle:7,Pikachu:25};
-      await expect.poll(async()=>(await observe(page)).save.party[0]?.speciesId).toBe(starterIds[starter]);
-      await settle();await interact(12,7);
-      await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_research_sample_received');
-      await walk(11,14);await walk(22,0);await record('R01 reached naturally');
-      await challenge(7,9,'Sera battle completed');
-      await interact(15,9);
-      await challenge(18,12,'Timo battle completed');
-      // Walk in actual grass to attempt one natural encounter/capture; keep the real seed and probabilities.
-      await walk(8,7);
-      for(let step=0;step<100&&(await observe(page)).save.party.length===1;step++)await walk(8,step%2===0?6:7);
-      expect((await observe(page)).save.party.length, 'A real wild capture must succeed before the gym').toBeGreaterThan(1);
-      await record('Natural grass encounters');
-      await walk(29,8);await interact(17,10);await interact(13,10);
-      await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_ada_helped');
-      await walk(29,10);await walk(27,9);await record('Brumalta reached naturally');
-      await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
-      if (prepareGym && (await observe(page)).save.party[0].level < preparationLevel) {
-        await walk(0,12); // Return to the Viale delle Fronde through the real city exit.
-        await walk(6,7);
-        for (let step=0;step<160&&(await observe(page)).save.party[0].level<preparationLevel;step++) {
-          await walk(6,step%2===0?6:7);
-          if ((await observe(page)).save.party[0].hp === 0) {
-            await walk(27,9);
-            await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
-            await walk(0,12);await walk(6,7);
-          }
-        }
-        expect((await observe(page)).save.party[0].level, 'Preparation uses real wild encounters, not injected XP').toBeGreaterThanOrEqual(preparationLevel);
-        await record('Natural preparation in R02');
-        await walk(27,9);
+    if (!resumeBackupFile || resumeFirstFile) {
+      if (!resumeFirstFile) {
+        await walk(21,25);
+        await interact(12,7);
+        await expect(page.getByRole('button',{name:starter,exact:true})).toBeVisible();
+        await page.getByRole('button',{name:starter,exact:true}).click();
+        const starterIds: Record<string,number> = {Charmander:4,Bulbasaur:1,Squirtle:7,Pikachu:25};
+        await expect.poll(async()=>(await observe(page)).save.party[0]?.speciesId).toBe(starterIds[starter]);
+        await settle();await interact(12,7);
+        await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_research_sample_received');
+        await walk(11,14);await walk(22,0);await record('R01 reached naturally');
+        await challenge(7,9,'Sera battle completed');
+        await interact(15,9);
+        await challenge(18,12,'Timo battle completed');
+        // Walk in actual grass to attempt one natural encounter/capture; keep the real seed and probabilities.
+        await walk(8,7);
+        for(let step=0;step<100&&(await observe(page)).save.party.length===1;step++)await walk(8,step%2===0?6:7);
+        expect((await observe(page)).save.party.length, 'A real wild capture must succeed before the gym').toBeGreaterThan(1);
+        await record('Natural grass encounters');
+        await walk(29,8);await interact(17,10);await interact(13,10);
+        await expect.poll(async()=>(await observe(page)).save.flags).toContain('q_ada_helped');
+        await walk(29,10);await walk(27,9);await record('Brumalta reached naturally');
         await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
-      }
-      if (prepareGym) {
-        for (let purchase=0;purchase<2;purchase++) {
-          const current = (await observe(page)).save;
-          if ((current.inventory.potion ?? 0) >= 2 || current.player.money < 200) break;
-          await interact(6,19);
-          await buyFromShop(page, 'Pozione');await settle();
+        if (prepareGym && (await observe(page)).save.party[0].level < preparationLevel) {
+          await walk(0,12); // Return to the Viale delle Fronde through the real city exit.
+          await walk(6,7);
+          for (let step=0;step<160&&(await observe(page)).save.party[0].level<preparationLevel;step++) {
+            await walk(6,step%2===0?6:7);
+            if ((await observe(page)).save.party[0].hp === 0) {
+              await walk(27,9);
+              await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
+              await walk(0,12);await walk(6,7);
+            }
+          }
+          expect((await observe(page)).save.party[0].level, 'Preparation uses real wild encounters, not injected XP').toBeGreaterThanOrEqual(preparationLevel);
+          await record('Natural preparation in R02');
+          await walk(27,9);
+          await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
         }
-        await record('Supplies purchased before Mira');
+        if (prepareGym) {
+          for (let purchase=0;purchase<2;purchase++) {
+            const current = (await observe(page)).save;
+            if ((current.inventory.potion ?? 0) >= 2 || current.player.money < 200) break;
+            await interact(6,19);
+            await buyFromShop(page, 'Pozione');await settle();
+          }
+          await record('Supplies purchased before Mira');
+        }
+        await walk(28,7);
+        await walk(13,14);await walk(8,10);await walk(18,6);
+        await challenge(14,2,'Mira battle completed');
+        const end=await observe(page);
+        expect(end.save.flags).toContain('badge_aurora_awarded');
+        expect(end.save.badges).toContain('badge_aurora');
+        await expect(page.getByRole('button',{name:'Continua a esplorare'})).toBeVisible();
+        await page.screenshot({path:testInfo.outputPath('natural-first-medal.png')});
+        const originalId = end.save.party[0].instanceId;
+        const victoryParty = end.save.party;
+        await page.getByRole('button',{name:'Continua a esplorare'}).click();
+        await page.getByRole('button',{name:'Apri menu di gioco'}).click();
+        await page.getByRole('button',{name:'Salva e torna al titolo'}).click();
+        await page.getByRole('button',{name:'Continua partita'}).click();
+        await expect.poll(async()=>Boolean(await observe(page))).toBe(true);
+        await expect.poll(async()=>(await observe(page)).save.flags).toContain('badge_aurora_awarded');
+        expect((await observe(page)).save.party[0].instanceId).toBe(originalId);
+        expect((await observe(page)).save.party).toEqual(victoryParty);
+        expect((await observe(page)).save.badges).toContain('badge_aurora');
+        await exportCheckpoint('natural-first-medal-backup.json');
       }
-      await walk(28,7);
-      await walk(13,14);await walk(8,10);await walk(18,6);
-      await challenge(14,2,'Mira battle completed');
-      const end=await observe(page);
-      expect(end.save.flags).toContain('badge_aurora_awarded');
-      expect(end.save.badges).toContain('badge_aurora');
-      await expect(page.getByRole('button',{name:'Continua a esplorare'})).toBeVisible();
-      await page.screenshot({path:testInfo.outputPath('natural-first-medal.png')});
-      const originalId = end.save.party[0].instanceId;
-      const victoryParty = end.save.party;
-      await page.getByRole('button',{name:'Continua a esplorare'}).click();
-      await page.getByRole('button',{name:'Apri menu di gioco'}).click();
-      await page.getByRole('button',{name:'Salva e torna al titolo'}).click();
-      await page.getByRole('button',{name:'Continua partita'}).click();
-      await expect.poll(async()=>Boolean(await observe(page))).toBe(true);
-      await expect.poll(async()=>(await observe(page)).save.flags).toContain('badge_aurora_awarded');
-      expect((await observe(page)).save.party[0].instanceId).toBe(originalId);
-      expect((await observe(page)).save.party).toEqual(victoryParty);
-      expect((await observe(page)).save.badges).toContain('badge_aurora');
-      await exportCheckpoint('natural-first-medal-backup.json');
       if (continueRadicelmo) {
         await walk(13,19); // Leave the gym through the actual southern doorway.
         await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
@@ -635,7 +648,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

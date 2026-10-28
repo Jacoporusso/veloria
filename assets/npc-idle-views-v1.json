@@ -993,6 +993,77 @@
           "outputId": "exec-69a59cd7-588b-4b13-b2de-5863876fc9cf.png"
         }
       ]
+    },
+    {
+      "profileId": "route-trainer-sera",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/sera-idle-views-v1.json",
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-sera-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-sera-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-sera-idle-south-v1.webp",
+          "sourceSha256": "2d6cce96d9fc1cfc8df215f72f00ae80e6969209dc42acdf57d6893130240dfe",
+          "runtimeSha256": "cfbfc6e1357eb94398b44abf3f0354bfccb70adb46a64ec6ea1becac42be1275",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.53878,
+            "y": 0.93815
+          },
+          "displaySize": 61.79,
+          "outputId": "exec-19df3126-c8b4-488b-bd72-e5363722577a.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-sera-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-sera-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-sera-idle-north-v1.webp",
+          "sourceSha256": "dce1f93f50ea1c13e40601aa6c14d5d31c48963bca498e7733a3addf5b02d904",
+          "runtimeSha256": "eefc274f2177ba7d11eb71cf3773a1b73a1d52bff6f15336a07eb195dd627735",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.49946,
+            "y": 0.95182
+          },
+          "displaySize": 60.15,
+          "outputId": "exec-b1576d49-a6d1-43ed-8990-1ea232157ef3.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-sera-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-sera-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-sera-idle-west-v1.webp",
+          "sourceSha256": "51fc14bded7202601a11db8708be8c4c954e35f3f2c5d6c8512155cd583c1348",
+          "runtimeSha256": "ae65d197c4bd3189e85be9d25c2b32159f664520515efa32e523ad97ebfc8569",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50273,
+            "y": 0.95182
+          },
+          "displaySize": 59.98,
+          "outputId": "exec-18e6b9c5-c128-452a-9e12-5415fc2e0ba0.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-sera-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-sera-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-sera-idle-east-v1.webp",
+          "sourceSha256": "6417e70e6c45b8c7c0ffb5e52f9d9d9338f14620a0c054418d7993e071e67811",
+          "runtimeSha256": "51e91e9c3a238a9f1f6feaae5ff206a0e200e02f8a0bf8d7ab793bd21c644d14",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.5205,
+            "y": 0.95378
+          },
+          "displaySize": 60.66,
+          "outputId": "exec-95432c91-d432-418d-8154-bd84e9f102a3.png"
+        }
+      ]
     }
   ]
 }

@@ -12,7 +12,7 @@ test('NPC breathing keeps the foot anchor and stops cleanly with reduced animati
   await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
   const read = () => page.evaluate(() => {
     const world = (window as any).__idleGame.scene.getScene('world');
-    const npc = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'trainer_route01_a');
+    const npc = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'trainer_route01_b');
     return { x: npc.x, y: npc.y, originX: npc.originX, originY: npc.originY, scaleY: npc.scaleY, tweens: world.tweens.getTweensOf(npc).length };
   });
   const initial = await read();
@@ -23,7 +23,7 @@ test('NPC breathing keeps the foot anchor and stops cleanly with reduced animati
     .toEqual({ x: initial.x, y: initial.y, originX: initial.originX, originY: initial.originY });
   await page.evaluate(() => {
     const world = (window as any).__idleGame.scene.getScene('world');
-    (window as any).__oldIdleSprite = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'trainer_route01_a');
+    (window as any).__oldIdleSprite = world.mapLayer.list.find((child: any) => child.name === 'npc-sprite' && child.getData('npcId') === 'trainer_route01_b');
   });
   await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
   await page.getByRole('button', { name: 'Impostazioni accessibilità e audio' }).click();
