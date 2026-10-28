@@ -23,6 +23,12 @@ Sfondo blu notte, velo scuro sulla cartografia, simboli chiari con bordo a contr
 
 ## Verifiche
 
+### Revisione del 28 ottobre 2026
+
+Il catalogo usa risultati indipendenti: una pianta non disponibile non elimina i simboli delle altre mappe. Durante il caricamento compare un messaggio; in caso di dati parziali compare un avviso con l'indicazione di riaprire la mappa per riprovare. Le richieste fallite non restano nella cache delle piante. Quando il telefono cambia orientamento, la vista locale ricentra il punto selezionato senza modificare posizione o progresso del giocatore.
+
+Verifica corrente: TypeScript e quattro casi browser passati (`.tmp/atlas-resilient-review.log`), inclusa una risposta HTTP 503 del laboratorio, isolamento delle categorie, coordinate reali di una missione e centratura del bersaglio nei due orientamenti. Screenshot controllati a 390×844 e 844×390. Questa verifica riguarda il codice locale e non certifica un nuovo rilascio su GitHub Pages.
+
 814 test dominio/persistenza passati; tre controlli Python sull’indice, incluse le sorgenti dei puzzle. Nove casi browser passati su atlante, diario, doni reali, pesca e incontri speciali. Due casi aggiuntivi controllano isolamento, coordinate della stazione D05 (176,451), dimensioni touch, orientamenti e salvataggio invariato. Il laboratorio viene verificato sul punto di Elia (400,259).
 
 Produzione offline: quattro casi passati per R15, diario incontri, doni/pesca/missione ordinaria e prima decodifica dei 29 fondali non iniziali; ripetizione finale dei due casi di navigazione passata. Build passata. Log locali in `.tmp/atlas-final-native.log`, `.tmp/atlas-final-offline.log` e `.tmp/atlas-release-offline.log`. Le verifiche non certificano una partita naturale completa o il completamento della revisione delle 48 mappe.

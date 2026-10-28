@@ -31,6 +31,7 @@ export class RegionMapPanel {
   private readonly location = html('p', 'region-map-location');
   private readonly select = html('select', 'region-map-select');
   private readonly closeButton = html('button', 'region-map-close', 'Chiudi ×');
+  private readonly loadingStatus = html('p', 'region-map-catalog-status');
   private readonly controller = new AbortController();
   private focusBeforeOpen?: HTMLElement;
   private state?: ReturnType<typeof deriveAtlasState>;
@@ -44,7 +45,10 @@ export class RegionMapPanel {
   private request = 0;
   private focusRequest = 0;
   private readonly resizeObserver = new ResizeObserver(() => {
-    if (this.isOpen) this.setZoom(this.zoom);
+    if (this.isOpen) {
+      this.setZoom(this.zoom);
+      if (this.target) this.centerTarget();
+    }
   });
 
   get isOpen(): boolean { return !this.overlay.hidden; }
@@ -95,7 +99,8 @@ export class RegionMapPanel {
     const body = html('div', 'region-map-body');
     const mapColumn = html('div', 'region-map-chart-column');
     const side = html('aside', 'region-map-sidebar');
-    mapColumn.append(this.viewport, controls, legend);
+    this.loadingStatus.setAttribute('role', 'status');
+    mapColumn.append(this.viewport, controls, legend, this.loadingStatus);
     header.insertBefore(this.location, this.closeButton);
     side.append(this.select, this.details, note);
     body.append(mapColumn, side);
@@ -114,6 +119,8 @@ export class RegionMapPanel {
     this.dialog.classList.remove('has-category-filter');
     this.target = undefined;
     this.discoveries = [];
+    this.loadingStatus.hidden = false;
+    this.loadingStatus.textContent = 'Caricamento di doni, pesca e incontri…';
     const request = ++this.request;
     this.state = deriveAtlasState(save);
     const current = this.state.areas.find(area => area.current);
@@ -129,13 +136,18 @@ export class RegionMapPanel {
     else if (this.viewport.clientWidth < 540) this.showCurrent();
     this.closeButton.focus();
     const focusRequest = this.focusRequest;
-    this.discoveryReady = loadAtlasDiscoveries(save.flags, save.player.mapId).then(points => {
+    this.discoveryReady = loadAtlasDiscoveries(save.flags, save.player.mapId).then(({ points, incomplete }) => {
       if (request !== this.request) return;
       this.discoveries = points;
+      this.loadingStatus.hidden = !incomplete;
+      this.loadingStatus.textContent = incomplete ? 'Alcuni punti non sono disponibili. Riapri la mappa per riprovare.' : '';
       this.renderDiscoveryPins();
       if (discoveryId && focusRequest === this.focusRequest) void this.focusDiscovery(discoveryId);
     }).catch(() => {
-      if (request === this.request) this.details.append(html('p', '', 'Non riesco a caricare i punti. Chiudi e riapri la mappa per riprovare.'));
+      if (request === this.request) {
+        this.loadingStatus.hidden = false;
+        this.loadingStatus.textContent = 'Non riesco a caricare i punti. Chiudi e riapri la mappa per riprovare.';
+      }
     });
   }
 
@@ -364,10 +376,17 @@ export class RegionMapPanel {
     this.chart = chart; this.viewport.replaceChildren(chart); this.dialog.classList.add('has-discovery-target');
     this.location.textContent = `${target.icon} ${target.objectName} · ${target.location}`;
     this.setZoom(1);
+    this.centerTarget();
+  }
+
+  private centerTarget(): void {
+    const chart = this.chart, target = this.target;
+    if (!chart || !target) return;
     requestAnimationFrame(() => {
-      if (this.chart !== chart) return;
-      this.viewport.scrollTo({ left: target.x / width * chart.clientWidth - this.viewport.clientWidth / 2,
-        top: target.y / height * chart.clientHeight - this.viewport.clientHeight / 2, behavior: 'instant' });
+      if (!this.isOpen || this.chart !== chart || this.target !== target) return;
+      const box = chart.viewBox.baseVal;
+      this.viewport.scrollTo({ left: target.x / box.width * chart.clientWidth - this.viewport.clientWidth / 2,
+        top: target.y / box.height * chart.clientHeight - this.viewport.clientHeight / 2, behavior: 'instant' });
     });
   }
 

@@ -1,0 +1,20 @@
+.npc-motion-preview .game-header, .npc-motion-preview .game-footer,
+.npc-motion-preview .journey-trigger, .npc-motion-preview #interaction-prompt,
+.npc-motion-preview #toast { display: none !important; }
+.npc-motion-preview .game-stage { position: fixed; inset: 0; z-index: 300; border: 0; border-radius: 0; }
+.npc-animation-tools { position: absolute; z-index: 3; inset: max(8px, env(safe-area-inset-top)) 8px auto; padding: 10px 14px;
+  color: #efffff; background: #0c273bea; border: 1px solid #b5fff12b; border-radius: 18px; font: 14px/1.35 system-ui, sans-serif; }
+.npc-animation-tools h2 { margin: 0; font-size: 18px; }
+.npc-animation-tools p { margin: 2px 0 7px; color: #acdcd7; font-size: 12px; }
+.npc-animation-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.npc-animation-buttons button { min-height: 44px; padding: 8px 13px; border-radius: 12px; border: 1px solid #b5fff135;
+  background: linear-gradient(135deg,#236271,#35456f); color: white; font: inherit; text-transform: capitalize; cursor: pointer; touch-action: manipulation; }
+.npc-animation-tools label { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; margin-top: 4px; }
+.npc-animation-tools output { float: right; margin-top: 13px; color: #a6ffdf; }
+.npc-animation-tools :focus-visible { outline: 3px solid #b6ffef; outline-offset: 3px; }
+@media (orientation: landscape) and (max-height: 540px) {
+  .npc-animation-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 12px; padding: 6px 12px; }
+  .npc-animation-tools h2 { font-size: 14px; }
+  .npc-animation-tools p { display: none; }
+  .npc-animation-tools label, .npc-animation-tools output { margin: 0; }
+}

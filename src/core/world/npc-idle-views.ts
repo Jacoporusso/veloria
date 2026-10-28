@@ -9,7 +9,7 @@ export interface NpcIdleView {
 
 export type NpcIdleViews = Readonly<Record<CardinalDirection, NpcIdleView>>;
 
-const DIRECTIONS: readonly CardinalDirection[] = ['up', 'down', 'left', 'right'];
+export const NPC_DIRECTIONS: readonly CardinalDirection[] = ['up', 'down', 'left', 'right'];
 const VIEW_FIELDS = ['assetKey', 'displaySize', 'origin'];
 const ORIGIN_FIELDS = ['x', 'y'];
 
@@ -17,8 +17,8 @@ const ORIGIN_FIELDS = ['x', 'y'];
 export function validateNpcIdleViews(value: unknown, knownAssetKeys: ReadonlySet<string>): NpcIdleViews {
   if (!isRecord(value)) throw new Error('NPC idle views must be an object keyed by direction.');
   const directions = Object.keys(value);
-  const missing = DIRECTIONS.filter(direction => !Object.hasOwn(value, direction));
-  const extra = directions.filter(direction => !DIRECTIONS.includes(direction as CardinalDirection));
+  const missing = NPC_DIRECTIONS.filter(direction => !Object.hasOwn(value, direction));
+  const extra = directions.filter(direction => !NPC_DIRECTIONS.includes(direction as CardinalDirection));
   if (missing.length || extra.length) {
     const details = [missing.length ? `missing: ${missing.join(', ')}` : '', extra.length ? `unexpected: ${extra.join(', ')}` : '']
       .filter(Boolean).join('; ');
@@ -27,34 +27,39 @@ export function validateNpcIdleViews(value: unknown, knownAssetKeys: ReadonlySet
 
   const result = {} as Record<CardinalDirection, NpcIdleView>;
   const usedAssetKeys = new Set<string>();
-  for (const direction of DIRECTIONS) {
-    const view = value[direction];
-    if (!isRecord(view)) throw new Error(`NPC idle view "${direction}" must be an object.`);
-    assertExactFields(view, VIEW_FIELDS, `NPC idle view "${direction}"`, 'assetKey, origin, displaySize');
-
+  for (const direction of NPC_DIRECTIONS) {
+    const view = validateNpcPose(value[direction], knownAssetKeys, `NPC idle view "${direction}"`);
     const assetKey = view.assetKey;
-    if (typeof assetKey !== 'string' || !assetKey.trim()) {
-      throw new Error(`NPC idle view "${direction}" assetKey must be a non-empty string.`);
-    }
-    if (!knownAssetKeys.has(assetKey)) throw new Error(`NPC idle view "${direction}" references unknown assetKey "${assetKey}".`);
     if (usedAssetKeys.has(assetKey)) throw new Error(`NPC idle assetKey "${assetKey}" is repeated; each direction requires its own view.`);
     usedAssetKeys.add(assetKey);
-
-    if (!isRecord(view.origin)) throw new Error(`NPC idle view "${direction}" origin must contain finite x and y values from 0 to 1.`);
-    assertExactFields(view.origin, ORIGIN_FIELDS, `NPC idle view "${direction}" origin`, 'x, y');
-    const { x, y } = view.origin;
-    if (typeof x !== 'number' || !Number.isFinite(x) || x < 0 || x > 1 ||
-        typeof y !== 'number' || !Number.isFinite(y) || y < 0 || y > 1) {
-      throw new Error(`NPC idle view "${direction}" origin x and y must be finite numbers from 0 to 1.`);
-    }
-
-    const displaySize = view.displaySize;
-    if (typeof displaySize !== 'number' || !Number.isFinite(displaySize) || displaySize <= 0) {
-      throw new Error(`NPC idle view "${direction}" displaySize must be a finite number greater than 0.`);
-    }
-    result[direction] = { assetKey, origin: { x, y }, displaySize };
+    result[direction] = view;
   }
   return result;
+}
+
+/** Shared pose geometry for independently drawn idle and movement frames. */
+export function validateNpcPose(value: unknown, knownAssetKeys: ReadonlySet<string>, label: string): NpcIdleView {
+  if (!isRecord(value)) throw new Error(`${label} must be an object.`);
+  assertExactFields(value, VIEW_FIELDS, label, 'assetKey, origin, displaySize');
+  const assetKey = value.assetKey;
+  if (typeof assetKey !== 'string' || !assetKey.trim()) {
+    throw new Error(`${label} assetKey must be a non-empty string.`);
+  }
+  if (!knownAssetKeys.has(assetKey)) throw new Error(`${label} references unknown assetKey "${assetKey}".`);
+
+  if (!isRecord(value.origin)) throw new Error(`${label} origin must contain finite x and y values from 0 to 1.`);
+  assertExactFields(value.origin, ORIGIN_FIELDS, `${label} origin`, 'x, y');
+  const { x, y } = value.origin;
+  if (typeof x !== 'number' || !Number.isFinite(x) || x < 0 || x > 1 ||
+      typeof y !== 'number' || !Number.isFinite(y) || y < 0 || y > 1) {
+    throw new Error(`${label} origin x and y must be finite numbers from 0 to 1.`);
+  }
+
+  const displaySize = value.displaySize;
+  if (typeof displaySize !== 'number' || !Number.isFinite(displaySize) || displaySize <= 0) {
+    throw new Error(`${label} displaySize must be a finite number greater than 0.`);
+  }
+  return { assetKey, origin: { x, y }, displaySize };
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

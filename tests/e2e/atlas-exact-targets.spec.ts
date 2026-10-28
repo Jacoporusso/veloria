@@ -33,6 +33,13 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
   await expect(atlas.getByRole('region', { name: 'Punti pesca' })).toBeVisible();
   for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
     await page.setViewportSize(viewport);
+    await expect.poll(async () => {
+      const marker = await pin.boundingBox();
+      const visibleMap = await atlas.locator('.region-map-viewport').boundingBox();
+      return Boolean(marker && visibleMap && marker.x >= visibleMap.x && marker.y >= visibleMap.y
+        && marker.x + marker.width <= visibleMap.x + visibleMap.width
+        && marker.y + marker.height <= visibleMap.y + visibleMap.height);
+    }).toBe(true);
     await page.screenshot({ path: info.outputPath(`fishing-exact-${viewport.width}.png`) });
   }
   await atlas.getByRole('button', { name: 'Mostra tutta la regione' }).click();
@@ -45,6 +52,22 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
   await expect(atlas.locator('.region-map-location')).toContainText('Sei qui:');
   const after = await readBrowserSave(page);
   for (const key of ['player', 'flags', 'party', 'rngState', 'inventory'] as const) expect(after[key]).toEqual(before[key]);
+});
+
+test('one unavailable map does not hide unrelated discovery pins', async ({ page }) => {
+  await page.goto('/'); await enterGame(page);
+  await page.route('**/tilemaps/borgofonte_lab.tmj', route => route.fulfill({ status: 503, body: 'Unavailable' }));
+  await page.getByRole('button', { name: 'Apri menu di gioco' }).click();
+  await page.getByRole('button', { name: 'Apri la mappa di Veloria' }).click();
+  const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
+  await expect(atlas.getByRole('status')).toContainText('Alcuni punti non sono disponibili');
+  for (const kind of ['gift', 'encounter', 'fishing']) {
+    await expect(atlas.locator(`.region-map-discovery-pin[data-kind="${kind}"]`).first()).toBeVisible();
+  }
+  await atlas.getByRole('button', { name: '🎣 Pesca', exact: true }).click();
+  await atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first().click();
+  await expect(atlas.locator('.region-map-local-target')).toBeVisible();
+  await expect(atlas.locator('.region-map-discovery-pin')).toHaveCount(1);
 });
 
 test('an unfinished research quest in the diary targets its next actual station', async ({ page }, info) => {

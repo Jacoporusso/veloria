@@ -73,12 +73,15 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 }
 
 
+const previewNpcAnimation = import.meta.env.DEV && new URLSearchParams(location.search).get('npcAnimationPreview') === 'ranger-ada';
 const requestedPreviewMapId = import.meta.env.DEV ? new URLSearchParams(location.search).get('previewMap') : null;
 const previewMapId = requestedPreviewMapId && listMaps().some(map => map.metadata.id === requestedPreviewMapId)
   ? requestedPreviewMapId
   : null;
 let save: GameSave;
-if (previewMapId) {
+if (previewNpcAnimation) {
+  save = newGameSave(); // Isolated art review never loads or writes the player's save.
+} else if (previewMapId) {
   const map = getMap(previewMapId);
   const spawn = getSpawn(map, map.metadata.spawns[0].id);
   const preview = newGameSave();
@@ -111,7 +114,7 @@ const [{ default: Phaser }, { WorldScene }] = await Promise.all([
   import('./game/scenes/WorldScene'),
 ]);
 
-if (import.meta.env.DEV) {
+if (import.meta.env.DEV && !previewNpcAnimation) {
   const stage = document.querySelector<HTMLElement>('.game-stage');
   if (stage) {
     const picker = document.createElement('label');
@@ -138,6 +141,9 @@ if (import.meta.env.DEV) {
     }
   }
 }
+const motionPreviewScene = previewNpcAnimation
+  ? new (await import('./game/scenes/NpcAnimationPreviewScene')).NpcAnimationPreviewScene()
+  : undefined;
 const game = new Phaser.Game({
   type: Phaser.AUTO,
   parent: 'game',
@@ -148,7 +154,7 @@ const game = new Phaser.Game({
   pixelArt: false,
   antialias: true,
   scale: { mode: Phaser.Scale.NONE, width: '100%', height: '100%' },
-  scene: [new WorldScene(save, themeId => audio.setTheme(themeId), Boolean(previewMapId))],
+  scene: [motionPreviewScene ?? new WorldScene(save, themeId => audio.setTheme(themeId), Boolean(previewMapId))],
   render: { roundPixels: false, antialias: true },
 });
 

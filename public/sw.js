@@ -1,5 +1,14 @@
-const CACHE = 'veloria-shell-v192';
+const CACHE = 'veloria-shell-v193';
 const SHELL = [
+  './assets/sprites/veloria-ada-walk-south-a-v1.webp',
+  './assets/sprites/veloria-ada-walk-south-b-v1.webp',
+  './assets/sprites/veloria-ada-walk-north-a-v1.webp',
+  './assets/sprites/veloria-ada-walk-north-b-v1.webp',
+  './assets/sprites/veloria-ada-walk-west-a-v1.webp',
+  './assets/sprites/veloria-ada-walk-west-b-v1.webp',
+  './assets/sprites/veloria-ada-walk-east-a-v1.webp',
+  './assets/sprites/veloria-ada-walk-east-b-v1.webp',
+
   './assets/scenery/borgofonte-lab-interior-v2.webp',
   './assets/sprites/veloria-selene-idle-south-v1.webp',
   './assets/sprites/veloria-selene-idle-west-v1.webp',
@@ -64,6 +73,8 @@ const SHELL = [
   './assets/sprites/veloria-ada-idle-west-v2.webp',
   './assets/sprites/veloria-ada-idle-east-v2.webp',
   './assets/sprites/veloria-ada-idle-north-v2.webp',
+  './assets/sprites/veloria-ada-idle-east-v3.webp',
+  './assets/sprites/veloria-ada-idle-north-v3.webp',
 
   './assets/scenery/veloria-d05_grotte_cristallo-illustrated-v3.webp',
   './assets/scenery/veloria-r14_varco_cristallo-illustrated-v3.webp',

@@ -60,3 +60,7 @@ Quattro immagini verticali2:3 di Elia collegate alle tre presenze narrative, con
 ## Nilo: terzo profilo direzionale
 
 Quattro pose verticali indipendenti condivise da Borgofonte e Passo delle Due Luci. La review corregge il lato della borsa nel retro e la sua occlusione nel profilo est. Borgofonte verifica i quattro approcci; R15 conserva i due approcci reali, sud e ovest, con nord/est bloccati dal bordo esistente. La regressione del respiro statico usa ora Sera, senza applicare deformazioni alle pose calibrate. Tre profili direzionali lasciano45 identità e tutti i cicli di camminata da completare. Dettagli in [documento87](87_NILO_DIRECTIONAL_IDLE_v0.1.md).
+
+## Prototipo walk Ada — 28 ottobre, versione 0.4.30
+
+Otto disegni autentici registrati (due per direzione), contratto validato, selettore puro e controller Phaser integrati. Prova separata DEV con movimento reale, arresto, movimento ridotto e salvataggio invariato; due casi Chrome passati dopo la stabilizzazione degli ancoraggi. Primo decode offline delle12pose e quattro interazioni Ada passati. Nord/est idle sostituiti con correzioni anatomiche v3; le calibrazioni precedenti della tabella restano storiche. Dettagli, provenienza, scarti e limiti in [documento106](106_ADA_WALK_PIPELINE_v0.1.md). Il ciclo a due fasi resta un prototipo da rifinire. Undici identità hanno ora quattro idle;37 restano da migrare, gli altri47 profili non hanno un ciclo walk verificato. Nessun nuovo percorso automatico nella campagna.

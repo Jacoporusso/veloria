@@ -29,7 +29,7 @@ export function loadAtlasTiled(mapId: string): Promise<TiledData> {
 }
 
 /** All points come from authored objects; region coordinates are never used as local positions. */
-export async function loadAtlasDiscoveries(flags: readonly string[], currentMapId?: string): Promise<AtlasDiscovery[]> {
+export async function loadAtlasDiscoveries(flags: readonly string[], currentMapId?: string): Promise<{ points: AtlasDiscovery[]; incomplete: boolean }> {
   const pending: Promise<AtlasDiscovery[]>[] = [];
   const gifts = pokemonRewardsAt(rewards.guides.map(guide => guide.mapId), flags);
   for (const reward of gifts) pending.push(loadAtlasTiled(reward.guide.mapId).then(tiled => {
@@ -44,14 +44,16 @@ export async function loadAtlasDiscoveries(flags: readonly string[], currentMapI
   for (const mapId of fishingMaps) pending.push(loadAtlasTiled(mapId).then(tiled => tiled.layers.flatMap(layer => layer.objects ?? [])
     .filter(object => tiledProperties(object).kind === 'fishing-spot')
     .map(object => point(`fishing:${mapId}:${object.id}`, 'fishing', mapId, object.name ?? 'Punto pesca', '🎣', object))));
-  const discoveries = (await Promise.all(pending)).flat();
+  // A missing map must not hide unrelated gifts, encounters or fishing spots.
+  const results = await Promise.allSettled(pending);
+  const discoveries = results.flatMap(result => result.status === 'fulfilled' ? result.value : []);
   for (const quest of questCatalog) {
     for (const step of quest.steps) {
       const point = describeQuestMapTarget(quest, flags, currentMapId, step.setFlag);
       if (point) discoveries.push({ ...point, kind: 'quest', icon: '◆' });
     }
   }
-  return discoveries;
+  return { points: discoveries, incomplete: results.some(result => result.status === 'rejected') };
 }
 
 function point(id: string, kind: AtlasDiscovery['kind'], mapId: string, name: string, icon: string, object: ObjectData): AtlasDiscovery {

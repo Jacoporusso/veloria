@@ -27,6 +27,8 @@
 .has-discovery-target .region-map-legend, .has-discovery-target .region-map-note, .has-discovery-target .region-map-select { display: none; }
 .region-map-locate { width: 100%; margin-top: 9px; font-size: 12px !important; text-align: left; }
 .region-map-load-status { padding: 70px 20px 20px; color: #effaff; }
+.region-map-catalog-status { position: absolute; top: 70px; left: 12px; right: 12px; margin: 0; padding: 8px 12px; border-radius: 12px; background: #071c32ed; color: #effaff; font-size: 12px; pointer-events: none; }
+.region-map-catalog-status[hidden] { display: none; }
 .region-map-tools { max-width: calc(100% - 24px); flex-wrap: wrap; }
 .region-map-chart { display: block; width: 100%; height: auto; min-width: 100%; max-width: none; }
 .region-map-path { fill: none; stroke: #fff1bc; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 7; opacity: .65; pointer-events: none; }

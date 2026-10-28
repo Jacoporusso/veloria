@@ -4,7 +4,7 @@
     {
       "profileId": "ranger-ada",
       "generator": "built-in imagegen",
-      "promptDocument": "assets/prompts/ada-idle-views-v2.json",
+      "promptDocument": "assets/prompts/ada-idle-side-corrections-v3.json",
       "views": [
         {
           "direction": "down",
@@ -40,35 +40,49 @@
         },
         {
           "direction": "right",
-          "assetKey": "veloria-ada-idle-east-v2",
-          "sourcePath": "assets/sources/veloria-ada-idle-east-v2.png",
-          "runtimePath": "public/assets/sprites/veloria-ada-idle-east-v2.webp",
-          "sourceSha256": "477b6f69d7e7fd5e6e76f8f3fd0c9767e57678f3d231d488589c5e4565ca9fe9",
-          "runtimeSha256": "cc8b054c0999fe7960c453e109d5decf1f4abbbf3072a020451a5ae598bd1da2",
+          "assetKey": "veloria-ada-idle-east-v3",
+          "sourcePath": "assets/sources/veloria-ada-idle-east-v3.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-idle-east-v3.webp",
+          "sourceSha256": "f14d98a01e5b50345d5128c2cd60ab34ee972794368c95a9d0b6b3e710e35fad",
+          "runtimeSha256": "671d90f2306bff6568eb5c804cef9934205d0b607aafd43b88e80d6b617ad082",
           "width": 1254,
           "height": 1254,
           "origin": {
-            "x": 0.51754,
-            "y": 0.87998
+            "x": 0.52233,
+            "y": 0.91108
           },
-          "displaySize": 73.76,
-          "outputId": "exec-001166a6-5afb-4963-b451-510b4b1f39e9.png"
+          "displaySize": 68.38,
+          "outputId": "exec-0b6fd9ca-b9e5-4caa-86fb-fd5acad0fc58.png",
+          "alpha128Bounds": [
+            462,
+            123,
+            783,
+            1150
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-0b6fd9ca-b9e5-4caa-86fb-fd5acad0fc58.png"
         },
         {
           "direction": "up",
-          "assetKey": "veloria-ada-idle-north-v2",
-          "sourcePath": "assets/sources/veloria-ada-idle-north-v2.png",
-          "runtimePath": "public/assets/sprites/veloria-ada-idle-north-v2.webp",
-          "sourceSha256": "d57dcfb1040214703e7457aa4657ce6093cf95fd12f6aaf9303ba99ebdd99dff",
-          "runtimeSha256": "a27ee3cc0ea93c7de10817482fa9989fb0f3d670498e3d5756017902c7f67dc3",
+          "assetKey": "veloria-ada-idle-north-v3",
+          "sourcePath": "assets/sources/veloria-ada-idle-north-v3.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-idle-north-v3.webp",
+          "sourceSha256": "61c748040b7667b413e5140e93e4d21d480eeb7a2f47f28c13da8e81fbeb953e",
+          "runtimeSha256": "579ae01d71e8f5ccd211d6954ecc14cc788d3b99f1f8a76b7a36f72ef7c0bb79",
           "width": 1254,
           "height": 1254,
           "origin": {
-            "x": 0.54944,
-            "y": 0.89673
+            "x": 0.54426,
+            "y": 0.91746
           },
-          "displaySize": 70.44,
-          "outputId": "exec-a7f55473-ee9f-48a5-b1c7-3658c69d628f.png"
+          "displaySize": 65.81,
+          "outputId": "exec-e3676bb3-a179-4af1-b032-6bdb84c780e1.png",
+          "alpha128Bounds": [
+            376,
+            89,
+            818,
+            1156
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a17ebc-34fc-7463-8675-234006190177\\exec-e3676bb3-a179-4af1-b032-6bdb84c780e1.png"
         }
       ]
     },

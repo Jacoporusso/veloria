@@ -3,6 +3,7 @@ import test from 'node:test';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { npcSpriteOrigin } from '../../src/game/rendering/npc-sprite-origin.ts';
 import { validateNpcIdleViews } from '../../src/core/world/npc-idle-views.ts';
+import { validateNpcWalkCycle } from '../../src/core/world/npc-animation.ts';
 import { createHash } from 'node:crypto';
 
 const read = (path: string) => JSON.parse(readFileSync(new URL(`../../${path}`, import.meta.url), 'utf8'));
@@ -36,6 +37,13 @@ for (const profile of catalog.profiles) {
           for (const view of Object.values(views)) {
             assert.deepEqual(map.renderAssets.find((entry: any) => entry.key === view.assetKey), assetByKey.get(view.assetKey),
               `map ${map.id} must load every idle direction of ${profile.id}`);
+          }
+          if (profile.walkCycle) {
+            const cycle = validateNpcWalkCycle(profile.walkCycle, new Set(catalog.assets.map((entry: any) => entry.key)), views);
+            for (const frames of Object.values(cycle.views)) for (const pose of frames) {
+              assert.deepEqual(map.renderAssets.find((entry: any) => entry.key === pose.assetKey), assetByKey.get(pose.assetKey),
+                `map ${map.id} must load every walk frame of ${profile.id}`);
+            }
           }
         }
       }
@@ -90,6 +98,32 @@ test('directional idle artwork has intact source/runtime provenance and calibrat
       const png = readFileSync(new URL(`../../${view.sourcePath}`, import.meta.url));
       assert.equal(png.readUInt32BE(16), view.width);
       assert.equal(png.readUInt32BE(20), view.height);
+    }
+  }
+});
+
+test('walk artwork has independent intact sources and calibrated bindings for every declared frame', () => {
+  const provenance = read('assets/npc-walk-cycles-v1.json');
+  const declared = catalog.profiles.filter((profile: any) => profile.walkCycle);
+  assert.deepEqual(provenance.profiles.map((entry: any) => entry.profileId).sort(), declared.map((profile: any) => profile.id).sort());
+  for (const entry of provenance.profiles) {
+    const profile = declared.find((candidate: any) => candidate.id === entry.profileId);
+    const idle = validateNpcIdleViews(profile.idleViews, new Set(assetByKey.keys()) as Set<string>);
+    const cycle = validateNpcWalkCycle(profile.walkCycle, new Set(assetByKey.keys()) as Set<string>, idle);
+    assert.equal(entry.frameDurationMs, cycle.frameDurationMs);
+    assert.equal(entry.frames.length, Object.values(cycle.views).flat().length);
+    assert.equal(new Set(entry.frames.map((frame: any) => frame.sourceSha256)).size, entry.frames.length);
+    assert.equal(new Set(entry.frames.map((frame: any) => frame.assetKey)).size, entry.frames.length);
+    for (const frame of entry.frames) {
+      const pose = cycle.views[frame.direction as keyof typeof cycle.views][frame.frameIndex];
+      assert.deepEqual(pose, { assetKey: frame.assetKey, origin: frame.origin, displaySize: frame.displaySize });
+      assert.equal(`public/${(assetByKey.get(frame.assetKey) as any).path}`, frame.runtimePath);
+      for (const kind of ['source', 'runtime']) {
+        const bytes = readFileSync(new URL(`../../${frame[`${kind}Path`]}`, import.meta.url));
+        assert.equal(createHash('sha256').update(bytes).digest('hex'), frame[`${kind}Sha256`]);
+      }
+      const png = readFileSync(new URL(`../../${frame.sourcePath}`, import.meta.url));
+      assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [frame.width, frame.height]);
     }
   }
 });

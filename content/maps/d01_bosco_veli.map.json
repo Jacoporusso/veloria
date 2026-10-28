@@ -73,15 +73,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-npcs-v3",
-      "path": "assets/sprites/veloria-npcs-v3.webp",
-      "atlas": {
-        "columns": 3,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "pokeapi-gen1-151-v1",
       "path": "assets/creatures/pokeapi-gen1-151-v1.webp"
     },
@@ -97,13 +88,53 @@
     },
     {
       "kind": "image",
-      "key": "veloria-ada-idle-east-v2",
-      "path": "assets/sprites/veloria-ada-idle-east-v2.webp"
+      "key": "veloria-ada-idle-east-v3",
+      "path": "assets/sprites/veloria-ada-idle-east-v3.webp"
     },
     {
       "kind": "image",
-      "key": "veloria-ada-idle-north-v2",
-      "path": "assets/sprites/veloria-ada-idle-north-v2.webp"
+      "key": "veloria-ada-idle-north-v3",
+      "path": "assets/sprites/veloria-ada-idle-north-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-south-a-v1",
+      "path": "assets/sprites/veloria-ada-walk-south-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-south-b-v1",
+      "path": "assets/sprites/veloria-ada-walk-south-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-north-a-v1",
+      "path": "assets/sprites/veloria-ada-walk-north-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-north-b-v1",
+      "path": "assets/sprites/veloria-ada-walk-north-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-west-a-v1",
+      "path": "assets/sprites/veloria-ada-walk-west-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-west-b-v1",
+      "path": "assets/sprites/veloria-ada-walk-west-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-east-a-v1",
+      "path": "assets/sprites/veloria-ada-walk-east-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ada-walk-east-b-v1",
+      "path": "assets/sprites/veloria-ada-walk-east-b-v1.webp"
     }
   ],
   "spawns": [

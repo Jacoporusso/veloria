@@ -225,6 +225,10 @@ for (const npc of [
   const profile = catalog.profiles.find((entry: any) => entry.id === npc.profile);
   const paths = Object.values(profile.idleViews).map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path);
   expect(paths).toHaveLength(4);
+  const walkPaths = profile.walkCycle ? Object.values(profile.walkCycle.views).flatMap((frames: any) =>
+    frames.map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path)) : [];
+  if (npc.profile === 'ranger-ada') expect(walkPaths).toHaveLength(8);
+  const allPaths = [...paths, ...walkPaths];
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
   await page.goto('/');
   if (npc.coldStart) {
@@ -241,7 +245,7 @@ for (const npc of [
   const warmed = await page.evaluate(paths => {
     const resources = performance.getEntriesByType('resource').map(entry => entry.name);
     return paths.filter(path => resources.some(url => url.includes(`/${path}`)));
-  }, paths);
+  }, allPaths);
   expect(warmed).toEqual([]);
   const save = await readBrowserSave(page);
   const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
@@ -258,8 +262,8 @@ for (const npc of [
   const dimensions = await page.evaluate(async paths => Promise.all(paths.map(async path => {
     const image = new Image(); image.src = `/${path}`; await image.decode();
     return [image.naturalWidth, image.naturalHeight];
-  })), paths);
-  expect(dimensions).toEqual(Array.from({ length: 4 }, () => npc.dimensions));
+  })), allPaths);
+  expect(dimensions).toEqual([...Array.from({ length: 4 }, () => npc.dimensions), ...walkPaths.map(() => [1024, 1536])]);
   const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
   if ('blockedApproach' in npc) {
     const map = JSON.parse(await readFile(new URL(`../../public/tilemaps/${npc.map}.tmj`, import.meta.url), 'utf8'));

@@ -1,3 +1,13 @@
+## 0.4.30 — Ada animata in prova e atlante resistente ai caricamenti parziali
+
+Otto passi autentici di Ada (due per direzione), correzione anatomica delle idle nord/est e pipeline estendibile idle/walk. Scena isolata solo DEV con `?npcAnimationPreview=ranger-ada`; nella campagna Ada resta ferma e interattiva. Fonti immutate, WebP lossless, prompt/hash/scarti registrati; origini orizzontali stabilizzate fra i passi. Dettagli e limiti in `106_ADA_WALK_PIPELINE_v0.1.md`. Undici profili idle direzionali su48; un solo prototipo walk,37 identità idle ancora mancanti.
+
+L'atlante conserva i punti delle altre mappe quando una pianta non si carica, mostra lo stato del caricamento e ricentra il bersaglio locale dopo la rotazione del telefono. Verificati simboli reali di doni/pesca/incontri, selezione esclusiva e obiettivo esatto del diario. Quattro casi Chrome passati, compreso HTTP503 del laboratorio; screenshot portrait/landscape controllati. Dettagli in `74_ATLAS_EXACT_TARGETS_v0.1.md`.
+
+Verifiche locali:828 dominio/persistenza,154 Python, validatori786media/48fondali/48mappe; TypeScript e build passati. Due prove preview Ada ripetute dopo la calibrazione finale, con quattro direzioni, arresto, movimento ridotto e salvataggio invariato. Precedenti prove campagna Ada e gallery51presenze passate. Tre casi produzione offline passati: primo decode delle12pose Ada e dialoghi reali, diario incontro speciale, diario fossile con punto Elia/pesca/missione. La query preview è assente dai bundle produzione. Discovery403browser assegnati una volta; numero risorse offline invariato. Log locali citati nei documenti di dettaglio. Rimane l'avviso build relativo al chunk Phaser; nessuna misura GPU dichiarata.
+
+Contenuti0.4.30/cachev193. Runtime non ancora inviato al momento di questa nota; esiti pubblici da registrare dopo push. Confermata tramite API la precedente Verify40677840429 COMPLETED/SUCCESS sul runtime751b85d. Goal aperto:37 identità direzionali, animazioni del cast da produrre/verificare, progressione naturale corrente dalla prima medaglia alla Lega.
+
 ## 0.4.29 — Nives/Aurel direzionali e caricamento delle palestre
 
 Le otto palestre hanno ora capipalestra con quattro pose idle indipendenti: Nives e Aurel completano il gruppo. Undici profili direzionali su48 identità;37 restano da migrare. PNG raw immutati e WebP lossless RGBA-identici, prompt e scarti registrati; ovest Nives corretta per il moschettone sinistro. Geometria e progressione invariate. Nives ha tre approcci reali attraverso le scivolate, con nord bloccato; Aurel quattro dopo il varco. Dettagli in `105_NIVES_AUREL_DIRECTIONAL_IDLE_v0.1.md`.

@@ -1,9 +1,11 @@
 import Phaser from 'phaser';
 import appearances from '../../../content/characters/appearances.v2.json';
-import { validateNpcIdleViews, type NpcIdleView, type NpcIdleViews } from '../../core/world/npc-idle-views.ts';
+import { validateNpcIdleViews, type NpcIdleViews } from '../../core/world/npc-idle-views.ts';
 import { directionTowardObserver } from '../../core/world/npc-facing.ts';
 import type { GridPoint } from '../../core/world/grid-movement.ts';
 import type { MapInteractable } from '../maps/map-types.ts';
+import { applyNpcPose } from './npc-pose.ts';
+import type { NpcAnimationController } from './npc-animation.ts';
 
 const catalog = appearances as unknown as {
   assets: { key: string }[];
@@ -21,13 +23,6 @@ export function npcIdleViews(appearanceId: unknown): NpcIdleViews | undefined {
   return typeof appearanceId === 'string' ? viewsByAppearance.get(appearanceId) : undefined;
 }
 
-/** displaySize is the full image height; keep the source aspect ratio and authored foot anchor. */
-export function applyNpcIdleView(sprite: Phaser.GameObjects.Image, view: NpcIdleView): void {
-  sprite.setTexture(view.assetKey).setOrigin(view.origin.x, view.origin.y)
-    .setScale(view.displaySize / sprite.height);
-  sprite.texture.setFilter(Phaser.Textures.FilterMode.LINEAR);
-}
-
 /** A cosmetic pose change only: world foot anchor, collision and save state stay put. */
 export function faceNpcTowardObserver(layer: Phaser.GameObjects.Container, item: MapInteractable, observer: GridPoint): void {
   const views = npcIdleViews(item.properties.characterAppearanceId);
@@ -40,7 +35,12 @@ export function faceNpcTowardObserver(layer: Phaser.GameObjects.Container, item:
   const sprite = layer.list.find((child): child is Phaser.GameObjects.Image =>
     child instanceof Phaser.GameObjects.Image && child.name === 'npc-sprite' && child.getData('npcId') === item.properties.npcId);
   if (!sprite) return;
+  const animation = sprite.getData('npcAnimationController') as NpcAnimationController | undefined;
+  if (animation) {
+    animation.update(sprite.scene.time.now, direction, false, false);
+    return;
+  }
   const view = views[direction];
-  applyNpcIdleView(sprite, view);
+  applyNpcPose(sprite, view);
   sprite.setData('npcFacing', direction);
 }

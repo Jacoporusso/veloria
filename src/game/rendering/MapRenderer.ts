@@ -15,8 +15,9 @@ import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 import { renderWeatherInstrument } from './weather-instrument.ts';
 import { renderWayfindingMarker } from './wayfinding-marker.ts';
 import { renderMapEdgeBackdrop } from './map-edge-backdrop.ts';
-import { applyNpcIdleView, npcIdleViews } from './npc-idle-views.ts';
-import { prepareNpcIdleTextures } from './npc-idle-texture.ts';
+import { npcIdleViews } from './npc-idle-views.ts';
+import { applyNpcPose, prepareNpcPoseTextures } from './npc-pose.ts';
+import { npcWalkCycle, NpcAnimationController } from './npc-animation.ts';
 
 const TILE = 32;
 
@@ -500,15 +501,18 @@ function renderNpc(scene: Phaser.Scene, container: Phaser.GameObjects.Container,
   requireImageAsset(imageKeys, sprite, item);
   const frame = propNumber(item.properties, 'spriteFrame') ?? 0;
   const views = npcIdleViews(item.properties.characterAppearanceId);
+  const walk = npcWalkCycle(item.properties.characterAppearanceId);
   if (views) for (const view of Object.values(views)) requireImageAsset(imageKeys, view.assetKey, item);
-  if (views) prepareNpcIdleTextures(scene, views);
+  if (walk) for (const frames of Object.values(walk.views)) for (const pose of frames) requireImageAsset(imageKeys, pose.assetKey, item);
+  if (views) prepareNpcPoseTextures(scene, [...Object.values(views), ...Object.values(walk?.views ?? {}).flat()]);
   const origin = views?.down.origin ?? npcSpriteOrigin(item.properties);
   attach(container, scene.add.ellipse(x, y + 14, 21, 7, 0x142c35, .22).setDepth(y + 10));
   const image = scene.add.image(x, y + 19, sprite, atlasFrame(scene, sprite, imageAtlases, frame))
     .setOrigin(origin.x, origin.y).setDisplaySize(60, 60).setDepth(y + 22)
     .setName('npc-sprite').setData('npcId', item.properties.npcId).setData('appearanceId', item.properties.characterAppearanceId)
     .setData('directionalIdle', Boolean(views)).setData('npcFacing', views ? 'down' : undefined);
-  if (views) applyNpcIdleView(image, views.down);
+  if (views && walk) image.setData('npcAnimationController', new NpcAnimationController(image, views, walk));
+  else if (views) applyNpcPose(image, views.down);
   attach(container, image);
   attach(container, scene.add.text(x, y - 43, item.name, {
     fontFamily: 'system-ui, sans-serif', fontSize: '8px', fontStyle: 'bold', color: '#effcff', stroke: '#153746', strokeThickness: 2, resolution: 4,

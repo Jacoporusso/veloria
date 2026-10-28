@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "profileId": "ranger-ada",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/ada-walk-views-v1.json",
+      "frameDurationMs": 200,
+      "frames": [
+        {
+          "direction": "down",
+          "frameIndex": 0,
+          "assetKey": "veloria-ada-walk-south-a-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-south-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-south-a-v1.webp",
+          "sourceSha256": "cf776def649d5f07e024d516cbb71337892c1f7cc98368b3382a8ca457f68f8e",
+          "runtimeSha256": "cc9b1e3d3c30c1245e0314293fc056b9eecc1da5a8b9fb52ba9465ca6f1cc2c5",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            266,
+            114,
+            791,
+            1427
+          ],
+          "origin": {
+            "x": 0.51502,
+            "y": 0.92904
+          },
+          "displaySize": 65.51104,
+          "outputId": "exec-b9b3139a-6bc4-4326-8f84-ba614d49b545.png",
+          "sourceCandidate": ".tmp/ada-walk-front-back/ada-walk-south-b.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body NPC game sprite, second authentic walking-cycle drawing. Image 1 is Ada's exact south idle identity/costume reference. Image 2 is the approved/generated south walking phase A, used only to preserve consistent face, costume, optical scale and line-art finish; do NOT repeat its pose. Draw WALK SOUTH, phase B: Ada faces directly toward the viewer and takes the next alternating natural walking step. Anatomical RIGHT leg advances toward camera and is now the clear lead/supporting boot; anatomical LEFT leg trails behind, with visibly different knee bend, foot placement, and stance from phase A. Her anatomical RIGHT hand swings naturally forward/outside the pocket, clearly different arm swing from phase A; anatomical LEFT hand remains securely and calmly holding the same gold measuring instrument near her left hip. Keep the olive bag worn on her anatomical LEFT hip with its same strap; modest coherent motion only. Distinct full-body drawing, not an idle duplicate, not running, jumping, or a pose. One centered complete figure hair-to-soles, feet touch the same common horizontal ground baseline as phase A and same optical height/scale. Generous margins, real transparent alpha, portrait canvas exactly 1024x1536. Preserve Ada's same face, dark curly hair, gold hoop earrings, plum field jacket, cream shirt and cargo trousers, brown boots with orange laces, gold instrument and olive bag, with correct anatomy and no extra accessories. Warm painterly modern 2D RPG illustration matching the references. No invented age/gender. No background, ground/floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, other figure, 3D, photorealism.",
+          "initialSoleOrigin": {
+            "x": 0.54854,
+            "y": 0.92904
+          },
+          "headCenterSourceX": 517.20257
+        },
+        {
+          "direction": "down",
+          "frameIndex": 1,
+          "assetKey": "veloria-ada-walk-south-b-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-south-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-south-b-v1.webp",
+          "sourceSha256": "2db8ee1802963315ec61dc513033e04d3af3296012ed9f10a116dd8627a1d3cc",
+          "runtimeSha256": "50f8ca0572d4554466937025f3ed4877be46555f6795e2754d5b849fdabfde02",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            256,
+            137,
+            770,
+            1404
+          ],
+          "origin": {
+            "x": 0.51375,
+            "y": 0.91406
+          },
+          "displaySize": 67.8895,
+          "outputId": "exec-85d3f381-5d14-4fed-9c88-2c8d1d6f0d99.png",
+          "sourceCandidate": ".tmp/ada-walk-front-back/ada-walk-south-a.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body NPC game sprite, authentic walking cycle frame. Input image 1 is the exact identity and costume reference: Ada south-facing idle only. Preserve her same face and apparent identity, dark curly hair, gold hoop earrings, plum field jacket over cream shirt, cream cargo trousers, brown boots with orange laces, olive shoulder bag worn on her anatomical LEFT hip, and gold measuring instrument held in her anatomical LEFT hand. Create WALK SOUTH, phase A: Ada faces directly toward the viewer and takes a clear, natural first walking step. Anatomical LEFT leg advances toward camera while anatomical RIGHT leg trails behind; opposite foot placements, visible separated legs and distinct support/lead boot. Her anatomical RIGHT hand is now outside the pocket and swings naturally slightly backward; her anatomical LEFT hand keeps a secure, relaxed grip on the gold measuring instrument, held close and steady beside her left hip. The bag stays worn and hangs from its existing strap, with only modest movement. A restrained everyday walking stride, not running, jumping, posing, or idle stance. Treat the reference only as identity/costume/illustration continuity; draw this new body pose independently, no reuse of its idle posture. One centered, fully visible figure head-to-soles, generous transparent margin, same optical scale and ground-contact baseline intended for a matching phase B sprite; true transparent alpha, exact 1024x1536 portrait canvas. Warm polished painterly modern 2D RPG illustration matching reference. No invented age or gender, no extra props, no change to sides or accessories. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, additional person, 3D, photorealism.",
+          "initialSoleOrigin": {
+            "x": 0.48141,
+            "y": 0.91406
+          },
+          "headCenterSourceX": 516.26307
+        },
+        {
+          "direction": "up",
+          "frameIndex": 0,
+          "assetKey": "veloria-ada-walk-north-a-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-north-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-north-a-v1.webp",
+          "sourceSha256": "3bf22951d59e43466619057952f9673bd0807c79d0e73caa11c9905a92b57406",
+          "runtimeSha256": "9129cab4b8bfb5a2aa747eae4c739d83ea97abdfded1163434e39f4ae2abb2cb",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            207,
+            100,
+            800,
+            1468
+          ],
+          "origin": {
+            "x": 0.49498,
+            "y": 0.95573
+          },
+          "displaySize": 62.87719,
+          "outputId": "exec-02d317c7-f124-4201-b97f-bcd32b4df0c0.png",
+          "sourceCandidate": ".tmp/ada-walk-front-back/ada-walk-north-a.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body NPC game sprite, authentic rear-view walking-cycle drawing. Image 1 is Ada's exact NORTH/rear idle identity and costume reference; preserve her same dark curly hair, gold hoop earrings, plum field jacket, cream cargo trousers, brown boots with orange laces, olive shoulder bag and gold measuring instrument. Create WALK NORTH, phase A: show Ada from directly behind, facing away from camera, walking forward. In this rear view, her ANATOMICAL LEFT is on viewer-left: keep the worn olive shoulder bag on her anatomical LEFT hip (viewer-left from behind), and her anatomical LEFT hand holds the same gold measuring instrument naturally near that hip, visible on viewer-left; maintain a secure relaxed grip. The opposite/anatomical RIGHT hand is free and swings naturally slightly backward, outside the clothing, clearly empty. Anatomical LEFT leg advances away from the camera while RIGHT leg trails; clear natural walking stride with distinct separated foot placement and visible boot soles/backs. Motion is calm everyday walking, not running, jumping, posing, or standing idle. Keep garment, bag strap, instrument, hair and earrings consistent with the reference; don't add props. Draw a genuinely new pose, not a transformation or repeat of idle. One centered complete figure hair-to-soles, generous transparent margin, same optical height and common horizontal ground-contact baseline for all four walk drawings. True transparent alpha, exact 1024x1536 portrait canvas, polished warm painterly modern 2D RPG art matching the reference. No invented age or gender. No added straps, tools, bag, jewelry, background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, 3D, photorealism.",
+          "initialSoleOrigin": {
+            "x": 0.55187,
+            "y": 0.95573
+          },
+          "headCenterSourceX": 507.0576
+        },
+        {
+          "direction": "up",
+          "frameIndex": 1,
+          "assetKey": "veloria-ada-walk-north-b-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-north-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-north-b-v1.webp",
+          "sourceSha256": "117ec2819856e7975f555896d3d762b38ebf51a12e81ef77d93454d94bfecc34",
+          "runtimeSha256": "eec02e421f901c34468c4ad8d23b98d6083d17e790b0371431a84dbc0a1f224e",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            199,
+            99,
+            795,
+            1416
+          ],
+          "origin": {
+            "x": 0.49868,
+            "y": 0.92188
+          },
+          "displaySize": 65.31207,
+          "outputId": "exec-edbda098-cf3e-49e0-9950-7854fa388898.png",
+          "sourceCandidate": ".tmp/ada-walk-front-back/ada-walk-north-b.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body NPC game sprite, a clearly distinct second rear-view walking-cycle drawing. Image 1 is Ada's exact north/rear idle reference for identity and costume. Image 2 is the approved north phase A for identity, costume, art finish, size and ground line ONLY; create the opposite step and do not repeat its leg placement. Walk straight NORTH, away from camera; direct rear view. Phase B must be the opposite gait phase from A, with unmistakably exchanged leg positions: Ada's ANATOMICAL LEFT leg (viewer-left from behind) is now the trailing leg, bent back, boot lifted so its sole faces the camera; her ANATOMICAL RIGHT leg (viewer-right from behind) is now reaching forward away from camera, with toe/boot pointing away and sole NOT facing camera. Show a different clear stance with separated knees and boots, visibly opposite to A. Her anatomical RIGHT arm swings naturally forward, visibly unlike A. Her anatomical LEFT hand still holds the same gold measuring instrument at anatomical LEFT hip, viewer-left in this rear view; olive shoulder bag remains worn on anatomical LEFT hip on viewer-left. Preserve Ada's short dark curls, gold earrings, plum field jacket, cream cargo trousers, brown boots with orange laces, same single bag and same gold instrument; no extra objects. A calm everyday walking stride, not running, standing, idle or jumping. One centered entire figure hair-to-soles, generous transparent margin, identical optical height and common horizontal ground baseline as phase A and both south poses. True alpha transparency, portrait canvas exactly 1024x1536, painterly modern 2D RPG finish. No invented age/gender, no background/floor/shadow/glow/halo/vignette/text/crop/flip/mirror/rotation/extra person/3D/photorealism.",
+          "initialSoleOrigin": {
+            "x": 0.44391,
+            "y": 0.92188
+          },
+          "headCenterSourceX": 510.84507
+        },
+        {
+          "direction": "left",
+          "frameIndex": 0,
+          "assetKey": "veloria-ada-walk-west-a-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-west-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-west-a-v1.webp",
+          "sourceSha256": "ff301bbe0557f20ec20ee80e1e639830686bd4e9a4bd9e8093d788a77ab86713",
+          "runtimeSha256": "65af10913e99b158c7f45ded4124a1e9d7a6fa2050a5ac030d9bd4686fc3046e",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            143,
+            126,
+            871,
+            1412
+          ],
+          "origin": {
+            "x": 0.53634,
+            "y": 0.91927
+          },
+          "displaySize": 66.88647,
+          "outputId": "exec-50a06744-bfee-4e9d-b229-9ca9a2e353e2.png",
+          "sourceCandidate": ".tmp/ada-walk-sides/ada-walk-west-a.png",
+          "prompt": "Use case: illustrated 2D RPG walk-cycle character sprite. Create one independent full-body west-facing walk frame of Ada, exact 1024x1536 RGBA PNG.\nReference images: Image 1 is Ada’s west-facing idle, identity, correct anatomical side placement, and painterly style reference. Image 2 is Ada’s south-facing idle for face/outfit continuity only. Preserve Ada exactly: dark curly hair, gold hoop earrings, plum field jacket over cream shirt, cream cargo trousers, brown boots with orange laces, olive shoulder bag worn on her ANATOMICAL LEFT hip, and the gold measuring instrument held in her ANATOMICAL LEFT hand. Do not reproduce the west idle pose. The north idle has an erroneous instrument-side placement; do not use it.\nDraw a new clear side-profile walking pose facing screen-left (west), with Ada’s anatomical LEFT side toward the camera. Phase A: anatomical LEFT leg steps forward toward screen-left while the ANATOMICAL RIGHT leg trails behind, with visibly separated boots, a clear stride and natural weight shift. Keep the left hand securely holding the gold measuring instrument beside the left hip. Keep the existing olive bag worn on that same left side, with strap and bag positioned naturally behind/around the near left arm; do not move it to the right side or duplicate it. Her anatomical RIGHT hand is empty, outside any pocket, and swings slightly backward in a relaxed counter-swing. Everyday measured walk, modest stride, not running or posing. Full body, centered, hair and both boot soles visible, generous transparent breathing room, same apparent figure scale and bottom baseline suitable for another matching frame. Modern polished painterly 2D, soft warm highlights and fabric texture, matching reference style. No new props/accessories, no age or gender redesign, no mirroring, no flipping, no crop, no rotate. True transparent background; no colored falloff, halo, glow, backdrop, floor, shadow, text, border, extra limbs/fingers.",
+          "initialSoleOrigin": {
+            "x": 0.53598,
+            "y": 0.91927
+          },
+          "headCenterSourceX": 530.31108
+        },
+        {
+          "direction": "left",
+          "frameIndex": 1,
+          "assetKey": "veloria-ada-walk-west-b-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-west-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-west-b-v1.webp",
+          "sourceSha256": "d74b62dbae62be056e9cc6bad888b5231749d2e012613692d23f8c284e75f2fc",
+          "runtimeSha256": "3dc7e0da0d1f1a0b09b6fe2c7e40a95059765c09452e7afd5086faa5beb7754d",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            46,
+            74,
+            994,
+            1430
+          ],
+          "origin": {
+            "x": 0.50738,
+            "y": 0.93099
+          },
+          "displaySize": 63.43363,
+          "outputId": "exec-afa2092a-fed8-49b6-9a4f-49f2f0289771.png",
+          "sourceCandidate": ".tmp/ada-walk-sides/ada-walk-west-b-root.png",
+          "prompt": "Edit target Image 1, Ada walking WEST in profile. Image 2 is the existing phase A for comparison only. Make phase B have the opposite leg stance while preserving EVERYTHING above the hips, identity, camera, hands, meter, bag, costume, paint style, canvas and transparency. CRUCIAL: the anatomical LEFT leg is camera-near. In this B image its visible large cargo-pocket thigh must sweep BACKWARD to the viewer's RIGHT of the hips, with its bent knee and brown boot at the rear/right. The far anatomical RIGHT leg strides FORWARD toward the viewer's LEFT; at overlaps it remains behind the near leg. Put the big visible near-side thigh cargo pocket on the rear/right leg, NOT on the forward/left leg. The near leg must read unambiguously from hip through rear/right knee to rear/right boot. Do not merely change the arm or relabel the same leading leg. Natural walking, not running. Change only the leg stance and associated trouser folds. Do not mirror, flip, rotate, crop, add accessories or introduce haze, glow, floor or background. Full-body 1024x1536 transparent PNG.",
+          "initialSoleOrigin": {
+            "x": 0.50776,
+            "y": 0.93099
+          },
+          "headCenterSourceX": 499.62703
+        },
+        {
+          "direction": "right",
+          "frameIndex": 0,
+          "assetKey": "veloria-ada-walk-east-a-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-east-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-east-a-v1.webp",
+          "sourceSha256": "3dd24e295c8922efd183e9ec67763411043bbdf7db7cd4dc2ec23eb4e741762b",
+          "runtimeSha256": "0f7adfc2f344e26a82752ca6e481effb7bd312da121c39f47386f7f13536a333",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            84,
+            63,
+            992,
+            1408
+          ],
+          "origin": {
+            "x": 0.55364,
+            "y": 0.91667
+          },
+          "displaySize": 63.95242,
+          "outputId": "exec-8fdb4902-1d28-4b39-b152-85b9df4b0c15.png",
+          "sourceCandidate": ".tmp/ada-walk-sides/ada-walk-east-b-root.png",
+          "prompt": "Image 1 is the edit target: Ada EAST-facing walk B with the correct near RIGHT leg trailing left (large cargo pocket on rear/left thigh) and far LEFT leg leading right. Preserve this entire leg stance and all costume, proportions, camera and canvas. Make ONE correction: Ada must keep her gold round teal-glass research meter in her anatomical LEFT hand. That is the FAR hand currently hanging down at the REAR/VIEWER-LEFT, next to the partially visible olive bag; it is the lower hand around x340,y950, NOT the free arm stretched forward to viewer-right. Close that rear/far hand naturally around the meter's gold handle, holding the same small gold-and-teal round instrument down beside her left hip. The far instrument may be partly occluded by the body, but do not leave that far hand visibly empty. Image 2 is ONLY a reference for the exact instrument appearance. Keep the anatomical RIGHT/near arm and forward hand empty and unchanged. Do not add a third arm, another bag, a second instrument, or change leg phases. Keep the true transparent background, full figure 1024x1536. No flips, mirrors, rotation, cropping, background, glow or haze. All other pixels and pose should remain as close as possible to Image 1.",
+          "initialSoleOrigin": {
+            "x": 0.54829,
+            "y": 0.91667
+          },
+          "headCenterSourceX": 504.48158
+        },
+        {
+          "direction": "right",
+          "frameIndex": 1,
+          "assetKey": "veloria-ada-walk-east-b-v1",
+          "sourcePath": "assets/sources/veloria-ada-walk-east-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ada-walk-east-b-v1.webp",
+          "sourceSha256": "5eb487ee603f5039130f266ed2939869d94e4d5ff1200f035ac1976c246fcd09",
+          "runtimeSha256": "882e707b5a2e83076aa78cf9a254fa759a84aace9bc672edef5a41e2415fa141",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            172,
+            165,
+            923,
+            1404
+          ],
+          "origin": {
+            "x": 0.55445,
+            "y": 0.91406
+          },
+          "displaySize": 69.42373,
+          "outputId": "exec-9914094a-1462-4f02-a5a3-a0b6167914f4.png",
+          "sourceCandidate": ".tmp/ada-walk-sides/ada-walk-east-a.png",
+          "prompt": "Use case: modern painterly 2D RPG walk-cycle sprite. Generate one independent full-body east-facing side-view walking pose of Ada, exact 1024x1536 portrait RGBA with genuine transparency. Image 1 is Ada facing front and is the ONLY identity/outfit reference; do not copy its pose. Ada's dark curly hair, gold hoop earrings, plum field jacket, cream shirt and cargo trousers, brown boots with orange laces must match exactly. Her olive bag and gold measuring instrument belong exclusively to Ada's anatomical LEFT side and left hand. EAST means face points screen-right; Ada's anatomical RIGHT flank is nearest camera. The left arm, left hand holding the gold instrument, left shoulder strap and olive bag are all on the FAR side. Keep the FAR LEFT arm behind her torso, so the hand and instrument are mostly hidden; at most a narrow plausible glimpse of the instrument near the far hip, behind the coat edge. Keep the olive bag and strap behind the torso on that same far side, only partial glimpses at the rear outline. Absolutely no instrument, bag or strap on the camera-near RIGHT flank. Her camera-near anatomical RIGHT hand is empty, outside the pocket, and swings slightly backward.\nPhase A walk: Ada faces screen-right and anatomical LEFT leg is the forward step toward screen-right, with anatomical RIGHT leg trailing. Clearly separated boots, left boot visibly farther forward to the right, right boot behind to the left, natural walking weight shift. Calm modest walking stride, not running or idle. Full body, soles visible, centered with generous empty margins and consistent scale/baseline for phase B. No new accessories, no gender/age changes, no anatomy changes, no mirroring. TRUE transparent background; no haze, glow, halo, vignette, floor, shadow or backdrop. No crop, flip, rotation, text, extra character or extra limbs.",
+          "initialSoleOrigin": {
+            "x": 0.55938,
+            "y": 0.91406
+          },
+          "headCenterSourceX": 510.2271
+        }
+      ]
+    }
+  ]
+}
