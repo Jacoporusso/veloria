@@ -1101,6 +1101,26 @@
         "kind": "image",
         "key": "veloria-sera-idle-east-v1",
         "path": "assets/sprites/veloria-sera-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-south-v1",
+        "path": "assets/sprites/veloria-timo-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-north-v1",
+        "path": "assets/sprites/veloria-timo-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-west-v1",
+        "path": "assets/sprites/veloria-timo-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-east-v1",
+        "path": "assets/sprites/veloria-timo-idle-east-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -1175,6 +1195,10 @@
       "veloria-sera-idle-north-v1",
       "veloria-sera-idle-south-v1",
       "veloria-sera-idle-west-v1",
+      "veloria-timo-idle-east-v1",
+      "veloria-timo-idle-north-v1",
+      "veloria-timo-idle-south-v1",
+      "veloria-timo-idle-west-v1",
       "veloria-vetracielo-lea-v1"
     ],
     "unboundStudies": [
@@ -1627,6 +1651,26 @@
         "kind": "image",
         "key": "veloria-sera-idle-east-v1",
         "path": "assets/sprites/veloria-sera-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-south-v1",
+        "path": "assets/sprites/veloria-timo-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-north-v1",
+        "path": "assets/sprites/veloria-timo-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-west-v1",
+        "path": "assets/sprites/veloria-timo-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-timo-idle-east-v1",
+        "path": "assets/sprites/veloria-timo-idle-east-v1.webp"
       }
     ],
     "profiles": [
@@ -2390,12 +2434,45 @@
         "npcIds": [
           "trainer_route01_b"
         ],
-        "assetKey": "veloria-cast-opening-and-champion-v1",
-        "frame": 1,
+        "assetKey": "veloria-timo-idle-south-v1",
         "narrativeSource": "content/dialogue/world.v1.json#/timo_route01; content/trainers/r01_timo.trainer.json",
         "origin": {
-          "x": 0.5028,
-          "y": 0.9617
+          "x": 0.54622,
+          "y": 0.93359
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-timo-idle-south-v1",
+            "origin": {
+              "x": 0.54622,
+              "y": 0.93359
+            },
+            "displaySize": 62.42
+          },
+          "up": {
+            "assetKey": "veloria-timo-idle-north-v1",
+            "origin": {
+              "x": 0.50545,
+              "y": 0.94727
+            },
+            "displaySize": 60.83
+          },
+          "left": {
+            "assetKey": "veloria-timo-idle-west-v1",
+            "origin": {
+              "x": 0.50563,
+              "y": 0.97266
+            },
+            "displaySize": 57.92
+          },
+          "right": {
+            "assetKey": "veloria-timo-idle-east-v1",
+            "origin": {
+              "x": 0.51715,
+              "y": 0.94987
+            },
+            "displaySize": 60.32
+          }
         }
       },
       {
@@ -10033,6 +10110,34 @@
           "path": "assets/sprites/veloria-sera-idle-east-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-timo-idle-south-v1",
+          "path": "assets/sprites/veloria-timo-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-timo-idle-north-v1",
+          "path": "assets/sprites/veloria-timo-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-timo-idle-west-v1",
+          "path": "assets/sprites/veloria-timo-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-timo-idle-east-v1",
+          "path": "assets/sprites/veloria-timo-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -10181,11 +10286,11 @@
           "profileMatch": "route-trainer-timo",
           "narrativeSpeaker": "Timo",
           "kind": "npc",
-          "sprite": "veloria-cast-opening-and-champion-v1",
-          "spriteFrame": 1,
+          "sprite": "veloria-timo-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.5028,
-            "y": 0.9617
+            "x": 0.54622,
+            "y": 0.93359
           },
           "trainerId": "veloria/trainer_route01_timo",
           "battleOnceFlag": "trainer_route01_timo_defeated",
@@ -15602,11 +15707,11 @@
       "profileMatch": "route-trainer-timo",
       "narrativeSpeaker": "Timo",
       "kind": "npc",
-      "sprite": "veloria-cast-opening-and-champion-v1",
-      "spriteFrame": 1,
+      "sprite": "veloria-timo-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.5028,
-        "y": 0.9617
+        "x": 0.54622,
+        "y": 0.93359
       },
       "trainerId": "veloria/trainer_route01_timo",
       "battleOnceFlag": "trainer_route01_timo_defeated",

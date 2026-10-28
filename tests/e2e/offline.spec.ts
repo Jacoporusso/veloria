@@ -179,6 +179,8 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Timo', speaker: 'Timo', profile: 'route-trainer-timo', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 18, y: 12,
+    start: { x: 18, y: 13 }, dimensions: [1024, 1536], flags: ['trainer_route01_timo_defeated'], coldStart: false },
   { name: 'Sera', speaker: 'Sera', profile: 'route-trainer-sera', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 7, y: 9,
     start: { x: 7, y: 10 }, dimensions: [1024, 1536], flags: ['trainer_route01_sera_defeated'], coldStart: false },
   { name: 'Ada', speaker: 'Ada', profile: 'ranger-ada', map: 'd01_bosco_veli', spawn: 'from_r01', x: 13, y: 10,

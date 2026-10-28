@@ -1064,6 +1064,88 @@
           "outputId": "exec-95432c91-d432-418d-8154-bd84e9f102a3.png"
         }
       ]
+    },
+    {
+      "profileId": "route-trainer-timo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/timo-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/dialogue/world.v1.json#/timo_route01",
+          "role": "narrative identity source"
+        },
+        {
+          "path": "content/trainers/r01_timo.trainer.json",
+          "role": "trainer catalog source"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-timo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-timo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-timo-idle-south-v1.webp",
+          "sourceSha256": "2a5c1e221e180e389b10857a3e963a8603ad246dde557f17ddc36dc3440b6dea",
+          "runtimeSha256": "c65b1ab7b7bba0bab6681d2b47d2f983acc017bfd9cb0d39c83fc80e843c8743",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.54622,
+            "y": 0.93359
+          },
+          "displaySize": 62.42,
+          "outputId": "exec-2c8cd53a-e09c-4e06-9860-4d870cded34c.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-timo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-timo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-timo-idle-north-v1.webp",
+          "sourceSha256": "92423c6f6870869098b582d44758f517749f64168db98c083af68cdde18d31e9",
+          "runtimeSha256": "ee2fd55db61f69327055ab70029be559c1a2ac4aaf8d9fea81ed1df004f2042d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50545,
+            "y": 0.94727
+          },
+          "displaySize": 60.83,
+          "outputId": "exec-e2ddc5fb-89d8-4b27-bebb-2e73a17166f8.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-timo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-timo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-timo-idle-west-v1.webp",
+          "sourceSha256": "021eb9fd522ea8255dbafeedb4e9d6c622964136bc2d24a39483bb778868d77d",
+          "runtimeSha256": "8a575a257e17d09fe8b0aedfbd9e3a7baef4e5e0edc2c4ffbda0e62aecf0fa4a",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50563,
+            "y": 0.97266
+          },
+          "displaySize": 57.92,
+          "outputId": "exec-cb7fa131-75a7-46d9-890d-3298e19e7bc4.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-timo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-timo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-timo-idle-east-v1.webp",
+          "sourceSha256": "71e112cf08227b54a74c3b246ff117caa4023ee0784132250ba7e38b71f97c3c",
+          "runtimeSha256": "be3f49f09020781ca1a411c5f4bd80c36feadd03bc5c8775ef1961fb63ea8873",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51715,
+            "y": 0.94987
+          },
+          "displaySize": 60.32,
+          "outputId": "exec-eca4a6b3-d1c9-4143-aee2-e151649212f9.png"
+        }
+      ],
+      "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling of source PNG. Runtime WebP lossless with exact RGBA pixel equality."
     }
   ]
 }

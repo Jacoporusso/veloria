@@ -1908,12 +1908,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-cast-opening-and-champion-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-timo-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -1923,12 +1918,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.5028
+              "value": 0.54622
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9617
+              "value": 0.93359
             }
           ]
         }

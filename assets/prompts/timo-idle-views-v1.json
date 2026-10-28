@@ -1,0 +1,105 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "identityReference": "route-trainer-timo profile and legacy atlas frame 1",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/timo_route01",
+      "role": "narrative identity source"
+    },
+    {
+      "path": "content/trainers/r01_timo.trainer.json",
+      "role": "trainer catalog source"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: stylized-concept. Production standalone SOUTH idle sprite for modern illustrated 2D game Veloria. Reference is a FOUR-character atlas: use ONLY Timo in TOP RIGHT as identity and outfit reference; ignore other three. ONE full-body Timo facing exactly front SOUTH toward viewer, relaxed upright idle, feet grounded, gentle overhead world-game perspective. Preserve curly copper/auburn hair, blue-and-cream baseball cap worn BACKWARDS, friendly warm youthful face, rust orange and slate-blue windbreaker with cream rolled cuffs and cream inner panels, pale cream shirt, blue cargo shorts, socks and rust/cream hiking sneakers, centered hiking backpack with straps and a rolled beige sleeping mat visible at upper back, brass whistle hanging centrally from neck cord. Near hands rest relaxed at hips/backpack straps; no salute or lifted hand. Readable compact silhouette, matte painterly shading, same modern illustrated RPG style and body proportions as reference. Exact single full body with generous transparent margins, all shoes visible, portrait 2:3 canvas. Actual transparent RGBA background; no scenery, background glow, halo, ground, shadow disk, text, labels, sheet, frame, UI or additional people. No pixel art or realistic 3D.",
+    "north": "Use case: stylized-concept. ONE independent NORTH idle sprite of Timo, exact straight REAR view of the same full-body character in the reference SOUTH view. Preserve copper curly hair, backwards blue-and-cream baseball cap (the brim now extends behind his head toward the viewer), rust/slate-blue jacket with cream cuffs, cream shirt, blue cargo shorts, white socks, rust/cream hiking sneakers. Centered hiking backpack with horizontal beige rolled sleeping mat across its top. Metal water bottle stays on his ANATOMICAL LEFT backpack side (viewer LEFT in this rear view). Hands at waist lightly holding straps, same relaxed planted feet and same proportions, gently overhead game perspective. Face and chest whistle should be occluded by head/torso/backpack in a true rear view; do not put a face or whistle on his back. Match the matte modern illustrated 2D RPG style exactly. Entire one figure on portrait 2:3 actual transparent RGBA canvas, generous clear margins and shoes intact. No scenery, wash, glow, ground, shadow disc, text, labels, extra people, panels or UI. Draw a new rear view, no flipping the reference.",
+    "west": "Use case: stylized-concept. ONE independent WEST idle sprite of Timo matching reference SOUTH identity and NORTH backpack design. Exact LEFT-FACING lateral profile; nose and toes viewer LEFT, near side his ANATOMICAL LEFT. Preserve copper curly hair, blue-and-cream baseball cap worn backwards with brim behind head toward viewer RIGHT, warm friendly face, rust/slate-blue windbreaker with cream rolled cuffs, cream shirt, blue cargo shorts, white socks, rust/cream hiking sneakers. Backpack behind torso toward viewer RIGHT, beige bedroll horizontal across top and metal bottle on ANATOMICAL LEFT side, here near and visibly attached to near backpack pocket behind waist. Brass whistle on chest cord visible toward front of chest. Hands relaxed at waist/strap, both feet planted, no salute. Same body proportions, gentle overhead view, matte painterly modern illustrated 2D RPG, not realistic3D. True side drawing, not mirror, not frontal three-quarter. Whole single figure centered portrait2:3 genuine transparent RGBA canvas with clear margin and intact shoes. No scenery, background wash, glow, shadow disk, text, labels, extra figures, sheet, panels or UI.",
+    "east": "Use case: stylized-concept. ONE independent EAST idle sprite of Timo matching both reference SOUTH identity and NORTH backpack design exactly. Exact RIGHT-FACING lateral profile: nose and toes viewer RIGHT; visible near side is his ANATOMICAL RIGHT. Preserve copper curly hair, backwards blue-and-cream cap with brim behind head toward viewer LEFT, warm friendly face, rust/slate-blue jacket with cream rolled cuffs, cream shirt, blue cargo shorts, white socks and rust/cream hiking sneakers. Backpack behind torso toward viewer LEFT, horizontal beige bedroll at top. Metal bottle belongs ONLY on ANATOMICAL LEFT side of backpack, here FAR SIDE: keep it occluded, at most a small far edge; never move bottle to visible near right side. Brass whistle remains on central chest cord, may be visible near front of chest. Hands relaxed at waist/straps, neutral planted feet, same proportions and gently overhead game view, soft matte painterly modern 2D RPG. Draw a genuine side view, do not flip the other side or draw frontal three-quarter. ONE full body centered portrait2:3 true transparent RGBA canvas with generous clear margin, intact boots. No scenery, background wash, glow, shadow disc, text, labels, extra people, sheet, panels or UI."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-timo-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-timo-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-timo-idle-south-v1.webp",
+      "sourceSha256": "2a5c1e221e180e389b10857a3e963a8603ad246dde557f17ddc36dc3440b6dea",
+      "runtimeSha256": "c65b1ab7b7bba0bab6681d2b47d2f983acc017bfd9cb0d39c83fc80e843c8743",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.54622,
+        "y": 0.93359
+      },
+      "displaySize": 62.42,
+      "outputId": "exec-2c8cd53a-e09c-4e06-9860-4d870cded34c.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-timo-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-timo-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-timo-idle-north-v1.webp",
+      "sourceSha256": "92423c6f6870869098b582d44758f517749f64168db98c083af68cdde18d31e9",
+      "runtimeSha256": "ee2fd55db61f69327055ab70029be559c1a2ac4aaf8d9fea81ed1df004f2042d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50545,
+        "y": 0.94727
+      },
+      "displaySize": 60.83,
+      "outputId": "exec-e2ddc5fb-89d8-4b27-bebb-2e73a17166f8.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-timo-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-timo-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-timo-idle-west-v1.webp",
+      "sourceSha256": "021eb9fd522ea8255dbafeedb4e9d6c622964136bc2d24a39483bb778868d77d",
+      "runtimeSha256": "8a575a257e17d09fe8b0aedfbd9e3a7baef4e5e0edc2c4ffbda0e62aecf0fa4a",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50563,
+        "y": 0.97266
+      },
+      "displaySize": 57.92,
+      "outputId": "exec-cb7fa131-75a7-46d9-890d-3298e19e7bc4.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-timo-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-timo-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-timo-idle-east-v1.webp",
+      "sourceSha256": "71e112cf08227b54a74c3b246ff117caa4023ee0784132250ba7e38b71f97c3c",
+      "runtimeSha256": "be3f49f09020781ca1a411c5f4bd80c36feadd03bc5c8775ef1961fb63ea8873",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51715,
+        "y": 0.94987
+      },
+      "displaySize": 60.32,
+      "outputId": "exec-eca4a6b3-d1c9-4143-aee2-e151649212f9.png"
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. PNG bytes preserved; runtime WebP lossless exact RGBA pixel equality.",
+  "inputReferences": {
+    "south": [
+      "public/assets/sprites/veloria-cast-opening-and-champion-v1.webp (top-right Timo only)"
+    ],
+    "north": [
+      "assets/sources/veloria-timo-idle-south-v1.png"
+    ],
+    "west": [
+      "assets/sources/veloria-timo-idle-south-v1.png",
+      "assets/sources/veloria-timo-idle-north-v1.png"
+    ],
+    "east": [
+      "assets/sources/veloria-timo-idle-south-v1.png",
+      "assets/sources/veloria-timo-idle-north-v1.png"
+    ]
+  },
+  "runtimeReview": "Four real approaches, both animation qualities and orientations passed; source compositing reviewed in Chrome. First offline decode and interactions passed. See docs/108_TIMO_DIRECTIONAL_IDLE_v0.1.md."
+}

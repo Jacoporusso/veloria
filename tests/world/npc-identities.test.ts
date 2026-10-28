@@ -141,8 +141,8 @@ test('opening route, terrace guide and Champion keep their separate NPC identiti
     assert.ok(profile, `missing profile ${profileId}`);
     assert.deepEqual(profile.npcIds, [npcId]);
     assert.deepEqual(profile.dialogueIds, [dialogueId]);
-    if (profileId === 'route-trainer-sera') {
-      assert.equal(profile.assetKey, 'veloria-sera-idle-south-v1');
+    if (profileId === 'route-trainer-sera' || profileId === 'route-trainer-timo') {
+      assert.equal(profile.assetKey, `veloria-${profileId === 'route-trainer-sera' ? 'sera' : 'timo'}-idle-south-v1`);
       assert.equal(profile.frame, undefined);
       assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
     } else {

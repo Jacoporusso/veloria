@@ -40,6 +40,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const starter = process.env.PLAYTEST_STARTER ?? 'Charmander';
   const prepareGym = process.env.PLAYTEST_PREPARE_GYM !== '0';
   const resumeFirstFile = process.env.PLAYTEST_RESUME_FIRST_BACKUP;
+  const resumeSecondFile = process.env.PLAYTEST_RESUME_SECOND_BACKUP;
   const resumePortolumeFile = process.env.PLAYTEST_RESUME_PORTOLUME_BACKUP;
   const resumeRheaFile = process.env.PLAYTEST_RESUME_RHEA_BACKUP;
   const acquarivaSearch = process.env.PLAYTEST_ACQUARIVA_SEARCH === '1';
@@ -58,8 +59,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
   const wooperTraining = process.env.PLAYTEST_TRAIN_WOOPER === '1';
   expect([nereaChallenge, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
-  const resumeBackupFile = resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
-  expect([resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
+  const resumeBackupFile = resumeSecondFile ?? resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
+  expect([resumeSecondFile, resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
   const coastRotation = process.env.PLAYTEST_COAST_ROTATION === '1';
   const nereaRotation = process.env.PLAYTEST_NEREA_ROTATION === '1';
@@ -209,6 +210,10 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         await tapBattleLabel(page, '__naturalGame', 'LOTTA');
         // Use visible setup effects once, then damage. Never inspect the pending opponent command.
         const slots = own.moves.map((slot: any, index: number) => ({ index, pp: slot.pp, move: battle.moves[slot.moveId] }));
+        // A failed setup (for example a sound move blocked by an ability) must
+        // not be repeated just because the opponent's stat stage stayed zero.
+        const setupKey = (slot: any) => `${battle.id}:${own.instanceId}:${target.instanceId}:setup:${slot.move?.id}`;
+        const unusedSetup = slots.filter((slot: any) => !tacticalMovesUsed.has(setupKey(slot)));
         const displayedScore = (slot: any) => {
           const forecast = battle.forecasts[slot.move.id];
           return forecast ? (forecast.minimum + forecast.maximum) / 2 * forecast.accuracy / 100 : 0;
@@ -216,15 +221,19 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         const damageOption = slots.filter((slot: any) => slot.pp > 0 && slot.move?.power > 0)
           .sort((a: any, b: any) => displayedScore(b) - displayedScore(a))[0];
         const usefulSetup = !damageFirst && prepareGym && battle.type === 'trainer' && own.hp > own.stats.maxHp / 2 && target.hp > target.stats.maxHp / 2
-          ? slots.find((slot: any) => slot.pp > 0 && slot.move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass'))
-            ?? slots.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status'
+          ? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass'))
+            ?? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status'
               && slot.move.statChanges?.some((effect: any) => effect.target === 'opponent' && effect.stat === 'attack' && effect.stages < 0)
               && (target.statStages?.attack ?? 0) === 0)
-            ?? slots.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status' && damageOption?.move.category === 'physical'
+            ?? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status' && damageOption?.move.category === 'physical'
               && slot.move.statChanges?.some((effect: any) => effect.target === 'opponent' && effect.stat === 'defense' && effect.stages < 0)
               && (target.statStages?.defense ?? 0) >= 0)
           : undefined;
         const preferred = usefulSetup ?? damageOption;
+        if (usefulSetup) {
+          tacticalMovesUsed.add(setupKey(usefulSetup));
+          report.push({ label: 'Setup attempted through move UI', battleId: battle.id, creatureId: own.instanceId, targetId: target.instanceId, moveId: usefulSetup.move.id });
+        }
         if (preferred) await tapBattleLabel(page, '__naturalGame', preferred.move.name);
         else await page.keyboard.press('Enter',{delay:40}); // The normal emergency move when PP are exhausted.
       }
@@ -291,7 +300,12 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       const checkpointText = await readFile(resumeBackupFile, 'utf8');
       const backup = JSON.parse(checkpointText);
       report.push({ label: 'Earned checkpoint source', sha256: createHash('sha256').update(checkpointText).digest('hex') });
-      if (resumeFirstFile) {
+      if (resumeSecondFile) {
+        expect(backup.save.player.mapId).toBe('veloria/gym02_petalora');
+        expect(backup.save.badges).toEqual(['badge_aurora', 'badge_corolla']);
+        expect(backup.save.flags).toContain('badge_corolla_awarded');
+        expect(backup.save.party.every((member: any) => member.speciesId >= 1 && member.speciesId <= 151)).toBe(true);
+      } else if (resumeFirstFile) {
         expect(backup.save.player.mapId).toBe('veloria/gym01_brumalta');
         expect(backup.save.badges).toEqual(['badge_aurora']);
         expect(backup.save.flags).toContain('badge_aurora_awarded');
@@ -302,7 +316,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         expect(backup.save.badges).toHaveLength(5);
       } else if (resumeNereaFile) expect(['veloria/portolume', 'veloria/r08_costa_turbine', 'veloria/gym05_portolume']).toContain(backup.save.player.mapId);
       else expect(backup.save.player.mapId).toBe('veloria/gym04_ferraluce');
-      if (!resumeFirstFile) expect(backup.save.flags).toContain('gym04_magnetic_aligned');
+      if (!resumeFirstFile && !resumeSecondFile) expect(backup.save.flags).toContain('gym04_magnetic_aligned');
       if (resumeNereaFile) expect(backup.save.flags).toContain('q_portolume_tide_report');
       if (resumeFifthFile || resumePortolumeFile || resumeNereaFile) expect(backup.save.flags).toContain('badge_acciaio_awarded');
       else expect(backup.save.flags).not.toContain('badge_acciaio_awarded');
@@ -320,10 +334,10 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       expect((await observe(page)).save.flags).toEqual(backup.save.flags);
       expect((await observe(page)).save.badges).toEqual(backup.save.badges);
       startingRngState = backup.save.rngState;
-      await record(resumeFirstFile ? 'Resumed unchanged earned first medal checkpoint' : resumeFifthFile ? 'Resumed unchanged earned fifth medal checkpoint' : resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
+      await record(resumeSecondFile ? 'Resumed unchanged earned second medal checkpoint' : resumeFirstFile ? 'Resumed unchanged earned first medal checkpoint' : resumeFifthFile ? 'Resumed unchanged earned fifth medal checkpoint' : resumeNereaFile ? 'Resumed unchanged earned Portolume checkpoint' : resumePortolumeFile ? 'Resumed unchanged earned fourth medal checkpoint' : 'Resumed unchanged earned Rhea checkpoint');
     }
-    if (!resumeBackupFile || resumeFirstFile) {
-      if (!resumeFirstFile) {
+    if (!resumeBackupFile || resumeFirstFile || resumeSecondFile) {
+      if (!resumeFirstFile && !resumeSecondFile) {
         await walk(21,25);
         await interact(12,7);
         await expect(page.getByRole('button',{name:starter,exact:true})).toBeVisible();
@@ -391,7 +405,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         expect((await observe(page)).save.badges).toContain('badge_aurora');
         await exportCheckpoint('natural-first-medal-backup.json');
       }
-      if (continueRadicelmo) {
+      if (continueRadicelmo && !resumeSecondFile) {
         await walk(13,19); // Leave the gym through the actual southern doorway.
         await interact(6,6);await page.getByRole('button',{name:'RIPOSA',exact:true}).click();await settle();
         await walk(35,12);
@@ -419,7 +433,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         expect((await observe(page)).save.flags).toContain('q_radicelmo_seed_archived');
         expect((await observe(page)).mapId).toBe('veloria/radicelmo');
       }
-      if (continuePetalora) {
+      if (continuePetalora && !resumeSecondFile) {
         const dalia = JSON.parse(await readFile(new URL('../../content/trainers/gym02_dalia.trainer.json', import.meta.url), 'utf8'));
         const targetLevel = Math.max(...dalia.team.map((member: { level: number }) => member.level));
         async function restInPetalora() {
@@ -527,6 +541,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
           await walk(45, 6); await restInVetracielo();
         }
         await record('Supplies purchased before Aster');
+        await exportCheckpoint('natural-aster-prebattle-backup.json');
         await walk(19, 16);
         expect((await observe(page)).mapId).toBe('veloria/gym03_vetracielo');
         for (const [x, y, flag] of [[7, 23, 'gym03_line_gardens_active'], [23, 19, 'gym03_line_glass_active'], [15, 15, 'gym03_lines_connected']] as const) {
@@ -535,6 +550,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         }
         await challenge(15, 10, 'Aster battle completed naturally');
         const thirdMedal = (await observe(page)).save;
+        if (!thirdMedal.flags.includes('badge_circuito_awarded')) await exportCheckpoint('natural-aster-defeat-backup.json');
         expect(thirdMedal.flags).toContain('badge_circuito_awarded');
         expect(thirdMedal.badges).toContain('badge_circuito');
         await page.screenshot({ path: testInfo.outputPath('natural-third-medal.png') });
@@ -648,7 +664,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeSecondFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,nereaChallenge,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

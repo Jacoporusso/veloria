@@ -70,6 +70,26 @@
       "kind": "image",
       "key": "veloria-sera-idle-east-v1",
       "path": "assets/sprites/veloria-sera-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-timo-idle-south-v1",
+      "path": "assets/sprites/veloria-timo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-timo-idle-north-v1",
+      "path": "assets/sprites/veloria-timo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-timo-idle-west-v1",
+      "path": "assets/sprites/veloria-timo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-timo-idle-east-v1",
+      "path": "assets/sprites/veloria-timo-idle-east-v1.webp"
     }
   ],
   "ambientEffects": [

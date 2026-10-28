@@ -1,3 +1,13 @@
+## 0.4.32 — Timo direzionale e diagnosi della progressione verso Aster
+
+Quattro idle indipendenti di Timo con zaino, fischietto e borraccia coerenti nei lati anatomici. PNG originali immutati, WebP lossless RGBA-identici, prompt e hash registrati. Solo binding/origini grafici R01 aggiornati: geometria e lotte invariate.13 profili direzionali su48;35ancora da migrare, camminate del cast aperte. Dettagli in `108_TIMO_DIRECTIONAL_IDLE_v0.1.md`.
+
+Quattro casi Chrome passati:51presenze nei due orientamenti, respiro legacy Enea e quattro approcci Timo con due qualità/due orientamenti. Una prova produzione offline passa primo decode delle quattro immagini e dialoghi. Quattro screenshot direzionali rivisti.828 dominio/persistenza,154 Python, validatore802media/48fondali/48mappe, TypeScript e build passati con avviso chunk Phaser. Discovery405browser una volta;52risorse offline divise26+26.
+
+Nuovo driver importa il checkpoint realmente guadagnato dopo Dalia senza cambiare squadra, risorse o RNG. Due tentativi naturali raggiungono Vetracielo, evoluzione reale in Charmeleon17 e puzzle della palestra, ma perdono contro Aster. Individuata ripetizione di Ruggito bloccato da Antisuono: il driver limita ogni setup a un tentativo per mossa/creatura/bersaglio. Il secondo tentativo rispetta il limite ma perde ancora sotto paralisi e Ferrostrido/Tuonoshock. Nessun nerf dei dati, nessuna medaglia dichiarata. Report e diagnosi in `playtests/2026-10-28-gen1-aster-attempts.md`; successiva prova con priorità al danno separata.
+
+Contenuti0.4.32/cachev195. Runtime non ancora inviato al momento della nota; ricevuta pubblica da registrare dopo push. Goal complessivo aperto, inclusa progressione naturale dopo Dalia fino alla Lega.
+
 ## 0.4.31 — Sera direzionale e progressione GenI fino a Dalia
 
 Quattro idle indipendenti di Sera, senza specchiatura, ancorate e calibrate per direzione. Scheda percorso sul fianco sinistro e zaino coerente; originali immutati, WebP lossless, prompt/hash/provenienza registrati. Nessun cambiamento a geometria, progressione o roster. Dodici profili direzionali su48,36 ancora da migrare; camminata Sera assente. Dettagli in `107_SERA_DIRECTIONAL_IDLE_v0.1.md`.
