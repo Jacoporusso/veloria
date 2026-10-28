@@ -220,7 +220,7 @@
         "whenFlagMissing": "q_radicelmo_fire_stone_found",
         "lines": [
           "La Pietrafocaia ti aspetta nel vivaio, a sud-est di me e sopra il vaso centrale. Avvicinati alla piccola pietra e raccoglila con il tasto azione.",
-          "Dopo la Medaglia Corolla di Selene, la Bottega delle Pietre a est di me venderà anche Pietraidrica e Pietratuono. Prima di evolvere un compagno, controlla le mosse della nuova forma."
+          "Dopo la Medaglia Corolla di Dalia, la Bottega delle Pietre a est di me venderà anche Pietraidrica e Pietratuono. Prima di evolvere un compagno, controlla le mosse della nuova forma."
         ]
       },
       {
@@ -731,8 +731,9 @@
       {
         "whenFlagMissing": "trainer_gym04_rhea_defeated",
         "lines": [
-          "Il circuito è stabile. Ora prova a leggere le difese dei miei Pokémon Acciaio.",
-          "Magnemite usa Elettro, Aerodactyl vola e Onix ha grande Difesa. Le mosse speciali possono aiutarti. Vicino ai binari del Viadotto puoi trovare Sandshrew: è immune a Elettro. Non serve possedere una specie precisa per entrare."
+          "Il circuito è stabile. Prima di sfidarmi, studia i tipi della mia squadra.",
+          "Magnemite è Elettro/Acciaio, Aerodactyl è Roccia/Volante e Onix è Roccia/Terra. Il Fuoco aiuta contro Magnemite; l’Acqua contro Aerodactyl e Onix.",
+          "Sulle Sponde del Viadotto dei Ciliegi puoi incontrare Psyduck. Vicino ai binari vive anche Sandshrew, immune a Elettro. Cambiare compagno al momento giusto fa parte della strategia!"
         ]
       },
       {

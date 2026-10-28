@@ -1,5 +1,18 @@
-const CACHE = 'veloria-shell-v195';
+const CACHE = 'veloria-shell-v196';
 const SHELL = [
+  './assets/sprites/veloria-rami-idle-south-v1.webp',
+  './assets/sprites/veloria-rami-idle-north-v1.webp',
+  './assets/sprites/veloria-rami-idle-west-v1.webp',
+  './assets/sprites/veloria-rami-idle-east-v1.webp',
+  './assets/sprites/veloria-leda-idle-south-v1.webp',
+  './assets/sprites/veloria-leda-idle-north-v1.webp',
+  './assets/sprites/veloria-leda-idle-west-v1.webp',
+  './assets/sprites/veloria-leda-idle-east-v1.webp',
+  './assets/sprites/veloria-lea-idle-south-v1.webp',
+  './assets/sprites/veloria-lea-idle-north-v1.webp',
+  './assets/sprites/veloria-lea-idle-west-v1.webp',
+  './assets/sprites/veloria-lea-idle-east-v1.webp',
+
   './assets/sprites/veloria-timo-idle-south-v1.webp',
   './assets/sprites/veloria-timo-idle-north-v1.webp',
   './assets/sprites/veloria-timo-idle-west-v1.webp',

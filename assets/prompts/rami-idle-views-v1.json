@@ -1,0 +1,251 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "guide-rami-r03",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/r03_path_guide",
+      "role": "narrative identity source"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp",
+      "role": "image identity/style reference"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: illustration-story. Isolated character cutout asset, not a poster. One full-body SOUTH-facing idle view of Rami, portrait 2:3, on a truly transparent RGBA canvas. There must be absolutely no background pixels: no black fill, no checkerboard, no gradient, no glow, no vignette, no halo, no ambient light, no cast shadow, no floor or ground plane. The area outside the character must have alpha=0 cleanly. Reference role: original supplied cast art, Rami specifically lower-left. Preserve his exact loose shoulder-length dark wavy hair (no braid or headband), warm brown skin, green and earth hiking cloak with cream hood/scarf and pale fern motifs, brown trousers, sturdy hiking boots, belt map scroll, satchel strap and fern details. No added jewelry or medals. Modern 2D matte painterly finish consistent with original. Calm neutral frontal pose, centered, generous empty transparent margins, both entire feet visible, equal optical scale. Orthographic straight-on; no scenery, text, frame, props beyond canonical outfit, no multiple characters, no collage or sprite sheet.",
+    "north": "Use case: illustration-story. Make one separate full-body NORTH-facing REAR idle character cutout of Rami, portrait 2:3, transparent RGBA. References: first image is the selected SOUTH view and controls identity/outfit; second is the original cast image and controls source style and specific identity (Rami is lower-left). Keep exact loose shoulder-length dark wavy hair, warm brown skin, green/earth hiking cloak with cream hood/scarf and pale fern motifs, brown trousers, hiking boots, belt map scroll, satchel and fern details. No braid, no headband, no jewelry/medals. Straight back view facing away, relaxed arms, feet fully visible aligned to shared baseline, centered with margins. Show plausible back of garments and natural strap/map placement. Match modern 2D matte painterly source style. Clean isolated character on transparent canvas, no scene, ground, vignette, halo, glow, shadow, text or frame. One character only, no sheet/collage.",
+    "west": "Use case: illustration-story. Create one isolated full-body WEST-facing exact LEFT PROFILE idle view of Rami, portrait 2:3, transparent RGBA. Reference 1 is the selected SOUTH pose (identity/outfit); reference 2 is the original cast image (style and exact identity, Rami is lower-left). Keep the same shoulder-length loose dark wavy hair, skin, green/earth hiking cloak, cream hood/scarf, pale fern motifs, brown practical clothes, boots, map scroll, satchel and fern details. No braid/headband/jewelry/medals. True side profile pointing image-left, only one eye visible, straight orthographic anatomy; near arm/cloak occludes far side naturally; map and satchel attached to the hip. Relaxed still pose with complete visible feet on one baseline, centered and margined. Modern 2D matte illustrated painterly style. Isolated character only: transparent outside character, no background, vignette, halo, glow, shadow, floor, text, frame, extra character, sheet or collage.",
+    "east": "Use case: illustration-story. Create one isolated full-body EAST-facing exact RIGHT PROFILE idle view of Rami, portrait 2:3, transparent RGBA. Reference 1 is the selected SOUTH pose (identity/outfit); reference 2 is the original cast image (style and exact identity, Rami is lower-left). Keep the same shoulder-length loose dark wavy hair, skin, green/earth hiking cloak, cream hood/scarf, pale fern motifs, brown practical clothes, boots, map scroll, satchel and fern details. No braid/headband/jewelry/medals. True side profile pointing image-right, only one eye visible, straight orthographic anatomy; near arm/cloak occludes far side naturally; map and satchel attached to the hip. Relaxed still pose with complete visible feet on one baseline, centered and margined. Modern 2D matte illustrated painterly style. Isolated character only: transparent outside character, no background, vignette, halo, glow, shadow, floor, text, frame, extra character, sheet or collage."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-rami-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-rami-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rami-idle-south-v1.webp",
+      "sourceSha256": "d4aac724c4ca7f3b77c64daf47dd2fdba79818c354a1995a1cde7f4307b9cf10",
+      "runtimeSha256": "8c836fc6035d2053f401301bd387dfb5eeef3c8fab1afef279c5552bec11089d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.56815,
+        "y": 0.9388
+      },
+      "displaySize": 62.92,
+      "outputId": "exec-b3460862-f793-49f0-b979-7fdeb52967a2"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-rami-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-rami-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rami-idle-north-v1.webp",
+      "sourceSha256": "23d5f8c84ce48b765a5315c1a35c7a6f141047c482f6e5e516ba3df4e53afa81",
+      "runtimeSha256": "9966e10f1717e8e188a264c6e5c0415eacc020851896d2b0fe6e4e76b34a3288",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.48289,
+        "y": 0.95964
+      },
+      "displaySize": 60.66,
+      "outputId": "exec-c6426de9-4fda-4a25-8579-3a94d4ef2aa9"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-rami-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-rami-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rami-idle-west-v1.webp",
+      "sourceSha256": "007a894b43e3597dca7034f2477835b4bf5b204ae6cdf8f75f6f4372f91c3d2d",
+      "runtimeSha256": "a059e4949e3aefa9360a746eb4170bc5e74bd1678f71da118a0d55fe042d7d77",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.44512,
+        "y": 0.98047
+      },
+      "displaySize": 58.0,
+      "outputId": "exec-4fb5df88-0e46-493b-af4e-ebe7eedaef2a"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-rami-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-rami-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-rami-idle-east-v1.webp",
+      "sourceSha256": "b548b3443fe39fb1022ce5dd8d6a4ee5c483cd269c3bfa4563be131d7002a241",
+      "runtimeSha256": "e22b5597dcfb2a79f4ce265f398090aff7e2c4ddcf66f676e01f9c104ae6c86d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.55821,
+        "y": 0.96875
+      },
+      "displaySize": 58.47,
+      "outputId": "exec-a7fdb17e-c53b-4654-8bd5-8c52245a8486"
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling of source PNG. Runtime WebP lossless with exact RGBA pixel equality.",
+  "sourceReport": {
+    "sourceReference": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp",
+    "images": [
+      {
+        "alphaBBox": [
+          33,
+          35,
+          1018,
+          1518
+        ],
+        "outputId": "exec-b3460862-f793-49f0-b979-7fdeb52967a2",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\rami-idles-candidates\\rami-idle-south.png",
+        "selection": "preliminary_select_with_alpha_halo_caveat",
+        "sha256": "D4AAC724C4CA7F3B77C64DAF47DD2FDBA79818C354A1995A1CDE7F4307B9CF10",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b3460862-f793-49f0-b979-7fdeb52967a2.png",
+        "dimensions": {
+          "height": 1536,
+          "width": 1024
+        },
+        "references": [
+          {
+            "role": "riferimento originale; Rami è il frame in basso a sinistra",
+            "path": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp"
+          }
+        ],
+        "prompt": "Use case: illustration-story. Isolated character cutout asset, not a poster. One full-body SOUTH-facing idle view of Rami, portrait 2:3, on a truly transparent RGBA canvas. There must be absolutely no background pixels: no black fill, no checkerboard, no gradient, no glow, no vignette, no halo, no ambient light, no cast shadow, no floor or ground plane. The area outside the character must have alpha=0 cleanly. Reference role: original supplied cast art, Rami specifically lower-left. Preserve his exact loose shoulder-length dark wavy hair (no braid or headband), warm brown skin, green and earth hiking cloak with cream hood/scarf and pale fern motifs, brown trousers, sturdy hiking boots, belt map scroll, satchel strap and fern details. No added jewelry or medals. Modern 2D matte painterly finish consistent with original. Calm neutral frontal pose, centered, generous empty transparent margins, both entire feet visible, equal optical scale. Orthographic straight-on; no scenery, text, frame, props beyond canonical outfit, no multiple characters, no collage or sprite sheet.",
+        "direction": "south",
+        "reason": "Fronte riconoscibile e piedi completi; resta un alone sfumato semitrasparente nel canale alpha, perciò non pronto per registrazione runtime."
+      },
+      {
+        "alphaBBox": [
+          0,
+          47,
+          1010,
+          1496
+        ],
+        "outputId": "exec-c6426de9-4fda-4a25-8579-3a94d4ef2aa9",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\rami-idles-candidates\\rami-idle-north.png",
+        "selection": "preliminary_select_with_alpha_halo_caveat",
+        "sha256": "23D5F8C84CE48B765A5315C1A35C7A6F141047C482F6E5E516BA3DF4E53AFA81",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-c6426de9-4fda-4a25-8579-3a94d4ef2aa9.png",
+        "dimensions": {
+          "height": 1536,
+          "width": 1024
+        },
+        "references": [
+          {
+            "role": "nuovo riferimento sud selezionato preliminarmente",
+            "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b3460862-f793-49f0-b979-7fdeb52967a2.png"
+          },
+          {
+            "role": "riferimento originale; Rami è il frame in basso a sinistra",
+            "path": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp"
+          }
+        ],
+        "prompt": "Use case: illustration-story. Make one separate full-body NORTH-facing REAR idle character cutout of Rami, portrait 2:3, transparent RGBA. References: first image is the selected SOUTH view and controls identity/outfit; second is the original cast image and controls source style and specific identity (Rami is lower-left). Keep exact loose shoulder-length dark wavy hair, warm brown skin, green/earth hiking cloak with cream hood/scarf and pale fern motifs, brown trousers, hiking boots, belt map scroll, satchel and fern details. No braid, no headband, no jewelry/medals. Straight back view facing away, relaxed arms, feet fully visible aligned to shared baseline, centered with margins. Show plausible back of garments and natural strap/map placement. Match modern 2D matte painterly source style. Clean isolated character on transparent canvas, no scene, ground, vignette, halo, glow, shadow, text or frame. One character only, no sheet/collage.",
+        "direction": "north",
+        "reason": "Vista posteriore autentica, mappa/satchel e silhouette coerenti; alpha contiene alone diffuso e piedi sono più in basso rispetto al sud."
+      },
+      {
+        "alphaBBox": [
+          0,
+          21,
+          1006,
+          1512
+        ],
+        "outputId": "exec-4fb5df88-0e46-493b-af4e-ebe7eedaef2a",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\rami-idles-candidates\\rami-idle-west.png",
+        "selection": "preliminary_select_with_alpha_halo_caveat",
+        "sha256": "007A894B43E3597DCA7034F2477835B4BF5B204AE6CDF8F75F6F4372F91C3D2D",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-4fb5df88-0e46-493b-af4e-ebe7eedaef2a.png",
+        "dimensions": {
+          "height": 1536,
+          "width": 1024
+        },
+        "references": [
+          {
+            "role": "nuovo riferimento sud selezionato preliminarmente",
+            "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b3460862-f793-49f0-b979-7fdeb52967a2.png"
+          },
+          {
+            "role": "riferimento originale; Rami è il frame in basso a sinistra",
+            "path": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp"
+          }
+        ],
+        "prompt": "Use case: illustration-story. Create one isolated full-body WEST-facing exact LEFT PROFILE idle view of Rami, portrait 2:3, transparent RGBA. Reference 1 is the selected SOUTH pose (identity/outfit); reference 2 is the original cast image (style and exact identity, Rami is lower-left). Keep the same shoulder-length loose dark wavy hair, skin, green/earth hiking cloak, cream hood/scarf, pale fern motifs, brown practical clothes, boots, map scroll, satchel and fern details. No braid/headband/jewelry/medals. True side profile pointing image-left, only one eye visible, straight orthographic anatomy; near arm/cloak occludes far side naturally; map and satchel attached to the hip. Relaxed still pose with complete visible feet on one baseline, centered and margined. Modern 2D matte illustrated painterly style. Isolated character only: transparent outside character, no background, vignette, halo, glow, shadow, floor, text, frame, extra character, sheet or collage.",
+        "direction": "west",
+        "reason": "Profil ovest rivolto correttamente a sinistra e sovrapposizioni anatomiche leggibili; alone alpha evidente, piedi non calibrati sul sud."
+      },
+      {
+        "alphaBBox": [
+          33,
+          15,
+          1010,
+          1536
+        ],
+        "outputId": "exec-a7fdb17e-c53b-4654-8bd5-8c52245a8486",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\rami-idles-candidates\\rami-idle-east.png",
+        "selection": "preliminary_select_with_alpha_halo_caveat",
+        "sha256": "B548B3443FE39FB1022CE5DD8D6A4EE5C483CD269C3BFA4563BE131D7002A241",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a7fdb17e-c53b-4654-8bd5-8c52245a8486.png",
+        "dimensions": {
+          "height": 1536,
+          "width": 1024
+        },
+        "references": [
+          {
+            "role": "nuovo riferimento sud selezionato preliminarmente",
+            "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b3460862-f793-49f0-b979-7fdeb52967a2.png"
+          },
+          {
+            "role": "riferimento originale; Rami è il frame in basso a sinistra",
+            "path": "C:\\Projects\\Veloria\\public\\assets\\sprites\\veloria-cast-opening-and-champion-v1.webp"
+          }
+        ],
+        "prompt": "Use case: illustration-story. Create one isolated full-body EAST-facing exact RIGHT PROFILE idle view of Rami, portrait 2:3, transparent RGBA. Reference 1 is the selected SOUTH pose (identity/outfit); reference 2 is the original cast image (style and exact identity, Rami is lower-left). Keep the same shoulder-length loose dark wavy hair, skin, green/earth hiking cloak, cream hood/scarf, pale fern motifs, brown practical clothes, boots, map scroll, satchel and fern details. No braid/headband/jewelry/medals. True side profile pointing image-right, only one eye visible, straight orthographic anatomy; near arm/cloak occludes far side naturally; map and satchel attached to the hip. Relaxed still pose with complete visible feet on one baseline, centered and margined. Modern 2D matte illustrated painterly style. Isolated character only: transparent outside character, no background, vignette, halo, glow, shadow, floor, text, frame, extra character, sheet or collage.",
+        "direction": "east",
+        "reason": "Profil est rivolto correttamente a destra; accessori e drappeggio coerenti, ma alone alpha evidente e linea dei piedi da riallineare."
+      }
+    ],
+    "discarded": [
+      {
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-76bd6c05-eb50-48a6-87ee-982239ce043e.png",
+        "outputId": "exec-76bd6c05-eb50-48a6-87ee-982239ce043e",
+        "direction": "south",
+        "reason": "Aggiunge treccia, orecchini e medaglioni non presenti nel riferimento."
+      },
+      {
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-53e06cd9-e778-4dac-ac12-71056e6b925a.png",
+        "outputId": "exec-53e06cd9-e778-4dac-ac12-71056e6b925a",
+        "direction": "south",
+        "reason": "Capelli corretti ma posa con aggiunte/accessori e aloni; superata dal sud senza treccia."
+      },
+      {
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-5bb687c6-2037-40e1-bc4d-9656bca94b48.png",
+        "outputId": "exec-5bb687c6-2037-40e1-bc4d-9656bca94b48",
+        "direction": "north",
+        "reason": "Riferita a un sud precedente e alone diffuso; rimpiazzata per mantenere la sequenza richiesta."
+      },
+      {
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-80123e5a-906f-4baa-8c15-d1eb699d74f8.png",
+        "outputId": "exec-80123e5a-906f-4baa-8c15-d1eb699d74f8",
+        "direction": "west",
+        "reason": "Riferita a un sud precedente; rimpiazzata nella sequenza dal nuovo sud."
+      },
+      {
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-bb30689f-723b-49d3-8887-314d24b3a1ba.png",
+        "outputId": "exec-bb30689f-723b-49d3-8887-314d24b3a1ba",
+        "direction": "east",
+        "reason": "Riferita a un sud precedente; rimpiazzata nella sequenza dal nuovo sud."
+      }
+    ],
+    "selectedPreliminary": [
+      "south",
+      "north",
+      "west",
+      "east"
+    ],
+    "notes": "Candidate private non registrati. Alpha bbox misurato su alpha > 0; il glow/alone semitrasparente espande il bbox quasi a tutta la tela. Nessuna pulizia pixel effettuata.",
+    "appearanceId": "guide-rami-r03",
+    "profile": "guide-rami-r03",
+    "createdUtc": "2026-10-28"
+  }
+}

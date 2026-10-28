@@ -79,6 +79,26 @@
       "kind": "image",
       "key": "veloria-vetracielo-illustrated-v3",
       "path": "assets/scenery/veloria-vetracielo-illustrated-v3.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-south-v1",
+      "path": "assets/sprites/veloria-lea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-north-v1",
+      "path": "assets/sprites/veloria-lea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-west-v1",
+      "path": "assets/sprites/veloria-lea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-east-v1",
+      "path": "assets/sprites/veloria-lea-idle-east-v1.webp"
     }
   ],
   "spawns": [

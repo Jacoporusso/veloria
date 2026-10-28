@@ -179,6 +179,12 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Rami', speaker: 'Rami', profile: 'guide-rami-r03', map: 'r03_terrazze_muschio', spawn: 'from_brumalta', x: 6, y: 16,
+    start: { x: 6, y: 17 }, dimensions: [1024, 1536], flags: [], coldStart: false },
+  { name: 'Leda', speaker: 'Custode Leda', profile: 'radicelmo-keeper-leda', map: 'radicelmo', spawn: 'from_r03', x: 25, y: 11,
+    start: { x: 25, y: 12 }, dimensions: [1024, 1536], flags: ['q_radicelmo_seed_found', 'q_radicelmo_seed_archived', 'q_radicelmo_greenhouse_started', 'q_radicelmo_seed_sprouted', 'q_radicelmo_greenhouse_complete', 'q_radicelmo_fire_stone_found'], coldStart: false },
+  { name: 'Lea', speaker: 'Lea', profile: 'vetracielo-lea', map: 'vetracielo', spawn: 'from_r05', x: 22, y: 18,
+    start: { x: 22, y: 19 }, dimensions: [1024, 1536], flags: ['q_vetracielo_orientation'], coldStart: false },
   { name: 'Timo', speaker: 'Timo', profile: 'route-trainer-timo', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 18, y: 12,
     start: { x: 18, y: 13 }, dimensions: [1024, 1536], flags: ['trainer_route01_timo_defeated'], coldStart: false },
   { name: 'Sera', speaker: 'Sera', profile: 'route-trainer-sera', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 7, y: 9,

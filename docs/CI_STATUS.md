@@ -1,3 +1,13 @@
+## 0.4.33 — Rami/Leda/Lea e preparazione naturale verso Rhea
+
+Tre profili con quattro idle indipendenti e calibrazione per posa: Rami, Leda, Lea. Tasca destra Leda e treccia anteriore Lea corrette con nuove generazioni, nessun flip/ritocco dei PNG. Sorgenti, WebP lossless, prompt e scarti registrati.16profili direzionali su48,32ancora da migrare; camminate del cast aperte. Geometria/progressione invariate. Leda nomina Dalia come capopalestra Corolla; Rhea spiega i tipi reali e i counter Acqua senza nerf della lotta. Dettagli in `109_RAMI_LEDA_LEA_DIRECTIONAL_IDLE_v0.1.md`.
+
+Cinque casi Chrome passati: quattro approcci/due qualità/due orientamenti per i tre personaggi, più51presenze globali nei due orientamenti. Tre casi produzione offline passati con primo decode e interazioni. Sorgenti selezionate e compositi Chrome rivisti; nessun alone evidente a scala di gioco.828 dominio/persistenza,154 Python, validatore826media/48fondali/48mappe, TypeScript e build finale passati. Rimane avviso chunk Phaser. Discovery408browser una volta;55risorse offline in28+27.
+
+Partita naturale dal checkpoint guadagnato dopo Aster: rapporto Ferraluce, allenamento, puzzle e sfida Rhea raggiunti; sconfitta contro Aerodactyl, quarta medaglia non verificata. Backup UI pre/post sfida conservati. La successiva preparazione ha vinto Iris e catturato Psyduck, ma il primo habitat R06 scelto era inadatto: PsyduckKO senza XP, testfallito. La preparazione rivista usa matchup favorevoli R05, cure ed export dopo ogni round, mantenendo target22/Idropulsar e checkpoint senza progressi artificiali. Esiti e limiti in `playtests/2026-10-28-gen1-rhea-attempts.md`; nessuna attestazione di vittoria su Rhea.
+
+Contenuti0.4.33/cachev196. Pubblicazione e nuova CI da registrare dopo il push. Goal intero aperto:32identità direzionali, animazioni/verifica del cast e progressione naturale dalle altre cinque palestre alla Lega.
+
 ## 0.4.32 — Timo direzionale e diagnosi della progressione verso Aster
 
 Quattro idle indipendenti di Timo con zaino, fischietto e borraccia coerenti nei lati anatomici. PNG originali immutati, WebP lossless RGBA-identici, prompt e hash registrati. Solo binding/origini grafici R01 aggiornati: geometria e lotte invariate.13 profili direzionali su48;35ancora da migrare, camminate del cast aperte. Dettagli in `108_TIMO_DIRECTIONAL_IDLE_v0.1.md`.

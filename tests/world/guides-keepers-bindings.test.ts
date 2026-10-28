@@ -12,14 +12,19 @@ const cases = [
 ] as const;
 
 for (const entry of cases) {
-  test(`${entry.npcId} has a unique profile with matching Tiled origin and atlas frame`, () => {
+  test(`${entry.npcId} has a unique profile with matching Tiled origin and authored pose`, () => {
     const profile = catalog.profiles.find((item: any) => item.id === entry.profileId);
     assert.ok(profile);
     assert.deepEqual(profile.npcIds, [entry.npcId]);
-    assert.equal(profile.frame, entry.frame);
+    if (entry.npcId === 'radicelmo_keeper') {
+      assert.equal(profile.frame, undefined);
+      assert.equal(profile.assetKey, 'veloria-leda-idle-south-v1');
+      assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
+    } else assert.equal(profile.frame, entry.frame);
     const asset = catalog.assets.find((item: any) => item.key === profile.assetKey);
     assert.ok(asset);
-    assert.deepEqual(asset.atlas, { columns: 2, rows: 2 });
+    if (entry.npcId === 'radicelmo_keeper') assert.equal(asset.atlas, undefined);
+    else assert.deepEqual(asset.atlas, { columns: 2, rows: 2 });
 
     const map = read<any>(`content/maps/${entry.map}.map.json`);
     assert.deepEqual(map.renderAssets.find((item: any) => item.key === asset.key), asset);

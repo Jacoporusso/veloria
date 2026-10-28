@@ -1,0 +1,150 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "vetracielo-lea",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/vetracielo_lea",
+      "role": "narrative identity source"
+    },
+    {
+      "path": "assets/sources/veloria-vetracielo-lea-illustrated-v1.png",
+      "role": "image identity/style reference"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: stylized-concept. Create ONE standalone SOUTH idle game sprite of Lea, the same friendly city guide as the reference. Exact front view, body and face facing viewer, full body neutral grounded stance with both loafers visible. Preserve warm olive complexion, brown curly updo with loose curls and a braid falling over HER ANATOMICAL RIGHT shoulder (viewer LEFT), gold hoop earrings, azure-blue blazer with ivory lapels/rolled cuffs, white shirt, blue neck scarf, ivory wide cuffed trousers, brown leather loafers, brown belt. Brown cross-body map satchel hangs ONLY on HER ANATOMICAL LEFT hip (viewer RIGHT), strap from RIGHT shoulder to LEFT hip, framed pale-green map visible on bag. Dark watch ONLY on LEFT wrist, small leaf brooch on LEFT blazer lapel. Left hand lightly holds bag strap, right hand relaxed open near waist, not a large gesture. Same modern matte illustrated2D RPG style and adult proportions as original, soft painterly shading, gentle overhead game perspective, readable silhouette; no realistic3D and no pixel art. ONE full figure on portrait2:3 true transparent RGBA canvas with generous margins. No scenery, glow, backdrop, ground, shadow disk, labels, text, frame, sheet, additional figures or UI.",
+    "north": "Precise edit of Image1 (Lea NORTH rear sprite). Image2 is the SOUTH identity reference. Preserve all of Image1's body, pose, proportions, outfit, satchel on viewer LEFT, watch on viewer LEFT, crossbody strap, colors, transparent canvas and footwear exactly. Correct ONLY the BRAID CONTINUITY: in the SOUTH reference Lea's single braid falls OVER HER ANATOMICAL RIGHT SHOULDER onto the FRONT of her chest. In an exact REAR view the long braid must therefore be OCCLUDED by her right shoulder/torso, not lie down the back. Remove the long braid currently drawn on the rear right shoulder blade; show only a very small natural braid root/short curve at the upper RIGHT shoulder as it passes forward and disappears beyond that shoulder. Keep the curly updo and loose rear curls, do not remove the hairstyle, do not add a second braid or face. True rear view remains facing away. Actual transparent RGBA background, no new elements, no glow/backdrop or labels. This is a non-destructive new version.",
+    "west": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction WEST: EXACT left-facing lateral profile, nose/toes viewer LEFT. Near side is her ANATOMICAL LEFT, so satchel visibly hangs on NEAR LEFT hip, watch visibly on near left wrist and left hand holds strap. Right-side braid mostly FAR, only a natural front edge may show. Don't relocate braid onto left shoulder. True side silhouette, not front3quarter.",
+    "east": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction EAST: EXACT right-facing lateral profile, nose/toes viewer RIGHT. Near side is her ANATOMICAL RIGHT: RIGHT arm is relaxed down without watch, right-side braid visible near front RIGHT shoulder. Satchel and watch belong on FAR LEFT side and should be mostly occluded, at most far edge of bag visible; NEVER move bag/watch to visible near right side. True side silhouette, not front3quarter.",
+    "northSourceSuperseded": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction NORTH: EXACT straight rear view, face/chest/brooch hidden. Braid lies along her RIGHT shoulder/back edge (viewer RIGHT rear). Strap crosses from viewer RIGHT shoulder down to viewer LEFT hip; satchel sits on viewer LEFT hip. Watch on viewer LEFT wrist. Preserve realistic rear jacket and trouser construction."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-lea-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-lea-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-lea-idle-south-v1.webp",
+      "sourceSha256": "9e890d33e19ac62764965fd4a7fcbdf2a8c88c718d4b44cf9faea1ebf6557101",
+      "runtimeSha256": "ff83eca7fab072561967630e20c7c0cd298b8ef7461ccefd14f1be6caf6c048e",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.6117,
+        "y": 0.96615
+      },
+      "displaySize": 59.86,
+      "outputId": "exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-lea-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-lea-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-lea-idle-north-v1.webp",
+      "sourceSha256": "e88ebfd4d1e1b7da5236f9b4a58c24a68e74c8c32d8b74cd88eec91265ba4290",
+      "runtimeSha256": "7ef1b5b2e42778c96f377fb8539eca7d3bac8fe5e94769ba7d60cb906b2ac6e6",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.47969,
+        "y": 0.96549
+      },
+      "displaySize": 59.44,
+      "outputId": "exec-a3b687e4-89e1-43fa-a94c-e390171843a7.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-lea-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-lea-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-lea-idle-west-v1.webp",
+      "sourceSha256": "d76b84ef4073d47cbe20d3ebb352b0ec13ba484e28b5ecde78b1ad93dd5bfebf",
+      "runtimeSha256": "bb442492e296ac0b1233a5b7f7adb7354fbd501210b8822548cd28b6a7656d6f",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.54049,
+        "y": 0.98438
+      },
+      "displaySize": 57.42,
+      "outputId": "exec-efcdbba6-66e0-47cf-8a07-eccb5d2a40b5.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-lea-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-lea-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-lea-idle-east-v1.webp",
+      "sourceSha256": "638bb68edd822e817a137f4fbaa2491a1fd6d7a9af3ecace295e332f433849bf",
+      "runtimeSha256": "ccf15b3071b9a8a4caa4f8aba13683814b1e2336c65d6de9b5eeb78a89b7940b",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49508,
+        "y": 0.97526
+      },
+      "displaySize": 58.24,
+      "outputId": "exec-4b45a8d3-3ccd-4384-a252-7238258a7732.png"
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling of source PNG. Runtime WebP lossless with exact RGBA pixel equality.",
+  "sourceReport": {
+    "sourceReference": "assets/sources/veloria-vetracielo-lea-illustrated-v1.png",
+    "profile": "vetracielo-lea",
+    "images": [
+      {
+        "direction": "south",
+        "outputId": "exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png",
+        "candidatePath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png",
+        "prompt": "Use case: stylized-concept. Create ONE standalone SOUTH idle game sprite of Lea, the same friendly city guide as the reference. Exact front view, body and face facing viewer, full body neutral grounded stance with both loafers visible. Preserve warm olive complexion, brown curly updo with loose curls and a braid falling over HER ANATOMICAL RIGHT shoulder (viewer LEFT), gold hoop earrings, azure-blue blazer with ivory lapels/rolled cuffs, white shirt, blue neck scarf, ivory wide cuffed trousers, brown leather loafers, brown belt. Brown cross-body map satchel hangs ONLY on HER ANATOMICAL LEFT hip (viewer RIGHT), strap from RIGHT shoulder to LEFT hip, framed pale-green map visible on bag. Dark watch ONLY on LEFT wrist, small leaf brooch on LEFT blazer lapel. Left hand lightly holds bag strap, right hand relaxed open near waist, not a large gesture. Same modern matte illustrated2D RPG style and adult proportions as original, soft painterly shading, gentle overhead game perspective, readable silhouette; no realistic3D and no pixel art. ONE full figure on portrait2:3 true transparent RGBA canvas with generous margins. No scenery, glow, backdrop, ground, shadow disk, labels, text, frame, sheet, additional figures or UI.",
+        "references": [
+          "assets/sources/veloria-vetracielo-lea-illustrated-v1.png"
+        ],
+        "selection": "selected for source review; runtime acceptance pending"
+      },
+      {
+        "direction": "north",
+        "outputId": "exec-a3b687e4-89e1-43fa-a94c-e390171843a7.png",
+        "candidatePath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-a3b687e4-89e1-43fa-a94c-e390171843a7.png",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-a3b687e4-89e1-43fa-a94c-e390171843a7.png",
+        "prompt": "Precise edit of Image1 (Lea NORTH rear sprite). Image2 is the SOUTH identity reference. Preserve all of Image1's body, pose, proportions, outfit, satchel on viewer LEFT, watch on viewer LEFT, crossbody strap, colors, transparent canvas and footwear exactly. Correct ONLY the BRAID CONTINUITY: in the SOUTH reference Lea's single braid falls OVER HER ANATOMICAL RIGHT SHOULDER onto the FRONT of her chest. In an exact REAR view the long braid must therefore be OCCLUDED by her right shoulder/torso, not lie down the back. Remove the long braid currently drawn on the rear right shoulder blade; show only a very small natural braid root/short curve at the upper RIGHT shoulder as it passes forward and disappears beyond that shoulder. Keep the curly updo and loose rear curls, do not remove the hairstyle, do not add a second braid or face. True rear view remains facing away. Actual transparent RGBA background, no new elements, no glow/backdrop or labels. This is a non-destructive new version.",
+        "references": [
+          "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0a185353-d897-4ebd-8f2c-b3f590a67fdb.png",
+          "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png"
+        ],
+        "selection": "selected for source review; runtime acceptance pending"
+      },
+      {
+        "direction": "west",
+        "outputId": "exec-efcdbba6-66e0-47cf-8a07-eccb5d2a40b5.png",
+        "candidatePath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-efcdbba6-66e0-47cf-8a07-eccb5d2a40b5.png",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-efcdbba6-66e0-47cf-8a07-eccb5d2a40b5.png",
+        "prompt": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction WEST: EXACT left-facing lateral profile, nose/toes viewer LEFT. Near side is her ANATOMICAL LEFT, so satchel visibly hangs on NEAR LEFT hip, watch visibly on near left wrist and left hand holds strap. Right-side braid mostly FAR, only a natural front edge may show. Don't relocate braid onto left shoulder. True side silhouette, not front3quarter.",
+        "references": [
+          "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png"
+        ],
+        "selection": "selected for source review; runtime acceptance pending"
+      },
+      {
+        "direction": "east",
+        "outputId": "exec-4b45a8d3-3ccd-4384-a252-7238258a7732.png",
+        "candidatePath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4b45a8d3-3ccd-4384-a252-7238258a7732.png",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4b45a8d3-3ccd-4384-a252-7238258a7732.png",
+        "prompt": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction EAST: EXACT right-facing lateral profile, nose/toes viewer RIGHT. Near side is her ANATOMICAL RIGHT: RIGHT arm is relaxed down without watch, right-side braid visible near front RIGHT shoulder. Satchel and watch belong on FAR LEFT side and should be mostly occluded, at most far edge of bag visible; NEVER move bag/watch to visible near right side. True side silhouette, not front3quarter.",
+        "references": [
+          "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0b275408-91d3-4b49-ab3f-adaac60fff67.png"
+        ],
+        "selection": "selected for source review; runtime acceptance pending"
+      }
+    ],
+    "discardedImages": [
+      {
+        "direction": "north",
+        "outputId": "exec-0a185353-d897-4ebd-8f2c-b3f590a67fdb.png",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-0a185353-d897-4ebd-8f2c-b3f590a67fdb.png",
+        "prompt": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction NORTH: EXACT straight rear view, face/chest/brooch hidden. Braid lies along her RIGHT shoulder/back edge (viewer RIGHT rear). Strap crosses from viewer RIGHT shoulder down to viewer LEFT hip; satchel sits on viewer LEFT hip. Watch on viewer LEFT wrist. Preserve realistic rear jacket and trouser construction.",
+        "reason": "Long braid drawn down back; source south braid passes forward over anatomical right shoulder. Replaced by targeted generated correction."
+      }
+    ],
+    "northCorrectionSourcePrompt": "Use case: stylized-concept. ONE new independent directional idle sprite of Lea, same identity/outfit/proportions as reference SOUTH. Preserve brown curly updo, loose curls and braid over HER ANATOMICAL RIGHT shoulder; warm olive complexion, gold hoop earrings; azure blazer with ivory lapels/cuffs, white shirt, blue neck scarf, wide ivory cuffed trousers, brown loafers, brown belt. Brown map satchel ONLY on ANATOMICAL LEFT hip; crossbody strap RIGHT shoulder to LEFT hip. Dark watch ONLY on LEFT wrist; leaf brooch on LEFT lapel. Left hand holds strap at waist, right hand relaxed down. Neutral grounded stance, both shoes visible. Same soft matte modern illustrated2D RPG style, gentle overhead perspective, not3D/pixelart. Full single figure on portrait2:3 true transparent RGBA, generous clear margins. No backdrop, scenery, glow, shadowdisk, text, labels, frames, sheet or extra figures; draw new anatomy, no mirroring. Direction NORTH: EXACT straight rear view, face/chest/brooch hidden. Braid lies along her RIGHT shoulder/back edge (viewer RIGHT rear). Strap crosses from viewer RIGHT shoulder down to viewer LEFT hip; satchel sits on viewer LEFT hip. Watch on viewer LEFT wrist. Preserve realistic rear jacket and trouser construction."
+  }
+}

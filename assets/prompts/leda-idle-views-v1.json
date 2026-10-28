@@ -1,0 +1,432 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "radicelmo-keeper-leda",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/radicelmo_keeper",
+      "role": "narrative identity source"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\content\\characters\\appearances.v2.json#radicelmo-keeper-leda",
+      "role": "identity/style reference"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\content\\dialogue\\world.v1.json#/radicelmo_keeper",
+      "role": "identity/style reference"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\docs\\art\\cast-redesign-briefs.md",
+      "role": "identity/style reference"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\docs\\67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md",
+      "role": "identity/style reference"
+    },
+    {
+      "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+      "role": "identity/style reference"
+    }
+  ],
+  "prompts": {
+    "south": "One separate full body South-facing front idle portrait of Custode Leda from Radicelmo. Use only bottom-right woman-like character in reference atlas as identity and style: silver-gray softly wavy bob; green botanical patterned long gardener coat; cream leaf-print tunic; rust scarf and trousers; brown belt pouch, round pendant, brown practical shoes. Preserve outfit and details. Do not infer age or gender. Modern illustrated matte 2D game art, softly painted, crisp silhouette. Relaxed symmetrical stance, face and both complete feet visible. Portrait 2:3, entire figure centered with transparent margins. True transparent background. One person only, no other characters, no sheet, no props, no ground/shadow/glow, no text, no border, no crop, no flip.",
+    "north": "Create a separate full-body NORTH-facing rear idle portrait of Custode Leda. The two references: the prior generated full-body Leda is the main identity, outfit, color and style reference; the atlas is only to verify her identity as the bottom-right person. Show a true back view: back of silver wavy bob, green botanical garden coat, rear tunic/trousers and shoes. Ensure accessories remain on correct anatomical sides and are naturally occluded from behind where appropriate; visible waist belt, small gardener pouch on her anatomical left hip. She stands neutrally with both complete feet visible, facing away. Same proportions and modern matte illustrated 2D soft painted style. Portrait 2:3, whole figure with transparent margins. True transparent background, no shadow. Exactly one character, no sheet, no front or three-quarter turn, no extra objects, no crop, no flip.",
+    "west": "EDIT TARGET IMAGE 1: preserve this exact West-facing Leda side-pose image and composition. Images 2 and 3 are continuity references for her identity, clothing, and correct pouch: South and North. Anatomical correction only: remove the beige botanical pouch currently hanging on the visible near LEFT hip (anatomical left). Leda's pouch belongs to her anatomical RIGHT hip, which is the far side in this West-facing pose; it should be naturally hidden behind her body/coat, at most a tiny far-edge sliver, never visible as a pouch on the near hip. Preserve her exact pose, slight torso angle, face, hair, coat, scarf, tunic, trousers, hands, shoes, feet, proportions, lighting, detail and canvas placement. Keep genuine transparent background and all existing transparent margins. Do not flip, crop, rescale, redraw other areas, cleanup or resample. Output one unchanged-size transparent PNG.",
+    "east": "EDIT TARGET IMAGE 1: preserve this exact East-facing Leda side-pose image and composition. Images 2 and 3 are continuity references for her identity, clothing, and correct pouch: South and North. Anatomical correction only: add one small beige practical botanical gardener pouch with a simple green leaf emblem on the visible near RIGHT hip (anatomical right). South shows the pouch on viewer-left, which is Leda's anatomical right; North confirms the corresponding anatomical side. Attach it naturally to her existing brown waist belt at the near hip, matching the same material, shape and scale as the pouch in the references. Preserve her exact pose, torso angle, face, hair, coat, scarf, tunic, trousers, hands, shoes, feet, proportions, lighting, detail and canvas placement. Keep genuine transparent background and existing transparent margins. Do not flip, crop, rescale, redraw other areas, cleanup or resample. Output one unchanged-size transparent PNG."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-leda-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-leda-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-leda-idle-south-v1.webp",
+      "sourceSha256": "f20df34b6e659a4be91715ea5b6c858296d8a8f698507a2146cc90d761c247d4",
+      "runtimeSha256": "b44da26b30b6c256e72213007bb93df92b6d2b332d4fe4715cb211ff24eaadc3",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.60125,
+        "y": 0.96875
+      },
+      "displaySize": 60.4,
+      "outputId": "exec-4fc504a0-f665-4e4c-8992-485db2065b1e"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-leda-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-leda-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-leda-idle-north-v1.webp",
+      "sourceSha256": "7f957bd933589d9034ba9e23d08f23047195088863886fcffb5e24ec83c28dd1",
+      "runtimeSha256": "b2650089f42245aae4543345db9649124c820ce39d9718b206460b5380f9b57d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.53406,
+        "y": 0.95768
+      },
+      "displaySize": 59.82,
+      "outputId": "exec-cf6863e8-22ed-4321-a021-7f033670f1ba"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-leda-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-leda-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-leda-idle-west-v1.webp",
+      "sourceSha256": "80fdcabace81dd0c86b84f4a98c282464b2b655fcd3d25572a061da502fdbfec",
+      "runtimeSha256": "bc1a2c8b874e0fd6909c024e00b02f95285f99926c2e2b34b6fde6040d263bb4",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.47842,
+        "y": 0.98112
+      },
+      "displaySize": 57.85,
+      "outputId": "exec-87483f94-d1e7-4c9e-970a-40a30c9285a4"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-leda-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-leda-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-leda-idle-east-v1.webp",
+      "sourceSha256": "60e68235dd8f2d0845ff9f92d78101363457b3cc56c8f414dfa3ae2bf11f696e",
+      "runtimeSha256": "4b0c79d386eb7c65cb184d9854bcf1eb88c8cddcd4398091fec77564784bfcc1",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.52743,
+        "y": 0.97852
+      },
+      "displaySize": 58.0,
+      "outputId": "exec-5de4fbfc-031f-4a92-ae29-46ad1a5e448d"
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling of source PNG. Runtime WebP lossless with exact RGBA pixel equality.",
+  "sourceReport": {
+    "task": "Private Leda directional-idle candidate set",
+    "status": "candidate review only; no registration or runtime QA",
+    "sourcesRead": [
+      "C:\\Projects\\Veloria\\content\\characters\\appearances.v2.json#radicelmo-keeper-leda",
+      "C:\\Projects\\Veloria\\content\\dialogue\\world.v1.json#/radicelmo_keeper",
+      "C:\\Projects\\Veloria\\docs\\art\\cast-redesign-briefs.md",
+      "C:\\Projects\\Veloria\\docs\\67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md",
+      "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png"
+    ],
+    "identityNotes": [
+      "Atlas frame 3: bottom-right person.",
+      "Silver hair and gardening clothes are artistic proposals. Canon does not specify age or gender.",
+      "Leda remains distinct from other named characters."
+    ],
+    "referencesRoles": {
+      "atlas": "Leda identity and illustration style; frame 3 bottom-right only",
+      "south candidate": "identity anchor for other three views",
+      "north candidate": "rear outfit continuity reference for west",
+      "west candidate": "profile continuity reference for east"
+    },
+    "candidates": [
+      {
+        "view": "SOUTH",
+        "outputId": "exec-4fc504a0-f665-4e4c-8992-485db2065b1e",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-4fc504a0-f665-4e4c-8992-485db2065b1e.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+        "sha256": "f20df34b6e659a4be91715ea5b6c858296d8a8f698507a2146cc90d761c247d4",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            221,
+            65,
+            867,
+            1489
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style; atlas frame 3, bottom-right Leda"
+          }
+        ],
+        "promptExact": "One separate full body South-facing front idle portrait of Custode Leda from Radicelmo. Use only bottom-right woman-like character in reference atlas as identity and style: silver-gray softly wavy bob; green botanical patterned long gardener coat; cream leaf-print tunic; rust scarf and trousers; brown belt pouch, round pendant, brown practical shoes. Preserve outfit and details. Do not infer age or gender. Modern illustrated matte 2D game art, softly painted, crisp silhouette. Relaxed symmetrical stance, face and both complete feet visible. Portrait 2:3, entire figure centered with transparent margins. True transparent background. One person only, no other characters, no sheet, no props, no ground/shadow/glow, no text, no border, no crop, no flip.",
+        "preliminarySelection": "selected",
+        "reason": "Front facing, complete shoes, clear identity."
+      },
+      {
+        "view": "NORTH",
+        "outputId": "exec-cf6863e8-22ed-4321-a021-7f033670f1ba",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-cf6863e8-22ed-4321-a021-7f033670f1ba.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-north-candidate.png",
+        "sha256": "7f957bd933589d9034ba9e23d08f23047195088863886fcffb5e24ec83c28dd1",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            210,
+            34,
+            812,
+            1472
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style; atlas frame 3, bottom-right Leda"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+            "role": "generated identity reference"
+          }
+        ],
+        "promptExact": "Create a separate full-body NORTH-facing rear idle portrait of Custode Leda. The two references: the prior generated full-body Leda is the main identity, outfit, color and style reference; the atlas is only to verify her identity as the bottom-right person. Show a true back view: back of silver wavy bob, green botanical garden coat, rear tunic/trousers and shoes. Ensure accessories remain on correct anatomical sides and are naturally occluded from behind where appropriate; visible waist belt, small gardener pouch on her anatomical left hip. She stands neutrally with both complete feet visible, facing away. Same proportions and modern matte illustrated 2D soft painted style. Portrait 2:3, whole figure with transparent margins. True transparent background, no shadow. Exactly one character, no sheet, no front or three-quarter turn, no extra objects, no crop, no flip.",
+        "preliminarySelection": "selected",
+        "reason": "Clear rear view; pouch on anatomical left."
+      },
+      {
+        "view": "WEST",
+        "outputId": "exec-849ec0c8-d3e9-408c-b369-5efc1d3b96c8",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-849ec0c8-d3e9-408c-b369-5efc1d3b96c8.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-west-candidate.png",
+        "sha256": "9f4ee3846d9df200a9a8dbb357cd5e832d492f1ea9d47a35664d967a5d384c8e",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            308,
+            21,
+            814,
+            1507
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style; atlas frame 3, bottom-right Leda"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+            "role": "generated identity reference"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-north-candidate.png",
+            "role": "rear outfit continuity reference"
+          }
+        ],
+        "promptExact": "Create a separate full-body WEST-facing true side profile idle portrait of Custode Leda, facing toward the left edge of the image. Use previous two images as identity and outfit refs. Keep silver-gray bob, green botanical garden coat, cream leaf-print tunic, rust scarf/trousers, brown waist belt and small pouch on her anatomical LEFT hip, brown shoes and pendant. In a west-facing profile her anatomical left side is the visible near side; place the pouch on that near hip, and let the coat naturally occlude far-side accessories. True 90-degree profile, only one eye/side of face, no three-quarter view. Neutral relaxed stance, both complete feet visible. Portrait 2:3, transparent margins, modern matte illustrated 2D soft painted style. True transparent background, no shadow. Exactly one person, no sheet, no crop, no flip.",
+        "preliminarySelection": "superseded-by-anatomical-correction",
+        "reason": "Preserved as pre-correction generation; SOUTH shows anatomical RIGHT pouch on viewer-left, so original West/East pouch visibility was reversed."
+      },
+      {
+        "view": "EAST",
+        "outputId": "exec-b8b073cb-9bc0-444e-9e98-7f92e9a9ce8a",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-b8b073cb-9bc0-444e-9e98-7f92e9a9ce8a.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-east-candidate.png",
+        "sha256": "12af38244ecbd4b610ef8de22b56e7704a3e5e836028d37ab44fae5891218f84",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            232,
+            22,
+            698,
+            1504
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style; atlas frame 3, bottom-right Leda"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+            "role": "generated identity reference"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-west-candidate.png",
+            "role": "profile/outfit continuity reference"
+          }
+        ],
+        "promptExact": "Create a separate full-body EAST-facing true side profile idle portrait of Custode Leda, facing toward the right edge of the image. Use the earlier full-body references as identity and outfit refs. Keep silver-gray wavy bob, green botanical garden coat, cream leaf-print tunic, rust scarf/trousers, brown waist belt and small pouch on her anatomical LEFT hip, brown shoes and pendant. In an east-facing profile her anatomical right side is the visible near side; the anatomical left hip pouch should be on the far side and mostly naturally occluded by coat/body, not moved to near side. True 90-degree profile, only one eye/side of face, no three-quarter view. Relaxed idle stance, both entire shoes visible. Portrait 2:3, transparent margins, modern matte illustrated 2D soft painted style. True transparent background, no shadow. One person, no sheet, no crop, no flip.",
+        "preliminarySelection": "superseded-by-anatomical-correction",
+        "reason": "Preserved as pre-correction generation; SOUTH shows anatomical RIGHT pouch on viewer-left, so original West/East pouch visibility was reversed."
+      }
+    ],
+    "discardedGenerations": [
+      {
+        "outputId": "exec-ca850d7f-296b-49d9-a1b4-eb29b16254e1",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-ca850d7f-296b-49d9-a1b4-eb29b16254e1.png",
+        "sha256": "7bb7542bcdf59e7582ffaa226f74f19525ea34103064b5ec78a1d856f93c0a53",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaThreshold128BBox": [
+          240,
+          64,
+          846,
+          1475
+        ],
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style atlas"
+          }
+        ],
+        "promptExact": "Generate ONE standalone full-body character sprite for Veloria. One kind archive keeper and greenhouse gardener, silver-gray wavy hair, green botanical coat, cream leaf print tunic, rust scarf and trousers, brown belt pouch, pendant, brown shoes. Front-facing, full body, portrait 2:3, transparent background, matte illustrated 2D art. No other figures, no crop, no sheet.",
+        "preliminarySelection": "discarded",
+        "reason": "South-facing duplicate; weaker alternate versus selected South."
+      },
+      {
+        "outputId": "exec-6462680b-4093-475c-ae1e-c4f49c9af646",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-6462680b-4093-475c-ae1e-c4f49c9af646.png",
+        "sha256": "61cac165886ad67e3c3383c211ec837f0b5ce8c81275e1ee56ed651211eef47f",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaThreshold128BBox": [
+          221,
+          41,
+          837,
+          1489
+        ],
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-guides-and-keepers-v1.png",
+            "role": "identity/style atlas"
+          }
+        ],
+        "promptExact": "Generate ONE standalone full-body idle character illustration for Veloria: Custode Leda, ecological archive keeper and greenhouse gardener of Radicelmo. Use ONLY the bottom-right person in the supplied atlas as identity/style reference. Preserve her silver-gray wavy bob, green botanical-patterned long coat, cream leaf-print tunic, rust-red scarf and trousers, brown utility belt with pouch, dark brown shoes, round pendant. Same identity, outfit, proportions and visible accessories. Do not infer age or gender. SOUTH view: true front-facing, relaxed neutral idle stance, facing viewer, both shoes visible. Portrait 2:3, full body centered, transparent margins, head and feet intact. Modern matte illustrated 2D game art, soft painted shading. True transparent background. Exactly one person. No atlas, sheet, other people, detached props, ground, shadow, glow, text, grid, border, crop, mirror or pixel art.",
+        "preliminarySelection": "discarded",
+        "reason": "South-facing duplicate; weaker alternate versus selected South."
+      }
+    ],
+    "anatomicalReview": "SOUTH pouch on viewer-left is anatomical RIGHT. NORTH rear pouch on viewer-right is anatomical RIGHT. Corrected WEST hides anatomical RIGHT pouch on the far side; corrected EAST shows anatomical RIGHT pouch on the near side. No image was flipped. SOUTH and NORTH remain unchanged. WEST retains its slight torso rotation; correction changes only pouch visibility.",
+    "silhouetteReview": "All four selected images are 1024x1536 PNG. At alpha>=128 the character bbox is inside canvas, feet appear complete, and each corner alpha is zero.",
+    "transparencyReview": "Genuine alpha is present; no background cleanup, cropping, resizing, resampling, or other pixel changes were applied.",
+    "styleReview": "Consistent matte illustrated 2D style and palette; generated coat has more ornament than the atlas reference.",
+    "limits": "Candidate-only work. No permanent assets/content/tests/docs/Git changes; no tests/browser/server/runtime started.",
+    "corrections": [
+      {
+        "view": "WEST",
+        "outputId": "exec-87483f94-d1e7-4c9e-970a-40a30c9285a4",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-87483f94-d1e7-4c9e-970a-40a30c9285a4.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-west-corrected-candidate.png",
+        "sha256": "80fdcabace81dd0c86b84f4a98c282464b2b655fcd3d25572a061da502fdbfec",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            308,
+            21,
+            817,
+            1508
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-west-candidate.png",
+            "role": "edit target image 1"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+            "role": "continuity reference image 2 (South pouch on viewer-left/anatomical right)"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-north-candidate.png",
+            "role": "continuity reference image 3 (rear confirmation of anatomical right pouch)"
+          }
+        ],
+        "promptExact": "EDIT TARGET IMAGE 1: preserve this exact West-facing Leda side-pose image and composition. Images 2 and 3 are continuity references for her identity, clothing, and correct pouch: South and North. Anatomical correction only: remove the beige botanical pouch currently hanging on the visible near LEFT hip (anatomical left). Leda's pouch belongs to her anatomical RIGHT hip, which is the far side in this West-facing pose; it should be naturally hidden behind her body/coat, at most a tiny far-edge sliver, never visible as a pouch on the near hip. Preserve her exact pose, slight torso angle, face, hair, coat, scarf, tunic, trousers, hands, shoes, feet, proportions, lighting, detail and canvas placement. Keep genuine transparent background and all existing transparent margins. Do not flip, crop, rescale, redraw other areas, cleanup or resample. Output one unchanged-size transparent PNG.",
+        "preliminarySelection": "selected-correction",
+        "reason": "Corrected anatomical left pouch from near hip; west far side now hidden."
+      },
+      {
+        "view": "EAST",
+        "outputId": "exec-5de4fbfc-031f-4a92-ae29-46ad1a5e448d",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-5de4fbfc-031f-4a92-ae29-46ad1a5e448d.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-east-corrected-candidate.png",
+        "sha256": "60e68235dd8f2d0845ff9f92d78101363457b3cc56c8f414dfa3ae2bf11f696e",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alpha": {
+          "threshold": 128,
+          "bbox": [
+            232,
+            21,
+            699,
+            1504
+          ],
+          "cornerAlpha": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "referencedImagePaths": [
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-east-candidate.png",
+            "role": "edit target image 1"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-south-candidate.png",
+            "role": "continuity reference image 2 (South pouch on viewer-left/anatomical right)"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\leda-idles-candidates\\leda-north-candidate.png",
+            "role": "continuity reference image 3 (rear confirmation of anatomical right pouch)"
+          }
+        ],
+        "promptExact": "EDIT TARGET IMAGE 1: preserve this exact East-facing Leda side-pose image and composition. Images 2 and 3 are continuity references for her identity, clothing, and correct pouch: South and North. Anatomical correction only: add one small beige practical botanical gardener pouch with a simple green leaf emblem on the visible near RIGHT hip (anatomical right). South shows the pouch on viewer-left, which is Leda's anatomical right; North confirms the corresponding anatomical side. Attach it naturally to her existing brown waist belt at the near hip, matching the same material, shape and scale as the pouch in the references. Preserve her exact pose, torso angle, face, hair, coat, scarf, tunic, trousers, hands, shoes, feet, proportions, lighting, detail and canvas placement. Keep genuine transparent background and existing transparent margins. Do not flip, crop, rescale, redraw other areas, cleanup or resample. Output one unchanged-size transparent PNG.",
+        "preliminarySelection": "selected-correction",
+        "reason": "Added anatomical right pouch to near hip, matching South/North."
+      }
+    ],
+    "correctionReview": "Corrected West preview removes the visible near-left pouch while preserving pose/outfit. Corrected East preview adds matching beige leaf pouch to the near-right hip. Both retain full feet and margins. Verify alpha bbox/hash before use; images remain private candidates."
+  }
+}

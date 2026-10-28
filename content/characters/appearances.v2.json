@@ -428,6 +428,66 @@
       "kind": "image",
       "key": "veloria-timo-idle-east-v1",
       "path": "assets/sprites/veloria-timo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rami-idle-south-v1",
+      "path": "assets/sprites/veloria-rami-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rami-idle-north-v1",
+      "path": "assets/sprites/veloria-rami-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rami-idle-west-v1",
+      "path": "assets/sprites/veloria-rami-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-rami-idle-east-v1",
+      "path": "assets/sprites/veloria-rami-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-leda-idle-south-v1",
+      "path": "assets/sprites/veloria-leda-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-leda-idle-north-v1",
+      "path": "assets/sprites/veloria-leda-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-leda-idle-west-v1",
+      "path": "assets/sprites/veloria-leda-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-leda-idle-east-v1",
+      "path": "assets/sprites/veloria-leda-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-south-v1",
+      "path": "assets/sprites/veloria-lea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-north-v1",
+      "path": "assets/sprites/veloria-lea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-west-v1",
+      "path": "assets/sprites/veloria-lea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lea-idle-east-v1",
+      "path": "assets/sprites/veloria-lea-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -1241,12 +1301,45 @@
       "npcIds": [
         "r03_path_guide"
       ],
-      "assetKey": "veloria-cast-opening-and-champion-v1",
-      "frame": 2,
+      "assetKey": "veloria-rami-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r03_path_guide",
       "origin": {
-        "x": 0.5714,
-        "y": 0.9075
+        "x": 0.56815,
+        "y": 0.9388
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-rami-idle-south-v1",
+          "origin": {
+            "x": 0.56815,
+            "y": 0.9388
+          },
+          "displaySize": 62.92
+        },
+        "up": {
+          "assetKey": "veloria-rami-idle-north-v1",
+          "origin": {
+            "x": 0.48289,
+            "y": 0.95964
+          },
+          "displaySize": 60.66
+        },
+        "left": {
+          "assetKey": "veloria-rami-idle-west-v1",
+          "origin": {
+            "x": 0.44512,
+            "y": 0.98047
+          },
+          "displaySize": 58.0
+        },
+        "right": {
+          "assetKey": "veloria-rami-idle-east-v1",
+          "origin": {
+            "x": 0.55821,
+            "y": 0.96875
+          },
+          "displaySize": 58.47
+        }
       }
     },
     {
@@ -1343,11 +1436,45 @@
       "npcIds": [
         "vetracielo_lea"
       ],
-      "assetKey": "veloria-vetracielo-lea-v1",
+      "assetKey": "veloria-lea-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/vetracielo_lea",
       "origin": {
-        "x": 0.558,
-        "y": 0.876
+        "x": 0.6117,
+        "y": 0.96615
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-lea-idle-south-v1",
+          "origin": {
+            "x": 0.6117,
+            "y": 0.96615
+          },
+          "displaySize": 59.86
+        },
+        "up": {
+          "assetKey": "veloria-lea-idle-north-v1",
+          "origin": {
+            "x": 0.47969,
+            "y": 0.96549
+          },
+          "displaySize": 59.44
+        },
+        "left": {
+          "assetKey": "veloria-lea-idle-west-v1",
+          "origin": {
+            "x": 0.54049,
+            "y": 0.98438
+          },
+          "displaySize": 57.42
+        },
+        "right": {
+          "assetKey": "veloria-lea-idle-east-v1",
+          "origin": {
+            "x": 0.49508,
+            "y": 0.97526
+          },
+          "displaySize": 58.24
+        }
       }
     },
     {
@@ -1665,12 +1792,45 @@
       "npcIds": [
         "radicelmo_keeper"
       ],
-      "assetKey": "veloria-guides-and-keepers-v1",
-      "frame": 3,
+      "assetKey": "veloria-leda-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/radicelmo_keeper",
       "origin": {
-        "x": 0.53,
-        "y": 0.924
+        "x": 0.60125,
+        "y": 0.96875
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-leda-idle-south-v1",
+          "origin": {
+            "x": 0.60125,
+            "y": 0.96875
+          },
+          "displaySize": 60.4
+        },
+        "up": {
+          "assetKey": "veloria-leda-idle-north-v1",
+          "origin": {
+            "x": 0.53406,
+            "y": 0.95768
+          },
+          "displaySize": 59.82
+        },
+        "left": {
+          "assetKey": "veloria-leda-idle-west-v1",
+          "origin": {
+            "x": 0.47842,
+            "y": 0.98112
+          },
+          "displaySize": 57.85
+        },
+        "right": {
+          "assetKey": "veloria-leda-idle-east-v1",
+          "origin": {
+            "x": 0.52743,
+            "y": 0.97852
+          },
+          "displaySize": 58.0
+        }
       }
     },
     {
