@@ -10,7 +10,7 @@ test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 for (const state of ['before-league', 'available', 'caught'] as const) {
   test(`illustrated sanctuary keeps Mewtwo clearing correct: ${state}`, async ({ page }, info) => {
     await page.route('**/src/main.ts*', async route => {
-      const response = await route.fetch();
+      const response = await route.fetch({ maxRetries: 2 });
       await route.fulfill({ response, body: await response.text() + '\nwindow.__sanctuaryArtGame = game;' });
     });
     await page.goto('/'); await enterGame(page);
