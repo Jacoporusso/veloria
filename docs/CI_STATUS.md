@@ -10,7 +10,7 @@ Correzioni della precedente Verify40646841662: tre test offline costruivano nomi
 
 Verifiche locali complessive: 819 test dominio/persistenza; 154 Python; validatori 749 media/46 fondali/48 mappe; 14 casi Chrome distinti (11 ambiente/personaggi/R15 e tre atlante). Sette casi produzione offline passati: nuove pose Nerea/Selene, Acquariva, Portolume, montagna, Condotto/Centrale e primo decode di tutti i fondali registrati. Build offline passata con avviso chunk Phaser. Discovery: 391 casi browser assegnati una sola volta, 47 risorse offline divise 24+23. I checkpoint non attestano il bilanciamento naturale della campagna.
 
-Contenuti 0.4.27/cache v190 preparati; commit, invio e pubblicazione ancora da attestare. Goal aperto: casa/laboratorio, altri 39 profili direzionali, camminate e nuova campagna naturale GenI fino alla Lega.
+Runtime `930ebfe5ca74055fbe30ec61f25f6f6f7906b2e1` inviato a main. Contenuti 0.4.27/cache v190. [Deploy40652928846](https://github.com/Jacoporusso/veloria/actions/runs/40652928846): build COMPLETED/SUCCESS, job deploy QUEUED all'ultimo controllo. [Verify40652928872](https://github.com/Jacoporusso/veloria/actions/runs/40652928872) QUEUED. Pubblicazione Pages ancora da attestare. Goal aperto: casa/laboratorio, altri 39 profili direzionali, camminate e nuova campagna naturale GenI fino alla Lega. Avviata una nuova partita corrente con Charmander e controlli reali; il raggiungimento di R01 e la prima vittoria contro Sera risultano già nel report, non ancora completata la prova della prima medaglia.
 
 ## 0.4.26 — cinque sale Lega coerenti, Rhea e PWA alleggerita
 
