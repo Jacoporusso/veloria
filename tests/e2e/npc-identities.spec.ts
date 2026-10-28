@@ -8,8 +8,8 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
     await page.setViewportSize(viewport);
     let position = { x: 1, y: 1 };
     const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
-    await page.route('**/src/main.ts', async route => {
-      const response = await route.fetch();
+    await page.route('**/src/main.ts*', async route => {
+      const response = await route.fetch({ maxRetries: 2 });
       // Prepared visual fixture only: start near the subject before constructing
       // the scene. No teleport or camera mutation after boot.
       const body = (await response.text()).replace(/x: spawn\.x,\s*y: spawn\.y/, `x: ${position.x}, y: ${position.y}`);
@@ -54,6 +54,7 @@ for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }
       expect(position).toBeTruthy();
       await page.goto(`/?previewMap=${metadata.id}`);
       await expect(page.locator('#game-loading')).toBeHidden({ timeout: 30_000 });
+      await expect.poll(() => page.evaluate(() => Boolean((window as any).__npcIdentityGame?.scene?.getScene('world')?.mapLayer))).toBe(true);
       const profile = appearances.profiles.find(profile => profile.npcIds.includes(npcId))!;
       const asset = appearances.assets.find(asset => asset.key === profile.assetKey)!;
       const proof = await page.evaluate(id => {

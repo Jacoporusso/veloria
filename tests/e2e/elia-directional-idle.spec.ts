@@ -49,6 +49,7 @@ for (const [map, npcId, x, y, spawn] of [
           scaleX: sprite.scaleX, scaleY: sprite.scaleY, flip: sprite.flipX || sprite.flipY,
           surface: { width: sprite.texture.getSourceImage().width, height: sprite.texture.getSourceImage().height,
             canvas: sprite.texture.getSourceImage() instanceof HTMLCanvasElement },
+          frame: { width: sprite.frame.width, height: sprite.frame.height },
           tweens: world.tweens.getTweensOf(sprite).length,
           abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player) };
       }, npcId);
@@ -56,7 +57,8 @@ for (const [map, npcId, x, y, spawn] of [
       expect(state).toMatchObject({ key: view.assetKey, facing: stop.face, x: x * 32 + 16, y: y * 32 + 35,
         origin: view.origin, flip: false, tweens: 0, abovePlayer: stop.y <= y });
       expect(state.height).toBeCloseTo(view.displaySize, 5);
-      expect(state.surface).toEqual({ width: 340, height: 510, canvas: true });
+      expect(state.surface).toEqual({ width: 512, height: 512, canvas: true });
+      expect(state.frame).toEqual({ width: 340, height: 510 });
       expect(state.width / state.height).toBeCloseTo(2 / 3, 5);
       expect(state.scaleX).toBeCloseTo(state.scaleY, 8);
       const after = await readBrowserSave(page);

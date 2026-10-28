@@ -98,8 +98,10 @@ test.describe('Nilo on high density screens', () => {
       const sprite = world.mapLayer.list.find((item: any) => item.name === 'npc-sprite' && item.getData('npcId') === 'nilo');
       const source = sprite.texture.source[0];
       return { key: sprite.texture.key, canvas: source.image instanceof HTMLCanvasElement,
-        width: source.width, height: source.height, uploaded: Boolean(source.glTexture) };
-    })).toEqual({ key: 'veloria-nilo-idle-south-v1', canvas: true, width: 340, height: 510, uploaded: true });
+        width: source.width, height: source.height, frame: { width: sprite.frame.width, height: sprite.frame.height },
+        uploaded: Boolean(source.glTexture), minFilter: source.glTexture?.minFilter };
+    })).toEqual({ key: 'veloria-nilo-idle-south-v1', canvas: true, width: 512, height: 512,
+      frame: { width: 340, height: 510 }, uploaded: true, minFilter: 0x2703 });
     await page.screenshot({ path: info.outputPath('nilo-retina-after-context-restore.png') });
     expect(errors).toEqual([]);
   });

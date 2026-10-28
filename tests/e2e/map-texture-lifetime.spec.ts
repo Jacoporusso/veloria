@@ -36,11 +36,13 @@ test('walking out of the lab releases exclusive textures and returning rebuilds 
     const textures = (window as any).__textureGame.textures;
     const elia = textures.get('veloria-elia-idle-south-v1');
     const image = elia.getSourceImage();
+    const frame = elia.get('__BASE');
     return { town: textures.exists('veloria-borgofonte-illustrated-v3'), seamless: textures.exists('veloria-ground-hd-v5-seamless'),
       sharedRetained: textures.get('veloria-npcs-v3') === (window as any).__sharedNpcTexture,
       rebuilt: elia !== (window as any).__retiredEliaTexture, compact: image instanceof HTMLCanvasElement,
-      width: image.width, height: image.height };
-  })).toEqual({ town: false, seamless: false, sharedRetained: true, rebuilt: true, compact: true, width: 340, height: 510 });
+      width: image.width, height: image.height, frame: { width: frame.width, height: frame.height } };
+  })).toEqual({ town: false, seamless: false, sharedRetained: true, rebuilt: true, compact: true,
+    width: 512, height: 512, frame: { width: 340, height: 510 } });
   await walkTo(page, 'borgofonte_lab.tmj', 12, 8);
   await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
   await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();

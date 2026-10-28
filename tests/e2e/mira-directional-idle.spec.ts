@@ -54,6 +54,7 @@ test('Mira uses calibrated directional idle views during real interactions', asy
         origin: { x: sprite.originX, y: sprite.originY }, width: sprite.displayWidth, height: sprite.displayHeight,
         scaleX: sprite.scaleX, scaleY: sprite.scaleY, flipped: sprite.flipX || sprite.flipY,
         surface: { width: surface.width, height: surface.height, canvas: surface instanceof HTMLCanvasElement },
+          frame: { width: sprite.frame.width, height: sprite.frame.height },
         tweens: world.tweens.getTweensOf(sprite).length,
         abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player),
       };
@@ -61,7 +62,7 @@ test('Mira uses calibrated directional idle views during real interactions', asy
     const view = views[stop.pose];
     expect(state).toMatchObject({ key: view.assetKey, facing: stop.pose, x: 14 * 32 + 16, y: 2 * 32 + 35,
       origin: view.origin, flipped: false, tweens: 0, abovePlayer: stop.y <= 2,
-      surface: { width: 340, height: 510, canvas: true } });
+      surface: { width: 512, height: 512, canvas: true }, frame: { width: 340, height: 510 } });
     expect(state.height).toBeCloseTo(view.displaySize, 5);
     expect(state.width / state.height).toBeCloseTo(2 / 3, 5);
     expect(state.scaleX).toBeCloseTo(state.scaleY, 8);

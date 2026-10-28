@@ -169,7 +169,7 @@ export async function runRheaWaterPreparation(context: NaturalJourneyContext): P
     const after = (await observe()).save.party.find((member: Member) => member.instanceId === psyduck!.instanceId)!;
     const gainedXp = after.experience > before.experience;
     noProgressRounds = gainedXp || after.level > before.level ? 0 : noProgressRounds + 1;
-    await record(`R05 Rail Patch training round ${round + 1}: Psyduck Lv.${after.level}, XP ${after.experience - before.experience}, HP ${after.hp}/${after.maxHp}`);
+    await record(`R05 Rail Patch training round ${round + 1}: Psyduck Lv.${before.level} XP ${before.experience} → Lv.${after.level} XP ${after.experience}, HP ${after.hp}/${after.maxHp}`);
 
     await healAtVetracielo();
     const rested = (await observe()).save.party.find((member: Member) => member.instanceId === psyduck!.instanceId)!;

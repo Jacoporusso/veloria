@@ -1,0 +1,129 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "route-trainer-iris-r06",
+  "identityReference": "assets/sources/veloria-route-trainers-r04-r07-v1.png, bottom-left character (R06 Iris), atlas frame 2 only.",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/r06_iris",
+      "role": "narrative identity; optional R06 route trainer"
+    },
+    {
+      "path": "content/trainers/r06_iris.trainer.json",
+      "role": "trainer identity and battle role"
+    },
+    {
+      "path": "assets/sources/veloria-route-trainers-r04-r07-v1.png",
+      "role": "visual identity; bottom-left figure only (R06 Iris, atlas frame 2)"
+    }
+  ],
+  "identityAudit": {
+    "dialogue": "content/dialogue/world.v1.json (speaker r06_iris)",
+    "trainerSource": "content/trainers/r06_iris.trainer.json",
+    "catalogAppearance": "Iris, optional R06 trainer, separate from Delta biologist Iris.",
+    "visualIdentity": "Dark teal high ponytail with orange tie/streak; teal/slate/white training jacket with subtle orange accents, black cropped athletic shirt, teal garment knotted at waist, charcoal cargo trousers with teal knee panels, white/teal shoes with orange laces, central brass compass pendant, brown cross-body strap. Teal/orange pouch on anatomical RIGHT hip; LEFT black fingerless glove; RIGHT hand bare with dark wrist wrap rests on hip. These visual details are reference-derived artistic choices; canonical age/gender unspecified."
+  },
+  "prompts": {
+    "south": "Use case: stylized-concept. ONE SOUTH front idle sprite of Iris the R06 ROUTE TRAINER, matching ONLY the BOTTOM LEFT character in the reference4-person atlas. Ignore the other3. Preserve distinctive dark teal high ponytail with orange tie/streak, friendly warm face, teal/slate training jacket with white panels and subtle orange accents, black cropped athletic shirt as reference, teal extra garment knotted at waist, charcoal cargo trousers with teal knee panels, white/teal hiking sneakers with orange laces, round brass compass pendant centrally on chest. Small teal/orange utility pouch ONLY on HER ANATOMICAL RIGHT hip (viewer LEFT front), brown diagonal strap from LEFT shoulder to RIGHT hip. LEFT hand has a black fingerless glove; RIGHT hand is bare with black wrist wrap, rests on right hip. Left arm relaxed down, right hand on hip as source, feet grounded and intact. Exact front face/body toward viewer, gentle overhead game perspective, same contemporary matte illustrated2D RPG style and proportions, not3D or pixelart. One full body on portrait2:3 true transparent RGBA canvas, generous margins, ponytail and shoes uncut. No scenery, glow, backdrop, shadow disc, UI, sheet, extra people, text or labels. This is a new pose of the source identity, not the unrelated Delta biologist Iris.",
+    "north": "Use case: stylized-concept. ONE independent idle direction of Iris R06, exactly the same character/outfit/proportions as reference SOUTH. Dark-teal high ponytail/orange tie and accents, black athletic cropped shirt, teal/slate/white training jacket with orange accents, teal garment knotted at waist, charcoal cargo trousers/teal knees, white/teal sneakers/orange laces. Brass compass pendant is on FRONT chest and must be hidden from rear. Belt utility pouch is ONLY on ANATOMICAL RIGHT hip, independent of the brown chest gear strap (preserve SOUTH diagonal from RIGHT shoulder to LEFT waist). LEFT hand has black fingerless glove and hangs relaxed; RIGHT hand bare with black wrist wrap rests on RIGHT hip. Preserve asymmetry; no second pouch or second glove. Neutral planted shoes, gentle overhead modern matte illustrated2D RPG, not3D/pixelart. Single full body portrait2:3 true transparentRGBA with generous margins and hair/shoes intact; no scenery, backdrop, glow, shadowdisc, text, labels, sheet, frame or UI. Draw new body view, no mirroring. Exact NORTH straight REAR: no face/chest pendant. RIGHT pouch on viewer RIGHT hip, RIGHT bare hand on that hip; LEFT gloved hanging hand on viewer LEFT. Gear strap back diagonal viewer RIGHT shoulder to viewer LEFT waist. Ponytail behind head naturally, preserve waist tied garment from behind.",
+    "west": "Use case: stylized-concept. ONE independent idle direction of Iris R06, exactly the same character/outfit/proportions as reference SOUTH. Dark-teal high ponytail/orange tie and accents, black athletic cropped shirt, teal/slate/white training jacket with orange accents, teal garment knotted at waist, charcoal cargo trousers/teal knees, white/teal sneakers/orange laces. Brass compass pendant is on FRONT chest and must be hidden from rear. Belt utility pouch is ONLY on ANATOMICAL RIGHT hip, independent of the brown chest gear strap (preserve SOUTH diagonal from RIGHT shoulder to LEFT waist). LEFT hand has black fingerless glove and hangs relaxed; RIGHT hand bare with black wrist wrap rests on RIGHT hip. Preserve asymmetry; no second pouch or second glove. Neutral planted shoes, gentle overhead modern matte illustrated2D RPG, not3D/pixelart. Single full body portrait2:3 true transparentRGBA with generous margins and hair/shoes intact; no scenery, backdrop, glow, shadowdisc, text, labels, sheet, frame or UI. Draw new body view, no mirroring. Exact WEST LEFT-FACING profile: nose/toes viewer LEFT, near side ANATOMICAL LEFT. Near LEFT hand has black fingerless glove hanging down. RIGHT hip pouch is FAR and should be mostly occluded, only narrow edge if natural; right hand on far hip, never move pouch to near left hip. Ponytail points behind head toward viewer RIGHT. True profile, not front3quarter.",
+    "east": "Use case: stylized-concept. ONE independent idle direction of Iris R06, exactly the same character/outfit/proportions as reference SOUTH. Dark-teal high ponytail/orange tie and accents, black athletic cropped shirt, teal/slate/white training jacket with orange accents, teal garment knotted at waist, charcoal cargo trousers/teal knees, white/teal sneakers/orange laces. Brass compass pendant is on FRONT chest and must be hidden from rear. Belt utility pouch is ONLY on ANATOMICAL RIGHT hip, independent of the brown chest gear strap (preserve SOUTH diagonal from RIGHT shoulder to LEFT waist). LEFT hand has black fingerless glove and hangs relaxed; RIGHT hand bare with black wrist wrap rests on RIGHT hip. Preserve asymmetry; no second pouch or second glove. Neutral planted shoes, gentle overhead modern matte illustrated2D RPG, not3D/pixelart. Single full body portrait2:3 true transparentRGBA with generous margins and hair/shoes intact; no scenery, backdrop, glow, shadowdisc, text, labels, sheet, frame or UI. Draw new body view, no mirroring. Exact EAST RIGHT-FACING profile: nose/toes viewer RIGHT, near side ANATOMICAL RIGHT. Near RIGHT bare hand rests on right hip with only black wrist wrap; utility pouch visible on near RIGHT belt/hip. LEFT glove is FAR and mostly occluded. Ponytail behind head toward viewer LEFT. True profile, not front3quarter."
+  },
+  "views": [
+    {
+      "direction": "south",
+      "assetKey": "veloria-iris-r06-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-iris-r06-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-r06-idle-south-v1.webp",
+      "sourceSha256": "08e36d86891a78e6412e191a0f8c0d830945cde2aac9655334b9b92042aed871",
+      "runtimeSha256": "c8eb7e0f23445039c2aa185ab6e94d0286a6d44becaa745c7a6fc790fa5bfd65",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.61133,
+        "y": 0.96549
+      },
+      "displaySize": 60.40449,
+      "alpha128Bounds": [
+        241,
+        59,
+        861,
+        1483
+      ],
+      "outputId": "exec-3bfdb25e-e85f-4bd1-b50d-effee1843282.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-3bfdb25e-e85f-4bd1-b50d-effee1843282.png"
+    },
+    {
+      "direction": "north",
+      "assetKey": "veloria-iris-r06-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-iris-r06-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-r06-idle-north-v1.webp",
+      "sourceSha256": "251a89031076111c8f93c6013676de8257a39e0694e11420e8cb7e46be83ed6b",
+      "runtimeSha256": "e020585f5af9461d3691a26350259045050cda8a08081bf21755967c253b2d26",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.48485,
+        "y": 0.96289
+      },
+      "displaySize": 59.85804,
+      "alpha128Bounds": [
+        202,
+        42,
+        794,
+        1479
+      ],
+      "outputId": "exec-a2989913-4287-4e99-84c3-1f458f0d9d56.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-a2989913-4287-4e99-84c3-1f458f0d9d56.png"
+    },
+    {
+      "direction": "west",
+      "assetKey": "veloria-iris-r06-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-iris-r06-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-r06-idle-west-v1.webp",
+      "sourceSha256": "03d7a6c949ac52413e86c61a5fc5bd6887b7d56f96148333813d834650a2599a",
+      "runtimeSha256": "6f09e938a406312027db112f158a3eb06b37f110d121f74f4ddc3cea85a0d144",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.46784,
+        "y": 0.97982
+      },
+      "displaySize": 57.61286,
+      "alpha128Bounds": [
+        332,
+        12,
+        771,
+        1505
+      ],
+      "outputId": "exec-4b997acf-6ef0-4acf-891b-650bea9f26a4.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-4b997acf-6ef0-4acf-891b-650bea9f26a4.png"
+    },
+    {
+      "direction": "east",
+      "assetKey": "veloria-iris-r06-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-iris-r06-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-r06-idle-east-v1.webp",
+      "sourceSha256": "ced377ae5b08dba54435ea3bee90b308fea0fe1863e217f8a34667045a1b75b7",
+      "runtimeSha256": "2bd81f28dd2e60ab33d97f06b90cc9a9329b1a02c646af7d97467949041ddddb",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.53377,
+        "y": 0.97461
+      },
+      "displaySize": 58.99588,
+      "alpha128Bounds": [
+        267,
+        39,
+        798,
+        1497
+      ],
+      "outputId": "exec-9576925e-3c8a-450e-b440-8da2bd5b36bc.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-9576925e-3c8a-450e-b440-8da2bd5b36bc.png"
+    }
+  ],
+  "rejectedCandidates": [],
+  "review": "Selected originals reviewed by root in all four directions. Asymmetry follows root review: anatomical-right hip pouch, anatomical-left glove, right bare hand on hip, rear compass hidden. Exact selected candidate PNGs copied byte-for-byte; no creative pixel edits.",
+  "calibration": "Raw RGBA PNGs preserved without resize, crop, flip, cleanup or resampling. Optical body height calibrated to 56 world px from alpha>=128 bounds. Origin x is alpha-weighted centroid in the bottom 50px of the alpha>=128 body; origin y is the exclusive bottom of those bounds. Runtime WebP lossless and decoded RGBA-identical to PNG source."
+}

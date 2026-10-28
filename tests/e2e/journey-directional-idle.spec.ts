@@ -8,6 +8,9 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], tiled: 'r04_salita_petali', id: 'nila_r04' },
+  { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], tiled: 'r05_viadotto_ciliegi', id: 'oren_r05' },
+  { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], tiled: 'r06_anello_magnetico', id: 'r06_iris' },
   { name: 'Rami', speaker: 'Rami', profile: 'guide-rami-r03', map: 'r03_terrazze_muschio', tiled: 'r03_terrazze_muschio', id: 'r03_path_guide', spawn: 'from_brumalta', x: 6, y: 16, flags: [] },
   { name: 'Leda', speaker: 'Custode Leda', profile: 'radicelmo-keeper-leda', map: 'radicelmo', tiled: 'radicelmo', id: 'radicelmo_keeper', spawn: 'from_r03', x: 25, y: 11, flags: ['q_radicelmo_seed_found', 'q_radicelmo_seed_archived', 'q_radicelmo_greenhouse_started', 'q_radicelmo_seed_sprouted', 'q_radicelmo_greenhouse_complete', 'q_radicelmo_fire_stone_found'] },
   { name: 'Lea', speaker: 'Lea', profile: 'vetracielo-lea', map: 'vetracielo', tiled: 'vetracielo', id: 'vetracielo_lea', spawn: 'from_r05', x: 22, y: 18, flags: ['q_vetracielo_orientation'] },
@@ -52,6 +55,9 @@ for (const npc of [
           origin: { x: sprite.originX, y: sprite.originY }, height: sprite.displayHeight,
           uniform: sprite.scaleX === sprite.scaleY, flipped: sprite.flipX || sprite.flipY,
           compact: image instanceof HTMLCanvasElement && Math.max(image.width, image.height) <= 512,
+          webgl: Boolean(world.game.renderer.gl), minFilter: sprite.texture.source[0].glTexture?.minFilter,
+          frameRatio: sprite.frame.width / sprite.frame.height,
+          powerOfTwo: (image.width & (image.width - 1)) === 0 && (image.height & (image.height - 1)) === 0,
           tweens: world.tweens.getTweensOf(sprite).length,
           abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player) };
       }, npc.id);
@@ -59,6 +65,11 @@ for (const npc of [
       expect(state).toMatchObject({ key: view.assetKey, facing: stop.facing, x: npc.x * 32 + 16, y: npc.y * 32 + 35,
         origin: view.origin, uniform: true, flipped: false, compact: true, tweens: 0, abovePlayer: stop.y <= npc.y });
       expect(state.height).toBeCloseTo(view.displaySize, 5);
+      expect(state.frameRatio).toBeCloseTo(2 / 3, 8);
+      if (state.webgl) {
+        expect(state.powerOfTwo).toBe(true);
+        expect(state.minFilter).toBe(0x2703); // LINEAR_MIPMAP_LINEAR, retained after every direction change.
+      }
       const after = await readBrowserSave(page);
       for (const key of ['player', 'flags', 'party', 'inventory', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
       for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {

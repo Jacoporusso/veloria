@@ -1,0 +1,165 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "route-trainer-nila",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/nila_r04",
+      "role": "narrative/dialogue source"
+    },
+    {
+      "path": "content/trainers/r04_nila.trainer.json",
+      "role": "trainer identity and route source"
+    },
+    {
+      "path": "assets/sources/veloria-route-trainers-r04-r07-v1.png",
+      "role": "original image identity/style reference; Nila is top-left frame 0"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: illustration-story. Create a single full-body SOUTH-facing idle character illustration of Nila, portrait 2:3, transparent RGBA, isolated on transparent canvas, centered with generous margins, both full shoes visible on one baseline. Reference role: the supplied original PNG is the authoritative identity and style reference; Nila is frame 0 at the TOP LEFT only. Preserve the same character design and accessories: warm chestnut/auburn wavy hair in the same short gathered style, small pale pink flower hair clip on Nila's anatomical RIGHT side (viewer-left in the south/front view), cream travel coat with soft pink petal-patterned trim and sleeves, muted rose scarf, dark practical shorts/leggings and pink hiking sneakers, brown travel straps, compact travel pack and pale botanical map pouch. Keep the character's body proportions and youthful-but-unspecified apparent age non-assertive; do not imply canon gender. Exact front-facing SOUTH view, relaxed standing idle pose. Natural anatomy with correct left/right placement: from the viewer's perspective, Nila's anatomical right hand/strap and flower clip appear on viewer-left. Preserve outfit details and colors. Match modern illustrated 2D matte painterly style of the source. No other cast members, no background, floor, shadow, vignette, halo, text, frame, or sheet/collage. Do not alter accessory sides or flip the reference.",
+    "north": "Use case: illustration-story. Generate a single full-body NORTH-facing rear idle view of the same Nila from the first reference (approved SOUTH pose, identity/outfit) and second reference (original sprite style and exact character; Nila is TOP LEFT frame 0 only). Portrait 2:3, transparent RGBA, centered with margin, entire shoes visible. True back view, facing away, not three-quarter. Preserve the small pale pink flower clip on Nila's anatomical RIGHT side: because this is the rear/north view it must appear on the VIEWER-RIGHT side of the head. Keep same chestnut short wavy gathered hair, cream travel coat with pink petal trim, rose scarf, dark shorts/leggings, pink trail shoes, travel straps/backpack and map pouch. Preserve anatomical right/left consistently: back view right side appears viewer-right; place map-pouch/pack hardware according to the anatomy established in the south. Show natural back garment construction and plausible strap routing. Relaxed neutral standing. Modern 2D matte illustrated style. No scenery, floor, shadow, glow, vignette, halo, text, frame, extra characters, collage or sheet. Do not mirror the south mechanically.",
+    "west": "Use case: illustration-story. Generate one full-body WEST-facing exact side-profile idle view of Nila, in a separate portrait 2:3 transparent RGBA canvas. References: first is the approved south pose for identity/outfit and anatomical side mapping; second is original sprite sheet for style and identity (Nila is top-left only). True west profile facing image-left; anatomically correct visible near side is Nila's LEFT side (explicit: WEST near side = image LEFT). Therefore the flower clip on Nila's anatomical RIGHT side must NOT be visible on the near side; show only the far-side clip if physically plausible/occluded, and do not relocate it. Keep the exact chestnut short wavy gathered hair, cream travel coat with pink petal accents, rose scarf, dark shorts/leggings, pink shoes, backpack straps and map-pouch/accessories as on the same anatomical sides established in south. For this west profile show near/left shoulder, arm, coat layers and side of backpack naturally; belt map pouch stays on the canonical hip with correct occlusion. One eye visible, nose and chest point left, no three-quarter view and no mechanical flip. Relaxed idle pose, full shoes visible aligned to a ground baseline, margins. Match modern 2D matte illustration. No scenery, glow, halo, vignette, shadow, floor, text, frame, multiple views, collage or sheet.",
+    "east": "Use case: illustration-story. Generate one full-body EAST-facing exact side-profile idle view of Nila, on a separate portrait 2:3 transparent RGBA canvas. References: first is the approved south pose for identity/outfit and anatomical side mapping; second is original sprite sheet for style and identity (Nila is top-left only). True east profile facing image-right; anatomically correct visible near side is Nila's RIGHT side (explicit: EAST near side = image RIGHT). The pale pink flower clip is on Nila's anatomical RIGHT, so it MUST be visible on the near/image-right side of the head. Preserve that side placement and do not mirror it. Keep exact chestnut short wavy gathered hair, cream travel coat with pink petal accents, rose scarf, dark shorts/leggings, pink shoes, backpack straps, compact pack and map pouch on the same anatomical sides as south. Show near/right shoulder, arm and coat layers, with believable overlap. One eye visible, nose/chest point right; no three-quarter turn. Relaxed idle pose, entire shoes visible on one baseline, generous margins. Match modern 2D matte illustrated source style. No background, floor, shadow, glow, vignette, halo, text, frame, other characters, multiple views, collage or sheet."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-nila-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-nila-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nila-idle-south-v1.webp",
+      "sourceSha256": "819f40f1116cfd0609cf359380208362cd478dd623642f3a64e4c9be495e9a3a",
+      "runtimeSha256": "69ad682af494d2f92d68eb6ab7f36b34e270b1df061360378f0165eadffa97a0",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.55079,
+        "y": 0.94271
+      },
+      "displaySize": 63.2,
+      "outputId": "exec-81ac7754-3da5-4b3c-89db-6ee828149360",
+      "alpha128Bounds": [
+        225,
+        87,
+        800,
+        1448
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-81ac7754-3da5-4b3c-89db-6ee828149360.png",
+      "references": [
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "riferimento originale; Nila è il frame 0 in alto a sinistra"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Create a single full-body SOUTH-facing idle character illustration of Nila, portrait 2:3, transparent RGBA, isolated on transparent canvas, centered with generous margins, both full shoes visible on one baseline. Reference role: the supplied original PNG is the authoritative identity and style reference; Nila is frame 0 at the TOP LEFT only. Preserve the same character design and accessories: warm chestnut/auburn wavy hair in the same short gathered style, small pale pink flower hair clip on Nila's anatomical RIGHT side (viewer-left in the south/front view), cream travel coat with soft pink petal-patterned trim and sleeves, muted rose scarf, dark practical shorts/leggings and pink hiking sneakers, brown travel straps, compact travel pack and pale botanical map pouch. Keep the character's body proportions and youthful-but-unspecified apparent age non-assertive; do not imply canon gender. Exact front-facing SOUTH view, relaxed standing idle pose. Natural anatomy with correct left/right placement: from the viewer's perspective, Nila's anatomical right hand/strap and flower clip appear on viewer-left. Preserve outfit details and colors. Match modern illustrated 2D matte painterly style of the source. No other cast members, no background, floor, shadow, vignette, halo, text, frame, or sheet/collage. Do not alter accessory sides or flip the reference.",
+      "candidateSha256": "819F40F1116CFD0609CF359380208362CD478DD623642F3A64E4C9BE495E9A3A"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-nila-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-nila-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nila-idle-north-v1.webp",
+      "sourceSha256": "083949a4208e96a76f2bba68e251d3a56a0cf9ec46ae68c2b264c568ef7fb9bd",
+      "runtimeSha256": "e2220cba1cb5ef92fe96190ffb81bf7f2884f6bfb004af736bc61130e12dad9d",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50336,
+        "y": 0.94271
+      },
+      "displaySize": 62.56,
+      "outputId": "exec-c733a37e-c98a-4786-a748-0990d999f3b2",
+      "alpha128Bounds": [
+        223,
+        73,
+        795,
+        1448
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-c733a37e-c98a-4786-a748-0990d999f3b2.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-81ac7754-3da5-4b3c-89db-6ee828149360.png",
+          "role": "south selezionato; identità, abiti, mappatura anatomica"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "stile/identità originale; Nila frame 0 alto sinistra"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Generate a single full-body NORTH-facing rear idle view of the same Nila from the first reference (approved SOUTH pose, identity/outfit) and second reference (original sprite style and exact character; Nila is TOP LEFT frame 0 only). Portrait 2:3, transparent RGBA, centered with margin, entire shoes visible. True back view, facing away, not three-quarter. Preserve the small pale pink flower clip on Nila's anatomical RIGHT side: because this is the rear/north view it must appear on the VIEWER-RIGHT side of the head. Keep same chestnut short wavy gathered hair, cream travel coat with pink petal trim, rose scarf, dark shorts/leggings, pink trail shoes, travel straps/backpack and map pouch. Preserve anatomical right/left consistently: back view right side appears viewer-right; place map-pouch/pack hardware according to the anatomy established in the south. Show natural back garment construction and plausible strap routing. Relaxed neutral standing. Modern 2D matte illustrated style. No scenery, floor, shadow, glow, vignette, halo, text, frame, extra characters, collage or sheet. Do not mirror the south mechanically.",
+      "candidateSha256": "083949A4208E96A76F2BBA68E251D3A56A0CF9EC46AE68C2B264C568EF7FB9BD"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-nila-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-nila-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nila-idle-west-v1.webp",
+      "sourceSha256": "128ae208dbb841249a5276200bf8a2fc931fb484b8186d4f49900643eb564fef",
+      "runtimeSha256": "bd68d9cd2dc0520a2629711293a1fc480e866c7d4089f12d49e0309b8369de5f",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51781,
+        "y": 0.97266
+      },
+      "displaySize": 58.36,
+      "outputId": "exec-5c9e71b1-970d-40a3-9c4a-1ae74137097a",
+      "alpha128Bounds": [
+        271,
+        20,
+        768,
+        1494
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-5c9e71b1-970d-40a3-9c4a-1ae74137097a.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-81ac7754-3da5-4b3c-89db-6ee828149360.png",
+          "role": "south selezionato; identità, abiti, mappatura anatomica"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "stile/identità originale; Nila frame 0 alto sinistra"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Generate one full-body WEST-facing exact side-profile idle view of Nila, in a separate portrait 2:3 transparent RGBA canvas. References: first is the approved south pose for identity/outfit and anatomical side mapping; second is original sprite sheet for style and identity (Nila is top-left only). True west profile facing image-left; anatomically correct visible near side is Nila's LEFT side (explicit: WEST near side = image LEFT). Therefore the flower clip on Nila's anatomical RIGHT side must NOT be visible on the near side; show only the far-side clip if physically plausible/occluded, and do not relocate it. Keep the exact chestnut short wavy gathered hair, cream travel coat with pink petal accents, rose scarf, dark shorts/leggings, pink shoes, backpack straps and map-pouch/accessories as on the same anatomical sides established in south. For this west profile show near/left shoulder, arm, coat layers and side of backpack naturally; belt map pouch stays on the canonical hip with correct occlusion. One eye visible, nose and chest point left, no three-quarter view and no mechanical flip. Relaxed idle pose, full shoes visible aligned to a ground baseline, margins. Match modern 2D matte illustration. No scenery, glow, halo, vignette, shadow, floor, text, frame, multiple views, collage or sheet.",
+      "candidateSha256": "128AE208DBB841249A5276200BF8A2FC931FB484B8186D4F49900643EB564FEF"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-nila-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-nila-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-nila-idle-east-v1.webp",
+      "sourceSha256": "a7e00d6625b16140f40466e5c548916cd6b6bdc03856314b69ac227788420ddf",
+      "runtimeSha256": "8eb1ba7c1bcfc1cc53b7c6d566aa8d0437ca505a427f8867950fe72ba398456b",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.55147,
+        "y": 0.96289
+      },
+      "displaySize": 59.24,
+      "outputId": "exec-0e983f82-6b27-43f7-a8ef-a62f0c3761cf",
+      "alpha128Bounds": [
+        268,
+        27,
+        757,
+        1479
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-0e983f82-6b27-43f7-a8ef-a62f0c3761cf.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-81ac7754-3da5-4b3c-89db-6ee828149360.png",
+          "role": "south selezionato; identità, abiti, mappatura anatomica"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "stile/identità originale; Nila frame 0 alto sinistra"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Generate one full-body EAST-facing exact side-profile idle view of Nila, on a separate portrait 2:3 transparent RGBA canvas. References: first is the approved south pose for identity/outfit and anatomical side mapping; second is original sprite sheet for style and identity (Nila is top-left only). True east profile facing image-right; anatomically correct visible near side is Nila's RIGHT side (explicit: EAST near side = image RIGHT). The pale pink flower clip is on Nila's anatomical RIGHT, so it MUST be visible on the near/image-right side of the head. Preserve that side placement and do not mirror it. Keep exact chestnut short wavy gathered hair, cream travel coat with pink petal accents, rose scarf, dark shorts/leggings, pink shoes, backpack straps, compact pack and map pouch on the same anatomical sides as south. Show near/right shoulder, arm and coat layers, with believable overlap. One eye visible, nose/chest point right; no three-quarter turn. Relaxed idle pose, entire shoes visible on one baseline, generous margins. Match modern 2D matte illustrated source style. No background, floor, shadow, glow, vignette, halo, text, frame, other characters, multiple views, collage or sheet.",
+      "candidateSha256": "A7E00D6625B16140F40466E5C548916CD6B6BDC03856314B69AC227788420DDF"
+    }
+  ],
+  "discarded": [],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling. Runtime WebP lossless with exact RGBA pixel equality."
+}

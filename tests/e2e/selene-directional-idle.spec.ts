@@ -92,6 +92,7 @@ for (const reducedMotion of ['reduce', 'no-preference'] as const) test.describe(
           scaleY: sprite.scaleY,
           flipped: sprite.flipX || sprite.flipY,
           surface: { width: surface.width, height: surface.height, canvas: surface instanceof HTMLCanvasElement },
+          frame: { width: sprite.frame.width, height: sprite.frame.height },
           tweens: world.tweens.getTweensOf(sprite).length,
           abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player),
         };
@@ -102,7 +103,8 @@ for (const reducedMotion of ['reduce', 'no-preference'] as const) test.describe(
         x: seleneTile.x * 32 + 16, y: seleneTile.y * 32 + 35,
         origin: view.origin, flipped: false, tweens: 0,
         abovePlayer: stop.y <= seleneTile.y,
-        surface: { width: 340, height: 510, canvas: true },
+        surface: { width: 512, height: 512, canvas: true },
+        frame: { width: 340, height: 510 },
       });
       expect(state.height).toBeCloseTo(view.displaySize, 5);
       expect(state.width / state.height).toBeCloseTo(2 / 3, 5);

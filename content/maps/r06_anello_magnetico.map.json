@@ -73,6 +73,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-r06-idle-south-v1",
+      "path": "assets/sprites/veloria-iris-r06-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-r06-idle-north-v1",
+      "path": "assets/sprites/veloria-iris-r06-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-r06-idle-west-v1",
+      "path": "assets/sprites/veloria-iris-r06-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-r06-idle-east-v1",
+      "path": "assets/sprites/veloria-iris-r06-idle-east-v1.webp"
     }
   ],
   "spawns": [

@@ -179,6 +179,9 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], start: { x: 10, y: 17 }, dimensions: [1024, 1536], coldStart: false },
+  { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], start: { x: 18, y: 13 }, dimensions: [1024, 1536], coldStart: false },
+  { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], start: { x: 21, y: 17 }, dimensions: [1024, 1536], coldStart: false },
   { name: 'Rami', speaker: 'Rami', profile: 'guide-rami-r03', map: 'r03_terrazze_muschio', spawn: 'from_brumalta', x: 6, y: 16,
     start: { x: 6, y: 17 }, dimensions: [1024, 1536], flags: [], coldStart: false },
   { name: 'Leda', speaker: 'Custode Leda', profile: 'radicelmo-keeper-leda', map: 'radicelmo', spawn: 'from_r03', x: 25, y: 11,

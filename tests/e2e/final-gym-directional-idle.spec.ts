@@ -70,12 +70,13 @@ for (const gym of gyms) for (const reducedMotion of ['reduce', 'no-preference'] 
             flipped: sprite.flipX || sprite.flipY, tweens: world.tweens.getTweensOf(sprite).length,
             legacyAtlasLoaded: world.textures.exists('veloria-gym-leaders-b-v1'),
             abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player),
-            surface: { width: surface.width, height: surface.height, canvas: surface instanceof HTMLCanvasElement } };
+            surface: { width: surface.width, height: surface.height, canvas: surface instanceof HTMLCanvasElement },
+            frame: { width: sprite.frame.width, height: sprite.frame.height } };
         }, gym.npcId);
         const view = views[stop.facing];
         expect(state).toMatchObject({ key: view.assetKey, facing: stop.facing, directional: true, x: 16 * 32 + 16,
           y: gym.y * 32 + 35, origin: view.origin, flipped: false, tweens: 0, legacyAtlasLoaded: false, abovePlayer: stop.y <= gym.y,
-          surface: { width: 340, height: 510, canvas: true } });
+          surface: { width: 512, height: 512, canvas: true }, frame: { width: 340, height: 510 } });
         expect(state.height).toBeCloseTo(view.displaySize, 5);
         expect(state.ratio).toBeCloseTo(2 / 3, 5);
         expect(state.scaleX).toBeCloseTo(state.scaleY, 8);

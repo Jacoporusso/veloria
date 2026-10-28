@@ -1181,6 +1181,66 @@
         "kind": "image",
         "key": "veloria-lea-idle-east-v1",
         "path": "assets/sprites/veloria-lea-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-south-v1",
+        "path": "assets/sprites/veloria-nila-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-north-v1",
+        "path": "assets/sprites/veloria-nila-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-west-v1",
+        "path": "assets/sprites/veloria-nila-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-east-v1",
+        "path": "assets/sprites/veloria-nila-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-south-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-north-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-west-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-east-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-south-v1",
+        "path": "assets/sprites/veloria-oren-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-north-v1",
+        "path": "assets/sprites/veloria-oren-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-west-v1",
+        "path": "assets/sprites/veloria-oren-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-east-v1",
+        "path": "assets/sprites/veloria-oren-idle-east-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -1222,6 +1282,10 @@
       "veloria-guides-and-keepers-v1",
       "veloria-gym-leaders-a-v1",
       "veloria-gym-leaders-b-v1",
+      "veloria-iris-r06-idle-east-v1",
+      "veloria-iris-r06-idle-north-v1",
+      "veloria-iris-r06-idle-south-v1",
+      "veloria-iris-r06-idle-west-v1",
       "veloria-lea-idle-east-v1",
       "veloria-lea-idle-north-v1",
       "veloria-lea-idle-south-v1",
@@ -1240,6 +1304,10 @@
       "veloria-nerea-portolume-idle-north-v1",
       "veloria-nerea-portolume-idle-south-v1",
       "veloria-nerea-portolume-idle-west-v1",
+      "veloria-nila-idle-east-v1",
+      "veloria-nila-idle-north-v1",
+      "veloria-nila-idle-south-v1",
+      "veloria-nila-idle-west-v1",
       "veloria-nilo-idle-east-v1",
       "veloria-nilo-idle-north-v1",
       "veloria-nilo-idle-south-v1",
@@ -1249,6 +1317,10 @@
       "veloria-nives-idle-south-v1",
       "veloria-nives-idle-west-v1",
       "veloria-npcs-v3",
+      "veloria-oren-idle-east-v1",
+      "veloria-oren-idle-north-v1",
+      "veloria-oren-idle-south-v1",
+      "veloria-oren-idle-west-v1",
       "veloria-r09-r10-coastal-trainers-v1",
       "veloria-rami-idle-east-v1",
       "veloria-rami-idle-north-v1",
@@ -1803,6 +1875,66 @@
         "kind": "image",
         "key": "veloria-lea-idle-east-v1",
         "path": "assets/sprites/veloria-lea-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-south-v1",
+        "path": "assets/sprites/veloria-nila-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-north-v1",
+        "path": "assets/sprites/veloria-nila-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-west-v1",
+        "path": "assets/sprites/veloria-nila-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nila-idle-east-v1",
+        "path": "assets/sprites/veloria-nila-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-south-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-north-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-west-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-iris-r06-idle-east-v1",
+        "path": "assets/sprites/veloria-iris-r06-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-south-v1",
+        "path": "assets/sprites/veloria-oren-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-north-v1",
+        "path": "assets/sprites/veloria-oren-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-west-v1",
+        "path": "assets/sprites/veloria-oren-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-oren-idle-east-v1",
+        "path": "assets/sprites/veloria-oren-idle-east-v1.webp"
       }
     ],
     "profiles": [
@@ -2683,12 +2815,45 @@
         "npcIds": [
           "nila_r04"
         ],
-        "assetKey": "veloria-route-trainers-r04-r07-v1",
-        "frame": 0,
+        "assetKey": "veloria-nila-idle-south-v1",
         "narrativeSource": "content/dialogue/world.v1.json#/nila_r04; content/trainers/r04_nila.trainer.json",
         "origin": {
-          "x": 0.558,
-          "y": 0.951
+          "x": 0.55079,
+          "y": 0.94271
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-nila-idle-south-v1",
+            "origin": {
+              "x": 0.55079,
+              "y": 0.94271
+            },
+            "displaySize": 63.2
+          },
+          "up": {
+            "assetKey": "veloria-nila-idle-north-v1",
+            "origin": {
+              "x": 0.50336,
+              "y": 0.94271
+            },
+            "displaySize": 62.56
+          },
+          "left": {
+            "assetKey": "veloria-nila-idle-west-v1",
+            "origin": {
+              "x": 0.51781,
+              "y": 0.97266
+            },
+            "displaySize": 58.36
+          },
+          "right": {
+            "assetKey": "veloria-nila-idle-east-v1",
+            "origin": {
+              "x": 0.55147,
+              "y": 0.96289
+            },
+            "displaySize": 59.24
+          }
         }
       },
       {
@@ -2700,12 +2865,45 @@
         "npcIds": [
           "oren_r05"
         ],
-        "assetKey": "veloria-route-trainers-r04-r07-v1",
-        "frame": 1,
+        "assetKey": "veloria-oren-idle-south-v1",
         "narrativeSource": "content/dialogue/world.v1.json#/oren_r05; content/trainers/r05_oren.trainer.json",
         "origin": {
-          "x": 0.468,
-          "y": 0.96
+          "x": 0.62079,
+          "y": 0.97396
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-oren-idle-south-v1",
+            "origin": {
+              "x": 0.62079,
+              "y": 0.97396
+            },
+            "displaySize": 59.4
+          },
+          "up": {
+            "assetKey": "veloria-oren-idle-north-v1",
+            "origin": {
+              "x": 0.55627,
+              "y": 0.9668
+            },
+            "displaySize": 59.61
+          },
+          "left": {
+            "assetKey": "veloria-oren-idle-west-v1",
+            "origin": {
+              "x": 0.49642,
+              "y": 0.97331
+            },
+            "displaySize": 58.12
+          },
+          "right": {
+            "assetKey": "veloria-oren-idle-east-v1",
+            "origin": {
+              "x": 0.51469,
+              "y": 0.9681
+            },
+            "displaySize": 58.67
+          }
         }
       },
       {
@@ -2717,12 +2915,45 @@
         "npcIds": [
           "r06_iris"
         ],
-        "assetKey": "veloria-route-trainers-r04-r07-v1",
-        "frame": 2,
+        "assetKey": "veloria-iris-r06-idle-south-v1",
         "narrativeSource": "content/dialogue/world.v1.json#/r06_iris; content/trainers/r06_iris.trainer.json",
         "origin": {
-          "x": 0.593,
-          "y": 0.895
+          "x": 0.61133,
+          "y": 0.96549
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-iris-r06-idle-south-v1",
+            "origin": {
+              "x": 0.61133,
+              "y": 0.96549
+            },
+            "displaySize": 60.40449
+          },
+          "up": {
+            "assetKey": "veloria-iris-r06-idle-north-v1",
+            "origin": {
+              "x": 0.48485,
+              "y": 0.96289
+            },
+            "displaySize": 59.85804
+          },
+          "left": {
+            "assetKey": "veloria-iris-r06-idle-west-v1",
+            "origin": {
+              "x": 0.46784,
+              "y": 0.97982
+            },
+            "displaySize": 57.61286
+          },
+          "right": {
+            "assetKey": "veloria-iris-r06-idle-east-v1",
+            "origin": {
+              "x": 0.53377,
+              "y": 0.97461
+            },
+            "displaySize": 58.99588
+          }
         }
       },
       {
@@ -11220,6 +11451,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nila-idle-south-v1",
+          "path": "assets/sprites/veloria-nila-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nila-idle-north-v1",
+          "path": "assets/sprites/veloria-nila-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nila-idle-west-v1",
+          "path": "assets/sprites/veloria-nila-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nila-idle-east-v1",
+          "path": "assets/sprites/veloria-nila-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -11343,11 +11602,11 @@
           "profileMatch": "route-trainer-nila",
           "narrativeSpeaker": "Nila",
           "kind": "npc",
-          "sprite": "veloria-route-trainers-r04-r07-v1",
-          "spriteFrame": 0,
+          "sprite": "veloria-nila-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.558,
-            "y": 0.951
+            "x": 0.55079,
+            "y": 0.94271
           },
           "trainerId": "veloria/trainer_r04_nila",
           "battleOnceFlag": "trainer_r04_nila_defeated",
@@ -11525,6 +11784,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-oren-idle-south-v1",
+          "path": "assets/sprites/veloria-oren-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-oren-idle-north-v1",
+          "path": "assets/sprites/veloria-oren-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-oren-idle-west-v1",
+          "path": "assets/sprites/veloria-oren-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-oren-idle-east-v1",
+          "path": "assets/sprites/veloria-oren-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -11642,11 +11929,11 @@
           "profileMatch": "route-trainer-oren",
           "narrativeSpeaker": "Oren",
           "kind": "npc",
-          "sprite": "veloria-route-trainers-r04-r07-v1",
-          "spriteFrame": 1,
+          "sprite": "veloria-oren-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.468,
-            "y": 0.96
+            "x": 0.62079,
+            "y": 0.97396
           },
           "trainerId": "veloria/trainer_r05_oren",
           "battleOnceFlag": "trainer_r05_oren_defeated",
@@ -11824,6 +12111,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-iris-r06-idle-south-v1",
+          "path": "assets/sprites/veloria-iris-r06-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-iris-r06-idle-north-v1",
+          "path": "assets/sprites/veloria-iris-r06-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-iris-r06-idle-west-v1",
+          "path": "assets/sprites/veloria-iris-r06-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-iris-r06-idle-east-v1",
+          "path": "assets/sprites/veloria-iris-r06-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -11946,11 +12261,11 @@
           "profileMatch": "route-trainer-iris-r06",
           "narrativeSpeaker": "Iris",
           "kind": "npc",
-          "sprite": "veloria-route-trainers-r04-r07-v1",
-          "spriteFrame": 2,
+          "sprite": "veloria-iris-r06-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.593,
-            "y": 0.895
+            "x": 0.61133,
+            "y": 0.96549
           },
           "trainerId": "veloria/trainer_r06_iris",
           "battleOnceFlag": "trainer_r06_iris_defeated",
@@ -16077,11 +16392,11 @@
       "profileMatch": "route-trainer-nila",
       "narrativeSpeaker": "Nila",
       "kind": "npc",
-      "sprite": "veloria-route-trainers-r04-r07-v1",
-      "spriteFrame": 0,
+      "sprite": "veloria-nila-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.558,
-        "y": 0.951
+        "x": 0.55079,
+        "y": 0.94271
       },
       "trainerId": "veloria/trainer_r04_nila",
       "battleOnceFlag": "trainer_r04_nila_defeated",
@@ -16104,11 +16419,11 @@
       "profileMatch": "route-trainer-oren",
       "narrativeSpeaker": "Oren",
       "kind": "npc",
-      "sprite": "veloria-route-trainers-r04-r07-v1",
-      "spriteFrame": 1,
+      "sprite": "veloria-oren-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.468,
-        "y": 0.96
+        "x": 0.62079,
+        "y": 0.97396
       },
       "trainerId": "veloria/trainer_r05_oren",
       "battleOnceFlag": "trainer_r05_oren_defeated",
@@ -16131,11 +16446,11 @@
       "profileMatch": "route-trainer-iris-r06",
       "narrativeSpeaker": "Iris",
       "kind": "npc",
-      "sprite": "veloria-route-trainers-r04-r07-v1",
-      "spriteFrame": 2,
+      "sprite": "veloria-iris-r06-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.593,
-        "y": 0.895
+        "x": 0.61133,
+        "y": 0.96549
       },
       "trainerId": "veloria/trainer_r06_iris",
       "battleOnceFlag": "trainer_r06_iris_defeated",

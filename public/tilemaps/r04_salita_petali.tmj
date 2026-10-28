@@ -6707,7 +6707,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-route-trainers-r04-r07-v1"
+              "value": "veloria-nila-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -6717,12 +6717,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.558
+              "value": 0.55079
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.951
+              "value": 0.94271
             },
             {
               "name": "trainerId",
@@ -6733,11 +6733,6 @@
               "name": "battleOnceFlag",
               "type": "string",
               "value": "trainer_r04_nila_defeated"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
             }
           ]
         }

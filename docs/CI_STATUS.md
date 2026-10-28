@@ -1,3 +1,15 @@
+## 0.4.34 — Nila/Oren/Iris e minificazione dei personaggi
+
+Tre nuovi profili con quattro idle indipendenti, sorgenti raw immutate, WebP lossless RGBA-identici e provenienza completa. Corretto con ImageGen il retro Oren per mantenere la cinghia sul lato destro. Identità e geometria invariate. Totale19profili direzionali su48;29ancora da migrare. Dettagli in `110_NILA_OREN_IRIS_DIRECTIONAL_IDLE_v0.1.md`.
+
+Ridotto lo stipple in minificazione: superfici WebGL POT512² con frame utile340×510 e filtro trilineare mipmap conservato nei cambi direzione e dopo il ripristino del contesto. Canvas mantiene il rapporto esatto. Dettagli sottili più morbidi aDPR1; screenshotDPR3 Nilo rivisto. Nessuna promessa di riduzione memoria/prestazioni: padding e mipmap aggiungono memoria.
+
+34casi nativi distinti passati:7 su sei identità più Ada,25 regressioni grafiche e2prove globali sulle51presenze dopo la correzione del gancio diagnostico Vite con query. Cinque casi offline sulla build finale passati.828dominio/persistenza,154Python, validatore850media/48fondali/48mappe; TypeScript/build passati, avviso chunk Phaser. Discovery411browser una volta,58risorse offline in29+29.
+
+Progresso naturale separato: Psyduck catturato e allenato realmente fino22 con Idropulsar; checkpoint UI esportato a Ferraluce. Limite45minuti dopo export e prima della rivincita: nessuna quarta medaglia attestata. Log XP del driver chiarito senza cambiare XP del gioco. Report e limiti in `playtests/2026-10-28-gen1-rhea-attempts.md`.
+
+Contenuti0.4.34/cachev197. Pubblicazione e CI da registrare dopo il push. Goal intero aperto:29identità direzionali, camminate/verifica del cast e campagna naturale dalle altre cinque palestre alla Lega. Candidate Dario/Ivo Ferraluce private escluse dal rilascio.
+
 ## 0.4.33 — Rami/Leda/Lea e preparazione naturale verso Rhea
 
 Tre profili con quattro idle indipendenti e calibrazione per posa: Rami, Leda, Lea. Tasca destra Leda e treccia anteriore Lea corrette con nuove generazioni, nessun flip/ritocco dei PNG. Sorgenti, WebP lossless, prompt e scarti registrati.16profili direzionali su48,32ancora da migrare; camminate del cast aperte. Geometria/progressione invariate. Leda nomina Dalia come capopalestra Corolla; Rhea spiega i tipi reali e i counter Acqua senza nerf della lotta. Dettagli in `109_RAMI_LEDA_LEA_DIRECTIONAL_IDLE_v0.1.md`.

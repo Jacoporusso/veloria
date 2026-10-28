@@ -1,0 +1,334 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "route-trainer-oren",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/oren_r05",
+      "role": "narrative identity source"
+    },
+    {
+      "path": "content/trainers/r05_oren.trainer.json",
+      "role": "trainer record source"
+    },
+    {
+      "path": "assets/sources/veloria-route-trainers-r04-r07-v1.png",
+      "role": "original identity/style atlas; top-right Oren only"
+    }
+  ],
+  "prompts": {
+    "south": "Create one standalone full-body SOUTH-facing front idle portrait of Oren, the optional route trainer at the Viadotto dei Ciliegi in Veloria. Use ONLY the top-right person in the provided 2x2 atlas as Oren's identity and style reference; ignore the other three people. Preserve the recognizable dark curly hair, short beard, slate-blue jacket with berry/maroon accents and light turned cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack straps/backpack, and binoculars hanging centered on the chest. If a wristwatch is clearly visible in the source reference, retain it on the same anatomical wrist; otherwise do not add one. The front reference shows any attached accessory on viewer-left as Oren's anatomical RIGHT; preserve that anatomical side in later views. Do not infer or state canonical age or gender. Friendly relaxed neutral idle stance, facing forward, arms resting naturally, full head and both complete shoes visible. Portrait 2:3 canvas, character centered with generous transparent margins. Modern illustrated 2D matte game art, softly painted shading, crisp readable silhouette, consistent with atlas. Genuine transparent background. Exactly one character. No sheet, other people, railway uniform, station props, train, ground, cast shadow, glow, border, text, crop, flip or pixel art.",
+    "north": "Edit target image 1 only, preserving the exact North-facing rear Oren pose and composition. Images 2 and 3 are South and East continuity references for his right-hip hanging strap. Correct one anatomical-side error: the long brown strap with a ring and rectangular buckle currently hangs at viewer-left in this rear image, but it belongs to Oren's anatomical RIGHT hip and must appear at viewer-RIGHT in the rear view. Remove it from viewer-left and place the same single strap on viewer-right, attached naturally to the anatomical-right side of the same belt, matching the South/East references. Do not duplicate it. Keep the dark wristwatch on viewer-LEFT in the rear image (anatomical LEFT wrist); do not move the watch. Preserve his backpack, binoculars and straps, jacket, berry hood, cargo trousers, hair, shoes, pose, proportions, margins and every other detail. Keep genuine transparent background and unchanged canvas dimensions. No flipping, cropping, scaling, cleanup or resampling. Output one transparent PNG.",
+    "west": "Edit target image 1, preserving the exact West-facing Oren pose and composition. Images 2 and 3 show the same Oren front and rear for identity and anatomical side continuity. Correct only accessory visibility: remove the long brown hanging belt strap and gold buckle currently visible at the near/front-side hip. That dangling strap is on Oren's anatomical RIGHT hip (viewer-left in the South reference), which is the far side in this WEST-facing view; it must be fully occluded by body/jacket/trousers, not visible on the near LEFT side. Keep the wristwatch on anatomical LEFT wrist visible on the near wrist, as it is correct in West. Preserve binoculars centered on chest, backpack on back, all clothing, face, hair, beard, body pose, hands, cargo pockets, boots, lighting, proportions, margins, and transparent background unchanged. Do not flip, crop, rescale, clean up, or resample. Output one unchanged canvas-size PNG with true alpha.",
+    "east": "Create one separate full-body EAST-facing true side profile idle portrait of Oren, facing toward image-right. Use the previous generated South and North Oren as identity and outfit continuity references; atlas identity is top-right only. Preserve the same dark curly hair, short beard, slate-blue jacket with berry panels and light cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack. Keep binoculars centered on the chest with neck strap in natural position; from this side they may be partly occluded by torso. Preserve the wristwatch on Oren's anatomical LEFT wrist only: in this east-facing profile the anatomical RIGHT side is near and the LEFT wrist is far, so the watch should be naturally hidden behind the torso or only a tiny far-edge glimpse, never on the near wrist. Any small hip strap/accessory shown on the front viewer-left is anatomical RIGHT; in this east-facing profile it belongs to the near RIGHT hip and may be visible there. Do not move any accessories to the opposite anatomical side. Relaxed idle pose, both complete shoes visible, exact 90-degree side profile, one eye/side of face, no three-quarter angle. Portrait 2:3 with transparent margins. Modern matte illustrated 2D, same identity and proportions as South. Genuine transparent background. No railway costume or props. One character only, no sheet, no flip, no crop."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-oren-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-oren-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-oren-idle-south-v1.webp",
+      "sourceSha256": "a4a1b302eafec5db77f90908b626662159b809cc46c01c567a0280ce8a38562f",
+      "runtimeSha256": "a90458f900a8a97ad194ec55b5867dfd3cc14e32bc87351d9f3a60d8bae08be7",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.62079,
+        "y": 0.97396
+      },
+      "displaySize": 59.4,
+      "alphaBBox128": [
+        218,
+        48,
+        827,
+        1496
+      ],
+      "outputId": "exec-5ecffcfd-3eb7-453a-8c8a-879c92d92a48",
+      "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-5ecffcfd-3eb7-453a-8c8a-879c92d92a48.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-south-candidate.png",
+      "promptExact": "Create one standalone full-body SOUTH-facing front idle portrait of Oren, the optional route trainer at the Viadotto dei Ciliegi in Veloria. Use ONLY the top-right person in the provided 2x2 atlas as Oren's identity and style reference; ignore the other three people. Preserve the recognizable dark curly hair, short beard, slate-blue jacket with berry/maroon accents and light turned cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack straps/backpack, and binoculars hanging centered on the chest. If a wristwatch is clearly visible in the source reference, retain it on the same anatomical wrist; otherwise do not add one. The front reference shows any attached accessory on viewer-left as Oren's anatomical RIGHT; preserve that anatomical side in later views. Do not infer or state canonical age or gender. Friendly relaxed neutral idle stance, facing forward, arms resting naturally, full head and both complete shoes visible. Portrait 2:3 canvas, character centered with generous transparent margins. Modern illustrated 2D matte game art, softly painted shading, crisp readable silhouette, consistent with atlas. Genuine transparent background. Exactly one character. No sheet, other people, railway uniform, station props, train, ground, cast shadow, glow, border, text, crop, flip or pixel art."
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-oren-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-oren-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-oren-idle-north-v1.webp",
+      "sourceSha256": "78739708c4b09b9df46453ca8ae647363173c77fcbfd04968125cd7aa4cfd40b",
+      "runtimeSha256": "3cc63fd0255842cb47e77fdaaa54055613a57b2880ecae97d63373a28b032740",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.55627,
+        "y": 0.9668
+      },
+      "displaySize": 59.61,
+      "alphaBBox128": [
+        245,
+        42,
+        810,
+        1485
+      ],
+      "outputId": "exec-fc537757-c9b9-4c4c-90e5-c0b574429794",
+      "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-fc537757-c9b9-4c4c-90e5-c0b574429794.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-corrected-candidate.png",
+      "promptExact": "Edit target image 1 only, preserving the exact North-facing rear Oren pose and composition. Images 2 and 3 are South and East continuity references for his right-hip hanging strap. Correct one anatomical-side error: the long brown strap with a ring and rectangular buckle currently hangs at viewer-left in this rear image, but it belongs to Oren's anatomical RIGHT hip and must appear at viewer-RIGHT in the rear view. Remove it from viewer-left and place the same single strap on viewer-right, attached naturally to the anatomical-right side of the same belt, matching the South/East references. Do not duplicate it. Keep the dark wristwatch on viewer-LEFT in the rear image (anatomical LEFT wrist); do not move the watch. Preserve his backpack, binoculars and straps, jacket, berry hood, cargo trousers, hair, shoes, pose, proportions, margins and every other detail. Keep genuine transparent background and unchanged canvas dimensions. No flipping, cropping, scaling, cleanup or resampling. Output one transparent PNG."
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-oren-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-oren-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-oren-idle-west-v1.webp",
+      "sourceSha256": "be5c02df582931063c06683f6e36ac57f47fbe194ab804cf21c27d0b94194199",
+      "runtimeSha256": "4ecb36d8a5ccd95dbef36ca172a2da784022e9a2926c022c30c6b022aad76b1b",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.49642,
+        "y": 0.97331
+      },
+      "displaySize": 58.12,
+      "alphaBBox128": [
+        323,
+        15,
+        784,
+        1495
+      ],
+      "outputId": "exec-8a5657b8-677d-4aaf-87f0-77ab59a17c7e",
+      "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-8a5657b8-677d-4aaf-87f0-77ab59a17c7e.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-west-candidate.png",
+      "promptExact": "Edit target image 1, preserving the exact West-facing Oren pose and composition. Images 2 and 3 show the same Oren front and rear for identity and anatomical side continuity. Correct only accessory visibility: remove the long brown hanging belt strap and gold buckle currently visible at the near/front-side hip. That dangling strap is on Oren's anatomical RIGHT hip (viewer-left in the South reference), which is the far side in this WEST-facing view; it must be fully occluded by body/jacket/trousers, not visible on the near LEFT side. Keep the wristwatch on anatomical LEFT wrist visible on the near wrist, as it is correct in West. Preserve binoculars centered on chest, backpack on back, all clothing, face, hair, beard, body pose, hands, cargo pockets, boots, lighting, proportions, margins, and transparent background unchanged. Do not flip, crop, rescale, clean up, or resample. Output one unchanged canvas-size PNG with true alpha."
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-oren-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-oren-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-oren-idle-east-v1.webp",
+      "sourceSha256": "5380f2ea7555197b61e6b70155c2af9537a3d6f1a383095ef11f7aa7b6e2f9a5",
+      "runtimeSha256": "37612c80397db47ce302d53e9bac434a4e5e0089c854dfb691b9c82bbb69aba2",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.51469,
+        "y": 0.9681
+      },
+      "displaySize": 58.67,
+      "alphaBBox128": [
+        225,
+        21,
+        693,
+        1487
+      ],
+      "outputId": "exec-6f39b652-368c-4221-8aeb-5cfc9f749f16",
+      "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-6f39b652-368c-4221-8aeb-5cfc9f749f16.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-east-candidate.png",
+      "promptExact": "Create one separate full-body EAST-facing true side profile idle portrait of Oren, facing toward image-right. Use the previous generated South and North Oren as identity and outfit continuity references; atlas identity is top-right only. Preserve the same dark curly hair, short beard, slate-blue jacket with berry panels and light cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack. Keep binoculars centered on the chest with neck strap in natural position; from this side they may be partly occluded by torso. Preserve the wristwatch on Oren's anatomical LEFT wrist only: in this east-facing profile the anatomical RIGHT side is near and the LEFT wrist is far, so the watch should be naturally hidden behind the torso or only a tiny far-edge glimpse, never on the near wrist. Any small hip strap/accessory shown on the front viewer-left is anatomical RIGHT; in this east-facing profile it belongs to the near RIGHT hip and may be visible there. Do not move any accessories to the opposite anatomical side. Relaxed idle pose, both complete shoes visible, exact 90-degree side profile, one eye/side of face, no three-quarter angle. Portrait 2:3 with transparent margins. Modern matte illustrated 2D, same identity and proportions as South. Genuine transparent background. No railway costume or props. One character only, no sheet, no flip, no crop."
+    }
+  ],
+  "calibration": "Optical character height target is 56 world px, using the full alpha>=128 figure bbox (displaySize = 56 * canvas height / bbox height). Feet origin x is alpha-weighted centroid over the bottom 50 pixels of the alpha>=128 bbox; y is its exclusive bottom row normalized by canvas height. PNG source copied byte-for-byte from selected candidate. WebP runtime saved lossless with exact RGBA pixel equality; verified by full decoded RGBA byte comparison. No crop, flip, cleanup or resampling.",
+  "sourceReport": {
+    "status": "private directional idle candidates only; not registered and not runtime-verified",
+    "profile": "content/characters/appearances.v2.json#route-trainer-oren",
+    "sourcesRead": [
+      "C:\\Projects\\Veloria\\content\\characters\\appearances.v2.json#route-trainer-oren",
+      "C:\\Projects\\Veloria\\content\\dialogue\\world.v1.json#/oren_r05",
+      "C:\\Projects\\Veloria\\content\\trainers\\r05_oren.trainer.json",
+      "C:\\Projects\\Veloria\\docs\\art\\cast-redesign-briefs.md",
+      "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png"
+    ],
+    "identityConstraints": [
+      "Oren is frame 1, top-right in the atlas.",
+      "The canon identifies Oren as an optional trainer at Viadotto dei Ciliegi; it does not define Oren as railway staff.",
+      "Canonical gender and age are unspecified; no inference made."
+    ],
+    "images": [
+      {
+        "direction": "south",
+        "promptExact": "Create one standalone full-body SOUTH-facing front idle portrait of Oren, the optional route trainer at the Viadotto dei Ciliegi in Veloria. Use ONLY the top-right person in the provided 2x2 atlas as Oren's identity and style reference; ignore the other three people. Preserve the recognizable dark curly hair, short beard, slate-blue jacket with berry/maroon accents and light turned cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack straps/backpack, and binoculars hanging centered on the chest. If a wristwatch is clearly visible in the source reference, retain it on the same anatomical wrist; otherwise do not add one. The front reference shows any attached accessory on viewer-left as Oren's anatomical RIGHT; preserve that anatomical side in later views. Do not infer or state canonical age or gender. Friendly relaxed neutral idle stance, facing forward, arms resting naturally, full head and both complete shoes visible. Portrait 2:3 canvas, character centered with generous transparent margins. Modern illustrated 2D matte game art, softly painted shading, crisp readable silhouette, consistent with atlas. Genuine transparent background. Exactly one character. No sheet, other people, railway uniform, station props, train, ground, cast shadow, glow, border, text, crop, flip or pixel art.",
+        "references": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+            "role": "identity/style atlas; frame 1 is top-right Oren; other three ignored"
+          }
+        ],
+        "outputId": "exec-5ecffcfd-3eb7-453a-8c8a-879c92d92a48",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-5ecffcfd-3eb7-453a-8c8a-879c92d92a48.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-south-candidate.png",
+        "sha256": "a4a1b302eafec5db77f90908b626662159b809cc46c01c567a0280ce8a38562f",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          218,
+          48,
+          827,
+          1496
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "preliminaryReview": "South front anchor; watch generated viewer-right/anatomical left, small hanging belt strap viewer-left/anatomical right."
+      },
+      {
+        "direction": "north",
+        "promptExact": "Edit target image 1 only, preserving the exact North-facing rear Oren pose and composition. Images 2 and 3 are South and East continuity references for his right-hip hanging strap. Correct one anatomical-side error: the long brown strap with a ring and rectangular buckle currently hangs at viewer-left in this rear image, but it belongs to Oren's anatomical RIGHT hip and must appear at viewer-RIGHT in the rear view. Remove it from viewer-left and place the same single strap on viewer-right, attached naturally to the anatomical-right side of the same belt, matching the South/East references. Do not duplicate it. Keep the dark wristwatch on viewer-LEFT in the rear image (anatomical LEFT wrist); do not move the watch. Preserve his backpack, binoculars and straps, jacket, berry hood, cargo trousers, hair, shoes, pose, proportions, margins and every other detail. Keep genuine transparent background and unchanged canvas dimensions. No flipping, cropping, scaling, cleanup or resampling. Output one transparent PNG.",
+        "references": [
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-candidate.png",
+            "role": "edit target image 1; previous rear view superseded"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-south-candidate.png",
+            "role": "continuity image 2; front-side location of anatomical-right strap"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-east-candidate.png",
+            "role": "continuity image 3; east-side view of anatomical-right strap"
+          }
+        ],
+        "outputId": "exec-fc537757-c9b9-4c4c-90e5-c0b574429794",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-fc537757-c9b9-4c4c-90e5-c0b574429794.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-corrected-candidate.png",
+        "sha256": "78739708c4b09b9df46453ca8ae647363173c77fcbfd04968125cd7aa4cfd40b",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          245,
+          42,
+          810,
+          1485
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "preliminaryReview": "Corrected: anatomical RIGHT hanging strap appears viewer-right from rear; anatomical LEFT wristwatch remains viewer-left."
+      },
+      {
+        "direction": "west",
+        "promptExact": "Edit target image 1, preserving the exact West-facing Oren pose and composition. Images 2 and 3 show the same Oren front and rear for identity and anatomical side continuity. Correct only accessory visibility: remove the long brown hanging belt strap and gold buckle currently visible at the near/front-side hip. That dangling strap is on Oren's anatomical RIGHT hip (viewer-left in the South reference), which is the far side in this WEST-facing view; it must be fully occluded by body/jacket/trousers, not visible on the near LEFT side. Keep the wristwatch on anatomical LEFT wrist visible on the near wrist, as it is correct in West. Preserve binoculars centered on chest, backpack on back, all clothing, face, hair, beard, body pose, hands, cargo pockets, boots, lighting, proportions, margins, and transparent background unchanged. Do not flip, crop, rescale, clean up, or resample. Output one unchanged canvas-size PNG with true alpha.",
+        "references": [
+          {
+            "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-08857911-0461-4a4c-9d19-ab6c792b8425.png",
+            "role": "edit target West initial generation (superseded only for anatomical accessory visibility)"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-south-candidate.png",
+            "role": "front outfit/accessory anatomical side reference"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-candidate.png",
+            "role": "rear outfit/accessory side reference"
+          }
+        ],
+        "outputId": "exec-8a5657b8-677d-4aaf-87f0-77ab59a17c7e",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-8a5657b8-677d-4aaf-87f0-77ab59a17c7e.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-west-candidate.png",
+        "sha256": "be5c02df582931063c06683f6e36ac57f47fbe194ab804cf21c27d0b94194199",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          323,
+          15,
+          784,
+          1495
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "preliminaryReview": "Corrected: far anatomical-right hanging strap hidden; near anatomical-left wristwatch visible. Initial West retained as a discarded correction input."
+      },
+      {
+        "direction": "east",
+        "promptExact": "Create one separate full-body EAST-facing true side profile idle portrait of Oren, facing toward image-right. Use the previous generated South and North Oren as identity and outfit continuity references; atlas identity is top-right only. Preserve the same dark curly hair, short beard, slate-blue jacket with berry panels and light cuffs, cream shirt, olive cargo trousers, brown hiking shoes, brown backpack. Keep binoculars centered on the chest with neck strap in natural position; from this side they may be partly occluded by torso. Preserve the wristwatch on Oren's anatomical LEFT wrist only: in this east-facing profile the anatomical RIGHT side is near and the LEFT wrist is far, so the watch should be naturally hidden behind the torso or only a tiny far-edge glimpse, never on the near wrist. Any small hip strap/accessory shown on the front viewer-left is anatomical RIGHT; in this east-facing profile it belongs to the near RIGHT hip and may be visible there. Do not move any accessories to the opposite anatomical side. Relaxed idle pose, both complete shoes visible, exact 90-degree side profile, one eye/side of face, no three-quarter angle. Portrait 2:3 with transparent margins. Modern matte illustrated 2D, same identity and proportions as South. Genuine transparent background. No railway costume or props. One character only, no sheet, no flip, no crop.",
+        "references": [
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-south-candidate.png",
+            "role": "front identity and anatomical accessory side anchor"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-candidate.png",
+            "role": "rear outfit/backpack continuity reference"
+          }
+        ],
+        "outputId": "exec-6f39b652-368c-4221-8aeb-5cfc9f749f16",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-6f39b652-368c-4221-8aeb-5cfc9f749f16.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-east-candidate.png",
+        "sha256": "5380f2ea7555197b61e6b70155c2af9537a3d6f1a383095ef11f7aa7b6e2f9a5",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          225,
+          21,
+          693,
+          1487
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "preliminaryReview": "East profile; near anatomical-right belt strap visible; far anatomical-left wristwatch hidden."
+      }
+    ],
+    "discarded": [
+      {
+        "direction": "west",
+        "outputId": "exec-08857911-0461-4a4c-9d19-ab6c792b8425",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-08857911-0461-4a4c-9d19-ab6c792b8425.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-west-precorrection.png",
+        "sha256": "5b188057aa7660388786093f43c7386115898e8c34036e19aacdf95dec314e70",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          323,
+          15,
+          784,
+          1495
+        ],
+        "promptExact": "Create one separate full-body WEST-facing true side profile idle portrait of Oren, facing toward image-left. Use the earlier generated South and North Oren as identity/outfit continuity references; atlas identity is top-right only. Keep the same dark curly hair, short beard, slate-blue jacket with berry panels and light cuffs, cream shirt, olive cargo trousers, brown hiking shoes and brown backpack. Binoculars stay centered on the chest with neck strap in its natural position; in side view they may be partly occluded by torso. Preserve the wristwatch on Oren's anatomical LEFT wrist only; for a west-facing profile his anatomical LEFT side is the near side and should be visible, with watch on the near wrist. Do not move accessories to the opposite anatomical side. Backpack is on the back and follows the silhouette. Relaxed idle pose, both entire shoes visible, exact 90-degree side profile, one eye/side of face only, no three-quarter angle. Portrait 2:3, full body with transparent margins. Modern matte illustrated 2D, same character proportions and style as references. True transparent background. No railway costume or props. One person, no sheet, no flip, no crop.",
+        "reason": "Initial West mistakenly exposed the anatomical RIGHT hip strap on the near side. Corrected by hiding the far-side strap while retaining the near anatomical LEFT wristwatch."
+      },
+      {
+        "direction": "north",
+        "outputId": "exec-6f94cc21-0b77-4a2e-a4fd-18b715c88c94",
+        "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-6f94cc21-0b77-4a2e-a4fd-18b715c88c94.png",
+        "candidatePath": "C:\\Projects\\Veloria\\.tmp\\oren-idles-candidates\\oren-north-candidate.png",
+        "sha256": "a2961afac83330280fd40091cafe88db3b5398b7e4d1cfb78b6f8bbfa54b7788",
+        "dimensions": {
+          "width": 1024,
+          "height": 1536
+        },
+        "alpha128bbox": [
+          245,
+          42,
+          808,
+          1484
+        ],
+        "promptExact": "Generate one separate full-body NORTH-facing rear idle portrait of Oren. Use the previous generated South Oren and the route-trainers atlas as identity/style continuity references; only the atlas top-right person is Oren. Show a true rear view, facing away. Preserve dark curly hair, short beard only as profile/ear-jaw edge if visible, slate-blue jacket with berry accents and light cuffs, olive cargo trousers, brown hiking shoes, brown backpack worn on his back, and binoculars hanging centered on his chest (from rear, binoculars may be naturally occluded by his torso; show the strap correctly over the shoulders). Preserve anatomical side consistency: watch is on anatomical LEFT wrist, which appears viewer-right from the rear; any small hip gear from the South reference remains on anatomical right, viewer-left from rear. No railway uniform or station props. Relaxed idle stance, both complete shoes visible. Portrait 2:3 with clear transparent margins. Modern matte illustrated 2D, same palette and proportions as South. Genuine transparent background. One character only. No sheet, no flip, no crop, no rescale.",
+        "reason": "Root review found the anatomical-right hip strap wrongly placed at viewer-left. Superseded by corrected rear orientation; watch stays viewer-left."
+      }
+    ],
+    "anatomicalReview": "SOUTH: hanging belt strap viewer-left/anatomical RIGHT; watch viewer-right/anatomical LEFT. NORTH corrected: strap viewer-right/anatomical RIGHT; watch viewer-left/anatomical LEFT. WEST: anatomical RIGHT strap hidden on far side, LEFT wristwatch visible on near side. EAST: anatomical RIGHT strap visible on near side; LEFT watch hidden on far side. Binoculars centered in South; side views occlude naturally. No mirroring/flipping.",
+    "visualReview": "Four selected images individually inspected. All views are portrait figures with full shoes and consistent matte 2D styling. North is a rear view with corrected accessory anatomy. West and East are side profiles. Root will review composite/halo behavior.",
+    "processing": "Generated files copied byte-for-byte to private candidate folder; no crop, cleanup, resample or pixel editing.",
+    "limits": "No permanent assets, src, content, public, tests, docs, or Git changed. No browser, tests, server, runtime or playtest started."
+  }
+}

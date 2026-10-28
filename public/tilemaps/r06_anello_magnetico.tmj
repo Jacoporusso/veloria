@@ -7235,7 +7235,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-route-trainers-r04-r07-v1"
+              "value": "veloria-iris-r06-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -7243,19 +7243,14 @@
               "value": "route-trainer-iris-r06"
             },
             {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
-            },
-            {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.593
+              "value": 0.61133
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.895
+              "value": 0.96549
             },
             {
               "name": "trainerId",

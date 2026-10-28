@@ -78,6 +78,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-oren-idle-south-v1",
+      "path": "assets/sprites/veloria-oren-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-oren-idle-north-v1",
+      "path": "assets/sprites/veloria-oren-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-oren-idle-west-v1",
+      "path": "assets/sprites/veloria-oren-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-oren-idle-east-v1",
+      "path": "assets/sprites/veloria-oren-idle-east-v1.webp"
     }
   ],
   "spawns": [
