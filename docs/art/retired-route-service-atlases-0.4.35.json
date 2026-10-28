@@ -1,0 +1,87 @@
+{
+  "scope": "Map renderAssets only; global catalog, files, register, source references and precache retained. No PWA bandwidth claim.",
+  "maps": [
+    {
+      "map": "veloria/r04_salita_petali",
+      "removedRenderAsset": {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      "tiledSha256": "95c76302f3d6bb26bb9db7275c76b9d93e4802e5fedf07ea32a040e9ebd0f1c5",
+      "npcRefs": [
+        "nila_r04"
+      ]
+    },
+    {
+      "map": "veloria/r05_viadotto_ciliegi",
+      "removedRenderAsset": {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      "tiledSha256": "5091761e984b07d8980a1c7f25bb1391a3d31b03567f742689e5c498b712ecb6",
+      "npcRefs": [
+        "oren_r05"
+      ]
+    },
+    {
+      "map": "veloria/r06_anello_magnetico",
+      "removedRenderAsset": {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      "tiledSha256": "fc01f58e7568e9212cb0e15318c0260f6e39b828732f54c36e410685d648bad7",
+      "npcRefs": [
+        "r06_iris"
+      ]
+    },
+    {
+      "map": "veloria/r07_condotto_risonante",
+      "removedRenderAsset": {
+        "kind": "image",
+        "key": "veloria-route-trainers-r04-r07-v1",
+        "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      "tiledSha256": "e78510b93960c716ced7e1a57542e7b651f919394e9f6bdd467820e16877acb2",
+      "npcRefs": [
+        "r07_dario"
+      ]
+    },
+    {
+      "map": "veloria/ferraluce",
+      "removedRenderAsset": {
+        "kind": "image",
+        "key": "veloria-ferraluce-service-npcs-v1",
+        "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
+        "atlas": {
+          "columns": 2,
+          "rows": 2
+        }
+      },
+      "tiledSha256": "54ebe7fc68d7cac0c209cb1dc2322c93986d2883fda73199b83790ccd4f19392",
+      "npcRefs": [
+        "ferraluce_ivo",
+        "ferraluce_care",
+        "ferraluce_shop"
+      ]
+    }
+  ]
+}

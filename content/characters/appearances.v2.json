@@ -548,6 +548,86 @@
       "kind": "image",
       "key": "veloria-oren-idle-east-v1",
       "path": "assets/sprites/veloria-oren-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-south-v1",
+      "path": "assets/sprites/veloria-dario-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-north-v1",
+      "path": "assets/sprites/veloria-dario-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-west-v1",
+      "path": "assets/sprites/veloria-dario-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-east-v1",
+      "path": "assets/sprites/veloria-dario-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -1578,12 +1658,45 @@
       "npcIds": [
         "r07_dario"
       ],
-      "assetKey": "veloria-route-trainers-r04-r07-v1",
-      "frame": 3,
+      "assetKey": "veloria-dario-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r07_dario; content/trainers/r07_dario.trainer.json",
       "origin": {
-        "x": 0.494,
-        "y": 0.901
+        "x": 0.62771,
+        "y": 0.97461
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-dario-idle-south-v1",
+          "origin": {
+            "x": 0.62771,
+            "y": 0.97461
+          },
+          "displaySize": 59.16
+        },
+        "up": {
+          "assetKey": "veloria-dario-idle-north-v1",
+          "origin": {
+            "x": 0.50564,
+            "y": 0.96484
+          },
+          "displaySize": 59.28
+        },
+        "left": {
+          "assetKey": "veloria-dario-idle-west-v1",
+          "origin": {
+            "x": 0.40558,
+            "y": 0.9668
+          },
+          "displaySize": 59.12
+        },
+        "right": {
+          "assetKey": "veloria-dario-idle-east-v1",
+          "origin": {
+            "x": 0.56087,
+            "y": 0.96029
+          },
+          "displaySize": 59.9
+        }
       }
     },
     {
@@ -1645,12 +1758,45 @@
       "npcIds": [
         "ferraluce_ivo"
       ],
-      "assetKey": "veloria-ferraluce-service-npcs-v1",
-      "frame": 1,
+      "assetKey": "veloria-ferraluce-ivo-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_ivo",
       "origin": {
-        "x": 0.472,
-        "y": 0.943
+        "x": 0.51092,
+        "y": 0.96159
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-ferraluce-ivo-idle-south-v1",
+          "origin": {
+            "x": 0.51092,
+            "y": 0.96159
+          },
+          "displaySize": 60.24
+        },
+        "up": {
+          "assetKey": "veloria-ferraluce-ivo-idle-north-v1",
+          "origin": {
+            "x": 0.51143,
+            "y": 0.96159
+          },
+          "displaySize": 60.03
+        },
+        "left": {
+          "assetKey": "veloria-ferraluce-ivo-idle-west-v1",
+          "origin": {
+            "x": 0.50619,
+            "y": 0.97917
+          },
+          "displaySize": 58.32
+        },
+        "right": {
+          "assetKey": "veloria-ferraluce-ivo-idle-east-v1",
+          "origin": {
+            "x": 0.52124,
+            "y": 0.98633
+          },
+          "displaySize": 57.77
+        }
       }
     },
     {
@@ -1662,12 +1808,45 @@
       "npcIds": [
         "ferraluce_care"
       ],
-      "assetKey": "veloria-ferraluce-service-npcs-v1",
-      "frame": 2,
+      "assetKey": "veloria-ferraluce-care-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_care",
       "origin": {
-        "x": 0.598,
-        "y": 0.871
+        "x": 0.55794,
+        "y": 0.93815
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-ferraluce-care-idle-south-v1",
+          "origin": {
+            "x": 0.55794,
+            "y": 0.93815
+          },
+          "displaySize": 64.53
+        },
+        "up": {
+          "assetKey": "veloria-ferraluce-care-idle-north-v1",
+          "origin": {
+            "x": 0.51493,
+            "y": 0.94271
+          },
+          "displaySize": 61.7
+        },
+        "left": {
+          "assetKey": "veloria-ferraluce-care-idle-west-v1",
+          "origin": {
+            "x": 0.49643,
+            "y": 0.97656
+          },
+          "displaySize": 58.36
+        },
+        "right": {
+          "assetKey": "veloria-ferraluce-care-idle-east-v1",
+          "origin": {
+            "x": 0.52599,
+            "y": 0.97917
+          },
+          "displaySize": 57.92
+        }
       }
     },
     {
@@ -1679,12 +1858,45 @@
       "npcIds": [
         "ferraluce_shop"
       ],
-      "assetKey": "veloria-ferraluce-service-npcs-v1",
-      "frame": 3,
+      "assetKey": "veloria-ferraluce-shop-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/ferraluce_shop",
       "origin": {
-        "x": 0.509,
-        "y": 0.856
+        "x": 0.53478,
+        "y": 0.96159
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-ferraluce-shop-idle-south-v1",
+          "origin": {
+            "x": 0.53478,
+            "y": 0.96159
+          },
+          "displaySize": 62.2
+        },
+        "up": {
+          "assetKey": "veloria-ferraluce-shop-idle-north-v1",
+          "origin": {
+            "x": 0.51249,
+            "y": 0.96419
+          },
+          "displaySize": 59.12
+        },
+        "left": {
+          "assetKey": "veloria-ferraluce-shop-idle-west-v1",
+          "origin": {
+            "x": 0.5041,
+            "y": 0.97266
+          },
+          "displaySize": 59.36
+        },
+        "right": {
+          "assetKey": "veloria-ferraluce-shop-idle-east-v1",
+          "origin": {
+            "x": 0.52603,
+            "y": 0.96224
+          },
+          "displaySize": 60.24
+        }
       }
     },
     {

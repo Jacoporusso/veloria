@@ -1,3 +1,5 @@
+import { chooseVisibleMatchupReplacement } from './helpers/visible-matchup';
+import typeChart from '../../content/battle/type-chart.v1.json' with { type: 'json' };
 import { confirmNewTrainer } from '../e2e/helpers/trainer-wizard';
 import { runDunesRecovery } from './helpers/dunes-recovery';
 import { runSeleneAttempt } from './helpers/selene-attempt';
@@ -54,7 +56,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const dunesRecovery = process.env.PLAYTEST_DUNES_RECOVERY === '1';
   expect([acquarivaSearch, Boolean(acquarivaTrainer), Boolean(acquarivaTrainSpecies), seleneChallenge, dunesRecovery].filter(Boolean).length).toBeLessThanOrEqual(1);
   const captureSpeciesId = Number(process.env.PLAYTEST_CAPTURE_SPECIES ?? '0');
-  expect(Number.isInteger(captureSpeciesId) && captureSpeciesId >= 0 && captureSpeciesId <= 251).toBe(true);
+  expect(Number.isInteger(captureSpeciesId) && captureSpeciesId >= 0 && captureSpeciesId <= 151).toBe(true);
   const resumeFifthFile = process.env.PLAYTEST_RESUME_FIFTH_BACKUP;
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
@@ -186,34 +188,13 @@ test('natural journey uses earned progress and real game controls', async ({ pag
           continue;
         }
       }
-      if (coastRotation && ['veloria/r08_costa_turbine', 'veloria/r09_dune_salmastre'].includes(state.mapId) && battle.type === 'trainer' && battle.mode === 'menu') {
-        const desiredSpecies = state.mapId === 'veloria/r09_dune_salmastre'
-          ? target.speciesId === 72 ? 97 : [98, 17].includes(target.speciesId) ? 170 : [180, 170].includes(target.speciesId) ? 195 : undefined
-          : target.speciesId === 72 ? 170 : [98, 170].includes(target.speciesId) ? 195 : undefined;
-        const replacement = battle.player.creatures.find((member: any, index: number) => index !== battle.player.activeIndex && member.speciesId === desiredSpecies && member.hp > member.stats.maxHp * 0.4);
-        if (own.speciesId !== desiredSpecies && replacement) {
+      const coastalMatchup = coastRotation && ['veloria/r08_costa_turbine', 'veloria/r09_dune_salmastre'].includes(state.mapId);
+      if ((coastalMatchup || nereaRotation && state.mapId === 'veloria/gym05_portolume') && battle.type === 'trainer' && battle.mode === 'menu') {
+        const replacement = chooseVisibleMatchupReplacement(own, battle.player.creatures, target.types, battle.moves, typeChart.chart);
+        if (replacement) {
+          report.push({ label: 'Visible coastal matchup switch', from: own.instanceId, to: replacement.instanceId, targetTypes: target.types });
           await tapBattleLabel(page, '__naturalGame', 'SQUADRA');
           await tapBattleLabel(page, '__naturalGame', `${replacement.name} · ${replacement.hp}/`);
-          continue;
-        }
-      }
-      if (nereaRotation && state.mapId === 'veloria/gym05_portolume' && battle.mode === 'menu') {
-        // Visible matchup only: preserve Ground companion for Lanturn; no enemy command inspection.
-        const desiredSpecies = target.speciesId === 171 ? 195 : 170;
-        const replacement = battle.player.creatures.find((member: any, index: number) => index !== battle.player.activeIndex && member.speciesId === desiredSpecies && member.hp > 0);
-        if (own.speciesId !== desiredSpecies && replacement) {
-          await tapBattleLabel(page, '__naturalGame', 'SQUADRA');
-          await tapBattleLabel(page, '__naturalGame', `${replacement.name} · ${replacement.hp}/`);
-          continue;
-        }
-        const tacticalMove = own.speciesId === 170 && !target.confusionTurnsRemaining ? 'confuse-ray'
-          : own.speciesId === 195 && target.speciesId === 171 && (own.statStages?.specialDefense ?? 0) < 2 ? 'amnesia' : undefined;
-        const tacticalKey = `${battle.id}:${own.instanceId}:${target.instanceId}:${tacticalMove}`;
-        if (tacticalMove && own.hp > own.stats.maxHp / 2 && !tacticalMovesUsed.has(tacticalKey) && own.moves.some((slot: any) => slot.moveId === tacticalMove && slot.pp > 0)) {
-          tacticalMovesUsed.add(tacticalKey);
-          report.push({ label: 'Visible matchup tactical move', battleId: battle.id, creatureId: own.instanceId, targetId: target.instanceId, moveId: tacticalMove });
-          await tapBattleLabel(page, '__naturalGame', 'LOTTA');
-          await tapBattleLabel(page, '__naturalGame', battle.moves[tacticalMove].name);
           continue;
         }
       }

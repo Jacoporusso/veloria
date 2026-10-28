@@ -3646,7 +3646,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-route-trainers-r04-r07-v1"
+              "value": "veloria-dario-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -3654,19 +3654,14 @@
               "value": "route-trainer-dario"
             },
             {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
-            },
-            {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.494
+              "value": 0.62771
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.901
+              "value": 0.97461
             },
             {
               "name": "trainerId",

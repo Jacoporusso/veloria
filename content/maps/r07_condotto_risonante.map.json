@@ -62,12 +62,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-route-trainers-r04-r07-v1",
-      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-dario-idle-south-v1",
+      "path": "assets/sprites/veloria-dario-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-north-v1",
+      "path": "assets/sprites/veloria-dario-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-west-v1",
+      "path": "assets/sprites/veloria-dario-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-dario-idle-east-v1",
+      "path": "assets/sprites/veloria-dario-idle-east-v1.webp"
     }
   ],
   "spawns": [

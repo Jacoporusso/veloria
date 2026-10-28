@@ -179,6 +179,10 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], start: { x: 18, y: 19 }, dimensions: [1024, 1536], coldStart: false },
+  { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], start: { x: 20, y: 21 }, dimensions: [1024, 1536], coldStart: false },
+  { name: 'Centro Ferraluce', speaker: 'Addetta del Centro', profile: 'ferraluce-care', map: 'ferraluce', spawn: 'from_r06', x: 9, y: 21, flags: [], start: { x: 9, y: 22 }, dimensions: [1024, 1536], coldStart: false, service: 'center' },
+  { name: 'Mercante Ferraluce', speaker: 'Mercante di Ferraluce', profile: 'ferraluce-shop', map: 'ferraluce', spawn: 'from_r06', x: 30, y: 21, flags: [], start: { x: 30, y: 22 }, dimensions: [1024, 1536], coldStart: false, service: 'shop' },
   { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], start: { x: 10, y: 17 }, dimensions: [1024, 1536], coldStart: false },
   { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], start: { x: 18, y: 13 }, dimensions: [1024, 1536], coldStart: false },
   { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], start: { x: 21, y: 17 }, dimensions: [1024, 1536], coldStart: false },
@@ -297,16 +301,34 @@ for (const npc of [
     else await walkTo(page, mapFile, stop.x, stop.y);
     await page.getByRole('button', { name: stop.label, exact: true }).tap();
     const before = await readBrowserSave(page);
-    await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
-    for (let i = 0; i < 20 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+    await action.tap();
+    if ('service' in npc && npc.service === 'shop') {
+      const shop = page.getByRole('dialog', { name: 'Mercante di Ferraluce', exact: true });
+      await expect(shop.getByRole('spinbutton', { name: 'Quantità Pozione', exact: true })).toBeVisible();
+      await shop.getByRole('button', { name: 'Chiudi', exact: true }).click();
+    } else if ('service' in npc && npc.service === 'center') {
+      await expect(page.getByRole('button', { name: 'RIPOSA', exact: true })).toBeVisible();
+      await page.getByRole('button', { name: 'DOPO', exact: true }).click();
+    } else {
+      await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
+      for (let i = 0; i < 20 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+    }
     await expect(page.locator('#dialogue-box')).toBeHidden();
     const after = await readBrowserSave(page);
     expect(after.player).toMatchObject({ mapId: `veloria/${npc.map}`, x: stop.x, y: stop.y });
     expect(after.rngState).toBe(before.rngState);
+    if ('service' in npc) {
+      expect(after.party).toEqual(before.party); expect(after.inventory).toEqual(before.inventory);
+      expect(after.player.money).toBe(before.player.money); expect(after.flags).toEqual(before.flags);
+    }
     await page.screenshot({ path: info.outputPath(`${npc.name}-offline-${stop.pose}.png`) });
   }
   await page.reload(); await enterGame(page);
   expect((await readBrowserSave(page)).player).toMatchObject({ mapId: `veloria/${npc.map}`, x: npc.x + 1, y: npc.y });
+  if (/^r0[4-7]_/.test(npc.map) || npc.map === 'ferraluce') {
+    const retired = npc.map === 'ferraluce' ? 'veloria-ferraluce-service-npcs-v1.webp' : 'veloria-route-trainers-r04-r07-v1.webp';
+    expect(await page.evaluate(retired => performance.getEntriesByType('resource').some(entry => entry.name.includes(retired)), retired)).toBe(false);
+  }
   if (npc.map === 'gym07_biancavetta' || npc.map === 'gym08_concordia') {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-gym-leaders-b-v1.webp')))).toBe(false);
   }

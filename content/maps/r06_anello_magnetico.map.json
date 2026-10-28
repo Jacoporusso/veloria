@@ -67,15 +67,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-route-trainers-r04-r07-v1",
-      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-iris-r06-idle-south-v1",
       "path": "assets/sprites/veloria-iris-r06-idle-south-v1.webp"
     },

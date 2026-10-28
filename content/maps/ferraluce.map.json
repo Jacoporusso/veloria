@@ -67,17 +67,68 @@
     },
     {
       "kind": "image",
-      "key": "veloria-ferraluce-service-npcs-v1",
-      "path": "assets/sprites/veloria-ferraluce-service-npcs-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-ferraluce-illustrated-v3",
+      "path": "assets/scenery/veloria-ferraluce-illustrated-v3.webp"
     },
     {
       "kind": "image",
-      "key": "veloria-ferraluce-illustrated-v3",
-      "path": "assets/scenery/veloria-ferraluce-illustrated-v3.webp"
+      "key": "veloria-ferraluce-ivo-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-ivo-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-ivo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-care-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-care-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-south-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-north-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-west-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ferraluce-shop-idle-east-v1",
+      "path": "assets/sprites/veloria-ferraluce-shop-idle-east-v1.webp"
     }
   ],
   "spawns": [

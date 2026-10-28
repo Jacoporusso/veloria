@@ -72,15 +72,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-route-trainers-r04-r07-v1",
-      "path": "assets/sprites/veloria-route-trainers-r04-r07-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-oren-idle-south-v1",
       "path": "assets/sprites/veloria-oren-idle-south-v1.webp"
     },

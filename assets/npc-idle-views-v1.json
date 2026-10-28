@@ -1722,6 +1722,975 @@
         }
       ],
       "calibration": "Optical character height target is 56 world px, using the full alpha>=128 figure bbox (displaySize = 56 * canvas height / bbox height). Feet origin x is alpha-weighted centroid over the bottom 50 pixels of the alpha>=128 bbox; y is its exclusive bottom row normalized by canvas height. PNG source copied byte-for-byte from selected candidate. WebP runtime saved lossless with exact RGBA pixel equality; verified by full decoded RGBA byte comparison. No crop, flip, cleanup or resampling."
+    },
+    {
+      "profileId": "route-trainer-dario",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/dario-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/dialogue/world.v1.json#/r07_dario",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r07_dario.trainer.json",
+          "role": "trainer role/source context; no age or gender inferred"
+        },
+        {
+          "path": "assets/sources/veloria-route-trainers-r04-r07-v1.png",
+          "role": "original image identity/style reference; Dario is bottom-right frame 3"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-dario-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-dario-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dario-idle-south-v1.webp",
+          "sourceSha256": "b4ef7ebe43a2bba630f41e98a6509f5c05943a728c6f051ec3b70e0b7e4f50c9",
+          "runtimeSha256": "8904d8f8b2f58c4adda5e89c5b1e1ed212f9769a934bb7f7b4039b5c1886e959",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.62771,
+            "y": 0.97461
+          },
+          "displaySize": 59.16,
+          "outputId": "exec-a8da85da-0f09-485e-a7dc-2067308ccfd3",
+          "alpha128Bounds": [
+            213,
+            43,
+            878,
+            1497
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-dario-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-dario-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dario-idle-north-v1.webp",
+          "sourceSha256": "68d09a3d035cb4ba7473d457606ef33363b833aa25efc349672852563d26a149",
+          "runtimeSha256": "41b412cad63665f4ac7d36b36598b164cd6b7d566d1bd52e78d7713508bda1cb",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50564,
+            "y": 0.96484
+          },
+          "displaySize": 59.28,
+          "outputId": "exec-eed4bcb8-22bd-4dc9-b17c-ff58cf80f8d5",
+          "alpha128Bounds": [
+            173,
+            31,
+            858,
+            1482
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-eed4bcb8-22bd-4dc9-b17c-ff58cf80f8d5.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-dario-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-dario-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dario-idle-west-v1.webp",
+          "sourceSha256": "020f75e40132325fa100e334e4e7062d3a60790d1f2682d8354798857448013d",
+          "runtimeSha256": "1f264f847b4b688329b73dcab8ca09653a2f5df883028bf2710a0a4d032913d9",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.40558,
+            "y": 0.9668
+          },
+          "displaySize": 59.12,
+          "outputId": "exec-1cb37f1e-0229-44a8-815b-56f8e79aa05c",
+          "alpha128Bounds": [
+            280,
+            30,
+            743,
+            1485
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-1cb37f1e-0229-44a8-815b-56f8e79aa05c.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-dario-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-dario-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-dario-idle-east-v1.webp",
+          "sourceSha256": "4b8d2b5681483f13a796e0b96912f07cbd84558b4dcefc2d210edc887f65acee",
+          "runtimeSha256": "0d5c4a3450a70b2835f6337b4494419e52dfee1426dcb368d560f33e50634574",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.56087,
+            "y": 0.96029
+          },
+          "displaySize": 59.9,
+          "outputId": "exec-69f9d54c-ad73-4b38-80bd-a46cf07699c4",
+          "alpha128Bounds": [
+            260,
+            39,
+            704,
+            1475
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-69f9d54c-ad73-4b38-80bd-a46cf07699c4.png"
+        }
+      ],
+      "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling. Runtime WebP lossless with exact RGBA pixel equality."
+    },
+    {
+      "profileId": "ferraluce-ivo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/ferraluce-service-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/dialogue/world.v1.json#/ferraluce_ivo",
+          "role": "narrative identity source"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#ferraluce-ivo",
+          "role": "appearance profile and narrative/art constraints"
+        },
+        {
+          "path": "assets/sources/veloria-ferraluce-service-npcs-v1.png",
+          "role": "original identity/style atlas; frame 1 top-right only"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign guidance"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-ferraluce-ivo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-ivo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-ivo-idle-south-v1.webp",
+          "sourceSha256": "f49d56a524302f955a6a62a8ff9e0d01b43f88d9bd19879ef5d61f5dce559230",
+          "runtimeSha256": "e666767626b33aa038b0b474816b4e3d2f756b849617052aa1311a7fa0d1923b",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51092,
+            "y": 0.96159
+          },
+          "displaySize": 60.24,
+          "outputId": "exec-29c9e41d-b94b-4399-b49c-7ccdbeef64bb",
+          "alpha128Bounds": [
+            233,
+            49,
+            790,
+            1477
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-29c9e41d-b94b-4399-b49c-7ccdbeef64bb.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-ferraluce-ivo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-ivo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-ivo-idle-north-v1.webp",
+          "sourceSha256": "3e57bd7ea11d3358ed93d4517d20d75bf12f3a28e04ca873de5a07ec16498ffd",
+          "runtimeSha256": "237a0f6dd86b827180505c4630ab42695248da717c7ca9cc5d2fcb6a814f0b96",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51143,
+            "y": 0.96159
+          },
+          "displaySize": 60.03,
+          "outputId": "exec-849eff7f-2e0d-4859-9a8c-3659ee334db6",
+          "alpha128Bounds": [
+            267,
+            44,
+            785,
+            1477
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-849eff7f-2e0d-4859-9a8c-3659ee334db6.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-ferraluce-ivo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-ivo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-ivo-idle-west-v1.webp",
+          "sourceSha256": "737e4f83cbc7e803171e130b56b55581eb4cc437f958d584964483e1594aea59",
+          "runtimeSha256": "0b194bf26a6d6d4e7f650ab3fed508537243b375b885c08ea5180d82ac042950",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50619,
+            "y": 0.97917
+          },
+          "displaySize": 58.32,
+          "outputId": "exec-dda7667e-bb20-42a0-a4cc-9f8983544d8a",
+          "alpha128Bounds": [
+            334,
+            29,
+            675,
+            1504
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-dda7667e-bb20-42a0-a4cc-9f8983544d8a.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-ferraluce-ivo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-ivo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-ivo-idle-east-v1.webp",
+          "sourceSha256": "a45495097d60703bfa765b295b052b644c7950d5441573af979f358b75e7e3b2",
+          "runtimeSha256": "b4ac206f9e6c4c4f92dda93280f1dac62240aaeb7c789c965a6846793979fe66",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52124,
+            "y": 0.98633
+          },
+          "displaySize": 57.77,
+          "outputId": "exec-4c53b025-b7c1-4362-aa2b-f42b941e40af",
+          "alpha128Bounds": [
+            329,
+            26,
+            705,
+            1515
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-4c53b025-b7c1-4362-aa2b-f42b941e40af.png"
+        }
+      ],
+      "calibration": "Alpha>=128 body box calibrated to 56 world px. Origin.y is bottom bound / image height so feet share the baseline. Origin.x is alpha-weighted centroid in the bottom 50 source rows. PNG raw bytes preserved; WebP uses lossless encoding and decoded RGBA byte equality.",
+      "sourceReport": {
+        "task": "Private directional-idle candidates for Ferraluce Ivo",
+        "status": "private only; no registration or runtime verification",
+        "canonicalProfile": "content/characters/appearances.v2.json#ferraluce-ivo",
+        "sourcesRead": [
+          "C:\\Projects\\Veloria\\content\\characters\\appearances.v2.json#ferraluce-ivo",
+          "C:\\Projects\\Veloria\\content\\dialogue\\world.v1.json#/ferraluce_ivo",
+          "C:\\Projects\\Veloria\\docs\\art\\cast-redesign-briefs.md",
+          "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png"
+        ],
+        "identityNotes": [
+          "Source atlas frame 1 is top-right Ferraluce Ivo.",
+          "Do not conflate with the separate bottom-right Petalora Custodian Ivo.",
+          "Canonical gender and age are not specified; neither has been inferred."
+        ],
+        "images": [
+          {
+            "direction": "south",
+            "promptExact": "Create ONE standalone full-body SOUTH-facing front idle character illustration of Ivo from Ferraluce, Veloria. Use ONLY frame 1, the top-right person of the supplied 2x2 source atlas. This is Ferraluce Ivo, distinct from the separate Petalora Custodian Ivo shown in the bottom-right frame; do not merge identities. Preserve the recognizable dark curly hair with a small silver front streak, round copper-toned glasses, dark charcoal/graphite urban-technical outfit with fine copper piping and seams, copper ring pendant, and brown folio with a subtle circular copper diagram held against the torso. Keep the folio on Ivo's anatomical RIGHT side: in the front view that is viewer-left. Do not infer or state canonical age or gender. Neutral relaxed idle stance facing directly toward viewer, full body with both complete shoes visible. Portrait 2:3, centered, generous transparent margins. Modern illustrated 2D matte game art, softly painted shading, clean readable silhouette, faithful to source palette and details without over-ornament. True transparent background, no halo, glow, shadow, floor or scenery. Exactly one person. No atlas or other figures, no frame, text, crop, flip, sheet or pixel art.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "identity/style reference atlas; Ivo is frame 1, top-right only; bottom-right Petalora Ivo remains separate"
+              }
+            ],
+            "outputId": "exec-29c9e41d-b94b-4399-b49c-7ccdbeef64bb",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-29c9e41d-b94b-4399-b49c-7ccdbeef64bb.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-south-candidate.png",
+            "sha256": "f49d56a524302f955a6a62a8ff9e0d01b43f88d9bd19879ef5d61f5dce559230",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alpha128BBox": [
+              233,
+              49,
+              790,
+              1477
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "selection": "preliminary candidate",
+            "review": "Front view, folio on viewer-left/anatomical right; complete feet."
+          },
+          {
+            "direction": "north",
+            "promptExact": "Create one separate full-body NORTH-facing rear idle portrait of Ferraluce Ivo. References: first is the selected South image for identity/outfit; second is the original 2x2 source atlas for exact identity and style, using only frame 1 top-right. This is Ferraluce Ivo, not Petalora Custodian Ivo. Show a true rear view, facing away, with the back of dark curly hair and the small silver front streak only naturally hidden, round glasses temples possibly visible in profile only, charcoal/graphite jacket and trousers with fine copper seams, dark shoes. The brown folio is carried at Ivo's anatomical RIGHT front side and should be naturally mostly occluded from the rear; if any edge is visible, it must appear on viewer-RIGHT, never viewer-left. Do not relocate the folio onto the back. Preserve same proportions, outfit, copper details and matte illustrated style as South. Do not infer canonical gender or age. Neutral relaxed stance, arms natural, full body and both shoes visible. Portrait 2:3 canvas, centered with transparent margins. True transparent background, no ground, shadow, glow, scenery, text or border. One person only, no sheet/collage, no flip or crop.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-south-candidate.png",
+                "role": "identity/outfit South reference"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "identity/style reference; frame 1 top-right only"
+              }
+            ],
+            "outputId": "exec-849eff7f-2e0d-4859-9a8c-3659ee334db6",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-849eff7f-2e0d-4859-9a8c-3659ee334db6.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-north-candidate.png",
+            "sha256": "3e57bd7ea11d3358ed93d4517d20d75bf12f3a28e04ca873de5a07ec16498ffd",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alpha128BBox": [
+              267,
+              44,
+              785,
+              1477
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "selection": "preliminary candidate",
+            "review": "Rear folio edge appears viewer-right/anatomical right; full back view."
+          },
+          {
+            "direction": "west",
+            "promptExact": "Create one separate full-body WEST-facing exact LEFT PROFILE idle view of Ferraluce Ivo, facing image-left. References 1 and 2 are the selected South and North Ivo views for identity/outfit continuity; reference 3 is the original atlas for exact identity, using only frame 1 top-right. Ferraluce Ivo is distinct from Petalora Custodian Ivo. Preserve dark curly hair with small silver front streak, round copper glasses, graphite jacket and trousers with copper seam trim, dark shoes and copper ring pendant. Keep the brown folio on Ivo's anatomical RIGHT front side, the same side as viewer-left in South and viewer-right in North. In this WEST-facing profile anatomical RIGHT is the far side: keep the folio naturally occluded by torso/arm; at most show a narrow edge around the far-front silhouette, never move it onto the near anatomical LEFT side or the back. True 90-degree profile facing image-left, only one eye visible, straight orthographic body, natural arm overlap; do not turn the face/chest toward camera. Relaxed still pose with full head and both intact shoes visible, portrait 2:3, centered with clear transparent margins. Modern illustrated 2D matte finish, same colors/proportions as South. Genuine transparent background, no scene, shadow, glow, ground or text. Do not infer canonical gender/age. One character only, no sheet, flip or crop.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-south-candidate.png",
+                "role": "identity/outfit South anchor"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-north-candidate.png",
+                "role": "rear outfit/identity reference"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "style/identity, frame 1 top-right only"
+              }
+            ],
+            "outputId": "exec-dda7667e-bb20-42a0-a4cc-9f8983544d8a",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-dda7667e-bb20-42a0-a4cc-9f8983544d8a.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-west-candidate.png",
+            "sha256": "737e4f83cbc7e803171e130b56b55581eb4cc437f958d584964483e1594aea59",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alpha128BBox": [
+              334,
+              29,
+              675,
+              1504
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "selection": "preliminary candidate",
+            "review": "West profile; folio remains on anatomical right/far-front side, partially occluded."
+          },
+          {
+            "direction": "east",
+            "promptExact": "Create one separate full-body EAST-facing exact RIGHT PROFILE idle view of Ferraluce Ivo, facing image-right. References 1 and 2 are the selected South and North Ivo views for identity/outfit continuity; reference 3 is the original atlas for exact identity, using only frame 1 top-right. Ferraluce Ivo is distinct from Petalora Custodian Ivo. Preserve dark curly hair with small silver front streak, round copper glasses, graphite jacket and trousers with copper seam trim, dark shoes, and copper ring pendant. Keep the brown folio on Ivo's anatomical RIGHT front side, same side as viewer-left in South and viewer-right in North. In this EAST-facing profile anatomical RIGHT is the near side; the folio should be naturally visible along the near/front side, held against the chest or torso as in South, not moved to anatomical LEFT or the back. True 90-degree profile facing image-right, only one eye visible, straight orthographic body, natural arm overlap; do not turn the face/chest toward camera. Relaxed still pose, full head and both complete shoes visible, portrait 2:3, centered with transparent margins. Modern illustrated 2D matte finish, matching South and source palette. Genuine transparent background, no scene, shadow, glow, ground or text. Do not infer canonical gender/age. One character only, no sheet, flip or crop.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-south-candidate.png",
+                "role": "identity/outfit South anchor"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-north-candidate.png",
+                "role": "rear outfit/identity reference"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "style/identity, frame 1 top-right only"
+              }
+            ],
+            "outputId": "exec-4c53b025-b7c1-4362-aa2b-f42b941e40af",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-4c53b025-b7c1-4362-aa2b-f42b941e40af.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ivo-ferraluce-idles-candidates\\ivo-east-candidate.png",
+            "sha256": "a45495097d60703bfa765b295b052b644c7950d5441573af979f358b75e7e3b2",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alpha128BBox": [
+              329,
+              26,
+              705,
+              1515
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "selection": "preliminary candidate",
+            "review": "East profile; folio visible on anatomical right/near-front side."
+          }
+        ],
+        "discarded": [],
+        "anatomicalReview": "The folio is placed on anatomical RIGHT: viewer-left in the frontal South, viewer-right in the rear North. West shows the folio only at the far-front silhouette; East shows it against the near/front side. No flipping or mirroring.",
+        "visualReview": "Four separate full-body views inspected individually. South and North are front/rear; West and East are profile directions. All show complete shoes and transparent corners. Matte illustrated 2D style maintains the atlas dark graphite/copper palette and the Ferraluce Ivo identity.",
+        "productionTarget": "Each pose is a 1024x1536 transparent PNG candidate, intended for later calibration to a readable 56-world-pixel optical height. No crop, cleanup, resampling, or compositing was performed."
+      }
+    },
+    {
+      "profileId": "ferraluce-care",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/ferraluce-service-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/dialogue/world.v1.json#/ferraluce_care",
+          "role": "narrative identity source"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#ferraluce-care",
+          "role": "appearance profile and narrative/art constraints"
+        },
+        {
+          "path": "assets/sources/veloria-ferraluce-service-npcs-v1.png",
+          "role": "original identity/style atlas; frame 2 bottom-left only"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign guidance"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-ferraluce-care-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-care-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-care-idle-south-v1.webp",
+          "sourceSha256": "fe2215fd3ac3f6743124a27810775475e3bb1591b61e8a7e828e48c781741796",
+          "runtimeSha256": "2a7995c045980859a9d1a5da763fe0b9b56710250724346094a1ec9faad0bbb7",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.55794,
+            "y": 0.93815
+          },
+          "displaySize": 64.53,
+          "outputId": "19025b73-ad5e-464b-885c-f421cdafae2c",
+          "alpha128Bounds": [
+            256,
+            108,
+            801,
+            1441
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-19025b73-ad5e-464b-885c-f421cdafae2c.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-ferraluce-care-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-care-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-care-idle-north-v1.webp",
+          "sourceSha256": "ab5fdc3210c4d45bd045f04cdf788659b019fed61dffeed263bfd568930b4315",
+          "runtimeSha256": "be12575ab6b0873187fd7dbe8a6a96bcef8aef322e3a4c39dccbd3058293616a",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51493,
+            "y": 0.94271
+          },
+          "displaySize": 61.7,
+          "outputId": "f7e670dc-71b8-4ef7-9286-900ed223ba13",
+          "alpha128Bounds": [
+            261,
+            54,
+            760,
+            1448
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-f7e670dc-71b8-4ef7-9286-900ed223ba13.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-ferraluce-care-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-care-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-care-idle-west-v1.webp",
+          "sourceSha256": "71e07f7acd0bc128cfb9e344a51872e581099e040bd59591cb0d90c1cd882976",
+          "runtimeSha256": "eadeca8e833703a7c718ee8d15edfd66713224c722adf6f327a77e824c08b5d7",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.49643,
+            "y": 0.97656
+          },
+          "displaySize": 58.36,
+          "outputId": "33d7ab87-437d-4034-ad21-450b7b62e3da",
+          "alpha128Bounds": [
+            313,
+            26,
+            705,
+            1500
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-33d7ab87-437d-4034-ad21-450b7b62e3da.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-ferraluce-care-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-care-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-care-idle-east-v1.webp",
+          "sourceSha256": "ff6517a5a72721d6a9062ff77e9c472b9efd0f6b9f1562d1eb0710850ff5d974",
+          "runtimeSha256": "98e4a257dff4cbb80346616d13dcce22149efe5fdabbfd188543fdfa0a5f6099",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52599,
+            "y": 0.97917
+          },
+          "displaySize": 57.92,
+          "outputId": "bf3b316b-74b1-4117-b6a0-9e293bd65872",
+          "alpha128Bounds": [
+            280,
+            19,
+            691,
+            1504
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-bf3b316b-74b1-4117-b6a0-9e293bd65872.png"
+        }
+      ],
+      "calibration": "Alpha>=128 body box calibrated to 56 world px. Origin.y is bottom bound / image height so feet share the baseline. Origin.x is alpha-weighted centroid in the bottom 50 source rows. PNG raw bytes preserved; WebP uses lossless encoding and decoded RGBA byte equality.",
+      "sourceReport": {
+        "characterId": "ferraluce-care",
+        "npcId": "ferraluce_care",
+        "scope": "private candidates only; no permanent/runtime files modified",
+        "sourceReferences": [
+          {
+            "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+            "identity": "frame 2 bottom-left only"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\content\\characters\\appearances.v2.json",
+            "identity": "ferraluce-care profile; apparent outfit is artistic proposal, canonical age unspecified"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\content\\dialogue\\world.v1.json",
+            "identity": "ferraluce_care dialogue"
+          },
+          {
+            "path": "C:\\Projects\\Veloria\\docs\\art\\cast-redesign-briefs.md",
+            "identity": "generic anonymous service NPC brief"
+          }
+        ],
+        "images": [
+          {
+            "direction": "south",
+            "prompt": "Create ONE separate full-body SOUTH-facing front idle character illustration of the Ferraluce Pokémon Center care attendant. Use ONLY frame 2, the bottom-left person of the supplied 2x2 atlas as identity and style reference; ignore all other people. Preserve the recognizable warm copper/auburn hair gathered into a compact bun with loose fringe, cream double-breasted care uniform with aqua/teal collar and piping, matching teal trousers, practical cream shoes, and the purple waist sash tied at the anatomical LEFT side (viewer-right in front). Keep the same face, hair silhouette, clothing palette and simple details. The canonical source does not define age or gender: do not state or emphasize either. Relaxed neutral frontal idle stance, head upright, hands resting naturally near torso/waist; no dramatic gesture. Readable silhouette intended for 56-world-pixel character display: clear separation of arms, coat, trousers and shoes, details kept simple. Portrait 2:3, centered with generous transparent margin, full head and both entire feet visible. Modern illustrated 2D matte game art, soft painted shading matching the atlas. True transparent background. Exactly one person. No added accessories, badges, clipboard, medical equipment, other characters, atlas, ground, shadow, halo, glow, frame, text, crop, flip, sheet or pixel art.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original atlas; frame 2 bottom-left only"
+              }
+            ],
+            "outputId": "19025b73-ad5e-464b-885c-f421cdafae2c",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-19025b73-ad5e-464b-885c-f421cdafae2c.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-care-idles-candidates\\ferraluce-care-south-candidate.png",
+            "sha256": "fe2215fd3ac3f6743124a27810775475e3bb1591b61e8a7e828e48c781741796",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBoundingBoxThreshold128": {
+              "left": 256,
+              "top": 108,
+              "rightExclusive": 801,
+              "bottomExclusive": 1441
+            },
+            "alphaExtrema": [
+              0,
+              254
+            ],
+            "selection": "preliminary candidate for root review",
+            "reviewNotes": "Front identity/outfit legible, sash tie on anatomical LEFT (viewer-right). Visible soft semitransparent atmospheric halo in preview; proportions read very youthful, canonical age remains unspecified.",
+            "discarded": []
+          },
+          {
+            "direction": "north",
+            "prompt": "Create one separate full-body NORTH-facing rear idle portrait of the Ferraluce care attendant. References: selected South image for identity and outfit, original atlas for exact style/identity; use only frame 2 bottom-left. Preserve the same compact auburn bun, cream double-breasted coat seen from the back with teal/aqua collar/cuff accents and purple trim, matching teal trousers, and cream practical shoes. The purple waist sash is tied on the anatomical LEFT side; in this rear view that is viewer-LEFT, so place its bow/tails on viewer-left. Do not put the bow on viewer-right. Show a true straight back view, face away; arms relaxed by sides, both shoes intact and visible. Keep a simple clear silhouette readable at intended 56-world-pixel character display, with details simplified to match South. Do not infer or state canonical gender or age. Portrait 2:3, centered with transparent margins. Genuine transparent background, no halo, glow, ground, shadow, scenery or text. One person only, no sheet, flip, crop or pixel art.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original atlas; frame 2 bottom-left only"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-south-candidate.png",
+                "role": "selected South identity/outfit"
+              }
+            ],
+            "outputId": "f7e670dc-71b8-4ef7-9286-900ed223ba13",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-f7e670dc-71b8-4ef7-9286-900ed223ba13.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-care-idles-candidates\\ferraluce-care-north-candidate.png",
+            "sha256": "ab5fdc3210c4d45bd045f04cdf788659b019fed61dffeed263bfd568930b4315",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBoundingBoxThreshold128": {
+              "left": 261,
+              "top": 54,
+              "rightExclusive": 760,
+              "bottomExclusive": 1448
+            },
+            "alphaExtrema": [
+              0,
+              254
+            ],
+            "selection": "preliminary candidate for root review",
+            "reviewNotes": "Rear view; sash tie on anatomical LEFT correctly appears viewer-left. Soft halo and youthful stylization remain for root review.",
+            "discarded": []
+          },
+          {
+            "direction": "west",
+            "prompt": "Create one separate full-body WEST-facing exact LEFT PROFILE idle portrait of the Ferraluce care attendant, facing image-left. Use the selected South and North images as identity/outfit references, and original source atlas frame 2 bottom-left as the identity/style reference; ignore all other atlas people. Preserve compact auburn bun, cream double-breasted coat/apron with aqua piping and teal cuffs, teal trousers, purple waist sash tied on anatomical LEFT, cream shoes. In this West-facing profile anatomical LEFT is the near side, so the sash bow/tails should be visible on the near waist. Do not put the tie on anatomical RIGHT. Calm neutral standing pose, hands relaxed near waist and sides, not gesturing; preserve a true orthographic side silhouette, one eye visible, face and chest not turned toward camera. Full head and both complete shoes visible, readable simplified silhouette at intended 56-world-pixel display. Portrait 2:3, centered with transparent margins. Modern illustrated 2D matte game style matching South. True transparent background, no halo, glow, ground, shadow, scenery or text. Do not infer or state canonical gender or age. One person only, no sheet, flip or crop.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original atlas; frame 2 bottom-left only"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-south-candidate.png",
+                "role": "selected South identity/outfit"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-north-candidate.png",
+                "role": "selected North identity/outfit"
+              }
+            ],
+            "outputId": "33d7ab87-437d-4034-ad21-450b7b62e3da",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-33d7ab87-437d-4034-ad21-450b7b62e3da.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-care-idles-candidates\\ferraluce-care-west-candidate.png",
+            "sha256": "71e07f7acd0bc128cfb9e344a51872e581099e040bd59591cb0d90c1cd882976",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBoundingBoxThreshold128": {
+              "left": 313,
+              "top": 26,
+              "rightExclusive": 705,
+              "bottomExclusive": 1500
+            },
+            "alphaExtrema": [
+              0,
+              254
+            ],
+            "selection": "preliminary candidate for root review",
+            "reviewNotes": "Left-facing profile; sash tie is on anatomical LEFT near side. Slight three-quarter impression, soft halo; root review.",
+            "discarded": []
+          },
+          {
+            "direction": "east",
+            "prompt": "Create one separate full-body EAST-facing exact RIGHT PROFILE idle portrait of the Ferraluce care attendant, facing image-right. Use the selected South and North images for identity/outfit continuity and West for profile style continuity. Preserve the same auburn bun, cream double-breasted coat/apron with aqua piping and teal cuffs, matching teal trousers, and cream shoes. The purple sash tie is on anatomical LEFT, viewer-right in South and viewer-left in North. In this East-facing profile anatomical LEFT is the FAR side, so hide the sash bow/tails behind the torso/apron or show at most a small far-edge sliver; never place the bow on the near anatomical RIGHT side. True 90-degree profile facing image-right, only one eye visible, orthographic side silhouette, no turn toward camera. Calm neutral idle pose with relaxed hands, both complete shoes visible. Keep silhouette simple and legible at intended 56-world-pixel character display. Portrait 2:3, centered with generous transparent margins. Modern illustrated 2D matte style matching the reference, true transparent background, no halo/glow/ground/shadow/scenery/text. Do not infer or state canonical gender or age. One person only, no sheet, flip, crop or pixel art.",
+            "referencedImagePaths": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original atlas; frame 2 bottom-left only"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-south-candidate.png",
+                "role": "selected South identity/outfit"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-north-candidate.png",
+                "role": "selected North identity/outfit"
+              },
+              {
+                "path": ".tmp\\ferraluce-care-idles-candidates\\ferraluce-care-west-candidate.png",
+                "role": "profile style continuity"
+              }
+            ],
+            "outputId": "bf3b316b-74b1-4117-b6a0-9e293bd65872",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-b3e6-7681-a7ea-79a661fb6dbb\\exec-bf3b316b-74b1-4117-b6a0-9e293bd65872.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-care-idles-candidates\\ferraluce-care-east-candidate.png",
+            "sha256": "ff6517a5a72721d6a9062ff77e9c472b9efd0f6b9f1562d1eb0710850ff5d974",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBoundingBoxThreshold128": {
+              "left": 280,
+              "top": 19,
+              "rightExclusive": 691,
+              "bottomExclusive": 1504
+            },
+            "alphaExtrema": [
+              0,
+              254
+            ],
+            "selection": "preliminary candidate for root review",
+            "reviewNotes": "Right-facing profile; anatomical LEFT sash tie is hidden on far side as requested. Added light hair tie not evident in source atlas; youthful stylization and soft halo; root review.",
+            "discarded": []
+          }
+        ],
+        "anatomyReview": "South ties sash at anatomical LEFT (viewer-right). North rear ties sash at anatomical LEFT (viewer-left). West near side is anatomical LEFT and shows tie. East near side is anatomical RIGHT and hides the far anatomical LEFT tie. No age/gender is asserted.",
+        "limitations": "Candidates have a visible semitransparent atmospheric halo in preview and stylized youthful proportions; root should review whether these match the intended production presentation. No pixel cleanup/resampling was performed."
+      }
+    },
+    {
+      "profileId": "ferraluce-shop",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/ferraluce-service-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/dialogue/world.v1.json#/ferraluce_shop",
+          "role": "narrative identity source"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#ferraluce-shop",
+          "role": "appearance profile and narrative/art constraints"
+        },
+        {
+          "path": "assets/sources/veloria-ferraluce-service-npcs-v1.png",
+          "role": "original identity/style atlas; frame 3 bottom-right only"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign guidance"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-ferraluce-shop-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-shop-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-shop-idle-south-v1.webp",
+          "sourceSha256": "d3348581e757eeb810421a6921eb0cadd611268b8f0ceb503148b87b97b4edbe",
+          "runtimeSha256": "1479d70e0537d421e07c155aae03d2ab2a4c10f69e66d8f15d0d906ad4385c72",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.53478,
+            "y": 0.96159
+          },
+          "displaySize": 62.2,
+          "outputId": "exec-a3251c15-afad-4c14-b616-c6ef80d7819a",
+          "alpha128Bounds": [
+            221,
+            94,
+            814,
+            1477
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a3251c15-afad-4c14-b616-c6ef80d7819a.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-ferraluce-shop-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-shop-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-shop-idle-north-v1.webp",
+          "sourceSha256": "e20788cc7e01f43ac713cb011ed964ba1052a17c631472e58765e84b167a81d2",
+          "runtimeSha256": "10eb073874f9d2a5942f646cfb3bcf176a8012325db7f46deba05241b9babb7c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51249,
+            "y": 0.96419
+          },
+          "displaySize": 59.12,
+          "outputId": "exec-54457929-4b72-42f2-bf5e-0b55a6e1fd49",
+          "alpha128Bounds": [
+            184,
+            26,
+            829,
+            1481
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-54457929-4b72-42f2-bf5e-0b55a6e1fd49.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-ferraluce-shop-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-shop-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-shop-idle-west-v1.webp",
+          "sourceSha256": "f846fc95a95bbded5958edfc77a52152ff03ee75de62312d7080a982d87db193",
+          "runtimeSha256": "1209ab3a39f0b1afa131d1e694455059c30ac19463573417ae10a87cb3c9c831",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.5041,
+            "y": 0.97266
+          },
+          "displaySize": 59.36,
+          "outputId": "exec-84d9913f-39ad-41d5-9621-67ce38cdf3e9",
+          "alpha128Bounds": [
+            337,
+            45,
+            729,
+            1494
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-84d9913f-39ad-41d5-9621-67ce38cdf3e9.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-ferraluce-shop-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-ferraluce-shop-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ferraluce-shop-idle-east-v1.webp",
+          "sourceSha256": "9058481b3c9f7add06067b3e8268ed7faa4cf2e2c1aa4bdd713dab6046016e5e",
+          "runtimeSha256": "6cf0ce0419751a806362214a5ecb8e1a15b0ce5b5c95640acb195efed2f8dcd3",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52603,
+            "y": 0.96224
+          },
+          "displaySize": 60.24,
+          "outputId": "exec-0f9f5a8b-4a09-409a-a110-e2e0e49a9edb",
+          "alpha128Bounds": [
+            319,
+            50,
+            687,
+            1478
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-0f9f5a8b-4a09-409a-a110-e2e0e49a9edb.png"
+        }
+      ],
+      "calibration": "Alpha>=128 body box calibrated to 56 world px. Origin.y is bottom bound / image height so feet share the baseline. Origin.x is alpha-weighted centroid in the bottom 50 source rows. PNG raw bytes preserved; WebP uses lossless encoding and decoded RGBA byte equality.",
+      "sourceReport": {
+        "profile": "ferraluce-shop",
+        "appearanceId": "ferraluce-shop",
+        "createdUtc": "2026-10-28",
+        "sourceReference": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+        "images": [
+          {
+            "direction": "south",
+            "prompt": "Use case: illustration-story. Create one single full-body SOUTH/front idle illustration of the Ferraluce shopkeeper, portrait 2:3 transparent RGBA. Reference role: original service NPC atlas is the identity/style authority; use ONLY the bottom-right character, frame 3. Preserve recognizable design: short dark curly hair, medium warm-brown skin, friendly open expression, teal-green work shirt, orange terracotta apron with a yellow horizontal pocket seam, dark olive-brown trousers, rolled cuffs and brown sturdy work shoes. Preserve the distinctive brown belt and two brown supply pouches attached at both hips, one brass belt ring/clip, and the pale cream cloth/towel hanging from the waistband on the character's anatomical LEFT side (viewer-right in this south/front view). Keep the original front-side placement of belt attachments and pouches. Relaxed shopkeeper idle, natural arms relaxed near sides (do not hold merchandise or invent props). Do not add a gender or age claim; appearance is only an art proposal. Orthographic straight-on, no perspective. Match the original modern 2D matte illustrated style with clean, simplified shapes readable at around 56 world pixels tall. Both shoes completely visible, centered with transparent margins, no crop, flip, pixel cleanup or resampling. No background/floor/shadow/glow/vignette/text, no other characters, no sheet or collage.",
+            "references": [
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original image identity/style reference; target shopkeeper is bottom-right frame 3"
+              }
+            ],
+            "outputId": "exec-a3251c15-afad-4c14-b616-c6ef80d7819a",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a3251c15-afad-4c14-b616-c6ef80d7819a.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-shop-idles-candidates\\ferraluce-shop-idle-south.png",
+            "sha256": "D3348581E757EEB810421A6921EB0CADD611268B8F0CEB503148B87B97B4EDBE",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBBox": [
+              0,
+              33,
+              1004,
+              1536
+            ],
+            "alpha128BBox": [
+              221,
+              94,
+              814,
+              1477
+            ],
+            "selection": "preliminary_select",
+            "reason": "Mantiene capelli scuri ricci, camicia teal, grembiule terracotta, due tasche, ring viewer-left e panno viewer-right; scarpe complete."
+          },
+          {
+            "direction": "north",
+            "prompt": "Use case: illustration-story. Generate one single full-body NORTH-facing rear idle illustration of the same Ferraluce shopkeeper. Reference 1 is the selected SOUTH/front pose and controls identity, outfit and accessory anatomy; reference 2 is the original service NPC atlas, shopkeeper bottom-right only. Portrait 2:3 transparent RGBA, orthographic straight back view, centered with margins, both shoes fully visible. Preserve dark short curly hair, teal-green work shirt, terracotta apron, dark olive-brown trousers, brown work shoes, belt, two supply pouches and pale cream cloth/towel. Strict anatomical accessory mapping from the front: the cloth/towel is on the character's anatomical LEFT (viewer-right in south), so in this rear/north view it must be on viewer-LEFT. The belt's single brass ring/clip is on the anatomical RIGHT (viewer-left in south), so it must be on viewer-RIGHT in the rear. Keep both hip pouches attached at the same anatomical hips; show their backs/sides and preserve any asymmetry. Do not put the towel on viewer-right or the ring on viewer-left. Show a plausible back of shirt/apron straps and belt without adding props. Modern 2D matte illustration matching source, simple readable shapes at 56-world-pixel scale. Natural relaxed stance, no three-quarter turn and no flipped front drawing. No scene, floor, shadow, glow, vignette, text, frame, other character, collage/sheet, crop, pixel cleanup or resampling.",
+            "references": [
+              {
+                "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a3251c15-afad-4c14-b616-c6ef80d7819a.png",
+                "role": "selected south reference for identity and accessory side mapping"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original image identity/style reference; target shopkeeper is bottom-right frame 3"
+              }
+            ],
+            "outputId": "exec-54457929-4b72-42f2-bf5e-0b55a6e1fd49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-54457929-4b72-42f2-bf5e-0b55a6e1fd49.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-shop-idles-candidates\\ferraluce-shop-idle-north.png",
+            "sha256": "E20788CC7E01F43AC713CB011ED964BA1052A17C631472E58765E84B167A81D2",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBBox": [
+              0,
+              23,
+              1004,
+              1486
+            ],
+            "alpha128BBox": [
+              184,
+              26,
+              829,
+              1481
+            ],
+            "selection": "preliminary_select",
+            "reason": "Retro con panno a viewer-left (anatomical LEFT) e ring a viewer-right (anatomical RIGHT), due pouches e straps coerenti."
+          },
+          {
+            "direction": "west",
+            "prompt": "Use case: illustration-story. Make one separate full-body WEST-facing exact left profile idle illustration of the same Ferraluce shopkeeper. Reference 1 is the selected SOUTH front view and controls identity/outfit/anatomical placements; reference 2 is original service NPC atlas bottom-right frame 3. Portrait 2:3 transparent RGBA; true orthographic side profile facing image-left, one eye visible, entire shoes visible, centered with margins. Preserve short dark curls, teal-green shirt, orange terracotta apron, dark olive/brown trousers, brown shoes, waist belt with two hip pouches and pale cream towel tied at the character's anatomical LEFT hip. In a WEST profile, expose the character's LEFT side naturally: the towel and left hip pouch are on the near side and visible; the single brass belt ring is on the character's RIGHT hip, so keep it on the far side/occluded and never transfer it to the near hip. Show realistic near/far overlap between arm, apron and pouches. Keep the simple readable outline and 2D matte style, clear at 56 world pixels. Relaxed neutral idle, arms down naturally. No three-quarter turn, no flip, no added merchandise or tools, no scene/floor/shadow/glow/vignette/text/frame, no other characters or sheet/collage; no crop or pixel cleanup.",
+            "references": [
+              {
+                "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a3251c15-afad-4c14-b616-c6ef80d7819a.png",
+                "role": "selected south reference for identity and accessory side mapping"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original image identity/style reference; target shopkeeper is bottom-right frame 3"
+              }
+            ],
+            "outputId": "exec-84d9913f-39ad-41d5-9621-67ce38cdf3e9",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-84d9913f-39ad-41d5-9621-67ce38cdf3e9.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-shop-idles-candidates\\ferraluce-shop-idle-west.png",
+            "sha256": "F846FC95A95BBDED5958EDFC77A52152FF03EE75DE62312D7080A982D87DB193",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBBox": [
+              41,
+              41,
+              994,
+              1514
+            ],
+            "alpha128BBox": [
+              337,
+              45,
+              729,
+              1494
+            ],
+            "selection": "preliminary_select",
+            "reason": "Profilo verso sinistra con lato anatomico sinistro e panno visibili; ring del lato destro non trasferito sul near side."
+          },
+          {
+            "direction": "east",
+            "prompt": "Use case: illustration-story. Make one separate full-body EAST-facing exact right profile idle illustration of the same Ferraluce shopkeeper. Reference 1 is the selected SOUTH front view and controls identity/outfit/anatomical placements; reference 2 is original service NPC atlas bottom-right frame 3. Portrait 2:3 transparent RGBA; true orthographic side profile facing image-right, one eye visible, entire shoes visible, centered with margins. Preserve short dark curls, teal-green shirt, orange terracotta apron, dark olive/brown trousers, brown shoes, waist belt with two hip pouches and pale cream towel tied to the character's anatomical LEFT hip. In an EAST profile, expose the character's RIGHT side naturally: the brass belt ring on the character's anatomical RIGHT is on the near side and must be visible; the towel is on the LEFT hip and stays on the far side/occluded, never moved to the near hip. Show realistic near/far overlap between arm, apron and pouches. Keep the simple readable outline and 2D matte style, clear at 56 world pixels. Relaxed neutral idle, arms down naturally. No three-quarter turn, no flip, no added merchandise or tools, no scene/floor/shadow/glow/vignette/text/frame, no other characters or sheet/collage; no crop or pixel cleanup.",
+            "references": [
+              {
+                "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a3251c15-afad-4c14-b616-c6ef80d7819a.png",
+                "role": "selected south reference for identity and accessory side mapping"
+              },
+              {
+                "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-ferraluce-service-npcs-v1.png",
+                "role": "original image identity/style reference; target shopkeeper is bottom-right frame 3"
+              }
+            ],
+            "outputId": "exec-0f9f5a8b-4a09-409a-a110-e2e0e49a9edb",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-0f9f5a8b-4a09-409a-a110-e2e0e49a9edb.png",
+            "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ferraluce-shop-idles-candidates\\ferraluce-shop-idle-east.png",
+            "sha256": "9058481B3C9F7ADD06067B3E8268ED7FAA4CF2E2C1AA4BDD713DAB6046016E5E",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaBBox": [
+              19,
+              47,
+              1012,
+              1536
+            ],
+            "alpha128BBox": [
+              319,
+              50,
+              687,
+              1478
+            ],
+            "selection": "preliminary_select",
+            "reason": "Profilo verso destra con ring anatomico destro visibile sul near side; panno del lato sinistro resta lontano/occluso."
+          }
+        ],
+        "discarded": [],
+        "selectedPreliminary": [
+          "south",
+          "north",
+          "west",
+          "east"
+        ],
+        "notes": "Solo candidate private. Entrambi alphaBBox e alpha128BBox riportati; alone/vignetta semitrasparente in preview non usati da soli come criterio automatico di scarto. Nessuna pulizia pixel."
+      }
     }
   ]
 }

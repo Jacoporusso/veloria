@@ -8,6 +8,10 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], tiled: 'r07_condotto_risonante', id: 'r07_dario' },
+  { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], tiled: 'ferraluce', id: 'ferraluce_ivo' },
+  { name: 'Centro Ferraluce', speaker: 'Addetta del Centro', profile: 'ferraluce-care', map: 'ferraluce', spawn: 'from_r06', x: 9, y: 21, flags: [], tiled: 'ferraluce', id: 'ferraluce_care', service: 'center' },
+  { name: 'Mercante Ferraluce', speaker: 'Mercante di Ferraluce', profile: 'ferraluce-shop', map: 'ferraluce', spawn: 'from_r06', x: 30, y: 21, flags: [], tiled: 'ferraluce', id: 'ferraluce_shop', service: 'shop' },
   { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], tiled: 'r04_salita_petali', id: 'nila_r04' },
   { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], tiled: 'r05_viadotto_ciliegi', id: 'oren_r05' },
   { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], tiled: 'r06_anello_magnetico', id: 'r06_iris' },
@@ -44,8 +48,18 @@ for (const npc of [
       await page.getByRole('button', { name: stop.button, exact: true }).tap();
       const before = await readBrowserSave(page);
       const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
-      await action.tap(); await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
-      for (let i = 0; i < 16 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+      await action.tap();
+      if ('service' in npc && npc.service === 'shop') {
+        const shop = page.getByRole('dialog', { name: 'Mercante di Ferraluce', exact: true });
+        await expect(shop.getByRole('spinbutton', { name: 'Quantità Pozione', exact: true })).toBeVisible();
+        await shop.getByRole('button', { name: 'Chiudi', exact: true }).click();
+      } else if ('service' in npc && npc.service === 'center') {
+        await expect(page.getByRole('button', { name: 'RIPOSA', exact: true })).toBeVisible();
+        await page.getByRole('button', { name: 'DOPO', exact: true }).click();
+      } else {
+        await expect(page.locator('#dialogue-speaker')).toHaveText(npc.speaker);
+        for (let i = 0; i < 16 && await page.locator('#dialogue-box').isVisible(); i++) await action.tap();
+      }
       await expect(page.locator('#dialogue-box')).toBeHidden();
       const state = await page.evaluate(id => {
         const world = (window as any).__journeyIdleGame.scene.keys.world;
@@ -55,6 +69,8 @@ for (const npc of [
           origin: { x: sprite.originX, y: sprite.originY }, height: sprite.displayHeight,
           uniform: sprite.scaleX === sprite.scaleY, flipped: sprite.flipX || sprite.flipY,
           compact: image instanceof HTMLCanvasElement && Math.max(image.width, image.height) <= 512,
+          legacyRoute: world.textures.exists('veloria-route-trainers-r04-r07-v1'),
+          legacyServices: world.textures.exists('veloria-ferraluce-service-npcs-v1'),
           webgl: Boolean(world.game.renderer.gl), minFilter: sprite.texture.source[0].glTexture?.minFilter,
           frameRatio: sprite.frame.width / sprite.frame.height,
           powerOfTwo: (image.width & (image.width - 1)) === 0 && (image.height & (image.height - 1)) === 0,
@@ -65,6 +81,8 @@ for (const npc of [
       expect(state).toMatchObject({ key: view.assetKey, facing: stop.facing, x: npc.x * 32 + 16, y: npc.y * 32 + 35,
         origin: view.origin, uniform: true, flipped: false, compact: true, tweens: 0, abovePlayer: stop.y <= npc.y });
       expect(state.height).toBeCloseTo(view.displaySize, 5);
+      if (/^r0[4-7]_/.test(npc.map)) expect(state.legacyRoute).toBe(false);
+      if (npc.map === 'ferraluce') expect(state.legacyServices).toBe(false);
       expect(state.frameRatio).toBeCloseTo(2 / 3, 8);
       if (state.webgl) {
         expect(state.powerOfTwo).toBe(true);

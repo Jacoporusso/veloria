@@ -1,5 +1,21 @@
-const CACHE = 'veloria-shell-v197';
+const CACHE = 'veloria-shell-v198';
 const SHELL = [
+  './assets/sprites/veloria-dario-idle-south-v1.webp',
+  './assets/sprites/veloria-dario-idle-north-v1.webp',
+  './assets/sprites/veloria-dario-idle-west-v1.webp',
+  './assets/sprites/veloria-dario-idle-east-v1.webp',
+  './assets/sprites/veloria-ferraluce-ivo-idle-south-v1.webp',
+  './assets/sprites/veloria-ferraluce-ivo-idle-north-v1.webp',
+  './assets/sprites/veloria-ferraluce-ivo-idle-west-v1.webp',
+  './assets/sprites/veloria-ferraluce-ivo-idle-east-v1.webp',
+  './assets/sprites/veloria-ferraluce-care-idle-south-v1.webp',
+  './assets/sprites/veloria-ferraluce-care-idle-north-v1.webp',
+  './assets/sprites/veloria-ferraluce-care-idle-west-v1.webp',
+  './assets/sprites/veloria-ferraluce-care-idle-east-v1.webp',
+  './assets/sprites/veloria-ferraluce-shop-idle-south-v1.webp',
+  './assets/sprites/veloria-ferraluce-shop-idle-north-v1.webp',
+  './assets/sprites/veloria-ferraluce-shop-idle-west-v1.webp',
+  './assets/sprites/veloria-ferraluce-shop-idle-east-v1.webp',
   './assets/sprites/veloria-nila-idle-south-v1.webp',
   './assets/sprites/veloria-nila-idle-north-v1.webp',
   './assets/sprites/veloria-nila-idle-west-v1.webp',

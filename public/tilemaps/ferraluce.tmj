@@ -12349,7 +12349,7 @@
       "id": 5,
       "name": "characters",
       "objects": [
-                {
+        {
           "id": 512,
           "name": "Ivo",
           "x": 640,
@@ -12377,12 +12377,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-ferraluce-service-npcs-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-ferraluce-ivo-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -12392,16 +12387,16 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.472
+              "value": 0.51092
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.943
+              "value": 0.96159
             }
           ]
         },
-                {
+        {
           "id": 513,
           "name": "Addetta del Centro Ferraluce",
           "x": 288,
@@ -12434,12 +12429,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-ferraluce-service-npcs-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-ferraluce-care-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -12449,16 +12439,16 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.598
+              "value": 0.55794
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.871
+              "value": 0.93815
             }
           ]
         },
-                {
+        {
           "id": 514,
           "name": "Mercante di Ferraluce",
           "x": 960,
@@ -12491,12 +12481,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-ferraluce-service-npcs-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-ferraluce-shop-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -12506,12 +12491,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.509
+              "value": 0.53478
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.856
+              "value": 0.96159
             }
           ]
         }

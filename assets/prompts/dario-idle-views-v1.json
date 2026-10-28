@@ -1,0 +1,206 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "profileId": "route-trainer-dario",
+  "sourceReferences": [
+    {
+      "path": "content/dialogue/world.v1.json#/r07_dario",
+      "role": "dialogue/narrative identity source"
+    },
+    {
+      "path": "content/trainers/r07_dario.trainer.json",
+      "role": "trainer role/source context; no age or gender inferred"
+    },
+    {
+      "path": "assets/sources/veloria-route-trainers-r04-r07-v1.png",
+      "role": "original image identity/style reference; Dario is bottom-right frame 3"
+    }
+  ],
+  "prompts": {
+    "south": "Use case: illustration-story. Create one single full-body SOUTH-facing idle illustration of Dario, portrait 2:3 on transparent RGBA. Reference role: the original route-trainer atlas is authoritative for identity and art style; Dario is bottom-right frame 3 only. Match the specific character: short softly wavy silver/gray hair, warm fair skin and friendly calm expression; long charcoal-brown field coat with copper/rust geometric edge accents and split tails, open ivory shirt, dark charcoal trousers, practical brown boots, reddish-brown wrist wraps, leather belt with the simple round copper ring/loop at Dario's anatomical LEFT hip and small utility pouch. Keep the distinctive coat silhouette, shirt neckline, wrist wraps, belt hardware and hip pouch. Do not add binoculars (Oren), flower clip or cream/pink clothing (Nila), turquoise outfit (Iris), or invented props. Exact front-facing south view, natural relaxed standing idle with arms resting neutrally. Front anatomy rule: the round ring/loop remains on Dario's anatomical LEFT, appearing viewer-right; the red-brown wrist wrap visible at viewer-left belongs to his anatomical RIGHT. Preserve all sides. Modern illustrated 2D matte style matching the original, with simplified readable large shapes suitable for an NPC shown around 56 world pixels tall. Full body and both boots visible, centered with transparent margins; no crop, flip, pixel cleanup or resampling. One character only, no background, floor, shadow, vignette, glow, text, sheet or collage.",
+    "west": "Use case: illustration-story. Create one single full-body WEST-facing exact side-profile idle illustration of Dario, portrait 2:3 transparent RGBA. Reference 1 is the approved south view for identity, clothing and side placement; reference 2 is the original route-trainer atlas for exact identity/style, Dario is bottom-right frame 3. Dario has short wavy silver-gray hair, ivory shirt, dark charcoal trousers and boots, long charcoal-brown coat with copper/rust geometric trim and tails, brown belt, round copper ring/loop at the anatomical LEFT hip, small utility pouch, and red-brown wrist wrap on the anatomical RIGHT wrist. Facing WEST means nose/chest point to image-left; true side profile, one eye visible. WEST near side is Dario's anatomical LEFT, so the ring/loop must be visible on the image-left/near hip and the RIGHT wrist wrap stays on the far side and should not be moved to the near arm. Preserve anatomically correct near/far occlusion, simple pouch and strap placement. No three-quarter pose, no mechanical flip. Relaxed neutral idle, complete boots visible and grounded on one baseline, centered with margins. Modern illustrated 2D matte style, readable simplified detail for 56-world-pixel scale. No scenery, shadow, glow, vignette, floor, text, frame, collage or extra characters.",
+    "east": "Use case: illustration-story. Create one single full-body EAST-facing exact side-profile idle illustration of Dario, portrait 2:3 transparent RGBA. Reference 1 is the approved south view for identity, clothing and side placement; reference 2 is the original route-trainer atlas for exact identity/style, Dario is bottom-right frame 3. Dario has short wavy silver-gray hair, ivory shirt, dark charcoal trousers and boots, long charcoal-brown coat with copper/rust geometric trim and tails, brown belt, round copper ring/loop at the anatomical LEFT hip, small utility pouch, and red-brown wrist wrap on the anatomical RIGHT wrist. Facing EAST means nose/chest point to image-right; true side profile, one eye visible. EAST near side is Dario's anatomical RIGHT, so the red-brown wrist wrap must be visible on the near/image-right arm. The LEFT-side ring/loop is on the far hip and must not be relocated to the near side; show its strap/loop only as naturally occluded if appropriate. Preserve anatomical near/far overlap. No three-quarter pose, no mechanical flip. Relaxed neutral idle, complete boots visible and grounded on one baseline, centered with margins. Modern illustrated 2D matte style, readable simplified detail for 56-world-pixel scale. No scenery, shadow, glow, vignette, floor, text, frame, collage or extra characters.",
+    "north": "Use case: illustration-story. Generate one corrected single full-body NORTH-facing rear idle illustration of Dario, portrait 2:3, transparent RGBA. Use the first reference (approved SOUTH view) for canonical outfit sides and identity; second reference is the earlier NORTH candidate only for the accurate rear pose, coat construction, hair and style; third reference is the original route-trainer atlas, where Dario is bottom-right frame 3. Preserve the same silver-gray short wavy hair, charcoal-brown long coat with copper/rust geometric trim and pale ivory back lining, ivory shirt, charcoal trousers, boots, straps, utility pouch, round copper ring and red wrist wrap. IMPORTANT fix the two rear accessory sides according to the SOUTH canonical anatomy: the front's utility pouch is on viewer-RIGHT, therefore anatomical LEFT, so in this rear NORTH view it must be on viewer-LEFT together with the gold ring; the front's red tassel/hanging strip is on viewer-LEFT, anatomical RIGHT, so in rear view it must be viewer-RIGHT. The red-brown wrist wrap on anatomical RIGHT correctly remains viewer-RIGHT in the rear view. Keep the gold ring on viewer-LEFT. Place pouch+ring left, red tassel+wrap right. No side swaps. Straight-on back view facing away, not three-quarter or flipped. Preserve accepted details except these two corrections. Full body and both boots visible, feet on shared baseline, centered with margins. Modern 2D matte illustrated finish with simplified readable detail for a 56-world-pixel character. No scene, floor, shadow, glow, vignette, text, other characters, sheet/collage, crop or pixel cleanup."
+  },
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-dario-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-dario-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dario-idle-south-v1.webp",
+      "sourceSha256": "b4ef7ebe43a2bba630f41e98a6509f5c05943a728c6f051ec3b70e0b7e4f50c9",
+      "runtimeSha256": "8904d8f8b2f58c4adda5e89c5b1e1ed212f9769a934bb7f7b4039b5c1886e959",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.62771,
+        "y": 0.97461
+      },
+      "displaySize": 59.16,
+      "outputId": "exec-a8da85da-0f09-485e-a7dc-2067308ccfd3",
+      "alpha128Bounds": [
+        213,
+        43,
+        878,
+        1497
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png",
+      "references": [
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "original image identity/style reference; Dario is bottom-right frame 3"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Create one single full-body SOUTH-facing idle illustration of Dario, portrait 2:3 on transparent RGBA. Reference role: the original route-trainer atlas is authoritative for identity and art style; Dario is bottom-right frame 3 only. Match the specific character: short softly wavy silver/gray hair, warm fair skin and friendly calm expression; long charcoal-brown field coat with copper/rust geometric edge accents and split tails, open ivory shirt, dark charcoal trousers, practical brown boots, reddish-brown wrist wraps, leather belt with the simple round copper ring/loop at Dario's anatomical LEFT hip and small utility pouch. Keep the distinctive coat silhouette, shirt neckline, wrist wraps, belt hardware and hip pouch. Do not add binoculars (Oren), flower clip or cream/pink clothing (Nila), turquoise outfit (Iris), or invented props. Exact front-facing south view, natural relaxed standing idle with arms resting neutrally. Front anatomy rule: the round ring/loop remains on Dario's anatomical LEFT, appearing viewer-right; the red-brown wrist wrap visible at viewer-left belongs to his anatomical RIGHT. Preserve all sides. Modern illustrated 2D matte style matching the original, with simplified readable large shapes suitable for an NPC shown around 56 world pixels tall. Full body and both boots visible, centered with transparent margins; no crop, flip, pixel cleanup or resampling. One character only, no background, floor, shadow, vignette, glow, text, sheet or collage.",
+      "candidateSha256": "B4EF7EBE43A2BBA630F41E98A6509F5C05943A728C6F051EC3B70E0B7E4F50C9"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-dario-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-dario-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dario-idle-north-v1.webp",
+      "sourceSha256": "68d09a3d035cb4ba7473d457606ef33363b833aa25efc349672852563d26a149",
+      "runtimeSha256": "41b412cad63665f4ac7d36b36598b164cd6b7d566d1bd52e78d7713508bda1cb",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.50564,
+        "y": 0.96484
+      },
+      "displaySize": 59.28,
+      "outputId": "exec-eed4bcb8-22bd-4dc9-b17c-ff58cf80f8d5",
+      "alpha128Bounds": [
+        173,
+        31,
+        858,
+        1482
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-eed4bcb8-22bd-4dc9-b17c-ff58cf80f8d5.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png",
+          "role": "south view for canonical identity/outfit/anatomy"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\.tmp\\dario-idles-candidates\\dario-idle-north-initial-discarded.png",
+          "role": "previous north pose/style reference; corrected accessory sides"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "original identity/style; Dario bottom-right frame 3"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Generate one corrected single full-body NORTH-facing rear idle illustration of Dario, portrait 2:3, transparent RGBA. Use the first reference (approved SOUTH view) for canonical outfit sides and identity; second reference is the earlier NORTH candidate only for the accurate rear pose, coat construction, hair and style; third reference is the original route-trainer atlas, where Dario is bottom-right frame 3. Preserve the same silver-gray short wavy hair, charcoal-brown long coat with copper/rust geometric trim and pale ivory back lining, ivory shirt, charcoal trousers, boots, straps, utility pouch, round copper ring and red wrist wrap. IMPORTANT fix the two rear accessory sides according to the SOUTH canonical anatomy: the front's utility pouch is on viewer-RIGHT, therefore anatomical LEFT, so in this rear NORTH view it must be on viewer-LEFT together with the gold ring; the front's red tassel/hanging strip is on viewer-LEFT, anatomical RIGHT, so in rear view it must be viewer-RIGHT. The red-brown wrist wrap on anatomical RIGHT correctly remains viewer-RIGHT in the rear view. Keep the gold ring on viewer-LEFT. Place pouch+ring left, red tassel+wrap right. No side swaps. Straight-on back view facing away, not three-quarter or flipped. Preserve accepted details except these two corrections. Full body and both boots visible, feet on shared baseline, centered with margins. Modern 2D matte illustrated finish with simplified readable detail for a 56-world-pixel character. No scene, floor, shadow, glow, vignette, text, other characters, sheet/collage, crop or pixel cleanup.",
+      "candidateSha256": "68D09A3D035CB4BA7473D457606EF33363B833AA25EFC349672852563D26A149"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-dario-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-dario-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dario-idle-west-v1.webp",
+      "sourceSha256": "020f75e40132325fa100e334e4e7062d3a60790d1f2682d8354798857448013d",
+      "runtimeSha256": "1f264f847b4b688329b73dcab8ca09653a2f5df883028bf2710a0a4d032913d9",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.40558,
+        "y": 0.9668
+      },
+      "displaySize": 59.12,
+      "outputId": "exec-1cb37f1e-0229-44a8-815b-56f8e79aa05c",
+      "alpha128Bounds": [
+        280,
+        30,
+        743,
+        1485
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-1cb37f1e-0229-44a8-815b-56f8e79aa05c.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png",
+          "role": "generated south reference for identity/outfit/anatomy"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "original image identity/style reference; Dario is bottom-right frame 3"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Create one single full-body WEST-facing exact side-profile idle illustration of Dario, portrait 2:3 transparent RGBA. Reference 1 is the approved south view for identity, clothing and side placement; reference 2 is the original route-trainer atlas for exact identity/style, Dario is bottom-right frame 3. Dario has short wavy silver-gray hair, ivory shirt, dark charcoal trousers and boots, long charcoal-brown coat with copper/rust geometric trim and tails, brown belt, round copper ring/loop at the anatomical LEFT hip, small utility pouch, and red-brown wrist wrap on the anatomical RIGHT wrist. Facing WEST means nose/chest point to image-left; true side profile, one eye visible. WEST near side is Dario's anatomical LEFT, so the ring/loop must be visible on the image-left/near hip and the RIGHT wrist wrap stays on the far side and should not be moved to the near arm. Preserve anatomically correct near/far occlusion, simple pouch and strap placement. No three-quarter pose, no mechanical flip. Relaxed neutral idle, complete boots visible and grounded on one baseline, centered with margins. Modern illustrated 2D matte style, readable simplified detail for 56-world-pixel scale. No scenery, shadow, glow, vignette, floor, text, frame, collage or extra characters.",
+      "candidateSha256": "020F75E40132325FA100E334E4E7062D3A60790D1F2682D8354798857448013D"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-dario-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-dario-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-dario-idle-east-v1.webp",
+      "sourceSha256": "4b8d2b5681483f13a796e0b96912f07cbd84558b4dcefc2d210edc887f65acee",
+      "runtimeSha256": "0d5c4a3450a70b2835f6337b4494419e52dfee1426dcb368d560f33e50634574",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.56087,
+        "y": 0.96029
+      },
+      "displaySize": 59.9,
+      "outputId": "exec-69f9d54c-ad73-4b38-80bd-a46cf07699c4",
+      "alpha128Bounds": [
+        260,
+        39,
+        704,
+        1475
+      ],
+      "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-69f9d54c-ad73-4b38-80bd-a46cf07699c4.png",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png",
+          "role": "generated south reference for identity/outfit/anatomy"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "original image identity/style reference; Dario is bottom-right frame 3"
+        }
+      ],
+      "prompt": "Use case: illustration-story. Create one single full-body EAST-facing exact side-profile idle illustration of Dario, portrait 2:3 transparent RGBA. Reference 1 is the approved south view for identity, clothing and side placement; reference 2 is the original route-trainer atlas for exact identity/style, Dario is bottom-right frame 3. Dario has short wavy silver-gray hair, ivory shirt, dark charcoal trousers and boots, long charcoal-brown coat with copper/rust geometric trim and tails, brown belt, round copper ring/loop at the anatomical LEFT hip, small utility pouch, and red-brown wrist wrap on the anatomical RIGHT wrist. Facing EAST means nose/chest point to image-right; true side profile, one eye visible. EAST near side is Dario's anatomical RIGHT, so the red-brown wrist wrap must be visible on the near/image-right arm. The LEFT-side ring/loop is on the far hip and must not be relocated to the near side; show its strap/loop only as naturally occluded if appropriate. Preserve anatomical near/far overlap. No three-quarter pose, no mechanical flip. Relaxed neutral idle, complete boots visible and grounded on one baseline, centered with margins. Modern illustrated 2D matte style, readable simplified detail for 56-world-pixel scale. No scenery, shadow, glow, vignette, floor, text, frame, collage or extra characters.",
+      "candidateSha256": "4B8D2B5681483F13A796E0B96912F07CBD84558B4DCEFC2D210EDC887F65ACEE"
+    }
+  ],
+  "discarded": [
+    {
+      "direction": "north",
+      "prompt": "Use case: illustration-story. Create a single full-body NORTH-facing rear idle view of the same Dario in reference 1 (approved south pose for identity/outfit/side placement) and reference 2 (original atlas, Dario is bottom-right frame 3). Portrait 2:3 transparent RGBA, centered with margins, both complete boots visible. True rear view facing directly away. Maintain silver short wavy hair, long charcoal-brown coat with copper/rust geometric trim and split tails, ivory shirt, dark trousers, boots, brown straps, belt, small pouch and red-brown wrist wrap. Crucial anatomical side continuity: in the frontal view the copper ring hangs at viewer-right, so it is on Dario's anatomical LEFT; in this NORTH/rear view that same LEFT-side ring must appear viewer-LEFT. The wrist wrap is anatomical RIGHT and should appear viewer-RIGHT in the rear view. Do not swap sides. Show plausible coat back and backpack/strap routing without inventing gear. Keep design clean and readable at about 56 world pixels tall. Natural relaxed posture, feet on shared baseline. Modern 2D matte illustration matching original. No 3/4 turn, no flip of south, no scene, floor, shadow, vignette, glow, text, frame, sheet, or other people.",
+      "references": [
+        {
+          "path": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a8da85da-0f09-485e-a7dc-2067308ccfd3.png",
+          "role": "generated south reference for identity/outfit/anatomy"
+        },
+        {
+          "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-route-trainers-r04-r07-v1.png",
+          "role": "original image identity/style reference; Dario is bottom-right frame 3"
+        }
+      ],
+      "outputId": "exec-134ddd49-c329-4f01-85cf-53b7595e11e3",
+      "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-134ddd49-c329-4f01-85cf-53b7595e11e3.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\dario-idles-candidates\\dario-idle-north-initial-discarded.png",
+      "sha256": "1CEE9C550DE4D5291F26B240B5EEF99A8F1751C0936B43D1A45D8B06AE40AC73",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "alphaBBox": [
+        0,
+        23,
+        1002,
+        1504
+      ],
+      "alpha128BBox": [
+        187,
+        36,
+        854,
+        1479
+      ],
+      "selection": "discarded",
+      "reason": "Lato pouch errato: il pouch anatomico sinistro era sul viewer-right; il tassello rosso anatomico destro era sul viewer-left. Il ring e la wrist wrap erano corretti."
+    }
+  ],
+  "calibration": "Optical body height 56 world px from alpha>=128 body bounds. Feet origin x is alpha-weighted centroid in bottom 50px; y is bottom visible row. No crop, flip, cleanup or resampling. Runtime WebP lossless with exact RGBA pixel equality."
+}
