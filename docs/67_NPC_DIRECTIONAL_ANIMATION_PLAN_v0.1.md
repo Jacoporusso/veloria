@@ -64,3 +64,9 @@ Quattro pose verticali indipendenti condivise da Borgofonte e Passo delle Due Lu
 ## Prototipo walk Ada — 28 ottobre, versione 0.4.30
 
 Otto disegni autentici registrati (due per direzione), contratto validato, selettore puro e controller Phaser integrati. Prova separata DEV con movimento reale, arresto, movimento ridotto e salvataggio invariato; due casi Chrome passati dopo la stabilizzazione degli ancoraggi. Primo decode offline delle12pose e quattro interazioni Ada passati. Nord/est idle sostituiti con correzioni anatomiche v3; le calibrazioni precedenti della tabella restano storiche. Dettagli, provenienza, scarti e limiti in [documento106](106_ADA_WALK_PIPELINE_v0.1.md). Il ciclo a due fasi resta un prototipo da rifinire. Undici identità hanno ora quattro idle;37 restano da migrare, gli altri47 profili non hanno un ciclo walk verificato. Nessun nuovo percorso automatico nella campagna.
+
+## Avanzamento 0.4.34
+
+I lotti successivi portano le idle direzionali a 19 identità su 48: Sera, Timo, Rami, Leda, Lea, Nila, Oren e Iris R06 si aggiungono alle undici precedenti. Restano 29 identità da migrare e 47 profili senza ciclo walk verificato. Le candidate private dei prossimi personaggi non contano come integrazioni completate. Ruoli, geometrie e progressione restano separati dalle sostituzioni grafiche.
+
+La minificazione WebGL usa una superficie POT con frame utile nel rapporto originale e filtro trilineare, senza deformare pose o origini. Verificati cambi direzione, rilascio/ricostruzione delle texture, ripristino del contesto a DPR 3, preview walk Ada e disponibilità offline. Il padding e le mipmap aggiungono memoria: il budget GPU e la QA su telefono fisico rimangono da misurare. Prove, provenienza e limiti in [documento110](110_NILA_OREN_IRIS_DIRECTIONAL_IDLE_v0.1.md).

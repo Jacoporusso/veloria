@@ -1,0 +1,2034 @@
+{
+  "starter": "Charmander",
+  "startingRngState": 2622980238,
+  "prepareGym": true,
+  "continueRadicelmo": true,
+  "continuePetalora": true,
+  "continueVetracielo": true,
+  "continueFerraluce": true,
+  "resumeRheaFile": "C:/Projects/Veloria/.tmp/natural-gen1-rhea-water-rail/natural-prologue-natural-j-04b21-ress-and-real-game-controls/natural-rhea-water-companion-ready-backup.json",
+  "rheaWaterPreparation": false,
+  "rheaRotation": true,
+  "nereaChallenge": false,
+  "irisRecovery": false,
+  "darioPreparation": false,
+  "wooperPreparation": false,
+  "wooperTraining": false,
+  "damageFirst": true,
+  "coastRotation": false,
+  "nereaRotation": false,
+  "requestedLearning": {},
+  "acquarivaSearch": false,
+  "seleneChallenge": false,
+  "dunesRecovery": false,
+  "captureSpeciesId": 0,
+  "healingThreshold": 0.5,
+  "report": [
+    {
+      "label": "Earned checkpoint source",
+      "sha256": "6928e9d8ca65f9c30f542aba8e5ad6106b2c6b17d074399e2547a458234567a1"
+    },
+    {
+      "label": "Resumed unchanged earned Rhea checkpoint",
+      "contentVersion": "veloria-content-0.4.30",
+      "mapId": "veloria/ferraluce",
+      "x": 9,
+      "y": 22,
+      "party": [
+        {
+          "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "speciesId": 5,
+          "level": 22,
+          "experience": 1004,
+          "hp": 57,
+          "maxHp": 57,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+          "speciesId": 46,
+          "level": 9,
+          "experience": 104,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "stun-spore",
+              "pp": 30
+            },
+            {
+              "id": "poison-powder",
+              "pp": 35
+            }
+          ]
+        },
+        {
+          "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+          "speciesId": 21,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "peck",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+          "speciesId": 4,
+          "level": 15,
+          "experience": 0,
+          "hp": 36,
+          "maxHp": 36,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "speciesId": 54,
+          "level": 22,
+          "experience": 77,
+          "hp": 54,
+          "maxHp": 54,
+          "moves": [
+            {
+              "id": "water-sport",
+              "pp": 15
+            },
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "water-pulse",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "pokedex_caught_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "tutorial_habitat_seen",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_19",
+        "pokedex_seen_21",
+        "pokedex_caught_21",
+        "pokedex_seen_10",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_46",
+        "pokedex_caught_46",
+        "pokedex_seen_48",
+        "pokedex_seen_13",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_100",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_39",
+        "pokedex_seen_44",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_43",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_27",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_58",
+        "pokedex_seen_96",
+        "pokedex_seen_52",
+        "pokedex_seen_133",
+        "pokedex_seen_5",
+        "pokedex_caught_5",
+        "pokedex_seen_132",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "pokedex_seen_81",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "pokedex_seen_114",
+        "pokedex_seen_127",
+        "pokedex_seen_70",
+        "pokedex_seen_102",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_142",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_seen_98",
+        "pokedex_seen_83",
+        "pokedex_seen_54",
+        "pokedex_caught_54",
+        "pokedex_seen_95",
+        "pokedex_seen_66"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 1
+      },
+      "money": 640
+    },
+    {
+      "label": "Rhea rematch supplies earned and purchased",
+      "contentVersion": "veloria-content-0.4.30",
+      "mapId": "veloria/ferraluce",
+      "x": 30,
+      "y": 22,
+      "party": [
+        {
+          "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "speciesId": 5,
+          "level": 22,
+          "experience": 1004,
+          "hp": 57,
+          "maxHp": 57,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+          "speciesId": 46,
+          "level": 9,
+          "experience": 104,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "stun-spore",
+              "pp": 30
+            },
+            {
+              "id": "poison-powder",
+              "pp": 35
+            }
+          ]
+        },
+        {
+          "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+          "speciesId": 21,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "peck",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+          "speciesId": 4,
+          "level": 15,
+          "experience": 0,
+          "hp": 36,
+          "maxHp": 36,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "speciesId": 54,
+          "level": 22,
+          "experience": 77,
+          "hp": 54,
+          "maxHp": 54,
+          "moves": [
+            {
+              "id": "water-sport",
+              "pp": 15
+            },
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "water-pulse",
+              "pp": 20
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "pokedex_caught_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "tutorial_habitat_seen",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_19",
+        "pokedex_seen_21",
+        "pokedex_caught_21",
+        "pokedex_seen_10",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_46",
+        "pokedex_caught_46",
+        "pokedex_seen_48",
+        "pokedex_seen_13",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_100",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_39",
+        "pokedex_seen_44",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_43",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_27",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_58",
+        "pokedex_seen_96",
+        "pokedex_seen_52",
+        "pokedex_seen_133",
+        "pokedex_seen_5",
+        "pokedex_caught_5",
+        "pokedex_seen_132",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "pokedex_seen_81",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "pokedex_seen_114",
+        "pokedex_seen_127",
+        "pokedex_seen_70",
+        "pokedex_seen_102",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_142",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_seen_98",
+        "pokedex_seen_83",
+        "pokedex_seen_54",
+        "pokedex_caught_54",
+        "pokedex_seen_95",
+        "pokedex_seen_66"
+      ],
+      "inventory": {
+        "potion": 2,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 1
+      },
+      "money": 240
+    },
+    {
+      "label": "Rhea visible matchup switch",
+      "from": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+      "to": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+      "targetTypes": [
+        "rock",
+        "flying"
+      ]
+    },
+    {
+      "label": "Battle result",
+      "id": "2ba753eb-1068-4eea-8b4d-65137cc98aaf",
+      "rulesetId": "veloria-battle-prototype-v15",
+      "turn": 8,
+      "outcome": {
+        "kind": "won",
+        "winner": "player",
+        "reason": "allFainted"
+      },
+      "player": {
+        "creatures": [
+          {
+            "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+            "speciesId": 5,
+            "name": "Charmeleon",
+            "abilityId": "blaze",
+            "gender": "male",
+            "level": 23,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 58,
+              "attack": 64,
+              "defense": 58,
+              "specialAttack": 80,
+              "specialDefense": 65,
+              "speed": 80
+            },
+            "weightKg": 19,
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 59,
+              "attack": 34,
+              "defense": 31,
+              "specialAttack": 41,
+              "specialDefense": 34,
+              "speed": 41
+            },
+            "hp": 59,
+            "experience": 33,
+            "experienceYield": 142,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 34
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 24
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ],
+            "enteredBattleTurn": 0
+          },
+          {
+            "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+            "speciesId": 46,
+            "name": "Paras",
+            "abilityId": "effect-spore",
+            "gender": "male",
+            "level": 9,
+            "types": [
+              "bug",
+              "grass"
+            ],
+            "baseStats": {
+              "hp": 35,
+              "attack": 70,
+              "defense": 55,
+              "specialAttack": 45,
+              "specialDefense": 55,
+              "speed": 25
+            },
+            "weightKg": 5.4,
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 25,
+              "attack": 17,
+              "defense": 14,
+              "specialAttack": 13,
+              "specialDefense": 14,
+              "speed": 9
+            },
+            "hp": 25,
+            "experience": 104,
+            "experienceYield": 57,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "stun-spore",
+                "pp": 30
+              },
+              {
+                "moveId": "poison-powder",
+                "pp": 35
+              }
+            ]
+          },
+          {
+            "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+            "speciesId": 21,
+            "name": "Spearow",
+            "abilityId": "keen-eye",
+            "gender": "male",
+            "level": 2,
+            "types": [
+              "normal",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 40,
+              "attack": 60,
+              "defense": 30,
+              "specialAttack": 31,
+              "specialDefense": 31,
+              "speed": 70
+            },
+            "weightKg": 2,
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 13,
+              "attack": 7,
+              "defense": 6,
+              "specialAttack": 6,
+              "specialDefense": 6,
+              "speed": 7
+            },
+            "hp": 13,
+            "experience": 0,
+            "experienceYield": 52,
+            "moves": [
+              {
+                "moveId": "peck",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              }
+            ]
+          },
+          {
+            "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+            "speciesId": 4,
+            "name": "Charmander",
+            "abilityId": "blaze",
+            "gender": "male",
+            "level": 15,
+            "types": [
+              "fire"
+            ],
+            "baseStats": {
+              "hp": 39,
+              "attack": 52,
+              "defense": 43,
+              "specialAttack": 60,
+              "specialDefense": 50,
+              "speed": 65
+            },
+            "weightKg": 8.5,
+            "growthCurveId": "pokeapi_growth_medium-slow_v1",
+            "stats": {
+              "maxHp": 36,
+              "attack": 20,
+              "defense": 17,
+              "specialAttack": 23,
+              "specialDefense": 20,
+              "speed": 24
+            },
+            "hp": 36,
+            "experience": 0,
+            "experienceYield": 62,
+            "moves": [
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "growl",
+                "pp": 40
+              },
+              {
+                "moveId": "ember",
+                "pp": 25
+              },
+              {
+                "moveId": "smokescreen",
+                "pp": 20
+              }
+            ]
+          },
+          {
+            "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+            "speciesId": 54,
+            "name": "Psyduck",
+            "abilityId": "damp",
+            "gender": "male",
+            "level": 22,
+            "types": [
+              "water"
+            ],
+            "baseStats": {
+              "hp": 50,
+              "attack": 52,
+              "defense": 48,
+              "specialAttack": 65,
+              "specialDefense": 50,
+              "speed": 55
+            },
+            "weightKg": 19.6,
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 54,
+              "attack": 27,
+              "defense": 26,
+              "specialAttack": 33,
+              "specialDefense": 27,
+              "speed": 29
+            },
+            "hp": 6,
+            "experience": 1250,
+            "experienceYield": 64,
+            "moves": [
+              {
+                "moveId": "water-sport",
+                "pp": 15
+              },
+              {
+                "moveId": "scratch",
+                "pp": 35
+              },
+              {
+                "moveId": "confusion",
+                "pp": 25
+              },
+              {
+                "moveId": "water-pulse",
+                "pp": 17
+              }
+            ],
+            "statStages": {
+              "defense": -2
+            },
+            "enteredBattleTurn": 3,
+            "consecutiveMoveUses": 3
+          }
+        ],
+        "activeIndex": 4
+      },
+      "opponent": {
+        "creatures": [
+          {
+            "instanceId": "veloria/trainer_rhea_gym04:1",
+            "speciesId": 81,
+            "name": "Magnemite",
+            "abilityId": "magnet-pull",
+            "gender": "genderless",
+            "level": 20,
+            "types": [
+              "electric",
+              "steel"
+            ],
+            "baseStats": {
+              "hp": 25,
+              "attack": 35,
+              "defense": 70,
+              "specialAttack": 95,
+              "specialDefense": 55,
+              "speed": 45
+            },
+            "weightKg": 6,
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 40,
+              "attack": 19,
+              "defense": 33,
+              "specialAttack": 43,
+              "specialDefense": 27,
+              "speed": 23
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 65,
+            "moves": [
+              {
+                "moveId": "thunder-shock",
+                "pp": 30
+              },
+              {
+                "moveId": "thunder-wave",
+                "pp": 20
+              },
+              {
+                "moveId": "metal-sound",
+                "pp": 39
+              },
+              {
+                "moveId": "sonic-boom",
+                "pp": 20
+              }
+            ],
+            "enteredBattleTurn": 0
+          },
+          {
+            "instanceId": "veloria/trainer_rhea_gym04:2",
+            "speciesId": 142,
+            "name": "Aerodactyl",
+            "abilityId": "rock-head",
+            "gender": "male",
+            "level": 21,
+            "types": [
+              "rock",
+              "flying"
+            ],
+            "baseStats": {
+              "hp": 80,
+              "attack": 105,
+              "defense": 65,
+              "specialAttack": 60,
+              "specialDefense": 75,
+              "speed": 130
+            },
+            "weightKg": 59,
+            "growthCurveId": "pokeapi_growth_slow_v1",
+            "stats": {
+              "maxHp": 64,
+              "attack": 49,
+              "defense": 32,
+              "specialAttack": 30,
+              "specialDefense": 36,
+              "speed": 59
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 180,
+            "moves": [
+              {
+                "moveId": "agility",
+                "pp": 29
+              },
+              {
+                "moveId": "roar",
+                "pp": 20
+              },
+              {
+                "moveId": "scary-face",
+                "pp": 10
+              },
+              {
+                "moveId": "bite",
+                "pp": 23
+              }
+            ],
+            "enteredBattleTurn": 2
+          },
+          {
+            "instanceId": "veloria/trainer_rhea_gym04:3",
+            "speciesId": 95,
+            "name": "Onix",
+            "abilityId": "rock-head",
+            "gender": "female",
+            "level": 22,
+            "types": [
+              "rock",
+              "ground"
+            ],
+            "baseStats": {
+              "hp": 35,
+              "attack": 45,
+              "defense": 160,
+              "specialAttack": 30,
+              "specialDefense": 45,
+              "speed": 70
+            },
+            "weightKg": 210,
+            "growthCurveId": "pokeapi_growth_medium_v1",
+            "stats": {
+              "maxHp": 47,
+              "attack": 24,
+              "defense": 75,
+              "specialAttack": 18,
+              "specialDefense": 24,
+              "speed": 35
+            },
+            "hp": 0,
+            "experience": 0,
+            "experienceYield": 77,
+            "moves": [
+              {
+                "moveId": "tackle",
+                "pp": 35
+              },
+              {
+                "moveId": "rock-throw",
+                "pp": 13
+              },
+              {
+                "moveId": "harden",
+                "pp": 30
+              },
+              {
+                "moveId": "screech",
+                "pp": 39
+              }
+            ],
+            "enteredBattleTurn": 5,
+            "consecutiveMoveUses": 1
+          }
+        ],
+        "activeIndex": 2
+      },
+      "events": [
+        {
+          "type": "turnStarted",
+          "turn": 1
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "moveId": "ember"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "targetCreatureId": "veloria/trainer_rhea_gym04:1",
+          "moveId": "ember",
+          "amount": 37,
+          "effectiveness": 2,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:1",
+          "moveId": "metal-sound"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "stat": "specialDefense",
+          "change": -2,
+          "stage": -2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 2
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "moveId": "scratch"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "targetCreatureId": "veloria/trainer_rhea_gym04:1",
+          "moveId": "scratch",
+          "amount": 3,
+          "effectiveness": 0.5,
+          "critical": true
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:1"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "amount": 277,
+          "sourceCreatureId": "veloria/trainer_rhea_gym04:1"
+        },
+        {
+          "type": "levelUp",
+          "side": "player",
+          "creatureId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "previousLevel": 22,
+          "level": 23
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "opponent",
+          "fromId": "veloria/trainer_rhea_gym04:1",
+          "toId": "veloria/trainer_rhea_gym04:2"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 3
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "player",
+          "fromId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "toId": "8f7a3233-93fa-4d16-824e-eda754b17cf1"
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:2",
+          "moveId": "bite"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "targetCreatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "bite",
+          "amount": 21,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 4
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:2",
+          "moveId": "agility"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:2",
+          "stat": "speed",
+          "change": 2,
+          "stage": 2
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "water-pulse"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "targetCreatureId": "veloria/trainer_rhea_gym04:2",
+          "moveId": "water-pulse",
+          "amount": 38,
+          "effectiveness": 2,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 5
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:2",
+          "moveId": "bite"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "targetCreatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "bite",
+          "amount": 23,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "water-pulse"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "targetCreatureId": "veloria/trainer_rhea_gym04:2",
+          "moveId": "water-pulse",
+          "amount": 26,
+          "effectiveness": 2,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:2"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "amount": 810,
+          "sourceCreatureId": "veloria/trainer_rhea_gym04:2"
+        },
+        {
+          "type": "creatureSwitched",
+          "side": "opponent",
+          "fromId": "veloria/trainer_rhea_gym04:2",
+          "toId": "veloria/trainer_rhea_gym04:3"
+        },
+        {
+          "type": "turnStarted",
+          "turn": 6
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "healed": 20
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:3",
+          "moveId": "rock-throw"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "targetCreatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "rock-throw",
+          "amount": 14,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "turnStarted",
+          "turn": 7
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "player",
+            "opponent"
+          ]
+        },
+        {
+          "type": "itemUsed",
+          "side": "player",
+          "itemId": "potion",
+          "targetId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "healed": 20
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:3",
+          "moveId": "screech"
+        },
+        {
+          "type": "statStageChanged",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "stat": "defense",
+          "change": -2,
+          "stage": -2
+        },
+        {
+          "type": "turnStarted",
+          "turn": 8
+        },
+        {
+          "type": "actionOrder",
+          "sides": [
+            "opponent",
+            "player"
+          ]
+        },
+        {
+          "type": "moveUsed",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:3",
+          "moveId": "rock-throw"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "opponent",
+          "targetSide": "player",
+          "targetCreatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "rock-throw",
+          "amount": 30,
+          "effectiveness": 1,
+          "critical": false
+        },
+        {
+          "type": "moveUsed",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "moveId": "water-pulse"
+        },
+        {
+          "type": "damageApplied",
+          "sourceSide": "player",
+          "targetSide": "opponent",
+          "targetCreatureId": "veloria/trainer_rhea_gym04:3",
+          "moveId": "water-pulse",
+          "amount": 47,
+          "effectiveness": 4,
+          "critical": false
+        },
+        {
+          "type": "creatureFainted",
+          "side": "opponent",
+          "creatureId": "veloria/trainer_rhea_gym04:3"
+        },
+        {
+          "type": "experienceGained",
+          "side": "player",
+          "creatureId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "amount": 363,
+          "sourceCreatureId": "veloria/trainer_rhea_gym04:3"
+        },
+        {
+          "type": "battleEnded",
+          "outcome": {
+            "kind": "won",
+            "winner": "player",
+            "reason": "allFainted"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Rhea battle completed naturally",
+      "contentVersion": "veloria-content-0.4.30",
+      "mapId": "veloria/gym04_ferraluce",
+      "x": 15,
+      "y": 11,
+      "party": [
+        {
+          "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "speciesId": 5,
+          "level": 23,
+          "experience": 33,
+          "hp": 59,
+          "maxHp": 59,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 24
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+          "speciesId": 46,
+          "level": 9,
+          "experience": 104,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "stun-spore",
+              "pp": 30
+            },
+            {
+              "id": "poison-powder",
+              "pp": 35
+            }
+          ]
+        },
+        {
+          "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+          "speciesId": 21,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "peck",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+          "speciesId": 4,
+          "level": 15,
+          "experience": 0,
+          "hp": 36,
+          "maxHp": 36,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "speciesId": 54,
+          "level": 22,
+          "experience": 1250,
+          "hp": 6,
+          "maxHp": 54,
+          "moves": [
+            {
+              "id": "water-sport",
+              "pp": 15
+            },
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "water-pulse",
+              "pp": 17
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "pokedex_caught_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "tutorial_habitat_seen",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_19",
+        "pokedex_seen_21",
+        "pokedex_caught_21",
+        "pokedex_seen_10",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_46",
+        "pokedex_caught_46",
+        "pokedex_seen_48",
+        "pokedex_seen_13",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_100",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_39",
+        "pokedex_seen_44",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_43",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_27",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_58",
+        "pokedex_seen_96",
+        "pokedex_seen_52",
+        "pokedex_seen_133",
+        "pokedex_seen_5",
+        "pokedex_caught_5",
+        "pokedex_seen_132",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "pokedex_seen_81",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "pokedex_seen_114",
+        "pokedex_seen_127",
+        "pokedex_seen_70",
+        "pokedex_seen_102",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_142",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_seen_98",
+        "pokedex_seen_83",
+        "pokedex_seen_54",
+        "pokedex_caught_54",
+        "pokedex_seen_95",
+        "pokedex_seen_66",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 1
+      },
+      "money": 1340
+    },
+    {
+      "label": "Fourth medal persists after title resume",
+      "contentVersion": "veloria-content-0.4.30",
+      "mapId": "veloria/gym04_ferraluce",
+      "x": 15,
+      "y": 11,
+      "party": [
+        {
+          "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "speciesId": 5,
+          "level": 23,
+          "experience": 33,
+          "hp": 59,
+          "maxHp": 59,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 24
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+          "speciesId": 46,
+          "level": 9,
+          "experience": 104,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "stun-spore",
+              "pp": 30
+            },
+            {
+              "id": "poison-powder",
+              "pp": 35
+            }
+          ]
+        },
+        {
+          "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+          "speciesId": 21,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "peck",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+          "speciesId": 4,
+          "level": 15,
+          "experience": 0,
+          "hp": 36,
+          "maxHp": 36,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "speciesId": 54,
+          "level": 22,
+          "experience": 1250,
+          "hp": 6,
+          "maxHp": 54,
+          "moves": [
+            {
+              "id": "water-sport",
+              "pp": 15
+            },
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "water-pulse",
+              "pp": 17
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "pokedex_caught_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "tutorial_habitat_seen",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_19",
+        "pokedex_seen_21",
+        "pokedex_caught_21",
+        "pokedex_seen_10",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_46",
+        "pokedex_caught_46",
+        "pokedex_seen_48",
+        "pokedex_seen_13",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_100",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_39",
+        "pokedex_seen_44",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_43",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_27",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_58",
+        "pokedex_seen_96",
+        "pokedex_seen_52",
+        "pokedex_seen_133",
+        "pokedex_seen_5",
+        "pokedex_caught_5",
+        "pokedex_seen_132",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "pokedex_seen_81",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "pokedex_seen_114",
+        "pokedex_seen_127",
+        "pokedex_seen_70",
+        "pokedex_seen_102",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_142",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_seen_98",
+        "pokedex_seen_83",
+        "pokedex_seen_54",
+        "pokedex_caught_54",
+        "pokedex_seen_95",
+        "pokedex_seen_66",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 1
+      },
+      "money": 1340
+    },
+    {
+      "label": "Final observed state",
+      "contentVersion": "veloria-content-0.4.30",
+      "mapId": "veloria/gym04_ferraluce",
+      "x": 15,
+      "y": 11,
+      "party": [
+        {
+          "instanceId": "ccd09b61-bbea-4fe8-a83d-8bd2139bebb6",
+          "speciesId": 5,
+          "level": 23,
+          "experience": 33,
+          "hp": 59,
+          "maxHp": 59,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 34
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 24
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "7f4097dd-0642-4724-ae9c-8105c25c1847",
+          "speciesId": 46,
+          "level": 9,
+          "experience": 104,
+          "hp": 25,
+          "maxHp": 25,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "stun-spore",
+              "pp": 30
+            },
+            {
+              "id": "poison-powder",
+              "pp": 35
+            }
+          ]
+        },
+        {
+          "instanceId": "bbee417f-60b1-4061-9b6d-aea718995e37",
+          "speciesId": 21,
+          "level": 2,
+          "experience": 0,
+          "hp": 13,
+          "maxHp": 13,
+          "moves": [
+            {
+              "id": "peck",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            }
+          ]
+        },
+        {
+          "instanceId": "quest:veloria/q_ferraluce_report:pokemon:0",
+          "speciesId": 4,
+          "level": 15,
+          "experience": 0,
+          "hp": 36,
+          "maxHp": 36,
+          "moves": [
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "growl",
+              "pp": 40
+            },
+            {
+              "id": "ember",
+              "pp": 25
+            },
+            {
+              "id": "smokescreen",
+              "pp": 20
+            }
+          ]
+        },
+        {
+          "instanceId": "8f7a3233-93fa-4d16-824e-eda754b17cf1",
+          "speciesId": 54,
+          "level": 22,
+          "experience": 1250,
+          "hp": 6,
+          "maxHp": 54,
+          "moves": [
+            {
+              "id": "water-sport",
+              "pp": 15
+            },
+            {
+              "id": "scratch",
+              "pp": 35
+            },
+            {
+              "id": "confusion",
+              "pp": 25
+            },
+            {
+              "id": "water-pulse",
+              "pp": 17
+            }
+          ]
+        }
+      ],
+      "badges": [
+        "badge_aurora",
+        "badge_corolla",
+        "badge_circuito",
+        "badge_acciaio"
+      ],
+      "flags": [
+        "q_prologue_started",
+        "intro_started",
+        "atlas_visited_veloria/borgofonte",
+        "intro_completed",
+        "atlas_visited_veloria/borgofonte_lab",
+        "q_starter_selected",
+        "pokedex_seen_4",
+        "pokedex_caught_4",
+        "q_research_sample_received",
+        "atlas_visited_veloria/r01_sentiero_alba",
+        "tutorial_habitat_seen",
+        "pokedex_seen_16",
+        "trainer_route01_sera_defeated",
+        "item_r01_potion_collected",
+        "pokedex_seen_19",
+        "pokedex_seen_21",
+        "pokedex_caught_21",
+        "pokedex_seen_10",
+        "atlas_visited_veloria/d01_bosco_veli",
+        "q_forest_signal_found",
+        "q_ada_helped",
+        "atlas_visited_veloria/r02_viale_fronde",
+        "atlas_visited_veloria/brumalta",
+        "q_brumalta_visited",
+        "pokedex_seen_46",
+        "pokedex_caught_46",
+        "pokedex_seen_48",
+        "pokedex_seen_13",
+        "atlas_visited_veloria/gym01_brumalta",
+        "gym01_resonance_south",
+        "gym01_resonance_middle",
+        "gym01_puzzle_solved",
+        "trainer_gym01_mira_defeated",
+        "badge_aurora_awarded",
+        "prologue_complete_seen",
+        "atlas_visited_veloria/r03_terrazze_muschio",
+        "q_radicelmo_seed_found",
+        "atlas_visited_veloria/radicelmo",
+        "q_radicelmo_seed_archived",
+        "atlas_visited_veloria/r04_salita_petali",
+        "pokedex_seen_100",
+        "trainer_r04_nila_defeated",
+        "atlas_visited_veloria/petalora",
+        "q_petalora_visited",
+        "pokedex_seen_39",
+        "pokedex_seen_44",
+        "atlas_visited_veloria/gym02_petalora",
+        "gym02_water_source_open",
+        "gym02_water_west_open",
+        "gym02_water_east_open",
+        "gym02_irrigation_solved",
+        "pokedex_seen_43",
+        "pokedex_seen_69",
+        "trainer_gym02_dalia_defeated",
+        "badge_corolla_awarded",
+        "atlas_visited_veloria/r05_viadotto_ciliegi",
+        "pokedex_seen_25",
+        "pokedex_seen_27",
+        "atlas_visited_veloria/vetracielo",
+        "q_vetracielo_visited",
+        "q_vetracielo_orientation",
+        "pokedex_seen_58",
+        "pokedex_seen_96",
+        "pokedex_seen_52",
+        "pokedex_seen_133",
+        "pokedex_seen_5",
+        "pokedex_caught_5",
+        "pokedex_seen_132",
+        "trainer_r05_oren_defeated",
+        "atlas_visited_veloria/gym03_vetracielo",
+        "gym03_line_gardens_active",
+        "gym03_line_glass_active",
+        "gym03_lines_connected",
+        "pokedex_seen_81",
+        "trainer_gym03_aster_defeated",
+        "badge_circuito_awarded",
+        "atlas_visited_veloria/r06_anello_magnetico",
+        "q_r06_measurement",
+        "atlas_visited_veloria/ferraluce",
+        "q_ferraluce_visited",
+        "q_ferraluce_report",
+        "pokedex_seen_114",
+        "pokedex_seen_127",
+        "pokedex_seen_70",
+        "pokedex_seen_102",
+        "atlas_visited_veloria/gym04_ferraluce",
+        "router_gym04magnetic_field_west",
+        "router_gym04magnetic_first_east",
+        "router_gym04magnetic_second_north",
+        "gym04_magnetic_aligned",
+        "pokedex_seen_142",
+        "trainer_r06_iris_defeated",
+        "q_r06_iris_helped",
+        "pokedex_seen_98",
+        "pokedex_seen_83",
+        "pokedex_seen_54",
+        "pokedex_caught_54",
+        "pokedex_seen_95",
+        "pokedex_seen_66",
+        "trainer_gym04_rhea_defeated",
+        "badge_acciaio_awarded"
+      ],
+      "inventory": {
+        "potion": 0,
+        "poke-ball": 2,
+        "archive-note": 1,
+        "antidote": 1
+      },
+      "money": 1340
+    }
+  ],
+  "errors": []
+}
