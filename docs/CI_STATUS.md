@@ -8,7 +8,7 @@ Verifiche locali:788 dominio+31persistenza passati; validatori731media/45fondali
 
 Il campionato usa una squadra preparata e non attesta bilanciamento naturale. Audit dei backup storici: progressione fino aP5 appartiene ai contenuti0.3.114 e include specie195/170, quindi non vale come prova del catalogo corrente GenI. Serve nuova partita guadagnata sul roster attuale; dettaglio in `docs/playtests/2026-10-27-natural-campaign-evidence-audit.md`.
 
-Contenuti0.4.26/cachev189 preparati; commit/push e Pages da registrare. Goal aperto: casa/laboratorio/Centrale ancora da accettare nel gruppo finale delle mappe,41profili direzionali, animazioni e campagna naturale. Il rendering di45fondali non equivale alla certificazione completa del progetto.
+Runtime `086491bccf871d5b47ecaf7972e1518c4e78c54e` inviato a main. Contenuti0.4.26/cachev189. [Deploy40646841652](https://github.com/Jacoporusso/veloria/actions/runs/40646841652) IN PROGRESS e [Verify40646841662](https://github.com/Jacoporusso/veloria/actions/runs/40646841662) QUEUED all’ultimo controllo. Nuova versione ancora da attestare su Pages. Goal aperto: casa/laboratorio/Centrale ancora da accettare nel gruppo finale delle mappe,41profili direzionali, animazioni e campagna naturale. Il rendering di45fondali non equivale alla certificazione completa del progetto.
 
 ## 0.4.25 — sala di Silvo, Aster e controllo superfici composte
 
@@ -18,7 +18,7 @@ Verifiche locali:788 test dominio+31persistenza passati; validatori717media/42fo
 
 Indagata Verify40563895310 (Biancavetta): falliva il solo controllo map-visual-parity che cercava un'Image permanente anche nei terrainBase. Il renderer compone una RenderTexture e distrugge l'Image temporanea. Il test ora controlla sorgente decodificata, superficie/bounds e tre campioni GPU confrontati con la bitmap sorgente per ogni fondale composto; nessuna mappa saltata. Entrambi i casi map-parity completi passati localmente. Verify40564520079 e40568374140 risultano CANCELLED; la suite completa CI più recente non viene dichiarata passata.
 
-Runtime `5f86a01451044f660869e3e7ddee4cb259ca6de7` inviato a main. Contenuti0.4.25/cachev188. [Deploy40575423267](https://github.com/Jacoporusso/veloria/actions/runs/40575423267) COMPLETED/SUCCESS. Pages verificata: cachev188 e HTTP200 per nuovo fondale Silvo e posa est Aster. [Verify40575423496](https://github.com/Jacoporusso/veloria/actions/runs/40575423496) PENDING all’ultimo controllo, senza attestazione di suite CI completa. Goal aperto: tre sale Lega e altre scene ancora da accettare,42profili direzionali, tutti i cicli di camminata e verifica della campagna naturale.
+Runtime `5f86a01451044f660869e3e7ddee4cb259ca6de7` inviato a main. Contenuti0.4.25/cachev188. [Deploy40575423267](https://github.com/Jacoporusso/veloria/actions/runs/40575423267) COMPLETED/SUCCESS. Pages verificata: cachev188 e HTTP200 per nuovo fondale Silvo e posa est Aster. [Verify40575423496](https://github.com/Jacoporusso/veloria/actions/runs/40575423496) COMPLETED/SUCCESS; dettaglio API conferma30 job passati e nessuno incompleto/fallito. Goal aperto: tre sale Lega e altre scene ancora da accettare,42profili direzionali, tutti i cicli di camminata e verifica della campagna naturale.
 
 ## 0.4.24 — sala di Nerea e Dalia direzionale
 
