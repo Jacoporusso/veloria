@@ -12,7 +12,7 @@ const orientations = [{ width: 390, height: 844 }, { width: 844, height: 390 }];
 
 async function checkpoint(page: Page, flags: string[] = [], x = 2, y = 10) {
   await page.route('**/src/main.ts*', async route => {
-    const response = await route.fetch();
+    const response = await route.fetch({ maxRetries: 2 });
     await route.fulfill({ response, body: await response.text() + '\nwindow.__r15Game = game;' });
   });
   await page.setViewportSize(orientations[0]);

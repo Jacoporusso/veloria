@@ -258,6 +258,46 @@
       "kind": "image",
       "key": "veloria-rhea-idle-north-v1",
       "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nerea-portolume-idle-south-v1",
+      "path": "assets/sprites/veloria-nerea-portolume-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nerea-portolume-idle-west-v1",
+      "path": "assets/sprites/veloria-nerea-portolume-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nerea-portolume-idle-east-v1",
+      "path": "assets/sprites/veloria-nerea-portolume-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-nerea-portolume-idle-north-v1",
+      "path": "assets/sprites/veloria-nerea-portolume-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-south-v1",
+      "path": "assets/sprites/veloria-selene-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-west-v1",
+      "path": "assets/sprites/veloria-selene-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-east-v1",
+      "path": "assets/sprites/veloria-selene-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-north-v1",
+      "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -626,12 +666,45 @@
       "npcIds": [
         "nerea_gym"
       ],
-      "assetKey": "veloria-gym-leaders-b-v1",
-      "frame": 0,
+      "assetKey": "veloria-nerea-portolume-idle-south-v1",
       "narrativeSource": "content/trainers/gym05_nerea.trainer.json",
       "origin": {
-        "x": 0.6239,
-        "y": 0.9936
+        "x": 0.56885,
+        "y": 0.95898
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-nerea-portolume-idle-south-v1",
+          "origin": {
+            "x": 0.56885,
+            "y": 0.95898
+          },
+          "displaySize": 59.98326
+        },
+        "left": {
+          "assetKey": "veloria-nerea-portolume-idle-west-v1",
+          "origin": {
+            "x": 0.47662,
+            "y": 0.96354
+          },
+          "displaySize": 59.40331
+        },
+        "right": {
+          "assetKey": "veloria-nerea-portolume-idle-east-v1",
+          "origin": {
+            "x": 0.54286,
+            "y": 0.95573
+          },
+          "displaySize": 60.31978
+        },
+        "up": {
+          "assetKey": "veloria-nerea-portolume-idle-north-v1",
+          "origin": {
+            "x": 0.52479,
+            "y": 0.96289
+          },
+          "displaySize": 59.65049
+        }
       }
     },
     {
@@ -643,12 +716,45 @@
       "npcIds": [
         "selene_gym"
       ],
-      "assetKey": "veloria-gym-leaders-b-v1",
-      "frame": 1,
+      "assetKey": "veloria-selene-idle-south-v1",
       "narrativeSource": "content/trainers/gym06_selene.trainer.json",
       "origin": {
-        "x": 0.4314,
-        "y": 0.992
+        "x": 0.51263,
+        "y": 0.97266
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-selene-idle-south-v1",
+          "origin": {
+            "x": 0.51263,
+            "y": 0.97266
+          },
+          "displaySize": 58.47451
+        },
+        "left": {
+          "assetKey": "veloria-selene-idle-west-v1",
+          "origin": {
+            "x": 0.45631,
+            "y": 0.97786
+          },
+          "displaySize": 58.04049
+        },
+        "right": {
+          "assetKey": "veloria-selene-idle-east-v1",
+          "origin": {
+            "x": 0.46149,
+            "y": 0.97461
+          },
+          "displaySize": 58.83447
+        },
+        "up": {
+          "assetKey": "veloria-selene-idle-north-v1",
+          "origin": {
+            "x": 0.52095,
+            "y": 0.97721
+          },
+          "displaySize": 58.27642
+        }
       }
     },
     {

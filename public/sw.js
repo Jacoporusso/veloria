@@ -1,5 +1,10 @@
-const CACHE = 'veloria-shell-v189';
+const CACHE = 'veloria-shell-v190';
 const SHELL = [
+  './assets/sprites/veloria-selene-idle-south-v1.webp',
+  './assets/sprites/veloria-selene-idle-west-v1.webp',
+  './assets/sprites/veloria-selene-idle-east-v1.webp',
+  './assets/sprites/veloria-selene-idle-north-v1.webp',
+  './assets/scenery/veloria-centrale-room-v1.webp',
   './assets/scenery/veloria-league_champion-illustrated-v3.webp',
   './assets/scenery/veloria-league_council04-illustrated-v3.webp',
   './assets/scenery/veloria-league_council03-illustrated-v3.webp',
@@ -17,6 +22,10 @@ const SHELL = [
   './assets/sprites/veloria-aster-idle-west-v1.webp',
   './assets/sprites/veloria-aster-idle-east-v1.webp',
   './assets/sprites/veloria-aster-idle-north-v1.webp',
+  './assets/sprites/veloria-nerea-portolume-idle-north-v1.webp',
+  './assets/sprites/veloria-nerea-portolume-idle-east-v1.webp',
+  './assets/sprites/veloria-nerea-portolume-idle-west-v1.webp',
+  './assets/sprites/veloria-nerea-portolume-idle-south-v1.webp',
   './assets/sprites/veloria-rhea-idle-north-v1.webp',
   './assets/sprites/veloria-rhea-idle-east-v1.webp',
   './assets/sprites/veloria-rhea-idle-west-v1.webp',

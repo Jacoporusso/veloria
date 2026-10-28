@@ -35,6 +35,26 @@
         "columns": 2,
         "rows": 2
       }
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-south-v1",
+      "path": "assets/sprites/veloria-selene-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-west-v1",
+      "path": "assets/sprites/veloria-selene-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-east-v1",
+      "path": "assets/sprites/veloria-selene-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-selene-idle-north-v1",
+      "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
     }
   ],
   "spawns": [

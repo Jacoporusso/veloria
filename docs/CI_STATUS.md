@@ -1,3 +1,17 @@
+## 0.4.27 — selezione atlante, Nerea/Selene e Centrale
+
+La selezione del diario o di un punto dell'atlante resta esclusiva anche quando il caricamento delle risorse termina dopo una nuova scelta dell'utente. Verificati pin reali per doni, pesca e incontri, filtri esclusivi, coordinate del prossimo obiettivo e fondale scuro nelle due orientazioni. Tre casi Chrome passati, incluso catalogo punti sospeso deliberatamente e ripreso dopo la scelta di un filtro. TypeScript senza errori. Dettaglio in `103_ATLAS_SELECTION_LOADING_v0.1.md`.
+
+Nerea di Portolume e Selene usano quattro pose indipendenti, senza specchiatura, con originali immutati, WebP lossless e prompt/provenienza registrati. Quattro casi Chrome passati: tre approcci raggiungibili per personaggio, preferenze movimento, portrait/landscape e reload; nord già bloccato dalle geometrie originali, verificato come risorsa e non come interazione giocata. Review immagini e screenshot completata. Inventario: nove profili direzionali, 39 ancora da migrare. Dettaglio in `102_NEREA_SELENE_DIRECTIONAL_IDLE_v0.1.md`.
+
+La Centrale conserva i pixel originali: copie canoniche byte-identiche e binding del fondale verificato sopra il terreno industriale separato. Tre casi Chrome passati su percorso reale, postazioni, ordine dell'indagine, reload, premio unico e bordi camera nelle due orientazioni; screenshot delle tre postazioni controllati. Prova Python dedicata alla separazione fondale/terrainBase. Sono 46 fondali registrati; casa e laboratorio richiedono ancora accettazione della geometria visiva.
+
+Correzioni della precedente Verify40646841662: tre test offline costruivano nomi di fondali superati, ora risolvono le risorse effettive dal manifest e dalle MapDefinition; nessun ripristino dei 101,27 MiB esclusi dal precache. Il gancio di osservazione R15 usa due retry limitati sul fetch per l'ECONNRESET rilevato. Entrambi i casi Moltres passati localmente. Rimangono integre le verifiche di viaggio, decode, stato e reload.
+
+Verifiche locali complessive: 819 test dominio/persistenza; 154 Python; validatori 749 media/46 fondali/48 mappe; 14 casi Chrome distinti (11 ambiente/personaggi/R15 e tre atlante). Sette casi produzione offline passati: nuove pose Nerea/Selene, Acquariva, Portolume, montagna, Condotto/Centrale e primo decode di tutti i fondali registrati. Build offline passata con avviso chunk Phaser. Discovery: 391 casi browser assegnati una sola volta, 47 risorse offline divise 24+23. I checkpoint non attestano il bilanciamento naturale della campagna.
+
+Contenuti 0.4.27/cache v190 preparati; commit, invio e pubblicazione ancora da attestare. Goal aperto: casa/laboratorio, altri 39 profili direzionali, camminate e nuova campagna naturale GenI fino alla Lega.
+
 ## 0.4.26 — cinque sale Lega coerenti, Rhea e PWA alleggerita
 
 Nuovi fondali per Brando, Luce ed Enea: completato il gruppo dei cinque ambienti della Lega con contorno coerente e temi distinti, senza cambiare collisioni. Rhea usa quattro pose indipendenti con guanto magnetico sul lato corretto, PNG raw inalterati e WebP lossless RGBA-identici. Review visiva eseguita su angoli Brando/Luce/Enea e pose Rhea in portrait/landscape.
@@ -8,7 +22,7 @@ Verifiche locali:788 dominio+31persistenza passati; validatori731media/45fondali
 
 Il campionato usa una squadra preparata e non attesta bilanciamento naturale. Audit dei backup storici: progressione fino aP5 appartiene ai contenuti0.3.114 e include specie195/170, quindi non vale come prova del catalogo corrente GenI. Serve nuova partita guadagnata sul roster attuale; dettaglio in `docs/playtests/2026-10-27-natural-campaign-evidence-audit.md`.
 
-Runtime `086491bccf871d5b47ecaf7972e1518c4e78c54e` inviato a main. Contenuti0.4.26/cachev189. [Deploy40646841652](https://github.com/Jacoporusso/veloria/actions/runs/40646841652) IN PROGRESS e [Verify40646841662](https://github.com/Jacoporusso/veloria/actions/runs/40646841662) QUEUED all’ultimo controllo. Nuova versione ancora da attestare su Pages. Goal aperto: casa/laboratorio/Centrale ancora da accettare nel gruppo finale delle mappe,41profili direzionali, animazioni e campagna naturale. Il rendering di45fondali non equivale alla certificazione completa del progetto.
+Runtime `086491bccf871d5b47ecaf7972e1518c4e78c54e` inviato a main. Contenuti0.4.26/cachev189. [Deploy40646841652](https://github.com/Jacoporusso/veloria/actions/runs/40646841652) COMPLETED/SUCCESS; Pages cache v189 e nuovi asset HTTP200 verificati. [Verify40646841662](https://github.com/Jacoporusso/veloria/actions/runs/40646841662) COMPLETED/FAILURE: tre casi offline referenziavano fondali superati, un caso R15 ha ricevuto ECONNRESET nel fetch del gancio di test. Diagnosi e nuove verifiche nella versione 0.4.27. Il rendering di45fondali non equivale alla certificazione completa del progetto.
 
 ## 0.4.25 — sala di Silvo, Aster e controllo superfici composte
 

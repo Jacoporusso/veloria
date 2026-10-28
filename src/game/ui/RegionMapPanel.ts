@@ -128,11 +128,12 @@ export class RegionMapPanel {
     if (requested) { this.setZoom(this.viewport.clientWidth < 540 ? 3 : 1.5); this.centerArea(requested.id); }
     else if (this.viewport.clientWidth < 540) this.showCurrent();
     this.closeButton.focus();
+    const focusRequest = this.focusRequest;
     this.discoveryReady = loadAtlasDiscoveries(save.flags, save.player.mapId).then(points => {
       if (request !== this.request) return;
       this.discoveries = points;
       this.renderDiscoveryPins();
-      if (discoveryId) void this.focusDiscovery(discoveryId);
+      if (discoveryId && focusRequest === this.focusRequest) void this.focusDiscovery(discoveryId);
     }).catch(() => {
       if (request === this.request) this.details.append(html('p', '', 'Non riesco a caricare i punti. Chiudi e riapri la mappa per riprovare.'));
     });
@@ -150,9 +151,10 @@ export class RegionMapPanel {
   private showArea(id: string, discoveryId?: string): void {
     const area = this.state?.areas.find(item => item.id === id);
     if (!area) return;
+    this.focusRequest++;
     this.category = undefined; this.dialog.classList.remove('has-category-filter');
     for (const button of this.dialog.querySelectorAll('.region-map-legend button')) button.setAttribute('aria-pressed', 'false');
-    if (this.target) { this.target = undefined; this.focusRequest++; this.renderChart(); this.setZoom(1); }
+    if (this.target) { this.target = undefined; this.renderChart(); this.setZoom(1); }
     this.select.value = id;
     const title = html('h3', '', area.name);
     const state = html('strong', 'region-map-state', area.status);
@@ -330,7 +332,9 @@ export class RegionMapPanel {
   }
 
   private async focusDiscovery(id: string): Promise<void> {
+    const focusRequest = ++this.focusRequest;
     await this.discoveryReady;
+    if (focusRequest !== this.focusRequest || !this.isOpen) return;
     const target = this.discoveries.find(point => point.id === id);
     if (!target || !this.isOpen) return;
     const area = this.state?.areas.find(area => area.mapIds.includes(target.mapId));

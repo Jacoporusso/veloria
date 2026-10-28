@@ -7,17 +7,17 @@
     "mapsWithGroundTileLayer": 48,
     "mapsWithNonEmptyGroundTileData": 25,
     "mapsWithExplicitSceneryImage": 41,
-    "mapsWithRegisteredSceneryPath": 46,
+    "mapsWithRegisteredSceneryPath": 47,
     "mapsWithTerrainBase": 22,
     "mapsWithSceneryImageOrTerrainBase": 48,
     "mapsWithBothSceneryImageAndTerrainBase": 15,
     "mapsWithSceneryImageOnly": 26,
     "mapsWithTerrainBaseOnly": 7,
     "mapsWithNeitherSceneryImageNorTerrainBase": 0,
-    "registeredSceneryImageAssets": 46,
+    "registeredSceneryImageAssets": 47,
     "registeredSceneryAssetsNotReferencedBySceneObjects": 7,
     "mapsWithUnreferencedSceneryRegistration": 7,
-    "parityArtworkEntries": 45,
+    "parityArtworkEntries": 46,
     "npcPresences": 51,
     "distinctIdentityKeys": 48,
     "registeredAppearanceProfiles": 48,
@@ -951,6 +951,46 @@
         "kind": "image",
         "key": "veloria-rhea-idle-north-v1",
         "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-south-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-west-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-east-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-north-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-south-v1",
+        "path": "assets/sprites/veloria-selene-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-west-v1",
+        "path": "assets/sprites/veloria-selene-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-east-v1",
+        "path": "assets/sprites/veloria-selene-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-north-v1",
+        "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
       }
     ],
     "catalogAssetKeys": [
@@ -984,6 +1024,10 @@
       "veloria-mira-idle-north-v1",
       "veloria-mira-idle-south-v1",
       "veloria-mira-idle-west-v1",
+      "veloria-nerea-portolume-idle-east-v1",
+      "veloria-nerea-portolume-idle-north-v1",
+      "veloria-nerea-portolume-idle-south-v1",
+      "veloria-nerea-portolume-idle-west-v1",
       "veloria-nilo-idle-east-v1",
       "veloria-nilo-idle-north-v1",
       "veloria-nilo-idle-south-v1",
@@ -995,6 +1039,10 @@
       "veloria-rhea-idle-south-v1",
       "veloria-rhea-idle-west-v1",
       "veloria-route-trainers-r04-r07-v1",
+      "veloria-selene-idle-east-v1",
+      "veloria-selene-idle-north-v1",
+      "veloria-selene-idle-south-v1",
+      "veloria-selene-idle-west-v1",
       "veloria-vetracielo-lea-v1"
     ],
     "unboundStudies": [
@@ -1297,6 +1345,46 @@
         "kind": "image",
         "key": "veloria-rhea-idle-north-v1",
         "path": "assets/sprites/veloria-rhea-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-south-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-west-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-east-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-nerea-portolume-idle-north-v1",
+        "path": "assets/sprites/veloria-nerea-portolume-idle-north-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-south-v1",
+        "path": "assets/sprites/veloria-selene-idle-south-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-west-v1",
+        "path": "assets/sprites/veloria-selene-idle-west-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-east-v1",
+        "path": "assets/sprites/veloria-selene-idle-east-v1.webp"
+      },
+      {
+        "kind": "image",
+        "key": "veloria-selene-idle-north-v1",
+        "path": "assets/sprites/veloria-selene-idle-north-v1.webp"
       }
     ],
     "profiles": [
@@ -1665,12 +1753,45 @@
         "npcIds": [
           "nerea_gym"
         ],
-        "assetKey": "veloria-gym-leaders-b-v1",
-        "frame": 0,
+        "assetKey": "veloria-nerea-portolume-idle-south-v1",
         "narrativeSource": "content/trainers/gym05_nerea.trainer.json",
         "origin": {
-          "x": 0.6239,
-          "y": 0.9936
+          "x": 0.56885,
+          "y": 0.95898
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-nerea-portolume-idle-south-v1",
+            "origin": {
+              "x": 0.56885,
+              "y": 0.95898
+            },
+            "displaySize": 59.98326
+          },
+          "left": {
+            "assetKey": "veloria-nerea-portolume-idle-west-v1",
+            "origin": {
+              "x": 0.47662,
+              "y": 0.96354
+            },
+            "displaySize": 59.40331
+          },
+          "right": {
+            "assetKey": "veloria-nerea-portolume-idle-east-v1",
+            "origin": {
+              "x": 0.54286,
+              "y": 0.95573
+            },
+            "displaySize": 60.31978
+          },
+          "up": {
+            "assetKey": "veloria-nerea-portolume-idle-north-v1",
+            "origin": {
+              "x": 0.52479,
+              "y": 0.96289
+            },
+            "displaySize": 59.65049
+          }
         }
       },
       {
@@ -1682,12 +1803,45 @@
         "npcIds": [
           "selene_gym"
         ],
-        "assetKey": "veloria-gym-leaders-b-v1",
-        "frame": 1,
+        "assetKey": "veloria-selene-idle-south-v1",
         "narrativeSource": "content/trainers/gym06_selene.trainer.json",
         "origin": {
-          "x": 0.4314,
-          "y": 0.992
+          "x": 0.51263,
+          "y": 0.97266
+        },
+        "idleViews": {
+          "down": {
+            "assetKey": "veloria-selene-idle-south-v1",
+            "origin": {
+              "x": 0.51263,
+              "y": 0.97266
+            },
+            "displaySize": 58.47451
+          },
+          "left": {
+            "assetKey": "veloria-selene-idle-west-v1",
+            "origin": {
+              "x": 0.45631,
+              "y": 0.97786
+            },
+            "displaySize": 58.04049
+          },
+          "right": {
+            "assetKey": "veloria-selene-idle-east-v1",
+            "origin": {
+              "x": 0.46149,
+              "y": 0.97461
+            },
+            "displaySize": 58.83447
+          },
+          "up": {
+            "assetKey": "veloria-selene-idle-north-v1",
+            "origin": {
+              "x": 0.52095,
+              "y": 0.97721
+            },
+            "displaySize": 58.27642
+          }
         }
       },
       {
@@ -4435,12 +4589,20 @@
             "width": 32.0,
             "height": 24.0
           },
-          "assetPath": "assets/sprites/veloria-centrale-room-v1.webp",
+          "assetPath": "assets/scenery/veloria-centrale-room-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         }
       ],
-      "registeredSceneryImageAssets": [],
+      "registeredSceneryImageAssets": [
+        {
+          "kind": "image",
+          "key": "veloria-centrale-room-v1",
+          "path": "assets/scenery/veloria-centrale-room-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        }
+      ],
       "registeredSceneryAssetsNotReferencedBySceneObjects": [],
       "allRenderAssets": [
         {
@@ -4496,7 +4658,7 @@
         {
           "kind": "image",
           "key": "veloria-centrale-room-v1",
-          "path": "assets/sprites/veloria-centrale-room-v1.webp",
+          "path": "assets/scenery/veloria-centrale-room-v1.webp",
           "extension": ".webp",
           "runtimeFilePresent": true
         },
@@ -4516,8 +4678,29 @@
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
-      "parityArtwork": null,
-      "parityArtworkRecord": false,
+      "parityArtwork": {
+        "mapId": "veloria/d03_centrale_risonante",
+        "tiledAsset": "tilemaps/d03_centrale_risonante.tmj",
+        "assetKey": "veloria-centrale-room-v1",
+        "sourcePath": "assets/sources/veloria-centrale-room-v1.png",
+        "runtimePath": "public/assets/scenery/veloria-centrale-room-v1.webp",
+        "sourceSha256": "602b0843b865aa1447af97aba43137948f40cd4efdf48cc8ea5b44abb4dee554",
+        "runtimeSha256": "b336103c64c27254777f78b723979c7e1ce94f2c7023e80c53ea4d298bae6ffb",
+        "width": 1448,
+        "height": 1086,
+        "prompt": "Use case: stylized-concept. Production environment background for the original Veloria 2D illustrated modern mobile RPG. Create one clean high definition top-down 4:3 complete interior illustration, a welcoming sustainable energy research central hall named Centrale Risonante (NO TEXT anywhere). Orthographic top-down with only subtle front faces to machinery, no isometric view, no pixel art, no retro outlines. Entire room fills canvas edge to edge, pale warm limestone and brushed steel floor, richly crafted contemporary fantasy technology, glass energy tubes, botanical planters, copper conduits, cyan and lilac light accents. Bright reassuring children-friendly scientific adventure. EXACT PLAYABLE FLOOR PLAN: the room is 32 columns by24 rows, but DO NOT draw a grid. Coordinates normalized: keep central vertical corridor x=42–58% clear from bottom edge all the way to y=30%; keep horizontal aisle y=48–60% completely clear across room. Lower half y=60–95% mostly open walkable floor with pleasant material variation, no obstacles. Main machinery islands occupy ONLY x=10–30% and x=69–90%, y=12–40%. North wall at y=0–12% has sophisticated ring-shaped reactor behind glass, pipes and warm indirect lighting. Center at x48%,y25% leave floor space for a runtime sensor. Positions x25%,y42% and x72%,y42% are clear small console landing areas at south edges of machinery; actual interactive consoles are rendered separately by the game, don't draw extra control panels there. Bottom center x43–57% unobstructed entrance. Sidewalls decorated with glass ribs, hanging plants and subtle blue reflection; details dense in north and upper side edges, soft floor readable elsewhere. Sophisticated painted illustrated game art, crisp organic materials, detailed and inviting, no flat geometric placeholder. NO people, NO creatures, NO labels, NO UI, NO letters, NO camera perspective, NO black borders.",
+        "references": [
+          "public/assets/sprites/veloria-centrale-room-v1.png",
+          "public/assets/sprites/veloria-centrale-room-v1.webp"
+        ],
+        "revisions": [
+          {
+            "promptDocument": "assets/prompts/centrale-room-v1.md",
+            "reason": "Existing illustrated benchmark retained byte-for-byte; canonical source/runtime copies and verification of scenery above an independent industrial terrainBase."
+          }
+        ]
+      },
+      "parityArtworkRecord": true,
       "encounterZones": [],
       "encounterZoneCount": 0,
       "exits": [
@@ -6673,6 +6856,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nerea-portolume-idle-south-v1",
+          "path": "assets/sprites/veloria-nerea-portolume-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nerea-portolume-idle-west-v1",
+          "path": "assets/sprites/veloria-nerea-portolume-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nerea-portolume-idle-east-v1",
+          "path": "assets/sprites/veloria-nerea-portolume-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-nerea-portolume-idle-north-v1",
+          "path": "assets/sprites/veloria-nerea-portolume-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6734,11 +6945,11 @@
           "profileMatch": "gym-leader-nerea-portolume",
           "narrativeSpeaker": "Nerea",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-b-v1",
-          "spriteFrame": 0,
+          "sprite": "veloria-nerea-portolume-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.6239,
-            "y": 0.9936
+            "x": 0.56885,
+            "y": 0.95898
           },
           "trainerId": "veloria/trainer_nerea_gym05",
           "battleOnceFlag": "trainer_gym05_nerea_defeated",
@@ -6862,6 +7073,34 @@
           },
           "extension": ".webp",
           "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-selene-idle-south-v1",
+          "path": "assets/sprites/veloria-selene-idle-south-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-selene-idle-west-v1",
+          "path": "assets/sprites/veloria-selene-idle-west-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-selene-idle-east-v1",
+          "path": "assets/sprites/veloria-selene-idle-east-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
+        },
+        {
+          "kind": "image",
+          "key": "veloria-selene-idle-north-v1",
+          "path": "assets/sprites/veloria-selene-idle-north-v1.webp",
+          "extension": ".webp",
+          "runtimeFilePresent": true
         }
       ],
       "sceneStatus": "tile-ground-plus-scenery-image-needs-review",
@@ -6919,11 +7158,11 @@
           "profileMatch": "gym-leader-selene",
           "narrativeSpeaker": "Selene",
           "kind": "npc",
-          "sprite": "veloria-gym-leaders-b-v1",
-          "spriteFrame": 1,
+          "sprite": "veloria-selene-idle-south-v1",
+          "spriteFrame": null,
           "spriteOrigin": {
-            "x": 0.4314,
-            "y": 0.992
+            "x": 0.51263,
+            "y": 0.97266
           },
           "trainerId": "veloria/trainer_selene_gym06",
           "battleOnceFlag": "trainer_gym06_selene_defeated",
@@ -14482,11 +14721,11 @@
       "profileMatch": "gym-leader-nerea-portolume",
       "narrativeSpeaker": "Nerea",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-b-v1",
-      "spriteFrame": 0,
+      "sprite": "veloria-nerea-portolume-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.6239,
-        "y": 0.9936
+        "x": 0.56885,
+        "y": 0.95898
       },
       "trainerId": "veloria/trainer_nerea_gym05",
       "battleOnceFlag": "trainer_gym05_nerea_defeated",
@@ -14509,11 +14748,11 @@
       "profileMatch": "gym-leader-selene",
       "narrativeSpeaker": "Selene",
       "kind": "npc",
-      "sprite": "veloria-gym-leaders-b-v1",
-      "spriteFrame": 1,
+      "sprite": "veloria-selene-idle-south-v1",
+      "spriteFrame": null,
       "spriteOrigin": {
-        "x": 0.4314,
-        "y": 0.992
+        "x": 0.51263,
+        "y": 0.97266
       },
       "trainerId": "veloria/trainer_selene_gym06",
       "battleOnceFlag": "trainer_gym06_selene_defeated",

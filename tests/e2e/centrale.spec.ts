@@ -16,8 +16,8 @@ async function seedFerraluce(page: Page, hasSteelBadge: boolean) {
     moves: moveData.moves as any,
     speciesId: 138,
     level: 35,
-    instanceId: 'centrale-investigation-wooper',
-    moveIds: ['mud-shot', 'water-gun', 'slam'],
+    instanceId: 'centrale-investigation-omanyte',
+    moveIds: ['mud-shot', 'water-gun', 'rollout'],
   });
   save.flags = [...new Set([
     ...save.flags.filter(flag => flag === 'intro_completed'),
@@ -53,9 +53,10 @@ async function dismissDialogue(page: Page) {
   await expect(dialogue).toBeHidden();
 }
 
-async function inspect(page: Page, map: string, x: number, y: number, speaker: string) {
+async function inspect(page: Page, map: string, x: number, y: number, speaker: string, capture?: () => Promise<void>) {
   await walkTo(page, map, x, y + 2, { avoidEncounters: true });
   await walkDirection(page, 'up');
+  if (capture) await capture();
   await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
   await expect(page.locator('#dialogue-speaker')).toHaveText(speaker);
   await expect(page.locator('#dialogue-box')).toBeVisible();
@@ -109,13 +110,21 @@ test('R07 readings and Centrale investigation advance in order and report once',
   await page.screenshot({ path: info.outputPath('d03-centrale-landscape.png') });
   await page.setViewportSize({ width: 390, height: 844 });
 
+  async function captureStation(label: string) {
+    for (const viewport of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+      await page.setViewportSize(viewport);
+      await page.screenshot({ path: info.outputPath(`centrale-${label}-${viewport.width}.png`) });
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+  }
+
   // Trying the regulator first explains the required order and grants no progress.
-  await inspect(page, 'd03_centrale_risonante.tmj', 23, 10, 'Console della linea di prova');
+  await inspect(page, 'd03_centrale_risonante.tmj', 23, 10, 'Console della linea di prova', () => captureStation('regulator'));
   await expect(page.locator('#dialogue-text')).toContainText('Prima di agire');
   await dismissDialogue(page);
   expect((await readBrowserSave(page)).flags).not.toContain('q_centrale_isolated');
 
-  await inspect(page, 'd03_centrale_risonante.tmj', 8, 10, 'Registro delle prove');
+  await inspect(page, 'd03_centrale_risonante.tmj', 8, 10, 'Registro delle prove', () => captureStation('log'));
   await expect(page.locator('#dialogue-text')).toContainText('autorizzazione');
   await dismissDialogue(page);
   await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_centrale_log');
@@ -129,7 +138,7 @@ test('R07 readings and Centrale investigation advance in order and report once',
   await dismissDialogue(page);
   await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_centrale_isolated');
 
-  await inspect(page, 'd03_centrale_risonante.tmj', 15, 6, 'Sensore di uscita');
+  await inspect(page, 'd03_centrale_risonante.tmj', 15, 6, 'Sensore di uscita', () => captureStation('sensor'));
   await expect(page.locator('#dialogue-text')).toContainText('impulsi della linea sperimentale');
   await dismissDialogue(page);
   await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_centrale_output');

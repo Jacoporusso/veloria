@@ -66,3 +66,32 @@ test('an unfinished research quest in the diary targets its next actual station'
   const after = await readBrowserSave(page);
   for (const key of ['player', 'flags', 'rngState'] as const) expect(after[key]).toEqual(before[key]);
 });
+
+test('a category chosen while the diary target loads keeps the latest selection', async ({ page }) => {
+  await page.goto('/'); await enterGame(page);
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'prologue_complete_seen',
+    'tutorial_habitat_seen', 'badge_ghiaccio_awarded', 'q_r14_visited', 'q_d05_visited'])];
+  await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  // Hold the shared discovery catalogue before the requested quest is resolved.
+  await page.route('**/tilemaps/borgofonte_lab.tmj', async route => {
+    await gate;
+    await route.continue();
+  });
+  try {
+    await page.locator('.journey-trigger').click();
+    await page.getByRole('button', { name: 'Mostra Le correnti del Cristallo sulla mappa', exact: true }).click();
+    const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
+    await atlas.getByRole('button', { name: '🎣 Pesca', exact: true }).click();
+    release();
+    await expect(atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first()).toBeVisible();
+    await expect(atlas.getByRole('button', { name: '🎣 Pesca', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(atlas.locator('.region-map-local')).toHaveCount(0);
+    await expect(atlas.locator('.region-map-discovery-pin:not([data-kind="fishing"])')).toHaveCount(0);
+    await expect(atlas.locator('.region-map-node:visible')).toHaveCount(0);
+  } finally {
+    release();
+  }
+});

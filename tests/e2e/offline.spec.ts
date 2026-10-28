@@ -22,6 +22,19 @@ import d01Woodland from '../../content/encounters/d01_woodland.encounter.json' w
 // Keep the offline journey independent of decorative animation throughput on CI.
 const walkTo = (page: import('@playwright/test').Page, file: string, x: number, y: number) => planWalkTo(page, file, x, y, { avoidEncounters: true });
 
+/** Check the artwork the current maps actually use, rather than historical URL naming. */
+async function illustratedMapPaths(stems: readonly string[]): Promise<string[]> {
+  const manifest = JSON.parse(await readFile('assets/map-parity-v2.json', 'utf8'));
+  return Promise.all(stems.map(async stem => {
+    const metadata = JSON.parse(await readFile(`content/maps/${stem}.map.json`, 'utf8'));
+    const artwork = manifest.artworks.find((entry: any) => entry.mapId === metadata.id);
+    expect(artwork, `Illustrated artwork for ${metadata.id}`).toBeTruthy();
+    const asset = metadata.renderAssets.find((entry: any) => entry.key === artwork.assetKey);
+    expect(asset?.path, metadata.id).toBe(artwork.runtimePath.replace(/^public\//, ''));
+    return asset.path;
+  }));
+}
+
 test.use({ reducedMotion: 'reduce' });
 
 test('Biancavetta illustrated ice gym completes three forced-slide lanes and opens its gate on a first offline visit', async ({ page, context }, info) => {
@@ -180,7 +193,22 @@ for (const npc of [
     start: { x: 15, y: 28 }, dimensions: [1024, 1536], flags: ['gym03_lines_connected', 'trainer_gym03_aster_defeated'], coldStart: false },
   { name: 'Rhea', speaker: 'Rhea', profile: 'gym-leader-rhea', map: 'gym04_ferraluce', spawn: 'from_city', x: 15, y: 10,
     start: { x: 15, y: 22 }, dimensions: [1024, 1536], flags: ['gym04_magnetic_aligned', 'trainer_gym04_rhea_defeated', 'badge_acciaio_awarded'], coldStart: false },
-]) test(`${npc.name} directional idle images load on a first offline visit and every side remains interactive`, async ({ page, context }, info) => {
+  { name: 'Nerea', speaker: 'Nerea', profile: 'gym-leader-nerea-portolume', map: 'gym05_portolume', spawn: 'from_portolume', x: 16, y: 3,
+    start: { x: 15, y: 22 }, dimensions: [1024, 1536], flags: ['q_portolume_tide_report', 'gym05_basin_balanced', 'gym05_sluice_open', 'gym05_tide_stable', 'trainer_gym05_nerea_defeated', 'badge_marea_awarded'], coldStart: false,
+    approaches: [
+      { x: 16, y: 4, label: 'Vai in alto', pose: 'down' },
+      { x: 15, y: 3, label: 'Vai a destra', pose: 'left' },
+      { x: 17, y: 3, label: 'Vai a sinistra', pose: 'right' },
+    ], blockedApproach: { x: 16, y: 2 } },
+  { name: 'Selene', speaker: 'Selene', profile: 'gym-leader-selene', map: 'gym06_acquariva', spawn: 'from_city', x: 16, y: 2,
+    start: { x: 15, y: 22 }, dimensions: [1024, 1536],
+    flags: ['q_acquariva_report', 'gym06_reflections_aligned', 'trainer_gym06_selene_defeated', 'badge_riflesso_awarded'], coldStart: false,
+    approaches: [
+      { x: 16, y: 3, label: 'Vai in alto', pose: 'down' },
+      { x: 15, y: 2, label: 'Vai a destra', pose: 'left' },
+      { x: 17, y: 2, label: 'Vai a sinistra', pose: 'right' },
+    ], blockedApproach: { x: 16, y: 1 } },
+]) test(`${npc.name} directional idle images load offline and configured approaches remain interactive`, async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
   const profile = catalog.profiles.find((entry: any) => entry.id === npc.profile);
@@ -222,12 +250,20 @@ for (const npc of [
   })), paths);
   expect(dimensions).toEqual(Array.from({ length: 4 }, () => npc.dimensions));
   const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
-  for (const stop of [
+  if ('blockedApproach' in npc) {
+    const map = JSON.parse(await readFile(new URL(`../../public/tilemaps/${npc.map}.tmj`, import.meta.url), 'utf8'));
+    const center = { x: npc.blockedApproach.x * 32 + 16, y: npc.blockedApproach.y * 32 + 16 };
+    const blocked = map.layers.find((layer: any) => layer.name === 'collision').objects.some((object: any) =>
+      object.x <= center.x && center.x < object.x + object.width && object.y <= center.y && center.y < object.y + object.height);
+    expect(blocked, `north approach tile (${npc.blockedApproach.x},${npc.blockedApproach.y}) remains blocked by existing map geometry`).toBe(true);
+  }
+  const approaches = 'approaches' in npc ? npc.approaches : [
     { x: npc.x, y: npc.y + 1, label: 'Vai in alto', pose: 'down' },
     { x: npc.x - 1, y: npc.y, label: 'Vai a destra', pose: 'left' },
     { x: npc.x, y: npc.y - 1, label: 'Vai in basso', pose: 'up' },
     { x: npc.x + 1, y: npc.y, label: 'Vai a sinistra', pose: 'right' },
-  ]) {
+  ];
+  for (const stop of approaches) {
     await walkTo(page, `${npc.map === 'borgofonte' ? 'bg_borgofonte' : npc.map}.tmj`, stop.x, stop.y);
     await page.getByRole('button', { name: stop.label, exact: true }).tap();
     const before = await readBrowserSave(page);
@@ -479,13 +515,13 @@ test('Acquariva chapter resources load first offline and the waterfall walking r
   await seedBrowserSave(page,save);
   const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));
   await context.setOffline(true);await page.reload();await enterGame(page);
-  const resources=await page.evaluate(async()=>{
-    const names=['r09-dunes','d04-delta','r10-reeds','acquariva','gym06-reflections','r11-cascades'];
-    const maps=['r09_dune_salmastre','d04_delta_specchi','r10_sentiero_canne','acquariva','gym06_acquariva','r11_via_cascate'];
-    const images=await Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/sprites/veloria-${name}-v1.webp`;await image.decode();return image.naturalWidth>1000;}));
+  const maps=['r09_dune_salmastre','d04_delta_specchi','r10_sentiero_canne','acquariva','gym06_acquariva','r11_via_cascate'];
+  const paths=await illustratedMapPaths(maps);
+  const resources=await page.evaluate(async({maps,paths})=>{
+    const images=await Promise.all(paths.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>1000;}));
     const widths=await Promise.all(maps.map(async name=>{const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return(await response.json()).width;}));
     return{images,widths};
-  });
+  },{maps,paths});
   expect(resources).toEqual({images:[true,true,true,true,true,true],widths:[40,40,40,40,32,40]});
   await walkDirection(page,'up');
   await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/r11_via_cascate');
@@ -511,10 +547,10 @@ test('Portolume ferry and new chapter resources work on their first offline requ
   await context.setOffline(true);
   const failures:string[]=[];page.on('requestfailed',request=>failures.push(request.url()));
   await page.reload();await enterGame(page);
-  const decoded=await page.evaluate(async()=>{
-    const names=['r08-coast','portolume','gym05-sluices'];
-    return Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/sprites/veloria-${name}-v1.webp`;await image.decode();return image.naturalWidth>1000;}));
-  });
+  const paths=await illustratedMapPaths(['r08_costa_turbine','portolume','gym05_portolume']);
+  const decoded=await page.evaluate(async paths=>Promise.all(paths.map(async path=>{
+    const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>1000;
+  })),paths);
   expect(decoded).toEqual([true,true,true]);
   const mapSizes=await page.evaluate(async()=>Promise.all(['r08_costa_turbine','portolume','gym05_portolume'].map(async name=>{
     const response=await fetch(`/tilemaps/${name}.tmj`);if(!response.ok)throw new Error(name);return (await response.json()).width;
@@ -1383,12 +1419,12 @@ test('mountain resources decode on first offline request and cable return surviv
  const save=await readBrowserSave(page);save.flags=[...new Set([...save.flags,'q_starter_selected','badge_riflesso_awarded','q_passobrina_report','badge_ghiaccio_awarded'])];save.badges=[...new Set([...save.badges,'badge_brina'])];save.player={...save.player,mapId:'veloria/passobrina',spawnPointId:'cable_arrival',x:29,y:22};
  await seedBrowserSave(page,save);const failures:string[]=[];page.on('requestfailed',r=>failures.push(r.url()));await context.setOffline(true);await page.reload();await enterGame(page);
  expect((await readBrowserSave(page)).player.mapId).toBe('veloria/passobrina');
- const decoded=await page.evaluate(async()=>{
-  const names=['r12-wind-valley-v1','passobrina-v1','r13-white-switchbacks-v1','biancavetta-v1','gym07-ice-v1','acquariva-v2'];
-  const images=await Promise.all(names.map(async name=>{const image=new Image();image.src=`/assets/scenery/veloria-${name}.webp`;await image.decode();return image.naturalWidth>1000;}));
+ const paths=await illustratedMapPaths(['r12_valle_vento','passobrina','r13_tornanti_bianchi','biancavetta','gym07_biancavetta','acquariva']);
+ const decoded=await page.evaluate(async paths=>{
+  const images=await Promise.all(paths.map(async path=>{const image=new Image();image.src='/'+path;await image.decode();return image.naturalWidth>1000;}));
   const widths=await Promise.all(['r12_valle_vento','passobrina','r13_tornanti_bianchi','biancavetta','gym07_biancavetta'].map(async name=>{const r=await fetch(`/tilemaps/${name}.tmj`);if(!r.ok)throw new Error(name);return(await r.json()).width;}));
   const creatures=await Promise.all([10,11,12,13,14,15].map(async id=>{const im=new Image();im.src=`/assets/creatures/pokeapi-gen1-${id}-v1.webp`;await im.decode();return im.naturalWidth>100;}));return{images,widths,creatures};
- });
+ },paths);
  expect(decoded).toEqual({images:Array(6).fill(true),widths:[40,40,40,40,32],creatures:Array(6).fill(true)});
  await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Biancavetta',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/biancavetta');
  await page.reload();await enterGame(page);await page.getByRole('button',{name:'Conferma e interagisci',exact:true}).tap();await page.getByRole('button',{name:'Passobrina',exact:true}).tap();await expect.poll(async()=>(await readBrowserSave(page)).player.mapId).toBe('veloria/passobrina');expect(failures).toEqual([]);

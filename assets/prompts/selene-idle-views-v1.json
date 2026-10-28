@@ -1,0 +1,130 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-28",
+  "identityReference": "assets/sources/veloria-gym-leaders-b-v1.png, top-right cell/frame 1 (Selene)",
+  "sourceReferences": [
+    "assets/sources/veloria-elia-idle-south-v1.png",
+    "assets/sources/veloria-nilo-idle-south-v1.png",
+    "assets/sources/veloria-mira-idle-south-v1.png"
+  ],
+  "sourcePromptAndCandidates": ".tmp/selene-idles-candidates/prompts-and-candidates.json",
+  "prompts": {
+    "south": "Use case: stylized-concept\nAsset type: one standalone full-body directional idle character illustration for a modern illustrated 2D RPG; raw 1024×1536 portrait PNG\nInput images: Image 1 is the identity reference atlas; use only the top-right cell, Selene (frame 1). Images 2–4 are painterly 2D style references only (Elia, Nilo, Mira); do not copy their characters or outfits.\nPrimary request: Create one new independent idle illustration of Selene from the Acquariva Psychic Gym. Facing south toward the viewer, with the character's anatomical front visible. This is the south-facing variant: relaxed upright idle stance, balanced and natural, both feet visible, arms resting comfortably at her sides with empty relaxed hands.\nSubject: Preserve Selene’s specific identity from Image 1: long pale lavender hair with loose waves and a prominent braid, gentle focused face, lilac long coat with soft aqua lining and geometric aqua detailing, black high-neck top, small prism pendant, pale wide-leg trousers with belt and restrained metal hardware, dark shoes, worn crossbody satchel. Keep the satchel, strap, pendant, face, hair, clothing construction, and proportions recognizable and consistent. No gender or age change; do not impose features not visible in the reference. Do not include the hand-held optical lens; hands are empty.\nStyle/medium: polished modern painterly 2D character art matching the soft warm brushwork, delicate fabric texture, and readable finish of Images 2–4. Fully illustrated, not pixel art, anime redesign, photorealistic, or 3D.\nComposition/framing: single centered full-body person, portrait 1024×1536 composition, generous transparent breathing room, complete hair and shoes inside canvas, moderate RPG character scale, no cropping.\nScene/backdrop: true transparent background only.\nLighting/mood: soft gentle highlights, calm observant presence.\nConstraints: one character only; maintain anatomical left/right from the south-facing view; preserve the satchel and strap on the same anatomical sides as the identity reference. Relaxed empty hands. No held objects, lens, props, extra accessories, companions, ground shadow, glow, text, border, duplicate limbs, extra fingers, red/green fringe, or background. Independent candidate, not a crop, grid, or composite.",
+    "west": "Use case: stylized-concept. Asset type: one standalone full-body west-facing idle character for the existing illustrated 2D RPG; raw portrait 1024×1536 transparent PNG.\nInput images: Image 1 is Selene’s selected south-facing identity view, authoritative for her outfit and anatomical sides. Image 2 is her selected east-facing view, for painterly finish and continuity only. Image 3 is the gym leaders atlas, use only the top-right Selene cell for identity. Image 4 is the Elia south idle reference for style only; do not copy Elia or any other person.\nPrimary request: Regenerate only Selene’s west-facing idle view as a true side profile facing toward screen-left. Show her anatomical LEFT side as the camera-near side. Her near left side must be plain and uninterrupted by the satchel strap or bag: no strap over the near shoulder, no bag at the near hip. Keep the satchel on Selene’s anatomical RIGHT hip, which is the far side in this west-facing view; the bag and its strap should be mostly occluded behind her torso, with only a small anatomically plausible peek behind her far hip if visible. Do not relocate or mirror the satchel.\nKeep Selene’s prominent braid on its established anatomical RIGHT side as shown in the south reference; in this west-facing side profile the braid belongs on the far side and should be behind the head/shoulder, mostly occluded, with at most a restrained peek at the far rear edge. Do not move the braid onto the near left shoulder. Preserve the exact character: long pale lavender wavy hair, same face and proportions, lilac long coat with soft aqua lining and geometric detail, black high-neck top, single prism necklace, pale wide-leg trousers with belt, dark shoes, worn crossbody satchel. Calm upright idle stance, arms comfortably resting at sides, empty relaxed hands, full body and both feet visible. No age or gender presentation change.\nStyle: warm polished painterly 2D consistent with the selected south/east art and Elia style reference; no pixel art, anime redesign, photorealism or 3D.\nFraming: single centered full-body character in portrait 1024×1536, complete hair and feet, generous transparent margin. True transparent background.\nConstraints: true left-facing profile, facing screen-left; anatomically correct left and right, no mirroring. Near anatomical LEFT side is camera-near and plain. Far anatomical RIGHT carries the satchel and braid, mostly hidden. Empty hands. No held lens, props, extra optical tools, added charms or accessories, ground/shadow, glow, text, border, extra limbs/fingers, fringe, backdrop, duplicate person, grid, or composite.",
+    "north": "Use case: stylized-concept. Asset type: one standalone full-body directional idle character for a modern illustrated 2D RPG, portrait 1024×1536 transparent PNG. Input images: identity reference is only Selene in the top-right cell of the 2×2 atlas, frame 1; Elia, Nilo, Mira are painterly style references only. Primary request: clean independent north-facing rear idle view of Selene, facing away from viewer, arms naturally at sides, empty hands. Preserve long pale lavender wavy hair and single prominent braid with aqua tie; lilac long coat with aqua lining and restrained geometric detailing; pale wide trousers, dark shoes, and the original worn crossbody satchel. The south-view atlas shows exactly one prism pendant worn at the neck and a plain brown satchel. From the rear, show one plain brown satchel on Selene's anatomical RIGHT hip (viewer-right in a back view), with plain brown strap over her anatomical RIGHT shoulder. The bag has no pendants, charms, tools, ornaments, tags, or decoration. Do not add a second prism or any prism at the satchel. Her one neck pendant is hidden from the back. Keep the exact rear orientation and anatomy, no mirroring; correct rear-view clothing construction matching her established lilac/aqua coat, not a new costume. Style: modern painterly 2D matching warm, delicate, readable style references; not pixel art, anime, photorealistic or 3D. One full-body centered character, portrait 1024×1536, complete hair and shoes, transparent background and clear margins. No held items, props, new accessories, ground/shadow, glow, text, border, extra hands/fingers/limbs, fringe, backdrop, other figures, grid or composite.",
+    "east": "Use case: stylized-concept. Asset type: one standalone full-body directional idle character for a modern illustrated 2D RPG, portrait 1024×1536 transparent PNG. Input images: identity reference is only Selene in the top-right cell of the 2×2 atlas, frame 1; Elia, Nilo, and Mira south-facing images are painterly style references only, do not copy their characters or clothes. Primary request: an independent east-facing idle view of the same Selene, facing toward the viewer's right in a clear right profile / three-quarter side view. Upright relaxed resting pose, empty hands at her sides, full figure and both feet visible. Preserve her recognizable identity: long pale lavender wavy hair with prominent braid, calm focused face/profile, lilac long coat with soft aqua lining and geometric detailing, black high-neck top, prism necklace, pale wide-leg trousers with belt, dark shoes, worn crossbody satchel. Preserve clothing construction and proportions, no unshown age or gender-coded traits. Crucial side orientation: this east-facing view shows Selene's anatomical RIGHT side as the camera-near side. Her satchel belongs on her anatomical RIGHT hip, so it should be naturally visible on the camera-near side; its strap remains anatomically correct and is not mirrored. Do not add a lens, hand-held object, optical instrument, extra charm, dangler or new accessory; only the single original prism pendant and satchel. Style: polished modern painterly 2D matching the style references' soft warm brushwork, readable forms and delicate fabric texture; not pixel art, anime redesign, photorealism or 3D. One centered full-body character, portrait 1024×1536, generous transparent margin, complete hair and shoes, no crop, true transparent background. No props, shadows/ground, glow, text, border, duplicate limbs/fingers, fringe, backdrop, extra characters, grid or composite."
+  },
+  "discardedCandidates": [
+    {
+      "outputId": "exec-202e3702-ec5c-42f1-83fb-d8cb1c011d6c.png",
+      "reason": "North-facing back view put the satchel on the viewer-left side (Selene's anatomical left), reversing the established anatomical right placement."
+    },
+    {
+      "outputId": "exec-8547c281-e3d3-4997-bef4-e7dd3a9949fd.png",
+      "reason": "North view corrected satchel side, but added a second prism charm to the bag."
+    },
+    {
+      "outputId": "exec-66f404d8-5b5f-4fa7-8340-3609804c8a71.png",
+      "reason": "South view matched identity and facing but added an optical cylinder/tool hanging from the satchel; the cleaner south candidate was selected."
+    },
+    {
+      "outputId": "exec-aac4b716-1b19-40b3-8801-9302db940d55.png",
+      "reason": "West view rejected after review: strap and satchel crossed onto the camera-near anatomical left side, and the braid was also presented on the near side."
+    }
+  ],
+  "views": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-selene-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-selene-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-selene-idle-south-v1.webp",
+      "sourceSha256": "ab2bde31d6ed88a146520395976c7840141b4e9cf3a97bf35799b6ec22050ccf",
+      "runtimeSha256": "0b428a0584e9349f4ed39e3cb43d2e8b452d13e6a7ea3c84732391ef0ec765cc",
+      "width": 1024,
+      "height": 1536,
+      "alpha128Bounds": [
+        167,
+        24,
+        903,
+        1495
+      ],
+      "origin": {
+        "x": 0.51263,
+        "y": 0.97266
+      },
+      "displaySize": 58.47451,
+      "outputId": "exec-a295528f-d881-4c15-a28f-f181d7b1137a.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-a295528f-d881-4c15-a28f-f181d7b1137a.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-selene-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-selene-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-selene-idle-west-v1.webp",
+      "sourceSha256": "2876f9d07021bdbfca37fbb8d3ce0fc040bd5156daaea5620a065be19f16c372",
+      "runtimeSha256": "4fc21910f06b5f0e22ae5de6a3aadc5606bffbdca21620c40e8bec7046be0f7b",
+      "width": 1024,
+      "height": 1536,
+      "alpha128Bounds": [
+        261,
+        21,
+        849,
+        1503
+      ],
+      "origin": {
+        "x": 0.45631,
+        "y": 0.97786
+      },
+      "displaySize": 58.04049,
+      "outputId": "exec-6c99cc0a-c9b7-4318-a2d2-990f26a61214.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-6c99cc0a-c9b7-4318-a2d2-990f26a61214.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-selene-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-selene-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-selene-idle-east-v1.webp",
+      "sourceSha256": "f7cfe856e46246eb3d01a07e5876b616ea4b0612e18d81ce952aeb9065b3f791",
+      "runtimeSha256": "bdd288049fcdd47ec21db872c920984ba977777c687254de01d6538c3e2a86bd",
+      "width": 1024,
+      "height": 1536,
+      "alpha128Bounds": [
+        222,
+        36,
+        863,
+        1498
+      ],
+      "origin": {
+        "x": 0.46149,
+        "y": 0.97461
+      },
+      "displaySize": 58.83447,
+      "outputId": "exec-a0904e34-d2e5-4c4d-9238-217c759b8c66.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-a0904e34-d2e5-4c4d-9238-217c759b8c66.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-selene-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-selene-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-selene-idle-north-v1.webp",
+      "sourceSha256": "30d9c584acd045f27241e889bba14d69441cea44c0f0f8b3fc922f3aee78bac1",
+      "runtimeSha256": "ae7337f53caeb9831c79e4aaa9b1fa694ee6c5f1fa09818cdc027be30c384721",
+      "width": 1024,
+      "height": 1536,
+      "alpha128Bounds": [
+        136,
+        26,
+        868,
+        1502
+      ],
+      "origin": {
+        "x": 0.52095,
+        "y": 0.97721
+      },
+      "displaySize": 58.27642,
+      "outputId": "exec-2bcd388a-a0b8-426f-89c7-2bdf43f0cbac.png",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1814d-9515-7263-9b37-a42bf4bbf012/exec-2bcd388a-a0b8-426f-89c7-2bdf43f0cbac.png"
+    }
+  ],
+  "calibration": "Display height = 1536*56/(alpha>=128 body bbox height). X origin = opacity-weighted foot centroid within the bottom 50 px of the alpha>=128 body bounds; Y origin = bottom-1. Raw RGBA PNGs are copied unchanged; WebP derivatives are lossless and decoded-RGBA-identical. No crop, resize, repaint, or alpha cleanup."
+}

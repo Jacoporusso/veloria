@@ -48,6 +48,20 @@ class MapArtBindingTest(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, "tileset/ground"):
             self.validate()
 
+    def test_full_scenery_can_cover_an_independent_terrain_base(self):
+        # Centrale composes its industrial floor separately from the full-room art.
+        self.metadata["terrainBase"]["assetKey"] = "industrial-floor"
+        self.add_scenery()
+        before = copy.deepcopy((self.metadata, self.tiled))
+        self.validate()
+        self.assertEqual((self.metadata, self.tiled), before)
+        self.tiled["layers"][-1]["objects"][0]["width"] = 32
+        with self.assertRaisesRegex(AssertionError, "bounds"):
+            self.validate()
+        self.tiled["layers"].pop()
+        with self.assertRaisesRegex(AssertionError, "Expected one"):
+            self.validate()
+
 
 if __name__ == "__main__":
     unittest.main()

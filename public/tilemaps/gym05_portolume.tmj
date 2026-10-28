@@ -2938,12 +2938,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-gym-leaders-b-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-nerea-portolume-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -2973,12 +2968,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.6239
+              "value": 0.56885
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9936
+              "value": 0.95898
             }
           ]
         }
