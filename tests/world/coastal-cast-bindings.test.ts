@@ -12,18 +12,24 @@ const cases = [
 ] as const;
 
 for (const entry of cases) {
-  test(`${entry.npcId} Tiled object binds its unique profile, atlas frame, and foot origin`, () => {
+  test(`${entry.npcId} Tiled object binds its unique directional profile and foot origin`, () => {
     const profile = appearances.profiles.find((item: any) => item.id === entry.profileId);
     assert.ok(profile, `missing appearance profile ${entry.profileId}`);
     assert.deepEqual(profile.npcIds, [entry.npcId]);
-    assert.equal(profile.frame, entry.frame);
+    assert.equal(profile.frame, undefined);
+    assert.deepEqual(Object.keys(profile.idleViews).sort(), ['down', 'left', 'right', 'up']);
 
     const asset = appearances.assets.find((item: any) => item.key === profile.assetKey);
     assert.ok(asset);
-    assert.deepEqual(asset.atlas, { columns: 2, rows: 2 });
+    assert.equal(asset.atlas, undefined);
 
     const map = read<any>(`content/maps/${entry.map}.map.json`);
     assert.deepEqual(map.renderAssets.find((item: any) => item.key === asset.key), asset);
+    assert.equal(map.renderAssets.some((item: any) => item.key === 'veloria-coastal-cast-v1'), false);
+    for (const view of Object.values(profile.idleViews) as any[]) {
+      assert.ok(map.renderAssets.some((item: any) => item.key === view.assetKey));
+      assert.ok(view.origin.x > 0 && view.origin.x < 1 && view.origin.y > 0 && view.origin.y <= 1);
+    }
     assert.ok(map.npcRefs.includes(entry.npcId));
 
     const tiled = read<any>(`public/tilemaps/${entry.map}.tmj`);
@@ -34,16 +40,17 @@ for (const entry of cases) {
     const properties = Object.fromEntries(matches[0].properties.map((property: any) => [property.name, property.value]));
     assert.equal(properties.characterAppearanceId, profile.id);
     assert.equal(properties.sprite, profile.assetKey);
-    assert.equal(properties.spriteFrame, profile.frame);
+    assert.equal(properties.spriteFrame, undefined);
     assert.deepEqual({ x: properties.spriteOriginX, y: properties.spriteOriginY }, profile.origin);
     assert.ok(profile.dialogueIds.includes(properties.dialogueId));
   });
 }
 
-test('coastal cast uses four distinct identities and atlas frames', () => {
+test('coastal cast uses four distinct identities and sixteen independent direction assets', () => {
   const selected = cases.map(entry => appearances.profiles.find((item: any) => item.id === entry.profileId));
   assert.equal(new Set(selected.map((profile: any) => profile.id)).size, 4);
   assert.equal(new Set(selected.map((profile: any) => `${profile.assetKey}:${profile.frame}`)).size, 4);
+  assert.equal(new Set(selected.flatMap((profile: any) => Object.values(profile.idleViews).map((view: any) => view.assetKey))).size, 16);
   const deltaIris = selected.find((profile: any) => profile.id === 'delta-biologist-iris');
   const routeIris = appearances.profiles.find((profile: any) => profile.id === 'route-trainer-iris-r06');
   assert.ok(routeIris);

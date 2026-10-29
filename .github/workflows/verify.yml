@@ -123,10 +123,16 @@ jobs:
         include:
           - suite: journey
             filter: --grep=E2E-06
+          # Run 40829505097 reached the 20-minute step limit after 30
+          # passing resource cases. Split the complete suite four ways.
           - suite: resources-1
-            filter: --grep-invert=E2E-06 --shard=1/2
+            filter: --grep-invert=E2E-06 --shard=1/4
           - suite: resources-2
-            filter: --grep-invert=E2E-06 --shard=2/2
+            filter: --grep-invert=E2E-06 --shard=2/4
+          - suite: resources-3
+            filter: --grep-invert=E2E-06 --shard=3/4
+          - suite: resources-4
+            filter: --grep-invert=E2E-06 --shard=4/4
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

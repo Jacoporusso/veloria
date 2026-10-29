@@ -179,46 +179,50 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
-  { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], start: { x: 18, y: 19 }, dimensions: [1024, 1536], coldStart: false },
-  { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], start: { x: 20, y: 21 }, dimensions: [1024, 1536], coldStart: false },
-  { name: 'Centro Ferraluce', speaker: 'Addetta del Centro', profile: 'ferraluce-care', map: 'ferraluce', spawn: 'from_r06', x: 9, y: 21, flags: [], start: { x: 9, y: 22 }, dimensions: [1024, 1536], coldStart: false, service: 'center' },
-  { name: 'Mercante Ferraluce', speaker: 'Mercante di Ferraluce', profile: 'ferraluce-shop', map: 'ferraluce', spawn: 'from_r06', x: 30, y: 21, flags: [], start: { x: 30, y: 22 }, dimensions: [1024, 1536], coldStart: false, service: 'shop' },
-  { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], start: { x: 10, y: 17 }, dimensions: [1024, 1536], coldStart: false },
-  { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], start: { x: 18, y: 13 }, dimensions: [1024, 1536], coldStart: false },
-  { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], start: { x: 21, y: 17 }, dimensions: [1024, 1536], coldStart: false },
+  { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], start: { x: 12, y: 18 }, blockedApproach: { x: 13, y: 19 }, approaches: [{ x: 12, y: 18, label: 'Vai a destra', pose: 'left' }, { x: 13, y: 17, label: 'Vai in basso', pose: 'up' }, { x: 14, y: 18, label: 'Vai a sinistra', pose: 'right' }], coldStart: false },
+  { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], start: { x: 20, y: 12 }, coldStart: false },
+  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 23, y: 15, flags: [], start: { x: 22, y: 15 }, blockedApproach: { x: 23, y: 16 }, approaches: [{ x: 22, y: 15, label: 'Vai a destra', pose: 'left' }, { x: 23, y: 14, label: 'Vai in basso', pose: 'up' }, { x: 24, y: 15, label: 'Vai a sinistra', pose: 'right' }], coldStart: false },
+  { name: 'Tessa', speaker: 'Tessa', profile: 'acquariva-tessa', map: 'acquariva', spawn: 'from_r10', x: 34, y: 14, flags: [], start: { x: 34, y: 15 }, coldStart: false },
+  { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], start: { x: 18, y: 19 }, coldStart: false },
+  { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], start: { x: 20, y: 21 }, coldStart: false },
+  { name: 'Centro Ferraluce', speaker: 'Addetta del Centro', profile: 'ferraluce-care', map: 'ferraluce', spawn: 'from_r06', x: 9, y: 21, flags: [], start: { x: 9, y: 22 }, coldStart: false, service: 'center' },
+  { name: 'Mercante Ferraluce', speaker: 'Mercante di Ferraluce', profile: 'ferraluce-shop', map: 'ferraluce', spawn: 'from_r06', x: 30, y: 21, flags: [], start: { x: 30, y: 22 }, coldStart: false, service: 'shop' },
+  { name: 'Nila', speaker: 'Nila', profile: 'route-trainer-nila', map: 'r04_salita_petali', spawn: 'from_radicelmo', x: 10, y: 16, flags: ['trainer_r04_nila_defeated'], start: { x: 10, y: 17 }, coldStart: false },
+  { name: 'Oren', speaker: 'Oren', profile: 'route-trainer-oren', map: 'r05_viadotto_ciliegi', spawn: 'from_petalora', x: 18, y: 12, flags: ['trainer_r05_oren_defeated'], start: { x: 18, y: 13 }, coldStart: false },
+  { name: 'Iris R06', speaker: 'Iris', profile: 'route-trainer-iris-r06', map: 'r06_anello_magnetico', spawn: 'from_vetracielo', x: 21, y: 16, flags: ['trainer_r06_iris_defeated', 'q_r06_iris_helped'], start: { x: 21, y: 17 }, coldStart: false },
   { name: 'Rami', speaker: 'Rami', profile: 'guide-rami-r03', map: 'r03_terrazze_muschio', spawn: 'from_brumalta', x: 6, y: 16,
-    start: { x: 6, y: 17 }, dimensions: [1024, 1536], flags: [], coldStart: false },
+    start: { x: 6, y: 17 }, flags: [], coldStart: false },
   { name: 'Leda', speaker: 'Custode Leda', profile: 'radicelmo-keeper-leda', map: 'radicelmo', spawn: 'from_r03', x: 25, y: 11,
-    start: { x: 25, y: 12 }, dimensions: [1024, 1536], flags: ['q_radicelmo_seed_found', 'q_radicelmo_seed_archived', 'q_radicelmo_greenhouse_started', 'q_radicelmo_seed_sprouted', 'q_radicelmo_greenhouse_complete', 'q_radicelmo_fire_stone_found'], coldStart: false },
+    start: { x: 25, y: 12 }, flags: ['q_radicelmo_seed_found', 'q_radicelmo_seed_archived', 'q_radicelmo_greenhouse_started', 'q_radicelmo_seed_sprouted', 'q_radicelmo_greenhouse_complete', 'q_radicelmo_fire_stone_found'], coldStart: false },
   { name: 'Lea', speaker: 'Lea', profile: 'vetracielo-lea', map: 'vetracielo', spawn: 'from_r05', x: 22, y: 18,
-    start: { x: 22, y: 19 }, dimensions: [1024, 1536], flags: ['q_vetracielo_orientation'], coldStart: false },
+    start: { x: 22, y: 19 }, flags: ['q_vetracielo_orientation'], coldStart: false },
   { name: 'Timo', speaker: 'Timo', profile: 'route-trainer-timo', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 18, y: 12,
-    start: { x: 18, y: 13 }, dimensions: [1024, 1536], flags: ['trainer_route01_timo_defeated'], coldStart: false },
+    start: { x: 18, y: 13 }, flags: ['trainer_route01_timo_defeated'], coldStart: false },
   { name: 'Sera', speaker: 'Sera', profile: 'route-trainer-sera', map: 'r01_sentiero_alba', spawn: 'from_borgofonte', x: 7, y: 9,
-    start: { x: 7, y: 10 }, dimensions: [1024, 1536], flags: ['trainer_route01_sera_defeated'], coldStart: false },
+    start: { x: 7, y: 10 }, flags: ['trainer_route01_sera_defeated'], coldStart: false },
   { name: 'Ada', speaker: 'Ada', profile: 'ranger-ada', map: 'd01_bosco_veli', spawn: 'from_r01', x: 13, y: 10,
-    start: { x: 1, y: 10 }, dimensions: [1254, 1254], flags: [], coldStart: false },
+    start: { x: 1, y: 10 }, flags: [], coldStart: false },
   { name: 'Elia', speaker: 'Professoressa Elia', profile: 'professor-elia', map: 'borgofonte_lab', spawn: 'from_village', x: 12, y: 7,
-    start: { x: 12, y: 8 }, dimensions: [1024, 1536], flags: ['q_research_sample_received'], coldStart: false },
+    start: { x: 12, y: 8 }, flags: ['q_research_sample_received'], coldStart: false },
   { name: 'Nilo', speaker: 'Nilo', profile: 'rival-nilo', map: 'borgofonte', spawn: 'start', x: 26, y: 17,
-    start: { x: 26, y: 18 }, dimensions: [1024, 1536], flags: [], coldStart: true },
+    start: { x: 26, y: 18 }, flags: [], coldStart: true },
   { name: 'Mira', speaker: 'Mira', profile: 'gym-leader-mira', map: 'gym01_brumalta', spawn: 'from_city', x: 14, y: 2,
-    start: { x: 14, y: 3 }, dimensions: [1024, 1536], flags: ['gym01_puzzle_solved', 'trainer_gym01_mira_defeated'], coldStart: false },
+    start: { x: 14, y: 3 }, flags: ['gym01_puzzle_solved', 'trainer_gym01_mira_defeated'], coldStart: false },
   { name: 'Dalia', speaker: 'Dalia', profile: 'gym-leader-dalia', map: 'gym02_petalora', spawn: 'from_city', x: 13, y: 3,
-    start: { x: 13, y: 4 }, dimensions: [1024, 1536], flags: [], coldStart: false },
+    start: { x: 13, y: 4 }, flags: [], coldStart: false },
   { name: 'Aster', speaker: 'Aster', profile: 'gym-leader-aster', map: 'gym03_vetracielo', spawn: 'from_city', x: 15, y: 10,
-    start: { x: 15, y: 28 }, dimensions: [1024, 1536], flags: ['gym03_lines_connected', 'trainer_gym03_aster_defeated'], coldStart: false },
+    start: { x: 15, y: 28 }, flags: ['gym03_lines_connected', 'trainer_gym03_aster_defeated'], coldStart: false },
   { name: 'Rhea', speaker: 'Rhea', profile: 'gym-leader-rhea', map: 'gym04_ferraluce', spawn: 'from_city', x: 15, y: 10,
-    start: { x: 15, y: 22 }, dimensions: [1024, 1536], flags: ['gym04_magnetic_aligned', 'trainer_gym04_rhea_defeated', 'badge_acciaio_awarded'], coldStart: false },
+    start: { x: 15, y: 22 }, flags: ['gym04_magnetic_aligned', 'trainer_gym04_rhea_defeated', 'badge_acciaio_awarded'], coldStart: false },
   { name: 'Nerea', speaker: 'Nerea', profile: 'gym-leader-nerea-portolume', map: 'gym05_portolume', spawn: 'from_portolume', x: 16, y: 3,
-    start: { x: 15, y: 22 }, dimensions: [1024, 1536], flags: ['q_portolume_tide_report', 'gym05_basin_balanced', 'gym05_sluice_open', 'gym05_tide_stable', 'trainer_gym05_nerea_defeated', 'badge_marea_awarded'], coldStart: false,
+    start: { x: 15, y: 22 }, flags: ['q_portolume_tide_report', 'gym05_basin_balanced', 'gym05_sluice_open', 'gym05_tide_stable', 'trainer_gym05_nerea_defeated', 'badge_marea_awarded'], coldStart: false,
     approaches: [
       { x: 16, y: 4, label: 'Vai in alto', pose: 'down' },
       { x: 15, y: 3, label: 'Vai a destra', pose: 'left' },
       { x: 17, y: 3, label: 'Vai a sinistra', pose: 'right' },
     ], blockedApproach: { x: 16, y: 2 } },
   { name: 'Selene', speaker: 'Selene', profile: 'gym-leader-selene', map: 'gym06_acquariva', spawn: 'from_city', x: 16, y: 2,
-    start: { x: 15, y: 22 }, dimensions: [1024, 1536],
+    start: { x: 15, y: 22 },
     flags: ['q_acquariva_report', 'gym06_reflections_aligned', 'trainer_gym06_selene_defeated', 'badge_riflesso_awarded'], coldStart: false,
     approaches: [
       { x: 16, y: 3, label: 'Vai in alto', pose: 'down' },
@@ -226,7 +230,7 @@ for (const npc of [
       { x: 17, y: 2, label: 'Vai a sinistra', pose: 'right' },
     ], blockedApproach: { x: 16, y: 1 } },
   { name: 'Nives', speaker: 'Nives', profile: 'gym-leader-nives', map: 'gym07_biancavetta', spawn: 'from_city', x: 16, y: 1,
-    start: { x: 15, y: 22 }, dimensions: [1024, 1536], navigation: 'ice',
+    start: { x: 15, y: 22 }, navigation: 'ice',
     flags: ['gym07_ice_complete', 'trainer_gym07_nives_defeated', 'badge_ghiaccio_awarded'], coldStart: false,
     approaches: [
       { x: 16, y: 2, label: 'Vai in alto', pose: 'down' },
@@ -234,16 +238,45 @@ for (const npc of [
       { x: 17, y: 1, label: 'Vai a sinistra', pose: 'right' },
     ], blockedApproach: { x: 16, y: 0 } },
   { name: 'Aurel', speaker: 'Aurel', profile: 'gym-leader-aurel', map: 'gym08_concordia', spawn: 'from_city', x: 16, y: 2,
-    start: { x: 15, y: 22 }, dimensions: [1024, 1536],
+    start: { x: 15, y: 22 },
     flags: ['gym08_convergence_complete', 'trainer_gym08_aurel_defeated', 'badge_drago_awarded'], coldStart: false },
 ]) test(`${npc.name} directional idle images load offline and configured approaches remain interactive`, async ({ page, context }, info) => {
   test.setTimeout(120_000);
   const catalog = JSON.parse(await readFile(new URL('../../content/characters/appearances.v2.json', import.meta.url), 'utf8'));
+  const poseManifest = JSON.parse(await readFile(new URL('../../assets/npc-idle-views-v1.json', import.meta.url), 'utf8'));
+  const walkManifest = JSON.parse(await readFile(new URL('../../assets/npc-walk-cycles-v1.json', import.meta.url), 'utf8'));
   const profile = catalog.profiles.find((entry: any) => entry.id === npc.profile);
-  const paths = Object.values(profile.idleViews).map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path);
+  const manifestProfile = poseManifest.profiles.find((entry: any) => entry.profileId === npc.profile);
+  expect(manifestProfile, `Pose manifest for ${npc.profile}`).toBeTruthy();
+  const idleViews = Object.values(profile.idleViews) as any[];
+  const paths = idleViews.map((view: any) => {
+    const asset = catalog.assets.find((entry: any) => entry.key === view.assetKey);
+    const manifestView = manifestProfile.views.find((entry: any) => entry.assetKey === view.assetKey);
+    expect(asset?.path, `Catalog path for ${view.assetKey}`).toBeTruthy();
+    expect(manifestView, `Manifest dimensions for ${view.assetKey}`).toBeTruthy();
+    expect(asset.path).toBe(manifestView.runtimePath.replace(/^public\//, ''));
+    return asset.path;
+  });
+  const expectedIdleDimensions = idleViews.map((view: any) => {
+    const manifestView = manifestProfile.views.find((entry: any) => entry.assetKey === view.assetKey);
+    return [manifestView.width, manifestView.height];
+  });
   expect(paths).toHaveLength(4);
-  const walkPaths = profile.walkCycle ? Object.values(profile.walkCycle.views).flatMap((frames: any) =>
-    frames.map((view: any) => catalog.assets.find((asset: any) => asset.key === view.assetKey).path)) : [];
+  const walkViews = profile.walkCycle ? Object.values(profile.walkCycle.views).flatMap((frames: any) => frames) : [];
+  const manifestWalkProfile = walkManifest.profiles.find((entry: any) => entry.profileId === npc.profile);
+  if (walkViews.length) expect(manifestWalkProfile, `Walk manifest for ${npc.profile}`).toBeTruthy();
+  const walkPaths = walkViews.map((view: any) => {
+    const asset = catalog.assets.find((entry: any) => entry.key === view.assetKey);
+    const manifestFrame = manifestWalkProfile?.frames.find((entry: any) => entry.assetKey === view.assetKey);
+    expect(asset?.path, `Catalog path for ${view.assetKey}`).toBeTruthy();
+    expect(manifestFrame, `Manifest dimensions for ${view.assetKey}`).toBeTruthy();
+    expect(asset.path).toBe(manifestFrame.runtimePath.replace(/^public\//, ''));
+    return asset.path;
+  });
+  const expectedWalkDimensions = walkViews.map((view: any) => {
+    const manifestFrame = manifestWalkProfile.frames.find((entry: any) => entry.assetKey === view.assetKey);
+    return [manifestFrame.width, manifestFrame.height];
+  });
   if (npc.profile === 'ranger-ada') expect(walkPaths).toHaveLength(8);
   const allPaths = [...paths, ...walkPaths];
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
@@ -276,18 +309,39 @@ for (const npc of [
   page.on('pageerror', error => errors.push(error.message));
   page.on('requestfailed', request => failures.push(request.url()));
   await context.setOffline(true); await page.reload(); await enterGame(page);
-  const dimensions = await page.evaluate(async paths => Promise.all(paths.map(async path => {
+  const decoded = await page.evaluate(async paths => Promise.all(paths.map(async path => {
     const image = new Image(); image.src = `/${path}`; await image.decode();
-    return [image.naturalWidth, image.naturalHeight];
+    const canvas = document.createElement('canvas');
+    canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+    const canvasContext = canvas.getContext('2d', { willReadFrequently: true });
+    if (!canvasContext) throw new Error(`No 2D canvas for ${path}`);
+    canvasContext.drawImage(image, 0, 0);
+    const pixels = canvasContext.getImageData(0, 0, canvas.width, canvas.height).data;
+    let minAlpha = 255, minX = canvas.width, minY = canvas.height, maxX = -1, maxY = -1;
+    for (let offset = 0; offset < pixels.length; offset += 4) {
+      const alpha = pixels[offset + 3];
+      minAlpha = Math.min(minAlpha, alpha);
+      if (alpha >= 128) {
+        const index = offset / 4, x = index % canvas.width, y = Math.floor(index / canvas.width);
+        minX = Math.min(minX, x); minY = Math.min(minY, y);
+        maxX = Math.max(maxX, x); maxY = Math.max(maxY, y);
+      }
+    }
+    return { width: image.naturalWidth, height: image.naturalHeight, minAlpha,
+      alpha128Bounds: maxX < 0 ? null : [minX, minY, maxX + 1, maxY + 1] };
   })), allPaths);
-  expect(dimensions).toEqual([...Array.from({ length: 4 }, () => npc.dimensions), ...walkPaths.map(() => [1024, 1536])]);
+  expect(decoded.map(({ width, height }) => [width, height])).toEqual([...expectedIdleDimensions, ...expectedWalkDimensions]);
+  for (const pose of decoded) {
+    expect(pose.minAlpha, 'sprite must contain genuinely transparent pixels').toBe(0);
+    expect(pose.alpha128Bounds, 'sprite must contain a visible alpha>=128 body').not.toBeNull();
+  }
   const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
   if ('blockedApproach' in npc) {
     const map = JSON.parse(await readFile(new URL(`../../public/tilemaps/${npc.map}.tmj`, import.meta.url), 'utf8'));
     const center = { x: npc.blockedApproach.x * 32 + 16, y: npc.blockedApproach.y * 32 + 16 };
     const blocked = map.layers.find((layer: any) => layer.name === 'collision').objects.some((object: any) =>
       object.x <= center.x && center.x < object.x + object.width && object.y <= center.y && center.y < object.y + object.height);
-    expect(blocked, `north approach tile (${npc.blockedApproach.x},${npc.blockedApproach.y}) remains blocked by existing map geometry`).toBe(true);
+    expect(blocked, `approach tile (${npc.blockedApproach.x},${npc.blockedApproach.y}) remains blocked by existing map geometry`).toBe(true);
   }
   const approaches = 'approaches' in npc ? npc.approaches : [
     { x: npc.x, y: npc.y + 1, label: 'Vai in alto', pose: 'down' },

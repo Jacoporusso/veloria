@@ -43,12 +43,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-coastal-cast-v1",
-      "path": "assets/sprites/veloria-coastal-cast-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-viola-r08-idle-south-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-north-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-west-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-east-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-east-v1.webp"
     }
   ],
   "spawns": [

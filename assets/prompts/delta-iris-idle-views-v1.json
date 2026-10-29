@@ -1,0 +1,274 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-29",
+  "profileId": "delta-biologist-iris",
+  "npcId": "delta_iris",
+  "sourceReferences": [
+    {
+      "path": "content/characters/appearances.v2.json#delta-biologist-iris",
+      "role": "canonical narrative/map/cast reference"
+    },
+    {
+      "path": "content/dialogue/world.v1.json#delta_iris",
+      "role": "canonical narrative/map/cast reference"
+    },
+    {
+      "path": "content/maps/d04_delta_specchi.map.json#npcRefs",
+      "role": "canonical narrative/map/cast reference"
+    },
+    {
+      "path": "docs/art/cast-redesign-briefs.md#Iris",
+      "role": "canonical narrative/map/cast reference"
+    },
+    {
+      "path": "assets/sources/veloria-coastal-cast-v1.png",
+      "role": "original coastal atlas; frame 3 bottom-right only"
+    }
+  ],
+  "selectedViews": [
+    {
+      "direction": "south",
+      "promptExact": "Use case: precise-object-edit. Image 1 is the edit target: preserve its SOUTH/front full-body pose and composition. Image 2 is the source atlas; use only its bottom-right character (Delta biologist Iris) as the authoritative outfit-color reference, not the other three people. Recolor only the satchel panels on Image 1 from tan/ochre to muted plum purple matching Iris's plum vest in Image 2. Keep the strap brown and buckles gold. Preserve Image 1's original olive-green shirt, plum vest, khaki trousers, olive boots, braid, face, green notebook, anatomy, exact pose and framing. Satchel stays on anatomical LEFT hip (viewer RIGHT). No other recoloring, redesign, added jewelry, or object changes. Genuine transparent background; no haze or backdrop. Treat this as a small localized color edit, not a new illustration.",
+      "referenceRole": "Image 1: prior same-direction candidate edit target; Image 2 for South: source atlas used only as outfit color reference, bottom-right Delta biologist Iris.",
+      "outputId": "exec-a4671b20-1999-4176-8877-08d8c4146341",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-a4671b20-1999-4176-8877-08d8c4146341.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\delta-iris-idles-candidates\\iris-south-plum-v3.png",
+      "sourcePath": "assets/sources/veloria-iris-delta-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-delta-idle-south-v1.webp",
+      "sourceSha256": "ea7ca4f5cc2726d2f2594b26fad7f7fb01e8a173565298c0997bfd90b6d6d801",
+      "runtimeSha256": "b20b34be5e72a8435a0221a8843220c11f39865fae649da222be604f3e6b6c31",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "alphaBoundsGt0": [
+        49,
+        9,
+        996,
+        1536
+      ],
+      "alpha128Bounds": [
+        189,
+        12,
+        841,
+        1531
+      ],
+      "selection": "root-approved for integration",
+      "reviewNotes": "Visual review: muted plum satchel fabric now matches plum vest; strap remains brown, gold hardware; stays on anatomical left/viewer right. Original olive shirt, plum vest, khaki trousers, olive boots and green notebook remain visually consistent. Candidate only; metadata alpha analysis not refreshed.",
+      "haloReview": "Low-alpha fringe expands beyond the alpha>=128 silhouette and is recorded for visual Chrome compositing review; pixels retained unchanged."
+    },
+    {
+      "direction": "north",
+      "promptExact": "Use case: stylized-concept. Generate one full-body NPC sprite view for a modern illustrated 2D creature-adventure game. Image 1 is the identity/outfit reference; use only its bottom-right figure, Biologist Iris of the Delta (not the R06 trainer). Create a clean NORTH-facing rear view, standing neutrally with back toward camera and both feet fully visible. Preserve the same person, dark long braid, olive field shirt, plum field vest with practical straps and pockets, khaki field trousers, and tall olive rubber boots. Keep the field equipment coherent from behind: the existing crossbody field bag and straps should remain visible; do not invent new accessories. Her small dark-green field notebook may be held naturally at her side, consistent with the reference. Modern polished illustrated 2D sprite with clear readable silhouette at 56 world pixels, anatomy and outfit consistent with the front reference. Single centered character, generous padding, genuinely transparent background. No scenery, water, plants, ground shadow, other characters, text, labels, border, logo, or watermark. Apparent age and gender are not canon; do not add age markers or imply canonical gender.",
+      "referenceRole": "Identity/outfit reference: only the bottom-right Biologist Iris in the source atlas.",
+      "outputId": "exec-afce1025-fbcb-4ebf-97cc-357459f11951",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-afce1025-fbcb-4ebf-97cc-357459f11951.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\delta-iris-idles-candidates\\iris-north.png",
+      "sourcePath": "assets/sources/veloria-iris-delta-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-delta-idle-north-v1.webp",
+      "sourceSha256": "73ff206c8344ee076a0682e27c7ec3778bfce83183be422313a6025626b6b60a",
+      "runtimeSha256": "ea1efd3e41f92b97b5a77ae75641a0bb1710bb072fb2822540b321e257b372ac",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "alphaBoundsGt0": [
+        39,
+        51,
+        960,
+        1502
+      ],
+      "alpha128Bounds": [
+        287,
+        97,
+        764,
+        1450
+      ],
+      "selection": "root-approved for integration",
+      "reviewNotes": "",
+      "haloReview": "Low-alpha fringe expands beyond the alpha>=128 silhouette and is recorded for visual Chrome compositing review; pixels retained unchanged."
+    },
+    {
+      "direction": "west",
+      "promptExact": "Use case: stylized-concept. Generate one full-body NPC sprite view for a modern illustrated 2D creature-adventure game. Image 1 is the identity/outfit reference; use only its bottom-right figure, Biologist Iris of the Delta (distinct from the R06 trainer). Create a clean WEST-facing left profile: her nose and body face toward the viewer's left, standing neutrally, with both feet fully visible. Preserve the same person and outfit exactly: dark long braid, olive field shirt over beige undershirt, plum field vest with practical pockets and straps, khaki field trousers, tall olive rubber boots, crossbody field bag, and small dark-green field notebook held close to the torso. Keep the braid, bag, straps and notebook physically coherent in profile and consistent with the reference; do not invent accessories. Polished modern 2D game illustration, clean readable silhouette at 56 world pixels. Single centered character with generous padding on a genuinely transparent background. No scenery, water, plants, ground shadow, other characters, labels, text, border, logo, or watermark. Apparent age and gender presentation are visual proposals only; do not imply canonical age or gender.",
+      "referenceRole": "Identity/outfit reference: only the bottom-right Biologist Iris in the source atlas.",
+      "outputId": "exec-da5cd654-66cc-48d5-86d7-c1eba3069251",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-da5cd654-66cc-48d5-86d7-c1eba3069251.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\delta-iris-idles-candidates\\iris-west.png",
+      "sourcePath": "assets/sources/veloria-iris-delta-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-delta-idle-west-v1.webp",
+      "sourceSha256": "05a5c63d2e14d9994ecc59a5e7c4d75a52d17fb3bde69d02e1fc950c8b82d81c",
+      "runtimeSha256": "7e8d029d530e6d3c4350c78ae6d9a9ac859d55f999e30b28257c403fa43302a2",
+      "dimensions": {
+        "width": 1095,
+        "height": 1437
+      },
+      "alphaBoundsGt0": [
+        53,
+        23,
+        1055,
+        1437
+      ],
+      "alpha128Bounds": [
+        379,
+        115,
+        762,
+        1336
+      ],
+      "selection": "root-approved for integration",
+      "reviewNotes": "",
+      "haloReview": "Low-alpha fringe expands beyond the alpha>=128 silhouette and is recorded for visual Chrome compositing review; pixels retained unchanged."
+    },
+    {
+      "direction": "east",
+      "promptExact": "Use case: precise-object-edit. This is an already approved EAST-facing right profile sprite candidate for Delta biologist Iris. Make one tightly limited color edit: recolor only the visible small far-side portion of the crossbody satchel behind her torso from tan/ochre to muted plum-purple matching the existing plum vest. Keep the satchel mostly occluded on anatomical LEFT far side. Preserve every other pixel/detail as closely as possible: same exact right-facing profile, same face, braid, olive field shirt, beige undershirt, plum vest, khaki trousers, tall olive boots, dark green notebook, proportions, pose, framing, linework, and transparent background. Do not add earrings or other accessories. Do not change clothing colors or any other object. Keep genuine transparency and no background, shadow, haze, or checkerboard.",
+      "referenceRole": "Image 1: prior same-direction candidate edit target; Image 2 for South: source atlas used only as outfit color reference, bottom-right Delta biologist Iris.",
+      "outputId": "exec-a105c6e4-2d2c-4ca8-86a1-4d21f6cbd0fa",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-a105c6e4-2d2c-4ca8-86a1-4d21f6cbd0fa.png",
+      "candidatePath": "C:\\Projects\\Veloria\\.tmp\\delta-iris-idles-candidates\\iris-east-plum-v3.png",
+      "sourcePath": "assets/sources/veloria-iris-delta-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-iris-delta-idle-east-v1.webp",
+      "sourceSha256": "7b6a502a2eb6b57969ee86320b8c694af8e18f09533482eaee94842bf7c0befd",
+      "runtimeSha256": "45ca35902f63c8b836451635087cb8238cc8f482adef582d8f6c6b70e805baaf",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "alphaBoundsGt0": [
+        53,
+        9,
+        994,
+        1518
+      ],
+      "alpha128Bounds": [
+        265,
+        12,
+        817,
+        1471
+      ],
+      "selection": "root-approved for integration",
+      "reviewNotes": "Visual review: plum vest and plum satchel visible, with bag mostly occluded behind torso on anatomical-left far side in east view. Candidate only; metadata alpha analysis not refreshed.",
+      "haloReview": "Low-alpha fringe expands beyond the alpha>=128 silhouette and is recorded for visual Chrome compositing review; pixels retained unchanged."
+    }
+  ],
+  "discarded": [
+    {
+      "direction": "south",
+      "outputId": "exec-c5354373-8785-42f9-97f1-6849d7b5d8f2",
+      "candidatePath": ".tmp/delta-iris-idles-candidates/iris-south.png",
+      "sha256": "ef8be4b3769a68bd845658f457c2b5b84a2940e9e28343ee57e83259cc8f3e77",
+      "reason": "The reference's tan left-hip crossbody field satchel was not clearly represented. Replaced only as a candidate; original copy retained."
+    },
+    {
+      "direction": "east",
+      "outputId": "exec-73013d2d-b898-4606-8e30-a040a454533b",
+      "candidatePath": ".tmp/delta-iris-idles-candidates/iris-east.png",
+      "sha256": "ec0f278806b4ff4a888897393250cfbb5c19e98ab930df00f8c02dc1fb67d991",
+      "reason": "The left-hip satchel was too visible on the far side in the east-facing view; replaced only as a candidate."
+    },
+    {
+      "direction": "south",
+      "referenceRole": "Identity/outfit reference: only the bottom-right Biologist Iris in the source atlas.",
+      "outputId": "exec-3d91a751-64a0-44d7-a650-71eddf49274a",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-3d91a751-64a0-44d7-a650-71eddf49274a.png",
+      "candidatePath": ".tmp/delta-iris-idles-candidates/iris-south-v2.png",
+      "sha256": "8051a964756ea889bbf9f9a68b58d188fbcdc53107d2f9586f410e09b5a635f5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaBBox": [
+        47,
+        29,
+        1010,
+        1536
+      ],
+      "alphaAtCanvasCorner": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "opaqueBBoxAlpha128": [
+        244,
+        109,
+        806,
+        1429
+      ],
+      "prompt": "Use case: stylized-concept. Generate one full-body NPC sprite view for a modern illustrated 2D creature-adventure game. Image 1 is the identity and exact accessory-placement reference; use only its bottom-right Biologist Iris of the Delta (not the separate R06 trainer). Make a clean SOUTH-facing front view, facing the viewer, neutral standing posture, both feet visible. Match the reference identity and clothing: long dark braid, olive field shirt over beige undershirt, plum field vest, khaki field trousers, tall olive rubber boots, dark-green field notebook held at chest, and the large tan crossbody field satchel hanging at Iris's ANATOMICAL LEFT hip (which is on the viewer's RIGHT in this front view). Keep the satchel distinct from vest pockets; preserve the crossbody strap across the torso. The satchel and notebook must both be visible. Do not relocate the satchel to Iris's right hip. Keep anatomy and all accessories coherent with the reference; add no jewelry or props absent from it. Modern polished 2D game illustration, readable full-body silhouette when displayed around 56 world pixels. One centered person, generous transparent padding, genuinely transparent background with no haze outside the figure. No scenery, water, plants, ground shadow, other characters, labels, text, border, logo, or watermark. Apparent age and gender presentation are non-canonical visual proposals only.",
+      "reason": "Replaced by plum-satchel South revision; original tan satchel disagreed with the plum satchel in approved North/West and original outfit palette."
+    },
+    {
+      "direction": "east",
+      "referenceRole": "Identity/outfit reference: only the bottom-right Biologist Iris in the source atlas.",
+      "outputId": "exec-03ffb035-ba1e-4856-8dc3-e9cc77a0eca8",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-03ffb035-ba1e-4856-8dc3-e9cc77a0eca8.png",
+      "candidatePath": ".tmp/delta-iris-idles-candidates/iris-east-v2.png",
+      "sha256": "704c3bed0a43a70937f515e8d885153f0003eff63b74dfa7fe703a59f10730dd",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "alphaBBox": [
+        33,
+        9,
+        970,
+        1536
+      ],
+      "alphaAtCanvasCorner": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "opaqueBBoxAlpha128": [
+        286,
+        88,
+        789,
+        1445
+      ],
+      "prompt": "Use case: stylized-concept. Generate one full-body NPC sprite view for a modern illustrated 2D creature-adventure game. Image 1 is the identity/outfit reference; use only the bottom-right Biologist Iris of the Delta, not the R06 trainer. Make an EAST-facing right profile: nose and body point toward the viewer's RIGHT; show the character's ANATOMICAL RIGHT side as the near side. Keep anatomy and clothing consistent with the reference and the approved south/front candidate: long dark braid, olive field shirt over beige undershirt, plum field vest, khaki field trousers, tall olive rubber boots, dark-green notebook held at the chest, and a tan crossbody field satchel attached to Iris's ANATOMICAL LEFT hip. Because this is an east-facing profile and Iris's anatomical RIGHT side is the near side, the left-hip satchel is on the FAR side: it must be mostly occluded by the torso, with at most only a small partial edge visible behind the silhouette; do not move it to the near/right hip. Preserve the notebook in front of the torso and the same braid/outfit/accessory design. No extra accessories. Polished modern 2D game illustration, single centered full-body person with both feet visible and generous transparent padding, readable around 56 world pixels. Genuinely transparent background, no haze outside the figure. No scenery, water, plants, ground shadow, other characters, labels, text, border, logo, or watermark. Apparent age and gender presentation are visual proposals, not canon.",
+      "reason": "Replaced by plum-satchel East revision; original visible satchel was tan/ochre."
+    },
+    {
+      "direction": "south",
+      "outputId": "exec-810a90e7-efc1-48ce-ae2a-89cf408798f0",
+      "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182db-62cb-7ab3-965f-945c8d52be72/exec-810a90e7-efc1-48ce-ae2a-89cf408798f0.png",
+      "candidatePath": ".tmp/delta-iris-idles-candidates/iris-south-plum-rejected-color-drift.png",
+      "reason": "Rejected after visual inspection: changed shirt/vest palette and introduced earrings while recoloring the bag; retained for provenance.",
+      "referenceRole": "Edit target: South v2 candidate; no atlas supporting reference was supplied.",
+      "sha256": "8075b3105c816ddf8a0bdb603522cb31b0340867e91ebad9fbc1d94d5ae75ee9",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: precise-object-edit. Edit this NPC sprite candidate for the Delta biologist Iris. Change only the large crossbody field satchel's fabric/leather panels from tan/ochre to a muted plum-purple matching her existing plum field vest. Keep the brown strap and metal buckles brown/gold. Preserve the exact South/front pose, face, long braid, olive shirt, beige undershirt, plum vest, khaki trousers, olive boots, green notebook, proportions, framing, edges, and transparent background. The bag must remain attached at Iris's ANATOMICAL LEFT hip, on the viewer's RIGHT in this front view. Do not alter any other colors or add/remove details. Keep genuine transparency; no background, shadow, haze, or checkerboard."
+    }
+  ],
+  "reviewNotes": [
+    "The original frame and prompts support the botanical field role, dark braid, olive shirt, plum vest, notebook and field bag. No age or gender is established in dialogue or canonical design notes.",
+    "All four generated canvases have transparent corner pixels and alpha-bearing edges. Nonzero alpha bounds are much wider than the alpha>=128 body bounds, indicating a low-alpha fringe/halo that should be visually reviewed at runtime scale. No cleanup or cropping was applied.",
+    "Cardinal side check against the south/front: the tan satchel is on Iris's anatomical left, shown at viewer-right in south and viewer-left in the back-facing north. WEST has nose facing screen-left and the left-side satchel visibly near; EAST v2 has nose facing screen-right and only the far-side satchel edge visible behind the torso. Both profiles were generated independently; no flips were used.",
+    "The opaque-body heights are 1320 px south v2, 1353 px north, 1221 px west and 1357 px east v2. At an overall canvas display height of 56 world px, the visible bodies would be approximately 48, 49, 48 and 49 world px respectively; final display calibration may need a larger canvas display size to achieve a 56 px body silhouette.",
+    "These are raw candidates only, not accepted or registered assets. No exact runtime origins/display sizes have been calibrated.",
+    "Root requested a consistent plum satchel matching approved North/West and the source outfit reference. Revised South/East candidates only; original candidates and a failed South color-drift generation are retained. These edits alter more than one pixel even where prompted to localize; North/West remain the previously reviewed versions. New revisions have PNG dimensions and SHA-256 recorded, but alpha geometry has not been remeasured."
+  ],
+  "sourceReportPath": "C:\\Projects\\Veloria\\.tmp\\delta-iris-idles-candidates\\report.json",
+  "calibration": "Optical body height 56 world px from alpha>=128 bounds; shared sole baseline. Preserve source dimensions and aspect ratios, including West 1095x1437. PNG raw copies; lossless WebP verified exact decoded RGBA. Low-alpha fringes retained and noted for Chrome composition review.",
+  "integrationStatus": "Root-reviewed and approved for runtime integration on 2026-10-29; source report retains its original pre-approval candidate-only status.",
+  "reviewNotesCurrent": [
+    "Selected South: iris-south-plum-v3.png",
+    "Selected North: iris-north.png",
+    "Selected West: iris-west.png (1095x1437 preserved; runtime ratio 365x479)",
+    "Selected East: iris-east-plum-v3.png",
+    "The plum satchel stays on anatomical LEFT: South viewer-right, North viewer-left, West near/visible, East far/occluded."
+  ]
+}

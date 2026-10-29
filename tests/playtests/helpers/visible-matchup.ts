@@ -22,15 +22,23 @@ function damagingScore(
     if (effectiveness <= 0) continue;
     const stab = creature.types.includes(move.type) ? 1.5 : 1;
     const offensiveStat = move.category === 'physical' ? creature.stats.attack : creature.stats.specialAttack;
-    best = Math.max(best, move.power * effectiveness * stab * offensiveStat);
+    // Compare against one common defensive benchmark, never hidden enemy stats.
+    // Include the per-hit base damage: multiplying power alone undervalues weak
+    // multi-hit moves. Gen IV's 2–5 distribution has an expected three hits.
+    const hits = move.minHits === 2 && move.maxHits === 5 ? 3
+      : ((move.minHits ?? 1) + (move.maxHits ?? move.minHits ?? 1)) / 2;
+    const benchmarkDamage = ((2 * creature.level / 5 + 2) * move.power * offensiveStat / 50 / 50 + 2);
+    best = Math.max(best, benchmarkDamage * hits * effectiveness * stab * (move.alwaysHits ? 1 : move.accuracy / 100));
   }
   return best;
 }
 
 /**
  * Pick a living Kanto reserve only when its best usable, variable-power attack
- * is more than 30% better than the active creature's, using visible typing and
- * the supplied local move/type data. Returns the existing party object by ref.
+ * is more than 30% better than the active creature's on a common defense-50
+ * benchmark, using visible typing and local move/type data, including accuracy
+ * and expected hits. This is a switch heuristic, not a damage forecast.
+ * Returns the existing party object by ref.
  */
 export function chooseVisibleMatchupReplacement(
   active: BattleCreature,

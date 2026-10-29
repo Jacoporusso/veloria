@@ -2,12 +2,17 @@ import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { collectMapCollision } from '../../src/core/world/map-collision';
 import appearances from '../../content/characters/appearances.v2.json' with { type: 'json' };
+import poseManifest from '../../assets/npc-idle-views-v1.json' with { type: 'json' };
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-navigation';
 
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], southBlocked: true, tiled: 'd04_delta_specchi', id: 'delta_iris' },
+  { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], tiled: 'r08_costa_turbine', id: 'r08_viola' },
+  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 23, y: 15, flags: [], southBlocked: true, tiled: 'portolume', id: 'portolume_captain' },
+  { name: 'Tessa', speaker: 'Tessa', profile: 'acquariva-tessa', map: 'acquariva', spawn: 'from_r10', x: 34, y: 14, flags: [], tiled: 'acquariva', id: 'acquariva_tessa' },
   { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], tiled: 'r07_condotto_risonante', id: 'r07_dario' },
   { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], tiled: 'ferraluce', id: 'ferraluce_ivo' },
   { name: 'Centro Ferraluce', speaker: 'Addetta del Centro', profile: 'ferraluce-care', map: 'ferraluce', spawn: 'from_r06', x: 9, y: 21, flags: [], tiled: 'ferraluce', id: 'ferraluce_care', service: 'center' },
@@ -21,6 +26,8 @@ for (const npc of [
 ]) test(`${npc.name} keeps a stable identity, foot anchor and authored approaches in ${npc.map}`, async ({ page }, info) => {
   test.setTimeout(process.env.CI ? 180_000 : 120_000);
   const profile = appearances.profiles.find(item => item.id === npc.profile)! as any;
+  const manifestProfile = poseManifest.profiles.find(item => item.profileId === npc.profile) as any;
+  expect(manifestProfile, `Pose manifest for ${npc.profile}`).toBeTruthy();
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
   await page.route('**/src/main.ts*', async route => {
     const response = await route.fetch({ maxRetries: 2 });
@@ -30,11 +37,12 @@ for (const npc of [
   const save = await readBrowserSave(page);
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
     'prologue_complete_seen', ...npc.flags])];
-  save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, x: npc.x, y: npc.y + 1 };
+  save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, x: 'southBlocked' in npc ? npc.x - 1 : npc.x, y: 'southBlocked' in npc ? npc.y : npc.y + 1 };
   const tiled = JSON.parse(await readFile(`public/tilemaps/${npc.tiled}.tmj`, 'utf8'));
   const blocked = collectMapCollision(tiled.layers.find((layer: any) => layer.name === 'collision').objects, tiled.width, tiled.height, save.flags);
   expect(blocked.has(`${npc.x},${npc.y - 1}`)).toBe(false);
   expect(blocked.has(`${npc.x + 1},${npc.y}`)).toBe(false);
+  if ('southBlocked' in npc) expect(blocked.has(`${npc.x},${npc.y + 1}`)).toBe(true);
   for (const mode of ['reduced', 'full']) {
     await page.evaluate(mode => localStorage.setItem('veloria-animation-quality', mode), mode);
     await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
@@ -43,7 +51,7 @@ for (const npc of [
       { x: npc.x - 1, y: npc.y, facing: 'left', button: 'Vai a destra' },
       { x: npc.x, y: npc.y - 1, facing: 'up', button: 'Vai in basso' },
       { x: npc.x + 1, y: npc.y, facing: 'right', button: 'Vai a sinistra' },
-    ]) {
+    ].filter(stop => !('southBlocked' in npc && stop.facing === 'down'))) {
       await walkTo(page, `${npc.tiled}.tmj`, stop.x, stop.y, { avoidEncounters: true });
       await page.getByRole('button', { name: stop.button, exact: true }).tap();
       const before = await readBrowserSave(page);
@@ -78,12 +86,16 @@ for (const npc of [
           abovePlayer: world.mapLayer.list.indexOf(sprite) > world.mapLayer.list.indexOf(world.player) };
       }, npc.id);
       const view = profile.idleViews[stop.facing];
+      const manifestView = manifestProfile.views.find((entry: any) => entry.assetKey === view.assetKey);
+      expect(manifestView, `Source dimensions for ${view.assetKey}`).toBeTruthy();
+      expect(manifestView.width).toBeGreaterThan(0);
+      expect(manifestView.height).toBeGreaterThan(0);
       expect(state).toMatchObject({ key: view.assetKey, facing: stop.facing, x: npc.x * 32 + 16, y: npc.y * 32 + 35,
         origin: view.origin, uniform: true, flipped: false, compact: true, tweens: 0, abovePlayer: stop.y <= npc.y });
       expect(state.height).toBeCloseTo(view.displaySize, 5);
       if (/^r0[4-7]_/.test(npc.map)) expect(state.legacyRoute).toBe(false);
       if (npc.map === 'ferraluce') expect(state.legacyServices).toBe(false);
-      expect(state.frameRatio).toBeCloseTo(2 / 3, 8);
+      expect(state.frameRatio).toBeCloseTo(manifestView.width / manifestView.height, 8);
       if (state.webgl) {
         expect(state.powerOfTwo).toBe(true);
         expect(state.minFilter).toBe(0x2703); // LINEAR_MIPMAP_LINEAR, retained after every direction change.

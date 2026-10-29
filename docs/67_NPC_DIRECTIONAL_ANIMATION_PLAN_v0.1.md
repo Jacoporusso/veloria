@@ -74,3 +74,7 @@ La minificazione WebGL usa una superficie POT con frame utile nel rapporto origi
 ## Avanzamento 0.4.35
 
 Dario e i tre profili di Ferraluce portano le idle direzionali a 23 identità su 48. Restano 25 identità e i cicli walk non ancora verificati. Nove casi nativi e sette offline finali controllano anche i cinque map renderAssets ripuliti dai due atlanti inutilizzati, conservati globalmente per precache e provenienza. Non è una misura di risparmio PWA o GPU. Dettagli in [documento111](111_DARIO_FERRALUCE_DIRECTIONAL_IDLE_v0.1.md).
+
+## Avanzamento 0.4.37
+
+Viola, Marina, Tessa e Iris del Delta portano le idle direzionali a 27 identità su 48; 21 restano da migrare. Le quattro viste sono indipendenti, con origini e scala calibrate e trasparenza verificata. La posa ovest di Iris conserva il proprio rapporto originale. Non sono cicli walk: 47 profili non hanno ancora una camminata verificata. Prove, provenienza, correzioni anatomiche e limiti in [documento113](113_COASTAL_DIRECTIONAL_IDLE_v0.1.md). QA su telefono fisico, budget e allineamento del bordo del molo di Marina restano aperti.

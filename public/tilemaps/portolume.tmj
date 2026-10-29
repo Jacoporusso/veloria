@@ -7221,12 +7221,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-coastal-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-marina-portolume-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -7236,12 +7231,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.546
+              "value": 0.59272
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.911
+              "value": 0.94987
             }
           ]
         }

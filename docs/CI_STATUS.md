@@ -1,10 +1,18 @@
+## 0.4.37 — Cast costiero e risorse offline
+
+Viola, Marina, Tessa e Iris del Delta migrati a sedici idle indipendenti. Totale27profili su48,21da migrare. PNG raw conservati e WebP RGBA-identici, correzioni anatomiche e cromatiche con prompt/scarti registrati. West Iris conserva1095×1437. Atlante coastal ritirato solo dai renderAssets delle quattro mappe; geometria, proprietà di gioco e risorse globali conservate. Dettagli e limiti in `113_COASTAL_DIRECTIONAL_IDLE_v0.1.md`.
+
+Sedici casi nativi distinti passati, quattro nuovi finali e quattro produzione offline passati. Corrette due fixture che partivano su una cella già bloccata, senza modificare la mappa.837dominio/persistenza,154Python,914media/48fondali/48mappe; TypeScript/build passati con avviso chunk.419casi browser e67offline assegnati esattamente una volta. Timeout offline CI0.4.36 affrontato distribuendo66risorse su quattro shard17+17+16+16, senza saltare test o aumentare il limite. CI completa del nuovo lotto ancora da attestare.
+
+Cattura naturale Exeggcute20 passata in1,4minuti, una Sfera usata e940monete conservate. Rivincita Viola fallita al turno16, primi due avversari sconfitti e ultimo a42PS: export della sconfitta conservato con240monete. Nessuna quinta medaglia dichiarata. Driver considera colpi multipli e precisione su benchmark comune, senza statistiche avversarie nascoste o modifiche alle regole. Report e checkpoint nei documenti playtest del29ottobre. Goal complessivo aperto, incluse21identità, camminate, prova naturale delle altre palestre/Lega, bordo del molo di Marina e QA fisico.
+
 ## 0.4.36 — Mappa: categorie e punto selezionato
 
 Runtime `54bdbd5c78d8ea0a7906e785c7bed38dbb7b2ec2`, contenuti 0.4.36/cache v199. Filtri Doni/Pesca/Incontri con regione interamente inquadrata, elenco dei punti selezionabili, maggiore contrasto della pianta locale e alone sul punto isolato. Collegamento diario e coordinate fisiche conservati. Dettagli in `112_ATLAS_DISCOVERY_FOCUS_v0.1.md`.
 
 Cinque casi Chrome passati, inclusi diario, caricamento concorrente, errore parziale, integrità salvataggio e portrait/landscape. Screenshot mobile pesca rivisto; TypeScript/build passati con avviso sulle dimensioni dei chunk. Due test puri sui target missione passati; discovery conferma 415 casi browser assegnati una volta. Nessuna attestazione di prova su telefono fisico.
 
-[Deploy 40829505026](https://github.com/Jacoporusso/veloria/actions/runs/40829505026) in corso all'ultimo controllo: build, npm test e validazione contenuti completati; pubblicazione Pages ancora in attesa. [Verify 40829505097](https://github.com/Jacoporusso/veloria/actions/runs/40829505097) queued. Pages restituisce ancora cache v198: disponibilità pubblica della nuova versione non ancora attestata. Precedenti Verify 40775429948 e 40778700190 e Deploy 40778700230 completati con successo. Lavori del cast e preparazione naturale separati, obiettivo complessivo aperto.
+[Deploy 40829505026](https://github.com/Jacoporusso/veloria/actions/runs/40829505026) COMPLETED/SUCCESS; Pages verificata cache v199. [Verify 40829505097](https://github.com/Jacoporusso/veloria/actions/runs/40829505097) COMPLETED/FAILURE: il solo job Offline resources-1 ha esaurito il limite20minuti dopo30casi passati, senza asserzioni fallite osservate. Gli altri job sono riusciti. Il lotto0.4.37 distribuisce tutte le risorse su quattro shard e mantiene il controllo di copertura. Precedenti Verify 40775429948 e 40778700190 e Deploy 40778700230 completati con successo. Obiettivo complessivo aperto.
 
 ## 0.4.35 — Dario, Ferraluce e prova Nerea con squadra Gen I
 

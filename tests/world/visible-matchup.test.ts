@@ -56,3 +56,11 @@ test('does not select a non-Kanto reserve even if its visible move score is high
 
   assert.equal(chooseVisibleMatchupReplacement(active, [active, laterSpecies], ['water', 'poison'], moves, chart), undefined);
 });
+
+test('counts the official multi-hit move when comparing the coastal Grass companion', () => {
+  const psyduck = creature(54, 23, ['confusion', 'water-pulse'], 'psyduck');
+  const exeggcute = creature(102, 20, ['bullet-seed'], 'exeggcute');
+  const party = [psyduck, exeggcute];
+  assert.equal(chooseVisibleMatchupReplacement(psyduck, party, ['water'], moves, chart), exeggcute);
+  assert.equal(chooseVisibleMatchupReplacement(exeggcute, party, ['water', 'poison'], moves, chart), psyduck);
+});

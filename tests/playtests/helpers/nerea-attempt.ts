@@ -61,7 +61,7 @@ export async function runNereaAttempt(args: {
       if (!state.save.flags.includes('trainer_r08_viola_defeated')) {
         await record('Viola not defeated: preserve the real result for preparation review');
         await exportCheckpoint('natural-viola-attempt-backup.json');
-        expect(state.save.flags, 'Viola must be defeated before this journey can reach the fifth medal').toContain('trainer_r08_viola_defeated');
+        expect(state.save.flags, 'This chosen preparation route stops after losing the optional Viola challenge; preserve the loss before preparing again').toContain('trainer_r08_viola_defeated');
         return;
       }
       expect(state.save.player.money).toBe(initialMoney - supplyCost + 1050);

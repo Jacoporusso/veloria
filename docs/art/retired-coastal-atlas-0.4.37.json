@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-29",
+  "atlasKey": "veloria-coastal-cast-v1",
+  "auditRule": "Remove only map metadata renderAssets references where no Tiled object sprite property uses the atlas after Iris Delta binds to its new down asset.",
+  "before": [
+    {
+      "map": "acquariva.map.json",
+      "tiledAsset": "tilemaps/acquariva.tmj",
+      "coastalAtlasInRenderAssets": true,
+      "objectUses": []
+    },
+    {
+      "map": "d04_delta_specchi.map.json",
+      "tiledAsset": "tilemaps/d04_delta_specchi.tmj",
+      "coastalAtlasInRenderAssets": true,
+      "objectUses": [
+        {
+          "id": 52,
+          "name": "Biologa Iris",
+          "npcId": "delta_iris",
+          "appearanceId": "delta-biologist-iris"
+        }
+      ]
+    },
+    {
+      "map": "portolume.map.json",
+      "tiledAsset": "tilemaps/portolume.tmj",
+      "coastalAtlasInRenderAssets": true,
+      "objectUses": []
+    },
+    {
+      "map": "r08_costa_turbine.map.json",
+      "tiledAsset": "tilemaps/r08_costa_turbine.tmj",
+      "coastalAtlasInRenderAssets": true,
+      "objectUses": []
+    }
+  ],
+  "after": [
+    {
+      "mapMetadata": "acquariva.map.json",
+      "tiledAsset": "tilemaps/acquariva.tmj",
+      "hadCoastalAtlasRenderAsset": true,
+      "objectUsesAfterBinding": [],
+      "removedRenderAsset": true
+    },
+    {
+      "mapMetadata": "d04_delta_specchi.map.json",
+      "tiledAsset": "tilemaps/d04_delta_specchi.tmj",
+      "hadCoastalAtlasRenderAsset": true,
+      "objectUsesAfterBinding": [],
+      "removedRenderAsset": true
+    },
+    {
+      "mapMetadata": "portolume.map.json",
+      "tiledAsset": "tilemaps/portolume.tmj",
+      "hadCoastalAtlasRenderAsset": true,
+      "objectUsesAfterBinding": [],
+      "removedRenderAsset": true
+    },
+    {
+      "mapMetadata": "r08_costa_turbine.map.json",
+      "tiledAsset": "tilemaps/r08_costa_turbine.tmj",
+      "hadCoastalAtlasRenderAsset": true,
+      "objectUsesAfterBinding": [],
+      "removedRenderAsset": true
+    }
+  ],
+  "removedRenderAssetMaps": [
+    "acquariva.map.json",
+    "d04_delta_specchi.map.json",
+    "portolume.map.json",
+    "r08_costa_turbine.map.json"
+  ],
+  "preserved": [
+    "content/characters/appearances.v2.json global coastal atlas asset entry",
+    "assets/ASSET_REGISTER.csv coastal atlas rows",
+    "assets/sources/veloria-coastal-cast-v1.png",
+    "public/assets/sprites/veloria-coastal-cast-v1.webp",
+    "other global pre-cache/catalog references"
+  ],
+  "deltaIrisBinding": "delta-biologist-iris now uses the Iris Delta down asset, with no legacy spriteFrame; the atlas is not used by any Tiled object in maps still carrying that renderAsset."
+}

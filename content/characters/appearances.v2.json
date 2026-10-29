@@ -628,6 +628,86 @@
       "kind": "image",
       "key": "veloria-ferraluce-shop-idle-east-v1",
       "path": "assets/sprites/veloria-ferraluce-shop-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-south-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-north-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-west-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-viola-r08-idle-east-v1",
+      "path": "assets/sprites/veloria-viola-r08-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-marina-portolume-idle-south-v1",
+      "path": "assets/sprites/veloria-marina-portolume-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-marina-portolume-idle-north-v1",
+      "path": "assets/sprites/veloria-marina-portolume-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-marina-portolume-idle-west-v1",
+      "path": "assets/sprites/veloria-marina-portolume-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-marina-portolume-idle-east-v1",
+      "path": "assets/sprites/veloria-marina-portolume-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-tessa-acquariva-idle-south-v1",
+      "path": "assets/sprites/veloria-tessa-acquariva-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-tessa-acquariva-idle-north-v1",
+      "path": "assets/sprites/veloria-tessa-acquariva-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-tessa-acquariva-idle-west-v1",
+      "path": "assets/sprites/veloria-tessa-acquariva-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-tessa-acquariva-idle-east-v1",
+      "path": "assets/sprites/veloria-tessa-acquariva-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-delta-idle-south-v1",
+      "path": "assets/sprites/veloria-iris-delta-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-delta-idle-north-v1",
+      "path": "assets/sprites/veloria-iris-delta-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-delta-idle-west-v1",
+      "path": "assets/sprites/veloria-iris-delta-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-iris-delta-idle-east-v1",
+      "path": "assets/sprites/veloria-iris-delta-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -1908,12 +1988,45 @@
       "npcIds": [
         "acquariva_tessa"
       ],
-      "assetKey": "veloria-coastal-cast-v1",
-      "frame": 0,
+      "assetKey": "veloria-tessa-acquariva-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/acquariva_tessa",
       "origin": {
-        "x": 0.592,
-        "y": 0.903
+        "x": 0.58818,
+        "y": 0.9707
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-tessa-acquariva-idle-south-v1",
+          "origin": {
+            "x": 0.58818,
+            "y": 0.9707
+          },
+          "displaySize": 59.32
+        },
+        "up": {
+          "assetKey": "veloria-tessa-acquariva-idle-north-v1",
+          "origin": {
+            "x": 0.56159,
+            "y": 0.9681
+          },
+          "displaySize": 58.71
+        },
+        "left": {
+          "assetKey": "veloria-tessa-acquariva-idle-west-v1",
+          "origin": {
+            "x": 0.50622,
+            "y": 0.97721
+          },
+          "displaySize": 59.0
+        },
+        "right": {
+          "assetKey": "veloria-tessa-acquariva-idle-east-v1",
+          "origin": {
+            "x": 0.54245,
+            "y": 0.97396
+          },
+          "displaySize": 59.24
+        }
       }
     },
     {
@@ -1925,12 +2038,45 @@
       "npcIds": [
         "portolume_captain"
       ],
-      "assetKey": "veloria-coastal-cast-v1",
-      "frame": 1,
+      "assetKey": "veloria-marina-portolume-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/portolume_captain",
       "origin": {
-        "x": 0.546,
-        "y": 0.911
+        "x": 0.59272,
+        "y": 0.94987
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-marina-portolume-idle-south-v1",
+          "origin": {
+            "x": 0.59272,
+            "y": 0.94987
+          },
+          "displaySize": 60.79
+        },
+        "up": {
+          "assetKey": "veloria-marina-portolume-idle-north-v1",
+          "origin": {
+            "x": 0.51935,
+            "y": 0.95378
+          },
+          "displaySize": 60.24
+        },
+        "left": {
+          "assetKey": "veloria-marina-portolume-idle-west-v1",
+          "origin": {
+            "x": 0.5525,
+            "y": 0.98568
+          },
+          "displaySize": 58.0
+        },
+        "right": {
+          "assetKey": "veloria-marina-portolume-idle-east-v1",
+          "origin": {
+            "x": 0.5155,
+            "y": 0.97786
+          },
+          "displaySize": 58.55
+        }
       }
     },
     {
@@ -1942,12 +2088,45 @@
       "npcIds": [
         "r08_viola"
       ],
-      "assetKey": "veloria-coastal-cast-v1",
-      "frame": 2,
+      "assetKey": "veloria-viola-r08-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r08_viola; content/trainers/r08_viola.trainer.json",
       "origin": {
-        "x": 0.621,
-        "y": 0.88
+        "x": 0.59739,
+        "y": 0.97005
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-viola-r08-idle-south-v1",
+          "origin": {
+            "x": 0.59739,
+            "y": 0.97005
+          },
+          "displaySize": 59.28
+        },
+        "up": {
+          "assetKey": "veloria-viola-r08-idle-north-v1",
+          "origin": {
+            "x": 0.51007,
+            "y": 0.96615
+          },
+          "displaySize": 59.69
+        },
+        "left": {
+          "assetKey": "veloria-viola-r08-idle-west-v1",
+          "origin": {
+            "x": 0.51273,
+            "y": 0.98047
+          },
+          "displaySize": 58.24
+        },
+        "right": {
+          "assetKey": "veloria-viola-r08-idle-east-v1",
+          "origin": {
+            "x": 0.50604,
+            "y": 0.98047
+          },
+          "displaySize": 58.67
+        }
       }
     },
     {
@@ -1959,12 +2138,45 @@
       "npcIds": [
         "delta_iris"
       ],
-      "assetKey": "veloria-coastal-cast-v1",
-      "frame": 3,
+      "assetKey": "veloria-iris-delta-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/delta_iris",
       "origin": {
-        "x": 0.57,
-        "y": 0.887
+        "x": 0.62307,
+        "y": 0.99674
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-iris-delta-idle-south-v1",
+          "origin": {
+            "x": 0.62307,
+            "y": 0.99674
+          },
+          "displaySize": 56.62673
+        },
+        "up": {
+          "assetKey": "veloria-iris-delta-idle-north-v1",
+          "origin": {
+            "x": 0.54263,
+            "y": 0.94401
+          },
+          "displaySize": 63.57428
+        },
+        "left": {
+          "assetKey": "veloria-iris-delta-idle-west-v1",
+          "origin": {
+            "x": 0.52793,
+            "y": 0.92971
+          },
+          "displaySize": 65.90663
+        },
+        "right": {
+          "assetKey": "veloria-iris-delta-idle-east-v1",
+          "origin": {
+            "x": 0.49555,
+            "y": 0.95768
+          },
+          "displaySize": 58.95545
+        }
       }
     },
     {

@@ -3999,12 +3999,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-coastal-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-viola-r08-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -4024,12 +4019,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.621
+              "value": 0.59739
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.88
+              "value": 0.97005
             }
           ]
         }

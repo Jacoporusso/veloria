@@ -1,5 +1,21 @@
-const CACHE = 'veloria-shell-v199';
+const CACHE = 'veloria-shell-v200';
 const SHELL = [
+  './assets/sprites/veloria-viola-r08-idle-south-v1.webp',
+  './assets/sprites/veloria-viola-r08-idle-north-v1.webp',
+  './assets/sprites/veloria-viola-r08-idle-west-v1.webp',
+  './assets/sprites/veloria-viola-r08-idle-east-v1.webp',
+  './assets/sprites/veloria-marina-portolume-idle-south-v1.webp',
+  './assets/sprites/veloria-marina-portolume-idle-north-v1.webp',
+  './assets/sprites/veloria-marina-portolume-idle-west-v1.webp',
+  './assets/sprites/veloria-marina-portolume-idle-east-v1.webp',
+  './assets/sprites/veloria-tessa-acquariva-idle-south-v1.webp',
+  './assets/sprites/veloria-tessa-acquariva-idle-north-v1.webp',
+  './assets/sprites/veloria-tessa-acquariva-idle-west-v1.webp',
+  './assets/sprites/veloria-tessa-acquariva-idle-east-v1.webp',
+  './assets/sprites/veloria-iris-delta-idle-south-v1.webp',
+  './assets/sprites/veloria-iris-delta-idle-north-v1.webp',
+  './assets/sprites/veloria-iris-delta-idle-west-v1.webp',
+  './assets/sprites/veloria-iris-delta-idle-east-v1.webp',
   './assets/sprites/veloria-dario-idle-south-v1.webp',
   './assets/sprites/veloria-dario-idle-north-v1.webp',
   './assets/sprites/veloria-dario-idle-west-v1.webp',

@@ -4202,12 +4202,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-coastal-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-iris-delta-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -4217,12 +4212,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.57
+              "value": 0.62307
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.887
+              "value": 0.99674
             }
           ]
         },
