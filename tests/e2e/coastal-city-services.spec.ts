@@ -54,28 +54,25 @@ async function reachPrompt(page: Page, mapFile: string, x: number, y: number, di
   await page.screenshot({ path: screenshotPath });
 }
 
-test('Portolume center, market, monorail and gym threshold remain reachable on foot in both orientations', async ({ page }, info) => {
+for (const view of views) test(`Portolume center, market, monorail and gym threshold remain reachable on foot in ${view.name}`, async ({ page }, info) => {
   test.setTimeout(process.env.CI ? 180_000 : 120_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
 
   // Use the authored mainland dock spawn and keep the observatory island covered
   // by the existing Portolume fishing/transport test.
-  await page.setViewportSize({ width: 390, height: 844 });
+  await page.setViewportSize({ width: view.width, height: view.height });
   await enterCityFixture(page, 'veloria/portolume', 'dock_mainland', 25, 14, ['q_portolume_visited']);
   expect(await readBrowserSave(page)).toMatchObject({ player: { mapId: 'veloria/portolume', spawnPointId: 'dock_mainland', x: 25, y: 14 } });
-  await page.screenshot({ path: info.outputPath('portolume-mainland-dock-portrait.png') });
+  await page.screenshot({ path: info.outputPath(`portolume-mainland-dock-${view.name}.png`) });
 
-  for (const view of views) {
-    await page.setViewportSize({ width: view.width, height: view.height });
-    await expect(page.locator('#game canvas')).toBeVisible();
-    for (const [x, y, direction, label, name] of [
-      [8, 15, 'Vai in alto', 'Centro Pokémon', 'center'],
-      [14, 15, 'Vai in alto', 'Mercato del Porto', 'market'],
-      [7, 20, 'Vai in basso', 'Monorotaia di Portolume', 'monorail'],
-    ] as const) {
-      await reachPrompt(page, 'portolume.tmj', x, y, direction, label, info.outputPath(`portolume-${view.name}-${name}.png`));
-    }
+  await expect(page.locator('#game canvas')).toBeVisible();
+  for (const [x, y, direction, label, name] of [
+    [8, 15, 'Vai in alto', 'Centro Pokémon', 'center'],
+    [14, 15, 'Vai in alto', 'Mercato del Porto', 'market'],
+    [7, 20, 'Vai in basso', 'Monorotaia di Portolume', 'monorail'],
+  ] as const) {
+    await reachPrompt(page, 'portolume.tmj', x, y, direction, label, info.outputPath(`portolume-${view.name}-${name}.png`));
   }
 
   // Cross the gym threshold, then stop before approaching the trainer or starting a battle.
@@ -87,22 +84,20 @@ test('Portolume center, market, monorail and gym threshold remain reachable on f
   expect(errors).toEqual([]);
 });
 
-test('Acquariva services, Tessa and gym threshold remain reachable on foot in both orientations', async ({ page }, info) => {
+for (const view of views) test(`Acquariva services, Tessa and gym threshold remain reachable on foot in ${view.name}`, async ({ page }, info) => {
   test.setTimeout(process.env.CI ? 180_000 : 120_000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
 
+  await page.setViewportSize({ width: view.width, height: view.height });
   await enterCityFixture(page, 'veloria/acquariva', 'from_r10', 1, 16, ['q_delta_report', 'q_acquariva_visited']);
-  for (const view of views) {
-    await page.setViewportSize({ width: view.width, height: view.height });
-    await expect(page.locator('#game canvas')).toBeVisible();
-    for (const [x, y, direction, label, name] of [
-      [8, 14, 'Vai in alto', 'Centro Pokémon', 'center'],
-      [13, 15, 'Vai in alto', 'Mercato del Lago', 'market'],
-      [6, 23, 'Vai in alto', 'Monorotaia di Acquariva', 'monorail'],
-    ] as const) {
-      await reachPrompt(page, 'acquariva.tmj', x, y, direction, label, info.outputPath(`acquariva-${view.name}-${name}.png`));
-    }
+  await expect(page.locator('#game canvas')).toBeVisible();
+  for (const [x, y, direction, label, name] of [
+    [8, 14, 'Vai in alto', 'Centro Pokémon', 'center'],
+    [13, 15, 'Vai in alto', 'Mercato del Lago', 'market'],
+    [6, 23, 'Vai in alto', 'Monorotaia di Acquariva', 'monorail'],
+  ] as const) {
+    await reachPrompt(page, 'acquariva.tmj', x, y, direction, label, info.outputPath(`acquariva-${view.name}-${name}.png`));
   }
 
   // Tessa's report is available in this fixture; keep the authored approach and facing.

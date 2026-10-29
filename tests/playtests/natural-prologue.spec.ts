@@ -1,5 +1,6 @@
 import { runCoastalCompanionPreparation } from './helpers/coastal-companion-preparation';
 import { runCoastalFishingTraining } from './helpers/coastal-fishing-training';
+import { runGreenhousePreparation } from './helpers/greenhouse-preparation';
 import { chooseCaptureWeakeningMove } from './helpers/capture-policy';
 import { chooseVisibleMatchupReplacement } from './helpers/visible-matchup';
 import typeChart from '../../content/battle/type-chart.v1.json' with { type: 'json' };
@@ -63,6 +64,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const resumeFifthFile = process.env.PLAYTEST_RESUME_FIFTH_BACKUP;
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
+  const greenhousePreparation = process.env.PLAYTEST_GREENHOUSE_PREPARATION === '1';
+  if (greenhousePreparation) expect(resumeNereaFile).toBeTruthy();
   const coastCompanionPreparation = process.env.PLAYTEST_COAST_COMPANION === '1';
   const coastFishingTraining = process.env.PLAYTEST_COAST_FISH_TRAIN === '1';
   if (coastFishingTraining) { expect(resumeNereaFile).toBeTruthy(); expect(captureSpeciesId).toBe(0); }
@@ -71,7 +74,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const darioPreparation = process.env.PLAYTEST_PREPARE_DARIO === '1';
   const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
   const wooperTraining = process.env.PLAYTEST_TRAIN_WOOPER === '1';
-  expect([nereaChallenge, coastCompanionPreparation, coastFishingTraining, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
+  expect([greenhousePreparation, nereaChallenge, coastCompanionPreparation, coastFishingTraining, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
   const resumeBackupFile = resumeThirdFile ?? resumeSecondFile ?? resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeThirdFile, resumeSecondFile, resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
@@ -759,7 +762,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     if (resumeNereaFile) {
-      const driver = coastFishingTraining ? runCoastalFishingTraining : coastCompanionPreparation ? runCoastalCompanionPreparation : wooperTraining ? runWooperTraining : wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
+      report.push({ label: 'Selected coastal preparation', greenhousePreparation });
+      const driver = greenhousePreparation ? runGreenhousePreparation : coastFishingTraining ? runCoastalFishingTraining : coastCompanionPreparation ? runCoastalCompanionPreparation : wooperTraining ? runWooperTraining : wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     expect(errors).toEqual([]);

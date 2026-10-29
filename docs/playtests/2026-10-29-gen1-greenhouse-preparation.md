@@ -1,0 +1,11 @@
+# Serra di Radicelmo: preparazione ottenuta giocando
+
+Runtime applicativo 0.4.41. Partenza dall'export dopo il tentativo offensivo con Viola, SHA256 `a19e582f454b75a2a036c9d8c4779ec6d5316d905f8ae37dbc75d473068947d4`: quattro medaglie, sei Pokémon, Exeggcute27 con Confusione, 190 monete, nessuna Pozione, una Sfera e un Antidoto.
+
+Il caso percorre normalmente R08, Ferraluce, R06, Vetracielo, R05, Petalora, R04 e Radicelmo. Non modifica posizione, XP, RNG, flag o risorse tramite lo stato di test. Con il seme già archiviato, parla con Leda, regola acqua e luce, osserva il germoglio e torna da Leda. La missione esistente assegna 180 monete, due Pozioni, un Antidoto e Bulbasaur15. La squadra piena manda il nuovo Pokémon al deposito. La ripetizione del dialogo non assegna di nuovo denaro o strumenti; l'export dopo il dialogo ripetuto contiene un solo Bulbasaur nel deposito.
+
+Il caso passa in 5,3 minuti, includendo il ritorno lungo gli stessi collegamenti e il riposo al Centro di Portolume. Export finale: 370 monete, due Pozioni, due Antidoti, una Sfera e la canna; quattro medaglie e gli stessi sei membri, esperienza invariata e PS completi. Bulbasaur15 è l'unico nuovo Pokémon nel deposito. Nessun pageerror. Questi risultati attestano la missione e la preparazione, non una vittoria con Viola o Nerea.
+
+Export dopo la ricompensa: `natural-greenhouse-complete-backup.json`, SHA256 `2abce652c0ec414490b2682ea85f8876fa12d790ce70e0f621b38e0ca9ea8c15`. Export finale al Centro: `.tmp/natural-gen1-greenhouse-earned/natural-prologue-natural-j-04b21-ress-and-real-game-controls/natural-greenhouse-portolume-backup.json`, SHA256 `1d6af53275c388d1b9d97fbfacbec6c7596a6855eb4966ff59736b3deac85fa9`. Report completo in `2026-10-29-gen1-greenhouse-preparation-report.json`.
+
+Un primo avvio aveva selezionato per errore il percorso standard del driver e si era fermato subito su un'asserzione della mappa, prima di navigare o acquistare strumenti. La selezione esplicita `PLAYTEST_GREENHOUSE_PREPARATION=1` è stata collegata al nuovo helper e verificata con TypeScript prima del caso riuscito. Il salvataggio iniziale della prova effettiva resta quello della sconfitta reale, senza ricostruzioni del progresso.

@@ -1,12 +1,14 @@
 ## 0.4.41 — Tecnica della Centrale
 
-Commit `b7b0c41f5146db39add4be03b2a307ce5e47834c`: [Deploy 40936155501](https://github.com/Jacoporusso/veloria/actions/runs/40936155501) COMPLETED/SUCCESS. Pages verificata cache v205 e nuova immagine direzionale nel TMJ pubblico della Centrale. Verify 40936155157 resta da attestare.
+Commit `b7b0c41f5146db39add4be03b2a307ce5e47834c`: [Deploy 40936155501](https://github.com/Jacoporusso/veloria/actions/runs/40936155501) COMPLETED/SUCCESS. Pages verificata cache v205 e nuova immagine direzionale nel TMJ pubblico della Centrale. [Verify 40936155157](https://github.com/Jacoporusso/veloria/actions/runs/40936155157) COMPLETED/FAILURE con 31 job riusciti su 32: il solo Browser chapters shard 2 esaurisce i 180 secondi del caso Acquariva all'ultimo ingresso in palestra. Correzione e prove locali in `118_COASTAL_SERVICE_TEST_ORIENTATIONS_v0.1.md`: quattro casi indipendenti, timeout invariati, tutti passati. Nuova CI completa ancora da attestare.
 
 Quattro pose indipendenti integrate: 36 identità su 48, 12 ancora da migrare. PNG immutati, WebP RGBA-identici e calibrazioni verificati; geometria e contenuti della Centrale preservati. Immagine singola precedente ritirata solo dai renderAssets dopo audit globale a zero usi Tiled; fonte, catalogo e precache globali conservati. Dettagli in `117_CENTRALE_TECHNICIAN_DIRECTIONAL_IDLE_v0.1.md`; inventario esatto delle dodici identità in `art/remaining-cast-directional-audit-0.4.41.json`.
 
 Tre casi Chrome (uno mirato e due globali sulle 51 presenze) e uno produzione offline passati. 838 dominio/persistenza, 154 Python, validatore 986 risorse/48 fondali/48 mappe passati. TypeScript/build passati con avviso chunk. Discovery 428 browser e 76 offline assegnati esattamente una volta, un viaggio e 75 risorse in shard 19+19+19+18. CI completa del nuovo lotto ancora da attestare.
 
 Allenamento naturale passato in 5,6 minuti dopo la ripresa di 19 lanci: Exeggcute27, Confusione appresa tramite UI al posto di Riflesso, 69/69 PS al Centro, 190 monete e inventario conservati. Il primo lotto era terminato per timeout esterno e resta documentato separatamente. Nessuna quinta medaglia attestata da questa preparazione. Report in `playtests/2026-10-29-gen1-coastal-level27-recovery.md`. Obiettivo complessivo aperto.
+
+Preparazione della serra di Radicelmo passata in 5,3 minuti dalla partita reale, con tragitto di andata/ritorno e riposo a Portolume. Missione completata una volta: 180 monete, due Pozioni, Antidoto e Bulbasaur15 al deposito. Export finale con 370 monete, due Pozioni e quattro medaglie; party ed esperienza conservati. Prove e hash in `playtests/2026-10-29-gen1-greenhouse-preparation.md`.
 
 ## 0.4.40 — Teo, Celia, Ruben e Alma
 
