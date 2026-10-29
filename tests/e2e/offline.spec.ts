@@ -181,7 +181,7 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 for (const npc of [
   { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], start: { x: 12, y: 18 }, blockedApproach: { x: 13, y: 19 }, approaches: [{ x: 12, y: 18, label: 'Vai a destra', pose: 'left' }, { x: 13, y: 17, label: 'Vai in basso', pose: 'up' }, { x: 14, y: 18, label: 'Vai a sinistra', pose: 'right' }], coldStart: false },
   { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], start: { x: 20, y: 12 }, coldStart: false },
-  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 23, y: 15, flags: [], start: { x: 22, y: 15 }, blockedApproach: { x: 23, y: 16 }, approaches: [{ x: 22, y: 15, label: 'Vai a destra', pose: 'left' }, { x: 23, y: 14, label: 'Vai in basso', pose: 'up' }, { x: 24, y: 15, label: 'Vai a sinistra', pose: 'right' }], coldStart: false },
+  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 22, y: 15, flags: [], start: { x: 22, y: 16 }, blockedApproach: { x: 23, y: 15 }, approaches: [{ x: 22, y: 16, label: 'Vai in alto', pose: 'down' }, { x: 21, y: 15, label: 'Vai a destra', pose: 'left' }, { x: 22, y: 14, label: 'Vai in basso', pose: 'up' }], coldStart: false },
   { name: 'Tessa', speaker: 'Tessa', profile: 'acquariva-tessa', map: 'acquariva', spawn: 'from_r10', x: 34, y: 14, flags: [], start: { x: 34, y: 15 }, coldStart: false },
   { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], start: { x: 18, y: 19 }, coldStart: false },
   { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], start: { x: 20, y: 21 }, coldStart: false },
@@ -378,7 +378,8 @@ for (const npc of [
     await page.screenshot({ path: info.outputPath(`${npc.name}-offline-${stop.pose}.png`) });
   }
   await page.reload(); await enterGame(page);
-  expect((await readBrowserSave(page)).player).toMatchObject({ mapId: `veloria/${npc.map}`, x: npc.x + 1, y: npc.y });
+  const lastApproach = approaches[approaches.length - 1];
+  expect((await readBrowserSave(page)).player).toMatchObject({ mapId: `veloria/${npc.map}`, x: lastApproach.x, y: lastApproach.y });
   if (/^r0[4-7]_/.test(npc.map) || npc.map === 'ferraluce') {
     const retired = npc.map === 'ferraluce' ? 'veloria-ferraluce-service-npcs-v1.webp' : 'veloria-route-trainers-r04-r07-v1.webp';
     expect(await page.evaluate(retired => performance.getEntriesByType('resource').some(entry => entry.name.includes(retired)), retired)).toBe(false);

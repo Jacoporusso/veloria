@@ -7115,7 +7115,7 @@
           "type": "",
           "rotation": 0,
           "visible": true,
-          "x": 736,
+          "x": 704,
           "y": 480,
           "width": 32,
           "height": 32,
@@ -7126,6 +7126,16 @@
               "value": "portolume_captain"
             }
           ]
+        },
+        {
+          "id": 2566,
+          "name": "Coastal boundary below mainland dock",
+          "x": 736,
+          "y": 480,
+          "width": 544,
+          "height": 32,
+          "rotation": 0,
+          "visible": true
         }
       ],
       "opacity": 1,
@@ -7196,7 +7206,7 @@
         {
           "id": 408,
           "name": "Capitana Marina",
-          "x": 736,
+          "x": 704,
           "y": 480,
           "width": 32,
           "height": 32,
@@ -7522,7 +7532,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 2566,
+  "nextobjectid": 2567,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

@@ -80,9 +80,9 @@ export async function runCentralePortolume(args: {
   await waitForFlag('q_portolume_visited');
   await record('Portolume reached from the coast');
 
-  // The tested approach to Marina is from the east, then face left.
-  await walk(24, 15);
-  await page.getByRole('button', { name: 'Vai a sinistra', exact: true }).tap();
+  // The tested approach to Marina is from the dock, then face down.
+  await walk(22, 14);
+  await page.getByRole('button', { name: 'Vai in basso', exact: true }).tap();
   await dialogue.tap();
   await settle();
   await expect.poll(async () => (await state()).save.inventory['old-rod'] ?? 0).toBe(initialOldRod + 1);
@@ -107,8 +107,8 @@ export async function runCentralePortolume(args: {
   await expect.poll(async () => (await state()).save.player.spawnPointId).toBe('dock_mainland');
   await settle();
   const beforeMarinaPotions = (await state()).save.inventory.potion ?? 0;
-  await walk(24, 15);
-  await page.getByRole('button', { name: 'Vai a sinistra', exact: true }).tap();
+  await walk(22, 14);
+  await page.getByRole('button', { name: 'Vai in basso', exact: true }).tap();
   await dialogue.tap();
   await settle();
   await waitForFlag('q_portolume_tide_report');
@@ -119,8 +119,8 @@ export async function runCentralePortolume(args: {
   await record('Marina received the tide report');
 
   // A repeat report remains idempotent. Then use the city's authored free Center.
-  await walk(24, 15);
-  await page.getByRole('button', { name: 'Vai a sinistra', exact: true }).tap();
+  await walk(22, 14);
+  await page.getByRole('button', { name: 'Vai in basso', exact: true }).tap();
   await dialogue.tap();
   await settle();
   current = await state();

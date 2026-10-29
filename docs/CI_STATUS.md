@@ -1,3 +1,9 @@
+## 0.4.38 — Allineamento del molo di Portolume
+
+Marina spostata da 23,15 a 22,15 sulla piazza; fascia d'acqua sotto il molo bloccata, corridoio del battello libero. Indice dei target del diario rigenerato. Dialoghi, premi, canna, battello e spawn invariati. La posizione sperimentale che bloccava il corridoio è stata scartata prima del rilascio. Prove e limiti in `114_PORTOLUME_DOCK_ALIGNMENT_v0.1.md`.
+
+Tre casi Chrome e un caso produzione offline passati: tre lati raggiungibili, collisione, ricarica, canna singola, viaggio all'osservatorio e ritorno. Tredici test puri passati, validatore 914 risorse/48 fondali/48 mappe passato, TypeScript/build passati con avviso chunk. Screenshot mobile rivisto. Disponibilità Pages e CI del nuovo lotto ancora da attestare; obiettivo complessivo aperto.
+
 ## 0.4.37 — Cast costiero e risorse offline
 
 Runtime `3c8a8e76071dd7d91a52ec7eea6b81a06a12d567` su main, contenuti 0.4.37/cache v200. [Deploy 40875640119](https://github.com/Jacoporusso/veloria/actions/runs/40875640119) e [Verify 40875640086](https://github.com/Jacoporusso/veloria/actions/runs/40875640086) QUEUED all'ultimo controllo. Disponibilità pubblica di questo lotto ancora da verificare; l'aggiornamento della mappa 0.4.36/cache v199 è già stato verificato su Pages.

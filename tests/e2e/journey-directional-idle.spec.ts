@@ -11,7 +11,7 @@ test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 for (const npc of [
   { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], southBlocked: true, tiled: 'd04_delta_specchi', id: 'delta_iris' },
   { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], tiled: 'r08_costa_turbine', id: 'r08_viola' },
-  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 23, y: 15, flags: [], southBlocked: true, tiled: 'portolume', id: 'portolume_captain' },
+  { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 22, y: 15, flags: [], eastBlocked: true, tiled: 'portolume', id: 'portolume_captain' },
   { name: 'Tessa', speaker: 'Tessa', profile: 'acquariva-tessa', map: 'acquariva', spawn: 'from_r10', x: 34, y: 14, flags: [], tiled: 'acquariva', id: 'acquariva_tessa' },
   { name: 'Dario', speaker: 'Dario', profile: 'route-trainer-dario', map: 'r07_condotto_risonante', spawn: 'from_ferraluce', x: 18, y: 18, flags: ['trainer_r07_dario_defeated'], tiled: 'r07_condotto_risonante', id: 'r07_dario' },
   { name: 'Ivo Ferraluce', speaker: 'Ivo', profile: 'ferraluce-ivo', map: 'ferraluce', spawn: 'from_r06', x: 20, y: 20, flags: ['q_r06_measurement', 'q_ferraluce_report', 'q_centrale_output', 'q_centrale_report'], tiled: 'ferraluce', id: 'ferraluce_ivo' },
@@ -40,8 +40,8 @@ for (const npc of [
   save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, x: 'southBlocked' in npc ? npc.x - 1 : npc.x, y: 'southBlocked' in npc ? npc.y : npc.y + 1 };
   const tiled = JSON.parse(await readFile(`public/tilemaps/${npc.tiled}.tmj`, 'utf8'));
   const blocked = collectMapCollision(tiled.layers.find((layer: any) => layer.name === 'collision').objects, tiled.width, tiled.height, save.flags);
-  expect(blocked.has(`${npc.x},${npc.y - 1}`)).toBe(false);
-  expect(blocked.has(`${npc.x + 1},${npc.y}`)).toBe(false);
+  expect(blocked.has(`${npc.x},${npc.y - 1}`)).toBe('northBlocked' in npc);
+  expect(blocked.has(`${npc.x + 1},${npc.y}`)).toBe('eastBlocked' in npc);
   if ('southBlocked' in npc) expect(blocked.has(`${npc.x},${npc.y + 1}`)).toBe(true);
   for (const mode of ['reduced', 'full']) {
     await page.evaluate(mode => localStorage.setItem('veloria-animation-quality', mode), mode);
@@ -51,7 +51,7 @@ for (const npc of [
       { x: npc.x - 1, y: npc.y, facing: 'left', button: 'Vai a destra' },
       { x: npc.x, y: npc.y - 1, facing: 'up', button: 'Vai in basso' },
       { x: npc.x + 1, y: npc.y, facing: 'right', button: 'Vai a sinistra' },
-    ].filter(stop => !('southBlocked' in npc && stop.facing === 'down'))) {
+    ].filter(stop => !('southBlocked' in npc && stop.facing === 'down') && !('northBlocked' in npc && stop.facing === 'up') && !('eastBlocked' in npc && stop.facing === 'right'))) {
       await walkTo(page, `${npc.tiled}.tmj`, stop.x, stop.y, { avoidEncounters: true });
       await page.getByRole('button', { name: stop.button, exact: true }).tap();
       const before = await readBrowserSave(page);

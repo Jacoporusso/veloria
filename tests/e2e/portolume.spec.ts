@@ -22,7 +22,12 @@ test('Portolume grants one rod, sails to the gauge and returns with persistent r
   save.flags=[...save.flags,'q_starter_selected','q_centrale_report','q_portolume_visited'];
   save.player={...save.player,mapId:'veloria/portolume',spawnPointId:'dock_mainland',x:25,y:14};
   await seedBrowserSave(page,save);await page.reload();await enterGame(page);
-  await walkTo(page,'portolume.tmj',24,15);await face(page,'Vai a sinistra');await a(page).tap();
+  // The ferry walkway remains open, but its southern edge is water.
+  await walkTo(page,'portolume.tmj',24,14);
+  await face(page,'Vai in basso');
+  await page.waitForTimeout(200); // Longer than a complete 132ms walking step.
+  expect((await readBrowserSave(page)).player).toMatchObject({ x: 24, y: 14 });
+  await walkTo(page,'portolume.tmj',22,14);await face(page,'Vai in basso');await a(page).tap();
   await expect(page.locator('#dialogue-speaker')).toHaveText('Capitana Marina');
   await finishDialogue(page);
   await expect.poll(async()=>(await readBrowserSave(page)).inventory['old-rod']).toBe(1);
@@ -36,7 +41,7 @@ test('Portolume grants one rod, sails to the gauge and returns with persistent r
   await walkTo(page,'portolume.tmj',33,10);await face(page,'Vai a sinistra');await a(page).tap();
   await page.getByRole('button',{name:'Molo di Portolume',exact:true}).tap();
   await expect.poll(async()=>(await readBrowserSave(page)).player.spawnPointId).toBe('dock_mainland');
-  await walkTo(page,'portolume.tmj',24,15);await face(page,'Vai a sinistra');await a(page).tap();await finishDialogue(page);
+  await walkTo(page,'portolume.tmj',22,14);await face(page,'Vai in basso');await a(page).tap();await finishDialogue(page);
   await expect.poll(async()=>(await readBrowserSave(page)).flags).toContain('q_portolume_tide_report');
   expect((await readBrowserSave(page)).inventory['old-rod']).toBe(1);
   await page.screenshot({path:info.outputPath('portolume-research.png')});
