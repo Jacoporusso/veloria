@@ -86,6 +86,10 @@
 @media (prefers-reduced-motion: reduce) { .region-map-pulse { animation: none; } }
 
 /* Fit category views to expose destinations in either orientation. */
+.has-category-filter .region-map-chart-column { display: flex; flex-direction: column; }
+.has-category-filter .region-map-tools { position: static; order: -1; flex: none; margin: 6px 12px; }
+.has-category-filter .region-map-legend { position: static; order: 1; flex: none; align-self: flex-start; margin: 6px 12px; }
+.has-category-filter .region-map-viewport { flex: 1; min-height: 0; height: auto; }
 .has-category-filter .region-map-chart { min-width: 0; margin-inline: auto; }
 .has-category-filter .region-map-viewport { background: radial-gradient(ellipse at center, #173447, #071523); }
 .has-category-filter .region-map-shade { opacity: .68; }

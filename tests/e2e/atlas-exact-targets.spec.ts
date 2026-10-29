@@ -11,6 +11,8 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
   await page.getByRole('button', { name: 'Apri la mappa di Veloria' }).click();
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
   for (const kind of ['gift', 'encounter', 'fishing']) await expect(atlas.locator(`.region-map-discovery-pin[data-kind="${kind}"]`).first()).toBeVisible();
+  for (const size of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
+  await page.setViewportSize(size);
   for (const [kind, label] of [['gift', '🎁 Doni'], ['encounter', '✦ Incontri'], ['fishing', '🎣 Pesca']] as const) {
     await atlas.getByRole('button', { name: label, exact: true }).click();
     await expect(atlas.getByRole('button', { name: label, exact: true })).toHaveAttribute('aria-pressed', 'true');
@@ -23,6 +25,17 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
     const chart = await atlas.locator('.region-map-chart').boundingBox();
     expect(chart!.width).toBeLessThanOrEqual(viewport!.width + 1);
     expect(chart!.height).toBeLessThanOrEqual(viewport!.height + 1);
+    // Category controls must not cover the destinations they are filtering.
+    const covered = await atlas.evaluate(dialog => {
+      const controls = [...dialog.querySelectorAll('.region-map-tools, .region-map-legend')].map(item => item.getBoundingClientRect());
+      return [...dialog.querySelectorAll('.region-map-discovery-pin')].filter(pin => {
+        const box = pin.getBoundingClientRect();
+        return controls.some(control => box.left < control.right && box.right > control.left
+          && box.top < control.bottom && box.bottom > control.top);
+      }).map(pin => pin.getAttribute('data-discovery-id'));
+    });
+    expect(covered, 'category pins obscured by map controls').toEqual([]);
+  }
   }
   const fishing = atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first();
   const id = await fishing.getAttribute('data-discovery-id');
