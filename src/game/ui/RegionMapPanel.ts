@@ -91,7 +91,8 @@ export class RegionMapPanel {
         this.dialog.classList.add('has-category-filter');
         for (const item of legend.querySelectorAll('button')) item.setAttribute('aria-pressed', String(item.dataset.kind === kind));
         this.renderDiscoveryPins();
-        this.details.replaceChildren(html('h3', '', label), html('p', '', 'Tocca un simbolo sulla mappa per vedere il punto esatto.'));
+        this.setZoom(1);
+        this.renderCategoryDetails(label);
       };
       legend.append(button);
     }
@@ -142,6 +143,7 @@ export class RegionMapPanel {
       this.loadingStatus.hidden = !incomplete;
       this.loadingStatus.textContent = incomplete ? 'Alcuni punti non sono disponibili. Riapri la mappa per riprovare.' : '';
       this.renderDiscoveryPins();
+      if (this.category) this.renderCategoryDetails();
       if (discoveryId && focusRequest === this.focusRequest) void this.focusDiscovery(discoveryId);
     }).catch(() => {
       if (request === this.request) {
@@ -220,6 +222,13 @@ export class RegionMapPanel {
     for (const node of this.chart?.querySelectorAll('[data-area]') ?? []) node.setAttribute('aria-pressed', String(node.getAttribute('data-area') === id));
   }
 
+  private renderCategoryDetails(label?: string): void {
+    const title = label ?? (this.category === 'gift' ? '🎁 Doni' : this.category === 'fishing' ? '🎣 Pesca' : '✦ Incontri');
+    const points = this.discoveries.filter(point => point.kind === this.category);
+    this.details.replaceChildren(html('h3', '', title), html('p', '', `${points.length} punti. Tocca un simbolo o scegli qui sotto per vedere la posizione esatta.`));
+    for (const point of points) this.details.append(this.locateButton(point.id, `${point.icon} ${point.name} · ${point.location}`));
+  }
+
   private hasFishing(mapIds: readonly string[]): boolean {
     return Object.values(encounterCatalog).some(table => table.method === 'fishing' && mapIds.includes(table.mapId));
   }
@@ -233,7 +242,10 @@ export class RegionMapPanel {
     // be panned horizontally in portrait, instead of leaving an empty sea panel.
     if (this.chart) {
       const box = this.chart.viewBox.baseVal;
-      this.chart.style.width = `${Math.max(this.viewport.clientWidth * zoom, this.viewport.clientHeight * box.width / box.height)}px`;
+      const width = this.category
+        ? Math.min(this.viewport.clientWidth, this.viewport.clientHeight * box.width / box.height) * zoom
+        : Math.max(this.viewport.clientWidth * zoom, this.viewport.clientHeight * box.width / box.height);
+      this.chart.style.width = `${width}px`;
       this.sizePins();
     }
     if (this.chart && previousWidth) this.viewport.scrollTo({ left: centerX * this.chart.clientWidth - this.viewport.clientWidth / 2, top: centerY * this.chart.clientWidth - this.viewport.clientHeight / 2, behavior: 'instant' });
@@ -335,6 +347,10 @@ export class RegionMapPanel {
     this.chart.style.setProperty('--pin-radius', `${18 * unit}px`);
     this.chart.style.setProperty('--pin-hit', `${23 * unit}px`);
     this.chart.style.setProperty('--pin-font', `${20 * unit}px`);
+    for (const pin of this.chart.querySelectorAll('.region-map-discovery-pin')) {
+      pin.querySelector('.region-map-pin-hit')?.setAttribute('r', String(23 * unit));
+      pin.querySelector('.region-map-pin-disc')?.setAttribute('r', String(18 * unit));
+    }
     for (const pin of this.chart.querySelectorAll<SVGGElement>('.region-map-discovery-pin[data-region-x]')) {
       const margin = 24 * unit, box = this.chart.viewBox.baseVal;
       const x = Math.max(margin, Math.min(box.width - margin, Number(pin.dataset.regionX) + Number(pin.dataset.offset) * 44 * unit));

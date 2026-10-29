@@ -84,3 +84,10 @@
  .region-map-note { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .region-map-pulse { animation: none; } }
+
+/* Fit category views to expose destinations in either orientation. */
+.has-category-filter .region-map-chart { min-width: 0; margin-inline: auto; }
+.has-category-filter .region-map-viewport { background: radial-gradient(ellipse at center, #173447, #071523); }
+.has-category-filter .region-map-shade { opacity: .68; }
+.region-map-local .region-map-shade { opacity: .60; }
+.region-map-local-target .region-map-pin-disc { filter: drop-shadow(0 0 10px #65ffeaaa); }

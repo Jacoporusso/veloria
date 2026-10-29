@@ -18,6 +18,11 @@ test('atlas pins are on the map and clicking one isolates its exact fishing poin
     await expect(atlas.locator(`.region-map-discovery-pin:not([data-kind="${kind}"])`)).toHaveCount(0);
     await expect(atlas.locator('.region-map-node:visible')).toHaveCount(0);
     await expect(atlas.locator('.region-map-path:visible')).toHaveCount(0);
+    await expect(atlas.locator('.region-map-details .region-map-locate').first()).toBeVisible();
+    const viewport = await atlas.locator('.region-map-viewport').boundingBox();
+    const chart = await atlas.locator('.region-map-chart').boundingBox();
+    expect(chart!.width).toBeLessThanOrEqual(viewport!.width + 1);
+    expect(chart!.height).toBeLessThanOrEqual(viewport!.height + 1);
   }
   const fishing = atlas.locator('.region-map-discovery-pin[data-kind="fishing"]').first();
   const id = await fishing.getAttribute('data-discovery-id');
