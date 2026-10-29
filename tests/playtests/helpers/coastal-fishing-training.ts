@@ -9,8 +9,11 @@ export async function runCoastalFishingTraining(context: NaturalJourneyContext):
   const { page, walk, interact, settle, observe, record, exportCheckpoint } = context;
   const targetLevel = Number(process.env.PLAYTEST_COAST_TRAIN_LEVEL ?? '27');
   const maxCasts = Number(process.env.PLAYTEST_COAST_TRAIN_CASTS ?? '40');
+  const maxMinutes = Number(process.env.PLAYTEST_COAST_TRAIN_MINUTES ?? '10');
   expect(Number.isInteger(targetLevel) && targetLevel >= 20 && targetLevel <= 35).toBe(true);
   expect(Number.isInteger(maxCasts) && maxCasts >= 1 && maxCasts <= 80).toBe(true);
+  expect(Number.isFinite(maxMinutes) && maxMinutes >= 1 && maxMinutes <= 12).toBe(true);
+  const startedAt = Date.now();
   const initial = (await observe()).save;
   expect(initial.badges).toHaveLength(4);
   expect(initial.inventory['old-rod']).toBeGreaterThan(0);
@@ -19,6 +22,7 @@ export async function runCoastalFishingTraining(context: NaturalJourneyContext):
   const current = async () => (await observe()).save.party.find(member => member.instanceId === companion!.instanceId)!;
 
   async function rest(): Promise<void> {
+    if ((await observe()).mapId === 'veloria/gym05_portolume') await walk(15, 23);
     if ((await observe()).mapId === COAST) await walk(39, 11);
     expect((await observe()).mapId).toBe(CITY);
     await interact(8, 14);
@@ -37,7 +41,11 @@ export async function runCoastalFishingTraining(context: NaturalJourneyContext):
     await page.keyboard.press('Escape');
   }
   await exportCheckpoint('natural-coastal-training-start-backup.json');
-  for (let cast = 0; cast < maxCasts && (await current()).level < targetLevel; cast++) {
+  let completedCasts = 0;
+  // Leave time for an ordinary Center visit and UI export before Playwright's
+  // outer timeout. The target assertion still fails if training is incomplete.
+  for (let cast = 0; cast < maxCasts && (await current()).level < targetLevel
+    && Date.now() - startedAt < maxMinutes * 60_000; cast++) {
     if ((await observe()).mapId === CITY) await walk(0, 17);
     expect((await observe()).mapId).toBe(COAST);
     // The fishing marker is on the shore, with water immediately south. The
@@ -48,6 +56,7 @@ export async function runCoastalFishingTraining(context: NaturalJourneyContext):
     await settle();
     await page.getByRole('button', { name: 'PESCA', exact: true }).click();
     await settle();
+    completedCasts++;
     const member = await current();
     if (member.hp < member.maxHp * .65 || member.status || member.moves.every(move => move.pp < 3)) await rest();
     if ((cast + 1) % 5 === 0) {
@@ -64,7 +73,7 @@ export async function runCoastalFishingTraining(context: NaturalJourneyContext):
   expect(final.party.map(member => member.instanceId)).toEqual([
     companion!.instanceId, ...initial.party.filter(member => member.instanceId !== companion!.instanceId).map(member => member.instanceId),
   ]);
-  await record(`Coastal training terminal checkpoint: earned level ${(await current()).level}, requested ${targetLevel}`);
+  await record(`Coastal training terminal checkpoint after ${completedCasts} real casts: earned level ${(await current()).level}, requested ${targetLevel}`);
   await exportCheckpoint('natural-coastal-training-backup.json');
   expect((await current()).level, 'Preserve earned progress before reporting an unmet training target').toBeGreaterThanOrEqual(targetLevel);
 }
