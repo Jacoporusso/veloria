@@ -1,5 +1,9 @@
 ## 0.4.42 — Tre guide e texture irregolari
 
+Commit `79afaa03725b0edf5ab09ccb136361d2a06ffa18`: [Deploy 40947076134](https://github.com/Jacoporusso/veloria/actions/runs/40947076134) COMPLETED/SUCCESS. Pages verificata direttamente: `sw.js` contiene v206 e il TMJ pubblico `tilemaps/r14_varco_cristallo.tmj` contiene `veloria-livia-r14-idle-south-v1`. [Verify 40947076372](https://github.com/Jacoporusso/veloria/actions/runs/40947076372) osservata PENDING; la precedente verifica con la correzione dei casi città, [40943838337](https://github.com/Jacoporusso/veloria/actions/runs/40943838337), è IN_PROGRESS. Nessun esito completo attribuito alle due verifiche.
+
+Ricontrollo locale della richiesta atlante: quattro casi Chrome di `atlas-exact-targets.spec.ts` passati in 15,9 secondi, incluse categorie/punto pesca nei due orientamenti, missione dal diario, catalogo parzialmente indisponibile e selezione durante il caricamento. Output privato `.tmp/atlas-request-recheck`.
+
 Livia, Biancavetta e Passobrina integrate: 39 identità su 48, nove da migrare. Dodici PNG immutati e WebP RGBA-identici, hash/calibrazioni verificati; geometria delle tre mappe e gli altri 45 profili preservati. Vecchio atlante ritirato dai soli renderAssets di quattro mappe dopo audit a zero usi Tiled. La posa ovest irregolare di Livia ha evidenziato un fallback a texture piena; corretto mantenendo un frame frazionario proporzionato entro512 e superficie Canvas arrotondata verso l'alto, WebGL POT/mipmap conservati. Prove in `119_GUIDES_TRIO_DIRECTIONAL_IDLE_v0.1.md`.
 
 Sei casi Chrome distinti e tre produzione offline passati. 839 dominio/persistenza, 154 Python, validatore1010 risorse/48 fondali/48 mappe passati. TypeScript/build passati con avviso chunk. Discovery434 browser e79 offline assegnati una volta: un viaggio e78 risorse in shard20+20+19+19. CI completa e Pages del lotto ancora da attestare; obiettivo complessivo aperto.

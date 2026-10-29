@@ -1,0 +1,12 @@
+# Revisione candidate del Consiglio
+
+Stato: candidate private, nessuna integrazione in produzione. La copertura resta 39 identità su 48. Fonte vincolante: `assets/sources/veloria-league-council-v1.png`; quadranti Nerea, Silvo, Brando, Luce. Nerea del Consiglio è distinta da Nerea capopalestra.
+
+Le tavole di revisione sono composizioni opache dei PNG con alpha, non modifiche alle risorse. Gli originali del generatore e tutte le varianti restano conservati. NORTH è retro, SOUTH fronte, WEST profilo verso sinistra con lato anatomico sinistro vicino, EAST profilo verso destra con lato destro vicino.
+
+- **Silvo:** la tavola privata iniziale etichetta NORTH la vista frontale e SOUTH quella posteriore. La borsa nella fonte è anatomica sinistra: davanti a destra dell'immagine, dietro a sinistra. La candidata posteriore e la vista est mostrano incongruenze; richiesta correzione e metadati veritieri prima dell'integrazione.
+- **Nerea:** la fonte mostra ornamento dei capelli e medaglione frontale sul lato anatomico sinistro. La precedente richiesta verbale di portarli a destra era errata; la candidata south-v2 non è approvata. Richiesta nuova verifica delle quattro viste rispetto alla fonte, senza trasferire il medaglione frontale sul dorso.
+- **Brando:** quattro candidate conservate in `.tmp/council-brando-idles-candidates`. La tavola opaca mantiene identità e direzioni. Il limite alpha grezzo della vista nord tocca x=0: verificare anche la sagoma ad alpha significativo prima di attribuire un taglio o approvare.
+- **Luce:** recuperati i quattro risultati originali già generati senza duplicarli dopo la perdita dell'osservazione. PNG copiati immutati in `.tmp/council-luce-idles-candidates`; prompt e percorsi in `.tmp/council-luce-inputs.json`. La prima vista ovest è troppo frontale ed è scartata. Ovest v2 (`exec-a5bb456a-46bf-40cc-af50-6b009341d6ca`) rivista su composizione opaca: profilo sinistro corretto, manica avorio e pannello lungo sul lato vicino, sagoma completa. Prompt e ricevuta conservati in `west-v2-provenance.json`, hash/dimensioni/alpha in `west-v2-review.json`.
+
+Prima di integrare: approvare tutte le direzioni, verificare byte originali e conversioni RGBA lossless, calibrare il corpo, preservare geometria e proprietà delle mappe, poi verificare approcci e dialoghi nel browser nei due orientamenti e primo caricamento offline. Le candidate non costituiscono prova di completamento del cast o delle animazioni di camminata.
