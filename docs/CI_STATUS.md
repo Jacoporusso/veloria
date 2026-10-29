@@ -1,3 +1,11 @@
+## 0.4.36 — Mappa: categorie e punto selezionato
+
+Runtime `54bdbd5c78d8ea0a7906e785c7bed38dbb7b2ec2`, contenuti 0.4.36/cache v199. Filtri Doni/Pesca/Incontri con regione interamente inquadrata, elenco dei punti selezionabili, maggiore contrasto della pianta locale e alone sul punto isolato. Collegamento diario e coordinate fisiche conservati. Dettagli in `112_ATLAS_DISCOVERY_FOCUS_v0.1.md`.
+
+Cinque casi Chrome passati, inclusi diario, caricamento concorrente, errore parziale, integrità salvataggio e portrait/landscape. Screenshot mobile pesca rivisto; TypeScript/build passati con avviso sulle dimensioni dei chunk. Due test puri sui target missione passati; discovery conferma 415 casi browser assegnati una volta. Nessuna attestazione di prova su telefono fisico.
+
+[Deploy 40829505026](https://github.com/Jacoporusso/veloria/actions/runs/40829505026) in corso all'ultimo controllo: build, npm test e validazione contenuti completati; pubblicazione Pages ancora in attesa. [Verify 40829505097](https://github.com/Jacoporusso/veloria/actions/runs/40829505097) queued. Pages restituisce ancora cache v198: disponibilità pubblica della nuova versione non ancora attestata. Precedenti Verify 40775429948 e 40778700190 e Deploy 40778700230 completati con successo. Lavori del cast e preparazione naturale separati, obiettivo complessivo aperto.
+
 ## 0.4.35 — Dario, Ferraluce e prova Nerea con squadra Gen I
 
 Dario e tre servizi Ferraluce migrati a quattro idle indipendenti: sedici PNG originali immutati, WebP lossless RGBA-identici, prompt/hash/scarti registrati. Retro Dario corretto per tasca/pendente. Identità, geometrie, testi e proprietà dei servizi conservati;23profili direzionali su48,25ancora da migrare. Provenienza e limiti in `111_DARIO_FERRALUCE_DIRECTIONAL_IDLE_v0.1.md`.
