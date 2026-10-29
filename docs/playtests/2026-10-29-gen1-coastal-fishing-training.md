@@ -1,0 +1,13 @@
+# Allenamento reale con la canna — 29 ottobre 2026
+
+Runtime 0.4.38, commit `b54fd1e1aded8b2765b28432ccd2220d15258b9b`. Il driver pesca con la canna già ottenuta, affronta abbinamenti Acqua visibili adatti a Exeggcute, fugge dagli altri quando consentito e torna al Centro per recuperare PS/PP. Non assegna XP, denaro, strumenti o flag. Il salvataggio importato conserva il campo contentVersion originario 0.4.30; questo non identifica il runtime usato.
+
+Primo avvio fallito prima di pescare: il generico avvicinamento da due celle sotto un NPC tentava di attraversare l'acqua. Corretto il driver usando la cella della postazione sulla riva e un comando verso il bordo bloccato per impostare la direzione. Export iniziale conservato; nessun lancio o consumo da questo tentativo.
+
+Primo lotto dalla riva: progresso reale fino al checkpoint dopo 35 lanci, Exeggcute 22 con 157 XP nel livello. Appresi Velenpolvere tramite UI al 21 e conservati 240 monete/una Sfera. Il caso è poi fallito per superamento del budget di 600 azioni del driver: continuava a proporre la fuga anche durante un intrappolamento, comando che il dominio rifiuta senza avanzare il turno. Il salvataggio in memoria dopo l'ultimo combattimento completato conteneva altri 200 XP, ma non è stato esportato dalla UI prima dell'arresto: non viene usato come checkpoint ricostruito.
+
+Ripresa dall'ultimo export UI effettivo del lotto, SHA256 `3b8c255388b524bd83ef0c38517096e61f470e1149bbf422db212b13974a9557`. Il driver ora evita di ripetere la fuga quando il proprio Pokémon è intrappolato e conserva diagnostica aggiuntiva in caso di esaurimento del budget. Il caso ripreso è passato in 7,9 minuti, entro un limite di 30 lanci, raggiungendo il target 23. Sonnifero sostituisce Velenpolvere tramite il normale selettore di apprendimento. Non è stata aggirata la regola di intrappolamento.
+
+Export finale dal Centro di Portolume: Exeggcute 23, 176 XP nel livello, 60/60 PS; Riflesso, Parassiseme, Semitraglia e Sonnifero. Restano 240 monete, una Sfera, nessuna Pozione o Superpozione. Quattro medaglie, deposito e identità dei sei membri invariati; soltanto l'ordine della squadra è stato modificato tramite UI per allenare Exeggcute. Nessun pageerror. Non è ancora una vittoria contro Viola o Nerea.
+
+Checkpoint finale: `.tmp/natural-gen1-coastal-fishing-training-recovery/natural-prologue-natural-j-04b21-ress-and-real-game-controls/natural-coastal-training-backup.json`, SHA256 `3d93b4e82fb7f10f4725636343f0c57a37105d42c0d77083bef698027d28f71a`. Report completi dei tre tentativi e hash degli export in `2026-10-29-gen1-coastal-fishing-training-report.json`. I tentativi falliti restano distinti dall'esito positivo.

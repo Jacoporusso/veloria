@@ -38,12 +38,43 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r09-r10-coastal-trainers-v1",
-      "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-maya-r10-idle-south-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-north-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-west-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-east-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-south-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-north-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-west-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-east-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-east-v1.webp"
     }
   ],
   "spawns": [

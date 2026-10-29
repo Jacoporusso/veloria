@@ -78,3 +78,23 @@ Dario e i tre profili di Ferraluce portano le idle direzionali a 23 identità su
 ## Avanzamento 0.4.37
 
 Viola, Marina, Tessa e Iris del Delta portano le idle direzionali a 27 identità su 48; 21 restano da migrare. Le quattro viste sono indipendenti, con origini e scala calibrate e trasparenza verificata. La posa ovest di Iris conserva il proprio rapporto originale. Non sono cicli walk: 47 profili non hanno ancora una camminata verificata. Prove, provenienza, correzioni anatomiche e limiti in [documento113](113_COASTAL_DIRECTIONAL_IDLE_v0.1.md). QA su telefono fisico, budget e allineamento del bordo del molo di Marina restano aperti.
+
+### Audit dei lavori rimanenti, snapshot 0.4.38
+
+L'audit dei 21 profili mancanti è confrontato con il catalogo effettivo in `art/remaining-cast-directional-audit-0.4.38.json`. Le candidate private non contano come migrazioni completate. Priorità secondo campagna e atlanti condivisi:
+
+| Lotto | Profili | Criterio |
+| --- | --- | --- |
+| R09 | Lina, Noemi | Prime sfide dopo Portolume |
+| R10 | Maya, Bruno | Completa l'atlante condiviso R09/R10 |
+| Delta e percorsi | Teo, Celia, Ruben, Alma | Completa l'atlante Delta/cascate/valle/tornanti |
+| Centrale | Tecnico della Centrale | Identità narrativa dedicata |
+| Guide | Livia R14, guida Biancavetta, guida Passobrina | Tre identità distinte dello stesso atlante |
+| Servizi e Cammino | Reception Lega, Ivo Petalora, Maia R16, Tobia R16 | Servizi e prove finali; Ivo resta distinto dall'omonimo di Ferraluce |
+| Lega | Nerea Consiglio, Silvo, Brando, Luce, Enea | Climax; Nerea Consiglio resta distinta dalla capopalestra |
+
+Le camminate dei 47 profili e la revisione complessiva di mappe, orientamenti, navigabilità e budget restano requisiti separati. Il molo di Marina è stato corretto nel lotto 0.4.38, con prove di dialogo, battello, collisione e offline in [documento114](114_PORTOLUME_DOCK_ALIGNMENT_v0.1.md). Ogni ritiro di atlante va provato sugli usi Tiled delle singole mappe; non implica cancellazione della provenienza o un risparmio PWA già misurato.
+
+## Avanzamento 0.4.39
+
+Lina, Noemi, Maya e Bruno portano le idle a 31 profili su 48; 17 restano da migrare. I primi due lotti dell'audit 0.4.38 sono quindi integrati, con atlante R09/R10 ritirato dai soli renderAssets dopo audit a zero usi. Sei casi nativi distinti e quattro offline passati; controllati accessori, ancoraggi e lati già bloccati. Dettagli in [documento115](115_R09_R10_DIRECTIONAL_IDLE_v0.1.md). Camminate, budget, QA fisica e revisione complessiva delle mappe restano separati; le candidate private successive non contano come lavoro completato.

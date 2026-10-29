@@ -3525,6 +3525,494 @@
           "Root requested a consistent plum satchel matching approved North/West and the source outfit reference. Revised South/East candidates only; original candidates and a failed South color-drift generation are retained. These edits alter more than one pixel even where prompted to localize; North/West remain the previously reviewed versions. New revisions have PNG dimensions and SHA-256 recorded, but alpha geometry has not been remeasured."
         ]
       }
+    },
+    {
+      "profileId": "route-trainer-lina-r09",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/r09-r10-coastal-trainers-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-lina-r09",
+          "role": "canonical appearance profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r09_lina",
+          "role": "character dialogue"
+        },
+        {
+          "path": "content/trainers/r09_lina.trainer.json",
+          "role": "trainer record and battle context"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast design guidance"
+        },
+        {
+          "path": "assets/sources/veloria-r09-r10-coastal-trainers-v1.png",
+          "role": "original atlas frame 0 identity reference"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-lina-r09-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-lina-r09-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-lina-r09-idle-south-v1.webp",
+          "sourceSha256": "3c94934907e1cba0332b708a4fbc5b0ebad461e0a98820bbf94ec2011f418d08",
+          "runtimeSha256": "b362d1ebdbf81ba32617ad69ff20de99277d98c8321276881ad358d7f6ef2f44",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.625681,
+            "y": 0.943359
+          },
+          "displaySize": 61.882014,
+          "outputId": "exec-7c8e628f-21cf-4f54-9e32-7e5ea7dda3ae",
+          "alpha128Bounds": [
+            259,
+            59,
+            827,
+            1449
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-7c8e628f-21cf-4f54-9e32-7e5ea7dda3ae.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-lina-r09-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-lina-r09-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-lina-r09-idle-north-v1.webp",
+          "sourceSha256": "cbe206c8811ac3722f8fae55868d85e6ec758f01e2baa9a514113e8703921b9d",
+          "runtimeSha256": "cd6f671f933a9f98b11e299ad2bdb77c1b42e0c83027b08b5c4156683605c5d0",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.525161,
+            "y": 0.974609
+          },
+          "displaySize": 58.158215,
+          "outputId": "exec-bbbb29a0-d0fa-4b66-ae2a-d96b2c21861f",
+          "alpha128Bounds": [
+            277,
+            18,
+            791,
+            1497
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-bbbb29a0-d0fa-4b66-ae2a-d96b2c21861f.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-lina-r09-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-lina-r09-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-lina-r09-idle-west-v1.webp",
+          "sourceSha256": "76c4347d31a8eca5aa8dc142a3e49f0788953b5861e360f1f280851b0c641ca0",
+          "runtimeSha256": "49a1c6651029c56e5f3231317f3538492ca209f3d41ce63205a1684145380a61",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.512701,
+            "y": 0.969401
+          },
+          "displaySize": 59.567867,
+          "outputId": "exec-e2716271-d589-4d77-9500-37df7946ee1f",
+          "alpha128Bounds": [
+            318,
+            45,
+            707,
+            1489
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-e2716271-d589-4d77-9500-37df7946ee1f.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-lina-r09-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-lina-r09-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-lina-r09-idle-east-v1.webp",
+          "sourceSha256": "67142a71cd0cd359f37ae117432af35e493822c3f3b468295e76a2aab398ab18",
+          "runtimeSha256": "450f0d83cbb413dbea747d9f4ae371f222f83b00d238a800b7f20b0c923bd631",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.491651,
+            "y": 0.972005
+          },
+          "displaySize": 58.355495,
+          "outputId": "exec-4feff340-dc98-4aff-9924-84c7dea71333",
+          "alpha128Bounds": [
+            262,
+            19,
+            722,
+            1493
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-4feff340-dc98-4aff-9924-84c7dea71333.png"
+        }
+      ],
+      "calibration": "Body height calibrated to 56 world px from alpha>=128 bounds (displaySize=56*sourceHeight/bodyHeight). origin.y uses the exclusive alpha>=128 bottom row/sourceHeight; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is byte-identical to the approved candidate; WebP is lossless and full decoded RGBA equality was verified."
+    },
+    {
+      "profileId": "route-trainer-noemi-r09",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/r09-r10-coastal-trainers-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-noemi-r09",
+          "role": "canonical appearance profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r09_noemi",
+          "role": "character dialogue"
+        },
+        {
+          "path": "content/trainers/r09_noemi.trainer.json",
+          "role": "trainer record and battle context"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast design guidance"
+        },
+        {
+          "path": "assets/sources/veloria-r09-r10-coastal-trainers-v1.png",
+          "role": "original atlas frame 1 identity reference"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-noemi-r09-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-noemi-r09-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-noemi-r09-idle-south-v1.webp",
+          "sourceSha256": "ccc8535615a91dccdf85c3ef988bc55fc6c785cb9b6c3a2433650c1319cf3e5c",
+          "runtimeSha256": "3fe89092872639734b140221c9717164a106260c6b6b89881d938dc6043495e0",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.60648,
+            "y": 0.952474
+          },
+          "displaySize": 60.193142,
+          "outputId": "exec-238b9f03-2720-4943-99a4-d57f591d76a4",
+          "alpha128Bounds": [
+            242,
+            34,
+            857,
+            1463
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-238b9f03-2720-4943-99a4-d57f591d76a4.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-noemi-r09-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-noemi-r09-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-noemi-r09-idle-north-v1.webp",
+          "sourceSha256": "8005a441dc4321f274a921fd5ca755a1a0e2b51ef1b9907498bf427c976d3498",
+          "runtimeSha256": "347545b79e0d316bd4cd20f8789787c34ba44852bfb823ae0ffc092249c013ef",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.58507,
+            "y": 0.966146
+          },
+          "displaySize": 59.280496,
+          "outputId": "exec-2b9f353c-3b2b-48a3-927a-19e5e5d3466f",
+          "alpha128Bounds": [
+            208,
+            33,
+            854,
+            1484
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-2b9f353c-3b2b-48a3-927a-19e5e5d3466f.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-noemi-r09-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-noemi-r09-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-noemi-r09-idle-west-v1.webp",
+          "sourceSha256": "ae8ad06a3401c6fdfb7dbf1f48015a0ebe32682024934b2c20d1f2e573aeedea",
+          "runtimeSha256": "e7cea3ba1f3ebfd8653e1ca1c1a56494389122633b596feebbaf11984109064a",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.551712,
+            "y": 0.989583
+          },
+          "displaySize": 57.153488,
+          "outputId": "exec-3cb7211d-aabb-46a8-af31-2c48e5bb8150",
+          "alpha128Bounds": [
+            306,
+            15,
+            734,
+            1520
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-3cb7211d-aabb-46a8-af31-2c48e5bb8150.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-noemi-r09-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-noemi-r09-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-noemi-r09-idle-east-v1.webp",
+          "sourceSha256": "cb345564bee6951a0bfac6403c8b33e5437b7ae2eff83e7a52922228c124e868",
+          "runtimeSha256": "518f11c21b31d5ccb2b826f2bc8a674426929a482c5294bd5b6c4abc81c5547f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.510098,
+            "y": 0.96875
+          },
+          "displaySize": 59.239669,
+          "outputId": "exec-dab98364-a9a7-4fb0-9936-ab8660c2bb27",
+          "alpha128Bounds": [
+            305,
+            36,
+            662,
+            1488
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-dab98364-a9a7-4fb0-9936-ab8660c2bb27.png"
+        }
+      ],
+      "calibration": "Body height calibrated to 56 world px from alpha>=128 bounds (displaySize=56*sourceHeight/bodyHeight). origin.y uses the exclusive alpha>=128 bottom row/sourceHeight; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is byte-identical to the approved candidate; WebP is lossless and full decoded RGBA equality was verified."
+    },
+    {
+      "profileId": "route-trainer-maya-r10",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/r09-r10-coastal-trainers-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-maya-r10",
+          "role": "canonical appearance profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r10_maya",
+          "role": "character dialogue"
+        },
+        {
+          "path": "content/trainers/r10_maya.trainer.json",
+          "role": "trainer record and battle context"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast design guidance"
+        },
+        {
+          "path": "assets/sources/veloria-r09-r10-coastal-trainers-v1.png",
+          "role": "original atlas frame 2 identity reference"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-maya-r10-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-maya-r10-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-maya-r10-idle-south-v1.webp",
+          "sourceSha256": "7ed871c925daa39abc1d2702a293c6ec7081b0946d9f6fc1b0363dc98da53a4e",
+          "runtimeSha256": "932516f144a87f2c08c1d1116fce23a2d3b780972059faf078e4b98c002add85",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.624004,
+            "y": 0.945312
+          },
+          "displaySize": 60.831683,
+          "outputId": "exec-46c6cbe8-32ed-45bc-91fa-bd71d1b51a2b",
+          "alpha128Bounds": [
+            274,
+            38,
+            847,
+            1452
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-46c6cbe8-32ed-45bc-91fa-bd71d1b51a2b.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-maya-r10-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-maya-r10-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-maya-r10-idle-north-v1.webp",
+          "sourceSha256": "e60d661d7fca23f3bd5fccec9fc5582b06171c76ef165c4b504b77ab5279cb0e",
+          "runtimeSha256": "d63afba5c47f6f523a00ab0075cb026183c8d56ca97717fffd2ce0d58427b745",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.486539,
+            "y": 0.966146
+          },
+          "displaySize": 58.955449,
+          "outputId": "exec-e3d53552-fa61-4587-92f9-4b335f6c2111",
+          "alpha128Bounds": [
+            256,
+            25,
+            751,
+            1484
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-e3d53552-fa61-4587-92f9-4b335f6c2111.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-maya-r10-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-maya-r10-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-maya-r10-idle-west-v1.webp",
+          "sourceSha256": "18c0f7b140f9b710f8c2b036f092994d97151b9cdae4da9e8ef48a7c4f75bcdc",
+          "runtimeSha256": "aee2f6868a486194251c1f4062c84be140c66bb01805e28508cf2d42ccf8053c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.574956,
+            "y": 0.954427
+          },
+          "displaySize": 60.404494,
+          "outputId": "exec-3f0b7c8a-467a-461e-995c-d810b99ca96e",
+          "alpha128Bounds": [
+            307,
+            42,
+            740,
+            1466
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-3f0b7c8a-467a-461e-995c-d810b99ca96e.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-maya-r10-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-maya-r10-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-maya-r10-idle-east-v1.webp",
+          "sourceSha256": "0aa602dd5edbc3cf10da2dd5b20f422e907f26d180bcd79fdffd8fd3fed28c39",
+          "runtimeSha256": "23c49bb7e3bc454787cbc1eca1b420ad80250385d78e2f5553d25ebea437d4a4",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.505392,
+            "y": 0.959635
+          },
+          "displaySize": 59.941463,
+          "outputId": "exec-9c5d7a2e-c2c9-43dc-97fe-f92457e543a5",
+          "alpha128Bounds": [
+            316,
+            39,
+            693,
+            1474
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-9c5d7a2e-c2c9-43dc-97fe-f92457e543a5.png"
+        }
+      ],
+      "calibration": "Body height calibrated to 56 world px from alpha>=128 bounds (displaySize=56*sourceHeight/bodyHeight). origin.y uses the exclusive alpha>=128 bottom row/sourceHeight; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is byte-identical to the approved candidate; WebP is lossless and full decoded RGBA equality was verified."
+    },
+    {
+      "profileId": "route-trainer-bruno-r10",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/r09-r10-coastal-trainers-idle-views-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-bruno-r10",
+          "role": "canonical appearance profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r10_bruno",
+          "role": "character dialogue"
+        },
+        {
+          "path": "content/trainers/r10_bruno.trainer.json",
+          "role": "trainer record and battle context"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast design guidance"
+        },
+        {
+          "path": "assets/sources/veloria-r09-r10-coastal-trainers-v1.png",
+          "role": "original atlas frame 3 identity reference"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-bruno-r10-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-bruno-r10-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-bruno-r10-idle-south-v1.webp",
+          "sourceSha256": "fc1b2d8977b765b2482630626ddda3301471ef219eaaffa43cc0c68e04327093",
+          "runtimeSha256": "cb98c2df81fe72ba883267f8e89f9eaa7e218c3435d023dcd53c5aec8c1c4708",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.589437,
+            "y": 0.952474
+          },
+          "displaySize": 61.660215,
+          "outputId": "exec-d4758846-a0cc-4d1a-822c-b969c13f3e52",
+          "alpha128Bounds": [
+            262,
+            68,
+            820,
+            1463
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-d4758846-a0cc-4d1a-822c-b969c13f3e52.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-bruno-r10-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-bruno-r10-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-bruno-r10-idle-north-v1.webp",
+          "sourceSha256": "f8fe5fb748558a323e02fe66466d48af7c087936a9b572efc860463bc399bfb0",
+          "runtimeSha256": "78dd7ca4651311e99edd6ce47caecd28002f3f46cbdaa8211768c0fce1a5595e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52654,
+            "y": 0.973307
+          },
+          "displaySize": 58.474507,
+          "outputId": "exec-49607495-1417-4026-ad4c-46f7d9ffccff",
+          "alpha128Bounds": [
+            238,
+            24,
+            804,
+            1495
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-49607495-1417-4026-ad4c-46f7d9ffccff.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-bruno-r10-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-bruno-r10-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-bruno-r10-idle-west-v1.webp",
+          "sourceSha256": "bd3b944729f1466530264446936512d2aa336460c73167290adc8574b5ac3f71",
+          "runtimeSha256": "6048d2ef35309129b6ba3a1bdf5983cbcb70dd7628fefacc0abb3969f5e319a5",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.51608,
+            "y": 0.966146
+          },
+          "displaySize": 59.609148,
+          "outputId": "exec-3abcf265-6e37-4505-ad87-e47db18f893c",
+          "alpha128Bounds": [
+            326,
+            41,
+            673,
+            1484
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-3abcf265-6e37-4505-ad87-e47db18f893c.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-bruno-r10-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-bruno-r10-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-bruno-r10-idle-east-v1.webp",
+          "sourceSha256": "5641df4b64028de781040b8de4eed9844045cfbf5abcd1be81f888c02433374d",
+          "runtimeSha256": "a26c7fee54fd40f033df5aab28841f5c76b5a0c973425922c149d4f00b812a04",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.524391,
+            "y": 0.966797
+          },
+          "displaySize": 59.567867,
+          "outputId": "exec-ced50263-d889-46af-8dcb-681d0bb69c32",
+          "alpha128Bounds": [
+            365,
+            41,
+            719,
+            1485
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-ced50263-d889-46af-8dcb-681d0bb69c32.png"
+        }
+      ],
+      "calibration": "Body height calibrated to 56 world px from alpha>=128 bounds (displaySize=56*sourceHeight/bodyHeight). origin.y uses the exclusive alpha>=128 bottom row/sourceHeight; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is byte-identical to the approved candidate; WebP is lossless and full decoded RGBA equality was verified."
     }
   ]
 }

@@ -43,12 +43,43 @@
     },
     {
       "kind": "image",
-      "key": "veloria-r09-r10-coastal-trainers-v1",
-      "path": "assets/sprites/veloria-r09-r10-coastal-trainers-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-lina-r09-idle-south-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-north-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-west-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-east-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-south-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-north-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-west-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-east-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-east-v1.webp"
     }
   ],
   "spawns": [

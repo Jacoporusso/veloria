@@ -9,6 +9,10 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  { name: 'Lina', speaker: 'Lina', profile: 'route-trainer-lina-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 18, y: 8, flags: ['trainer_r09_lina_defeated'], tiled: 'r09_dune_salmastre', id: 'r09_lina', northBlocked: true },
+  { name: 'Noemi', speaker: 'Noemi', profile: 'route-trainer-noemi-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 28, y: 9, flags: ['trainer_r09_noemi_defeated'], tiled: 'r09_dune_salmastre', id: 'r09_noemi' },
+  { name: 'Maya', speaker: 'Maya', profile: 'route-trainer-maya-r10', map: 'r10_sentiero_canne', spawn: 'from_delta', x: 20, y: 8, flags: ['trainer_r10_maya_defeated'], tiled: 'r10_sentiero_canne', id: 'r10_maya', westBlocked: true },
+  { name: 'Bruno', speaker: 'Bruno', profile: 'route-trainer-bruno-r10', map: 'r10_sentiero_canne', spawn: 'from_delta', x: 16, y: 13, flags: ['trainer_r10_bruno_defeated'], tiled: 'r10_sentiero_canne', id: 'r10_bruno', northBlocked: true },
   { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], southBlocked: true, tiled: 'd04_delta_specchi', id: 'delta_iris' },
   { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], tiled: 'r08_costa_turbine', id: 'r08_viola' },
   { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 22, y: 15, flags: [], eastBlocked: true, tiled: 'portolume', id: 'portolume_captain' },
@@ -43,6 +47,7 @@ for (const npc of [
   expect(blocked.has(`${npc.x},${npc.y - 1}`)).toBe('northBlocked' in npc);
   expect(blocked.has(`${npc.x + 1},${npc.y}`)).toBe('eastBlocked' in npc);
   if ('southBlocked' in npc) expect(blocked.has(`${npc.x},${npc.y + 1}`)).toBe(true);
+  if ('westBlocked' in npc) expect(blocked.has(`${npc.x - 1},${npc.y}`)).toBe(true);
   for (const mode of ['reduced', 'full']) {
     await page.evaluate(mode => localStorage.setItem('veloria-animation-quality', mode), mode);
     await seedBrowserSave(page, save); await page.reload(); await enterGame(page);
@@ -51,7 +56,7 @@ for (const npc of [
       { x: npc.x - 1, y: npc.y, facing: 'left', button: 'Vai a destra' },
       { x: npc.x, y: npc.y - 1, facing: 'up', button: 'Vai in basso' },
       { x: npc.x + 1, y: npc.y, facing: 'right', button: 'Vai a sinistra' },
-    ].filter(stop => !('southBlocked' in npc && stop.facing === 'down') && !('northBlocked' in npc && stop.facing === 'up') && !('eastBlocked' in npc && stop.facing === 'right'))) {
+    ].filter(stop => !('southBlocked' in npc && stop.facing === 'down') && !('northBlocked' in npc && stop.facing === 'up') && !('eastBlocked' in npc && stop.facing === 'right') && !('westBlocked' in npc && stop.facing === 'left'))) {
       await walkTo(page, `${npc.tiled}.tmj`, stop.x, stop.y, { avoidEncounters: true });
       await page.getByRole('button', { name: stop.button, exact: true }).tap();
       const before = await readBrowserSave(page);
@@ -79,6 +84,7 @@ for (const npc of [
           compact: image instanceof HTMLCanvasElement && Math.max(image.width, image.height) <= 512,
           legacyRoute: world.textures.exists('veloria-route-trainers-r04-r07-v1'),
           legacyServices: world.textures.exists('veloria-ferraluce-service-npcs-v1'),
+          legacyCoastal: world.textures.exists('veloria-r09-r10-coastal-trainers-v1'),
           webgl: Boolean(world.game.renderer.gl), minFilter: sprite.texture.source[0].glTexture?.minFilter,
           frameRatio: sprite.frame.width / sprite.frame.height,
           powerOfTwo: (image.width & (image.width - 1)) === 0 && (image.height & (image.height - 1)) === 0,
@@ -95,6 +101,7 @@ for (const npc of [
       expect(state.height).toBeCloseTo(view.displaySize, 5);
       if (/^r0[4-7]_/.test(npc.map)) expect(state.legacyRoute).toBe(false);
       if (npc.map === 'ferraluce') expect(state.legacyServices).toBe(false);
+      if (/^r(09|10)_/.test(npc.map)) expect(state.legacyCoastal).toBe(false);
       expect(state.frameRatio).toBeCloseTo(manifestView.width / manifestView.height, 8);
       if (state.webgl) {
         expect(state.powerOfTwo).toBe(true);

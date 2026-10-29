@@ -1,5 +1,21 @@
-const CACHE = 'veloria-shell-v201';
+const CACHE = 'veloria-shell-v202';
 const SHELL = [
+  './assets/sprites/veloria-lina-r09-idle-south-v1.webp',
+  './assets/sprites/veloria-lina-r09-idle-north-v1.webp',
+  './assets/sprites/veloria-lina-r09-idle-west-v1.webp',
+  './assets/sprites/veloria-lina-r09-idle-east-v1.webp',
+  './assets/sprites/veloria-noemi-r09-idle-south-v1.webp',
+  './assets/sprites/veloria-noemi-r09-idle-north-v1.webp',
+  './assets/sprites/veloria-noemi-r09-idle-west-v1.webp',
+  './assets/sprites/veloria-noemi-r09-idle-east-v1.webp',
+  './assets/sprites/veloria-maya-r10-idle-south-v1.webp',
+  './assets/sprites/veloria-maya-r10-idle-north-v1.webp',
+  './assets/sprites/veloria-maya-r10-idle-west-v1.webp',
+  './assets/sprites/veloria-maya-r10-idle-east-v1.webp',
+  './assets/sprites/veloria-bruno-r10-idle-south-v1.webp',
+  './assets/sprites/veloria-bruno-r10-idle-north-v1.webp',
+  './assets/sprites/veloria-bruno-r10-idle-west-v1.webp',
+  './assets/sprites/veloria-bruno-r10-idle-east-v1.webp',
   './assets/sprites/veloria-viola-r08-idle-south-v1.webp',
   './assets/sprites/veloria-viola-r08-idle-north-v1.webp',
   './assets/sprites/veloria-viola-r08-idle-west-v1.webp',

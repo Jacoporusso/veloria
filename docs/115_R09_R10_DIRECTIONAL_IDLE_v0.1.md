@@ -1,0 +1,15 @@
+# Lina, Noemi, Maya e Bruno: viste indipendenti
+
+Il gruppo R09/R10 completa la migrazione dell'atlante condiviso dei quattro allenatori costieri: sedici viste generate indipendentemente, con identità, palette e accessori coerenti. Lina conserva giacca verde, shorts chiari e scarponi; Noemi capelli neri lunghi e completo sportivo plum/corallo; Maya giacca crema/teal e pantaloni navy; Bruno giacca ocra e cargo grigi. Non vengono aggiunte età o identità di genere canoniche.
+
+PNG raw immutati, WebP lossless RGBA-identici, hash sorgente/runtime verificati. Corpo calibrato a 56 pixel del mondo usando alpha almeno 128 e origine sulle suole per ciascuna vista. Direzioni canoniche down/up/left/right; frame legacy rimossi sia dai profili sia dai quattro oggetti Tiled. Prompt, riferimenti, scarti e output in `assets/prompts/r09-r10-coastal-trainers-idle-views-v1.json`.
+
+Geometria, dialoghi, squadre, servizi e proprietà di gioco dei due TMJ confrontati con HEAD e invariati, escluse le sole proprietà grafiche. Dopo la migrazione non esistono più usi Tiled dell'atlante R09/R10: rimosso soltanto dai renderAssets delle due mappe, conservando file, catalogo, registro, fonte e precache globali. Audit in `art/retired-r09-r10-atlas-0.4.39.json`. Nessuna riduzione di traffico PWA o memoria è stata misurata.
+
+Quattro casi nativi passati con due qualità e due orientamenti, interazioni dai lati raggiungibili, ancoraggi, proporzioni, mipmap, salvataggio/RNG invariati e assenza della vecchia texture. I lati nord di Lina e Bruno e il lato ovest di Maya restano bloccati dalla geometria già presente; le fixture lo verificano e non attraversano gli ostacoli. Due casi globali sulle 51 presenze passati nei due orientamenti. Sedici PNG selezionati e quattro compositi Chrome a scala reale rivisti.
+
+Quattro casi produzione offline passati: primo decode delle sedici pose, dimensioni effettive, pixel trasparenti, corpo visibile, interazioni, ricarica e assenza di richieste dell'atlante ritirato. 837 test di dominio/persistenza e 154 Python passati; validatore 946 risorse/48 fondali/48 mappe. TypeScript e build passati con avviso dimensioni chunk. Discovery 423 casi browser, 71 offline: un viaggio e 70 risorse divise 18+18+17+17, tutte assegnate una sola volta.
+
+Totale 31 identità su 48 con idle direzionali, 17 ancora da migrare. Le candidate del gruppo Teo/Celia/Ruben/Alma restano private e non sono conteggiate. Ada resta il solo prototipo walk verificato; 47 profili senza ciclo walk verificato, budget e QA fisica ancora aperti. I compositi mantengono l'attuale ambientazione di bordo e gli oggetti della mappa: questo lotto non ridisegna i segnavia o la camera.
+
+Progressione naturale: Exeggcute è arrivato al 23 con Sonnifero tramite pesca e apprendimento UI, denaro 240 e inventario conservati; checkpoint finale esportato. È preparazione reale, non una quinta medaglia. Tentativi, blocco del driver dovuto alle fughe durante intrappolamento e recupero sono distinti in `playtests/2026-10-29-gen1-coastal-fishing-training.md`.

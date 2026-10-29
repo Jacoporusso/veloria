@@ -1,0 +1,27 @@
+{
+  "version": "0.4.39",
+  "atlasKey": "veloria-r09-r10-coastal-trainers-v1",
+  "maps": [
+    {
+      "map": "r09_dune_salmastre",
+      "previousUsers": [
+        "Guardaparco Lina",
+        "Noemi"
+      ],
+      "remainingUsers": [],
+      "renderAssetRemoved": true,
+      "geometryAndGamePropertiesPreserved": true
+    },
+    {
+      "map": "r10_sentiero_canne",
+      "previousUsers": [
+        "Esploratrice Maya",
+        "Bruno"
+      ],
+      "remainingUsers": [],
+      "renderAssetRemoved": true,
+      "geometryAndGamePropertiesPreserved": true
+    }
+  ],
+  "preserved": "Global source, runtime atlas, catalog/register and existing precache remain; no bandwidth or GPU savings claimed."
+}

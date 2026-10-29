@@ -1,6 +1,14 @@
+## 0.4.39 — Allenatori R09/R10 e preparazione naturale
+
+Lina, Noemi, Maya e Bruno migrati a sedici viste indipendenti; totale 31 identità su 48, 17 ancora da migrare. PNG immutati e WebP RGBA-identici, hash e calibrazioni verificati. Geometria e proprietà di gioco preservate. Atlante R09/R10 ritirato soltanto dai renderAssets dopo audit a zero usi; risorse globali conservate. Prove e limiti in `115_R09_R10_DIRECTIONAL_IDLE_v0.1.md`.
+
+Sei casi nativi e quattro offline passati, compresi primo decode, trasparenza, approcci accessibili e assenza del vecchio atlante. 837 test di dominio/persistenza e 154 Python passati; validatore 946 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso chunk. Discovery 423 browser e 71 offline assegnati una sola volta: un viaggio più 70 risorse divise 18+18+17+17. Il nuovo lotto deve ancora essere confermato dalla CI completa e da Pages.
+
+Preparazione naturale: Exeggcute23 con Sonnifero appreso tramite UI, 176 XP nel livello e 60/60 PS, 240 monete e una Sfera conservate, quattro medaglie. La prima ricerca di un avvicinamento attraversava l'acqua; il lotto successivo si è fermato per fughe ripetute durante intrappolamento. Ripresa dall'ultimo export reale, non da un salvataggio ricostruito, e target23 raggiunto in 7,9 minuti. Report, hash, tentativi negativi e limiti in `playtests/2026-10-29-gen1-coastal-fishing-training.md`. Nessuna quinta medaglia attestata. Obiettivo complessivo aperto.
+
 ## 0.4.38 — Allineamento del molo di Portolume
 
-Runtime `b54fd1e1aded8b2765b28432ccd2220d15258b9b` pubblicato: [Deploy 40877422139](https://github.com/Jacoporusso/veloria/actions/runs/40877422139) COMPLETED/SUCCESS. Pages verificata cache v201, Marina a 704,480 e nuova fascia costiera a 736,480 nel TMJ pubblico. [Verify 40877422080](https://github.com/Jacoporusso/veloria/actions/runs/40877422080) PENDING all'ultimo controllo. La precedente Verify 40875640086 è IN_PROGRESS con numerosi job già riusciti e quattro shard offline attivi: nessuna attestazione di suite completa finché non termina.
+Runtime `b54fd1e1aded8b2765b28432ccd2220d15258b9b` pubblicato: [Deploy 40877422139](https://github.com/Jacoporusso/veloria/actions/runs/40877422139) COMPLETED/SUCCESS. Pages verificata cache v201, Marina a 704,480 e nuova fascia costiera a 736,480 nel TMJ pubblico. [Verify 40877422080](https://github.com/Jacoporusso/veloria/actions/runs/40877422080) COMPLETED/SUCCESS: tutti i 32 job riusciti, inclusi i quattro shard offline. Anche la precedente Verify 40875640086 è COMPLETED/SUCCESS con 32 job riusciti.
 
 Marina spostata da 23,15 a 22,15 sulla piazza; fascia d'acqua sotto il molo bloccata, corridoio del battello libero. Indice dei target del diario rigenerato. Dialoghi, premi, canna, battello e spawn invariati. La posizione sperimentale che bloccava il corridoio è stata scartata prima del rilascio. Prove e limiti in `114_PORTOLUME_DOCK_ALIGNMENT_v0.1.md`.
 
@@ -8,7 +16,7 @@ Tre casi Chrome e un caso produzione offline passati: tre lati raggiungibili, co
 
 ## 0.4.37 — Cast costiero e risorse offline
 
-Runtime `3c8a8e76071dd7d91a52ec7eea6b81a06a12d567` su main, contenuti 0.4.37/cache v200. [Deploy 40875640119](https://github.com/Jacoporusso/veloria/actions/runs/40875640119) COMPLETED/SUCCESS; [Verify 40875640086](https://github.com/Jacoporusso/veloria/actions/runs/40875640086) IN_PROGRESS all'ultimo controllo. Il successivo deploy 0.4.38 comprende questo cast e la nuova posizione di Marina; cache v201 e TMJ pubblico verificati.
+Runtime `3c8a8e76071dd7d91a52ec7eea6b81a06a12d567` su main, contenuti 0.4.37/cache v200. [Deploy 40875640119](https://github.com/Jacoporusso/veloria/actions/runs/40875640119) e [Verify 40875640086](https://github.com/Jacoporusso/veloria/actions/runs/40875640086) COMPLETED/SUCCESS, quest'ultima con 32 job riusciti. Il successivo deploy 0.4.38 comprende questo cast e la nuova posizione di Marina; cache v201 e TMJ pubblico verificati.
 
 Viola, Marina, Tessa e Iris del Delta migrati a sedici idle indipendenti. Totale27profili su48,21da migrare. PNG raw conservati e WebP RGBA-identici, correzioni anatomiche e cromatiche con prompt/scarti registrati. West Iris conserva1095×1437. Atlante coastal ritirato solo dai renderAssets delle quattro mappe; geometria, proprietà di gioco e risorse globali conservate. Dettagli e limiti in `113_COASTAL_DIRECTIONAL_IDLE_v0.1.md`.
 

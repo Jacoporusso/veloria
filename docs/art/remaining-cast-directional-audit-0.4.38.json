@@ -1,0 +1,1056 @@
+{
+  "auditDate": "2026-10-29",
+  "baseline": "Content snapshot after reported 0.4.37 coastal and 0.4.38 pier releases; no runtime files modified.",
+  "counts": {
+    "profilesTotal": 48,
+    "idleProfiles": 27,
+    "withoutIdleViews": 21,
+    "walkCycleProfiles": 1,
+    "profilesWithoutVerifiedWalkCycle": 47,
+    "privateLinaNoemiNotCountedAsMigrated": 2
+  },
+  "method": "Read appearances.v2.json; map presences from exact npcRefs in content/maps/*.map.json; atlas references from each MapDefinition renderAssets; narrativeSource/description from profiles; compare cast brief docs/art/cast-redesign-briefs.md and plan docs/67_NPC_DIRECTIONAL_ANIMATION_PLAN_v0.1.md. No runtime/test/browser/Git actions.; Map renderAssets presence is not treated as proof of live Tiled frame use.",
+  "priorities": [
+    {
+      "priority": 1,
+      "group": "Coastal trainers R09/R10",
+      "status": "Lina/Noemi private candidates in progress; not yet counted as migrated",
+      "profileIds": [
+        "route-trainer-lina-r09",
+        "route-trainer-noemi-r09"
+      ],
+      "assetKeys": [
+        "veloria-r09-r10-coastal-trainers-v1"
+      ],
+      "maps": [
+        "r09_dune_salmastre"
+      ],
+      "reason": "Currently prepared by Rami; two optional trainers on the next coastal route. Complete the pair before R10."
+    },
+    {
+      "priority": 2,
+      "group": "R10 trainers",
+      "profileIds": [
+        "route-trainer-maya-r10",
+        "route-trainer-bruno-r10"
+      ],
+      "assetKeys": [
+        "veloria-r09-r10-coastal-trainers-v1"
+      ],
+      "maps": [
+        "r10_sentiero_canne"
+      ],
+      "reason": "Adjacent campaign route; completes the four-profile R09/R10 atlas group."
+    },
+    {
+      "priority": 3,
+      "group": "Delta route cast",
+      "profileIds": [
+        "delta-naturalist-teo",
+        "route-trainer-celia-r11",
+        "route-trainer-ruben-r12",
+        "route-trainer-alma-r13"
+      ],
+      "assetKeys": [
+        "veloria-delta-route-cast-v1"
+      ],
+      "maps": [
+        "d04_delta_specchi",
+        "r11_via_cascate",
+        "r12_valle_vento",
+        "r13_tornanti_bianchi"
+      ],
+      "reason": "Mainline Delta naturalist plus optional route trainers through waterfalls, wind valley and snowy switchbacks; the four profiles exhaust this atlas group."
+    },
+    {
+      "priority": 4,
+      "group": "Centrale investigation",
+      "profileIds": [
+        "centrale-technician"
+      ],
+      "assetKeys": [
+        "veloria-centrale-technician-v1"
+      ],
+      "maps": [
+        "d03_centrale_risonante"
+      ],
+      "reason": "Distinct narrative service NPC at the experimental line; dedicated image asset."
+    },
+    {
+      "priority": 5,
+      "group": "Northern / crystal-pass guides",
+      "profileIds": [
+        "r14-guide-livia",
+        "biancavetta-guide",
+        "passobrina-alpine-guide"
+      ],
+      "assetKeys": [
+        "veloria-guides-and-keepers-v1"
+      ],
+      "maps": [
+        "r14_varco_cristallo",
+        "biancavetta",
+        "passobrina"
+      ],
+      "reason": "Three separate place-based identities; same source atlas, but do not unify their identities. Order the individual production according to route unlock/access."
+    },
+    {
+      "priority": 6,
+      "group": "Late-game service and equilibrium path",
+      "profileIds": [
+        "league-receptionist",
+        "petalora-custodian-ivo",
+        "route-trainer-maia-r16",
+        "route-trainer-tobia-r16"
+      ],
+      "assetKeys": [
+        "veloria-league-and-cammino-cast-v1"
+      ],
+      "maps": [
+        "league_forecourt",
+        "petalora",
+        "r16_cammino_equilibrio"
+      ],
+      "reason": "Late campaign/service hub. Keep Petalora Ivo distinct from Ferraluce Ivo."
+    },
+    {
+      "priority": 7,
+      "group": "League climax",
+      "profileIds": [
+        "league-council-nerea",
+        "league-council-silvo",
+        "league-council-brando",
+        "league-council-luce",
+        "league-champion-enea"
+      ],
+      "assetKeys": [
+        "veloria-league-council-v1",
+        "veloria-cast-opening-and-champion-v1"
+      ],
+      "maps": [
+        "league_council01",
+        "league_council02",
+        "league_council03",
+        "league_council04",
+        "league_champion"
+      ],
+      "reason": "Highest visibility climax. Council four share one atlas; Enea is a separate frame/atlas. Nerea Consiglio is distinct from the Portolume gym leader."
+    }
+  ],
+  "remaining": [
+    {
+      "profileId": "league-council-nerea",
+      "nameOrRole": "Nerea, membro del Consiglio della Lega; abito formale blu notte e perla con motivo delle correnti",
+      "npcIds": [
+        "league_council1"
+      ],
+      "dialogueIds": [
+        "league_council1"
+      ],
+      "maps": [
+        {
+          "mapId": "league_council01",
+          "file": "league_council01.map.json",
+          "displayName": "Sala di Nerea"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-council-v1",
+        "frame": 0
+      },
+      "narrativeSource": "content/trainers/league_council1.trainer.json",
+      "priority": 7,
+      "priorityRationale": "Nodi di massima visibilità del climax: quattro membri del Consiglio e Campione Enea. La Nerea del Consiglio è distinta dalla capopalestra Nerea; l’atlante Council è separato dal frame Campione.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "league-council-silvo",
+      "nameOrRole": "Silvo, membro del Consiglio; giacca a strati verde bosco e ocra con borsa da appunti da campo",
+      "npcIds": [
+        "league_council2"
+      ],
+      "dialogueIds": [
+        "league_council2"
+      ],
+      "maps": [
+        {
+          "mapId": "league_council02",
+          "file": "league_council02.map.json",
+          "displayName": "Sala di Silvo"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-council-v1",
+        "frame": 1
+      },
+      "narrativeSource": "content/trainers/league_council2.trainer.json",
+      "priority": 7,
+      "priorityRationale": "Nodi di massima visibilità del climax: quattro membri del Consiglio e Campione Enea. La Nerea del Consiglio è distinta dalla capopalestra Nerea; l’atlante Council è separato dal frame Campione.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "league-council-brando",
+      "nameOrRole": "Brando, membro del Consiglio; giacca squadrata petrolio con cuciture ambra e chiusura metallica",
+      "npcIds": [
+        "league_council3"
+      ],
+      "dialogueIds": [
+        "league_council3"
+      ],
+      "maps": [
+        {
+          "mapId": "league_council03",
+          "file": "league_council03.map.json",
+          "displayName": "Sala di Brando"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-council-v1",
+        "frame": 2
+      },
+      "narrativeSource": "content/trainers/league_council3.trainer.json",
+      "priority": 7,
+      "priorityRationale": "Nodi di massima visibilità del climax: quattro membri del Consiglio e Campione Enea. La Nerea del Consiglio è distinta dalla capopalestra Nerea; l’atlante Council è separato dal frame Campione.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "league-council-luce",
+      "nameOrRole": "Luce, membro del Consiglio; giacca corta avorio e prugna, capelli scuri e linea argento",
+      "npcIds": [
+        "league_council4"
+      ],
+      "dialogueIds": [
+        "league_council4"
+      ],
+      "maps": [
+        {
+          "mapId": "league_council04",
+          "file": "league_council04.map.json",
+          "displayName": "Sala di Luce"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-council-v1",
+        "frame": 3
+      },
+      "narrativeSource": "content/trainers/league_council4.trainer.json",
+      "priority": 7,
+      "priorityRationale": "Nodi di massima visibilità del climax: quattro membri del Consiglio e Campione Enea. La Nerea del Consiglio è distinta dalla capopalestra Nerea; l’atlante Council è separato dal frame Campione.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "league-champion-enea",
+      "nameOrRole": "Enea, Campione di Veloria; soprabito petrolio e avorio, sei segni di cucitura e medaglione semplice",
+      "npcIds": [
+        "league_champion"
+      ],
+      "dialogueIds": [
+        "league_champion"
+      ],
+      "maps": [
+        {
+          "mapId": "league_champion",
+          "file": "league_champion.map.json",
+          "displayName": "Sala del Campione"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-cast-opening-and-champion-v1",
+        "frame": 3
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/league_champion; docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md",
+      "priority": 7,
+      "priorityRationale": "Nodi di massima visibilità del climax: quattro membri del Consiglio e Campione Enea. La Nerea del Consiglio è distinta dalla capopalestra Nerea; l’atlante Council è separato dal frame Campione.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-lina-r09",
+      "nameOrRole": "Lina, allenatrice facoltativa di R09: propone una sfida prima del Delta e suggerisce di osservare tipi e livelli. Giacca da guardaparco e capelli raccolti sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r09_lina"
+      ],
+      "dialogueIds": [
+        "r09_lina"
+      ],
+      "maps": [
+        {
+          "mapId": "r09_dune_salmastre",
+          "file": "r09_dune_salmastre.map.json",
+          "displayName": "Dune Salmastre"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 0
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r09_lina; content/trainers/r09_lina.trainer.json",
+      "priority": 1,
+      "priorityRationale": "Lotto privato Lina/Noemi già in preparazione; due incontri opzionali sul percorso R09 che porta alla costa interna e al Delta; insieme sono due dei quattro frame dell’atlante costiero R09/R10.",
+      "privateCandidateStatus": "reported in progress by Rami; private only, not migration"
+    },
+    {
+      "profileId": "route-trainer-noemi-r09",
+      "nameOrRole": "Noemi, allenatrice facoltativa di R09: invita a un allenamento e ricorda di valutare le mosse secondo i tipi Acqua, Veleno ed Elettro. Abbigliamento sportivo dai toni prugna e corallo è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r09_noemi"
+      ],
+      "dialogueIds": [
+        "r09_noemi"
+      ],
+      "maps": [
+        {
+          "mapId": "r09_dune_salmastre",
+          "file": "r09_dune_salmastre.map.json",
+          "displayName": "Dune Salmastre"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 1
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r09_noemi; content/trainers/r09_noemi.trainer.json",
+      "priority": 1,
+      "priorityRationale": "Lotto privato Lina/Noemi già in preparazione; due incontri opzionali sul percorso R09 che porta alla costa interna e al Delta; insieme sono due dei quattro frame dell’atlante costiero R09/R10.",
+      "privateCandidateStatus": "reported in progress by Rami; private only, not migration"
+    },
+    {
+      "profileId": "route-trainer-maya-r10",
+      "nameOrRole": "Maya, allenatrice facoltativa di R10: offre una sfida prima di Acquariva e indica dove trovare il Centro e Tessa. Giacca da esploratrice color avorio e blu-verde è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r10_maya"
+      ],
+      "dialogueIds": [
+        "r10_maya"
+      ],
+      "maps": [
+        {
+          "mapId": "r10_sentiero_canne",
+          "file": "r10_sentiero_canne.map.json",
+          "displayName": "Sentiero delle Canne"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 2
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r10_maya; content/trainers/r10_maya.trainer.json",
+      "priority": 2,
+      "priorityRationale": "Prosegue subito il percorso costiero R10 verso Acquariva e completa con R09 i quattro profili dell’atlante condiviso R09/R10.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-bruno-r10",
+      "nameOrRole": "Bruno, allenatore facoltativo di R10: propone un allenamento e ricorda che una mossa di stato può cambiare il ritmo della lotta. Camicia color ocra e maglia navy sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r10_bruno"
+      ],
+      "dialogueIds": [
+        "r10_bruno"
+      ],
+      "maps": [
+        {
+          "mapId": "r10_sentiero_canne",
+          "file": "r10_sentiero_canne.map.json",
+          "displayName": "Sentiero delle Canne"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+        "frame": 3
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r10_bruno; content/trainers/r10_bruno.trainer.json",
+      "priority": 2,
+      "priorityRationale": "Prosegue subito il percorso costiero R10 verso Acquariva e completa con R09 i quattro profili dell’atlante condiviso R09/R10.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "delta-naturalist-teo",
+      "nameOrRole": "Teo, naturalista del Delta: studia differenze ambientali e spiega come i doppi tipi cambino le resistenze. Giacca e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "delta_teo"
+      ],
+      "dialogueIds": [
+        "delta_teo"
+      ],
+      "maps": [
+        {
+          "mapId": "d04_delta_specchi",
+          "file": "d04_delta_specchi.map.json",
+          "displayName": "Delta degli Specchi"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 0
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/delta_teo; content/trainers/delta_teo.trainer.json",
+      "priority": 3,
+      "priorityRationale": "Arco Delta/cascate/valle/neve: Teo è il naturalista della mappa Delta e Celia/Ruben/Alma sono trainer sui percorsi contigui. Un lotto congiunto chiude tutti i quattro frame dell’atlante Delta route.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-celia-r11",
+      "nameOrRole": "Celia, allenatrice facoltativa di R11: propone una sfida prima di Selene e permette di proseguire lungo le cascate. Giacca outdoor color teal e ardesia sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r11_celia"
+      ],
+      "dialogueIds": [
+        "r11_celia"
+      ],
+      "maps": [
+        {
+          "mapId": "r11_via_cascate",
+          "file": "r11_via_cascate.map.json",
+          "displayName": "Via delle Cascate"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 1
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r11_celia; content/trainers/r11_celia.trainer.json",
+      "priority": 3,
+      "priorityRationale": "Arco Delta/cascate/valle/neve: Teo è il naturalista della mappa Delta e Celia/Ruben/Alma sono trainer sui percorsi contigui. Un lotto congiunto chiude tutti i quattro frame dell’atlante Delta route.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-ruben-r12",
+      "nameOrRole": "Ruben, allenatore facoltativo di R12: ricorda di preparare la squadra rispetto ai tipi Ghiaccio, Terra e Buio prima del Centro di Passobrina. Abbigliamento caldo da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r12_ruben"
+      ],
+      "dialogueIds": [
+        "r12_ruben"
+      ],
+      "maps": [
+        {
+          "mapId": "r12_valle_vento",
+          "file": "r12_valle_vento.map.json",
+          "displayName": "Valle del Vento"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 2
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r12_ruben; content/trainers/r12_ruben.trainer.json",
+      "priority": 3,
+      "priorityRationale": "Arco Delta/cascate/valle/neve: Teo è il naturalista della mappa Delta e Celia/Ruben/Alma sono trainer sui percorsi contigui. Un lotto congiunto chiude tutti i quattro frame dell’atlante Delta route.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-alma-r13",
+      "nameOrRole": "Alma, allenatrice facoltativa di R13: chiarisce i tipi di alcuni Pokémon della neve e indica il recupero a Biancavetta. Abiti da sentiero invernale sono una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r13_alma"
+      ],
+      "dialogueIds": [
+        "r13_alma"
+      ],
+      "maps": [
+        {
+          "mapId": "r13_tornanti_bianchi",
+          "file": "r13_tornanti_bianchi.map.json",
+          "displayName": "Tornanti Bianchi"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-delta-route-cast-v1",
+        "frame": 3
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r13_alma; content/trainers/r13_alma.trainer.json",
+      "priority": 3,
+      "priorityRationale": "Arco Delta/cascate/valle/neve: Teo è il naturalista della mappa Delta e Celia/Ruben/Alma sono trainer sui percorsi contigui. Un lotto congiunto chiude tutti i quattro frame dell’atlante Delta route.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "biancavetta-guide",
+      "nameOrRole": "Guida di Biancavetta: parla della regolarità delle oscillazioni e indica Centro, bottega, palestra e funivia. Aspetto e abbigliamento da guida locale sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "biancavetta_guide"
+      ],
+      "dialogueIds": [
+        "biancavetta_guide"
+      ],
+      "maps": [
+        {
+          "mapId": "biancavetta",
+          "file": "biancavetta.map.json",
+          "displayName": "Biancavetta"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 0
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/biancavetta_guide",
+      "priority": 5,
+      "priorityRationale": "Guide distinte di R14, Biancavetta e Passobrina; lo stesso atlas è condiviso ma cast briefs vieta di trattarle come una persona itinerante. Ordinare secondo accesso effettivo dei rispettivi rami.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "passobrina-alpine-guide",
+      "nameOrRole": "Guida alpina di Passobrina: accompagna la ricerca su vento, temperatura e neve e apre il sentiero per i Tornanti Bianchi. Abbigliamento da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "passobrina_guide"
+      ],
+      "dialogueIds": [
+        "passobrina_guide"
+      ],
+      "maps": [
+        {
+          "mapId": "passobrina",
+          "file": "passobrina.map.json",
+          "displayName": "Passobrina"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 1
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/passobrina_guide",
+      "priority": 5,
+      "priorityRationale": "Guide distinte di R14, Biancavetta e Passobrina; lo stesso atlas è condiviso ma cast briefs vieta di trattarle come una persona itinerante. Ordinare secondo accesso effettivo dei rispettivi rami.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "r14-guide-livia",
+      "nameOrRole": "Livia, guida di R14: indica rifugio, tre terrazze e ricevitore del Varco del Cristallo, poi lascia aperta la strada verso Biancavetta. Treccia e abiti da esplorazione sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "r14_guide"
+      ],
+      "dialogueIds": [
+        "r14_guide"
+      ],
+      "maps": [
+        {
+          "mapId": "r14_varco_cristallo",
+          "file": "r14_varco_cristallo.map.json",
+          "displayName": "Varco di Cristallo"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-guides-and-keepers-v1",
+        "frame": 2
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r14_guide",
+      "priority": 5,
+      "priorityRationale": "Guide distinte di R14, Biancavetta e Passobrina; lo stesso atlas è condiviso ma cast briefs vieta di trattarle come una persona itinerante. Ordinare secondo accesso effettivo dei rispettivi rami.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "league-receptionist",
+      "nameOrRole": "Accoglienza della Lega: fornisce indicazioni su requisiti, servizi, portale e regole del tentativo. Aspetto e uniforme di servizio sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcIds": [
+        "league_reception"
+      ],
+      "dialogueIds": [
+        "league_reception"
+      ],
+      "maps": [
+        {
+          "mapId": "league_forecourt",
+          "file": "league_forecourt.map.json",
+          "displayName": "Piazzale della Lega"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 0
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/league_reception",
+      "priority": 6,
+      "priorityRationale": "Hub di fine campagna e Cammino dell’Equilibrio: accoglienza Lega, custode Petalora e due trainer. Ivo Petalora resta distinto da Ivo Ferraluce.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "petalora-custodian-ivo",
+      "nameOrRole": "Custode Ivo di Petalora: cura i canali che irrigano le terrazze dei ciliegi e indirizza il giocatore ai servizi e alla palestra. È distinto da Ivo di Ferraluce. Barba argento e abiti da giardiniere sono proposte artistiche; età non specificata nel canone.",
+      "npcIds": [
+        "petalora_ivo"
+      ],
+      "dialogueIds": [
+        "petalora_ivo"
+      ],
+      "maps": [
+        {
+          "mapId": "petalora",
+          "file": "petalora.map.json",
+          "displayName": "Petalora"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 1
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/petalora_ivo",
+      "priority": 6,
+      "priorityRationale": "Hub di fine campagna e Cammino dell’Equilibrio: accoglienza Lega, custode Petalora e due trainer. Ivo Petalora resta distinto da Ivo Ferraluce.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-maia-r16",
+      "nameOrRole": "Maia, allenatrice facoltativa del Cammino dell’Equilibrio, che prepara alla Lega e discute tipi e strategie. Giacca sportiva e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+      "npcIds": [
+        "r16_maia"
+      ],
+      "dialogueIds": [
+        "r16_maia"
+      ],
+      "maps": [
+        {
+          "mapId": "r16_cammino_equilibrio",
+          "file": "r16_cammino_equilibrio.map.json",
+          "displayName": "Cammino dell’Equilibrio"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 2
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r16_maia; content/trainers/r16_maia.trainer.json",
+      "priority": 6,
+      "priorityRationale": "Hub di fine campagna e Cammino dell’Equilibrio: accoglienza Lega, custode Petalora e due trainer. Ivo Petalora resta distinto da Ivo Ferraluce.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "route-trainer-tobia-r16",
+      "nameOrRole": "Tobia, allenatore facoltativo del Cammino dell’Equilibrio, che spiega difese fisiche e speciali, precisione e PP. Aspetto e abbigliamento sono proposte artistiche; età non specificata nel canone.",
+      "npcIds": [
+        "r16_tobia"
+      ],
+      "dialogueIds": [
+        "r16_tobia"
+      ],
+      "maps": [
+        {
+          "mapId": "r16_cammino_equilibrio",
+          "file": "r16_cammino_equilibrio.map.json",
+          "displayName": "Cammino dell’Equilibrio"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-league-and-cammino-cast-v1",
+        "frame": 3
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/r16_tobia; content/trainers/r16_tobia.trainer.json",
+      "priority": 6,
+      "priorityRationale": "Hub di fine campagna e Cammino dell’Equilibrio: accoglienza Lega, custode Petalora e due trainer. Ivo Petalora resta distinto da Ivo Ferraluce.",
+      "privateCandidateStatus": ""
+    },
+    {
+      "profileId": "centrale-technician",
+      "nameOrRole": "Tecnica della Centrale, addetta alle misure e all’isolamento della linea sperimentale. Volto, capelli ricci e tuta tecnica ardesia con accenti rame e teal sono proposte artistiche coerenti con il nome dell’oggetto Tiled; non sono fatti canonici.",
+      "npcIds": [
+        "centrale_technician"
+      ],
+      "dialogueIds": [
+        "centrale_technician"
+      ],
+      "maps": [
+        {
+          "mapId": "d03_centrale_risonante",
+          "file": "d03_centrale_risonante.map.json",
+          "displayName": "Centrale Risonante"
+        }
+      ],
+      "sourceAsset": {
+        "assetKey": "veloria-centrale-technician-v1",
+        "frame": null
+      },
+      "narrativeSource": "content/dialogue/world.v1.json#/centrale_technician; public/tilemaps/d03_centrale_risonante.tmj#Tecnica della Centrale",
+      "priority": 4,
+      "priorityRationale": "Tecnica della Centrale è una presenza narrativa del nodo d’indagine aperto dalla palestra Ferraluce; asset dedicato e dialogo legato alla linea sperimentale.",
+      "privateCandidateStatus": ""
+    }
+  ],
+  "atlasRetirementAudit": [
+    {
+      "assetKey": "veloria-league-council-v1",
+      "profiles": [
+        {
+          "profileId": "league-council-nerea",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_council1"
+          ]
+        },
+        {
+          "profileId": "league-council-silvo",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_council2"
+          ]
+        },
+        {
+          "profileId": "league-council-brando",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_council3"
+          ]
+        },
+        {
+          "profileId": "league-council-luce",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_council4"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "league_council01",
+          "file": "league_council01.map.json",
+          "npcRefs": [
+            "league_council1"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "league_council02",
+          "file": "league_council02.map.json",
+          "npcRefs": [
+            "league_council2"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "league_council03",
+          "file": "league_council03.map.json",
+          "npcRefs": [
+            "league_council3"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "league_council04",
+          "file": "league_council04.map.json",
+          "npcRefs": [
+            "league_council4"
+          ],
+          "npcRefPresentForProfiles": true
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-cast-opening-and-champion-v1",
+      "profiles": [
+        {
+          "profileId": "league-champion-enea",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_champion"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "league_champion",
+          "file": "league_champion.map.json",
+          "npcRefs": [
+            "league_champion"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r01_sentiero_alba",
+          "file": "r01_sentiero_alba.map.json",
+          "npcRefs": [
+            "trainer_route01_a",
+            "trainer_route01_b"
+          ],
+          "npcRefPresentForProfiles": false
+        },
+        {
+          "mapId": "r03_terrazze_muschio",
+          "file": "r03_terrazze_muschio.map.json",
+          "npcRefs": [
+            "r03_path_guide"
+          ],
+          "npcRefPresentForProfiles": false
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
+      "profiles": [
+        {
+          "profileId": "route-trainer-lina-r09",
+          "idleMigrated": false,
+          "npcIds": [
+            "r09_lina"
+          ]
+        },
+        {
+          "profileId": "route-trainer-noemi-r09",
+          "idleMigrated": false,
+          "npcIds": [
+            "r09_noemi"
+          ]
+        },
+        {
+          "profileId": "route-trainer-maya-r10",
+          "idleMigrated": false,
+          "npcIds": [
+            "r10_maya"
+          ]
+        },
+        {
+          "profileId": "route-trainer-bruno-r10",
+          "idleMigrated": false,
+          "npcIds": [
+            "r10_bruno"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "r09_dune_salmastre",
+          "file": "r09_dune_salmastre.map.json",
+          "npcRefs": [
+            "r09_lina",
+            "r09_noemi"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r10_sentiero_canne",
+          "file": "r10_sentiero_canne.map.json",
+          "npcRefs": [
+            "r10_maya",
+            "r10_bruno"
+          ],
+          "npcRefPresentForProfiles": true
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-delta-route-cast-v1",
+      "profiles": [
+        {
+          "profileId": "delta-naturalist-teo",
+          "idleMigrated": false,
+          "npcIds": [
+            "delta_teo"
+          ]
+        },
+        {
+          "profileId": "route-trainer-celia-r11",
+          "idleMigrated": false,
+          "npcIds": [
+            "r11_celia"
+          ]
+        },
+        {
+          "profileId": "route-trainer-ruben-r12",
+          "idleMigrated": false,
+          "npcIds": [
+            "r12_ruben"
+          ]
+        },
+        {
+          "profileId": "route-trainer-alma-r13",
+          "idleMigrated": false,
+          "npcIds": [
+            "r13_alma"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "d04_delta_specchi",
+          "file": "d04_delta_specchi.map.json",
+          "npcRefs": [
+            "delta_iris",
+            "delta_teo"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r11_via_cascate",
+          "file": "r11_via_cascate.map.json",
+          "npcRefs": [
+            "r11_celia"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r12_valle_vento",
+          "file": "r12_valle_vento.map.json",
+          "npcRefs": [
+            "r12_ruben"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r13_tornanti_bianchi",
+          "file": "r13_tornanti_bianchi.map.json",
+          "npcRefs": [
+            "r13_alma"
+          ],
+          "npcRefPresentForProfiles": true
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "profiles": [
+        {
+          "profileId": "biancavetta-guide",
+          "idleMigrated": false,
+          "npcIds": [
+            "biancavetta_guide"
+          ]
+        },
+        {
+          "profileId": "passobrina-alpine-guide",
+          "idleMigrated": false,
+          "npcIds": [
+            "passobrina_guide"
+          ]
+        },
+        {
+          "profileId": "r14-guide-livia",
+          "idleMigrated": false,
+          "npcIds": [
+            "r14_guide"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "biancavetta",
+          "file": "biancavetta.map.json",
+          "npcRefs": [
+            "biancavetta_guide"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "passobrina",
+          "file": "passobrina.map.json",
+          "npcRefs": [
+            "passobrina_guide"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r14_varco_cristallo",
+          "file": "r14_varco_cristallo.map.json",
+          "npcRefs": [
+            "r14_guide"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "radicelmo",
+          "file": "radicelmo.map.json",
+          "npcRefs": [
+            "radicelmo_keeper"
+          ],
+          "npcRefPresentForProfiles": false
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "profiles": [
+        {
+          "profileId": "league-receptionist",
+          "idleMigrated": false,
+          "npcIds": [
+            "league_reception"
+          ]
+        },
+        {
+          "profileId": "petalora-custodian-ivo",
+          "idleMigrated": false,
+          "npcIds": [
+            "petalora_ivo"
+          ]
+        },
+        {
+          "profileId": "route-trainer-maia-r16",
+          "idleMigrated": false,
+          "npcIds": [
+            "r16_maia"
+          ]
+        },
+        {
+          "profileId": "route-trainer-tobia-r16",
+          "idleMigrated": false,
+          "npcIds": [
+            "r16_tobia"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "league_forecourt",
+          "file": "league_forecourt.map.json",
+          "npcRefs": [
+            "league_reception"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "petalora",
+          "file": "petalora.map.json",
+          "npcRefs": [
+            "petalora_ivo"
+          ],
+          "npcRefPresentForProfiles": true
+        },
+        {
+          "mapId": "r16_cammino_equilibrio",
+          "file": "r16_cammino_equilibrio.map.json",
+          "npcRefs": [
+            "r16_maia",
+            "r16_tobia"
+          ],
+          "npcRefPresentForProfiles": true
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    },
+    {
+      "assetKey": "veloria-centrale-technician-v1",
+      "profiles": [
+        {
+          "profileId": "centrale-technician",
+          "idleMigrated": false,
+          "npcIds": [
+            "centrale_technician"
+          ]
+        }
+      ],
+      "mapRenderAssetReferences": [
+        {
+          "mapId": "d03_centrale_risonante",
+          "file": "d03_centrale_risonante.map.json",
+          "npcRefs": [
+            "centrale_technician"
+          ],
+          "npcRefPresentForProfiles": true
+        }
+      ],
+      "retirementGate": "Do not remove from a map renderAssets until all map NPC object frame uses of this asset are migrated and a per-map Tiled audit shows no remaining references. Keep global catalog/register/precache/provenance entries unless separately justified."
+    }
+  ],
+  "walkAndScope": {
+    "walkStatus": "assets/npc-walk-cycles-v1.json registers Ada only (eight authentic frames, two per direction); Ada walk remains a prototype to refine per docs 106/67. No other profile has a verified walk cycle.",
+    "remainingWalkProfiles": 47,
+    "distinctFromIdle": "All 21 profiles still lacking idleViews also lack a verified walk cycle. Migrating four idle poses does not close walk animation, route/scene review, mobile GPU budget, texture/PWA savings, or narrative/cast redesign obligations.",
+    "otherOpenWork": [
+      "docs/58 requires map-by-map review of footprint, exits, NPC/service access and legibility across 48 maps; idle counts do not establish completion.",
+      "Confirm each candidate’s identity, outfit/accessories, original frame and narrative evidence before artwork approval; cast briefs explicitly separate same-name people (Nerea and Ivo) and distinct guides.",
+      "For every migration, preserve map coordinates, collision, NPC refs, quests/dialogue and verify visible poses/approaches; no browser or gameplay QA was run in this audit.",
+      "Atlas map renderAssets cleanup is a separate per-map operation only after checking Tiled object frames; do not delete atlas globally or claim PWA savings while catalog/service-worker precache retains it."
+    ]
+  }
+}

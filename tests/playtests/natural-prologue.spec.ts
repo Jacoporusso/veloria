@@ -1,4 +1,5 @@
 import { runCoastalCompanionPreparation } from './helpers/coastal-companion-preparation';
+import { runCoastalFishingTraining } from './helpers/coastal-fishing-training';
 import { chooseCaptureWeakeningMove } from './helpers/capture-policy';
 import { chooseVisibleMatchupReplacement } from './helpers/visible-matchup';
 import typeChart from '../../content/battle/type-chart.v1.json' with { type: 'json' };
@@ -31,7 +32,7 @@ async function observe(page: Page): Promise<any> {
     if (!world?.playerTile || !world.map?.metadata || !world.renderedMap) return null;
     const battle = game.scene.isActive('battle') ? game.scene.keys.battle : undefined;
     return { mapId: world.map.metadata.id, x: world.playerTile.x, y: world.playerTile.y,
-      moving: world.moving, loading: world.mapTransitionLoading, battleStarting: world.battleActive && !battle, save: world.save,
+      moving: world.moving, fishing: world.fishingActive, loading: world.mapTransitionLoading, battleStarting: world.battleActive && !battle, save: world.save,
       battle: battle ? { mode: battle.mode, learning: battle.pendingMoveLearning, turn: battle.state.turn, outcome: battle.state.outcome,
         id: battle.state.battleId, rulesetId: battle.state.rulesetId, events: battle.eventLog, type: battle.state.battleType, player: battle.state.player, opponent: battle.state.opponent,
         inventory: battle.remainingInventory, itemNames: battle.itemNames, moves: battle.moveCatalog,
@@ -63,12 +64,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const resumeNereaFile = process.env.PLAYTEST_RESUME_NEREA_BACKUP;
   const nereaChallenge = process.env.PLAYTEST_NEREA_CHALLENGE === '1';
   const coastCompanionPreparation = process.env.PLAYTEST_COAST_COMPANION === '1';
+  const coastFishingTraining = process.env.PLAYTEST_COAST_FISH_TRAIN === '1';
+  if (coastFishingTraining) { expect(resumeNereaFile).toBeTruthy(); expect(captureSpeciesId).toBe(0); }
   if (coastCompanionPreparation) { expect(resumeNereaFile).toBeTruthy(); expect(captureSpeciesId).toBe(102); }
   const irisRecovery = process.env.PLAYTEST_RECOVER_IRIS === '1';
   const darioPreparation = process.env.PLAYTEST_PREPARE_DARIO === '1';
   const wooperPreparation = process.env.PLAYTEST_PREPARE_WOOPER === '1';
   const wooperTraining = process.env.PLAYTEST_TRAIN_WOOPER === '1';
-  expect([nereaChallenge, coastCompanionPreparation, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
+  expect([nereaChallenge, coastCompanionPreparation, coastFishingTraining, irisRecovery, darioPreparation, wooperPreparation, wooperTraining].filter(Boolean).length, 'Choose one preparation or gym attempt').toBeLessThanOrEqual(1);
   const resumeBackupFile = resumeThirdFile ?? resumeSecondFile ?? resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeThirdFile, resumeSecondFile, resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
@@ -158,6 +161,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
       if(battle.mode!=='menu' && battle.mode!=='moves') throw Error('Unexpected battle mode: '+battle.mode);
       const own=battle.player.creatures[battle.player.activeIndex];
       const target=battle.opponent.creatures[battle.opponent.activeIndex];
+      if (coastFishingTraining && battle.type === 'wild' && battle.mode === 'menu'
+        && !own.trapTurnsRemaining && !own.escapeBlockedBy
+        && (own.speciesId !== 102 || target.types.length !== 1 || target.types[0] !== 'water' || own.hp < own.stats.maxHp * .25)) {
+        // Train only favorable visible Water matchups; do not read pending AI commands.
+        await tapBattleLabel(page, '__naturalGame', 'FUGA');
+        await tapBattleLabel(page, '__naturalGame', '💨 FUGGI');
+        continue;
+      }
       if (rheaWaterPreparation && state.mapId === 'veloria/r05_viadotto_ciliegi' && battle.type === 'wild' && battle.mode === 'menu'
         && state.save.party.some((member: any) => member.speciesId === 54)) {
         const trainee = battle.player.creatures.find((member: any) => member.speciesId === 54 && member.hp > 0);
@@ -289,11 +300,18 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         else await page.keyboard.press('Enter',{delay:40}); // The normal emergency move when PP are exhausted.
       }
     }
+    const stalled = (await observe(page)).battle;
+    report.push({ label: 'Battle action budget exhausted', mode: stalled?.mode, turn: stalled?.turn,
+      own: stalled?.player.creatures[stalled.player.activeIndex], recentEvents: stalled?.events.slice(-25) });
     throw Error('Battle exceeded 600 UI actions');
   }
   async function settle() {
     for(let attempt=0;attempt<30;attempt++) {
       const state=await observe(page);
+      if (state.fishing) {
+        await expect.poll(async () => !(await observe(page)).fishing, { timeout: 30_000 }).toBe(true);
+        continue;
+      }
       if(state.battle) { await fight(); continue; }
       if(state.battleStarting) {
         await expect.poll(async()=>{const next=await observe(page);return Boolean(next.battle)||!next.battleStarting;},{timeout:30_000}).toBe(true);
@@ -730,14 +748,14 @@ test('natural journey uses earned progress and real game controls', async ({ pag
     }
     if (resumePortolumeFile) await runCentralePortolume({ page, walk, interact, settle, observe: () => observe(page), record, exportCheckpoint });
     if (resumeNereaFile) {
-      const driver = coastCompanionPreparation ? runCoastalCompanionPreparation : wooperTraining ? runWooperTraining : wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
+      const driver = coastFishingTraining ? runCoastalFishingTraining : coastCompanionPreparation ? runCoastalCompanionPreparation : wooperTraining ? runWooperTraining : wooperPreparation ? runWooperPreparation : darioPreparation ? runDarioPreparation : irisRecovery ? runIrisRecovery : nereaChallenge ? runNereaAttempt : runCoastPreparation;
       await driver({ page, walk, interact, settle, challenge, observe: () => observe(page), record, exportCheckpoint });
     }
     expect(errors).toEqual([]);
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeSecondFile,resumeThirdFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,rheaWaterPreparation,rheaRotation,nereaChallenge,coastCompanionPreparation,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeSecondFile,resumeThirdFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,rheaWaterPreparation,rheaRotation,nereaChallenge,coastCompanionPreparation,coastFishingTraining,coastTrainingLevel:process.env.PLAYTEST_COAST_TRAIN_LEVEL,coastTrainingCasts:process.env.PLAYTEST_COAST_TRAIN_CASTS,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

@@ -708,6 +708,86 @@
       "kind": "image",
       "key": "veloria-iris-delta-idle-east-v1",
       "path": "assets/sprites/veloria-iris-delta-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-south-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-north-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-west-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-lina-r09-idle-east-v1",
+      "path": "assets/sprites/veloria-lina-r09-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-south-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-north-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-west-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-noemi-r09-idle-east-v1",
+      "path": "assets/sprites/veloria-noemi-r09-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-south-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-north-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-west-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-maya-r10-idle-east-v1",
+      "path": "assets/sprites/veloria-maya-r10-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-south-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-north-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-west-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-bruno-r10-idle-east-v1",
+      "path": "assets/sprites/veloria-bruno-r10-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -2188,12 +2268,45 @@
       "npcIds": [
         "r09_lina"
       ],
-      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
-      "frame": 0,
+      "assetKey": "veloria-lina-r09-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r09_lina; content/trainers/r09_lina.trainer.json",
       "origin": {
-        "x": 0.597,
-        "y": 0.979
+        "x": 0.625681,
+        "y": 0.943359
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-lina-r09-idle-south-v1",
+          "origin": {
+            "x": 0.625681,
+            "y": 0.943359
+          },
+          "displaySize": 61.882014
+        },
+        "up": {
+          "assetKey": "veloria-lina-r09-idle-north-v1",
+          "origin": {
+            "x": 0.525161,
+            "y": 0.974609
+          },
+          "displaySize": 58.158215
+        },
+        "left": {
+          "assetKey": "veloria-lina-r09-idle-west-v1",
+          "origin": {
+            "x": 0.512701,
+            "y": 0.969401
+          },
+          "displaySize": 59.567867
+        },
+        "right": {
+          "assetKey": "veloria-lina-r09-idle-east-v1",
+          "origin": {
+            "x": 0.491651,
+            "y": 0.972005
+          },
+          "displaySize": 58.355495
+        }
       }
     },
     {
@@ -2205,12 +2318,45 @@
       "npcIds": [
         "r09_noemi"
       ],
-      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
-      "frame": 1,
+      "assetKey": "veloria-noemi-r09-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r09_noemi; content/trainers/r09_noemi.trainer.json",
       "origin": {
-        "x": 0.514,
-        "y": 0.979
+        "x": 0.60648,
+        "y": 0.952474
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-noemi-r09-idle-south-v1",
+          "origin": {
+            "x": 0.60648,
+            "y": 0.952474
+          },
+          "displaySize": 60.193142
+        },
+        "up": {
+          "assetKey": "veloria-noemi-r09-idle-north-v1",
+          "origin": {
+            "x": 0.58507,
+            "y": 0.966146
+          },
+          "displaySize": 59.280496
+        },
+        "left": {
+          "assetKey": "veloria-noemi-r09-idle-west-v1",
+          "origin": {
+            "x": 0.551712,
+            "y": 0.989583
+          },
+          "displaySize": 57.153488
+        },
+        "right": {
+          "assetKey": "veloria-noemi-r09-idle-east-v1",
+          "origin": {
+            "x": 0.510098,
+            "y": 0.96875
+          },
+          "displaySize": 59.239669
+        }
       }
     },
     {
@@ -2222,12 +2368,45 @@
       "npcIds": [
         "r10_maya"
       ],
-      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
-      "frame": 2,
+      "assetKey": "veloria-maya-r10-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r10_maya; content/trainers/r10_maya.trainer.json",
       "origin": {
-        "x": 0.596,
-        "y": 0.93
+        "x": 0.624004,
+        "y": 0.945312
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-maya-r10-idle-south-v1",
+          "origin": {
+            "x": 0.624004,
+            "y": 0.945312
+          },
+          "displaySize": 60.831683
+        },
+        "up": {
+          "assetKey": "veloria-maya-r10-idle-north-v1",
+          "origin": {
+            "x": 0.486539,
+            "y": 0.966146
+          },
+          "displaySize": 58.955449
+        },
+        "left": {
+          "assetKey": "veloria-maya-r10-idle-west-v1",
+          "origin": {
+            "x": 0.574956,
+            "y": 0.954427
+          },
+          "displaySize": 60.404494
+        },
+        "right": {
+          "assetKey": "veloria-maya-r10-idle-east-v1",
+          "origin": {
+            "x": 0.505392,
+            "y": 0.959635
+          },
+          "displaySize": 59.941463
+        }
       }
     },
     {
@@ -2239,12 +2418,45 @@
       "npcIds": [
         "r10_bruno"
       ],
-      "assetKey": "veloria-r09-r10-coastal-trainers-v1",
-      "frame": 3,
+      "assetKey": "veloria-bruno-r10-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r10_bruno; content/trainers/r10_bruno.trainer.json",
       "origin": {
-        "x": 0.5,
-        "y": 0.931
+        "x": 0.589437,
+        "y": 0.952474
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-bruno-r10-idle-south-v1",
+          "origin": {
+            "x": 0.589437,
+            "y": 0.952474
+          },
+          "displaySize": 61.660215
+        },
+        "up": {
+          "assetKey": "veloria-bruno-r10-idle-north-v1",
+          "origin": {
+            "x": 0.52654,
+            "y": 0.973307
+          },
+          "displaySize": 58.474507
+        },
+        "left": {
+          "assetKey": "veloria-bruno-r10-idle-west-v1",
+          "origin": {
+            "x": 0.51608,
+            "y": 0.966146
+          },
+          "displaySize": 59.609148
+        },
+        "right": {
+          "assetKey": "veloria-bruno-r10-idle-east-v1",
+          "origin": {
+            "x": 0.524391,
+            "y": 0.966797
+          },
+          "displaySize": 59.567867
+        }
       }
     },
     {

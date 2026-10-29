@@ -179,6 +179,10 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Lina', speaker: 'Lina', profile: 'route-trainer-lina-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 18, y: 8, flags: ['trainer_r09_lina_defeated'], start: { x: 18, y: 9 }, coldStart: false, blockedApproach: { x: 18, y: 7 }, approaches: [{ x: 18, y: 9, label: 'Vai in alto', pose: 'down' }, { x: 17, y: 8, label: 'Vai a destra', pose: 'left' }, { x: 19, y: 8, label: 'Vai a sinistra', pose: 'right' }] },
+  { name: 'Noemi', speaker: 'Noemi', profile: 'route-trainer-noemi-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 28, y: 9, flags: ['trainer_r09_noemi_defeated'], start: { x: 28, y: 10 }, coldStart: false },
+  { name: 'Maya', speaker: 'Maya', profile: 'route-trainer-maya-r10', map: 'r10_sentiero_canne', spawn: 'from_delta', x: 20, y: 8, flags: ['trainer_r10_maya_defeated'], start: { x: 20, y: 9 }, coldStart: false, blockedApproach: { x: 19, y: 8 }, approaches: [{ x: 20, y: 9, label: 'Vai in alto', pose: 'down' }, { x: 20, y: 7, label: 'Vai in basso', pose: 'up' }, { x: 21, y: 8, label: 'Vai a sinistra', pose: 'right' }] },
+  { name: 'Bruno', speaker: 'Bruno', profile: 'route-trainer-bruno-r10', map: 'r10_sentiero_canne', spawn: 'from_delta', x: 16, y: 13, flags: ['trainer_r10_bruno_defeated'], start: { x: 16, y: 14 }, coldStart: false, blockedApproach: { x: 16, y: 12 }, approaches: [{ x: 16, y: 14, label: 'Vai in alto', pose: 'down' }, { x: 15, y: 13, label: 'Vai a destra', pose: 'left' }, { x: 17, y: 13, label: 'Vai a sinistra', pose: 'right' }] },
   { name: 'Iris Delta', speaker: 'Iris', profile: 'delta-biologist-iris', map: 'd04_delta_specchi', spawn: 'from_r09', x: 13, y: 18, flags: [], start: { x: 12, y: 18 }, blockedApproach: { x: 13, y: 19 }, approaches: [{ x: 12, y: 18, label: 'Vai a destra', pose: 'left' }, { x: 13, y: 17, label: 'Vai in basso', pose: 'up' }, { x: 14, y: 18, label: 'Vai a sinistra', pose: 'right' }], coldStart: false },
   { name: 'Viola', speaker: 'Viola', profile: 'route-trainer-viola-r08', map: 'r08_costa_turbine', spawn: 'from_portolume', x: 20, y: 11, flags: ['trainer_r08_viola_defeated'], start: { x: 20, y: 12 }, coldStart: false },
   { name: 'Marina', speaker: 'Capitana Marina', profile: 'portolume-captain-marina', map: 'portolume', spawn: 'from_r08', x: 22, y: 15, flags: [], start: { x: 22, y: 16 }, blockedApproach: { x: 23, y: 15 }, approaches: [{ x: 22, y: 16, label: 'Vai in alto', pose: 'down' }, { x: 21, y: 15, label: 'Vai a destra', pose: 'left' }, { x: 22, y: 14, label: 'Vai in basso', pose: 'up' }], coldStart: false },
@@ -383,6 +387,9 @@ for (const npc of [
   if (/^r0[4-7]_/.test(npc.map) || npc.map === 'ferraluce') {
     const retired = npc.map === 'ferraluce' ? 'veloria-ferraluce-service-npcs-v1.webp' : 'veloria-route-trainers-r04-r07-v1.webp';
     expect(await page.evaluate(retired => performance.getEntriesByType('resource').some(entry => entry.name.includes(retired)), retired)).toBe(false);
+  }
+  if (/^r(09|10)_/.test(npc.map)) {
+    expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-r09-r10-coastal-trainers-v1.webp')))).toBe(false);
   }
   if (npc.map === 'gym07_biancavetta' || npc.map === 'gym08_concordia') {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-gym-leaders-b-v1.webp')))).toBe(false);

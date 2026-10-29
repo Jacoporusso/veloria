@@ -4052,12 +4052,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r09-r10-coastal-trainers-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-lina-r09-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -4087,12 +4082,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.597
+              "value": 0.625681
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.979
+              "value": 0.943359
             }
           ]
         },
@@ -4125,12 +4120,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-r09-r10-coastal-trainers-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-noemi-r09-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -4150,12 +4140,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.514
+              "value": 0.60648
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.979
+              "value": 0.952474
             }
           ]
         }
