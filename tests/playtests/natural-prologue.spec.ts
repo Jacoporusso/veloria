@@ -75,6 +75,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   const resumeBackupFile = resumeThirdFile ?? resumeSecondFile ?? resumeFirstFile ?? resumeFifthFile ?? resumeNereaFile ?? resumePortolumeFile ?? resumeRheaFile;
   expect([resumeThirdFile, resumeSecondFile, resumeFirstFile, resumeFifthFile, resumeNereaFile, resumePortolumeFile, resumeRheaFile].filter(Boolean).length, 'Choose one earned checkpoint').toBeLessThanOrEqual(1);
   const damageFirst = process.env.PLAYTEST_DAMAGE_FIRST === '1';
+  const statusFirst = process.env.PLAYTEST_STATUS_FIRST === '1';
   const coastRotation = process.env.PLAYTEST_COAST_ROTATION === '1';
   const nereaRotation = process.env.PLAYTEST_NEREA_ROTATION === '1';
   const requestedLearning = Object.fromEntries((process.env.PLAYTEST_LEARN_MOVES ?? '').split(',').filter(Boolean).map(pair => {
@@ -204,7 +205,16 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         }
       }
       const coastalMatchup = coastRotation && ['veloria/r08_costa_turbine', 'veloria/r09_dune_salmastre'].includes(state.mapId);
-      if ((coastalMatchup || nereaRotation && state.mapId === 'veloria/gym05_portolume') && battle.type === 'trainer' && battle.mode === 'menu') {
+      const preparationSteelMatchup = darioPreparation && state.mapId === 'veloria/r07_condotto_risonante' && target.types.includes('steel');
+      const openingSetupPending = statusFirst && !damageFirst && own.hp > own.stats.maxHp / 2 && target.hp > target.stats.maxHp / 2
+        && own.moves.some((slot: any) => {
+          const move = battle.moves[slot.moveId];
+          const key = `${battle.id}:${own.instanceId}:${target.instanceId}:setup:${move?.id}`;
+          return slot.pp > 0 && !tacticalMovesUsed.has(key)
+            && ((!target.status && move?.inflictedStatus === 'sleep')
+              || (move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass')));
+        });
+      if ((preparationSteelMatchup || !openingSetupPending && (coastalMatchup || nereaRotation && state.mapId === 'veloria/gym05_portolume')) && battle.type === 'trainer' && battle.mode === 'menu') {
         const replacement = chooseVisibleMatchupReplacement(own, battle.player.creatures, target.types, battle.moves, typeChart.chart);
         if (replacement) {
           report.push({ label: 'Visible coastal matchup switch', from: own.instanceId, to: replacement.instanceId, targetTypes: target.types });
@@ -283,7 +293,8 @@ test('natural journey uses earned progress and real game controls', async ({ pag
         const damageOption = slots.filter((slot: any) => slot.pp > 0 && slot.move?.category !== 'status' && displayedScore(slot) > 0)
           .sort((a: any, b: any) => displayedScore(b) - displayedScore(a))[0];
         const usefulSetup = !damageFirst && prepareGym && battle.type === 'trainer' && own.hp > own.stats.maxHp / 2 && target.hp > target.stats.maxHp / 2
-          ? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass'))
+          ? (statusFirst && !target.status ? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.inflictedStatus === 'sleep') : undefined)
+            ?? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.leechSeedFraction && !target.leechSeed && !target.types.includes('grass'))
             ?? unusedSetup.find((slot: any) => slot.pp > 0 && slot.move?.category === 'status'
               && slot.move.statChanges?.some((effect: any) => effect.target === 'opponent' && effect.stat === 'attack' && effect.stages < 0)
               && (target.statStages?.attack ?? 0) === 0)
@@ -755,7 +766,7 @@ test('natural journey uses earned progress and real game controls', async ({ pag
   } finally {
     await record('Final observed state');
     const path = testInfo.outputPath('natural-prologue-report.json');
-    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeSecondFile,resumeThirdFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,rheaWaterPreparation,rheaRotation,nereaChallenge,coastCompanionPreparation,coastFishingTraining,coastTrainingLevel:process.env.PLAYTEST_COAST_TRAIN_LEVEL,coastTrainingCasts:process.env.PLAYTEST_COAST_TRAIN_CASTS,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
+    await writeFile(path, JSON.stringify({starter,startingRngState,prepareGym,continueRadicelmo,continuePetalora,continueVetracielo,continueFerraluce,resumeFirstFile,resumeSecondFile,resumeThirdFile,resumeRheaFile,resumePortolumeFile,resumeNereaFile,resumeFifthFile,rheaWaterPreparation,rheaRotation,nereaChallenge,directNerea:process.env.PLAYTEST_DIRECT_NEREA === '1',coastCompanionPreparation,coastFishingTraining,coastTrainingLevel:process.env.PLAYTEST_COAST_TRAIN_LEVEL,coastTrainingCasts:process.env.PLAYTEST_COAST_TRAIN_CASTS,irisRecovery,darioPreparation,wooperPreparation,wooperTraining,damageFirst,statusFirst,coastRotation,nereaRotation,requestedLearning,acquarivaSearch,acquarivaTrainer,acquarivaTrainSpecies,seleneChallenge,dunesRecovery,captureSpeciesId,healingThreshold,report,errors},null,2));
     await testInfo.attach('natural-prologue-report',{path,contentType:'application/json'});
   }
 });

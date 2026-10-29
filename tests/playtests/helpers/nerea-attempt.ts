@@ -30,7 +30,10 @@ export async function runNereaAttempt(args: {
     await record('Earned Gen I party rested before the coastal attempt');
     await exportCheckpoint('natural-nerea-rested-backup.json');
     const violaAlreadyWon = state.save.flags.includes('trainer_r08_viola_defeated');
-    if (violaAlreadyWon) {
+    // Viola is optional in the game. A direct attempt must not manufacture her
+    // reward or force a rematch merely to satisfy the driver's chosen route.
+    if (violaAlreadyWon || process.env.PLAYTEST_DIRECT_NEREA === '1') {
+      await record(violaAlreadyWon ? 'Proceeding after the earned Viola victory' : 'Proceeding directly to Nerea without the optional Viola reward');
       await interact(8, 14);
       await page.getByRole('button', { name: 'RIPOSA', exact: true }).click();
       await settle();

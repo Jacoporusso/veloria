@@ -1,3 +1,7 @@
+## Correzione atlas — cache v203
+
+Commit `a181c09dab24387a12fdd07be1b44486bf60bf8f`: comandi e legenda fuori dall'area disegnata nelle categorie, così non coprono i punti filtrati. Un'asserzione geometrica riproduceva un dono coperto prima della correzione; quattro casi Chrome passati dopo, con tutte le categorie controllate in portrait e landscape. TypeScript e diff check passati. [Deploy 40889432867](https://github.com/Jacoporusso/veloria/actions/runs/40889432867) COMPLETED/SUCCESS; verificata la cache v203 sullo sw.js pubblico. Verify 40889432850 ancora da attestare.
+
 ## 0.4.39 — Allenatori R09/R10 e preparazione naturale
 
 Lina, Noemi, Maya e Bruno migrati a sedici viste indipendenti; totale 31 identità su 48, 17 ancora da migrare. PNG immutati e WebP RGBA-identici, hash e calibrazioni verificati. Geometria e proprietà di gioco preservate. Atlante R09/R10 ritirato soltanto dai renderAssets dopo audit a zero usi; risorse globali conservate. Prove e limiti in `115_R09_R10_DIRECTIONAL_IDLE_v0.1.md`.
