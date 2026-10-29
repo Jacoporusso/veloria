@@ -1,5 +1,7 @@
 ## 0.4.37 — Cast costiero e risorse offline
 
+Runtime `3c8a8e76071dd7d91a52ec7eea6b81a06a12d567` su main, contenuti 0.4.37/cache v200. [Deploy 40875640119](https://github.com/Jacoporusso/veloria/actions/runs/40875640119) e [Verify 40875640086](https://github.com/Jacoporusso/veloria/actions/runs/40875640086) QUEUED all'ultimo controllo. Disponibilità pubblica di questo lotto ancora da verificare; l'aggiornamento della mappa 0.4.36/cache v199 è già stato verificato su Pages.
+
 Viola, Marina, Tessa e Iris del Delta migrati a sedici idle indipendenti. Totale27profili su48,21da migrare. PNG raw conservati e WebP RGBA-identici, correzioni anatomiche e cromatiche con prompt/scarti registrati. West Iris conserva1095×1437. Atlante coastal ritirato solo dai renderAssets delle quattro mappe; geometria, proprietà di gioco e risorse globali conservate. Dettagli e limiti in `113_COASTAL_DIRECTIONAL_IDLE_v0.1.md`.
 
 Sedici casi nativi distinti passati, quattro nuovi finali e quattro produzione offline passati. Corrette due fixture che partivano su una cella già bloccata, senza modificare la mappa.837dominio/persistenza,154Python,914media/48fondali/48mappe; TypeScript/build passati con avviso chunk.419casi browser e67offline assegnati esattamente una volta. Timeout offline CI0.4.36 affrontato distribuendo66risorse su quattro shard17+17+16+16, senza saltare test o aumentare il limite. CI completa del nuovo lotto ancora da attestare.
