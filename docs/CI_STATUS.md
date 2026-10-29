@@ -1,8 +1,10 @@
 ## 0.4.40 — Teo, Celia, Ruben e Alma
 
+Commit `a7d1a2d119956579bef887a099996a68fad2bb25`: [Deploy 40931091926](https://github.com/Jacoporusso/veloria/actions/runs/40931091926) COMPLETED/SUCCESS. Pages verificata: cache v204 e nuova risorsa Celia nel TMJ pubblico di Via delle Cascate. La verifica completa Verify 40931092027 è in corso e resta da attestare.
+
 Sedici pose indipendenti integrate e verificate; totale 35 identità su 48, 13 ancora da migrare. PNG byte-identici alle candidate approvate, WebP lossless con identico RGBA, calibrazione corpo a 56 pixel verificata. Quattro mappe preservano geometria e proprietà di gioco. Atlante Delta-route ritirato solo dai renderAssets dopo audit globale a zero usi Tiled, risorse globali conservate. Dettagli in `116_DELTA_ROUTE_DIRECTIONAL_IDLE_v0.1.md`.
 
-Quattro casi Chrome mirati, due globali sulle 51 presenze nei due orientamenti e quattro produzione offline passati. Sei test sui collegamenti, 838 dominio/persistenza e 154 Python passati; validatore 978 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso dimensioni chunk. Copertura esatta di 427 casi browser e 75 offline: un viaggio più 74 risorse in shard 19+19+18+18. Screenshot alla scala di gioco rivisti. CI completa e disponibilità pubblica di questo lotto ancora da attestare; obiettivo complessivo aperto.
+Quattro casi Chrome mirati, due globali sulle 51 presenze nei due orientamenti e quattro produzione offline passati. Sei test sui collegamenti, 838 dominio/persistenza e 154 Python passati; validatore 978 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso dimensioni chunk. Copertura esatta di 427 casi browser e 75 offline: un viaggio più 74 risorse in shard 19+19+18+18. Screenshot alla scala di gioco rivisti. CI completa ancora da attestare; obiettivo complessivo aperto.
 
 ## Correzione atlas — cache v203
 
