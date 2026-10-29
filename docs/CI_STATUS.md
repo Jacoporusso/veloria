@@ -1,18 +1,20 @@
 ## 0.4.41 — Tecnica della Centrale
 
+Commit `b7b0c41f5146db39add4be03b2a307ce5e47834c`: [Deploy 40936155501](https://github.com/Jacoporusso/veloria/actions/runs/40936155501) COMPLETED/SUCCESS. Pages verificata cache v205 e nuova immagine direzionale nel TMJ pubblico della Centrale. Verify 40936155157 resta da attestare.
+
 Quattro pose indipendenti integrate: 36 identità su 48, 12 ancora da migrare. PNG immutati, WebP RGBA-identici e calibrazioni verificati; geometria e contenuti della Centrale preservati. Immagine singola precedente ritirata solo dai renderAssets dopo audit globale a zero usi Tiled; fonte, catalogo e precache globali conservati. Dettagli in `117_CENTRALE_TECHNICIAN_DIRECTIONAL_IDLE_v0.1.md`; inventario esatto delle dodici identità in `art/remaining-cast-directional-audit-0.4.41.json`.
 
-Tre casi Chrome (uno mirato e due globali sulle 51 presenze) e uno produzione offline passati. 838 dominio/persistenza, 154 Python, validatore 986 risorse/48 fondali/48 mappe passati. TypeScript/build passati con avviso chunk. Discovery 428 browser e 76 offline assegnati esattamente una volta, un viaggio e 75 risorse in shard 19+19+19+18. CI completa e Pages del nuovo lotto ancora da attestare.
+Tre casi Chrome (uno mirato e due globali sulle 51 presenze) e uno produzione offline passati. 838 dominio/persistenza, 154 Python, validatore 986 risorse/48 fondali/48 mappe passati. TypeScript/build passati con avviso chunk. Discovery 428 browser e 76 offline assegnati esattamente una volta, un viaggio e 75 risorse in shard 19+19+19+18. CI completa del nuovo lotto ancora da attestare.
 
 Allenamento naturale passato in 5,6 minuti dopo la ripresa di 19 lanci: Exeggcute27, Confusione appresa tramite UI al posto di Riflesso, 69/69 PS al Centro, 190 monete e inventario conservati. Il primo lotto era terminato per timeout esterno e resta documentato separatamente. Nessuna quinta medaglia attestata da questa preparazione. Report in `playtests/2026-10-29-gen1-coastal-level27-recovery.md`. Obiettivo complessivo aperto.
 
 ## 0.4.40 — Teo, Celia, Ruben e Alma
 
-Commit `a7d1a2d119956579bef887a099996a68fad2bb25`: [Deploy 40931091926](https://github.com/Jacoporusso/veloria/actions/runs/40931091926) COMPLETED/SUCCESS. Pages verificata: cache v204 e nuova risorsa Celia nel TMJ pubblico di Via delle Cascate. La verifica completa Verify 40931092027 è in corso e resta da attestare.
+Commit `a7d1a2d119956579bef887a099996a68fad2bb25`: [Deploy 40931091926](https://github.com/Jacoporusso/veloria/actions/runs/40931091926) e [Verify 40931092027](https://github.com/Jacoporusso/veloria/actions/runs/40931092027) COMPLETED/SUCCESS. Pages verificata: cache v204 e nuova risorsa Celia nel TMJ pubblico di Via delle Cascate.
 
 Sedici pose indipendenti integrate e verificate; totale 35 identità su 48, 13 ancora da migrare. PNG byte-identici alle candidate approvate, WebP lossless con identico RGBA, calibrazione corpo a 56 pixel verificata. Quattro mappe preservano geometria e proprietà di gioco. Atlante Delta-route ritirato solo dai renderAssets dopo audit globale a zero usi Tiled, risorse globali conservate. Dettagli in `116_DELTA_ROUTE_DIRECTIONAL_IDLE_v0.1.md`.
 
-Quattro casi Chrome mirati, due globali sulle 51 presenze nei due orientamenti e quattro produzione offline passati. Sei test sui collegamenti, 838 dominio/persistenza e 154 Python passati; validatore 978 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso dimensioni chunk. Copertura esatta di 427 casi browser e 75 offline: un viaggio più 74 risorse in shard 19+19+18+18. Screenshot alla scala di gioco rivisti. CI completa ancora da attestare; obiettivo complessivo aperto.
+Quattro casi Chrome mirati, due globali sulle 51 presenze nei due orientamenti e quattro produzione offline passati. Sei test sui collegamenti, 838 dominio/persistenza e 154 Python passati; validatore 978 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso dimensioni chunk. Copertura esatta di 427 casi browser e 75 offline: un viaggio più 74 risorse in shard 19+19+18+18. Screenshot alla scala di gioco rivisti; obiettivo complessivo aperto.
 
 ## Correzione atlas — cache v203
 

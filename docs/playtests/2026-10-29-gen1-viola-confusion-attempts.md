@@ -1,0 +1,9 @@
+# Viola dopo l'apprendimento di Confusione
+
+Runtime applicativo 0.4.41, commit `b7b0c41f5146db39add4be03b2a307ce5e47834c`. Entrambi i tentativi usano partita e risorse reali, senza acquisti iniziali perché restano 190 monete. Non assegnano XP, denaro, flag o consumabili. Viola è una sfida facoltativa scelta dal driver per finanziare le cure della palestra; non è un requisito di accesso a Nerea.
+
+Primo tentativo dall'export UI dell'allenamento27, SHA256 `36a9386de9000df1a87fe89538c0d55d733f6775f6e9107a44239535b8f679dc`, con preferenza per Sonnifero e Parassiseme. Sconfitta al turno11. Exeggcute subisce Acido, usa Sonnifero e poi manca Parassiseme, andando KO senza utilizzare Confusione. Il caso resta fallito. Export della sconfitta SHA256 `692a4e1f69349e5a41e4f66d5539d6c851e64f51e64132ab3b2bb92e9f3e01d8`. Report `2026-10-29-gen1-viola-confusion-setup-report.json`.
+
+Secondo tentativo da quest'ultimo export, con l'opzione già presente `PLAYTEST_DAMAGE_FIRST=1`. Il driver usa Confusione, sconfigge Tentacool24 e Krabby24, ma perde al turno14 contro l'ultimo Tentacool25, che conserva 13 PS. Nessuna quinta medaglia: la prova non arriva a Nerea. Nessuna modifica alle mosse, statistiche o regole degli avversari per superare il caso. Report `2026-10-29-gen1-viola-confusion-attack-report.json`.
+
+Ultimo export UI da conservare per la ripresa: `.tmp/natural-gen1-nerea-confusion-attack/natural-prologue-natural-j-04b21-ress-and-real-game-controls/natural-viola-attempt-backup.json`, SHA256 `a19e582f454b75a2a036c9d8c4779ec6d5316d905f8ae37dbc75d473068947d4`. Exeggcute27 con 365 XP nel livello, Charmeleon23 con 1338 XP, Psyduck23 con 1122 XP. Denaro190, inventario invariato e quattro medaglie. Il gioco recupera la squadra dopo la sconfitta. Nessun pageerror nei due tentativi. Il miglior risultato del secondo caso non viene presentato come vittoria o completamento della campagna.
