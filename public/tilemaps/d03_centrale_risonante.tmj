@@ -2572,7 +2572,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-centrale-technician-v1"
+              "value": "veloria-centrale-technician-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -2582,12 +2582,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.495
+              "value": 0.430043
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.95
+              "value": 0.971354
             }
           ]
         }

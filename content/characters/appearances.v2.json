@@ -868,6 +868,26 @@
       "kind": "image",
       "key": "veloria-alma-r13-idle-east-v1",
       "path": "assets/sprites/veloria-alma-r13-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-idle-south-v1",
+      "path": "assets/sprites/veloria-centrale-technician-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-idle-north-v1",
+      "path": "assets/sprites/veloria-centrale-technician-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-idle-west-v1",
+      "path": "assets/sprites/veloria-centrale-technician-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-centrale-technician-idle-east-v1",
+      "path": "assets/sprites/veloria-centrale-technician-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -2917,11 +2937,45 @@
       "npcIds": [
         "centrale_technician"
       ],
-      "assetKey": "veloria-centrale-technician-v1",
+      "assetKey": "veloria-centrale-technician-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/centrale_technician; public/tilemaps/d03_centrale_risonante.tmj#Tecnica della Centrale",
       "origin": {
-        "x": 0.495,
-        "y": 0.95
+        "x": 0.430043,
+        "y": 0.971354
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-centrale-technician-idle-south-v1",
+          "origin": {
+            "x": 0.430043,
+            "y": 0.971354
+          },
+          "displaySize": 58.915068
+        },
+        "up": {
+          "assetKey": "veloria-centrale-technician-idle-north-v1",
+          "origin": {
+            "x": 0.563717,
+            "y": 0.961589
+          },
+          "displaySize": 58.794258
+        },
+        "left": {
+          "assetKey": "veloria-centrale-technician-idle-west-v1",
+          "origin": {
+            "x": 0.655261,
+            "y": 0.979818
+          },
+          "displaySize": 58.315932
+        },
+        "right": {
+          "assetKey": "veloria-centrale-technician-idle-east-v1",
+          "origin": {
+            "x": 0.43491,
+            "y": 0.979818
+          },
+          "displaySize": 57.767629
+        }
       }
     }
   ],

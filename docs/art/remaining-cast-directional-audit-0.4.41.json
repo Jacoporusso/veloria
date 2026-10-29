@@ -1,0 +1,577 @@
+{
+  "auditVersion": "0.4.41",
+  "generatedFrom": [
+    "content/characters/appearances.v2.json",
+    "assets/npc-idle-views-v1.json",
+    "content/maps/*.map.json",
+    "public/tilemaps/*.tmj"
+  ],
+  "manifestProfileCount": 36,
+  "appearanceProfileCount": 48,
+  "remainingWithoutIdleViews": 12,
+  "remaining": [
+    {
+      "profileId": "league-council-nerea",
+      "description": "Nerea, membro del Consiglio della Lega; abito formale blu notte e perla con motivo delle correnti",
+      "npcId": "league_council1",
+      "dialogueId": "league_council1",
+      "mapBinding": {
+        "tilemap": "league_council01.tmj",
+        "objectName": "Nerea",
+        "pixelX": 512,
+        "pixelY": 224,
+        "npcId": "league_council1",
+        "dialogueId": "league_council1",
+        "characterAppearanceId": "league-council-nerea",
+        "sprite": "veloria-league-council-v1",
+        "frame": 0,
+        "trainerId": "veloria/trainer_league_council1",
+        "challengeStageId": "council1"
+      },
+      "assetKey": "veloria-league-council-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-council-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-council-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 0,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.6188,
+        "y": 1.0
+      }
+    },
+    {
+      "profileId": "league-council-silvo",
+      "description": "Silvo, membro del Consiglio; giacca a strati verde bosco e ocra con borsa da appunti da campo",
+      "npcId": "league_council2",
+      "dialogueId": "league_council2",
+      "mapBinding": {
+        "tilemap": "league_council02.tmj",
+        "objectName": "Silvo",
+        "pixelX": 512,
+        "pixelY": 224,
+        "npcId": "league_council2",
+        "dialogueId": "league_council2",
+        "characterAppearanceId": "league-council-silvo",
+        "sprite": "veloria-league-council-v1",
+        "frame": 1,
+        "trainerId": "veloria/trainer_league_council2",
+        "challengeStageId": "council2"
+      },
+      "assetKey": "veloria-league-council-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-council-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-council-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 1,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.4787,
+        "y": 1.0
+      }
+    },
+    {
+      "profileId": "league-council-brando",
+      "description": "Brando, membro del Consiglio; giacca squadrata petrolio con cuciture ambra e chiusura metallica",
+      "npcId": "league_council3",
+      "dialogueId": "league_council3",
+      "mapBinding": {
+        "tilemap": "league_council03.tmj",
+        "objectName": "Brando",
+        "pixelX": 512,
+        "pixelY": 224,
+        "npcId": "league_council3",
+        "dialogueId": "league_council3",
+        "characterAppearanceId": "league-council-brando",
+        "sprite": "veloria-league-council-v1",
+        "frame": 2,
+        "trainerId": "veloria/trainer_league_council3",
+        "challengeStageId": "council3"
+      },
+      "assetKey": "veloria-league-council-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-council-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-council-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 2,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.6154,
+        "y": 0.9809
+      }
+    },
+    {
+      "profileId": "league-council-luce",
+      "description": "Luce, membro del Consiglio; giacca corta avorio e prugna, capelli scuri e linea argento",
+      "npcId": "league_council4",
+      "dialogueId": "league_council4",
+      "mapBinding": {
+        "tilemap": "league_council04.tmj",
+        "objectName": "Luce",
+        "pixelX": 512,
+        "pixelY": 224,
+        "npcId": "league_council4",
+        "dialogueId": "league_council4",
+        "characterAppearanceId": "league-council-luce",
+        "sprite": "veloria-league-council-v1",
+        "frame": 3,
+        "trainerId": "veloria/trainer_league_council4",
+        "challengeStageId": "council4"
+      },
+      "assetKey": "veloria-league-council-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-council-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-council-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 3,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.4799,
+        "y": 0.9809
+      }
+    },
+    {
+      "profileId": "league-champion-enea",
+      "description": "Enea, Campione di Veloria; soprabito petrolio e avorio, sei segni di cucitura e medaglione semplice",
+      "npcId": "league_champion",
+      "dialogueId": "league_champion",
+      "mapBinding": {
+        "tilemap": "league_champion.tmj",
+        "objectName": "Enea",
+        "pixelX": 512,
+        "pixelY": 224,
+        "npcId": "league_champion",
+        "dialogueId": "league_champion",
+        "characterAppearanceId": "league-champion-enea",
+        "sprite": "veloria-cast-opening-and-champion-v1",
+        "frame": 3,
+        "trainerId": "veloria/trainer_league_champion",
+        "challengeStageId": "champion"
+      },
+      "assetKey": "veloria-cast-opening-and-champion-v1",
+      "runtimePath": "public/assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+      "sourcePath": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 3,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.5012,
+        "y": 0.9075
+      }
+    },
+    {
+      "profileId": "biancavetta-guide",
+      "description": "Guida di Biancavetta: parla della regolarità delle oscillazioni e indica Centro, bottega, palestra e funivia. Aspetto e abbigliamento da guida locale sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcId": "biancavetta_guide",
+      "dialogueId": "biancavetta_guide",
+      "mapBinding": {
+        "tilemap": "biancavetta.tmj",
+        "objectName": "Guida di Biancavetta",
+        "pixelX": 1024,
+        "pixelY": 480,
+        "npcId": "biancavetta_guide",
+        "dialogueId": "biancavetta_guide",
+        "characterAppearanceId": "biancavetta-guide",
+        "sprite": "veloria-guides-and-keepers-v1",
+        "frame": 0,
+        "trainerId": null,
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "runtimePath": "public/assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "sourcePath": "assets/sources/veloria-guides-and-keepers-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 0,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.504,
+        "y": 0.937
+      }
+    },
+    {
+      "profileId": "passobrina-alpine-guide",
+      "description": "Guida alpina di Passobrina: accompagna la ricerca su vento, temperatura e neve e apre il sentiero per i Tornanti Bianchi. Abbigliamento da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "npcId": "passobrina_guide",
+      "dialogueId": "passobrina_guide",
+      "mapBinding": {
+        "tilemap": "passobrina.tmj",
+        "objectName": "Guida alpina",
+        "pixelX": 896,
+        "pixelY": 416,
+        "npcId": "passobrina_guide",
+        "dialogueId": "passobrina_guide",
+        "characterAppearanceId": "passobrina-alpine-guide",
+        "sprite": "veloria-guides-and-keepers-v1",
+        "frame": 1,
+        "trainerId": null,
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "runtimePath": "public/assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "sourcePath": "assets/sources/veloria-guides-and-keepers-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 1,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.467,
+        "y": 0.944
+      }
+    },
+    {
+      "profileId": "r14-guide-livia",
+      "description": "Livia, guida di R14: indica rifugio, tre terrazze e ricevitore del Varco del Cristallo, poi lascia aperta la strada verso Biancavetta. Treccia e abiti da esplorazione sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcId": "r14_guide",
+      "dialogueId": "r14_guide",
+      "mapBinding": {
+        "tilemap": "r14_varco_cristallo.tmj",
+        "objectName": "Guida del varco",
+        "pixelX": 928,
+        "pixelY": 352,
+        "npcId": "r14_guide",
+        "dialogueId": "r14_guide",
+        "characterAppearanceId": "r14-guide-livia",
+        "sprite": "veloria-guides-and-keepers-v1",
+        "frame": 2,
+        "trainerId": null,
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "runtimePath": "public/assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "sourcePath": "assets/sources/veloria-guides-and-keepers-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 2,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.561,
+        "y": 0.92
+      }
+    },
+    {
+      "profileId": "league-receptionist",
+      "description": "Accoglienza della Lega: fornisce indicazioni su requisiti, servizi, portale e regole del tentativo. Aspetto e uniforme di servizio sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "npcId": "league_reception",
+      "dialogueId": "league_reception",
+      "mapBinding": {
+        "tilemap": "league_forecourt.tmj",
+        "objectName": "Accoglienza della Lega",
+        "pixelX": 640,
+        "pixelY": 224,
+        "npcId": "league_reception",
+        "dialogueId": "league_reception",
+        "characterAppearanceId": "league-receptionist",
+        "sprite": "veloria-league-and-cammino-cast-v1",
+        "frame": 0,
+        "trainerId": null,
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 0,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.54,
+        "y": 0.951
+      }
+    },
+    {
+      "profileId": "petalora-custodian-ivo",
+      "description": "Custode Ivo di Petalora: cura i canali che irrigano le terrazze dei ciliegi e indirizza il giocatore ai servizi e alla palestra. È distinto da Ivo di Ferraluce. Barba argento e abiti da giardiniere sono proposte artistiche; età non specificata nel canone.",
+      "npcId": "petalora_ivo",
+      "dialogueId": "petalora_ivo",
+      "mapBinding": {
+        "tilemap": "petalora.tmj",
+        "objectName": "Custode Ivo",
+        "pixelX": 608,
+        "pixelY": 256,
+        "npcId": "petalora_ivo",
+        "dialogueId": "petalora_ivo",
+        "characterAppearanceId": "petalora-custodian-ivo",
+        "sprite": "veloria-league-and-cammino-cast-v1",
+        "frame": 1,
+        "trainerId": null,
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 1,
+        "frameY": 0.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.479,
+        "y": 0.959
+      }
+    },
+    {
+      "profileId": "route-trainer-maia-r16",
+      "description": "Maia, allenatrice facoltativa del Cammino dell’Equilibrio, che prepara alla Lega e discute tipi e strategie. Giacca sportiva e aspetto apparente sono proposte artistiche; età non specificata nel canone.",
+      "npcId": "r16_maia",
+      "dialogueId": "r16_maia",
+      "mapBinding": {
+        "tilemap": "r16_cammino_equilibrio.tmj",
+        "objectName": "Maia",
+        "pixelX": 288,
+        "pixelY": 640,
+        "npcId": "r16_maia",
+        "dialogueId": "r16_maia",
+        "characterAppearanceId": "route-trainer-maia-r16",
+        "sprite": "veloria-league-and-cammino-cast-v1",
+        "frame": 2,
+        "trainerId": "veloria/trainer_r16_maia",
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 0,
+        "rows": 2,
+        "columns": 2,
+        "frame": 2,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.538,
+        "y": 0.915
+      }
+    },
+    {
+      "profileId": "route-trainer-tobia-r16",
+      "description": "Tobia, allenatore facoltativo del Cammino dell’Equilibrio, che spiega difese fisiche e speciali, precisione e PP. Aspetto e abbigliamento sono proposte artistiche; età non specificata nel canone.",
+      "npcId": "r16_tobia",
+      "dialogueId": "r16_tobia",
+      "mapBinding": {
+        "tilemap": "r16_cammino_equilibrio.tmj",
+        "objectName": "Tobia",
+        "pixelX": 640,
+        "pixelY": 416,
+        "npcId": "r16_tobia",
+        "dialogueId": "r16_tobia",
+        "characterAppearanceId": "route-trainer-tobia-r16",
+        "sprite": "veloria-league-and-cammino-cast-v1",
+        "frame": 3,
+        "trainerId": "veloria/trainer_r16_tobia",
+        "challengeStageId": null
+      },
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "runtimePath": "public/assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "sourcePath": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+      "sourceDimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "atlas": {
+        "frameHeight": 627,
+        "frameX": 627,
+        "rows": 2,
+        "columns": 2,
+        "frame": 3,
+        "frameY": 627.0,
+        "frameWidth": 627
+      },
+      "origin": {
+        "x": 0.539,
+        "y": 0.921
+      }
+    }
+  ],
+  "artLots": [
+    {
+      "id": "league-council",
+      "assetKey": "veloria-league-council-v1",
+      "sourcePath": "assets/sources/veloria-league-council-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-league-council-v1.webp",
+      "atlas": {
+        "rows": 2,
+        "sourceDimensions": "1254x1254",
+        "frameDimensions": "627x627",
+        "columns": 2
+      },
+      "profileIds": [
+        "league-council-nerea",
+        "league-council-silvo",
+        "league-council-brando",
+        "league-council-luce"
+      ]
+    },
+    {
+      "id": "league-champion",
+      "assetKey": "veloria-cast-opening-and-champion-v1",
+      "sourcePath": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-cast-opening-and-champion-v1.webp",
+      "atlas": {
+        "rows": 2,
+        "sourceDimensions": "1254x1254",
+        "frameDimensions": "627x627",
+        "columns": 2
+      },
+      "profileIds": [
+        "league-champion-enea"
+      ]
+    },
+    {
+      "id": "guides-and-keepers",
+      "assetKey": "veloria-guides-and-keepers-v1",
+      "sourcePath": "assets/sources/veloria-guides-and-keepers-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-guides-and-keepers-v1.webp",
+      "atlas": {
+        "rows": 2,
+        "sourceDimensions": "1254x1254",
+        "frameDimensions": "627x627",
+        "columns": 2
+      },
+      "profileIds": [
+        "biancavetta-guide",
+        "passobrina-alpine-guide",
+        "r14-guide-livia"
+      ]
+    },
+    {
+      "id": "league-and-cammino-cast",
+      "assetKey": "veloria-league-and-cammino-cast-v1",
+      "sourcePath": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-league-and-cammino-cast-v1.webp",
+      "atlas": {
+        "rows": 2,
+        "sourceDimensions": "1254x1254",
+        "frameDimensions": "627x627",
+        "columns": 2
+      },
+      "profileIds": [
+        "league-receptionist",
+        "petalora-custodian-ivo",
+        "route-trainer-maia-r16",
+        "route-trainer-tobia-r16"
+      ]
+    }
+  ],
+  "identityDisambiguation": [
+    {
+      "map": "league_council01",
+      "distinctFromProfile": "gym-leader-nerea-portolume",
+      "profileId": "league-council-nerea",
+      "mapDistinct": "gym05_portolume",
+      "npcId": "league_council1",
+      "npcIdDistinct": "nerea_gym"
+    },
+    {
+      "map": "petalora",
+      "distinctFromProfile": "ferraluce-ivo",
+      "profileId": "petalora-custodian-ivo",
+      "mapDistinct": "ferraluce",
+      "npcId": "petalora_ivo",
+      "npcIdDistinct": "ferraluce_ivo"
+    }
+  ],
+  "notes": [
+    "Twelve appearance profiles have no idleViews in the live registry; the live idle manifest has 36 profiles.",
+    "All twelve are still backed by four existing original 2x2 source atlases; one profile remains in each atlas frame, and frame coordinates are computed from the source sheet dimensions.",
+    "Map binding fields are taken from current Tiled characters-layer objects with characterAppearanceId; they distinguish actual NPC placement from maps that merely preload the same shared atlas.",
+    "Art lots preserve the four source atlas boundaries; do not combine identities across sheets.",
+    "Audit only; does not modify registry, manifest, Tiled data, source art, runtime, tests, or Git state."
+  ]
+}

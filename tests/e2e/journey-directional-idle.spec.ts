@@ -9,6 +9,7 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  { name: 'Tecnica della Centrale', speaker: 'Tecnica della Centrale', profile: 'centrale-technician', map: 'd03_centrale_risonante', spawn: 'from_r07', x: 12, y: 17, flags: ['q_r07_measurement'], tiled: 'd03_centrale_risonante', id: 'centrale_technician' },
   {"name": "Teo", "speaker": "Teo", "profile": "delta-naturalist-teo", "map": "d04_delta_specchi", "spawn": "from_r09", "x": 24, "y": 6, "flags": ["trainer_delta_teo_defeated"], "tiled": "d04_delta_specchi", "id": "delta_teo", "northBlocked": true},
   {"name": "Celia", "speaker": "Celia", "profile": "route-trainer-celia-r11", "map": "r11_via_cascate", "spawn": "from_acquariva", "x": 15, "y": 17, "flags": ["trainer_r11_celia_defeated"], "tiled": "r11_via_cascate", "id": "r11_celia", "eastBlocked": true},
   {"name": "Ruben", "speaker": "Ruben", "profile": "route-trainer-ruben-r12", "map": "r12_valle_vento", "spawn": "from_acquariva", "x": 24, "y": 7, "flags": ["trainer_r12_ruben_defeated"], "tiled": "r12_valle_vento", "id": "r12_ruben"},
@@ -89,6 +90,7 @@ for (const npc of [
           legacyRoute: world.textures.exists('veloria-route-trainers-r04-r07-v1'),
           legacyServices: world.textures.exists('veloria-ferraluce-service-npcs-v1'),
           legacyCoastal: world.textures.exists('veloria-r09-r10-coastal-trainers-v1'),
+          legacyTechnician: world.textures.exists('veloria-centrale-technician-v1'),
           webgl: Boolean(world.game.renderer.gl), minFilter: sprite.texture.source[0].glTexture?.minFilter,
           frameRatio: sprite.frame.width / sprite.frame.height,
           powerOfTwo: (image.width & (image.width - 1)) === 0 && (image.height & (image.height - 1)) === 0,
@@ -106,6 +108,7 @@ for (const npc of [
       if (/^r0[4-7]_/.test(npc.map)) expect(state.legacyRoute).toBe(false);
       if (npc.map === 'ferraluce') expect(state.legacyServices).toBe(false);
       if (/^r(09|10)_/.test(npc.map)) expect(state.legacyCoastal).toBe(false);
+      if (npc.profile === 'centrale-technician') expect(state.legacyTechnician).toBe(false);
       expect(state.frameRatio).toBeCloseTo(manifestView.width / manifestView.height, 8);
       if (state.webgl) {
         expect(state.powerOfTwo).toBe(true);

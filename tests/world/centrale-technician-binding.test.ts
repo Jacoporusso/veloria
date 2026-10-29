@@ -10,17 +10,28 @@ test('Centrale technician keeps one stable identity, matching label, asset and f
   assert.ok(profile);
   assert.deepEqual(profile.npcIds, ['centrale_technician']);
   assert.deepEqual(profile.dialogueIds, ['centrale_technician']);
-  assert.equal(profile.assetKey, 'veloria-centrale-technician-v1');
+  assert.equal(profile.assetKey, 'veloria-centrale-technician-idle-south-v1');
   assert.equal(profile.frame, undefined, 'standalone artwork has no atlas frame');
-  assert.deepEqual(profile.origin, { x: 0.495, y: 0.95 });
+  assert.deepEqual(profile.origin, profile.idleViews.down.origin);
+  assert.deepEqual(Object.keys(profile.idleViews).sort(), ['down', 'left', 'right', 'up']);
 
   const asset = catalog.assets.find((item: any) => item.key === profile.assetKey);
-  assert.deepEqual(asset, { kind: 'image', key: profile.assetKey, path: 'assets/sprites/veloria-centrale-technician-v1.webp' });
+  assert.deepEqual(asset, { kind: 'image', key: profile.assetKey, path: `assets/sprites/${profile.assetKey}.webp` });
   assert.ok(existsSync(new URL(`../../assets/sources/veloria-centrale-technician-v1.png`, import.meta.url)));
   assert.ok(existsSync(new URL(`../../public/${asset.path}`, import.meta.url)));
 
   const map = read<any>('content/maps/d03_centrale_risonante.map.json');
   assert.deepEqual(map.renderAssets.find((item: any) => item.key === asset.key), asset);
+  assert.ok(catalog.assets.some((item: any) => item.key === 'veloria-centrale-technician-v1'), 'preserve original global resource');
+  assert.ok(!map.renderAssets.some((item: any) => item.key === 'veloria-centrale-technician-v1'));
+  const keys = new Set<string>();
+  for (const view of Object.values(profile.idleViews) as any[]) {
+    assert.ok(!keys.has(view.assetKey)); keys.add(view.assetKey);
+    const image = catalog.assets.find((item: any) => item.key === view.assetKey);
+    assert.deepEqual(map.renderAssets.find((item: any) => item.key === view.assetKey), image);
+    assert.ok(existsSync(new URL(`../../public/${image.path}`, import.meta.url)));
+    assert.ok(view.displaySize > 0 && view.origin.y > 0 && view.origin.y <= 1);
+  }
   const tiled = read<any>('public/tilemaps/d03_centrale_risonante.tmj');
   const matches = tiled.layers.flatMap((layer: any) => layer.objects ?? [])
     .filter((object: any) => object.properties?.some((property: any) => property.name === 'npcId' && property.value === 'centrale_technician'));

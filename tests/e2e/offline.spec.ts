@@ -179,6 +179,7 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  { name: 'Tecnica della Centrale', speaker: 'Tecnica della Centrale', profile: 'centrale-technician', map: 'd03_centrale_risonante', spawn: 'from_r07', x: 12, y: 17, flags: ['q_r07_measurement'], start: { x: 12, y: 18 }, coldStart: false },
   {"name": "Teo", "speaker": "Teo", "profile": "delta-naturalist-teo", "map": "d04_delta_specchi", "spawn": "from_r09", "x": 24, "y": 6, "flags": ["trainer_delta_teo_defeated"], "start": {"x": 24, "y": 7}, "coldStart": false, "blockedApproach": {"x": 24, "y": 5}, "approaches": [{"x": 24, "y": 7, "label": "Vai in alto", "pose": "down"}, {"x": 23, "y": 6, "label": "Vai a destra", "pose": "left"}, {"x": 25, "y": 6, "label": "Vai a sinistra", "pose": "right"}]},
   {"name": "Celia", "speaker": "Celia", "profile": "route-trainer-celia-r11", "map": "r11_via_cascate", "spawn": "from_acquariva", "x": 15, "y": 17, "flags": ["trainer_r11_celia_defeated"], "start": {"x": 15, "y": 18}, "coldStart": false, "blockedApproach": {"x": 16, "y": 17}, "approaches": [{"x": 15, "y": 18, "label": "Vai in alto", "pose": "down"}, {"x": 14, "y": 17, "label": "Vai a destra", "pose": "left"}, {"x": 15, "y": 16, "label": "Vai in basso", "pose": "up"}]},
   {"name": "Ruben", "speaker": "Ruben", "profile": "route-trainer-ruben-r12", "map": "r12_valle_vento", "spawn": "from_acquariva", "x": 24, "y": 7, "flags": ["trainer_r12_ruben_defeated"], "start": {"x": 24, "y": 8}, "coldStart": false},
@@ -394,6 +395,9 @@ for (const npc of [
   }
   if (/^r(09|10)_/.test(npc.map)) {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-r09-r10-coastal-trainers-v1.webp')))).toBe(false);
+  }
+  if (npc.profile === 'centrale-technician') {
+    expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-centrale-technician-v1.webp')))).toBe(false);
   }
   if (npc.map === 'gym07_biancavetta' || npc.map === 'gym08_concordia') {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-gym-leaders-b-v1.webp')))).toBe(false);

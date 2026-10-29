@@ -102,3 +102,7 @@ Lina, Noemi, Maya e Bruno portano le idle a 31 profili su 48; 17 restano da migr
 ## Avanzamento 0.4.40
 
 Teo, Celia, Ruben e Alma portano le idle a 35 identità su 48, con 13 da migrare. Sedici pose e quattro collegamenti Tiled verificati, quattro casi Chrome e quattro produzione offline passati. Atlante Delta-route ritirato dai soli renderAssets dopo audit globale a zero usi. Dettagli, correzioni e limiti in [documento116](116_DELTA_ROUTE_DIRECTIONAL_IDLE_v0.1.md). Camminate, budget, QA fisica, mappe e prova naturale della campagna restano aperti.
+
+## Avanzamento 0.4.41
+
+La tecnica della Centrale porta le idle a 36 identità su 48, con 12 da migrare. Quattro pose indipendenti, caso Chrome e caso produzione offline passati; geometria e proprietà di gioco preservate. Vecchia immagine singola ritirata soltanto dai renderAssets della Centrale dopo audit a zero usi Tiled. Dettagli in [documento117](117_CENTRALE_TECHNICIAN_DIRECTIONAL_IDLE_v0.1.md). Il totale walk verificato resta un profilo; gli altri 47 e i restanti gate complessivi restano aperti.

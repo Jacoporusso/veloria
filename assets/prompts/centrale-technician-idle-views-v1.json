@@ -1,0 +1,309 @@
+{
+  "generator": "built-in imagegen",
+  "sourceReferences": [
+    {
+      "path": "assets/sources/veloria-centrale-technician-v1.png",
+      "role": "original full-body character identity"
+    },
+    {
+      "path": "content/characters/appearances.v2.json#centrale-technician",
+      "role": "appearance profile"
+    },
+    {
+      "path": "content/dialogue/world.v1.json#centrale_technician",
+      "role": "narrative identity"
+    }
+  ],
+  "candidateReport": {
+    "scope": "Private root-reviewed candidates only; not integrated or counted as migration complete.",
+    "generator": "builtin imagegen",
+    "source": "assets/sources/veloria-centrale-technician-v1.png",
+    "sourceSha256": "02451cb42014daac9326d792b4fc58a12c7d092d9913927fafd98f61f77f705e",
+    "review": "Root inspected original source, all outputs, original and corrected opaque QA boards. RIGHT sleeve patch/cargo, RIGHT hand on hip, front kneepads occluded from rear. No visible backdrop in selected board.",
+    "finalQa": "review-final.png",
+    "views": [
+      {
+        "direction": "south",
+        "prompt": "Use case: illustration-story. Generate one single full-body SOUTH front idle game character, the Centrale technician from the supplied original illustration. Preserve identity exactly: short close auburn curly hair, warm brown skin, slate-navy technical jacket and trousers, white shirt, copper-orange trim, thin teal harness/seams, black knee pads, dark work boots with copper soles and teal laces. Asymmetric equipment belongs to anatomical RIGHT: upper-arm tool patch and large cargo thigh pouch appear on viewer LEFT in this front view. Anatomical RIGHT hand rests on hip; LEFT hand relaxed down. No backpack, new tools, headgear or jewelry. Orthographic front, modern matte illustrated 2D matching source, full boots entirely visible, portrait 2:3 composition, centered with transparent margins. Genuinely transparent RGBA cutout: no background, scene, floor, cast shadow, glow, vignette, checkerboard, text, extra people or sheet. Keep simple readable shapes at 56 world pixels. Appearance is an artistic proposal, not new canonical age/gender information.",
+        "outputId": "exec-42171ebc-c19e-44bd-a193-07638cf31cbd",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\south.png",
+        "generator": "builtin imagegen",
+        "transparent_background": true,
+        "name": "south",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-42171ebc-c19e-44bd-a193-07638cf31cbd.png",
+        "sha256": "6febaa18e53d812c6503620561f2948b9d693cb367da98b3435bff8bcb76384f",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          242,
+          32,
+          782,
+          1492
+        ],
+        "selection": "approved-private-candidate"
+      },
+      {
+        "direction": "north",
+        "prompt": "Use case: illustration-story. Generate ONE full-body directional idle sprite of the Centrale technician from supplied ORIGINAL source illustration. Preserve short auburn tightly curled hair, warm brown skin, slate-navy work jacket/trousers, white shirt, copper-orange trims, thin teal harness/seams, black kneepads, darkwork boots with copper soles/teallaces. Asymmetric upper-arm tool patch AND large thigh cargo pouch both belong to anatomical RIGHT. RIGHT hand rests on hip, LEFT hand down. No backpack/newtools/headgear/jewelry. Modern matte illustrated2D source style, readable at56worldpx, portrait2:3, centered, complete uncroppedboots, transparentmargins. Genuinely transparent RGBA cutout, no background/floor/shadow/glow/vignette/checkerboard/text/otherpeople/sheet. No flips. Appearance is artisticproposal, no added age/gendercanon. True NORTH rear view, back of head and jacket visible. Anatomical RIGHT is viewerRIGHT: rightcargo at outer viewerRIGHTthigh; rightarm patch only if visible at outer rightarm, never on left. Right hand on viewerRIGHT hip, leftarm relaxed viewerLEFT. Do not put frontshirt or frontpatches on jacket back.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-99729315-bd4a-4969-8e2e-50136c7f87cd.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "name": "north",
+        "outputId": "exec-99729315-bd4a-4969-8e2e-50136c7f87cd",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-99729315-bd4a-4969-8e2e-50136c7f87cd.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\north.png",
+        "sha256": "d300615d5d80f61a0debd5d228c8f6441f5eff5a58c52a72974032360c1f71a4",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          281,
+          42,
+          823,
+          1465
+        ],
+        "selection": "rejected",
+        "transparent_background": true,
+        "reason": "Front kneepads incorrectly drawn behind knees."
+      },
+      {
+        "direction": "west",
+        "prompt": "Use case: illustration-story. Generate ONE full-body directional idle sprite of the Centrale technician from supplied ORIGINAL source illustration. Preserve short auburn tightly curled hair, warm brown skin, slate-navy work jacket/trousers, white shirt, copper-orange trims, thin teal harness/seams, black kneepads, darkwork boots with copper soles/teallaces. Asymmetric upper-arm tool patch AND large thigh cargo pouch both belong to anatomical RIGHT. RIGHT hand rests on hip, LEFT hand down. No backpack/newtools/headgear/jewelry. Modern matte illustrated2D source style, readable at56worldpx, portrait2:3, centered, complete uncroppedboots, transparentmargins. Genuinely transparent RGBA cutout, no background/floor/shadow/glow/vignette/checkerboard/text/otherpeople/sheet. No flips. Appearance is artisticproposal, no added age/gendercanon. True WEST profile with NOSE pointing LEFT. Near side is anatomical LEFT. Anatomical RIGHT toolpatch and large cargo pouch are on FAR side, therefore hidden/occluded; do NOT put patch or cargo on the near LEFTarm/thigh. The near LEFT arm hangs relaxed; right hand on far hip partlyhidden. Face profile not rearview.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-3567572e-a45c-446b-a86b-d404d0eabbe0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "name": "west",
+        "outputId": "exec-3567572e-a45c-446b-a86b-d404d0eabbe0",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-3567572e-a45c-446b-a86b-d404d0eabbe0.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\west.png",
+        "sha256": "79f586b5e7e3c72456fe2ec12de5c487f1339860e7a2dade14b2926061fee9ff",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          298,
+          30,
+          752,
+          1505
+        ],
+        "selection": "approved-private-candidate",
+        "transparent_background": true
+      },
+      {
+        "direction": "east",
+        "prompt": "Use case: illustration-story. Generate ONE full-body directional idle sprite of the Centrale technician from supplied ORIGINAL source illustration. Preserve short auburn tightly curled hair, warm brown skin, slate-navy work jacket/trousers, white shirt, copper-orange trims, thin teal harness/seams, black kneepads, darkwork boots with copper soles/teallaces. Asymmetric upper-arm tool patch AND large thigh cargo pouch both belong to anatomical RIGHT. RIGHT hand rests on hip, LEFT hand down. No backpack/newtools/headgear/jewelry. Modern matte illustrated2D source style, readable at56worldpx, portrait2:3, centered, complete uncroppedboots, transparentmargins. Genuinely transparent RGBA cutout, no background/floor/shadow/glow/vignette/checkerboard/text/otherpeople/sheet. No flips. Appearance is artisticproposal, no added age/gendercanon. True EAST profile with NOSE pointing RIGHT. Near side is anatomical RIGHT: clearly show the RIGHTupper-arm toolpatch and RIGHTthigh large cargopouch on near side. Near RIGHT hand rests on hip. Far LEFTarm hangs relaxed partlyhidden. Face profile not rearview.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-7d16391a-32e4-4f4c-8910-6f855339b0d8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "name": "east",
+        "outputId": "exec-7d16391a-32e4-4f4c-8910-6f855339b0d8",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-7d16391a-32e4-4f4c-8910-6f855339b0d8.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\east.png",
+        "sha256": "8947732432324859354ff4ca8278039bcc569a29c88595e97842c8b199816ca1",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          273,
+          16,
+          789,
+          1504
+        ],
+        "selection": "rejected",
+        "transparent_background": true,
+        "reason": "Cargo flap closure changed from one button to two."
+      },
+      {
+        "name": "north-v2",
+        "prompt": "Edit ONLY rear knee region of supplied NORTH/back view technician sprite. This is the BACK of the legs: remove the two big black front-facing kneepad plates and their copper fronts from behind both knees, replace those rear knee areas with ordinary slate-navy trouser fabric and natural folds. Kneepads belong exclusively to front of legs and must not be drawn on their back. Preserve everything else: actual rear view, hair, face visibility, hand-on-right-hip pose, upper rightarm patch, single rightthigh cargo, boots, dimensions, fullbody and genuine alpha. No new objects/background/scene/glow/shadow/text. Modern illustrated2D source style.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-b53f2b21-2ec4-45ed-a7a4-62a8efb81957.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "outputId": "exec-b53f2b21-2ec4-45ed-a7a4-62a8efb81957",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-b53f2b21-2ec4-45ed-a7a4-62a8efb81957.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\north-v2.png",
+        "sha256": "16e707dcb9007c5d486fbf2d14ff8a98e0d0c5a44b8e278b0defe5e1f80ef144",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          253
+        ],
+        "alpha128Bounds": [
+          0,
+          0,
+          1024,
+          1536
+        ],
+        "selection": "rejected",
+        "transparent_background": true,
+        "reason": "Kneepads corrected but actual gray backdrop visible in opaque alpha composite."
+      },
+      {
+        "name": "east-v2",
+        "prompt": "Edit ONLY the closure of the large RIGHT thigh cargo pouch on the supplied EAST/nose-right technician sprite. It must have exactly ONE small round copper button at the outer flap corner, matching sourcefront; remove the additional button. Preserve pouchshape, navy/coppertrim, hangingtoolclasp, anatomicalRIGHTnear placement, upperRIGHTarmpatch, handonhip, identity/hair/colors/pose/fullboots and genuine transparency. Do not alter other clothing/equipment, no new accessories/background/scene/shadow/glow/text.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-ee9e385f-5a27-4cb3-a31a-d801fd22b3c8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "outputId": "exec-ee9e385f-5a27-4cb3-a31a-d801fd22b3c8",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-ee9e385f-5a27-4cb3-a31a-d801fd22b3c8.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\east-v2.png",
+        "sha256": "8d6a4c5f645932519d3ddcab1c8c283fc36badf578b2335fffd22585f3655c74",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          273,
+          16,
+          790,
+          1505
+        ],
+        "selection": "approved-private-candidate",
+        "transparent_background": true
+      },
+      {
+        "prompt": "Remove the background from this full-body rear-view technician illustration. Deliver a clean transparent cutout of ONLY the person and clothing, preserving the supplied rear pose exactly. The current file has partially transparent gray/blurred pixels outside the person which are visible on an opaque game background: remove ALL those backdrop pixels outside the natural body/clothing/boot silhouette, and within the gaps between legs and beside arms. Preserve the slate trousers with plain fabric behind knees (no rear kneepads), navy jacket, copper/teal trims, upper anatomicalRIGHT patch and RIGHTthigh pouch, RIGHThand on hip, curly auburnhair, completeboots. Background alpha must be zero outside silhouette, with only natural edge antialiasing. No shadow/glow/checkerboard/vignette/scenery/floor, no clothing or pose redesign, no crop.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-bc73a617-18a1-44f7-943d-2db56cf7f581.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "name": "north-v3",
+        "outputId": "exec-bc73a617-18a1-44f7-943d-2db56cf7f581",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-bc73a617-18a1-44f7-943d-2db56cf7f581.png",
+        "candidatePath": ".tmp\\centrale-technician-idles-candidates\\north-v3.png",
+        "sha256": "b9b8994fa8c8592730414e41c3ad534c55c825bd96d5eec958a9959d063d7c36",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaRange": [
+          0,
+          254
+        ],
+        "alpha128Bounds": [
+          272,
+          14,
+          851,
+          1477
+        ],
+        "selection": "approved-private-candidate",
+        "transparent_background": true
+      }
+    ]
+  },
+  "selectedRuntimeViews": [
+    {
+      "direction": "down",
+      "assetKey": "veloria-centrale-technician-idle-south-v1",
+      "sourcePath": "assets/sources/veloria-centrale-technician-idle-south-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-centrale-technician-idle-south-v1.webp",
+      "sourceSha256": "6febaa18e53d812c6503620561f2948b9d693cb367da98b3435bff8bcb76384f",
+      "runtimeSha256": "579249f3f060081e880e5fcd36712c9e91d197623856ded0bfed66fe7cd10141",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.430043,
+        "y": 0.971354
+      },
+      "displaySize": 58.915068,
+      "alpha128Bounds": [
+        242,
+        32,
+        782,
+        1492
+      ],
+      "outputId": "exec-42171ebc-c19e-44bd-a193-07638cf31cbd",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-42171ebc-c19e-44bd-a193-07638cf31cbd.png"
+    },
+    {
+      "direction": "up",
+      "assetKey": "veloria-centrale-technician-idle-north-v1",
+      "sourcePath": "assets/sources/veloria-centrale-technician-idle-north-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-centrale-technician-idle-north-v1.webp",
+      "sourceSha256": "b9b8994fa8c8592730414e41c3ad534c55c825bd96d5eec958a9959d063d7c36",
+      "runtimeSha256": "aff110596fc8083b08d679804da00b2369c6de3c3fd31a2182cbd305f23132a5",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.563717,
+        "y": 0.961589
+      },
+      "displaySize": 58.794258,
+      "alpha128Bounds": [
+        272,
+        14,
+        851,
+        1477
+      ],
+      "outputId": "exec-bc73a617-18a1-44f7-943d-2db56cf7f581",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-bc73a617-18a1-44f7-943d-2db56cf7f581.png"
+    },
+    {
+      "direction": "left",
+      "assetKey": "veloria-centrale-technician-idle-west-v1",
+      "sourcePath": "assets/sources/veloria-centrale-technician-idle-west-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-centrale-technician-idle-west-v1.webp",
+      "sourceSha256": "79f586b5e7e3c72456fe2ec12de5c487f1339860e7a2dade14b2926061fee9ff",
+      "runtimeSha256": "fe1c6b7b8a58b2dcd8205aeaa7ffd3369b5cdc090338ffedfcfbfb65b54577be",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.655261,
+        "y": 0.979818
+      },
+      "displaySize": 58.315932,
+      "alpha128Bounds": [
+        298,
+        30,
+        752,
+        1505
+      ],
+      "outputId": "exec-3567572e-a45c-446b-a86b-d404d0eabbe0",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-3567572e-a45c-446b-a86b-d404d0eabbe0.png"
+    },
+    {
+      "direction": "right",
+      "assetKey": "veloria-centrale-technician-idle-east-v1",
+      "sourcePath": "assets/sources/veloria-centrale-technician-idle-east-v1.png",
+      "runtimePath": "public/assets/sprites/veloria-centrale-technician-idle-east-v1.webp",
+      "sourceSha256": "8d6a4c5f645932519d3ddcab1c8c283fc36badf578b2335fffd22585f3655c74",
+      "runtimeSha256": "c8520ede44d458ddcdb257a9c34d5812d8e3a536950625fe38b226bb038791a5",
+      "width": 1024,
+      "height": 1536,
+      "origin": {
+        "x": 0.43491,
+        "y": 0.979818
+      },
+      "displaySize": 57.767629,
+      "alpha128Bounds": [
+        273,
+        16,
+        790,
+        1505
+      ],
+      "outputId": "exec-ee9e385f-5a27-4cb3-a31a-d801fd22b3c8",
+      "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-ee9e385f-5a27-4cb3-a31a-d801fd22b3c8.png"
+    }
+  ],
+  "scope": "Root-reviewed four-view technician idle migration; no new canon.",
+  "retiredMapBinding": {
+    "key": "veloria-centrale-technician-v1",
+    "remainingTiledUses": [],
+    "globalCatalogFilesAndPrecache": "preserved"
+  }
+}
