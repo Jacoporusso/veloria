@@ -2774,12 +2774,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-delta-route-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-ruben-r12-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -2799,12 +2794,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.603
+              "value": 0.52464
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.914
+              "value": 0.932943
             }
           ]
         }

@@ -1,3 +1,9 @@
+## 0.4.40 — Teo, Celia, Ruben e Alma
+
+Sedici pose indipendenti integrate e verificate; totale 35 identità su 48, 13 ancora da migrare. PNG byte-identici alle candidate approvate, WebP lossless con identico RGBA, calibrazione corpo a 56 pixel verificata. Quattro mappe preservano geometria e proprietà di gioco. Atlante Delta-route ritirato solo dai renderAssets dopo audit globale a zero usi Tiled, risorse globali conservate. Dettagli in `116_DELTA_ROUTE_DIRECTIONAL_IDLE_v0.1.md`.
+
+Quattro casi Chrome mirati, due globali sulle 51 presenze nei due orientamenti e quattro produzione offline passati. Sei test sui collegamenti, 838 dominio/persistenza e 154 Python passati; validatore 978 risorse/48 fondali/48 mappe. TypeScript/build passati con avviso dimensioni chunk. Copertura esatta di 427 casi browser e 75 offline: un viaggio più 74 risorse in shard 19+19+18+18. Screenshot alla scala di gioco rivisti. CI completa e disponibilità pubblica di questo lotto ancora da attestare; obiettivo complessivo aperto.
+
 ## Correzione atlas — cache v203
 
 Commit `a181c09dab24387a12fdd07be1b44486bf60bf8f`: comandi e legenda fuori dall'area disegnata nelle categorie, così non coprono i punti filtrati. Un'asserzione geometrica riproduceva un dono coperto prima della correzione; quattro casi Chrome passati dopo, con tutte le categorie controllate in portrait e landscape. TypeScript e diff check passati. [Deploy 40889432867](https://github.com/Jacoporusso/veloria/actions/runs/40889432867) COMPLETED/SUCCESS; verificata la cache v203 sullo sw.js pubblico. Verify 40889432850 cancellata dalla coda di concorrenza, senza esito funzionale; sostituita dalla verifica del successivo commit `71b98db`.

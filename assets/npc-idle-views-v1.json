@@ -4013,6 +4013,494 @@
         }
       ],
       "calibration": "Body height calibrated to 56 world px from alpha>=128 bounds (displaySize=56*sourceHeight/bodyHeight). origin.y uses the exclusive alpha>=128 bottom row/sourceHeight; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is byte-identical to the approved candidate; WebP is lossless and full decoded RGBA equality was verified."
+    },
+    {
+      "profileId": "delta-naturalist-teo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/delta-route-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#delta-naturalist-teo",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#delta_teo",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/delta_teo.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 0 top-left"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-teo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-teo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-south-v1.webp",
+          "sourceSha256": "ecff6f071040e28648c55e3644ac2b7b69074f34a48bcb677352e64c0dd627c9",
+          "runtimeSha256": "fdaf7ef6447ceed4c835759b510a23e7383c9c4675ca2a3a199e2b10ae8434a2",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.543223,
+            "y": 0.948568
+          },
+          "displaySize": 61.748744,
+          "outputId": "exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1",
+          "alpha128Bounds": [
+            256,
+            64,
+            791,
+            1457
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-teo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-teo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-north-v1.webp",
+          "sourceSha256": "3c66ac705ab33ea5a92da947b1e2f20c6bccaae67367e184d424286973871942",
+          "runtimeSha256": "8f85c28ec125a14ae62aa8ca7cee006ad59952f965decf83cc2973ceb9e72206",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.510111,
+            "y": 0.978516
+          },
+          "displaySize": 58.197564,
+          "outputId": "exec-a7de7b07-c015-465d-9dc6-0431754b831e",
+          "alpha128Bounds": [
+            259,
+            25,
+            790,
+            1503
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a7de7b07-c015-465d-9dc6-0431754b831e.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-teo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-teo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-west-v1.webp",
+          "sourceSha256": "586e70db5209d364a0f39a2a1c34e13271a811b5a4eecb223193b4d976e38819",
+          "runtimeSha256": "2bf428d91ae9285de42626c1810e85805ffc676351807b23ffb267ac25be0ecd",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.498022,
+            "y": 0.983724
+          },
+          "displaySize": 58.276423,
+          "outputId": "exec-f8199c3d-9cdd-452c-867d-f512d17db6cd",
+          "alpha128Bounds": [
+            311,
+            35,
+            738,
+            1511
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-f8199c3d-9cdd-452c-867d-f512d17db6cd.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-teo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-teo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-east-v1.webp",
+          "sourceSha256": "69420b810ba7fdd6587d96b0fabfd7d254d5af5cfd743ce91db6ff5749644945",
+          "runtimeSha256": "fbfe50bec5927f63bcab5fd917b6187bc1ae4e20e5676b56de8097cce3f32d7f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.490898,
+            "y": 0.95638
+          },
+          "displaySize": 59.941463,
+          "outputId": "exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7",
+          "alpha128Bounds": [
+            251,
+            34,
+            689,
+            1469
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-celia-r11",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/delta-route-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-celia-r11",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r11_celia",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r11_celia.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 1 top-right"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-celia-r11-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-south-v1.webp",
+          "sourceSha256": "d954b08e7d93b3bdad6e78ff9df6ed91b3bf604ccac2938f4e297e4ceadd68bb",
+          "runtimeSha256": "f3135c2deefd8f3436ef13cc1425e4f917edc51df7b90428eb48110f3e2983c5",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.612441,
+            "y": 0.955078
+          },
+          "displaySize": 60.109015,
+          "outputId": "exec-a0fc8153-f587-424f-944b-1cef7c43348f",
+          "alpha128Bounds": [
+            209,
+            36,
+            867,
+            1467
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a0fc8153-f587-424f-944b-1cef7c43348f.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-celia-r11-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-north-v1.webp",
+          "sourceSha256": "06ca1a013f333413e6ecc3ee3bf8b0dec2c6ee3706d47d60caff1386e5d7f353",
+          "runtimeSha256": "32a802abe244934c5fffac31d026eb76b5b07a136bd0ce9af57f84c09574c066",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.49408,
+            "y": 0.954427
+          },
+          "displaySize": 61.616046,
+          "outputId": "exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1",
+          "alpha128Bounds": [
+            278,
+            70,
+            761,
+            1466
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-celia-r11-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-west-v1.webp",
+          "sourceSha256": "2f856976bc7338290b6778e94ffec6bb74dbb484500b062098ad876d994125ef",
+          "runtimeSha256": "30d581a9673f3b765595ef870f6454f9251136df59316e35ae464645c49cd01f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.498862,
+            "y": 0.948568
+          },
+          "displaySize": 62.4209,
+          "outputId": "exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7",
+          "alpha128Bounds": [
+            369,
+            79,
+            697,
+            1457
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-celia-r11-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-east-v1.webp",
+          "sourceSha256": "3ed6c053c75045143988aa7c5d61e1474900bd55032362c6d18ba50ead415197",
+          "runtimeSha256": "e7f4e7706fc60db622d9b011a82ff6420721a910a2b3588abf72e377447224a4",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.517576,
+            "y": 0.946615
+          },
+          "displaySize": 60.745763,
+          "outputId": "exec-4ed5da4c-077e-4f06-809a-1aee969eff21",
+          "alpha128Bounds": [
+            354,
+            38,
+            663,
+            1454
+          ],
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-4ed5da4c-077e-4f06-809a-1aee969eff21.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-ruben-r12",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/delta-route-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-ruben-r12",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r12_ruben",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r12_ruben.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 2 bottom-left"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-ruben-r12-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-south-v1.webp",
+          "sourceSha256": "34b71281e38be498623fe5523e2febe201b5e369ec16f363e4dee9fb9a60833c",
+          "runtimeSha256": "c8922c277f17f7f27f32e83046aabbcae43fba66fa7845e7fbb2580715523be4",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52464,
+            "y": 0.932943
+          },
+          "displaySize": 63.200588,
+          "outputId": "exec-9da0a499-71dc-4283-82a2-19c262b9f4a6",
+          "alpha128Bounds": [
+            222,
+            72,
+            800,
+            1433
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-9da0a499-71dc-4283-82a2-19c262b9f4a6.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-ruben-r12-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-north-v1.webp",
+          "sourceSha256": "63af8818680f677ca069a11f0b325526bbf2931d2c347241e9090caf39f994d9",
+          "runtimeSha256": "35c5c6502a35c2f60ec99c45aef9a47330b577feb82574e0737116e3c65aaae9",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.498904,
+            "y": 0.964193
+          },
+          "displaySize": 59.239669,
+          "outputId": "exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a",
+          "alpha128Bounds": [
+            217,
+            29,
+            800,
+            1481
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-ruben-r12-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-west-v1.webp",
+          "sourceSha256": "7858a31294dad35d83ee28e616c435747e875eead4b8f53b375c90f14186cedd",
+          "runtimeSha256": "69925f9b0213b2d549cc4966f16e9d6705ba9d69be729df3123efad87d13feab",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.52851,
+            "y": 0.966797
+          },
+          "displaySize": 59.485477,
+          "outputId": "exec-20b993f6-4018-4b07-8502-3a2e5361227d",
+          "alpha128Bounds": [
+            285,
+            39,
+            757,
+            1485
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-20b993f6-4018-4b07-8502-3a2e5361227d.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-ruben-r12-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-east-v1.webp",
+          "sourceSha256": "e960865d256255b5e6c6d0dc663b5ac65d81bd0b29b6cb5e37695a6dc4396e82",
+          "runtimeSha256": "aa19ae17db3897c634c1daa017f1cb9e4c07019765fdd5c5c29fa8ec0073828f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.494918,
+            "y": 0.968099
+          },
+          "displaySize": 59.362319,
+          "outputId": "exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6",
+          "alpha128Bounds": [
+            249,
+            38,
+            727,
+            1487
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-alma-r13",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/delta-route-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-alma-r13",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r13_alma",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r13_alma.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 3 bottom-right"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-alma-r13-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-south-v1.webp",
+          "sourceSha256": "44a70d4d8b6500bbc8d67e8a713296ea6e3937be6fecbe07accbb59e0977cf37",
+          "runtimeSha256": "e45ff3ea26dbfc49730962c1a1ad17fcac938b467684b66a495cdca3ac6bce7c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.581461,
+            "y": 0.96875
+          },
+          "displaySize": 58.834473,
+          "outputId": "exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c",
+          "alpha128Bounds": [
+            261,
+            26,
+            765,
+            1488
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-alma-r13-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-north-v1.webp",
+          "sourceSha256": "b25f4377cb48bc0ac61ee2f40c4b4495c9b480c640bda7f411705e0dd80c8d61",
+          "runtimeSha256": "aa8069b1748de24ca0da16863a142f44f84994becdb280806b975b154b406e5e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.521145,
+            "y": 0.969401
+          },
+          "displaySize": 58.554118,
+          "outputId": "exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3",
+          "alpha128Bounds": [
+            251,
+            20,
+            773,
+            1489
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-alma-r13-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-west-v1.webp",
+          "sourceSha256": "3c86a74b3d262ebf325aac711283b11ed4bfbfb6e944d82bcd19be1a44858dd0",
+          "runtimeSha256": "3b39a2b706df91521e6afec27b88502401490c457fe957314565aa36e1d82c53",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.50786,
+            "y": 0.981771
+          },
+          "displaySize": 57.690141,
+          "outputId": "exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b",
+          "alpha128Bounds": [
+            316,
+            17,
+            760,
+            1508
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-alma-r13-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-east-v1.webp",
+          "sourceSha256": "c6e79c747ee29a0047213baa5de869a1759b9f17c1bf926a37007fe2a24a6780",
+          "runtimeSha256": "63fbbebeaa5471a52125b8d2aedce79c3153c48c2f261076b4bde3bede7aea9e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.521674,
+            "y": 0.964844
+          },
+          "displaySize": 59.198899,
+          "outputId": "exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb",
+          "alpha128Bounds": [
+            300,
+            29,
+            678,
+            1482
+          ],
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
     }
   ]
 }

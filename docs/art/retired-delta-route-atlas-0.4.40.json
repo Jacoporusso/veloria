@@ -1,0 +1,12 @@
+{
+  "atlasKey": "veloria-delta-route-cast-v1",
+  "remainingTiledObjectUses": [],
+  "removedFromMapRenderAssets": [
+    "d04_delta_specchi",
+    "r11_via_cascate",
+    "r12_valle_vento",
+    "r13_tornanti_bianchi"
+  ],
+  "globalResourcesPreserved": true,
+  "scope": "Retire map bindings only; geometry, dialogue and game properties unchanged."
+}

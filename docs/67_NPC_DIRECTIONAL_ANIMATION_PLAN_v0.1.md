@@ -98,3 +98,7 @@ Le camminate dei 47 profili e la revisione complessiva di mappe, orientamenti, n
 ## Avanzamento 0.4.39
 
 Lina, Noemi, Maya e Bruno portano le idle a 31 profili su 48; 17 restano da migrare. I primi due lotti dell'audit 0.4.38 sono quindi integrati, con atlante R09/R10 ritirato dai soli renderAssets dopo audit a zero usi. Sei casi nativi distinti e quattro offline passati; controllati accessori, ancoraggi e lati già bloccati. Dettagli in [documento115](115_R09_R10_DIRECTIONAL_IDLE_v0.1.md). Camminate, budget, QA fisica e revisione complessiva delle mappe restano separati; le candidate private successive non contano come lavoro completato.
+
+## Avanzamento 0.4.40
+
+Teo, Celia, Ruben e Alma portano le idle a 35 identità su 48, con 13 da migrare. Sedici pose e quattro collegamenti Tiled verificati, quattro casi Chrome e quattro produzione offline passati. Atlante Delta-route ritirato dai soli renderAssets dopo audit globale a zero usi. Dettagli, correzioni e limiti in [documento116](116_DELTA_ROUTE_DIRECTIONAL_IDLE_v0.1.md). Camminate, budget, QA fisica, mappe e prova naturale della campagna restano aperti.

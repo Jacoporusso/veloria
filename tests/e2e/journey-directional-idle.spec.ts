@@ -9,6 +9,10 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  {"name": "Teo", "speaker": "Teo", "profile": "delta-naturalist-teo", "map": "d04_delta_specchi", "spawn": "from_r09", "x": 24, "y": 6, "flags": ["trainer_delta_teo_defeated"], "tiled": "d04_delta_specchi", "id": "delta_teo", "northBlocked": true},
+  {"name": "Celia", "speaker": "Celia", "profile": "route-trainer-celia-r11", "map": "r11_via_cascate", "spawn": "from_acquariva", "x": 15, "y": 17, "flags": ["trainer_r11_celia_defeated"], "tiled": "r11_via_cascate", "id": "r11_celia", "eastBlocked": true},
+  {"name": "Ruben", "speaker": "Ruben", "profile": "route-trainer-ruben-r12", "map": "r12_valle_vento", "spawn": "from_acquariva", "x": 24, "y": 7, "flags": ["trainer_r12_ruben_defeated"], "tiled": "r12_valle_vento", "id": "r12_ruben"},
+  {"name": "Alma", "speaker": "Alma", "profile": "route-trainer-alma-r13", "map": "r13_tornanti_bianchi", "spawn": "from_passobrina", "x": 25, "y": 13, "flags": ["trainer_r13_alma_defeated"], "tiled": "r13_tornanti_bianchi", "id": "r13_alma", "northBlocked": true},
   { name: 'Lina', speaker: 'Lina', profile: 'route-trainer-lina-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 18, y: 8, flags: ['trainer_r09_lina_defeated'], tiled: 'r09_dune_salmastre', id: 'r09_lina', northBlocked: true },
   { name: 'Noemi', speaker: 'Noemi', profile: 'route-trainer-noemi-r09', map: 'r09_dune_salmastre', spawn: 'from_portolume', x: 28, y: 9, flags: ['trainer_r09_noemi_defeated'], tiled: 'r09_dune_salmastre', id: 'r09_noemi' },
   { name: 'Maya', speaker: 'Maya', profile: 'route-trainer-maya-r10', map: 'r10_sentiero_canne', spawn: 'from_delta', x: 20, y: 8, flags: ['trainer_r10_maya_defeated'], tiled: 'r10_sentiero_canne', id: 'r10_maya', westBlocked: true },

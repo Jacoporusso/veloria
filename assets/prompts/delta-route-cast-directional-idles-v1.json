@@ -1,0 +1,2160 @@
+{
+  "generator": "built-in imagegen",
+  "date": "2026-10-29",
+  "scope": "Root-approved four-profile Delta-route/R11/R12/R13 directional idle batch; original/corrected approved PNGs kept byte-identical.",
+  "profiles": [
+    {
+      "profileId": "delta-naturalist-teo",
+      "appearanceDescription": "Teo, naturalista del Delta: studia differenze ambientali e spiega come i doppi tipi cambino le resistenze. Giacca e attrezzatura da campo sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueSpeaker": "Teo",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#delta-naturalist-teo",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#delta_teo",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/delta_teo.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 0 top-left"
+        }
+      ],
+      "canonNote": "Appearance follows the source atlas and art brief as an artistic proposal. Dialogue establishes role/context only; age and gender are not canonically specified.",
+      "visualDifferentiation": "Teo is distinguished from Delta biologist Iris by field vest, binoculars and pack versus Iris’s sampling notebook/equipment; Celia has teal/slate outerwear rather than Teo’s olive vest and pale-blue shirt. Visual proposals only; no age/gender inference.",
+      "anatomyReview": "Cargo pocket is anatomical LEFT: South viewer-right, North viewer-left; West-facing-left exposes anatomical LEFT near side; East-facing-right keeps it occluded. Specimen label is anatomical LEFT chest. First South draft rejected for duplicated thigh pocket.",
+      "rootVisualQA": {
+        "visualReview": "Root reviewed opaque QA composite(s) and approved all selected original/corrected views for integration.",
+        "transparentBackground": "Raw viewer appearance was misleading where RGB existed under alpha zero. Root verified alpha-supported halo/composites; accepted source pixels and alpha are preserved unchanged.",
+        "discardedSouthBackgroundEdit": {
+          "path": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\south-background-v2.png",
+          "sha256": "c65ea7097f49557e580cea76d94987e7aabb1bd813e62c38095dc08ebbab14cc",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "outputId": "exec-95a66909-4592-48ad-a18a-0b0fbc2278a3",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-95a66909-4592-48ad-a18a-0b0fbc2278a3.png",
+          "promptExact": "Edit target: supplied full-body Teo sprite. Remove the entire colored blurred backdrop/halo and all surrounding glow/shadow, making the background fully transparent right up to the natural antialiased silhouette. Keep ONLY the person, clothing, boots, binoculars, backpack, wristwatch and existing carried accessories. Preserve the person's pose, face, olive vest, light blue shirt, cargo pocket on anatomical LEFT (viewer-right), all colors and full uncropped boots. Do not add scenery, shadows, floor, vignette, glow, text, new accessories or any background. This is a game sprite to composite over detailed terrain: all pixels outside the human/equipment silhouette should be transparent, including between arms and torso and between legs. Keep portrait composition and generous transparent margins. Modern illustrated 2D, preserve the reference art rather than redesigning.",
+          "reason": "Redundant attempt; original South candidate was approved after confirming suspected halo was RGB beneath alpha=0. Not selected."
+        },
+        "hiddenRgbFinding": "Suspected Teo halo sample points had alpha=0; opaque composite showed no visible halo. No source pixels or alpha edited."
+      },
+      "selectedViews": [
+        {
+          "direction": "south",
+          "promptExact": "Use case: illustration-story. Regenerate a single full-body SOUTH/front idle illustration of Teo, using only frame 0 top-left of the original delta-route atlas as the authoritative design reference. Portrait 2:3, genuinely transparent RGBA. Match the original source closely: short tousled dark-brown hair, olive green field vest with its chest pockets over pale blue-gray rolled-sleeve button shirt, dark field trousers, brown hiking boots, centered binoculars hanging from neck, brown backpack with both straps. Important asymmetry: the pants have exactly ONE cargo pocket, on Teo's anatomical LEFT thigh, which is viewer-right in this front view; the anatomical RIGHT thigh (viewer-left) is plain with no pocket, pouch, patch, flap or cargo detail. Preserve the small specimen label on anatomical LEFT chest, viewer-right. Keep practical source-matched proportions and pose, hands resting in pockets as shown. Naturalist role: studies Delta habitats and dual-type resistances; field look/accessories are art proposals. Do not invent canonical gender or age. Modern matte 2D illustrated style, simplified clear forms readable at 56 world pixels. Orthographic front, centered, both boots fully visible, generous transparent margins. No extra objects or equipment, scenery, floor, shadow, glow, vignette, text, people, sheets, crop, flip, cleanup or resampling; do not paint checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Teo only, frame 0 top-left"
+            }
+          ],
+          "outputId": "exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\south.png",
+          "sourcePath": "assets/sources/veloria-teo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-south-v1.webp",
+          "sourceSha256": "ecff6f071040e28648c55e3644ac2b7b69074f34a48bcb677352e64c0dd627c9",
+          "runtimeSha256": "fdaf7ef6447ceed4c835759b510a23e7383c9c4675ca2a3a199e2b10ae8434a2",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            37,
+            39,
+            1008,
+            1512
+          ],
+          "alpha128Bounds": [
+            256,
+            64,
+            791,
+            1457
+          ],
+          "origin": {
+            "x": 0.543223,
+            "y": 0.948568
+          },
+          "displaySize": 61.748744,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Inspected full-body view and asymmetric accessories."
+        },
+        {
+          "direction": "north",
+          "promptExact": "Use case: illustration-story. Generate one single full-body NORTH/rear idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. True straight orthographic back view, centered and full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark field trousers, brown hiking boots, and the brown field backpack with both shoulder straps. Show a plausible plain rear of the vest and backpack; binoculars and specimen label belong to the front and should not appear on the back. Exactly ONE trouser cargo pocket: anatomical LEFT leg appears on viewer-LEFT from the rear; anatomical RIGHT leg is plain, no pocket, pouch, patch or flap. Preserve field-worker silhouette from the source. Teo is a Delta naturalist discussing habitat observation and dual-type resistances. Appearance is an art proposal; do not invent canon age or gender. Modern matte 2D illustrated source style, clear simplified shapes readable at 56 world pixels tall. No new accessories/equipment, no scenery, floor, shadow, glow, vignette, text, other people, grid/sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Teo only, frame 0 top-left"
+            }
+          ],
+          "outputId": "exec-a7de7b07-c015-465d-9dc6-0431754b831e",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a7de7b07-c015-465d-9dc6-0431754b831e.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\north.png",
+          "sourcePath": "assets/sources/veloria-teo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-north-v1.webp",
+          "sourceSha256": "3c66ac705ab33ea5a92da947b1e2f20c6bccaae67367e184d424286973871942",
+          "runtimeSha256": "8f85c28ec125a14ae62aa8ca7cee006ad59952f965decf83cc2973ceb9e72206",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            65,
+            22,
+            952,
+            1506
+          ],
+          "alpha128Bounds": [
+            259,
+            25,
+            790,
+            1503
+          ],
+          "origin": {
+            "x": 0.510111,
+            "y": 0.978516
+          },
+          "displaySize": 58.197564,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Inspected full-body view and asymmetric accessories."
+        },
+        {
+          "direction": "west",
+          "promptExact": "Use case: illustration-story. Generate one single full-body WEST-facing exact LEFT profile idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. Strict orthographic profile facing image-left, centered, full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark trousers, brown boots, brown field backpack with shoulder straps, and neck-hung binoculars visible naturally from the side. Anatomical LEFT is the near side in this West-facing-left view: show the single cargo pocket on LEFT trouser thigh near-side, with its small orange marker; the opposite anatomical RIGHT thigh must be plain and pocketless. The specimen label is on anatomical LEFT chest and may be visible naturally on near vest side. Do not duplicate pocket or add tools/accessories. Teo is a Delta naturalist; age/gender are not canonically specified. Modern matte 2D illustrated style matching source, readable at 56 world pixels. No scenery, floor, shadow, glow, vignette, text, other people, sheet/collage, three-quarter pose, crop, flip, cleanup, resampling, painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Teo only, frame 0 top-left"
+            }
+          ],
+          "outputId": "exec-f8199c3d-9cdd-452c-867d-f512d17db6cd",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-f8199c3d-9cdd-452c-867d-f512d17db6cd.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\west.png",
+          "sourcePath": "assets/sources/veloria-teo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-west-v1.webp",
+          "sourceSha256": "586e70db5209d364a0f39a2a1c34e13271a811b5a4eecb223193b4d976e38819",
+          "runtimeSha256": "2bf428d91ae9285de42626c1810e85805ffc676351807b23ffb267ac25be0ecd",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            41,
+            21,
+            994,
+            1518
+          ],
+          "alpha128Bounds": [
+            311,
+            35,
+            738,
+            1511
+          ],
+          "origin": {
+            "x": 0.498022,
+            "y": 0.983724
+          },
+          "displaySize": 58.276423,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Inspected full-body view and asymmetric accessories."
+        },
+        {
+          "direction": "east",
+          "promptExact": "Use case: illustration-story. Generate one single full-body EAST-facing exact RIGHT profile idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. Strict orthographic profile facing image-right, centered, full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark trousers, brown boots, brown field backpack with shoulder straps, and neck-hung binoculars seen naturally from the side. Anatomical RIGHT is the near side in this East-facing-right view. The single marked cargo pocket belongs on anatomical LEFT and must stay on the far side, hidden/occluded; never move or duplicate it onto near/right thigh. The specimen label belongs on anatomical LEFT chest and should likewise be naturally far-side/occluded. Keep the backpack, binoculars and field gear coherent with the source. Teo is a Delta naturalist discussing habitat observation and dual-type resistances. Do not add canonical age or gender. Modern matte 2D illustrated source style, simplified readable shapes at 56 world pixels. No scenery, floor, cast shadow, glow, vignette, text, other people, sheet/collage, three-quarter pose, crop, flip, cleanup, resampling, painted checkerboard, or new accessories.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Teo only, frame 0 top-left"
+            }
+          ],
+          "outputId": "exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\east.png",
+          "sourcePath": "assets/sources/veloria-teo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-teo-idle-east-v1.webp",
+          "sourceSha256": "69420b810ba7fdd6587d96b0fabfd7d254d5af5cfd743ce91db6ff5749644945",
+          "runtimeSha256": "fbfe50bec5927f63bcab5fd917b6187bc1ae4e20e5676b56de8097cce3f32d7f",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            32,
+            1010,
+            1494
+          ],
+          "alpha128Bounds": [
+            251,
+            34,
+            689,
+            1469
+          ],
+          "origin": {
+            "x": 0.490898,
+            "y": 0.95638
+          },
+          "displaySize": 59.941463,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Inspected full-body view and asymmetric accessories."
+        }
+      ],
+      "candidateReviewHistory": {
+        "candidateReport": {
+          "character": "Teo",
+          "appearanceId": "delta-naturalist-teo",
+          "dialogueId": "delta_teo",
+          "sourceAtlas": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+          "sourceFrame": "0, top-left",
+          "scope": "Private candidate review only; not registered or integrated.",
+          "canonNote": "Appearance follows the source atlas and art brief as an artistic proposal. Dialogue establishes role/context only; age and gender are not canonically specified.",
+          "visualDifferentiation": "Teo is distinguished from Delta biologist Iris by field vest, binoculars and pack versus Iris’s sampling notebook/equipment; Celia has teal/slate outerwear rather than Teo’s olive vest and pale-blue shirt. Visual proposals only; no age/gender inference.",
+          "anatomyReview": "Cargo pocket is anatomical LEFT: South viewer-right, North viewer-left; West-facing-left exposes anatomical LEFT near side; East-facing-right keeps it occluded. Specimen label is anatomical LEFT chest. First South draft rejected for duplicated thigh pocket.",
+          "images": [
+            {
+              "direction": "south",
+              "prompt": "Use case: illustration-story. Regenerate a single full-body SOUTH/front idle illustration of Teo, using only frame 0 top-left of the original delta-route atlas as the authoritative design reference. Portrait 2:3, genuinely transparent RGBA. Match the original source closely: short tousled dark-brown hair, olive green field vest with its chest pockets over pale blue-gray rolled-sleeve button shirt, dark field trousers, brown hiking boots, centered binoculars hanging from neck, brown backpack with both straps. Important asymmetry: the pants have exactly ONE cargo pocket, on Teo's anatomical LEFT thigh, which is viewer-right in this front view; the anatomical RIGHT thigh (viewer-left) is plain with no pocket, pouch, patch, flap or cargo detail. Preserve the small specimen label on anatomical LEFT chest, viewer-right. Keep practical source-matched proportions and pose, hands resting in pockets as shown. Naturalist role: studies Delta habitats and dual-type resistances; field look/accessories are art proposals. Do not invent canonical gender or age. Modern matte 2D illustrated style, simplified clear forms readable at 56 world pixels. Orthographic front, centered, both boots fully visible, generous transparent margins. No extra objects or equipment, scenery, floor, shadow, glow, vignette, text, people, sheets, crop, flip, cleanup or resampling; do not paint checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Teo only, frame 0 top-left"
+                }
+              ],
+              "outputId": "exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-c5f3a961-fb7e-4d80-ac95-3843ac3389b1.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\south.png",
+              "sha256": "ecff6f071040e28648c55e3644ac2b7b69074f34a48bcb677352e64c0dd627c9",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 440321,
+              "alphaPixelsAtLeast128": 420256,
+              "alphaBBoxNonzero": [
+                37,
+                39,
+                1008,
+                1512
+              ],
+              "alphaBBoxAtLeast128": [
+                256,
+                64,
+                791,
+                1457
+              ],
+              "selection": "selected",
+              "visualReview": "Inspected full-body view and asymmetric accessories."
+            },
+            {
+              "direction": "north",
+              "prompt": "Use case: illustration-story. Generate one single full-body NORTH/rear idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. True straight orthographic back view, centered and full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark field trousers, brown hiking boots, and the brown field backpack with both shoulder straps. Show a plausible plain rear of the vest and backpack; binoculars and specimen label belong to the front and should not appear on the back. Exactly ONE trouser cargo pocket: anatomical LEFT leg appears on viewer-LEFT from the rear; anatomical RIGHT leg is plain, no pocket, pouch, patch or flap. Preserve field-worker silhouette from the source. Teo is a Delta naturalist discussing habitat observation and dual-type resistances. Appearance is an art proposal; do not invent canon age or gender. Modern matte 2D illustrated source style, clear simplified shapes readable at 56 world pixels tall. No new accessories/equipment, no scenery, floor, shadow, glow, vignette, text, other people, grid/sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Teo only, frame 0 top-left"
+                }
+              ],
+              "outputId": "exec-a7de7b07-c015-465d-9dc6-0431754b831e",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a7de7b07-c015-465d-9dc6-0431754b831e.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\north.png",
+              "sha256": "3c66ac705ab33ea5a92da947b1e2f20c6bccaae67367e184d424286973871942",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 470109,
+              "alphaPixelsAtLeast128": 449785,
+              "alphaBBoxNonzero": [
+                65,
+                22,
+                952,
+                1506
+              ],
+              "alphaBBoxAtLeast128": [
+                259,
+                25,
+                790,
+                1503
+              ],
+              "selection": "selected",
+              "visualReview": "Inspected full-body view and asymmetric accessories."
+            },
+            {
+              "direction": "west",
+              "prompt": "Use case: illustration-story. Generate one single full-body WEST-facing exact LEFT profile idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. Strict orthographic profile facing image-left, centered, full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark trousers, brown boots, brown field backpack with shoulder straps, and neck-hung binoculars visible naturally from the side. Anatomical LEFT is the near side in this West-facing-left view: show the single cargo pocket on LEFT trouser thigh near-side, with its small orange marker; the opposite anatomical RIGHT thigh must be plain and pocketless. The specimen label is on anatomical LEFT chest and may be visible naturally on near vest side. Do not duplicate pocket or add tools/accessories. Teo is a Delta naturalist; age/gender are not canonically specified. Modern matte 2D illustrated style matching source, readable at 56 world pixels. No scenery, floor, shadow, glow, vignette, text, other people, sheet/collage, three-quarter pose, crop, flip, cleanup, resampling, painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Teo only, frame 0 top-left"
+                }
+              ],
+              "outputId": "exec-f8199c3d-9cdd-452c-867d-f512d17db6cd",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-f8199c3d-9cdd-452c-867d-f512d17db6cd.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\west.png",
+              "sha256": "586e70db5209d364a0f39a2a1c34e13271a811b5a4eecb223193b4d976e38819",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 354495,
+              "alphaPixelsAtLeast128": 338981,
+              "alphaBBoxNonzero": [
+                41,
+                21,
+                994,
+                1518
+              ],
+              "alphaBBoxAtLeast128": [
+                311,
+                35,
+                738,
+                1511
+              ],
+              "selection": "selected",
+              "visualReview": "Inspected full-body view and asymmetric accessories."
+            },
+            {
+              "direction": "east",
+              "prompt": "Use case: illustration-story. Generate one single full-body EAST-facing exact RIGHT profile idle illustration of Teo, using only frame 0 top-left of the original delta-route cast atlas as source identity/style. Portrait 2:3, genuinely transparent RGBA. Strict orthographic profile facing image-right, centered, full body with both brown hiking boots visible and transparent margins. Preserve short tousled dark-brown hair, olive field vest over pale blue-gray rolled-sleeve shirt, dark trousers, brown boots, brown field backpack with shoulder straps, and neck-hung binoculars seen naturally from the side. Anatomical RIGHT is the near side in this East-facing-right view. The single marked cargo pocket belongs on anatomical LEFT and must stay on the far side, hidden/occluded; never move or duplicate it onto near/right thigh. The specimen label belongs on anatomical LEFT chest and should likewise be naturally far-side/occluded. Keep the backpack, binoculars and field gear coherent with the source. Teo is a Delta naturalist discussing habitat observation and dual-type resistances. Do not add canonical age or gender. Modern matte 2D illustrated source style, simplified readable shapes at 56 world pixels. No scenery, floor, cast shadow, glow, vignette, text, other people, sheet/collage, three-quarter pose, crop, flip, cleanup, resampling, painted checkerboard, or new accessories.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Teo only, frame 0 top-left"
+                }
+              ],
+              "outputId": "exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\teo-idles-candidates\\east.png",
+              "sha256": "69420b810ba7fdd6587d96b0fabfd7d254d5af5cfd743ce91db6ff5749644945",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 338000,
+              "alphaPixelsAtLeast128": 321525,
+              "alphaBBoxNonzero": [
+                0,
+                32,
+                1010,
+                1494
+              ],
+              "alphaBBoxAtLeast128": [
+                251,
+                34,
+                689,
+                1469
+              ],
+              "selection": "selected",
+              "visualReview": "Inspected full-body view and asymmetric accessories."
+            }
+          ],
+          "discarded": [
+            {
+              "outputId": "exec-3ad53f9c-4f27-4be7-99e0-5e061f7d406a",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-3ad53f9c-4f27-4be7-99e0-5e061f7d406a.png",
+              "prompt": "Use case: illustration-story. Generate one single full-body SOUTH/front idle illustration of Teo, the naturalist from frame 0 at top-left of the original delta-route cast atlas. Use only Teo from that atlas as identity and style reference. Portrait 2:3 with a genuinely transparent RGBA background. Preserve the source design: short tousled dark-brown hair, olive field vest with chest pockets over a pale blue-gray button shirt with rolled sleeves, dark field trousers, brown hiking boots, binoculars hanging at the center of the chest, and a brown field pack with both shoulder straps. Keep the small specimen label on the character's anatomical LEFT chest (viewer-right in South) and the single marked cargo pocket on anatomical LEFT thigh (viewer-right in South). Preserve his practical field-worker silhouette and proportions. Dialogue: naturalist in the Delta discussing habitat observation and dual-type resistances; appearance details are artistic proposals. Do not infer or add age or gender canon. Orthographic straight front view, modern matte 2D illustrated style matching the source atlas, with clear simplified shapes readable at 56 world pixels tall. Full body, both boots visible, margin on all sides. No added tools/specimen jars, extra accessories, scenery, floor, cast shadow, glow, vignette, text, other people, grid/sheet/collage, crop, flip, cleanup, or resampling; no painted checkerboard.",
+              "sha256": "af24382615b355e353bc9a6a9502ebff215ca37ec65988bb4a93570e1fea9e08",
+              "reason": "Rejected after inspection because it duplicated the asymmetric cargo pocket onto both trouser thighs; atlas has one marked pocket on anatomical LEFT only."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profileId": "route-trainer-celia-r11",
+      "appearanceDescription": "Celia, allenatrice facoltativa di R11: propone una sfida prima di Selene e permette di proseguire lungo le cascate. Giacca outdoor color teal e ardesia sono proposte artistiche; genere ed età non sono specificati nel canone.",
+      "dialogueSpeaker": "Celia",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-celia-r11",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r11_celia",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r11_celia.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 1 top-right"
+        }
+      ],
+      "canonNote": "Appearance follows the source atlas and art brief as an artistic proposal. Dialogue establishes optional R11 trainer role only; age and gender are not canonically specified.",
+      "visualDifferentiation": "Celiaâ€™s long teal/slate hooded jacket, auburn curls, cream top, dark trousers, teal shoes and compact held-strap pack distinguish her from Teoâ€™s olive naturalist vest and binoculars, and Mayaâ€™s cream-led explorer jacket/navy trousers. Visual proposals only; no age/gender inference.",
+      "anatomyReview": "Pack strap/held hand is anatomical LEFT: South viewer-right, North viewer-left, near/visible in West, far/occluded in East. Utility pouch is anatomical RIGHT hip: South viewer-left, North viewer-right, occluded in West, visible in East. Small thigh flap is anatomical LEFT: South viewer-right, North viewer-left, visible in West, occluded in East.",
+      "rootVisualQA": {
+        "visualReview": "Root reviewed opaque QA composite(s) and approved all selected original/corrected views for integration.",
+        "transparentBackground": "Raw viewer appearance was misleading where RGB existed under alpha zero. Root verified alpha-supported halo/composites; accepted source pixels and alpha are preserved unchanged.",
+        "discardedSouthBackgroundEdit": {
+          "path": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south-background-edit-v1-rejected.png",
+          "sha256": "8f2cfdc34a6715dd81833ba002043295f312d22c0710adf167515ea616ff4068",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "reason": "Rejected by root; original South and other original views approved after alpha compositing review. Not selected."
+        }
+      },
+      "selectedViews": [
+        {
+          "direction": "south",
+          "promptExact": "Use case: illustration-story. Generate one single full-body SOUTH/front idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA background. Match the source: short-to-shoulder auburn curly hair, long teal outdoor jacket with slate/dark blue-gray paneling and hood, open over a simple cream-white top, black/dark charcoal trousers, dark teal practical ankle shoes with pale soles, simple dark belt. Preserve the pose: anatomical LEFT hand holds the shoulder strap at viewer-right; strap leads to a compact outdoor pack behind the anatomical LEFT shoulder. Preserve the small utility pouch at anatomical RIGHT hip, viewer-left; don't move or duplicate it. Keep the other hand relaxed. No added tools/props. Celia is an optional trainer on Via delle Cascate before Selene; appearance is artistic proposal. Do not infer age or gender canon. Orthographic front view, modern matte 2D illustrated style matching source, clear simple shapes readable at 56 world pixels, full body and both shoes visible with generous margins. No scenery, ground, shadow, glow, vignette, text, extra people, sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Celia only, frame 1 top-right"
+            }
+          ],
+          "outputId": "exec-a0fc8153-f587-424f-944b-1cef7c43348f",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a0fc8153-f587-424f-944b-1cef7c43348f.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south.png",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-south-v1.webp",
+          "sourceSha256": "d954b08e7d93b3bdad6e78ff9df6ed91b3bf604ccac2938f4e297e4ceadd68bb",
+          "runtimeSha256": "f3135c2deefd8f3436ef13cc1425e4f917edc51df7b90428eb48110f3e2983c5",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            33,
+            992,
+            1472
+          ],
+          "alpha128Bounds": [
+            209,
+            36,
+            867,
+            1467
+          ],
+          "origin": {
+            "x": 0.612441,
+            "y": 0.955078
+          },
+          "displaySize": 60.109015,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Visually inspected full-body view and asymmetric side accessories."
+        },
+        {
+          "direction": "north",
+          "promptExact": "Use case: illustration-story. Generate one single full-body NORTH/rear idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. True straight orthographic rear view, centered, full body and both teal outdoor shoes visible with generous margins. Preserve short auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, dark charcoal trousers, practical teal shoes, and the compact dark pack/shoulder strap from the source. In the rear view the strap/pack sits on Celia's anatomical LEFT shoulder/side, therefore viewer-LEFT; no mirrored art. The utility pouch on anatomical RIGHT hip appears viewer-RIGHT from the rear. Preserve the other small source trouser pocket/flap on anatomical LEFT thigh, viewer-LEFT rear. Do not duplicate/move either item. Show a plausible back of jacket and pack; cream front top should be naturally occluded from behind. Celia is an optional trainer on Via delle Cascate; visual details are art proposals, no canon age/gender. Modern matte 2D illustrated style matching source, simplified readability at 56 world pixels. No extra tools/jewelry/accessories, scenery, floor, cast shadow, glow, vignette, text, people, sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Celia only, frame 1 top-right"
+            }
+          ],
+          "outputId": "exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\north.png",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-north-v1.webp",
+          "sourceSha256": "06ca1a013f333413e6ecc3ee3bf8b0dec2c6ee3706d47d60caff1386e5d7f353",
+          "runtimeSha256": "32a802abe244934c5fffac31d026eb76b5b07a136bd0ce9af57f84c09574c066",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            23,
+            28,
+            1012,
+            1528
+          ],
+          "alpha128Bounds": [
+            278,
+            70,
+            761,
+            1466
+          ],
+          "origin": {
+            "x": 0.49408,
+            "y": 0.954427
+          },
+          "displaySize": 61.616046,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Visually inspected full-body view and asymmetric side accessories."
+        },
+        {
+          "direction": "west",
+          "promptExact": "Use case: illustration-story. Generate one single full-body WEST-facing exact LEFT profile idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. Strict orthographic side profile facing screen-left, centered, full body and both teal outdoor shoes fully visible with margins. Preserve auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, cream-white top, dark charcoal trousers, dark belt and teal practical shoes. Anatomical LEFT is the near side in this West-facing-left view: show the left shoulder strap and left hand holding it, as in source. Keep compact pack behind that left shoulder. The utility pouch belongs to anatomical RIGHT hip on the far side and should be naturally occluded; the small trouser flap/pocket belongs to anatomical LEFT thigh on near side and can remain visible. Preserve source side assignment; do not move or duplicate items. Optional trainer on Via delle Cascate, appearance is an art proposal, no canon age/gender. Modern matte 2D illustrated style matching source, simple readable silhouette at 56 world pixels. No extra props/jewelry, scenery, ground, shadow, glow, vignette, text, extra people, sheet/collage, three-quarter pose, crop, flip, cleanup or resampling; no painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Celia only, frame 1 top-right"
+            }
+          ],
+          "outputId": "exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\west.png",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-west-v1.webp",
+          "sourceSha256": "2f856976bc7338290b6778e94ffec6bb74dbb484500b062098ad876d994125ef",
+          "runtimeSha256": "30d581a9673f3b765595ef870f6454f9251136df59316e35ae464645c49cd01f",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            29,
+            958,
+            1500
+          ],
+          "alpha128Bounds": [
+            369,
+            79,
+            697,
+            1457
+          ],
+          "origin": {
+            "x": 0.498862,
+            "y": 0.948568
+          },
+          "displaySize": 62.4209,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Visually inspected full-body view and asymmetric side accessories."
+        },
+        {
+          "direction": "east",
+          "promptExact": "Use case: illustration-story. Generate one single full-body EAST-facing exact RIGHT profile idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. Strict orthographic side profile facing screen-right, centered, full body and both teal outdoor shoes visible with margins. Preserve auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, cream-white top, dark charcoal trousers, dark belt and teal practical shoes. Anatomical RIGHT is near side in this East-facing-right view: keep the small utility pouch on the anatomical RIGHT hip visible on the near hip. The compact pack and strap held at anatomical LEFT shoulder are on the far side and should be naturally hidden/occluded; do not move them onto the near/right shoulder. The small trouser pocket/flap belongs to anatomical LEFT thigh and should likewise be occluded on far side, not duplicated. Preserve side assignments and source silhouette. Celia is an optional R11 trainer; no canon age/gender. Modern matte 2D illustrated style matching source, readable at 56 world pixels. No extra props/jewelry, scenery, ground, shadow, glow, vignette, text, people, sheet/collage, three-quarter pose, crop, flip, cleanup or resampling; no painted checkerboard.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+              "role": "Original atlas; Celia only, frame 1 top-right"
+            }
+          ],
+          "outputId": "exec-4ed5da4c-077e-4f06-809a-1aee969eff21",
+          "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-4ed5da4c-077e-4f06-809a-1aee969eff21.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\east.png",
+          "sourcePath": "assets/sources/veloria-celia-r11-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-celia-r11-idle-east-v1.webp",
+          "sourceSha256": "3ed6c053c75045143988aa7c5d61e1474900bd55032362c6d18ba50ead415197",
+          "runtimeSha256": "e7f4e7706fc60db622d9b011a82ff6420721a910a2b3588abf72e377447224a4",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            53,
+            36,
+            1000,
+            1457
+          ],
+          "alpha128Bounds": [
+            354,
+            38,
+            663,
+            1454
+          ],
+          "origin": {
+            "x": 0.517576,
+            "y": 0.946615
+          },
+          "displaySize": 60.745763,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Visually inspected full-body view and asymmetric side accessories."
+        }
+      ],
+      "candidateReviewHistory": {
+        "candidateReport": {
+          "character": "Celia",
+          "appearanceId": "route-trainer-celia-r11",
+          "dialogueId": "r11_celia",
+          "sourceAtlas": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+          "sourceFrame": "1, top-right",
+          "scope": "Private candidate review only; not registered or integrated.",
+          "canonNote": "Appearance follows the source atlas and art brief as an artistic proposal. Dialogue establishes optional R11 trainer role only; age and gender are not canonically specified.",
+          "visualDifferentiation": "Celiaâ€™s long teal/slate hooded jacket, auburn curls, cream top, dark trousers, teal shoes and compact held-strap pack distinguish her from Teoâ€™s olive naturalist vest and binoculars, and Mayaâ€™s cream-led explorer jacket/navy trousers. Visual proposals only; no age/gender inference.",
+          "anatomyReview": "Pack strap/held hand is anatomical LEFT: South viewer-right, North viewer-left, near/visible in West, far/occluded in East. Utility pouch is anatomical RIGHT hip: South viewer-left, North viewer-right, occluded in West, visible in East. Small thigh flap is anatomical LEFT: South viewer-right, North viewer-left, visible in West, occluded in East.",
+          "images": [
+            {
+              "direction": "south",
+              "prompt": "Use case: illustration-story. Generate one single full-body SOUTH/front idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA background. Match the source: short-to-shoulder auburn curly hair, long teal outdoor jacket with slate/dark blue-gray paneling and hood, open over a simple cream-white top, black/dark charcoal trousers, dark teal practical ankle shoes with pale soles, simple dark belt. Preserve the pose: anatomical LEFT hand holds the shoulder strap at viewer-right; strap leads to a compact outdoor pack behind the anatomical LEFT shoulder. Preserve the small utility pouch at anatomical RIGHT hip, viewer-left; don't move or duplicate it. Keep the other hand relaxed. No added tools/props. Celia is an optional trainer on Via delle Cascate before Selene; appearance is artistic proposal. Do not infer age or gender canon. Orthographic front view, modern matte 2D illustrated style matching source, clear simple shapes readable at 56 world pixels, full body and both shoes visible with generous margins. No scenery, ground, shadow, glow, vignette, text, extra people, sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Celia only, frame 1 top-right"
+                }
+              ],
+              "outputId": "exec-a0fc8153-f587-424f-944b-1cef7c43348f",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-a0fc8153-f587-424f-944b-1cef7c43348f.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south.png",
+              "sha256": "d954b08e7d93b3bdad6e78ff9df6ed91b3bf604ccac2938f4e297e4ceadd68bb",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 453831,
+              "alphaPixelsAtLeast128": 430197,
+              "alphaBBoxNonzero": [
+                0,
+                33,
+                992,
+                1472
+              ],
+              "alphaBBoxAtLeast128": [
+                209,
+                36,
+                867,
+                1467
+              ],
+              "selection": "selected",
+              "visualReview": "Visually inspected full-body view and asymmetric side accessories."
+            },
+            {
+              "direction": "north",
+              "prompt": "Use case: illustration-story. Generate one single full-body NORTH/rear idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. True straight orthographic rear view, centered, full body and both teal outdoor shoes visible with generous margins. Preserve short auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, dark charcoal trousers, practical teal shoes, and the compact dark pack/shoulder strap from the source. In the rear view the strap/pack sits on Celia's anatomical LEFT shoulder/side, therefore viewer-LEFT; no mirrored art. The utility pouch on anatomical RIGHT hip appears viewer-RIGHT from the rear. Preserve the other small source trouser pocket/flap on anatomical LEFT thigh, viewer-LEFT rear. Do not duplicate/move either item. Show a plausible back of jacket and pack; cream front top should be naturally occluded from behind. Celia is an optional trainer on Via delle Cascate; visual details are art proposals, no canon age/gender. Modern matte 2D illustrated style matching source, simplified readability at 56 world pixels. No extra tools/jewelry/accessories, scenery, floor, cast shadow, glow, vignette, text, people, sheet/collage, crop, flip, cleanup or resampling; no painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Celia only, frame 1 top-right"
+                }
+              ],
+              "outputId": "exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-b657d9ad-a5bf-46fc-97f7-73774335a8a1.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\north.png",
+              "sha256": "06ca1a013f333413e6ecc3ee3bf8b0dec2c6ee3706d47d60caff1386e5d7f353",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 397110,
+              "alphaPixelsAtLeast128": 372352,
+              "alphaBBoxNonzero": [
+                23,
+                28,
+                1012,
+                1528
+              ],
+              "alphaBBoxAtLeast128": [
+                278,
+                70,
+                761,
+                1466
+              ],
+              "selection": "selected",
+              "visualReview": "Visually inspected full-body view and asymmetric side accessories."
+            },
+            {
+              "direction": "west",
+              "prompt": "Use case: illustration-story. Generate one single full-body WEST-facing exact LEFT profile idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. Strict orthographic side profile facing screen-left, centered, full body and both teal outdoor shoes fully visible with margins. Preserve auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, cream-white top, dark charcoal trousers, dark belt and teal practical shoes. Anatomical LEFT is the near side in this West-facing-left view: show the left shoulder strap and left hand holding it, as in source. Keep compact pack behind that left shoulder. The utility pouch belongs to anatomical RIGHT hip on the far side and should be naturally occluded; the small trouser flap/pocket belongs to anatomical LEFT thigh on near side and can remain visible. Preserve source side assignment; do not move or duplicate items. Optional trainer on Via delle Cascate, appearance is an art proposal, no canon age/gender. Modern matte 2D illustrated style matching source, simple readable silhouette at 56 world pixels. No extra props/jewelry, scenery, ground, shadow, glow, vignette, text, extra people, sheet/collage, three-quarter pose, crop, flip, cleanup or resampling; no painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Celia only, frame 1 top-right"
+                }
+              ],
+              "outputId": "exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\west.png",
+              "sha256": "2f856976bc7338290b6778e94ffec6bb74dbb484500b062098ad876d994125ef",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 290101,
+              "alphaPixelsAtLeast128": 275168,
+              "alphaBBoxNonzero": [
+                0,
+                29,
+                958,
+                1500
+              ],
+              "alphaBBoxAtLeast128": [
+                369,
+                79,
+                697,
+                1457
+              ],
+              "selection": "selected",
+              "visualReview": "Visually inspected full-body view and asymmetric side accessories."
+            },
+            {
+              "direction": "east",
+              "prompt": "Use case: illustration-story. Generate one single full-body EAST-facing exact RIGHT profile idle illustration of Celia, using only frame 1 top-right of the original delta-route cast atlas as identity/style reference. Portrait 2:3, genuinely transparent RGBA. Strict orthographic side profile facing screen-right, centered, full body and both teal outdoor shoes visible with margins. Preserve auburn curly hair, teal outdoor jacket with slate/dark blue-gray panels and hood, cream-white top, dark charcoal trousers, dark belt and teal practical shoes. Anatomical RIGHT is near side in this East-facing-right view: keep the small utility pouch on the anatomical RIGHT hip visible on the near hip. The compact pack and strap held at anatomical LEFT shoulder are on the far side and should be naturally hidden/occluded; do not move them onto the near/right shoulder. The small trouser pocket/flap belongs to anatomical LEFT thigh and should likewise be occluded on far side, not duplicated. Preserve side assignments and source silhouette. Celia is an optional R11 trainer; no canon age/gender. Modern matte 2D illustrated style matching source, readable at 56 world pixels. No extra props/jewelry, scenery, ground, shadow, glow, vignette, text, people, sheet/collage, three-quarter pose, crop, flip, cleanup or resampling; no painted checkerboard.",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\assets\\sources\\veloria-delta-route-cast-v1.png",
+                  "role": "Original atlas; Celia only, frame 1 top-right"
+                }
+              ],
+              "outputId": "exec-4ed5da4c-077e-4f06-809a-1aee969eff21",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-4ed5da4c-077e-4f06-809a-1aee969eff21.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\east.png",
+              "sha256": "3ed6c053c75045143988aa7c5d61e1474900bd55032362c6d18ba50ead415197",
+              "width": 1024,
+              "height": 1536,
+              "mode": "RGBA",
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaNonzeroPixels": 273788,
+              "alphaPixelsAtLeast128": 258418,
+              "alphaBBoxNonzero": [
+                53,
+                36,
+                1000,
+                1457
+              ],
+              "alphaBBoxAtLeast128": [
+                354,
+                38,
+                663,
+                1454
+              ],
+              "selection": "selected",
+              "visualReview": "Visually inspected full-body view and asymmetric side accessories."
+            },
+            {
+              "direction": "south-edit-attempt",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south-background-edit-v1-rejected.png",
+              "status": "rejected; versioned audit copy only"
+            }
+          ],
+          "discarded": [],
+          "alphaCompositeQA": {
+            "inspectionJson": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\alpha-qa\\alpha-inspection.json",
+            "originalsWhiteComposite": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\alpha-qa\\originals-white-composite.jpg",
+            "originalsCheckerComposite": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\alpha-qa\\originals-checker-composite.jpg",
+            "southOriginalVsEditChecker": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\alpha-qa\\south-original-vs-edit-checker.jpg",
+            "finding": "All four original views composite cleanly on white and checkerboard. Four image corners and inspected exterior sample points are alpha 0. The apparent colored halo is RGB stored under alpha 0; it does not appear in either composite. Original candidates are retained unchanged."
+          },
+          "editAttempts": [
+            {
+              "version": "south-background-edit-v1-rejected",
+              "outputId": "exec-8a21950a-4466-49f6-9a72-ff38d3b07c2f",
+              "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a182db-62cb-7ab3-965f-945c8d52be72\\exec-8a21950a-4466-49f6-9a72-ff38d3b07c2f.png",
+              "candidatePath": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south-background-edit-v1-rejected.png",
+              "sha256": "8f2cfdc34a6715dd81833ba002043295f312d22c0710adf167515ea616ff4068",
+              "references": [
+                {
+                  "path": "C:\\Projects\\Veloria\\.tmp\\celia-r11-idles-candidates\\south.png",
+                  "role": "Original South art to edit; preserve character exactly"
+                }
+              ],
+              "prompt": "Edit the supplied illustration only: remove the entire colored halo/backdrop behind and around Celia, including all teal, orange, gray or dark atmospheric glow outside her actual silhouette. Replace all non-character pixels with genuinely transparent alpha; create a clean transparent cutout edge without a painted background. Preserve the character itself pixel-for-pixel in appearance and content: same face, hair, exact pose, body proportions, coat colors/panel sides, cream shirt, belt, dark trousers, both complete teal boots, pack/strap held by anatomical LEFT hand at viewer-right, and utility pouch on anatomical RIGHT hip at viewer-left. Do not redraw, simplify, relight, sharpen, alter, move, erase, add or mirror any body, clothing, hair, accessories or silhouette details. Keep full portrait 2:3 canvas and all original margins. Output transparent RGBA, no shadow or ambient glow.",
+              "resultMetadata": {
+                "width": 1024,
+                "height": 1536,
+                "mode": "RGBA",
+                "alphaExtrema": [
+                  0,
+                  254
+                ],
+                "alphaNonzeroPixels": 455909,
+                "alphaBBoxNonzero": [
+                  0,
+                  33,
+                  984,
+                  1472
+                ],
+                "alphaBBoxAtLeast128": [
+                  208,
+                  36,
+                  868,
+                  1469
+                ],
+                "cornerAlpha": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "status": "rejected",
+              "reason": "Background-only edit was unnecessary: source composites cleanly on both white and checkerboard because the apparent glow is RGB beneath alpha 0. Side-by-side checker QA shows minor character/edge drift, so do not use this output or replace the original."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profileId": "route-trainer-ruben-r12",
+      "appearanceDescription": "Ruben, allenatore facoltativo di R12: ricorda di preparare la squadra rispetto ai tipi Ghiaccio, Terra e Buio prima del Centro di Passobrina. Abbigliamento caldo da montagna è una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueSpeaker": "Ruben",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-ruben-r12",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r12_ruben",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r12_ruben.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 2 bottom-left"
+        }
+      ],
+      "canonNote": "Neither dialogue nor trainer record establishes canonical age or gender. Visual presentation is a noncanonical proposal; species/team details do not establish biography.",
+      "visualDifferentiation": "Short dark hair; navy insulated parka with white fur-trim hood; mustard/ochre scarf; dark backpack/harness; tan cargo trousers with charcoal knee patches; brown hiking boots.",
+      "anatomyReview": [
+        "Four direction candidates retain the reference outfit and distinct identity.",
+        "West/East prompts used the inverted near-side convention. Root clarified West shows anatomical LEFT near and East shows anatomical RIGHT near; do not accept side/accessory placement until root review.",
+        "A usable alternate South is retained separately. Earlier wrong-frame/identity outputs are in rejected/.",
+        "Root-requested West/East anatomical-side corrections are saved as separate *-v2.png private candidates; original candidates remain intact. Ruben West now places the yellow patch on the near anatomical LEFT sleeve, but its generated translucent backdrop reaches the canvas corners (alpha 54–181); not suitable to integrate without root review.",
+        "A further private attempt to remove Ruben West background haze was unsuccessful; see rejected/ruben-west-backdrop-transparency-attempt.png. The v2 sleeve patch is correct by inspection, but backdrop transparency remains unresolved.",
+        "Ruben West v3 is a background-only transparency correction of the patch-corrected v2. Raw alpha has transparent corners and its opaque QA composite is clean; see ruben-west-v3-opaque-qa.png. Keep private pending root review."
+      ],
+      "rootVisualQA": {
+        "visualReview": "Root reviewed opaque QA composite(s) and approved all selected original/corrected views for integration.",
+        "transparentBackground": "Raw viewer appearance was misleading where RGB existed under alpha zero. Root verified alpha-supported halo/composites; accepted source pixels and alpha are preserved unchanged."
+      },
+      "selectedViews": [
+        {
+          "direction": "south",
+          "promptExact": "Use the attached single-person crop as the exact identity reference for Ruben, an optional R12 route trainer. Generate one full-body SOUTH-facing front idle sprite. Preserve his short dark hair, face and complexion, navy insulated parka with white fur hood trim, large ochre scarf, backpack harness, tan cargo trousers with dark knee patches, brown hiking boots. Keep identity and clothing colors from the attached crop. Hands can rest naturally in coat pockets. Clear readable silhouette at roughly 56 world pixels, both boots visible, centered with generous transparent padding. Modern polished 2D game illustration, genuinely transparent background; no haze, scene, ground shadow, snow, extra props, text, logo or watermark. No claims about canon age or gender.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\reference-frame3-bottom-left.png",
+              "role": "One attached private crop of Ruben’s exact bottom-left atlas frame; num_last_images_to_include=1."
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 2 only"
+            }
+          ],
+          "outputId": "exec-9da0a499-71dc-4283-82a2-19c262b9f4a6",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-9da0a499-71dc-4283-82a2-19c262b9f4a6.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-south.png",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-south-v1.webp",
+          "sourceSha256": "34b71281e38be498623fe5523e2febe201b5e369ec16f363e4dee9fb9a60833c",
+          "runtimeSha256": "c8922c277f17f7f27f32e83046aabbcae43fba66fa7845e7fbb2580715523be4",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            29,
+            994,
+            1536
+          ],
+          "alpha128Bounds": [
+            222,
+            72,
+            800,
+            1433
+          ],
+          "origin": {
+            "x": 0.52464,
+            "y": 0.932943
+          },
+          "displaySize": 63.200588,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "north",
+          "promptExact": "Use the one attached image as the identity reference. Create a newly illustrated full-body NORTH-facing back view of that exact same Ruben; do not alter character identity or clothing. Show the same navy blue insulated parka with its white fur-trim hood from the rear, the dark backpack over it, tan cargo trousers with dark charcoal knee patches, and same brown hiking boots. Back of same short dark hair. Scarf is mustard ochre, wrapped at neck with only a modest back edge visible. The viewpoint must show his back, not his front or side. Do not use teal/blue-green clothing, olive vest, binoculars, badge, watch, or anyone other than the attached Ruben. Upright neutral stance, both boots visible, full body, matching proportions. Modern illustrated 2D game sprite, genuinely transparent background with padding, no haze, scenery, floor, shadow, checkerboard, extra objects, text or watermark. No canon age or gender claims.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-south.png",
+              "role": "One attached South/front candidate for Ruben; num_last_images_to_include=1."
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 2 only"
+            }
+          ],
+          "outputId": "exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-north.png",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-north-v1.webp",
+          "sourceSha256": "63af8818680f677ca069a11f0b325526bbf2931d2c347241e9090caf39f994d9",
+          "runtimeSha256": "35c5c6502a35c2f60ec99c45aef9a47330b577feb82574e0737116e3c65aaae9",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            25,
+            26,
+            1004,
+            1536
+          ],
+          "alpha128Bounds": [
+            217,
+            29,
+            800,
+            1481
+          ],
+          "origin": {
+            "x": 0.498904,
+            "y": 0.964193
+          },
+          "displaySize": 59.239669,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "west",
+          "promptExact": "Use case: precise-object-edit on an existing character sprite. Remove the entire visible gray/brown atmospheric backdrop and halo outside Ruben's silhouette. The final image must have only Ruben and fully transparent pixels everywhere outside his figure; no gray rim, haze, glow, backdrop, floor, or shadow. This is a background-only transparency repair: do not repaint, clean, threshold, crop, or resample the character. Preserve Ruben exactly as drawn, especially the clearly visible mustard-yellow shield patch on the near anatomical LEFT upper sleeve in this WEST-facing pose. Keep nose pointing screen-left, same navy parka and fur hood, ochre scarf, backpack, trousers and boots, same pose, colors, linework and framing. Do not move/remove the patch or change any character pixels. Transparent canvas with no other content.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-west-v2.png",
+              "role": "Exact edit target for approved west correction (westBackgroundV3)"
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 2 only"
+            }
+          ],
+          "outputId": "exec-20b993f6-4018-4b07-8502-3a2e5361227d",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-20b993f6-4018-4b07-8502-3a2e5361227d.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-west-v3.png",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-west-v1.webp",
+          "sourceSha256": "7858a31294dad35d83ee28e616c435747e875eead4b8f53b375c90f14186cedd",
+          "runtimeSha256": "69925f9b0213b2d549cc4966f16e9d6705ba9d69be729df3123efad87d13feab",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            23,
+            1010,
+            1489
+          ],
+          "alpha128Bounds": [
+            285,
+            39,
+            757,
+            1485
+          ],
+          "origin": {
+            "x": 0.52851,
+            "y": 0.966797
+          },
+          "displaySize": 59.485477,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "east",
+          "promptExact": "Use case: precise-object-edit. In this EAST-facing Ruben sprite, remove only the small yellow patch from the visible near sleeve/arm. The yellow patch belongs to Ruben's ANATOMICAL LEFT sleeve; in EAST-facing view it is on the far side and must remain hidden behind the torso. The near visible sleeve is anatomical RIGHT and should be plain navy fabric, with the same seams and folds. Preserve all other details exactly: same nose-right profile, face, hair, navy parka and fur trim, ochre scarf, backpack, pants, knee patches, boots, pose, composition, colors and genuine transparent background. No new patch on another arm, no other edits, no crop/flip/resample, no scenery or shadow.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-east.png",
+              "role": "Exact edit target for approved east correction (east)"
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 2 only"
+            }
+          ],
+          "outputId": "exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\ruben-r12-idles-candidates\\ruben-east-v2.png",
+          "sourcePath": "assets/sources/veloria-ruben-r12-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-ruben-r12-idle-east-v1.webp",
+          "sourceSha256": "e960865d256255b5e6c6d0dc663b5ac65d81bd0b29b6cb5e37695a6dc4396e82",
+          "runtimeSha256": "aa19ae17db3897c634c1daa017f1cb9e4c07019765fdd5c5c29fa8ec0073828f",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            41,
+            35,
+            1010,
+            1490
+          ],
+          "alpha128Bounds": [
+            249,
+            38,
+            727,
+            1487
+          ],
+          "origin": {
+            "x": 0.494918,
+            "y": 0.968099
+          },
+          "displaySize": 59.362319,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        }
+      ],
+      "candidateReviewHistory": {
+        "candidateReport": {
+          "status": "private candidates for root review only; not registered or integrated",
+          "created": "2026-10-29",
+          "identity": {
+            "profileId": "route-trainer-ruben-r12",
+            "npcId": "r12_ruben",
+            "dialogueId": "r12_ruben",
+            "mapId": "r12_valle_vento",
+            "sourceAssetKey": "veloria-delta-route-cast-v1",
+            "sourceFrameIndex": 2
+          },
+          "narrativeSources": [
+            "content/characters/appearances.v2.json#route-trainer-ruben-r12",
+            "content/dialogue/world.v1.json#/r12_ruben",
+            "content/trainers/r12_ruben.trainer.json",
+            "docs/art/cast-redesign-briefs.md#Allenatori-di-percorso-nominati",
+            "docs/art/cast-redesign-briefs.md#r12_valle_vento"
+          ],
+          "canonLimits": "Neither dialogue nor trainer record establishes canonical age or gender. Visual presentation is a noncanonical proposal; species/team details do not establish biography.",
+          "narrative": {
+            "summary": "Optional R12 trainer. Dialogue advises preparing for Ice, Ground and Dark types before the Passobrina Center. Trainer team is not biography.",
+            "look": "Short dark hair; navy insulated parka with white fur-trim hood; mustard/ochre scarf; dark backpack/harness; tan cargo trousers with charcoal knee patches; brown hiking boots."
+          },
+          "sourceAtlas": {
+            "path": "assets/sources/veloria-delta-route-cast-v1.png",
+            "sha256": "98797b541dafd0ec45927a3001428189b99fb1551aa4bc0da7bf6634f3777698",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "referenceCrop": {
+              "frameIndex": 2,
+              "quadrant": "bottom-left",
+              "rectangleXYWH": [
+                0,
+                627,
+                627,
+                627
+              ],
+              "path": ".tmp/ruben-r12-idles-candidates/reference-frame3-bottom-left.png",
+              "sha256": "77826d9e14e7f7418cfef53839f2c97353aeb2c169c6001687509c879b675ca9",
+              "dimensions": [
+                627,
+                627
+              ],
+              "role": "Derived reference crop used only to disambiguate the exact source-atlas person for ImageGen; not a raw bytecopy and not a final sprite."
+            }
+          },
+          "candidates": {
+            "south": {
+              "outputId": "exec-9da0a499-71dc-4283-82a2-19c262b9f4a6",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-9da0a499-71dc-4283-82a2-19c262b9f4a6.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-south.png",
+              "sha256": "34b71281e38be498623fe5523e2febe201b5e369ec16f363e4dee9fb9a60833c",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                0,
+                29,
+                993,
+                1535
+              ],
+              "alphaBBoxAlpha128": [
+                222,
+                72,
+                799,
+                1432
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached private crop of Ruben’s exact bottom-left atlas frame; num_last_images_to_include=1.",
+              "promptFile": ".tmp/ruben-r12-idles-candidates/prompts.json#accepted.south",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "north": {
+              "outputId": "exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-north.png",
+              "sha256": "63af8818680f677ca069a11f0b325526bbf2931d2c347241e9090caf39f994d9",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                25,
+                26,
+                1003,
+                1535
+              ],
+              "alphaBBoxAlpha128": [
+                217,
+                29,
+                799,
+                1480
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "promptFile": ".tmp/ruben-r12-idles-candidates/prompts.json#accepted.north",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "west": {
+              "outputId": "exec-2ec5f1d6-31bb-4966-b26e-ee5acd45e383",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-2ec5f1d6-31bb-4966-b26e-ee5acd45e383.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-west.png",
+              "sha256": "63bcc35957a1fe8254d9b1b39ab7225639130d13ee000d09ab3e74e6dfcf4489",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                0,
+                38,
+                1003,
+                1535
+              ],
+              "alphaBBoxAlpha128": [
+                286,
+                40,
+                753,
+                1483
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "promptFile": ".tmp/ruben-r12-idles-candidates/prompts.json#accepted.west",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "east": {
+              "outputId": "exec-9f39ca06-82c6-4640-b1ad-06eb16d8f643",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-9f39ca06-82c6-4640-b1ad-06eb16d8f643.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-east.png",
+              "sha256": "669b213b0896b09b46bf28e761452b26fc108178b22847905dc23d2769329b3b",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                25,
+                33,
+                995,
+                1495
+              ],
+              "alphaBBoxAlpha128": [
+                249,
+                37,
+                725,
+                1486
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "promptFile": ".tmp/ruben-r12-idles-candidates/prompts.json#accepted.east",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            }
+          },
+          "reviewNotes": [
+            "Four direction candidates retain the reference outfit and distinct identity.",
+            "West/East prompts used the inverted near-side convention. Root clarified West shows anatomical LEFT near and East shows anatomical RIGHT near; do not accept side/accessory placement until root review.",
+            "A usable alternate South is retained separately. Earlier wrong-frame/identity outputs are in rejected/.",
+            "Root-requested West/East anatomical-side corrections are saved as separate *-v2.png private candidates; original candidates remain intact. Ruben West now places the yellow patch on the near anatomical LEFT sleeve, but its generated translucent backdrop reaches the canvas corners (alpha 54–181); not suitable to integrate without root review.",
+            "A further private attempt to remove Ruben West background haze was unsuccessful; see rejected/ruben-west-backdrop-transparency-attempt.png. The v2 sleeve patch is correct by inspection, but backdrop transparency remains unresolved.",
+            "Ruben West v3 is a background-only transparency correction of the patch-corrected v2. Raw alpha has transparent corners and its opaque QA composite is clean; see ruben-west-v3-opaque-qa.png. Keep private pending root review."
+          ],
+          "qa": {
+            "rawPngDimensions": [
+              1024,
+              1536
+            ],
+            "allEightAlphaExtrema": [
+              0,
+              254
+            ],
+            "allEightCornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "alphaBodyBBox": "Bounds [minX,minY,maxX,maxY] measured from decoded PNG alpha; x/y maximum values are inclusive.",
+            "noAlphaCleanup": true,
+            "scaleOrigin": "Not calibrated; no runtime display sizes/origins supplied.",
+            "visualReview": "Static image inspection only; no compositing/runtime-scale review.",
+            "copyVerification": "Candidate file SHA-256 was compared with the recorded generated output hash; all four directions match byte-for-byte copies."
+          },
+          "rejected": [
+            {
+              "outputId": "exec-3ad53f9c-4f27-4be7-99e0-5e061f7d406a",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-south-wrong-frame.png",
+              "sha256": "af24382615b355e353bc9a6a9502ebff215ca37ec65988bb4a93570e1fea9e08",
+              "reason": "Used the atlas top-left olive vest/light blue shirt/binocular outfit instead of Ruben's bottom-left frame.",
+              "prompt": "Use case: stylized-concept. Asset type: one full-body directional idle sprite for a modern illustrated 2D creature-adventure game. The image is an atlas; use ONLY the bottom-left frame, Ruben (profile route-trainer-ruben-r12), as identity and outfit reference. Create an independently drawn SOUTH-facing front view, full body, neutral friendly trail-trainer stance, both boots visible. Preserve this character's short dark hair and face, navy insulated mountain jacket with light fur-trimmed hood, ochre scarf, dark backpack and shoulder straps, tan cargo trousers with dark knee patches, sturdy hiking boots. Keep backpack straps and scarf physically coherent. Exact anatomy and accessories; do not borrow the blonde person in bottom-right or other figures. Modern polished 2D game illustration with clear silhouette at about 56 world pixels. Centered single person, generous transparent padding, genuinely transparent background. No mountain scenery, snow, floor shadow, haze, checkerboard, extra people, jewelry, labels, text, border, logo or watermark. Age and gender are not canonical; avoid age markers or asserting gender presentation."
+            },
+            {
+              "outputId": "exec-a7de7b07-c015-465d-9dc6-0431754b831e",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-north-wrong-palette.png",
+              "sha256": "3c66ac705ab33ea5a92da947b1e2f20c6bccaae67367e184d424286973871942",
+              "reason": "North view drifted to an olive vest and pale-blue shirt instead of the navy fur-trimmed parka.",
+              "prompt": "Use case: stylized-concept. Create one independently drawn NORTH-facing rear-view full-body idle sprite of the same Ruben shown in Image 1. Image 2 is the original 2x2 atlas; Ruben is ONLY its bottom-left person. Keep his same short dark hair, navy insulated parka with pale fur hood trim, ochre scarf, dark backpack and coherent straps, tan cargo trousers with dark knee patches, and brown hiking boots. Show the back of his head and the backpack naturally; the scarf should wrap consistently around the neck with only plausible ends visible from behind. Do not introduce binoculars, olive vest, shirt front, extra gear or details absent from the references. Neutral standing posture, feet visible, same visual scale and proportions. Modern polished 2D game sprite, clear silhouette at about 56 world pixels, generous padding, genuine transparent background. No scenery, snow, floor/shadow, haze, checkerboard, text, logo or watermark. Age and gender are not canon; no age markers or gender assumptions."
+            },
+            {
+              "outputId": "exec-a0fc8153-f587-424f-944b-1cef7c43348f",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-south-wrong-identity.png",
+              "sha256": "d954b08e7d93b3bdad6e78ff9df6ed91b3bf604ccac2938f4e297e4ceadd68bb",
+              "reason": "Generated a red-haired, teal-clad character despite the isolated Ruben reference; rejected as identity drift.",
+              "prompt": "Use case: stylized-concept. This single-person source crop is Ruben, route trainer R12. Create an independently drawn SOUTH-facing front full-body idle view. Keep the same dark short hair and complexion, navy insulated parka with white fur-trimmed hood, mustard scarf, backpack/straps, tan cargo trousers with dark knee patches, and brown hiking boots. The reference has no binoculars or badge; do not add them. Neutral friendly standing pose, body facing viewer, both boots visible, arms relaxed. Four independent cardinal illustrations will be made; this is front only. Clear readable silhouette at about 56 world pixels, full body centered, generous transparent padding, genuinely transparent background. No snowy scenery, ground/shadow, haze, checkerboard, extra props, text, logo or watermark. Canon does not establish age or gender; do not add age markers or assert gender presentation."
+            },
+            {
+              "outputId": "exec-d28f2ad1-0f59-49bf-be2d-00c22414d3a7",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-west-wrong-frame.png",
+              "sha256": "69420b810ba7fdd6587d96b0fabfd7d254d5af5cfd743ce91db6ff5749644945",
+              "reason": "Profile attempt returned the wrong olive-vest/binocular outfit.",
+              "prompt": "Use case: stylized-concept. Draw a NORTH-facing rear-view full-body idle sprite of the same Ruben shown in Image 1. Image 2 is the original 2x2 atlas; Ruben is the bottom-left person. Preserve navy insulated parka with fur-trimmed hood, ochre scarf, dark backpack, tan cargo trousers with knee patches and brown boots. Show a neutral rear view with both feet visible, genuine transparent background, modern polished 2D style; no added props, scenery, shadow, haze, checkerboard, text or watermark. Age/gender not canon."
+            },
+            {
+              "outputId": "exec-4ed5da4c-077e-4f06-809a-1aee969eff21",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-west-wrong-identity.png",
+              "sha256": "3ed6c053c75045143988aa7c5d61e1474900bd55032362c6d18ba50ead415197",
+              "reason": "Multi-image reference call selected the red-haired teal-clad trainer; rejected as wrong identity.",
+              "prompt": "Use the two attached images as consistent views of the SAME Ruben (R12 winter route trainer): one front/South and one rear/North. Create a separately drawn full-body WEST-facing profile, nose and body pointing to screen-left. Show Ruben's anatomical RIGHT side as the near side; the anatomical LEFT arm's small yellow patch should be on the far side and largely occluded. Preserve the navy insulated parka with white fur-trim hood, mustard scarf wrapped naturally with front ends near the chest, dark backpack visible behind the torso, tan cargo trousers with dark knee patches, and brown hiking boots. Keep short dark hair, same face/complexion and body proportions. Do not mirror either input. No other atlas characters, no olive vest/pale blue shirt, binoculars or new objects. Neutral standing pose, both feet visible, full figure centered. Modern polished illustrated 2D game sprite readable at 56 world pixels, generous transparent padding, genuinely transparent background. No scenery, snow, ground or shadow, haze, checkerboard, labels or watermark. No age/gender canon claims."
+            },
+            {
+              "outputId": "exec-cdbb01d7-6d30-4893-ad16-f6efb5a431b7",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-north-wrong-identity.png",
+              "sha256": "2f856976bc7338290b6778e94ffec6bb74dbb484500b062098ad876d994125ef",
+              "reason": "Rear-view request instead returned a red-haired side/profile character; rejected.",
+              "prompt": "Use Image 1 (Ruben's newly generated South/front view) as the single identity and outfit reference. Independently draw his NORTH-facing full-body rear view, not a flip. Show the back of the same short dark haircut, the same navy insulated parka from behind with its white fur-trimmed hood, and his dark backpack/harness worn over the parka. Tan cargo trousers retain the same dark knee patches, brown hiking boots. His ochre scarf wraps around the neck; only plausible small parts may show from behind. Preserve the same body proportions, palette and winter trail-trainer outfit. Do not introduce olive-green vest, pale-blue shirt, binoculars, badge, watch, or new accessories. Relaxed neutral stance with feet visible. Modern polished illustrated 2D game sprite readable at about 56 world pixels; generous transparent padding, truly transparent background. No scene, ground, shadow, haze, checkerboard, text, border, logo or watermark. Age/gender remain noncanonical."
+            },
+            {
+              "outputId": "exec-e4db80d6-c38c-49f6-92c7-09d807d5b68d",
+              "path": ".tmp/ruben-r12-idles-candidates/rejected/ruben-west-backdrop-transparency-attempt.png",
+              "sha256": "d5a830ecc20651483983ede50d08c9cd538acaa42ca7b03a11258f2fb31c1172",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "reason": "The transparency-only correction did not clear the dark atmospheric backdrop; corners remain visibly nontransparent. Kept for provenance, not for integration.",
+              "prompt": "Use case: precise-object-edit. Correct only the background transparency in this WEST-facing Ruben sprite. Remove the dark brown/black atmospheric backdrop, glow, and haze completely and make all background pixels genuinely transparent with clean alpha. Preserve the person exactly as drawn, especially the newly added mustard shield patch on the near visible anatomical LEFT upper sleeve; keep that patch clearly visible. Do not change Ruben's face, pose, clothes, backpack, scarf, pants, boots, proportions, linework, color palette, framing, or any object. Do not crop, flip, resize, repaint, or resample the character. No shadow or scenery."
+            }
+          ],
+          "scope": "Only files under .tmp candidate directories were written. Original atlas remains unchanged. No catalog/map/runtime/test/browser/server/Git changes.",
+          "alternateSouth": {
+            "outputId": "exec-00c8cb7e-cc80-4c2a-bb0c-6579b9f163bc",
+            "localPath": ".tmp/ruben-r12-idles-candidates/ruben-south-alternate.png",
+            "sha256": "34f6a853cfddde8af9b0656032c3e20068659d3b46c38bb8c9d85590cd3449ea",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "note": "Usable alternate front pose, retained for comparison.",
+            "promptFile": ".tmp/ruben-r12-idles-candidates/prompts.json#alternateSouth"
+          },
+          "promptProvenanceFile": ".tmp/ruben-r12-idles-candidates/prompts.json",
+          "rejectedManifestFile": ".tmp/ruben-r12-idles-candidates/rejected.json",
+          "revisions": [
+            {
+              "direction": "west",
+              "outputId": "exec-add9c415-bd6a-440b-a0e2-6a5c8ce75f25",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-add9c415-bd6a-440b-a0e2-6a5c8ce75f25.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-west-v2.png",
+              "sha256": "97dc195d2169fc671f5635b8edbd113fa67ddd1783b642eb23400557b02ceb50",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                0,
+                0,
+                1023,
+                1535
+              ],
+              "alphaBBoxAlpha128": [
+                129,
+                41,
+                1023,
+                1535
+              ],
+              "alphaAtFourCorners": [
+                54,
+                58,
+                77,
+                181
+              ],
+              "note": "Patch placement visually corrected. Residual translucent atmospheric backdrop reaches all four corners; keep private and root-review as a transparency defect.",
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-west.png",
+              "prompt": "Use case: precise-object-edit. Edit this WEST-facing Ruben sprite with one localized correction only: add a clearly visible small mustard-gold patch on the near visible upper sleeve, which is Ruben's ANATOMICAL LEFT arm in this WEST-facing view. Match the patch motif and size to the yellow patch shown on Ruben's original atlas jacket sleeve: compact shield/rounded tab with dark outline and tiny simple mark. Keep it on the visible shoulder/upper arm, unobscured. Preserve every other part of the image exactly: same profile facing screen-left, face, hair, navy parka, white fur hood trim, ochre scarf, backpack, tan cargo trousers, knee patches, boots, pose, framing, colors and transparent background. Do not change anything else, add no jewelry or props, no image flip/crop/resample, no scene or shadow.",
+              "copyPolicy": "Generated PNG copied byte-identically into this private candidate folder; no crop/resize/flip/cleanup.",
+              "reviewNote": "Patch placement visually corrected. Residual translucent atmospheric backdrop reaches all four corners; keep private and root-review as a transparency defect."
+            },
+            {
+              "direction": "east",
+              "outputId": "exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-east-v2.png",
+              "sha256": "e960865d256255b5e6c6d0dc663b5ac65d81bd0b29b6cb5e37695a6dc4396e82",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                41,
+                35,
+                1009,
+                1489
+              ],
+              "alphaBBoxAlpha128": [
+                249,
+                38,
+                726,
+                1486
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-east.png",
+              "prompt": "Use case: precise-object-edit. In this EAST-facing Ruben sprite, remove only the small yellow patch from the visible near sleeve/arm. The yellow patch belongs to Ruben's ANATOMICAL LEFT sleeve; in EAST-facing view it is on the far side and must remain hidden behind the torso. The near visible sleeve is anatomical RIGHT and should be plain navy fabric, with the same seams and folds. Preserve all other details exactly: same nose-right profile, face, hair, navy parka and fur trim, ochre scarf, backpack, pants, knee patches, boots, pose, composition, colors and genuine transparent background. No new patch on another arm, no other edits, no crop/flip/resample, no scenery or shadow.",
+              "copyPolicy": "Generated PNG copied byte-identically into this private candidate folder; no crop/resize/flip/cleanup."
+            },
+            {
+              "direction": "west-background-transparency-v3",
+              "outputId": "exec-20b993f6-4018-4b07-8502-3a2e5361227d",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-20b993f6-4018-4b07-8502-3a2e5361227d.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-west-v3.png",
+              "sha256": "7858a31294dad35d83ee28e616c435747e875eead4b8f53b375c90f14186cedd",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                0,
+                23,
+                1009,
+                1488
+              ],
+              "alphaBBoxAlpha128": [
+                285,
+                39,
+                756,
+                1484
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-west-v2.png",
+              "referenceRole": "Single attached Ruben West v2 candidate with previously corrected near anatomical LEFT sleeve patch; precise background-only ImageGen correction.",
+              "prompt": "Use case: precise-object-edit on an existing character sprite. Remove the entire visible gray/brown atmospheric backdrop and halo outside Ruben's silhouette. The final image must have only Ruben and fully transparent pixels everywhere outside his figure; no gray rim, haze, glow, backdrop, floor, or shadow. This is a background-only transparency repair: do not repaint, clean, threshold, crop, or resample the character. Preserve Ruben exactly as drawn, especially the clearly visible mustard-yellow shield patch on the near anatomical LEFT upper sleeve in this WEST-facing pose. Keep nose pointing screen-left, same navy parka and fur hood, ochre scarf, backpack, trousers and boots, same pose, colors, linework and framing. Do not move/remove the patch or change any character pixels. Transparent canvas with no other content.",
+              "copyPolicy": "Generated PNG copied byte-identically into private candidate folder; no crop/resize/flip/cleanup.",
+              "reviewNote": "Opaque-background composite on #DDE3E4 shows no visible gray/brown backdrop outside Ruben; near LEFT sleeve patch remains visible. Corners alpha 0. Private candidate for root review only."
+            }
+          ]
+        },
+        "promptRecord": {
+          "accepted": {
+            "south": {
+              "outputId": "exec-9da0a499-71dc-4283-82a2-19c262b9f4a6",
+              "referenceRole": "One attached private crop of Ruben’s exact bottom-left atlas frame; num_last_images_to_include=1.",
+              "prompt": "Use the attached single-person crop as the exact identity reference for Ruben, an optional R12 route trainer. Generate one full-body SOUTH-facing front idle sprite. Preserve his short dark hair, face and complexion, navy insulated parka with white fur hood trim, large ochre scarf, backpack harness, tan cargo trousers with dark knee patches, brown hiking boots. Keep identity and clothing colors from the attached crop. Hands can rest naturally in coat pockets. Clear readable silhouette at roughly 56 world pixels, both boots visible, centered with generous transparent padding. Modern polished 2D game illustration, genuinely transparent background; no haze, scene, ground shadow, snow, extra props, text, logo or watermark. No claims about canon age or gender."
+            },
+            "north": {
+              "outputId": "exec-7e458749-2e7c-4f69-adc4-bcd143eeb97a",
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "prompt": "Use the one attached image as the identity reference. Create a newly illustrated full-body NORTH-facing back view of that exact same Ruben; do not alter character identity or clothing. Show the same navy blue insulated parka with its white fur-trim hood from the rear, the dark backpack over it, tan cargo trousers with dark charcoal knee patches, and same brown hiking boots. Back of same short dark hair. Scarf is mustard ochre, wrapped at neck with only a modest back edge visible. The viewpoint must show his back, not his front or side. Do not use teal/blue-green clothing, olive vest, binoculars, badge, watch, or anyone other than the attached Ruben. Upright neutral stance, both boots visible, full body, matching proportions. Modern illustrated 2D game sprite, genuinely transparent background with padding, no haze, scenery, floor, shadow, checkerboard, extra objects, text or watermark. No canon age or gender claims."
+            },
+            "west": {
+              "outputId": "exec-2ec5f1d6-31bb-4966-b26e-ee5acd45e383",
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "prompt": "The single attached image is Ruben. Draw an independently illustrated WEST-facing full-body profile: his nose points to screen-left. This must be the same short dark-haired person, same navy quilted insulated parka with white fur-edged hood, mustard ochre scarf, dark backpack/harness, tan cargo trousers with charcoal knee patches and brown hiking boots. In this direction show Ruben's anatomical RIGHT side nearer the viewer; the left-sleeve yellow patch is on the far side and should be hidden by torso. Keep scarf tails on front side at chest, hood and backpack on rear side behind torso, consistent anatomy. Do not flip the image. No other person, no teal clothing, no extra objects. Standing relaxed with both feet fully visible, full figure centered at 56px-readable silhouette scale. Modern polished 2D game sprite, generous genuinely transparent padding. No environment, ground, shadow, haze, checkerboard, text, logo or watermark. Do not state or infer canon age or gender."
+            },
+            "east": {
+              "outputId": "exec-9f39ca06-82c6-4640-b1ad-06eb16d8f643",
+              "referenceRole": "One attached South/front candidate for Ruben; num_last_images_to_include=1.",
+              "prompt": "The single attached image shows Ruben from the front. Independently draw an EAST-facing full-body profile, nose and body pointing to screen-right. It is Ruben's anatomical LEFT side that is near and visible. Preserve same identity and exact winter trail outfit: navy insulated parka with white fur edge around hood, ochre scarf with coherent front hanging end, dark backpack behind the torso, tan cargo trousers with dark knee pads and brown hiking boots; same short dark hair and face. As the near side is Ruben's anatomical LEFT, the small yellow patch on the left sleeve may be visible on the near arm. Do not mirror the image or swap sides. Keep backpack on his back behind the torso, scarf at the front. Neutral stance, both feet visible, centered full body. Modern polished 2D illustration sprite, readable around 56 world pixels, generous transparent padding, actual transparency. No scenery, snow, ground/shadow, haze, checkerboard, additional gear, text, border, logo or watermark. Age/gender not specified by canon."
+            }
+          },
+          "alternateSouth": {
+            "outputId": "exec-00c8cb7e-cc80-4c2a-bb0c-6579b9f163bc",
+            "referenceRole": "One attached isolated Ruben frame crop; num_last_images_to_include=1.",
+            "prompt": "Use case: stylized-concept. Create ONE full-body SOUTH-facing front idle sprite for a modern illustrated 2D game. Reference atlas has four separate people: select ONLY the BOTTOM-LEFT quadrant person (Ruben, profile route-trainer-ruben-r12), the dark-skinned short-haired hiker wearing a NAVY insulated parka, large MUSTARD/OCHRE scarf, backpack with straps, tan cargo trousers with dark knee patches, and brown hiking boots. Do NOT copy the TOP-LEFT person: no olive vest, no blue button shirt, no binoculars, no watch, no chest badge. Do not copy either right-side person. Preserve Ruben's source-reference face, hair, complexion, navy coat, mustard scarf and backpack identity. Neutral friendly standing pose, both boots visible, body facing viewer, arms relaxed. Four independent cardinal illustrations will be made; this is front only. Clear readable silhouette at 56 world pixels, generous transparent padding, truly transparent background. No scenery, snow, ground/shadow, haze, checkerboard, props beyond reference, text, logo or watermark. The reference's apparent gender/age are visual only and noncanonical."
+          },
+          "corrections": {
+            "west": {
+              "outputId": "exec-add9c415-bd6a-440b-a0e2-6a5c8ce75f25",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-add9c415-bd6a-440b-a0e2-6a5c8ce75f25.png",
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-west.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-west-v2.png",
+              "prompt": "Use case: precise-object-edit. Edit this WEST-facing Ruben sprite with one localized correction only: add a clearly visible small mustard-gold patch on the near visible upper sleeve, which is Ruben's ANATOMICAL LEFT arm in this WEST-facing view. Match the patch motif and size to the yellow patch shown on Ruben's original atlas jacket sleeve: compact shield/rounded tab with dark outline and tiny simple mark. Keep it on the visible shoulder/upper arm, unobscured. Preserve every other part of the image exactly: same profile facing screen-left, face, hair, navy parka, white fur hood trim, ochre scarf, backpack, tan cargo trousers, knee patches, boots, pose, framing, colors and transparent background. Do not change anything else, add no jewelry or props, no image flip/crop/resample, no scene or shadow.",
+              "purpose": "Root-requested private correction; do not integrate before root review."
+            },
+            "east": {
+              "outputId": "exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-ebdfc15d-2e43-49a4-a076-d56aa72563c6.png",
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-east.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-east-v2.png",
+              "prompt": "Use case: precise-object-edit. In this EAST-facing Ruben sprite, remove only the small yellow patch from the visible near sleeve/arm. The yellow patch belongs to Ruben's ANATOMICAL LEFT sleeve; in EAST-facing view it is on the far side and must remain hidden behind the torso. The near visible sleeve is anatomical RIGHT and should be plain navy fabric, with the same seams and folds. Preserve all other details exactly: same nose-right profile, face, hair, navy parka and fur trim, ochre scarf, backpack, pants, knee patches, boots, pose, composition, colors and genuine transparent background. No new patch on another arm, no other edits, no crop/flip/resample, no scenery or shadow.",
+              "purpose": "Root-requested private correction; do not integrate before root review."
+            },
+            "westBackdrop": {
+              "outputId": "exec-e4db80d6-c38c-49f6-92c7-09d807d5b68d",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-e4db80d6-c38c-49f6-92c7-09d807d5b68d.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/rejected/ruben-west-backdrop-transparency-attempt.png",
+              "prompt": "Use case: precise-object-edit. Correct only the background transparency in this WEST-facing Ruben sprite. Remove the dark brown/black atmospheric backdrop, glow, and haze completely and make all background pixels genuinely transparent with clean alpha. Preserve the person exactly as drawn, especially the newly added mustard shield patch on the near visible anatomical LEFT upper sleeve; keep that patch clearly visible. Do not change Ruben's face, pose, clothes, backpack, scarf, pants, boots, proportions, linework, color palette, framing, or any object. Do not crop, flip, resize, repaint, or resample the character. No shadow or scenery.",
+              "reason": "Rejected as unresolved: atmospheric backdrop still reaches the canvas corners after the transparency edit; not suitable for integration."
+            },
+            "westBackgroundV3": {
+              "outputId": "exec-20b993f6-4018-4b07-8502-3a2e5361227d",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-20b993f6-4018-4b07-8502-3a2e5361227d.png",
+              "localPath": ".tmp/ruben-r12-idles-candidates/ruben-west-v3.png",
+              "referencePath": ".tmp/ruben-r12-idles-candidates/ruben-west-v2.png",
+              "prompt": "Use case: precise-object-edit on an existing character sprite. Remove the entire visible gray/brown atmospheric backdrop and halo outside Ruben's silhouette. The final image must have only Ruben and fully transparent pixels everywhere outside his figure; no gray rim, haze, glow, backdrop, floor, or shadow. This is a background-only transparency repair: do not repaint, clean, threshold, crop, or resample the character. Preserve Ruben exactly as drawn, especially the clearly visible mustard-yellow shield patch on the near anatomical LEFT upper sleeve in this WEST-facing pose. Keep nose pointing screen-left, same navy parka and fur hood, ochre scarf, backpack, trousers and boots, same pose, colors, linework and framing. Do not move/remove the patch or change any character pixels. Transparent canvas with no other content.",
+              "qaComposite": ".tmp/ruben-r12-idles-candidates/ruben-west-v3-opaque-qa.png",
+              "purpose": "Root-requested background-only transparency correction; no integration yet."
+            }
+          },
+          "revisions": {
+            "westEarringRemoval2": "Use case: precise-object-edit. Correct only two details in this WEST-facing profile of Alma. First remove the visible gold earring; restore a natural ear, with no jewelry. Second reposition Alma's long blonde braid to its correct ANATOMICAL RIGHT side, which is the far side in a WEST-facing view. The braid must be partly or fully occluded behind her head/torso; do not show a large braid hanging over the chest on the near anatomical LEFT side. Preserve the nose pointing screen-left and every other feature: same face, lavender coat and white fur trim, icy-blue patterned knit, gloves, trousers, boots, pose, dimensions, linework, colors and transparent background. Do not flip or crop. Do not change the coat, hair, body, outfit, or add props/jewelry. No background or shadow. A second tiny edit removed the remaining visible ear stud while preserving this corrected braid placement."
+          }
+        }
+      }
+    },
+    {
+      "profileId": "route-trainer-alma-r13",
+      "appearanceDescription": "Alma, allenatrice facoltativa di R13: chiarisce i tipi di alcuni Pokémon della neve e indica il recupero a Biancavetta. Abiti da sentiero invernale sono una proposta artistica; genere ed età non sono specificati nel canone.",
+      "dialogueSpeaker": "Alma",
+      "sourceReferences": [
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-alma-r13",
+          "role": "canonical appearance identity/profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r13_alma",
+          "role": "dialogue/narrative identity source"
+        },
+        {
+          "path": "content/trainers/r13_alma.trainer.json",
+          "role": "trainer context; no canonical age/gender inference"
+        },
+        {
+          "path": "docs/art/cast-redesign-briefs.md",
+          "role": "cast redesign identity and visual guidance"
+        },
+        {
+          "path": "assets/sources/veloria-delta-route-cast-v1.png",
+          "role": "original shared Delta-route atlas; frame 3 bottom-right"
+        }
+      ],
+      "canonNote": "Neither dialogue nor trainer record establishes canonical age or gender. Visual presentation is a noncanonical proposal; species/team details do not establish biography.",
+      "visualDifferentiation": "Long blonde braid on anatomical RIGHT shoulder; lavender winter coat with white fur trim; pale icy-blue patterned high-neck knit; dark gloves and trousers; black winter boots with purple laces and fur cuffs.",
+      "anatomyReview": [
+        "South/North retain the reference winter outfit and right-side braid placement.",
+        "West/East prompts used the inverted near-side convention. Root clarified West shows anatomical LEFT near and East shows anatomical RIGHT near; do not accept braid side placement until root review.",
+        "South/West appear to add gold ear jewelry not evident in the reference; root review needed.",
+        "Root-requested corrections are saved as separate *-v2.png private candidates; original candidates remain intact. South removes the unsupported earring while retaining anatomical RIGHT braid on viewer-left; West moves the anatomical RIGHT braid to the far/occluded side and removes the earring; East removes the earring while retaining the RIGHT braid near and visible.",
+        "Alma West *-v3 is an additional ear-detail attempt; visual inspection still shows a small bright ear point, so do not describe earring removal as confirmed. Earlier intermediate remains under rejected/."
+      ],
+      "rootVisualQA": {
+        "visualReview": "Root reviewed opaque QA composite(s) and approved all selected original/corrected views for integration.",
+        "transparentBackground": "Raw viewer appearance was misleading where RGB existed under alpha zero. Root verified alpha-supported halo/composites; accepted source pixels and alpha are preserved unchanged."
+      },
+      "selectedViews": [
+        {
+          "direction": "south",
+          "promptExact": "Use case: precise-object-edit. In this SOUTH/front Alma sprite, remove only the small gold earring/stud visible on the ear at viewer-left. Reconstruct the natural ear edge and nearby hair cleanly with the same skin/hair colors, leaving no jewelry. Preserve the long braid on Alma's ANATOMICAL RIGHT shoulder, which remains on viewer-left in this front view. Preserve every other detail as closely as possible: same face and expression, braid, lavender fur-trimmed coat, icy-blue patterned knit, gloves, trousers, boots, pose, framing, palette and real transparent background. No other edits, no new jewelry, no crop, flip, resample, scene or shadow.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-south.png",
+              "role": "Exact edit target for approved south correction (south)"
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 3 only"
+            }
+          ],
+          "outputId": "exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-south-v2.png",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-south-v1.webp",
+          "sourceSha256": "44a70d4d8b6500bbc8d67e8a713296ea6e3937be6fecbe07accbb59e0977cf37",
+          "runtimeSha256": "e45ff3ea26dbfc49730962c1a1ad17fcac938b467684b66a495cdca3ac6bce7c",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            65,
+            22,
+            994,
+            1491
+          ],
+          "alpha128Bounds": [
+            261,
+            26,
+            765,
+            1488
+          ],
+          "origin": {
+            "x": 0.581461,
+            "y": 0.96875
+          },
+          "displaySize": 58.834473,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "north",
+          "promptExact": "Use the single attached South/front pose as the exact identity reference for Alma, optional R13 trainer. Independently draw her NORTH-facing full-body rear view, not a flip. Same blonde braid should fall down the back on Alma's anatomical RIGHT side (viewer-left from behind). Preserve lavender long winter coat with white fur trim at hood/collar, cuffs and hem, pale icy-blue patterned knit, dark gloves, dark trousers and black winter boots with purple laces/fur cuffs. Keep outfit palette, proportions and braid consistent. Show the coat back and hair from behind; no added backpack or jewelry. Neutral standing pose, feet visible. Modern polished 2D game sprite with readable silhouette at ~56 world pixels, centered, generous transparent padding, genuine transparent background. No snow, scenery, ground/shadow, haze, checkerboard, extra person, text, border, logo or watermark. Do not imply canonical age or gender.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-south-v2.png",
+              "role": "One attached South/front candidate for Alma; num_last_images_to_include=1."
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 3 only"
+            }
+          ],
+          "outputId": "exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-north.png",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-north-v1.webp",
+          "sourceSha256": "b25f4377cb48bc0ac61ee2f40c4b4495c9b480c640bda7f411705e0dd80c8d61",
+          "runtimeSha256": "aa8069b1748de24ca0da16863a142f44f84994becdb280806b975b154b406e5e",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            0,
+            17,
+            992,
+            1492
+          ],
+          "alpha128Bounds": [
+            251,
+            20,
+            773,
+            1489
+          ],
+          "origin": {
+            "x": 0.521145,
+            "y": 0.969401
+          },
+          "displaySize": 58.554118,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "west",
+          "promptExact": "Use case: precise-object-edit. On this WEST-facing Alma portrait, remove the tiny bright stud/dot at the center of the exposed earlobe. The earlobe must be plain natural skin with no earring, no jewelry and no highlight shaped like a stud; keep ordinary soft skin shading only. Preserve the corrected hairstyle exactly: her anatomical RIGHT braid stays on the far side, mostly hidden behind the head and shoulder; no braid over the near chest. Preserve nose pointing screen-left and all other pixels/details: same face, coat, fur trim, knit, gloves, trousers, boots, proportions, pose, colors, framing, and transparent background. Do not change anything else or add any object. No crop, flip, resize, shadow, glow, or scenery.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-west-v2.png",
+              "role": "Exact edit target for approved west correction (westThird)"
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 3 only"
+            }
+          ],
+          "outputId": "exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-west-v3.png",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-west-v1.webp",
+          "sourceSha256": "3c86a74b3d262ebf325aac711283b11ed4bfbfb6e944d82bcd19be1a44858dd0",
+          "runtimeSha256": "3b39a2b706df91521e6afec27b88502401490c457fe957314565aa36e1d82c53",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            49,
+            15,
+            1004,
+            1536
+          ],
+          "alpha128Bounds": [
+            316,
+            17,
+            760,
+            1508
+          ],
+          "origin": {
+            "x": 0.50786,
+            "y": 0.981771
+          },
+          "displaySize": 57.690141,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        },
+        {
+          "direction": "east",
+          "promptExact": "Use case: precise-object-edit. In this EAST-facing Alma sprite, remove only the small gold earring/jewelry visible at the exposed ear. Restore natural ear and hairline with matching skin/hair colors; no jewelry remains. Keep the blonde braid on Alma's ANATOMICAL RIGHT side as it is in this EAST view: visible on the near side. Preserve exact nose-right orientation and all other image details: same face, braid placement, coat, fur trim, patterned knit, gloves, trousers, boots, body, pose, colors, framing and true transparent background. Do not flip, crop or resample. Do not alter or hide the braid; add no props, jewelry, scenery, shadow or haze.",
+          "references": [
+            {
+              "path": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-east.png",
+              "role": "Exact edit target for approved east correction (east)"
+            },
+            {
+              "path": "assets/sources/veloria-delta-route-cast-v1.png",
+              "role": "Original shared atlas; frame 3 only"
+            }
+          ],
+          "outputId": "exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb",
+          "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb.png",
+          "candidatePath": "C:\\Projects\\Veloria\\.tmp\\alma-r13-idles-candidates\\alma-east-v2.png",
+          "sourcePath": "assets/sources/veloria-alma-r13-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-alma-r13-idle-east-v1.webp",
+          "sourceSha256": "c6e79c747ee29a0047213baa5de869a1759b9f17c1bf926a37007fe2a24a6780",
+          "runtimeSha256": "63fbbebeaa5471a52125b8d2aedce79c3153c48c2f261076b4bde3bede7aea9e",
+          "dimensions": {
+            "width": 1024,
+            "height": 1536
+          },
+          "alphaBoundsGt0": [
+            27,
+            26,
+            972,
+            1488
+          ],
+          "alpha128Bounds": [
+            300,
+            29,
+            678,
+            1482
+          ],
+          "origin": {
+            "x": 0.521674,
+            "y": 0.964844
+          },
+          "displaySize": 59.198899,
+          "selection": "root-approved for integration",
+          "reviewNotes": "Root-approved selected revision; chosen variant preserves reviewed anatomical detail."
+        }
+      ],
+      "candidateReviewHistory": {
+        "candidateReport": {
+          "status": "private candidates for root review only; not registered or integrated",
+          "created": "2026-10-29",
+          "identity": {
+            "profileId": "route-trainer-alma-r13",
+            "npcId": "r13_alma",
+            "dialogueId": "r13_alma",
+            "mapId": "r13_tornanti_bianchi",
+            "sourceAssetKey": "veloria-delta-route-cast-v1",
+            "sourceFrameIndex": 3
+          },
+          "narrativeSources": [
+            "content/characters/appearances.v2.json#route-trainer-alma-r13",
+            "content/dialogue/world.v1.json#/r13_alma",
+            "content/trainers/r13_alma.trainer.json",
+            "docs/art/cast-redesign-briefs.md#Allenatori-di-percorso-nominati",
+            "docs/art/cast-redesign-briefs.md#r13_tornanti_bianchi"
+          ],
+          "canonLimits": "Neither dialogue nor trainer record establishes canonical age or gender. Visual presentation is a noncanonical proposal; species/team details do not establish biography.",
+          "narrative": {
+            "summary": "Optional R13 trainer. Dialogue distinguishes Seel (Water), Jynx (Ice/Psychic), and Dewgong (Water/Ice), and advises recovery at Biancavetta. Trainer team is not biography.",
+            "look": "Long blonde braid on anatomical RIGHT shoulder; lavender winter coat with white fur trim; pale icy-blue patterned high-neck knit; dark gloves and trousers; black winter boots with purple laces and fur cuffs."
+          },
+          "sourceAtlas": {
+            "path": "assets/sources/veloria-delta-route-cast-v1.png",
+            "sha256": "98797b541dafd0ec45927a3001428189b99fb1551aa4bc0da7bf6634f3777698",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "referenceCrop": {
+              "frameIndex": 3,
+              "quadrant": "bottom-right",
+              "rectangleXYWH": [
+                627,
+                627,
+                627,
+                627
+              ],
+              "path": ".tmp/alma-r13-idles-candidates/reference-frame4-bottom-right.png",
+              "sha256": "beecb5f7e1255225444871358808b1a5f1a9054a1cd18cad4e2d355bcc9ac0b3",
+              "dimensions": [
+                627,
+                627
+              ],
+              "role": "Derived reference crop used only to disambiguate the exact source-atlas person for ImageGen; not a raw bytecopy and not a final sprite."
+            }
+          },
+          "candidates": {
+            "south": {
+              "outputId": "exec-05fce405-4725-4a54-bc13-668743d36acc",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-05fce405-4725-4a54-bc13-668743d36acc.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-south.png",
+              "sha256": "cd37c00d18a3fa64711c492970024737f0161e03507fb99faf69ecc61d4ec683",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                41,
+                22,
+                995,
+                1503
+              ],
+              "alphaBBoxAlpha128": [
+                262,
+                26,
+                762,
+                1486
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached private crop of Alma’s exact bottom-right atlas frame; num_last_images_to_include=1.",
+              "promptFile": ".tmp/alma-r13-idles-candidates/prompts.json#accepted.south",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "north": {
+              "outputId": "exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-north.png",
+              "sha256": "b25f4377cb48bc0ac61ee2f40c4b4495c9b480c640bda7f411705e0dd80c8d61",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                0,
+                17,
+                991,
+                1491
+              ],
+              "alphaBBoxAlpha128": [
+                251,
+                20,
+                772,
+                1488
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "promptFile": ".tmp/alma-r13-idles-candidates/prompts.json#accepted.north",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "west": {
+              "outputId": "exec-6dd6ba76-229e-4918-b54d-7648eeda0f55",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-6dd6ba76-229e-4918-b54d-7648eeda0f55.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-west.png",
+              "sha256": "39611345c7eb9f6801fcb33f9b89725cac8ae442cafd78079b4ea156f9289746",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                27,
+                14,
+                943,
+                1509
+              ],
+              "alphaBBoxAlpha128": [
+                317,
+                17,
+                757,
+                1504
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "promptFile": ".tmp/alma-r13-idles-candidates/prompts.json#accepted.west",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            },
+            "east": {
+              "outputId": "exec-095d1770-45ce-4d0c-a59c-607e11cb4b07",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-095d1770-45ce-4d0c-a59c-607e11cb4b07.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-east.png",
+              "sha256": "8e8b178c2ff41cd00459cecd12d7dfc034d36be825dd2e94931ee4a3f132accf",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                25,
+                26,
+                1001,
+                1486
+              ],
+              "alphaBBoxAlpha128": [
+                300,
+                29,
+                676,
+                1481
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "promptFile": ".tmp/alma-r13-idles-candidates/prompts.json#accepted.east",
+              "copyPolicy": "Raw generated PNG copied byte-identically; no crop, resize, flip, cleanup or resampling."
+            }
+          },
+          "reviewNotes": [
+            "South/North retain the reference winter outfit and right-side braid placement.",
+            "West/East prompts used the inverted near-side convention. Root clarified West shows anatomical LEFT near and East shows anatomical RIGHT near; do not accept braid side placement until root review.",
+            "South/West appear to add gold ear jewelry not evident in the reference; root review needed.",
+            "Root-requested corrections are saved as separate *-v2.png private candidates; original candidates remain intact. South removes the unsupported earring while retaining anatomical RIGHT braid on viewer-left; West moves the anatomical RIGHT braid to the far/occluded side and removes the earring; East removes the earring while retaining the RIGHT braid near and visible.",
+            "Alma West *-v3 is an additional ear-detail attempt; visual inspection still shows a small bright ear point, so do not describe earring removal as confirmed. Earlier intermediate remains under rejected/."
+          ],
+          "qa": {
+            "rawPngDimensions": [
+              1024,
+              1536
+            ],
+            "allEightAlphaExtrema": [
+              0,
+              254
+            ],
+            "allEightCornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "alphaBodyBBox": "Bounds [minX,minY,maxX,maxY] measured from decoded PNG alpha; x/y maximum values are inclusive.",
+            "noAlphaCleanup": true,
+            "scaleOrigin": "Not calibrated; no runtime display sizes/origins supplied.",
+            "visualReview": "Static image inspection only; no compositing/runtime-scale review.",
+            "copyVerification": "Candidate file SHA-256 was compared with the recorded generated output hash; all four directions match byte-for-byte copies."
+          },
+          "rejected": [],
+          "scope": "Only files under .tmp candidate directories were written. Original atlas remains unchanged. No catalog/map/runtime/test/browser/server/Git changes.",
+          "promptProvenanceFile": ".tmp/alma-r13-idles-candidates/prompts.json",
+          "revisions": [
+            {
+              "direction": "south",
+              "outputId": "exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-south-v2.png",
+              "sha256": "44a70d4d8b6500bbc8d67e8a713296ea6e3937be6fecbe07accbb59e0977cf37",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                65,
+                22,
+                993,
+                1490
+              ],
+              "alphaBBoxAlpha128": [
+                261,
+                26,
+                764,
+                1487
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-south.png",
+              "prompt": "Use case: precise-object-edit. In this SOUTH/front Alma sprite, remove only the small gold earring/stud visible on the ear at viewer-left. Reconstruct the natural ear edge and nearby hair cleanly with the same skin/hair colors, leaving no jewelry. Preserve the long braid on Alma's ANATOMICAL RIGHT shoulder, which remains on viewer-left in this front view. Preserve every other detail as closely as possible: same face and expression, braid, lavender fur-trimmed coat, icy-blue patterned knit, gloves, trousers, boots, pose, framing, palette and real transparent background. No other edits, no new jewelry, no crop, flip, resample, scene or shadow.",
+              "copyPolicy": "Generated PNG copied byte-identically into this private candidate folder; no crop/resize/flip/cleanup."
+            },
+            {
+              "direction": "west",
+              "outputId": "exec-4ecd1a4f-1509-4d99-a01b-38a19e9fb68b",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-4ecd1a4f-1509-4d99-a01b-38a19e9fb68b.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-west-v2.png",
+              "sha256": "500e034aed89c8e8bc4516809f9a468766a6023643329dc162d4541b53e28b41",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                25,
+                14,
+                1005,
+                1512
+              ],
+              "alphaBBoxAlpha128": [
+                317,
+                17,
+                759,
+                1507
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "intermediate": {
+                "outputId": "exec-dff9db10-aaec-4124-b78a-29327a2ed6b1",
+                "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dff9db10-aaec-4124-b78a-29327a2ed6b1.png",
+                "reason": "Braid moved to far/occluded anatomical RIGHT side as requested, but tiny gold ear stud remained; superseded by this second edit."
+              },
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-west.png",
+              "prompt": "Use case: precise-object-edit. Correct only two details in this WEST-facing profile of Alma. First remove the visible gold earring; restore a natural ear, with no jewelry. Second reposition Alma's long blonde braid to its correct ANATOMICAL RIGHT side, which is the far side in a WEST-facing view. The braid must be partly or fully occluded behind her head/torso; do not show a large braid hanging over the chest on the near anatomical LEFT side. Preserve the nose pointing screen-left and every other feature: same face, lavender coat and white fur trim, icy-blue patterned knit, gloves, trousers, boots, pose, dimensions, linework, colors and transparent background. Do not flip or crop. Do not change the coat, hair, body, outfit, or add props/jewelry. No background or shadow. A second tiny edit removed the remaining visible ear stud while preserving this corrected braid placement.",
+              "copyPolicy": "Generated PNG copied byte-identically into this private candidate folder; no crop/resize/flip/cleanup."
+            },
+            {
+              "direction": "east",
+              "outputId": "exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-east-v2.png",
+              "sha256": "c6e79c747ee29a0047213baa5de869a1759b9f17c1bf926a37007fe2a24a6780",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "alphaExtrema": [
+                0,
+                254
+              ],
+              "alphaBBoxNonzero": [
+                27,
+                26,
+                971,
+                1487
+              ],
+              "alphaBBoxAlpha128": [
+                300,
+                29,
+                677,
+                1481
+              ],
+              "alphaAtFourCorners": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-east.png",
+              "prompt": "Use case: precise-object-edit. In this EAST-facing Alma sprite, remove only the small gold earring/jewelry visible at the exposed ear. Restore natural ear and hairline with matching skin/hair colors; no jewelry remains. Keep the blonde braid on Alma's ANATOMICAL RIGHT side as it is in this EAST view: visible on the near side. Preserve exact nose-right orientation and all other image details: same face, braid placement, coat, fur trim, patterned knit, gloves, trousers, boots, body, pose, colors, framing and true transparent background. Do not flip, crop or resample. Do not alter or hide the braid; add no props, jewelry, scenery, shadow or haze.",
+              "copyPolicy": "Generated PNG copied byte-identically into this private candidate folder; no crop/resize/flip/cleanup."
+            },
+            {
+              "direction": "west-third-ear-detail",
+              "outputId": "exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-west-v3.png",
+              "sha256": "3c86a74b3d262ebf325aac711283b11ed4bfbfb6e944d82bcd19be1a44858dd0",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-west-v2.png",
+              "prompt": "Use case: precise-object-edit. On this WEST-facing Alma portrait, remove the tiny bright stud/dot at the center of the exposed earlobe. The earlobe must be plain natural skin with no earring, no jewelry and no highlight shaped like a stud; keep ordinary soft skin shading only. Preserve the corrected hairstyle exactly: her anatomical RIGHT braid stays on the far side, mostly hidden behind the head and shoulder; no braid over the near chest. Preserve nose pointing screen-left and all other pixels/details: same face, coat, fur trim, knit, gloves, trousers, boots, proportions, pose, colors, framing, and transparent background. Do not change anything else or add any object. No crop, flip, resize, shadow, glow, or scenery.",
+              "reviewNote": "Braid is on the far/occluded side; a small bright point remains on the ear in visual inspection, so earring removal is not confirmed.",
+              "copyPolicy": "Generated PNG copied byte-identically into private candidate folder; no crop/resize/flip/cleanup."
+            },
+            {
+              "direction": "west-first-braid-correction",
+              "outputId": "exec-dff9db10-aaec-4124-b78a-29327a2ed6b1",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dff9db10-aaec-4124-b78a-29327a2ed6b1.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/rejected/alma-west-braid-corrected-earring-remains.png",
+              "sha256": "416d3f97ee602521cf44b6f299d0978bdee7325b2e4a83c92688b6c64d2ca3d6",
+              "dimensions": [
+                1024,
+                1536
+              ],
+              "prompt": "Use case: precise-object-edit. Correct only two details in this WEST-facing profile of Alma. First remove the visible gold earring; restore a natural ear, with no jewelry. Second reposition Alma's long blonde braid to its correct ANATOMICAL RIGHT side, which is the far side in a WEST-facing view. The braid must be partly or fully occluded behind her head/torso; do not show a large braid hanging over the chest on the near anatomical LEFT side. Preserve the nose pointing screen-left and every other feature: same face, lavender coat and white fur trim, icy-blue patterned knit, gloves, trousers, boots, pose, dimensions, linework, colors and transparent background. Do not flip or crop. Do not change the coat, hair, body, outfit, or add props/jewelry. No background or shadow. A second tiny edit removed the remaining visible ear stud while preserving this corrected braid placement.",
+              "reviewNote": "Preserved superseded intermediate; braid corrected but visible earring remained."
+            }
+          ]
+        },
+        "promptRecord": {
+          "accepted": {
+            "south": {
+              "outputId": "exec-05fce405-4725-4a54-bc13-668743d36acc",
+              "referenceRole": "One attached private crop of Alma’s exact bottom-right atlas frame; num_last_images_to_include=1.",
+              "prompt": "The attached single-person crop is Alma, optional trainer on R13. Create an independently drawn SOUTH/front full-body idle pose. Preserve the same pale blonde long braid draped over Alma's ANATOMICAL RIGHT shoulder (viewer-left in front), lavender/purple warm trail coat with white fur trim at hood/collar and cuffs, pale icy-blue high-neck patterned knit, dark belt, dark trousers, black gloves, and winter hiking boots with purple laces and fur cuffs. Keep face, hair, proportions, outfit and palette consistent; add no backpack or jewelry absent from the reference. Friendly calm neutral standing posture, both feet visible. One centered person, full-body, clear silhouette readable around 56 world pixels, modern polished 2D game illustration, generous transparent padding and genuine transparency. No snow or scenery, ground/shadow, haze, checkerboard, extra people, text, logo, border, watermark. Age and gender are not canonical; do not add age markers or assert gender presentation."
+            },
+            "north": {
+              "outputId": "exec-26a02c74-6eb2-4900-9c3a-d3e28fac35e3",
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "prompt": "Use the single attached South/front pose as the exact identity reference for Alma, optional R13 trainer. Independently draw her NORTH-facing full-body rear view, not a flip. Same blonde braid should fall down the back on Alma's anatomical RIGHT side (viewer-left from behind). Preserve lavender long winter coat with white fur trim at hood/collar, cuffs and hem, pale icy-blue patterned knit, dark gloves, dark trousers and black winter boots with purple laces/fur cuffs. Keep outfit palette, proportions and braid consistent. Show the coat back and hair from behind; no added backpack or jewelry. Neutral standing pose, feet visible. Modern polished 2D game sprite with readable silhouette at ~56 world pixels, centered, generous transparent padding, genuine transparent background. No snow, scenery, ground/shadow, haze, checkerboard, extra person, text, border, logo or watermark. Do not imply canonical age or gender."
+            },
+            "west": {
+              "outputId": "exec-6dd6ba76-229e-4918-b54d-7648eeda0f55",
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "prompt": "Use the single attached image as the exact identity and outfit reference for Alma. Draw an independently illustrated WEST-facing full-body profile, with nose and body pointing to screen-left. The near side is Alma's anatomical RIGHT side. Her long blonde braid lies over the anatomical RIGHT shoulder, so in this west profile the braid should be visible on the near/front side, hanging naturally along the chest. Preserve the lavender winter coat with white fur on hood/collar, cuffs and hem, pale icy-blue patterned high-neck knit, dark gloves and belt, dark trousers, and black snow boots with purple laces and fur cuffs. Keep anatomy and left/right accessory placement coherent; do not flip the South image. Neutral standing pose, both feet fully visible, exact same person and palette. Centered full body, silhouette readable at 56 world pixels, modern polished 2D game sprite, genuine transparent background with generous padding. No snow, setting, ground/shadow, haze, checkerboard, extra bag/jewelry, text, logo or watermark. No canonical age/gender claim."
+            },
+            "east": {
+              "outputId": "exec-095d1770-45ce-4d0c-a59c-607e11cb4b07",
+              "referenceRole": "One attached South/front candidate for Alma; num_last_images_to_include=1.",
+              "prompt": "Use the single attached South/front view as the exact identity/outfit reference. Create an independently drawn EAST-facing full-body profile of Alma, nose and body pointing to screen-right. This shows Alma's ANATOMICAL LEFT side as the near side. Her long braid is attached on the anatomical RIGHT side, so in this east-facing profile it is on the FAR side and should be mostly occluded by the torso/shoulder; do not move it to the near side. Preserve lavender winter coat with white fur trim on hood/collar, cuffs and hem, pale icy-blue patterned knit, dark gloves, belt, dark trousers, and black snow boots with purple laces/fur cuffs. Same face, blonde hair and proportions. Do not flip the image. Do not add jewelry or backpack. Neutral upright stance, both feet visible, centered full body. Polished 2D game sprite, readable ~56 world pixels, generous transparent padding, genuine transparent background. No snow, scenery, ground or shadow, haze, checkerboard, text, logo or watermark. No age/gender canon."
+            }
+          },
+          "corrections": {
+            "south": {
+              "outputId": "exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-73a3d505-d026-4ee0-b0f9-9d7cf3fd2e9c.png",
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-south.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-south-v2.png",
+              "prompt": "Use case: precise-object-edit. In this SOUTH/front Alma sprite, remove only the small gold earring/stud visible on the ear at viewer-left. Reconstruct the natural ear edge and nearby hair cleanly with the same skin/hair colors, leaving no jewelry. Preserve the long braid on Alma's ANATOMICAL RIGHT shoulder, which remains on viewer-left in this front view. Preserve every other detail as closely as possible: same face and expression, braid, lavender fur-trimmed coat, icy-blue patterned knit, gloves, trousers, boots, pose, framing, palette and real transparent background. No other edits, no new jewelry, no crop, flip, resample, scene or shadow.",
+              "purpose": "Root-requested private correction; do not integrate before root review."
+            },
+            "west": {
+              "outputId": "exec-4ecd1a4f-1509-4d99-a01b-38a19e9fb68b",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-4ecd1a4f-1509-4d99-a01b-38a19e9fb68b.png",
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-west.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-west-v2.png",
+              "prompt": "Use case: precise-object-edit. Correct only two details in this WEST-facing profile of Alma. First remove the visible gold earring; restore a natural ear, with no jewelry. Second reposition Alma's long blonde braid to its correct ANATOMICAL RIGHT side, which is the far side in a WEST-facing view. The braid must be partly or fully occluded behind her head/torso; do not show a large braid hanging over the chest on the near anatomical LEFT side. Preserve the nose pointing screen-left and every other feature: same face, lavender coat and white fur trim, icy-blue patterned knit, gloves, trousers, boots, pose, dimensions, linework, colors and transparent background. Do not flip or crop. Do not change the coat, hair, body, outfit, or add props/jewelry. No background or shadow. A second tiny edit removed the remaining visible ear stud while preserving this corrected braid placement.",
+              "purpose": "Root-requested private correction; do not integrate before root review.",
+              "intermediate": {
+                "outputId": "exec-dff9db10-aaec-4124-b78a-29327a2ed6b1",
+                "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dff9db10-aaec-4124-b78a-29327a2ed6b1.png",
+                "prompt": "Use case: precise-object-edit. Correct only two details in this WEST-facing profile of Alma. First remove the visible gold earring; restore a natural ear, with no jewelry. Second reposition Alma's long blonde braid to its correct ANATOMICAL RIGHT side, which is the far side in a WEST-facing view. The braid must be partly or fully occluded behind her head/torso; do not show a large braid hanging over the chest on the near anatomical LEFT side. Preserve the nose pointing screen-left and every other feature: same face, lavender coat and white fur trim, icy-blue patterned knit, gloves, trousers, boots, pose, dimensions, linework, colors and transparent background. Do not flip or crop. Do not change the coat, hair, body, outfit, or add props/jewelry. No background or shadow.",
+                "reason": "Braid moved to far/occluded anatomical RIGHT side as requested, but tiny gold ear stud remained; superseded by this second edit."
+              }
+            },
+            "east": {
+              "outputId": "exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-cb72aae6-b5be-4a0f-8e7c-f20a607389eb.png",
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-east.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-east-v2.png",
+              "prompt": "Use case: precise-object-edit. In this EAST-facing Alma sprite, remove only the small gold earring/jewelry visible at the exposed ear. Restore natural ear and hairline with matching skin/hair colors; no jewelry remains. Keep the blonde braid on Alma's ANATOMICAL RIGHT side as it is in this EAST view: visible on the near side. Preserve exact nose-right orientation and all other image details: same face, braid placement, coat, fur trim, patterned knit, gloves, trousers, boots, body, pose, colors, framing and true transparent background. Do not flip, crop or resample. Do not alter or hide the braid; add no props, jewelry, scenery, shadow or haze.",
+              "purpose": "Root-requested private correction; do not integrate before root review."
+            },
+            "westThird": {
+              "outputId": "exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b",
+              "generatedPath": "C:/Users/jacop/.codex/generated_images/01a182a5-f1c2-7502-a3c5-668fda8f1f0b/exec-dc1a1371-8ead-4a65-b774-60a73da8f1f0b.png",
+              "referencePath": ".tmp/alma-r13-idles-candidates/alma-west-v2.png",
+              "localPath": ".tmp/alma-r13-idles-candidates/alma-west-v3.png",
+              "prompt": "Use case: precise-object-edit. On this WEST-facing Alma portrait, remove the tiny bright stud/dot at the center of the exposed earlobe. The earlobe must be plain natural skin with no earring, no jewelry and no highlight shaped like a stud; keep ordinary soft skin shading only. Preserve the corrected hairstyle exactly: her anatomical RIGHT braid stays on the far side, mostly hidden behind the head and shoulder; no braid over the near chest. Preserve nose pointing screen-left and all other pixels/details: same face, coat, fur trim, knit, gloves, trousers, boots, proportions, pose, colors, framing, and transparent background. Do not change anything else or add any object. No crop, flip, resize, shadow, glow, or scenery.",
+              "reason": "Braid is on the far/occluded side; a small bright point remains on the ear in visual inspection, so earring removal is not confirmed."
+            }
+          }
+        }
+      }
+    }
+  ],
+  "sharedAtlasRetirementAudit": {
+    "atlasKey": "veloria-delta-route-cast-v1",
+    "remainingTiledObjectUses": [],
+    "removedFromMapRenderAssets": true,
+    "globalCatalogSourceCsvAndPrecache": "Preserved; only map metadata renderAssets were candidates for removal after zero-use audit."
+  }
+}

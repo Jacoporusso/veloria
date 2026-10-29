@@ -29,15 +29,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-delta-route-cast-v1",
-      "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-iris-delta-idle-south-v1",
       "path": "assets/sprites/veloria-iris-delta-idle-south-v1.webp"
     },
@@ -55,6 +46,26 @@
       "kind": "image",
       "key": "veloria-iris-delta-idle-east-v1",
       "path": "assets/sprites/veloria-iris-delta-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-south-v1",
+      "path": "assets/sprites/veloria-teo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-north-v1",
+      "path": "assets/sprites/veloria-teo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-west-v1",
+      "path": "assets/sprites/veloria-teo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-east-v1",
+      "path": "assets/sprites/veloria-teo-idle-east-v1.webp"
     }
   ],
   "spawns": [

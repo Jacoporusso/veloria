@@ -1,4 +1,4 @@
-const CACHE = 'veloria-shell-v203';
+const CACHE = 'veloria-shell-v204';
 const SHELL = [
   './assets/sprites/veloria-lina-r09-idle-south-v1.webp',
   './assets/sprites/veloria-lina-r09-idle-north-v1.webp',
@@ -24,6 +24,22 @@ const SHELL = [
   './assets/sprites/veloria-marina-portolume-idle-north-v1.webp',
   './assets/sprites/veloria-marina-portolume-idle-west-v1.webp',
   './assets/sprites/veloria-marina-portolume-idle-east-v1.webp',
+  './assets/sprites/veloria-teo-idle-south-v1.webp',
+  './assets/sprites/veloria-teo-idle-north-v1.webp',
+  './assets/sprites/veloria-teo-idle-west-v1.webp',
+  './assets/sprites/veloria-teo-idle-east-v1.webp',
+  './assets/sprites/veloria-celia-r11-idle-south-v1.webp',
+  './assets/sprites/veloria-celia-r11-idle-north-v1.webp',
+  './assets/sprites/veloria-celia-r11-idle-west-v1.webp',
+  './assets/sprites/veloria-celia-r11-idle-east-v1.webp',
+  './assets/sprites/veloria-ruben-r12-idle-south-v1.webp',
+  './assets/sprites/veloria-ruben-r12-idle-north-v1.webp',
+  './assets/sprites/veloria-ruben-r12-idle-west-v1.webp',
+  './assets/sprites/veloria-ruben-r12-idle-east-v1.webp',
+  './assets/sprites/veloria-alma-r13-idle-south-v1.webp',
+  './assets/sprites/veloria-alma-r13-idle-north-v1.webp',
+  './assets/sprites/veloria-alma-r13-idle-west-v1.webp',
+  './assets/sprites/veloria-alma-r13-idle-east-v1.webp',
   './assets/sprites/veloria-tessa-acquariva-idle-south-v1.webp',
   './assets/sprites/veloria-tessa-acquariva-idle-north-v1.webp',
   './assets/sprites/veloria-tessa-acquariva-idle-west-v1.webp',

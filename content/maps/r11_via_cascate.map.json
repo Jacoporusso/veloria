@@ -38,12 +38,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-delta-route-cast-v1",
-      "path": "assets/sprites/veloria-delta-route-cast-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-celia-r11-idle-south-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-north-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-west-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-east-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-east-v1.webp"
     }
   ],
   "spawns": [

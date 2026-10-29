@@ -788,6 +788,86 @@
       "kind": "image",
       "key": "veloria-bruno-r10-idle-east-v1",
       "path": "assets/sprites/veloria-bruno-r10-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-south-v1",
+      "path": "assets/sprites/veloria-teo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-north-v1",
+      "path": "assets/sprites/veloria-teo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-west-v1",
+      "path": "assets/sprites/veloria-teo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-teo-idle-east-v1",
+      "path": "assets/sprites/veloria-teo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-south-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-north-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-west-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-celia-r11-idle-east-v1",
+      "path": "assets/sprites/veloria-celia-r11-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ruben-r12-idle-south-v1",
+      "path": "assets/sprites/veloria-ruben-r12-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ruben-r12-idle-north-v1",
+      "path": "assets/sprites/veloria-ruben-r12-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ruben-r12-idle-west-v1",
+      "path": "assets/sprites/veloria-ruben-r12-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-ruben-r12-idle-east-v1",
+      "path": "assets/sprites/veloria-ruben-r12-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-alma-r13-idle-south-v1",
+      "path": "assets/sprites/veloria-alma-r13-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-alma-r13-idle-north-v1",
+      "path": "assets/sprites/veloria-alma-r13-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-alma-r13-idle-west-v1",
+      "path": "assets/sprites/veloria-alma-r13-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-alma-r13-idle-east-v1",
+      "path": "assets/sprites/veloria-alma-r13-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -2468,12 +2548,45 @@
       "npcIds": [
         "delta_teo"
       ],
-      "assetKey": "veloria-delta-route-cast-v1",
-      "frame": 0,
+      "assetKey": "veloria-teo-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/delta_teo; content/trainers/delta_teo.trainer.json",
       "origin": {
-        "x": 0.587,
-        "y": 0.966
+        "x": 0.543223,
+        "y": 0.948568
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-teo-idle-south-v1",
+          "origin": {
+            "x": 0.543223,
+            "y": 0.948568
+          },
+          "displaySize": 61.748744
+        },
+        "up": {
+          "assetKey": "veloria-teo-idle-north-v1",
+          "origin": {
+            "x": 0.510111,
+            "y": 0.978516
+          },
+          "displaySize": 58.197564
+        },
+        "left": {
+          "assetKey": "veloria-teo-idle-west-v1",
+          "origin": {
+            "x": 0.498022,
+            "y": 0.983724
+          },
+          "displaySize": 58.276423
+        },
+        "right": {
+          "assetKey": "veloria-teo-idle-east-v1",
+          "origin": {
+            "x": 0.490898,
+            "y": 0.95638
+          },
+          "displaySize": 59.941463
+        }
       }
     },
     {
@@ -2485,12 +2598,45 @@
       "npcIds": [
         "r11_celia"
       ],
-      "assetKey": "veloria-delta-route-cast-v1",
-      "frame": 1,
+      "assetKey": "veloria-celia-r11-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r11_celia; content/trainers/r11_celia.trainer.json",
       "origin": {
-        "x": 0.539,
-        "y": 0.969
+        "x": 0.612441,
+        "y": 0.955078
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-celia-r11-idle-south-v1",
+          "origin": {
+            "x": 0.612441,
+            "y": 0.955078
+          },
+          "displaySize": 60.109015
+        },
+        "up": {
+          "assetKey": "veloria-celia-r11-idle-north-v1",
+          "origin": {
+            "x": 0.49408,
+            "y": 0.954427
+          },
+          "displaySize": 61.616046
+        },
+        "left": {
+          "assetKey": "veloria-celia-r11-idle-west-v1",
+          "origin": {
+            "x": 0.498862,
+            "y": 0.948568
+          },
+          "displaySize": 62.4209
+        },
+        "right": {
+          "assetKey": "veloria-celia-r11-idle-east-v1",
+          "origin": {
+            "x": 0.517576,
+            "y": 0.946615
+          },
+          "displaySize": 60.745763
+        }
       }
     },
     {
@@ -2502,12 +2648,45 @@
       "npcIds": [
         "r12_ruben"
       ],
-      "assetKey": "veloria-delta-route-cast-v1",
-      "frame": 2,
+      "assetKey": "veloria-ruben-r12-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r12_ruben; content/trainers/r12_ruben.trainer.json",
       "origin": {
-        "x": 0.603,
-        "y": 0.914
+        "x": 0.52464,
+        "y": 0.932943
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-ruben-r12-idle-south-v1",
+          "origin": {
+            "x": 0.52464,
+            "y": 0.932943
+          },
+          "displaySize": 63.200588
+        },
+        "up": {
+          "assetKey": "veloria-ruben-r12-idle-north-v1",
+          "origin": {
+            "x": 0.498904,
+            "y": 0.964193
+          },
+          "displaySize": 59.239669
+        },
+        "left": {
+          "assetKey": "veloria-ruben-r12-idle-west-v1",
+          "origin": {
+            "x": 0.52851,
+            "y": 0.966797
+          },
+          "displaySize": 59.485477
+        },
+        "right": {
+          "assetKey": "veloria-ruben-r12-idle-east-v1",
+          "origin": {
+            "x": 0.494918,
+            "y": 0.968099
+          },
+          "displaySize": 59.362319
+        }
       }
     },
     {
@@ -2519,12 +2698,45 @@
       "npcIds": [
         "r13_alma"
       ],
-      "assetKey": "veloria-delta-route-cast-v1",
-      "frame": 3,
+      "assetKey": "veloria-alma-r13-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r13_alma; content/trainers/r13_alma.trainer.json",
       "origin": {
-        "x": 0.452,
-        "y": 0.93
+        "x": 0.581461,
+        "y": 0.96875
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-alma-r13-idle-south-v1",
+          "origin": {
+            "x": 0.581461,
+            "y": 0.96875
+          },
+          "displaySize": 58.834473
+        },
+        "up": {
+          "assetKey": "veloria-alma-r13-idle-north-v1",
+          "origin": {
+            "x": 0.521145,
+            "y": 0.969401
+          },
+          "displaySize": 58.554118
+        },
+        "left": {
+          "assetKey": "veloria-alma-r13-idle-west-v1",
+          "origin": {
+            "x": 0.50786,
+            "y": 0.981771
+          },
+          "displaySize": 57.690141
+        },
+        "right": {
+          "assetKey": "veloria-alma-r13-idle-east-v1",
+          "origin": {
+            "x": 0.521674,
+            "y": 0.964844
+          },
+          "displaySize": 59.198899
+        }
       }
     },
     {
