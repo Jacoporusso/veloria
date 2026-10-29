@@ -888,6 +888,66 @@
       "kind": "image",
       "key": "veloria-centrale-technician-idle-east-v1",
       "path": "assets/sprites/veloria-centrale-technician-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-north-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-south-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-west-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-east-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-north-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-west-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-south-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-east-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-biancavetta-guide-idle-south-v1",
+      "path": "assets/sprites/veloria-biancavetta-guide-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-biancavetta-guide-idle-west-v1",
+      "path": "assets/sprites/veloria-biancavetta-guide-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-biancavetta-guide-idle-east-v1",
+      "path": "assets/sprites/veloria-biancavetta-guide-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-biancavetta-guide-idle-north-v1",
+      "path": "assets/sprites/veloria-biancavetta-guide-idle-north-v1.webp"
     }
   ],
   "profiles": [
@@ -2768,12 +2828,45 @@
       "npcIds": [
         "biancavetta_guide"
       ],
-      "assetKey": "veloria-guides-and-keepers-v1",
-      "frame": 0,
+      "assetKey": "veloria-biancavetta-guide-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/biancavetta_guide",
       "origin": {
-        "x": 0.504,
-        "y": 0.937
+        "x": 0.494545,
+        "y": 0.957031
+      },
+      "idleViews": {
+        "down": {
+          "assetKey": "veloria-biancavetta-guide-idle-south-v1",
+          "origin": {
+            "x": 0.494545,
+            "y": 0.957031
+          },
+          "displaySize": 60.235294
+        },
+        "left": {
+          "assetKey": "veloria-biancavetta-guide-idle-west-v1",
+          "origin": {
+            "x": 0.48551,
+            "y": 0.96224
+          },
+          "displaySize": 60.917847
+        },
+        "right": {
+          "assetKey": "veloria-biancavetta-guide-idle-east-v1",
+          "origin": {
+            "x": 0.515715,
+            "y": 0.959635
+          },
+          "displaySize": 60.574648
+        },
+        "up": {
+          "assetKey": "veloria-biancavetta-guide-idle-north-v1",
+          "origin": {
+            "x": 0.51639,
+            "y": 0.952951
+          },
+          "displaySize": 61.816901
+        }
       }
     },
     {
@@ -2785,12 +2878,45 @@
       "npcIds": [
         "passobrina_guide"
       ],
-      "assetKey": "veloria-guides-and-keepers-v1",
-      "frame": 1,
+      "assetKey": "veloria-passobrina-guide-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/passobrina_guide",
       "origin": {
-        "x": 0.467,
-        "y": 0.944
+        "x": 0.502604,
+        "y": 0.940104
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-passobrina-guide-idle-north-v1",
+          "origin": {
+            "x": 0.508071,
+            "y": 0.964115
+          },
+          "displaySize": 59.011765
+        },
+        "left": {
+          "assetKey": "veloria-passobrina-guide-idle-west-v1",
+          "origin": {
+            "x": 0.503649,
+            "y": 0.957735
+          },
+          "displaySize": 59.612903
+        },
+        "down": {
+          "assetKey": "veloria-passobrina-guide-idle-south-v1",
+          "origin": {
+            "x": 0.502604,
+            "y": 0.940104
+          },
+          "displaySize": 61.748744
+        },
+        "right": {
+          "assetKey": "veloria-passobrina-guide-idle-east-v1",
+          "origin": {
+            "x": 0.495945,
+            "y": 0.951172
+          },
+          "displaySize": 60.702893
+        }
       }
     },
     {
@@ -2802,12 +2928,45 @@
       "npcIds": [
         "r14_guide"
       ],
-      "assetKey": "veloria-guides-and-keepers-v1",
-      "frame": 2,
+      "assetKey": "veloria-livia-r14-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r14_guide",
       "origin": {
-        "x": 0.561,
-        "y": 0.92
+        "x": 0.512302,
+        "y": 0.954427
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-livia-r14-idle-north-v1",
+          "origin": {
+            "x": 0.519805,
+            "y": 0.958333
+          },
+          "displaySize": 60.702893
+        },
+        "down": {
+          "assetKey": "veloria-livia-r14-idle-south-v1",
+          "origin": {
+            "x": 0.512302,
+            "y": 0.954427
+          },
+          "displaySize": 62.4209
+        },
+        "left": {
+          "assetKey": "veloria-livia-r14-idle-west-v1",
+          "origin": {
+            "x": 0.51056,
+            "y": 0.966171
+          },
+          "displaySize": 60.502924
+        },
+        "right": {
+          "assetKey": "veloria-livia-r14-idle-east-v1",
+          "origin": {
+            "x": 0.528823,
+            "y": 0.951172
+          },
+          "displaySize": 60.660085
+        }
       }
     },
     {

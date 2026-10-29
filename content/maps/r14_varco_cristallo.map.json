@@ -29,12 +29,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-guides-and-keepers-v1",
-      "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-livia-r14-idle-north-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-south-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-west-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-livia-r14-idle-east-v1",
+      "path": "assets/sprites/veloria-livia-r14-idle-east-v1.webp"
     }
   ],
   "spawns": [

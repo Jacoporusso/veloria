@@ -34,12 +34,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-guides-and-keepers-v1",
-      "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-passobrina-guide-idle-north-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-west-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-south-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-passobrina-guide-idle-east-v1",
+      "path": "assets/sprites/veloria-passobrina-guide-idle-east-v1.webp"
     }
   ],
   "spawns": [

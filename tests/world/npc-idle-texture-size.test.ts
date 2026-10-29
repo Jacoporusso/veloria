@@ -8,9 +8,18 @@ test('Ada and Elia idle surfaces fit the world budget with their exact source ra
   assert.deepEqual(npcIdleTextureSize(1536, 1024), { width: 510, height: 340 });
 });
 
-test('small images and ratios that cannot fit stay unchanged', () => {
+test('small images stay unchanged', () => {
   assert.deepEqual(npcIdleTextureSize(128, 256), { width: 128, height: 256 });
-  assert.deepEqual(npcIdleTextureSize(1253, 1254), { width: 1253, height: 1254 });
+});
+
+test('unusual ratios fit the budget using an unrounded image frame', () => {
+  for (const [width, height] of [[1253, 1254], [1064, 1478], [1478, 1064], [997, 1000]]) {
+    const size = npcIdleTextureSize(width, height);
+    assert.equal(Math.max(size.width, size.height), 512);
+    assert.ok(size.width <= width && size.height <= height);
+    assert.ok(Math.abs(size.width / size.height - width / height) < Number.EPSILON * 4);
+    assert.ok(Math.ceil(size.width) <= 512 && Math.ceil(size.height) <= 512);
+  }
 });
 
 test('bounded surfaces preserve proportions and never enlarge either axis', () => {

@@ -1,5 +1,17 @@
-const CACHE = 'veloria-shell-v205';
+const CACHE = 'veloria-shell-v206';
 const SHELL = [
+  './assets/sprites/veloria-livia-r14-idle-north-v1.webp',
+  './assets/sprites/veloria-livia-r14-idle-south-v1.webp',
+  './assets/sprites/veloria-livia-r14-idle-west-v1.webp',
+  './assets/sprites/veloria-livia-r14-idle-east-v1.webp',
+  './assets/sprites/veloria-passobrina-guide-idle-north-v1.webp',
+  './assets/sprites/veloria-passobrina-guide-idle-west-v1.webp',
+  './assets/sprites/veloria-passobrina-guide-idle-south-v1.webp',
+  './assets/sprites/veloria-passobrina-guide-idle-east-v1.webp',
+  './assets/sprites/veloria-biancavetta-guide-idle-south-v1.webp',
+  './assets/sprites/veloria-biancavetta-guide-idle-west-v1.webp',
+  './assets/sprites/veloria-biancavetta-guide-idle-east-v1.webp',
+  './assets/sprites/veloria-biancavetta-guide-idle-north-v1.webp',
   './assets/sprites/veloria-centrale-technician-idle-south-v1.webp',
   './assets/sprites/veloria-centrale-technician-idle-north-v1.webp',
   './assets/sprites/veloria-centrale-technician-idle-west-v1.webp',

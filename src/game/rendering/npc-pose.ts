@@ -27,8 +27,8 @@ export function prepareNpcPoseTextures(scene: Phaser.Scene, poses: Iterable<NpcI
     const webgl = renderer instanceof Phaser.Renderer.WebGL.WebGLRenderer;
     // WebGL1 requires power-of-two surfaces for mipmaps. The frame keeps the
     // exact image ratio: padding never changes the pose or its authored origin.
-    canvas.width = webgl ? 2 ** Math.ceil(Math.log2(size.width)) : size.width;
-    canvas.height = webgl ? 2 ** Math.ceil(Math.log2(size.height)) : size.height;
+    canvas.width = webgl ? 2 ** Math.ceil(Math.log2(size.width)) : Math.ceil(size.width);
+    canvas.height = webgl ? 2 ** Math.ceil(Math.log2(size.height)) : Math.ceil(size.height);
     const context = canvas.getContext('2d');
     if (!context) continue;
     context.imageSmoothingEnabled = true;

@@ -4402,12 +4402,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-guides-and-keepers-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-biancavetta-guide-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -4417,12 +4412,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.504
+              "value": 0.494545
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.937
+              "value": 0.957031
             }
           ]
         }

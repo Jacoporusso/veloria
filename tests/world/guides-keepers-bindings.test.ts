@@ -16,19 +16,23 @@ for (const entry of cases) {
     const profile = catalog.profiles.find((item: any) => item.id === entry.profileId);
     assert.ok(profile);
     assert.deepEqual(profile.npcIds, [entry.npcId]);
-    if (entry.npcId === 'radicelmo_keeper') {
-      assert.equal(profile.frame, undefined);
-      assert.equal(profile.assetKey, 'veloria-leda-idle-south-v1');
-      assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
-    } else assert.equal(profile.frame, entry.frame);
+    assert.equal(profile.frame, undefined);
+    assert.deepEqual(Object.keys(profile.idleViews).sort(), ['down', 'left', 'right', 'up']);
+    assert.equal(profile.assetKey, profile.idleViews.down.assetKey);
+    assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
     const asset = catalog.assets.find((item: any) => item.key === profile.assetKey);
     assert.ok(asset);
-    if (entry.npcId === 'radicelmo_keeper') assert.equal(asset.atlas, undefined);
-    else assert.deepEqual(asset.atlas, { columns: 2, rows: 2 });
+    assert.equal(asset.atlas, undefined);
 
     const map = read<any>(`content/maps/${entry.map}.map.json`);
     assert.deepEqual(map.renderAssets.find((item: any) => item.key === asset.key), asset);
     assert.ok(map.npcRefs.includes(entry.npcId));
+    assert.ok(!map.renderAssets.some((item: any) => item.key === 'veloria-guides-and-keepers-v1'));
+    for (const view of Object.values(profile.idleViews) as any[]) {
+      assert.deepEqual(map.renderAssets.find((item: any) => item.key === view.assetKey),
+        catalog.assets.find((item: any) => item.key === view.assetKey));
+      assert.ok(view.displaySize > 0 && view.origin.y > 0 && view.origin.y <= 1);
+    }
     const tiled = read<any>(`public/tilemaps/${entry.map}.tmj`);
     const objects = tiled.layers.flatMap((layer: any) => layer.objects ?? []);
     const matches = objects.filter((object: any) => object.properties?.some((property: any) =>

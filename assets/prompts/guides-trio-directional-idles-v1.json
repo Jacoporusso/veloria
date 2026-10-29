@@ -1,0 +1,1264 @@
+{
+  "generator": "built-in imagegen",
+  "approvedInputs": {
+    "scope": "Root-reviewed private inputs only; production catalog remains at36/48 until integration and tests.",
+    "sourceAtlasSha256": "b15e8a6d7ef81be4812147e22aab2a7c60e14b7df9187cb40cab15d0199f3231",
+    "profiles": [
+      {
+        "profileId": "r14-guide-livia",
+        "base": "livia-r14",
+        "originalFrame": 2,
+        "sourceAtlas": "assets/sources/veloria-guides-and-keepers-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v2.png",
+            "sha256": "118b206a6cbe877bfa2521a0622ce1977c9e1d9171ce816a20c42ab8919ebd51",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-a530251e-87b1-40be-af4e-caa2bf5f1401.png",
+            "outputId": "exec-a530251e-87b1-40be-af4e-caa2bf5f1401",
+            "promptExact": "Edit Image 1, the NORTH-facing Livia idle candidate. Image 2 is identity reference; use only its bottom-left frame 2. Make exactly one visual change: correct the braid placement to match Livia's front-view reference, where her long braid is swept forward over her anatomical RIGHT shoulder and onto the front of her chest. Since this is a rear view, the braid must be mostly hidden around the front, with only a small natural hint at the viewer-right/right shoulder; remove the centered braid hanging down the full back. Preserve all other pixels and details as closely as possible: rear-facing pose, head and body, dark outfit, teal seam accents, rust-red scarf and its long tail on viewer-left, wristbands, boots, proportions, scale, placement, and transparent background. Keep the same 2D painterly game-art style. Keep transparent alpha; do not add shadows, glow, props, scenery, text, or background. Do not alter the pose or mirror/flip the character.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              269,
+              55,
+              747,
+              1472
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-south-candidate-v1.png",
+            "sha256": "cf1b6cbb407e97dfd59271e0efab4397c8b964a4d8d0202944490c92a85be5f6",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7.png",
+            "outputId": "exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7",
+            "promptExact": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character facing SOUTH, true front view looking toward viewer, relaxed neutral idle stance with arms resting naturally at sides, full figure from braid top through both boot soles. Composition: one centered whole figure, upright sprite presentation, generous transparent margins, feet aligned to a clear common bottom anchor. Lighting: soft even painted shading. Constraints: true front view, preserve outfit palette and character identity, clear face and both boots, transparent alpha. Do not infer age or narrative facts. Avoid props, scenery, ground shadow, text, watermark, multiple figures, cropping, profile/three-quarter view, pixel art, mirroring or flip-like details.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              276,
+              88,
+              846,
+              1466
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v3.png",
+            "sha256": "2b9d6d251259edfaba5735e9e22eff720ac5efa73370d848a3e08c3b5fe079aa",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-ddf19317-8d95-4820-932b-90565a3141ae.png",
+            "outputId": "exec-ddf19317-8d95-4820-932b-90565a3141ae",
+            "promptExact": "Edit Image 1, the WEST-facing Livia idle candidate, which faces screen-left. Image 2 is identity reference; use only bottom-left frame 2. Change only the placement/visibility of the braid: the reference shows Livia's long braid swept forward over her anatomical RIGHT shoulder and onto the RIGHT front chest. In this strict west-facing profile, that is the far side from the viewer, so tuck the braid around the front/far shoulder and hide it behind her far shoulder and torso. Remove the long dark braid hanging down her visible back. Keep a natural hairstyle at the head and preserve Livia's identity. Preserve all other details as closely as possible: left-facing profile, face, hairline, outfit, rust-red scarf and long tail, teal seams, wristbands, hands, boots, pose, proportions, scale, placement, and transparent background. The scarf's long tail must remain visible behind her on the viewer-right side. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "dimensions": [
+              1064,
+              1478
+            ],
+            "alpha128Bounds": [
+              349,
+              60,
+              769,
+              1428
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v2.png",
+            "sha256": "327cc3bbb9b0bcf6f9c6d4b5d50016d4635c7106656c4e18d62ccddab858ec12",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f.png",
+            "outputId": "exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f",
+            "promptExact": "Edit Image 1, the EAST-facing Livia idle candidate, which faces screen-right. Image 2 is identity reference; use only its bottom-left frame 2. Change only the placement of the braid: the reference front view shows Livia's long dark braid swept forward over her anatomical RIGHT shoulder onto her RIGHT front chest. In this east-facing pose, keep that braid visible on the near/right shoulder and chest at the front of her body (screen-right/front side); do not let it trail down her back. Preserve the natural braid texture, length, dark color, and tied end. Keep the rust-red scarf and its long tail on the opposite/back side, viewer-left. Preserve all other details as closely as possible: right-facing profile, face, hairline, outfit, teal seams, wristbands, hands, boots, pose, proportions, scale, placement and transparent background. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              250,
+              43,
+              684,
+              1461
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          }
+        ]
+      },
+      {
+        "profileId": "passobrina-alpine-guide",
+        "base": "passobrina-guide",
+        "originalFrame": 1,
+        "sourceAtlas": "assets/sources/veloria-guides-and-keepers-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/passobrina-guide-idles-candidates/passobrina-guide-v1-north-raw.png",
+            "sha256": "7bb57eff791b29e1aae63c1f2ded69b07e5ffe978ca46ea122cee608ac016c2b",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-498ba7d1-371f-4af2-964a-95c2b280551a.png",
+            "outputId": "exec-498ba7d1-371f-4af2-964a-95c2b280551a",
+            "promptExact": "Use case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a NORTH-facing (back to viewer) full-body idle-view of the exact Passobrina alpine guide from the input reference. This must read as the same character and clothing, simply turned to show the back.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, in the red mountain jacket with the source's white sleeve motifs and matching trim, the long ivory scarf with its pale geometric motif and asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and the source-visible brown harness/straps. From behind, preserve only details justified by the source; do not invent a different backpack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact NORTH view: back directly toward viewer, no face visible.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source identity, short dark curls, beard only where rear/side silhouette supports it, red mountain jacket and white sleeve pattern, ivory patterned scarf and its asymmetric tail, dark trousers, red boots, brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              347,
+              19,
+              907,
+              1209
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/passobrina-guide-idles-candidates/passobrina-guide-v1-west-raw.png",
+            "sha256": "d1102334b4afbaa07ac2a9f06475c063fea0a0f0becec5bc070043ee3592deff",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b.png",
+            "outputId": "exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b",
+            "promptExact": "Use case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a WEST-facing full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply turned into a true west direction.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source clothing construction from this side; do not invent pack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact WEST cardinal view: a direct 90-degree side profile facing image-left; nose, chest, knees, and toes point left. The guide's near side appears on the left side of the figure. Show only a clean profile face silhouette, not a front three-quarter pose. Preserve natural anatomical left/right asymmetry; do not mirror or flip the identity.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face profile, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf and asymmetrical tail, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              457,
+              23,
+              753,
+              1201
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/passobrina-guide-idles-candidates/passobrina-guide-v1-south-raw.png",
+            "sha256": "27784558c0dd8f80ad0261eac47e51dd91a008f07d86c0ee74bd8570deb7f868",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-099eb7cb-5118-44c8-b39c-591cc0da67b1.png",
+            "outputId": "exec-099eb7cb-5118-44c8-b39c-591cc0da67b1",
+            "promptExact": "Use case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a SOUTH-facing (front to viewer) full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply oriented straight toward the viewer.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tails, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source construction and motif placement; do not invent equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact SOUTH cardinal view: direct frontal view, face, chest, knees, and toes toward viewer; both eyes visible naturally. No angled three-quarter pose.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf with its asymmetric hanging tails, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              201,
+              51,
+              807,
+              1444
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/passobrina-guide-idles-candidates/passobrina-guide-v1-east-raw.png",
+            "sha256": "f45d7b5fd27ed0f3dd947555aa5d77d31efe6cd666da0307f1aa965d72797c97",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e.png",
+            "outputId": "exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e",
+            "promptExact": "Use case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create an EAST-facing full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply turned into a true east direction.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source clothing construction from this side; do not invent pack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact EAST cardinal view: a direct 90-degree side profile facing image-right; nose, chest, knees, and toes point right. The guide's near side appears on the right side of the figure. Show only a clean profile face silhouette, not a front three-quarter pose. Preserve natural anatomical left/right asymmetry; do not mirror or flip the identity.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face profile, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf and asymmetrical tail, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              332,
+              44,
+              718,
+              1461
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          }
+        ]
+      },
+      {
+        "profileId": "biancavetta-guide",
+        "base": "biancavetta-guide",
+        "originalFrame": 0,
+        "sourceAtlas": "assets/sources/veloria-guides-and-keepers-v1.png",
+        "views": [
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-south-v1.png",
+            "sha256": "f57a475bbbf0f3b156fbe70266099e01049304ade74062fec8ce526f375dd0de",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd.png",
+            "outputId": "exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd",
+            "promptExact": "Create one independent modern illustrated 2D RPG idle sprite, using the reference solely as the exact identity/design reference, now facing SOUTH directly toward the viewer (front view). Preserve the person's silver curly hair, face styling and expression without imposing an age or gender label; navy guide coat, white geometric cuffs, ivory high-neck shirt and trousers, white scarf with blue floral pattern, brown belt and boots, and the small gold shoulder strap/accessory. Preserve the reference's asymmetry: from the viewer's perspective the strap/gold detail sits on the viewer-right shoulder; scarf crosses from viewer-left shoulder down to viewer-right hip and its longer patterned end hangs on viewer-right; geometric cuff pattern is visible on viewer-left sleeve. Full body from hair to boot soles, relaxed neutral standing idle with hands in a natural resting pose (not holding a new object), centered and unobstructed, crisp polished game-character illustration, clear silhouette. True SOUTH/front view, symmetrical body orientation except for the identity's actual clothing asymmetries; no three-quarter angle. Transparent background with real alpha, no background, no ground shadow, no props, no text, no border, no sheet, no extra figures. Do not add age, gender, rank insignia, or lore.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              242,
+              42,
+              758,
+              1470
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-west-v1.png",
+            "sha256": "f02a490248122d81d6e920fb59ba5aa5335c2f66c8f430673e11bc105448c85e",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088.png",
+            "outputId": "exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088",
+            "promptExact": "Create one independent polished modern illustrated 2D RPG full-body idle sprite of the exact person in the reference, shown in a strict WEST-facing profile: the character faces screen-left and the character's anatomical LEFT side is the near side visible to camera. This is a true cardinal side view, not a three-quarter view. Preserve identity details from the reference: silver curly hair; navy blue local guide coat with white geometric cuff and hem ornament; ivory high-neck shirt and trousers; white scarf with blue floral pattern; brown belts and boots; the small golden shoulder-strap/accessory remains on the character's anatomical left shoulder, visible on the near side. Keep scarf drape physically consistent with the reference's diagonal from the character's right shoulder across to the left hip; in this view the left-side hanging end and belt accessories should remain on the correct anatomical side. The coat's geometric cuff motif belongs to the character's right sleeve as shown in the reference front view; do not mirror or swap the garment asymmetries. Full figure head to boot soles, relaxed upright neutral idle stance, centered with clear silhouette, carefully rendered clean game illustration. Transparent background with genuine alpha, no background color, no ground shadow, no props, no text, no border, no sprite sheet, no extra character. Do not infer age or gender; add no new insignia or lore.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              353,
+              66,
+              664,
+              1478
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-east-v1.png",
+            "sha256": "6d0eb1abe3dd5acc5b09703e4fcb1fc4704094146bc96ce95c400cf5cd723837",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-2e0559b8-df29-4626-8481-9f709c0f982e.png",
+            "outputId": "exec-2e0559b8-df29-4626-8481-9f709c0f982e",
+            "promptExact": "Create one independent polished modern illustrated 2D RPG full-body idle sprite of the exact person in the reference, shown in a strict EAST-facing profile: the character faces screen-right and the character's anatomical RIGHT side is the near side visible to camera. This is a true cardinal side view, not a three-quarter view. Preserve identity details from the reference: silver curly hair; navy blue local guide coat with white geometric cuff and hem ornament; ivory high-neck shirt and trousers; white scarf with blue floral pattern; brown belts and boots; the small golden shoulder strap/accessory remains on the character's anatomical LEFT shoulder and is seen on the far side in this orientation. Keep the scarf physically consistent with the reference's diagonal from the character's right shoulder across to the left hip; the patterned end and belt details must remain on their correct anatomical sides. The coat's geometric cuff motif is on the character's right sleeve as shown in the reference front view, thus visible on the near side here; do not mirror or swap asymmetries. Full figure head to boot soles, relaxed upright neutral idle stance, centered with clear silhouette, carefully rendered clean game illustration. Transparent background with genuine alpha, no background color, no ground shadow, no props, no text, no border, no sprite sheet, no extra character. Do not infer age or gender; add no new insignia or lore.",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              368,
+              54,
+              718,
+              1474
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          },
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-north-v3.png",
+            "sha256": "82e867c0612256febf95389160d17a0fe8827a06d8be340699d04d052f40b7ab",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-fbe46709-b8cf-4314-baba-880686208fb5.png",
+            "outputId": "exec-fbe46709-b8cf-4314-baba-880686208fb5",
+            "promptExact": "Edit ONLY the small gold buckle/plate at the TOP viewer-RIGHT shoulder in this rear-view guide sprite. Remove that gold shoulder plate and replace it with the plain white/blue floral scarf fabric underneath. The original gold accessory is on the front of the anatomical LEFT shoulder and is occluded in this rear view, so no gold shoulder plate should be visible on the rear RIGHT shoulder. Preserve the scarf's current diagonal toward viewerLEFT hip and its long end on viewerLEFT. Keep the gold waist ornament, silver curls, navy coat, ivory trousers, LEFTthigh strap, body pose, fullboots and all other artwork unchanged. Preserve genuine transparency outside the person; no background, floor, shadow, glow, text or additional accessories. Single full-body NORTH/rear sprite.",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              412,
+              59,
+              851,
+              1195
+            ],
+            "selection": "root-approved private candidate; not yet integrated"
+          }
+        ]
+      }
+    ],
+    "originalReports": {
+      "livia": {
+        "task": "Private directional idle art candidate set; review only",
+        "identity": {
+          "sourceFrame": 2,
+          "tiledObject": "Guida del varco",
+          "visualContinuity": "Long dark braid; charcoal/navy exploration clothing; rust-red scarf; teal geometric accents; dark hiking boots. Gender and age are unspecified canon.",
+          "npcId": "r14_guide",
+          "profileId": "r14-guide-livia",
+          "dialogueId": "r14_guide",
+          "sourceFramePosition": "bottom-left",
+          "sourceAtlas": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "sourceFrameDimensions": "627x627",
+          "runtimeAtlas": "public/assets/sprites/veloria-guides-and-keepers-v1.webp",
+          "origin": {
+            "x": 0.561,
+            "y": 0.92
+          },
+          "tilemap": "r14_varco_cristallo.tmj"
+        },
+        "generationTool": "built-in image_gen",
+        "transparentBackgroundRequested": true,
+        "reviewStatus": "Root approved all four selected candidates: south v1, north v2, west v3, east v2.",
+        "candidates": [
+          {
+            "direction": "north",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v2.png",
+            "generatorOutputId": "exec-a530251e-87b1-40be-af4e-caa2bf5f1401",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-a530251e-87b1-40be-af4e-caa2bf5f1401.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v1.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "118b206a6cbe877bfa2521a0622ce1977c9e1d9171ce816a20c42ab8919ebd51",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              81,
+              52,
+              974,
+              1474
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the NORTH-facing Livia idle candidate. Image 2 is identity reference; use only its bottom-left frame 2. Make exactly one visual change: correct the braid placement to match Livia's front-view reference, where her long braid is swept forward over her anatomical RIGHT shoulder and onto the front of her chest. Since this is a rear view, the braid must be mostly hidden around the front, with only a small natural hint at the viewer-right/right shoulder; remove the centered braid hanging down the full back. Preserve all other pixels and details as closely as possible: rear-facing pose, head and body, dark outfit, teal seam accents, rust-red scarf and its long tail on viewer-left, wristbands, boots, proportions, scale, placement, and transparent background. Keep the same 2D painterly game-art style. Keep transparent alpha; do not add shadows, glow, props, scenery, text, or background. Do not alter the pose or mirror/flip the character.",
+            "reviewStatus": "approved by root feedback"
+          },
+          {
+            "direction": "south",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-south-candidate-v1.png",
+            "generatorOutputId": "exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7.png",
+            "sha256": "cf1b6cbb407e97dfd59271e0efab4397c8b964a4d8d0202944490c92a85be5f6",
+            "dimensions": {
+              "height": 1536,
+              "width": 1024
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              59,
+              21,
+              962,
+              1498
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character facing SOUTH, true front view looking toward viewer, relaxed neutral idle stance with arms resting naturally at sides, full figure from braid top through both boot soles. Composition: one centered whole figure, upright sprite presentation, generous transparent margins, feet aligned to a clear common bottom anchor. Lighting: soft even painted shading. Constraints: true front view, preserve outfit palette and character identity, clear face and both boots, transparent alpha. Do not infer age or narrative facts. Avoid props, scenery, ground shadow, text, watermark, multiple figures, cropping, profile/three-quarter view, pixel art, mirroring or flip-like details.",
+            "reviewStatus": "approved by root feedback; unchanged"
+          },
+          {
+            "direction": "west",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v3.png",
+            "generatorOutputId": "exec-ddf19317-8d95-4820-932b-90565a3141ae",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-ddf19317-8d95-4820-932b-90565a3141ae.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v2.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "2b9d6d251259edfaba5735e9e22eff720ac5efa73370d848a3e08c3b5fe079aa",
+            "dimensions": {
+              "width": 1064,
+              "height": 1478
+            },
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBounds": [
+              94,
+              21,
+              975,
+              1432
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the WEST-facing Livia idle candidate, which faces screen-left. Image 2 is identity reference; use only bottom-left frame 2. Change only the placement/visibility of the braid: the reference shows Livia's long braid swept forward over her anatomical RIGHT shoulder and onto the RIGHT front chest. In this strict west-facing profile, that is the far side from the viewer, so tuck the braid around the front/far shoulder and hide it behind her far shoulder and torso. Remove the long dark braid hanging down her visible back. Keep a natural hairstyle at the head and preserve Livia's identity. Preserve all other details as closely as possible: left-facing profile, face, hairline, outfit, rust-red scarf and long tail, teal seams, wristbands, hands, boots, pose, proportions, scale, placement, and transparent background. The scarf's long tail must remain visible behind her on the viewer-right side. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "reviewStatus": "approved by root feedback"
+          },
+          {
+            "direction": "east",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v2.png",
+            "generatorOutputId": "exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v1.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "327cc3bbb9b0bcf6f9c6d4b5d50016d4635c7106656c4e18d62ccddab858ec12",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              33,
+              27,
+              988,
+              1512
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the EAST-facing Livia idle candidate, which faces screen-right. Image 2 is identity reference; use only its bottom-left frame 2. Change only the placement of the braid: the reference front view shows Livia's long dark braid swept forward over her anatomical RIGHT shoulder onto her RIGHT front chest. In this east-facing pose, keep that braid visible on the near/right shoulder and chest at the front of her body (screen-right/front side); do not let it trail down her back. Preserve the natural braid texture, length, dark color, and tied end. Keep the rust-red scarf and its long tail on the opposite/back side, viewer-left. Preserve all other details as closely as possible: right-facing profile, face, hairline, outfit, teal seams, wristbands, hands, boots, pose, proportions, scale, placement and transparent background. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "reviewStatus": "approved by root feedback"
+          }
+        ],
+        "preservedDiscard": {
+          "alphaRange": null,
+          "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character in a strict WEST-facing side profile, facing screen-LEFT (her nose points left), relaxed neutral idle stance, arms naturally at sides, complete figure from braid top through both boot soles. Composition: single centered whole figure, upright sprite presentation, enough room for braid and scarf, generous transparent margins, feet aligned to common bottom anchor. Lighting: soft even painted shading. Constraints: genuinely westward profile with nose and chest oriented toward screen-left; preserve identity and palette; show both legs naturally in side-on overlap; transparent alpha. Do not infer age or narrative facts. Avoid front-facing, rear-facing or three-quarter view, any right-facing orientation, props, scenery, ground shadow, text, watermark, multiple figures, cropping, pixel art, mirroring or flip-like details.",
+          "reason": "Superseded because two alpha=1 pixels touch the left canvas edge; original kept byte-for-byte.",
+          "generatorOutputId": "exec-4df8dcab-2a8c-4f4d-af53-0e677a1d8b28",
+          "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v1.png",
+          "dimensions": null,
+          "alphaBounds": null,
+          "sha256": null,
+          "direction": "west",
+          "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-4df8dcab-2a8c-4f4d-af53-0e677a1d8b28.png"
+        },
+        "qa": {
+          "boardMetadata": ".tmp/livia-r14-idles-candidates/qa-board-final.json",
+          "board": ".tmp/livia-r14-idles-candidates/qa-board-final.png",
+          "compositeBackground": "#dce8eb",
+          "result": "The board shows rear-facing north, front-facing south, screen-left west, and screen-right east. Transparent corners are confirmed on all four selected candidates. This is a compositing/layout QA pass, not rendered-game or runtime approval.",
+          "script": "tools/sprite_review_board.py"
+        },
+        "notes": [
+          "Raw generated PNGs are copied byte-for-byte from the built-in generated_images paths. Originals remain in place.",
+          "No source atlas, production art, runtime, content, tests, or Git files were edited.",
+          "Superseded WEST v1 remains in the private folder and the generator output location.",
+          "An initial duplicate NORTH generation also remains untouched in generated_images but was not selected or included in the candidate set.",
+          "No cleanup, flip, cropping, or pixel editing was performed.",
+          "Root feedback approved south only and requested source-consistent anatomical-right braid placement for north, west and east. New versioned edit outputs are in correctionRound. Prior north/west-v2/east-v1 are preserved as supersededCandidates."
+        ],
+        "supersededCandidates": [
+          {
+            "direction": "north",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v1.png",
+            "generatorOutputId": "exec-28ae2c51-273e-4dff-9879-7246ea410e1c",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-28ae2c51-273e-4dff-9879-7246ea410e1c.png",
+            "sha256": "7b05bb775ca9bab1c4dc0b3c92930640564cd10b0c92b2918ff6434cecb08283",
+            "dimensions": {
+              "height": 1536,
+              "width": 1024
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              49,
+              54,
+              990,
+              1480
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character facing NORTH, true back view, relaxed neutral idle stance with arms resting naturally at sides, from braid top through both boot soles. Composition: one centered whole figure, upright sprite presentation, generous transparent margins, feet aligned to a clear common bottom anchor. Lighting: soft even painted shading. Constraints: true rear view facing away; preserve outfit palette and character identity; transparent alpha. Do not infer age or narrative facts. Avoid props, scenery, ground shadow, glow, text, watermark, multiple figures, cropping, profile/three-quarter view, pixel art, mirroring or flip-like details."
+          },
+          {
+            "direction": "south",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-south-candidate-v1.png",
+            "generatorOutputId": "exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7.png",
+            "sha256": "cf1b6cbb407e97dfd59271e0efab4397c8b964a4d8d0202944490c92a85be5f6",
+            "dimensions": {
+              "height": 1536,
+              "width": 1024
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              59,
+              21,
+              962,
+              1498
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character facing SOUTH, true front view looking toward viewer, relaxed neutral idle stance with arms resting naturally at sides, full figure from braid top through both boot soles. Composition: one centered whole figure, upright sprite presentation, generous transparent margins, feet aligned to a clear common bottom anchor. Lighting: soft even painted shading. Constraints: true front view, preserve outfit palette and character identity, clear face and both boots, transparent alpha. Do not infer age or narrative facts. Avoid props, scenery, ground shadow, text, watermark, multiple figures, cropping, profile/three-quarter view, pixel art, mirroring or flip-like details."
+          },
+          {
+            "direction": "west",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v2.png",
+            "generatorOutputId": "exec-52e20a20-54c2-4da3-ac1e-aad8ced15601",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-52e20a20-54c2-4da3-ac1e-aad8ced15601.png",
+            "sha256": "5bf26fdfde195a4f077630a93fabc94ab1dcbf117beae0b23cf62d5a58c287b6",
+            "dimensions": {
+              "height": 1478,
+              "width": 1064
+            },
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBounds": [
+              41,
+              41,
+              1036,
+              1431
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve her exact recognizable design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; polished painterly modern 2D game art. Scene/backdrop: fully transparent. Subject: same character in a strict WEST-facing side profile, face and nose pointing screen-LEFT, relaxed neutral idle stance with arms naturally down, full figure from braid top through boot soles. Composition: centered whole silhouette occupying about 65% of canvas width and 90% of canvas height, with at least 10% clear transparent margin on every side; feet aligned to bottom anchor. Lighting: soft even shading, no glow. Constraints: unmistakably left-facing profile; maintain outfit and character continuity; both boots included; genuinely transparent alpha. Do not infer age or canon gender. Avoid scenery, props, ground shadow, glow, text, watermark, extra person, crop, pixel art, three-quarter view, right-facing orientation, mirroring or any nontransparent pixels touching the canvas edge."
+          },
+          {
+            "direction": "east",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v1.png",
+            "generatorOutputId": "exec-1c6fb5f8-104f-4e11-a94c-b96d049a78cd",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-1c6fb5f8-104f-4e11-a94c-b96d049a78cd.png",
+            "sha256": "c93374a6d563edffe8d55517613f6a33d472c69df920e02ecfbbd87f16a11aa0",
+            "dimensions": {
+              "height": 1536,
+              "width": 1024
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              49,
+              39,
+              994,
+              1490
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Use case: stylized-concept. Asset type: one independent full-body directional idle sprite candidate for an original illustrated 2D mobile RPG. Input image is a character reference atlas: use only bottom-left frame 2, the R14 guide Livia, and ignore all other cells. Preserve the exact recognizable Livia design: long dark braid, dark charcoal/navy mountain-exploration clothing, vivid rust-red scarf over one shoulder, small teal geometric accents, dark hiking boots; match the polished painterly modern 2D game illustration. Scene/backdrop: transparent. Subject: same character in a strict EAST-facing side profile, facing screen-RIGHT (her nose points right), relaxed neutral idle stance, arms naturally at sides, complete figure from braid top through both boot soles. Composition: single centered whole figure, upright sprite presentation, enough room for braid and scarf, generous transparent margins, feet aligned to common bottom anchor. Lighting: soft even painted shading. Constraints: genuinely eastward profile with nose and chest oriented toward screen-right; preserve identity and palette; show both legs naturally in side-on overlap; transparent alpha. Do not infer age or narrative facts. Avoid front-facing, rear-facing or three-quarter view, any left-facing orientation, props, scenery, ground shadow, text, watermark, multiple figures, cropping, pixel art, mirroring or flip-like details."
+          }
+        ],
+        "correctionRound": {
+          "requestedBy": "root review",
+          "editMethod": "built-in image_gen with versioned existing candidate target plus original frame 2 identity reference",
+          "focus": "braid visibility only; preserve long scarf tail, tunic, teal seams, boots, wristbands, pose, clean transparent background",
+          "reviewBoard": ".tmp/livia-r14-idles-candidates/qa-board-braid-corrected.png",
+          "reviewMetadata": ".tmp/livia-r14-idles-candidates/qa-board-braid-corrected.json",
+          "north": {
+            "direction": "north",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v2.png",
+            "generatorOutputId": "exec-a530251e-87b1-40be-af4e-caa2bf5f1401",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-a530251e-87b1-40be-af4e-caa2bf5f1401.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-north-candidate-v1.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "118b206a6cbe877bfa2521a0622ce1977c9e1d9171ce816a20c42ab8919ebd51",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              81,
+              52,
+              974,
+              1474
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the NORTH-facing Livia idle candidate. Image 2 is identity reference; use only its bottom-left frame 2. Make exactly one visual change: correct the braid placement to match Livia's front-view reference, where her long braid is swept forward over her anatomical RIGHT shoulder and onto the front of her chest. Since this is a rear view, the braid must be mostly hidden around the front, with only a small natural hint at the viewer-right/right shoulder; remove the centered braid hanging down the full back. Preserve all other pixels and details as closely as possible: rear-facing pose, head and body, dark outfit, teal seam accents, rust-red scarf and its long tail on viewer-left, wristbands, boots, proportions, scale, placement, and transparent background. Keep the same 2D painterly game-art style. Keep transparent alpha; do not add shadows, glow, props, scenery, text, or background. Do not alter the pose or mirror/flip the character.",
+            "reviewStatus": "awaiting root review"
+          },
+          "west": {
+            "direction": "west",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v3.png",
+            "generatorOutputId": "exec-ddf19317-8d95-4820-932b-90565a3141ae",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-ddf19317-8d95-4820-932b-90565a3141ae.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-west-candidate-v2.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "2b9d6d251259edfaba5735e9e22eff720ac5efa73370d848a3e08c3b5fe079aa",
+            "dimensions": {
+              "width": 1064,
+              "height": 1478
+            },
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBounds": [
+              94,
+              21,
+              975,
+              1432
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the WEST-facing Livia idle candidate, which faces screen-left. Image 2 is identity reference; use only bottom-left frame 2. Change only the placement/visibility of the braid: the reference shows Livia's long braid swept forward over her anatomical RIGHT shoulder and onto the RIGHT front chest. In this strict west-facing profile, that is the far side from the viewer, so tuck the braid around the front/far shoulder and hide it behind her far shoulder and torso. Remove the long dark braid hanging down her visible back. Keep a natural hairstyle at the head and preserve Livia's identity. Preserve all other details as closely as possible: left-facing profile, face, hairline, outfit, rust-red scarf and long tail, teal seams, wristbands, hands, boots, pose, proportions, scale, placement, and transparent background. The scarf's long tail must remain visible behind her on the viewer-right side. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "reviewStatus": "awaiting root review"
+          },
+          "east": {
+            "direction": "east",
+            "candidatePath": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v2.png",
+            "generatorOutputId": "exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f",
+            "generatorOriginalPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a188fe-1647-7b01-8c13-19da3990b6f6\\exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f.png",
+            "editTarget": ".tmp/livia-r14-idles-candidates/livia-r14-east-candidate-v1.png",
+            "identityReference": "assets/sources/veloria-guides-and-keepers-v1.png#frame-2",
+            "sha256": "327cc3bbb9b0bcf6f9c6d4b5d50016d4635c7106656c4e18d62ccddab858ec12",
+            "dimensions": {
+              "width": 1024,
+              "height": 1536
+            },
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBounds": [
+              33,
+              27,
+              988,
+              1512
+            ],
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "prompt": "Edit Image 1, the EAST-facing Livia idle candidate, which faces screen-right. Image 2 is identity reference; use only its bottom-left frame 2. Change only the placement of the braid: the reference front view shows Livia's long dark braid swept forward over her anatomical RIGHT shoulder onto her RIGHT front chest. In this east-facing pose, keep that braid visible on the near/right shoulder and chest at the front of her body (screen-right/front side); do not let it trail down her back. Preserve the natural braid texture, length, dark color, and tied end. Keep the rust-red scarf and its long tail on the opposite/back side, viewer-left. Preserve all other details as closely as possible: right-facing profile, face, hairline, outfit, teal seams, wristbands, hands, boots, pose, proportions, scale, placement and transparent background. Keep the same painterly 2D game-art style. Transparent alpha. Do not add/remove anything else, change clothing, alter pose, mirror/flip, add shadows/glow, props, scenery, text or background.",
+            "reviewStatus": "awaiting root review"
+          },
+          "approvedByRoot": true
+        }
+      },
+      "passobrina": {
+        "purpose": "Private art candidates for root review only; no runtime/content/tests/Git changes",
+        "profileId": "passobrina-alpine-guide",
+        "source": {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "sha256": "B15E8A6D7EF81BE4812147E22AAB2A7C60E14B7DF9187CB40CAB15D0199F3231",
+          "sourceFrame": {
+            "label": "frame 1, top-right only",
+            "x": 627,
+            "y": 0,
+            "width": 627,
+            "height": 627
+          },
+          "referenceCrop": "source-frame-1-topright-preview.png",
+          "referenceCropSha256": "9ADCEEDDB0C88540A74C5CDF7080AADD004D526322E27D99D6E718F009365F23",
+          "referenceCropDescription": "Derived inspection/reference crop of only the specified top-right atlas frame; original source was not modified."
+        },
+        "promptFile": {
+          "path": "exact-prompts.md",
+          "sha256": "7CB5D86EF0E3CBF5A736BCB920D7EF29C3C020D016229B7C878F957F880781EF"
+        },
+        "generation": {
+          "tool": "built-in image_gen",
+          "transparentBackground": true,
+          "referenceImage": "source-frame-1-topright-preview.png",
+          "count": 4,
+          "callCount": 5,
+          "selectedCandidateCount": 4
+        },
+        "candidates": [
+          {
+            "direction": "north",
+            "outputId": "exec-498ba7d1-371f-4af2-964a-95c2b280551a.png",
+            "generatorOutputId": "01a1891c-0c8c-7e83-8ab8-43156eebec49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a1891c-0c8c-7e83-8ab8-43156eebec49\\exec-498ba7d1-371f-4af2-964a-95c2b280551a.png",
+            "rawCopy": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\passobrina-guide-v1-north-raw.png",
+            "promptFile": "exact-prompts.md",
+            "sha256": "7bb57eff791b29e1aae63c1f2ded69b07e5ffe978ca46ea122cee608ac016c2b",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBoundsAny": [
+              25,
+              16,
+              1228,
+              1219
+            ],
+            "alphaBoundsAbove1": "343,17,911,1213",
+            "reviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\north-review.png",
+            "reviewMetadata": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\north-review.json"
+          },
+          {
+            "direction": "west",
+            "outputId": "exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b.png",
+            "generatorOutputId": "01a1891c-0c8c-7e83-8ab8-43156eebec49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a1891c-0c8c-7e83-8ab8-43156eebec49\\exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b.png",
+            "rawCopy": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\passobrina-guide-v1-west-raw.png",
+            "promptFile": "exact-prompts.md",
+            "sha256": "d1102334b4afbaa07ac2a9f06475c063fea0a0f0becec5bc070043ee3592deff",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBoundsAny": [
+              0,
+              17,
+              1176,
+              1208
+            ],
+            "alphaBoundsAbove1": "454,20,756,1205",
+            "reviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\west-review.png",
+            "reviewMetadata": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\west-review.json"
+          },
+          {
+            "direction": "south",
+            "outputId": "exec-099eb7cb-5118-44c8-b39c-591cc0da67b1.png",
+            "generatorOutputId": "01a1891c-0c8c-7e83-8ab8-43156eebec49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a1891c-0c8c-7e83-8ab8-43156eebec49\\exec-099eb7cb-5118-44c8-b39c-591cc0da67b1.png",
+            "rawCopy": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\passobrina-guide-v1-south-raw.png",
+            "promptFile": "exact-prompts.md",
+            "sha256": "27784558c0dd8f80ad0261eac47e51dd91a008f07d86c0ee74bd8570deb7f868",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBoundsAny": [
+              0,
+              20,
+              982,
+              1480
+            ],
+            "alphaBoundsAbove1": "199,49,809,1446",
+            "reviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\south-review.png",
+            "reviewMetadata": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\south-review.json"
+          },
+          {
+            "direction": "east",
+            "outputId": "exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e.png",
+            "generatorOutputId": "01a1891c-0c8c-7e83-8ab8-43156eebec49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a1891c-0c8c-7e83-8ab8-43156eebec49\\exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e.png",
+            "rawCopy": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\passobrina-guide-v1-east-raw.png",
+            "promptFile": "exact-prompts.md",
+            "sha256": "f45d7b5fd27ed0f3dd947555aa5d77d31efe6cd666da0307f1aa965d72797c97",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alphaRange": [
+              0,
+              254
+            ],
+            "alphaBoundsAny": [
+              0,
+              40,
+              1010,
+              1480
+            ],
+            "alphaBoundsAbove1": "329,41,721,1464",
+            "reviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\east-review.png",
+            "reviewMetadata": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\east-review.json"
+          }
+        ],
+        "discarded": [
+          {
+            "direction": "north",
+            "outputId": "exec-60787648-47cf-418b-a68a-ba44c106ff0b.png",
+            "generatorOutputId": "01a1891c-0c8c-7e83-8ab8-43156eebec49",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a1891c-0c8c-7e83-8ab8-43156eebec49\\exec-60787648-47cf-418b-a68a-ba44c106ff0b.png",
+            "rawCopy": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\passobrina-guide-v1-north-discard-01-raw.png",
+            "sha256": "661f65f034394849d01cf8c8b10f24d7a6e09aa1d605deca0a199aaa4372ae5a",
+            "dimensions": [
+              1222,
+              1287
+            ],
+            "alphaRange": [
+              0,
+              255
+            ],
+            "alphaBoundsAny": [
+              0,
+              15,
+              1208,
+              1253
+            ],
+            "alphaBoundsAbove1": "344,56,869,1207",
+            "reviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\north-discard-01-review.png",
+            "reason": "Duplicate NORTH output retained after the first successful generation call returned no surfaced save path in the wrapper. This alternate is visibly less detailed/consistent in the scarf and overall rendering than the selected NORTH output; superseded, not deleted."
+          }
+        ],
+        "privateProvenance": {
+          "storage": "All raw candidate copies, preview boards, exact prompts, and QA metadata are under .tmp/passobrina-guide-idles-candidates.",
+          "runtimeChanged": false,
+          "contentChanged": false,
+          "testsChanged": false,
+          "gitChanged": false,
+          "review": "Opaque board composites use #dce8eb. Alpha bounds above 1 separate meaningful alpha support from faint edge-alpha noise; do not infer backdrop pixels from hidden RGB alone."
+        },
+        "combinedReviewBoard": "C:\\Projects\\Veloria\\.tmp\\passobrina-guide-idles-candidates\\all-directions-review.png"
+      },
+      "biancavetta": {
+        "scope": "Root record for the user-authorized redesign of all Veloria maps and characters, including parallel Luna art tasks. Private candidates only.",
+        "profileId": "biancavetta-guide",
+        "generator": "built-in imagegen",
+        "source": "assets/sources/veloria-guides-and-keepers-v1.png",
+        "reference": {
+          "path": ".tmp/biancavetta-guide-idles-candidates/source-frame0-top-left-reference.png",
+          "role": "Derived identity reference only, crop x0 y0 width627 height627; original source unchanged"
+        },
+        "views": [
+          {
+            "direction": "north",
+            "promptExact": "Generate one independent, polished modern illustrated 2D RPG idle sprite of the exact person shown in the reference, facing NORTH (away from camera, back view). Use the reference only for this one identity and preserve its established design: short voluminous silver curly hair; navy blue local guide coat with the same white geometric cuff motif and hem details; ivory high-neck outfit and trousers; long white scarf with blue floral pattern; brown belts and boots; preserve the gold shoulder strap / small accessory and all visible asymmetries in physically consistent positions. The original front view shows the patterned scarf crossing from the viewer-left shoulder toward the viewer-right hip and hanging on the viewer-right; retain that arrangement when viewed from behind as a coherent garment. Full body from hair to boot soles, upright relaxed neutral idle stance, centered, readable silhouette, clean refined game character art, consistent colors and materials. This is a rear-facing north orientation, not a front portrait, not a three-quarter turn. Transparent background with genuine alpha; no ground shadow, no props, no text, no border, no sprite sheet, no extra characters. Do not infer or add canonical age, gender, rank insignia, or new lore.",
+            "outputId": "exec-dd645fc4-916d-4a0f-beb1-43fb72a06f92",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-dd645fc4-916d-4a0f-beb1-43fb72a06f92.png",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-north-v1.png",
+            "transparent_background": true,
+            "selection": "rejected: long scarf end switches anatomical side"
+          },
+          {
+            "direction": "south",
+            "promptExact": "Create one independent modern illustrated 2D RPG idle sprite, using the reference solely as the exact identity/design reference, now facing SOUTH directly toward the viewer (front view). Preserve the person's silver curly hair, face styling and expression without imposing an age or gender label; navy guide coat, white geometric cuffs, ivory high-neck shirt and trousers, white scarf with blue floral pattern, brown belt and boots, and the small gold shoulder strap/accessory. Preserve the reference's asymmetry: from the viewer's perspective the strap/gold detail sits on the viewer-right shoulder; scarf crosses from viewer-left shoulder down to viewer-right hip and its longer patterned end hangs on viewer-right; geometric cuff pattern is visible on viewer-left sleeve. Full body from hair to boot soles, relaxed neutral standing idle with hands in a natural resting pose (not holding a new object), centered and unobstructed, crisp polished game-character illustration, clear silhouette. True SOUTH/front view, symmetrical body orientation except for the identity's actual clothing asymmetries; no three-quarter angle. Transparent background with real alpha, no background, no ground shadow, no props, no text, no border, no sheet, no extra figures. Do not add age, gender, rank insignia, or lore.",
+            "outputId": "exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd.png",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-south-v1.png",
+            "transparent_background": true,
+            "selection": "root-approved private candidate"
+          },
+          {
+            "direction": "west",
+            "promptExact": "Create one independent polished modern illustrated 2D RPG full-body idle sprite of the exact person in the reference, shown in a strict WEST-facing profile: the character faces screen-left and the character's anatomical LEFT side is the near side visible to camera. This is a true cardinal side view, not a three-quarter view. Preserve identity details from the reference: silver curly hair; navy blue local guide coat with white geometric cuff and hem ornament; ivory high-neck shirt and trousers; white scarf with blue floral pattern; brown belts and boots; the small golden shoulder-strap/accessory remains on the character's anatomical left shoulder, visible on the near side. Keep scarf drape physically consistent with the reference's diagonal from the character's right shoulder across to the left hip; in this view the left-side hanging end and belt accessories should remain on the correct anatomical side. The coat's geometric cuff motif belongs to the character's right sleeve as shown in the reference front view; do not mirror or swap the garment asymmetries. Full figure head to boot soles, relaxed upright neutral idle stance, centered with clear silhouette, carefully rendered clean game illustration. Transparent background with genuine alpha, no background color, no ground shadow, no props, no text, no border, no sprite sheet, no extra character. Do not infer age or gender; add no new insignia or lore.",
+            "outputId": "exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088.png",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-west-v1.png",
+            "transparent_background": true,
+            "selection": "root-approved private candidate"
+          },
+          {
+            "direction": "east",
+            "promptExact": "Create one independent polished modern illustrated 2D RPG full-body idle sprite of the exact person in the reference, shown in a strict EAST-facing profile: the character faces screen-right and the character's anatomical RIGHT side is the near side visible to camera. This is a true cardinal side view, not a three-quarter view. Preserve identity details from the reference: silver curly hair; navy blue local guide coat with white geometric cuff and hem ornament; ivory high-neck shirt and trousers; white scarf with blue floral pattern; brown belts and boots; the small golden shoulder strap/accessory remains on the character's anatomical LEFT shoulder and is seen on the far side in this orientation. Keep the scarf physically consistent with the reference's diagonal from the character's right shoulder across to the left hip; the patterned end and belt details must remain on their correct anatomical sides. The coat's geometric cuff motif is on the character's right sleeve as shown in the reference front view, thus visible on the near side here; do not mirror or swap asymmetries. Full figure head to boot soles, relaxed upright neutral idle stance, centered with clear silhouette, carefully rendered clean game illustration. Transparent background with genuine alpha, no background color, no ground shadow, no props, no text, no border, no sprite sheet, no extra character. Do not infer age or gender; add no new insignia or lore.",
+            "outputId": "exec-2e0559b8-df29-4626-8481-9f709c0f982e",
+            "generatedPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-2e0559b8-df29-4626-8481-9f709c0f982e.png",
+            "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-east-v1.png",
+            "transparent_background": true,
+            "selection": "root-approved private candidate"
+          }
+        ],
+        "review": "Root viewed original atlas and opaque QA board; South/West/East preserve identity. North requires scarf-tail side correction; no runtime integration yet."
+      }
+    },
+    "biancavettaCorrections": [
+      {
+        "promptExact": "Edit target is image1, the NORTH/rear guide sprite. Image2 SOUTH/front is a supporting wardrobe reference only. Correct ONLY the floral white-and-blue scarf/sash anatomy in the rear view: its long hanging end belongs to the character's ANATOMICAL LEFT hip/thigh. In this NORTH back view, LEFT is viewer-LEFT, therefore move the long floral hanging end to viewer-LEFT, not viewer-right. The upper scarf passes around the anatomical RIGHT shoulder (viewer-right in back view) and may cross toward LEFT hip; alternatively keep its front diagonal mostly occluded by the torso, but never put a long end on RIGHT hip. Keep the separate small gold LEFT shoulder accessory on viewer-LEFT as in image1; don't mirror the whole person or move the thigh strap (LEFT thigh/viewerLEFT). Preserve rear-facing head, silver curls, navy coat/geometric cuffs/hem, ivory clothes, brown belt/boots, complete uncropped full body, palette and art style. Genuinely transparent RGBA, no background, ground, shadows, glow, checkerboard, extra gear, text or scene. Single rear sprite only.",
+        "output_hint": "Generated images are saved to C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-5cac6db1-3bb3-4905-8a97-687b2736edc6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "selection": "rejected: scarf end corrected, but front shoulder gold accessory moved to wrong anatomical side"
+      },
+      {
+        "promptExact": "Edit ONLY the small gold buckle/plate at the TOP viewer-RIGHT shoulder in this rear-view guide sprite. Remove that gold shoulder plate and replace it with the plain white/blue floral scarf fabric underneath. The original gold accessory is on the front of the anatomical LEFT shoulder and is occluded in this rear view, so no gold shoulder plate should be visible on the rear RIGHT shoulder. Preserve the scarf's current diagonal toward viewerLEFT hip and its long end on viewerLEFT. Keep the gold waist ornament, silver curls, navy coat, ivory trousers, LEFTthigh strap, body pose, fullboots and all other artwork unchanged. Preserve genuine transparency outside the person; no background, floor, shadow, glow, text or additional accessories. Single full-body NORTH/rear sprite.",
+        "outputId": "exec-fbe46709-b8cf-4314-baba-880686208fb5",
+        "generatedPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-fbe46709-b8cf-4314-baba-880686208fb5.png",
+        "candidatePath": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-north-v3.png",
+        "referenceRoles": [
+          {
+            "path": ".tmp/biancavetta-guide-idles-candidates/biancavetta-guide-north-v2.png",
+            "role": "edit target, scarf already moved to anatomical LEFT"
+          }
+        ],
+        "transparent_background": true,
+        "selection": "root-approved private candidate",
+        "review": "Opaque composite root-final-qa.png reviewed against source front/side views: LEFT long scarf end, front shoulder accessory occluded in rear; no visible backdrop."
+      }
+    ],
+    "passobrinaExactPromptDocument": "# Passobrina alpine guide directional idle candidates — exact prompts\n\nAll four directions used built-in image generation with `transparent_background: true` and the source reference crop at `source-frame-1-topright-preview.png`.\n\n## NORTH\n\nUse case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a NORTH-facing (back to viewer) full-body idle-view of the exact Passobrina alpine guide from the input reference. This must read as the same character and clothing, simply turned to show the back.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, in the red mountain jacket with the source's white sleeve motifs and matching trim, the long ivory scarf with its pale geometric motif and asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and the source-visible brown harness/straps. From behind, preserve only details justified by the source; do not invent a different backpack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact NORTH view: back directly toward viewer, no face visible.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source identity, short dark curls, beard only where rear/side silhouette supports it, red mountain jacket and white sleeve pattern, ivory patterned scarf and its asymmetric tail, dark trousers, red boots, brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.\n\n## WEST\n\nUse case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a WEST-facing full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply turned into a true west direction.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source clothing construction from this side; do not invent pack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact WEST cardinal view: a direct 90-degree side profile facing image-left; nose, chest, knees, and toes point left. The guide's near side appears on the left side of the figure. Show only a clean profile face silhouette, not a front three-quarter pose. Preserve natural anatomical left/right asymmetry; do not mirror or flip the identity.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face profile, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf and asymmetrical tail, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.\n\n## SOUTH\n\nUse case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create a SOUTH-facing (front to viewer) full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply oriented straight toward the viewer.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tails, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source construction and motif placement; do not invent equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact SOUTH cardinal view: direct frontal view, face, chest, knees, and toes toward viewer; both eyes visible naturally. No angled three-quarter pose.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf with its asymmetric hanging tails, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.\n\n## EAST\n\nUse case: stylized-concept\nAsset type: private character identity study for a modern illustrated 2D game, one directional idle sprite\nPrimary request: create an EAST-facing full-body idle-view of the exact Passobrina alpine guide in the input reference. This must read as the same character and clothing, simply turned into a true east direction.\nInput images: Image 1 is the identity reference; use only the single character shown, preserving their established appearance and clothing.\nScene/backdrop: clean truly transparent background; no scenery, floor, shadow, border, panel, or checkerboard.\nSubject: same short dark curly-haired, bearded guide, wearing the red mountain jacket with the source's white sleeve motifs and matching trim, long ivory scarf with pale geometric motif and its asymmetric hanging tail, dark reinforced hiking trousers, red hiking boots, and source-visible brown harness/straps. Preserve source clothing construction from this side; do not invent pack, extra equipment, badges, tools, or costume.\nStyle/medium: polished modern 2D illustrated character art, matching the source's refined painterly linework, shading, proportions, palette, and material treatment. Not pixel art, not 3D.\nComposition/framing: one isolated centered full figure, head-to-toe including complete boot soles, comfortable transparent margin; upright neutral standing idle pose, arms relaxed naturally, readable silhouette. Exact EAST cardinal view: a direct 90-degree side profile facing image-right; nose, chest, knees, and toes point right. The guide's near side appears on the right side of the figure. Show only a clean profile face silhouette, not a front three-quarter pose. Preserve natural anatomical left/right asymmetry; do not mirror or flip the identity.\nLighting/mood: even soft studio-like illustration lighting, consistent with reference.\nConstraints: preserve source face profile, short dark curls, beard, red mountain jacket and white sleeve patterns, ivory patterned scarf and asymmetrical tail, dark trousers, red boots, and brown harness/straps. Keep design faithful; no new identity traits.\nAvoid: any text, watermark, extra characters, extra accessories, cropped limbs, cropped boots, alternate outfit, redesigned motifs, gender/age claims, background pixels.\n",
+    "rootReview": "Original atlas, all opaque boards and corrected variants inspected. Livia RIGHT forward braid and LEFT scarf; Passobrina red outfit/LEFT scarf tail; Biancavetta LEFT long scarf end and front shoulder accessory hidden from rear. No pixel cleanup/flips."
+  },
+  "integratedProfiles": [
+    {
+      "profileId": "r14-guide-livia",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#r14-guide-livia",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r14_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-livia-r14-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-north-v1.webp",
+          "sourceSha256": "118b206a6cbe877bfa2521a0622ce1977c9e1d9171ce816a20c42ab8919ebd51",
+          "runtimeSha256": "c3b7be08a549180934ed094ec3aa1d2b751f54ab382187e18c52583c3f0a4e51",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.519805,
+            "y": 0.958333
+          },
+          "displaySize": 60.702893,
+          "alpha128Bounds": [
+            269,
+            55,
+            747,
+            1472
+          ],
+          "outputId": "exec-a530251e-87b1-40be-af4e-caa2bf5f1401",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-a530251e-87b1-40be-af4e-caa2bf5f1401.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-livia-r14-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-south-v1.webp",
+          "sourceSha256": "cf1b6cbb407e97dfd59271e0efab4397c8b964a4d8d0202944490c92a85be5f6",
+          "runtimeSha256": "9008aa7d0f3ff80c565eed00cc04e04936998a6b94ba9a30d8f1f0c862112872",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.512302,
+            "y": 0.954427
+          },
+          "displaySize": 62.4209,
+          "alpha128Bounds": [
+            276,
+            88,
+            846,
+            1466
+          ],
+          "outputId": "exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-livia-r14-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-west-v1.webp",
+          "sourceSha256": "2b9d6d251259edfaba5735e9e22eff720ac5efa73370d848a3e08c3b5fe079aa",
+          "runtimeSha256": "620ff14940beec5a5416a6d3e491920d58a1f2e3f6e9e7b8e26ef34b1e2d5c9a",
+          "width": 1064,
+          "height": 1478,
+          "origin": {
+            "x": 0.51056,
+            "y": 0.966171
+          },
+          "displaySize": 60.502924,
+          "alpha128Bounds": [
+            349,
+            60,
+            769,
+            1428
+          ],
+          "outputId": "exec-ddf19317-8d95-4820-932b-90565a3141ae",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-ddf19317-8d95-4820-932b-90565a3141ae.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-livia-r14-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-east-v1.webp",
+          "sourceSha256": "327cc3bbb9b0bcf6f9c6d4b5d50016d4635c7106656c4e18d62ccddab858ec12",
+          "runtimeSha256": "6122540e2a99627de0c8996ea15f85ba999ec8635972d01776569db360bdfdee",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.528823,
+            "y": 0.951172
+          },
+          "displaySize": 60.660085,
+          "alpha128Bounds": [
+            250,
+            43,
+            684,
+            1461
+          ],
+          "outputId": "exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "passobrina-alpine-guide",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#passobrina-alpine-guide",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#passobrina_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-passobrina-guide-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-north-v1.webp",
+          "sourceSha256": "7bb57eff791b29e1aae63c1f2ded69b07e5ffe978ca46ea122cee608ac016c2b",
+          "runtimeSha256": "71ef85bf81bf42016c36cc92fe9f35c438cdf2db33df61391e39ba039911ddbb",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.508071,
+            "y": 0.964115
+          },
+          "displaySize": 59.011765,
+          "alpha128Bounds": [
+            347,
+            19,
+            907,
+            1209
+          ],
+          "outputId": "exec-498ba7d1-371f-4af2-964a-95c2b280551a",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-498ba7d1-371f-4af2-964a-95c2b280551a.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-passobrina-guide-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-west-v1.webp",
+          "sourceSha256": "d1102334b4afbaa07ac2a9f06475c063fea0a0f0becec5bc070043ee3592deff",
+          "runtimeSha256": "3207c59283065f617c56641d6438610b755a0debcccd3b8305997ef194a02f0c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.503649,
+            "y": 0.957735
+          },
+          "displaySize": 59.612903,
+          "alpha128Bounds": [
+            457,
+            23,
+            753,
+            1201
+          ],
+          "outputId": "exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-passobrina-guide-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-south-v1.webp",
+          "sourceSha256": "27784558c0dd8f80ad0261eac47e51dd91a008f07d86c0ee74bd8570deb7f868",
+          "runtimeSha256": "239240fcdd7c15100d36d51ccb11541968902393b9f2f0a81b7b1e6a6461ccd2",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.502604,
+            "y": 0.940104
+          },
+          "displaySize": 61.748744,
+          "alpha128Bounds": [
+            201,
+            51,
+            807,
+            1444
+          ],
+          "outputId": "exec-099eb7cb-5118-44c8-b39c-591cc0da67b1",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-099eb7cb-5118-44c8-b39c-591cc0da67b1.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-passobrina-guide-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-east-v1.webp",
+          "sourceSha256": "f45d7b5fd27ed0f3dd947555aa5d77d31efe6cd666da0307f1aa965d72797c97",
+          "runtimeSha256": "dcfc2712765a8bd9d56a73827bf3439b4584447ea3d1cb0a6520e6c65b8791b3",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.495945,
+            "y": 0.951172
+          },
+          "displaySize": 60.702893,
+          "alpha128Bounds": [
+            332,
+            44,
+            718,
+            1461
+          ],
+          "outputId": "exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "biancavetta-guide",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#biancavetta-guide",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#biancavetta_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-biancavetta-guide-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-south-v1.webp",
+          "sourceSha256": "f57a475bbbf0f3b156fbe70266099e01049304ade74062fec8ce526f375dd0de",
+          "runtimeSha256": "6b667357da2ff698a55c6768e37a1752771d89df8680078c477ea3830c789826",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.494545,
+            "y": 0.957031
+          },
+          "displaySize": 60.235294,
+          "alpha128Bounds": [
+            242,
+            42,
+            758,
+            1470
+          ],
+          "outputId": "exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-biancavetta-guide-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-west-v1.webp",
+          "sourceSha256": "f02a490248122d81d6e920fb59ba5aa5335c2f66c8f430673e11bc105448c85e",
+          "runtimeSha256": "b572fab5bea6be1678716ca736ae8ddb43a39b0b5accfc6ef73eed4415b47b8c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.48551,
+            "y": 0.96224
+          },
+          "displaySize": 60.917847,
+          "alpha128Bounds": [
+            353,
+            66,
+            664,
+            1478
+          ],
+          "outputId": "exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-biancavetta-guide-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-east-v1.webp",
+          "sourceSha256": "6d0eb1abe3dd5acc5b09703e4fcb1fc4704094146bc96ce95c400cf5cd723837",
+          "runtimeSha256": "428b33f225bec3365c10d9cca1620049a5dcf19353cc7b433b191571cb469528",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.515715,
+            "y": 0.959635
+          },
+          "displaySize": 60.574648,
+          "alpha128Bounds": [
+            368,
+            54,
+            718,
+            1474
+          ],
+          "outputId": "exec-2e0559b8-df29-4626-8481-9f709c0f982e",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-2e0559b8-df29-4626-8481-9f709c0f982e.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-biancavetta-guide-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-north-v1.webp",
+          "sourceSha256": "82e867c0612256febf95389160d17a0fe8827a06d8be340699d04d052f40b7ab",
+          "runtimeSha256": "b3e9617fcb988a99ef043199e741c230f283bde8a088a03cbafef04651339ce5",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.51639,
+            "y": 0.952951
+          },
+          "displaySize": 61.816901,
+          "alpha128Bounds": [
+            412,
+            59,
+            851,
+            1195
+          ],
+          "outputId": "exec-fbe46709-b8cf-4314-baba-880686208fb5",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-fbe46709-b8cf-4314-baba-880686208fb5.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    }
+  ],
+  "retirementAudit": {
+    "atlasKey": "veloria-guides-and-keepers-v1",
+    "remainingTiledObjectUses": [],
+    "removedFromMapRenderAssets": [
+      "content/maps/biancavetta.map.json",
+      "content/maps/passobrina.map.json",
+      "content/maps/r14_varco_cristallo.map.json",
+      "content/maps/radicelmo.map.json"
+    ],
+    "globalCatalogSourceRuntimeAndPrecache": "preserved"
+  }
+}

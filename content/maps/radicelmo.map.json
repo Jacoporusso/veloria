@@ -69,15 +69,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-guides-and-keepers-v1",
-      "path": "assets/sprites/veloria-guides-and-keepers-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-leda-idle-south-v1",
       "path": "assets/sprites/veloria-leda-idle-south-v1.webp"
     },

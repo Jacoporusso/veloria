@@ -9,6 +9,9 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  {"flags": [], "speaker": "Guida Livia", "x": 29, "y": 11, "tiled": "r14_varco_cristallo", "map": "r14_varco_cristallo", "id": "r14_guide", "name": "Guida Livia", "profile": "r14-guide-livia", "spawn": "from_biancavetta"},
+  {"flags": [], "spawn": "from_r13", "y": 15, "profile": "biancavetta-guide", "tiled": "biancavetta", "map": "biancavetta", "name": "Guida di Biancavetta", "speaker": "Guida di Biancavetta", "southBlocked": true, "id": "biancavetta_guide", "x": 32},
+  {"flags": [], "spawn": "from_r12", "y": 13, "profile": "passobrina-alpine-guide", "westBlocked": true, "tiled": "passobrina", "map": "passobrina", "name": "Guida alpina di Passobrina", "speaker": "Guida alpina", "id": "passobrina_guide", "x": 28},
   { name: 'Tecnica della Centrale', speaker: 'Tecnica della Centrale', profile: 'centrale-technician', map: 'd03_centrale_risonante', spawn: 'from_r07', x: 12, y: 17, flags: ['q_r07_measurement'], tiled: 'd03_centrale_risonante', id: 'centrale_technician' },
   {"name": "Teo", "speaker": "Teo", "profile": "delta-naturalist-teo", "map": "d04_delta_specchi", "spawn": "from_r09", "x": 24, "y": 6, "flags": ["trainer_delta_teo_defeated"], "tiled": "d04_delta_specchi", "id": "delta_teo", "northBlocked": true},
   {"name": "Celia", "speaker": "Celia", "profile": "route-trainer-celia-r11", "map": "r11_via_cascate", "spawn": "from_acquariva", "x": 15, "y": 17, "flags": ["trainer_r11_celia_defeated"], "tiled": "r11_via_cascate", "id": "r11_celia", "eastBlocked": true},
@@ -91,6 +94,7 @@ for (const npc of [
           legacyServices: world.textures.exists('veloria-ferraluce-service-npcs-v1'),
           legacyCoastal: world.textures.exists('veloria-r09-r10-coastal-trainers-v1'),
           legacyTechnician: world.textures.exists('veloria-centrale-technician-v1'),
+          legacyGuides: world.textures.exists('veloria-guides-and-keepers-v1'),
           webgl: Boolean(world.game.renderer.gl), minFilter: sprite.texture.source[0].glTexture?.minFilter,
           frameRatio: sprite.frame.width / sprite.frame.height,
           powerOfTwo: (image.width & (image.width - 1)) === 0 && (image.height & (image.height - 1)) === 0,
@@ -109,6 +113,7 @@ for (const npc of [
       if (npc.map === 'ferraluce') expect(state.legacyServices).toBe(false);
       if (/^r(09|10)_/.test(npc.map)) expect(state.legacyCoastal).toBe(false);
       if (npc.profile === 'centrale-technician') expect(state.legacyTechnician).toBe(false);
+      if (['biancavetta', 'passobrina', 'r14_varco_cristallo'].includes(npc.map)) expect(state.legacyGuides).toBe(false);
       expect(state.frameRatio).toBeCloseTo(manifestView.width / manifestView.height, 8);
       if (state.webgl) {
         expect(state.powerOfTwo).toBe(true);

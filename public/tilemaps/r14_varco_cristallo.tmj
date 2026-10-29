@@ -4314,12 +4314,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-guides-and-keepers-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-livia-r14-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -4329,12 +4324,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.561
+              "value": 0.512302
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.92
+              "value": 0.954427
             }
           ]
         }

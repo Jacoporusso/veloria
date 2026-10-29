@@ -179,6 +179,9 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  {"flags": [], "speaker": "Guida Livia", "x": 29, "y": 11, "map": "r14_varco_cristallo", "name": "Guida Livia", "profile": "r14-guide-livia", "spawn": "from_biancavetta", "start": {"x": 29, "y": 12}, "coldStart": false},
+  {"flags": [], "spawn": "from_r13", "y": 15, "profile": "biancavetta-guide", "map": "biancavetta", "name": "Guida di Biancavetta", "speaker": "Guida di Biancavetta", "x": 32, "start": {"x": 31, "y": 15}, "coldStart": false, "blockedApproach": {"x": 32, "y": 16}, "approaches": [{"x": 31, "y": 15, "label": "Vai a destra", "pose": "left"}, {"x": 32, "y": 14, "label": "Vai in basso", "pose": "up"}, {"x": 33, "y": 15, "label": "Vai a sinistra", "pose": "right"}]},
+  {"flags": [], "spawn": "from_r12", "y": 13, "profile": "passobrina-alpine-guide", "map": "passobrina", "name": "Guida alpina di Passobrina", "speaker": "Guida alpina", "x": 28, "start": {"x": 28, "y": 14}, "coldStart": false, "blockedApproach": {"x": 27, "y": 13}, "approaches": [{"x": 28, "y": 14, "label": "Vai in alto", "pose": "down"}, {"x": 28, "y": 12, "label": "Vai in basso", "pose": "up"}, {"x": 29, "y": 13, "label": "Vai a sinistra", "pose": "right"}]},
   { name: 'Tecnica della Centrale', speaker: 'Tecnica della Centrale', profile: 'centrale-technician', map: 'd03_centrale_risonante', spawn: 'from_r07', x: 12, y: 17, flags: ['q_r07_measurement'], start: { x: 12, y: 18 }, coldStart: false },
   {"name": "Teo", "speaker": "Teo", "profile": "delta-naturalist-teo", "map": "d04_delta_specchi", "spawn": "from_r09", "x": 24, "y": 6, "flags": ["trainer_delta_teo_defeated"], "start": {"x": 24, "y": 7}, "coldStart": false, "blockedApproach": {"x": 24, "y": 5}, "approaches": [{"x": 24, "y": 7, "label": "Vai in alto", "pose": "down"}, {"x": 23, "y": 6, "label": "Vai a destra", "pose": "left"}, {"x": 25, "y": 6, "label": "Vai a sinistra", "pose": "right"}]},
   {"name": "Celia", "speaker": "Celia", "profile": "route-trainer-celia-r11", "map": "r11_via_cascate", "spawn": "from_acquariva", "x": 15, "y": 17, "flags": ["trainer_r11_celia_defeated"], "start": {"x": 15, "y": 18}, "coldStart": false, "blockedApproach": {"x": 16, "y": 17}, "approaches": [{"x": 15, "y": 18, "label": "Vai in alto", "pose": "down"}, {"x": 14, "y": 17, "label": "Vai a destra", "pose": "left"}, {"x": 15, "y": 16, "label": "Vai in basso", "pose": "up"}]},
@@ -398,6 +401,9 @@ for (const npc of [
   }
   if (npc.profile === 'centrale-technician') {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-centrale-technician-v1.webp')))).toBe(false);
+  }
+  if (['biancavetta', 'passobrina', 'r14_varco_cristallo'].includes(npc.map)) {
+    expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-guides-and-keepers-v1.webp')))).toBe(false);
   }
   if (npc.map === 'gym07_biancavetta' || npc.map === 'gym08_concordia') {
     expect(await page.evaluate(() => performance.getEntriesByType('resource').some(entry => entry.name.includes('veloria-gym-leaders-b-v1.webp')))).toBe(false);

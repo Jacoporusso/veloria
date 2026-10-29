@@ -1,3 +1,9 @@
+## 0.4.42 — Tre guide e texture irregolari
+
+Livia, Biancavetta e Passobrina integrate: 39 identità su 48, nove da migrare. Dodici PNG immutati e WebP RGBA-identici, hash/calibrazioni verificati; geometria delle tre mappe e gli altri 45 profili preservati. Vecchio atlante ritirato dai soli renderAssets di quattro mappe dopo audit a zero usi Tiled. La posa ovest irregolare di Livia ha evidenziato un fallback a texture piena; corretto mantenendo un frame frazionario proporzionato entro512 e superficie Canvas arrotondata verso l'alto, WebGL POT/mipmap conservati. Prove in `119_GUIDES_TRIO_DIRECTIONAL_IDLE_v0.1.md`.
+
+Sei casi Chrome distinti e tre produzione offline passati. 839 dominio/persistenza, 154 Python, validatore1010 risorse/48 fondali/48 mappe passati. TypeScript/build passati con avviso chunk. Discovery434 browser e79 offline assegnati una volta: un viaggio e78 risorse in shard20+20+19+19. CI completa e Pages del lotto ancora da attestare; obiettivo complessivo aperto.
+
 ## 0.4.41 — Tecnica della Centrale
 
 Commit `b7b0c41f5146db39add4be03b2a307ce5e47834c`: [Deploy 40936155501](https://github.com/Jacoporusso/veloria/actions/runs/40936155501) COMPLETED/SUCCESS. Pages verificata cache v205 e nuova immagine direzionale nel TMJ pubblico della Centrale. [Verify 40936155157](https://github.com/Jacoporusso/veloria/actions/runs/40936155157) COMPLETED/FAILURE con 31 job riusciti su 32: il solo Browser chapters shard 2 esaurisce i 180 secondi del caso Acquariva all'ultimo ingresso in palestra. Correzione e prove locali in `118_COASTAL_SERVICE_TEST_ORIENTATIONS_v0.1.md`: quattro casi indipendenti, timeout invariati, tutti passati. Nuova CI completa ancora da attestare.

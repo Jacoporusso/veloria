@@ -4615,6 +4615,348 @@
         }
       ],
       "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "r14-guide-livia",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#r14-guide-livia",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r14_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-livia-r14-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-north-v1.webp",
+          "sourceSha256": "118b206a6cbe877bfa2521a0622ce1977c9e1d9171ce816a20c42ab8919ebd51",
+          "runtimeSha256": "c3b7be08a549180934ed094ec3aa1d2b751f54ab382187e18c52583c3f0a4e51",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.519805,
+            "y": 0.958333
+          },
+          "displaySize": 60.702893,
+          "alpha128Bounds": [
+            269,
+            55,
+            747,
+            1472
+          ],
+          "outputId": "exec-a530251e-87b1-40be-af4e-caa2bf5f1401",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-a530251e-87b1-40be-af4e-caa2bf5f1401.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-livia-r14-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-south-v1.webp",
+          "sourceSha256": "cf1b6cbb407e97dfd59271e0efab4397c8b964a4d8d0202944490c92a85be5f6",
+          "runtimeSha256": "9008aa7d0f3ff80c565eed00cc04e04936998a6b94ba9a30d8f1f0c862112872",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.512302,
+            "y": 0.954427
+          },
+          "displaySize": 62.4209,
+          "alpha128Bounds": [
+            276,
+            88,
+            846,
+            1466
+          ],
+          "outputId": "exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-88c8085c-8f5d-4711-b89f-208df3ef3ea7.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-livia-r14-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-west-v1.webp",
+          "sourceSha256": "2b9d6d251259edfaba5735e9e22eff720ac5efa73370d848a3e08c3b5fe079aa",
+          "runtimeSha256": "620ff14940beec5a5416a6d3e491920d58a1f2e3f6e9e7b8e26ef34b1e2d5c9a",
+          "width": 1064,
+          "height": 1478,
+          "origin": {
+            "x": 0.51056,
+            "y": 0.966171
+          },
+          "displaySize": 60.502924,
+          "alpha128Bounds": [
+            349,
+            60,
+            769,
+            1428
+          ],
+          "outputId": "exec-ddf19317-8d95-4820-932b-90565a3141ae",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-ddf19317-8d95-4820-932b-90565a3141ae.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-livia-r14-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-livia-r14-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-livia-r14-idle-east-v1.webp",
+          "sourceSha256": "327cc3bbb9b0bcf6f9c6d4b5d50016d4635c7106656c4e18d62ccddab858ec12",
+          "runtimeSha256": "6122540e2a99627de0c8996ea15f85ba999ec8635972d01776569db360bdfdee",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.528823,
+            "y": 0.951172
+          },
+          "displaySize": 60.660085,
+          "alpha128Bounds": [
+            250,
+            43,
+            684,
+            1461
+          ],
+          "outputId": "exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a188fe-1647-7b01-8c13-19da3990b6f6/exec-83ac779f-a9e9-484d-84cb-dc43ba8faa8f.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "passobrina-alpine-guide",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#passobrina-alpine-guide",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#passobrina_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-passobrina-guide-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-north-v1.webp",
+          "sourceSha256": "7bb57eff791b29e1aae63c1f2ded69b07e5ffe978ca46ea122cee608ac016c2b",
+          "runtimeSha256": "71ef85bf81bf42016c36cc92fe9f35c438cdf2db33df61391e39ba039911ddbb",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.508071,
+            "y": 0.964115
+          },
+          "displaySize": 59.011765,
+          "alpha128Bounds": [
+            347,
+            19,
+            907,
+            1209
+          ],
+          "outputId": "exec-498ba7d1-371f-4af2-964a-95c2b280551a",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-498ba7d1-371f-4af2-964a-95c2b280551a.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-passobrina-guide-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-west-v1.webp",
+          "sourceSha256": "d1102334b4afbaa07ac2a9f06475c063fea0a0f0becec5bc070043ee3592deff",
+          "runtimeSha256": "3207c59283065f617c56641d6438610b755a0debcccd3b8305997ef194a02f0c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.503649,
+            "y": 0.957735
+          },
+          "displaySize": 59.612903,
+          "alpha128Bounds": [
+            457,
+            23,
+            753,
+            1201
+          ],
+          "outputId": "exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-783034f8-8e92-4ccb-a6c9-f4ac6bcca43b.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-passobrina-guide-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-south-v1.webp",
+          "sourceSha256": "27784558c0dd8f80ad0261eac47e51dd91a008f07d86c0ee74bd8570deb7f868",
+          "runtimeSha256": "239240fcdd7c15100d36d51ccb11541968902393b9f2f0a81b7b1e6a6461ccd2",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.502604,
+            "y": 0.940104
+          },
+          "displaySize": 61.748744,
+          "alpha128Bounds": [
+            201,
+            51,
+            807,
+            1444
+          ],
+          "outputId": "exec-099eb7cb-5118-44c8-b39c-591cc0da67b1",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-099eb7cb-5118-44c8-b39c-591cc0da67b1.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-passobrina-guide-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-passobrina-guide-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-passobrina-guide-idle-east-v1.webp",
+          "sourceSha256": "f45d7b5fd27ed0f3dd947555aa5d77d31efe6cd666da0307f1aa965d72797c97",
+          "runtimeSha256": "dcfc2712765a8bd9d56a73827bf3439b4584447ea3d1cb0a6520e6c65b8791b3",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.495945,
+            "y": 0.951172
+          },
+          "displaySize": 60.702893,
+          "alpha128Bounds": [
+            332,
+            44,
+            718,
+            1461
+          ],
+          "outputId": "exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a1891c-0c8c-7e83-8ab8-43156eebec49/exec-1647b452-a26c-49bc-bd51-8e28a2d4b64e.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "biancavetta-guide",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/guides-trio-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-guides-and-keepers-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#biancavetta-guide",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#biancavetta_guide",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "down",
+          "assetKey": "veloria-biancavetta-guide-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-south-v1.webp",
+          "sourceSha256": "f57a475bbbf0f3b156fbe70266099e01049304ade74062fec8ce526f375dd0de",
+          "runtimeSha256": "6b667357da2ff698a55c6768e37a1752771d89df8680078c477ea3830c789826",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.494545,
+            "y": 0.957031
+          },
+          "displaySize": 60.235294,
+          "alpha128Bounds": [
+            242,
+            42,
+            758,
+            1470
+          ],
+          "outputId": "exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-5d41d3fb-85a0-4c76-9bf7-8aa53c1f10fd.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-biancavetta-guide-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-west-v1.webp",
+          "sourceSha256": "f02a490248122d81d6e920fb59ba5aa5335c2f66c8f430673e11bc105448c85e",
+          "runtimeSha256": "b572fab5bea6be1678716ca736ae8ddb43a39b0b5accfc6ef73eed4415b47b8c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.48551,
+            "y": 0.96224
+          },
+          "displaySize": 60.917847,
+          "alpha128Bounds": [
+            353,
+            66,
+            664,
+            1478
+          ],
+          "outputId": "exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-a0c8fc2b-4978-48ec-9b7d-4e84a1524088.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-biancavetta-guide-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-east-v1.webp",
+          "sourceSha256": "6d0eb1abe3dd5acc5b09703e4fcb1fc4704094146bc96ce95c400cf5cd723837",
+          "runtimeSha256": "428b33f225bec3365c10d9cca1620049a5dcf19353cc7b433b191571cb469528",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.515715,
+            "y": 0.959635
+          },
+          "displaySize": 60.574648,
+          "alpha128Bounds": [
+            368,
+            54,
+            718,
+            1474
+          ],
+          "outputId": "exec-2e0559b8-df29-4626-8481-9f709c0f982e",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a18913-29f6-7b20-80cf-2f756ced8f5f/exec-2e0559b8-df29-4626-8481-9f709c0f982e.png"
+        },
+        {
+          "direction": "up",
+          "assetKey": "veloria-biancavetta-guide-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-biancavetta-guide-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-biancavetta-guide-idle-north-v1.webp",
+          "sourceSha256": "82e867c0612256febf95389160d17a0fe8827a06d8be340699d04d052f40b7ab",
+          "runtimeSha256": "b3e9617fcb988a99ef043199e741c230f283bde8a088a03cbafef04651339ce5",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.51639,
+            "y": 0.952951
+          },
+          "displaySize": 61.816901,
+          "alpha128Bounds": [
+            412,
+            59,
+            851,
+            1195
+          ],
+          "outputId": "exec-fbe46709-b8cf-4314-baba-880686208fb5",
+          "generatorOutputPath": "C:/Users/jacop/.codex/generated_images/01a14650-01c1-7fe2-b816-3d267a07fc92/exec-fbe46709-b8cf-4314-baba-880686208fb5.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
     }
   ]
 }

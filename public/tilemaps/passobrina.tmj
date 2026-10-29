@@ -2672,12 +2672,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-guides-and-keepers-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-passobrina-guide-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -2687,12 +2682,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.467
+              "value": 0.502604
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.944
+              "value": 0.940104
             }
           ]
         }

@@ -106,3 +106,7 @@ Teo, Celia, Ruben e Alma portano le idle a 35 identità su 48, con 13 da migrare
 ## Avanzamento 0.4.41
 
 La tecnica della Centrale porta le idle a 36 identità su 48, con 12 da migrare. Quattro pose indipendenti, caso Chrome e caso produzione offline passati; geometria e proprietà di gioco preservate. Vecchia immagine singola ritirata soltanto dai renderAssets della Centrale dopo audit a zero usi Tiled. Dettagli in [documento117](117_CENTRALE_TECHNICIAN_DIRECTIONAL_IDLE_v0.1.md). Il totale walk verificato resta un profilo; gli altri 47 e i restanti gate complessivi restano aperti.
+
+## Avanzamento 0.4.42
+
+Livia e le guide di Biancavetta e Passobrina portano le idle a 39 identità su 48, con nove ancora da migrare. Dodici pose indipendenti, sei casi Chrome distinti (tre delle guide, Canvas irregolare e due globali) e tre produzione offline passati. Il renderer mantiene il cap anche per rapporti non rappresentabili con un piccolo frame intero, preservando i sorgenti e le proporzioni. Atlante guide/custodi ritirato dai soli renderAssets dopo audit globale a zero usi. Prove e limiti in [documento119](119_GUIDES_TRIO_DIRECTIONAL_IDLE_v0.1.md). Walk, budget complessivo, QA fisica, mappe e campagna naturale restano aperti.
