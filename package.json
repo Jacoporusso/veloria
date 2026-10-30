@@ -12,7 +12,8 @@
     "test:persistence": "node --experimental-strip-types --test tests/persistence/*.test.ts",
     "test:e2e": "playwright test",
     "test:e2e:offline": "playwright test --config=playwright.offline.config.ts tests/e2e/offline.spec.ts tests/e2e/gen1-offline.spec.ts",
-    "test": "npm run test:battle && npm run test:persistence"
+    "test:art-budget": "node --experimental-strip-types --test tests/tools/art-budget.test.mjs",
+    "test": "npm run test:battle && npm run test:persistence && npm run test:art-budget"
   },
   "dependencies": {
     "phaser": "^3.90.0"

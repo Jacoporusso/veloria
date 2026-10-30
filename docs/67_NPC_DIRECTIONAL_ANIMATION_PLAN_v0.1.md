@@ -114,3 +114,7 @@ Livia e le guide di Biancavetta e Passobrina portano le idle a 39 identità su 4
 ## Avanzamento 0.4.43
 
 Nerea del Consiglio, Silvo, Brando e Luce portano le idle a43 identità su48. Cinque restanti: Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia. Sedici pose, quattro casi Chrome mirati e quattro produzione offline passati; ancoraggi, anatomia, menu reale delle sfide e geometria delle sale verificati. Atlante comune ritirato dai soli renderAssets dopo audit a zero usi Tiled. Prove, correzioni delle candidate e limiti in [documento120](120_COUNCIL_DIRECTIONAL_IDLE_v0.1.md). Gli altri47 walk, budget, QA fisica, mappe e campagna naturale restano aperti.
+
+## Prima misura del budget — 30 ottobre
+
+Rapporto riproducibile su43 profili/172 pose:160.119.340 byte di WebP idle e327.332.082 byte del sottoinsieme sorgente del precache statico, esclusi dipendenze e file della build. Modello delle superfici per mappa basato sulla funzione runtime reale, distinto dalla memoria misurata su dispositivo. Cinque test inclusi in npm test. Misure e limiti in [documento122](122_ART_RESOURCE_BUDGET_v0.1.md); il gate resta aperto e richiede misure della cache completa, dei picchi e del telefono fisico.
