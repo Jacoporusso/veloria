@@ -1,3 +1,11 @@
+## 0.4.47 — Ricerche ambientali dei Pokémon rari
+
+Commit `642c0b2` pubblicato su main. [Deploy41056806420](https://github.com/Jacoporusso/veloria/actions/runs/41056806420): build COMPLETED/SUCCESS (npm test, validatore e build Pages), deploy QUEUED all'ultima osservazione. [Verify41056806798](https://github.com/Jacoporusso/veloria/actions/runs/41056806798) QUEUED. La disponibilità pubblica di cachev211 non è ancora attestata: non confondere il push con la pubblicazione completata.
+
+Cinque indagini per Articuno/Zapdos/Moltres/Mewtwo/Mew: dodici indizi senza ordine obbligato, cinque prove ambientali, macrozone prima della scoperta, rifugi e collisioni solo dopo la soluzione. Archivi per catture già registrate, ricompense una tantum e conservazione della squadra. Sei nuovi casi Chrome passati e dieci regressioni browser passate, una ricerca completa Articuno offline con due reload passata, 831 dominio +31 persistenza +5 budget passati;154 Python, validatore1098 media/48 mappe/67 missioni, TypeScript/build passati. Copertura457 browser e90 offline una volta. Prove, dati e limiti nel documento128; revisione probabilità di cattura e coppe ancora aperte.
+
+Osservazione sul rilascio precedente0.4.46: Deploy41051063886 COMPLETED/SUCCESS, cachev210 pubblica verificata direttamente. Verify41051063958 COMPLETED/FAILURE,32/33job riusciti: chapters9 ha completato29 casi passati prima del timeout di step24minuti, senza asserzioni fallite registrate. Il limite dello step browser ora è36minuti entro il job50, mantenendo un solo worker.
+
 ## 0.4.46 — Allenamenti ripetibili
 
 Commit `3886ce4cfc5450a65aed3a0f68fb61ecb520e7e0` pubblicato su main. [Deploy41051063886](https://github.com/Jacoporusso/veloria/actions/runs/41051063886) ha completato build/test/validatore e attende la fase deploy (run osservata QUEUED); [Verify41051063958](https://github.com/Jacoporusso/veloria/actions/runs/41051063958) QUEUED. Il sito pubblico non serve ancora cachev210 e training-button all'ultima verifica: disponibilità pubblica non attestata.
