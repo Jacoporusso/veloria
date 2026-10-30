@@ -1,5 +1,7 @@
 ## 0.4.43 — Consiglio
 
+Commit `b8f941121255dc10738f553a63dacb87a8877560` pubblicato su main: [Deploy41015542131](https://github.com/Jacoporusso/veloria/actions/runs/41015542131) osservato IN_PROGRESS, [Verify41015542092](https://github.com/Jacoporusso/veloria/actions/runs/41015542092) QUEUED. La disponibilità pubblica della cachev207 non è ancora attestata.
+
 Quattro identità integrate, totale43/48. Sedici pose con provenienza, hash e RGBA verificati, quattro mappe e altri44 profili preservati; atlante comune ritirato dai soli renderAssets dopo audit a zero usi Tiled. Sei casi Chrome distinti (quattro mirati e due globali sulle51 presenze nei due orientamenti) e quattro produzione offline passati. 839 dominio/persistenza,154 Python, validatore1042 risorse/48 fondali/48 mappe passati; TypeScript e build offline passati. Copertura438 browser e83 offline assegnati una volta. Dettagli in `120_COUNCIL_DIRECTIONAL_IDLE_v0.1.md`. Rilascio del nuovo lotto da attestare; obiettivo complessivo aperto.
 
 ## 0.4.42 — Tre guide e texture irregolari
