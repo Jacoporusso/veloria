@@ -1,8 +1,8 @@
 # Piano per direzioni e animazioni NPC
 
-## Stato corrente — 30 ottobre, contenuto0.4.44
+## Stato corrente — 30 ottobre, contenuto0.4.45
 
-Le48 identità hanno ora quattro viste idle indipendenti:192 pose per51 presenze. Le ultime cinque sono Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia. Manifest, fonti e calibrazioni sono verificati; cinque casi Chrome mirati, cinque offline,840 dominio/persistenza e cinque budget passati. Prove e limiti in [documento123](123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md). Il solo prototipo walk di Ada resta verificato: gli altri47, la revisione delle mappe, budget/QA fisica e campagna naturale completa restano aperti. Le sezioni sottostanti sono fotografie storiche e non conteggi correnti.
+Le48 identità hanno quattro viste idle indipendenti:192 pose per51 presenze, prove nel [documento123](123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md). Il contenuto0.4.45 aggiunge il ciclo di Elia al prototipo Ada: due profili verificati e46 restanti. Nove casi Chrome e primo caricamento offline Elia passati, dettagli nel [documento125](125_ELIA_WALK_CYCLE_v0.1.md). Restano mappe, budget/QA fisica e campagna naturale completa. Il feedback utente su fine Lega/Pokédex aggiunge come priorità economia ripetibile, coppe e ricerca dei leggendari nel [documento126](126_POSTGAME_ECONOMY_AND_LEGENDARY_RESEARCH_v0.1.md). Le sezioni sottostanti sono fotografie storiche.
 
 ## Aggiornamento del 28 ottobre
 

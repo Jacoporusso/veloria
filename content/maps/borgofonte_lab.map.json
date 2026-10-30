@@ -46,6 +46,46 @@
       "kind": "image",
       "key": "veloria-elia-idle-north-v1",
       "path": "assets/sprites/veloria-elia-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-south-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-south-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-south-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-south-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-north-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-north-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-north-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-north-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-west-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-west-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-west-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-west-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-east-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-east-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-east-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-east-b-v1.webp"
     }
   ],
   "spawns": [

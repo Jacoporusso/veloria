@@ -1128,6 +1128,46 @@
       "kind": "image",
       "key": "veloria-league-champion-enea-idle-east-v1",
       "path": "assets/sprites/veloria-league-champion-enea-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-south-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-south-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-south-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-south-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-north-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-north-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-north-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-north-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-west-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-west-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-west-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-west-b-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-east-a-v1",
+      "path": "assets/sprites/veloria-elia-walk-east-a-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-elia-walk-east-b-v1",
+      "path": "assets/sprites/veloria-elia-walk-east-b-v1.webp"
     }
   ],
   "profiles": [
@@ -1182,6 +1222,83 @@
             "y": 0.96159
           },
           "displaySize": 58.83
+        }
+      },
+      "walkCycle": {
+        "frameDurationMs": 200,
+        "views": {
+          "up": [
+            {
+              "assetKey": "veloria-elia-walk-north-a-v1",
+              "origin": {
+                "x": 0.507487,
+                "y": 0.972005
+              },
+              "displaySize": 58.118919
+            },
+            {
+              "assetKey": "veloria-elia-walk-north-b-v1",
+              "origin": {
+                "x": 0.511686,
+                "y": 0.979818
+              },
+              "displaySize": 57.767629
+            }
+          ],
+          "down": [
+            {
+              "assetKey": "veloria-elia-walk-south-a-v1",
+              "origin": {
+                "x": 0.509663,
+                "y": 0.970052
+              },
+              "displaySize": 59.117526
+            },
+            {
+              "assetKey": "veloria-elia-walk-south-b-v1",
+              "origin": {
+                "x": 0.518022,
+                "y": 0.973307
+              },
+              "displaySize": 58.834473
+            }
+          ],
+          "left": [
+            {
+              "assetKey": "veloria-elia-walk-west-a-v1",
+              "origin": {
+                "x": 0.410139,
+                "y": 0.95638
+              },
+              "displaySize": 59.983264
+            },
+            {
+              "assetKey": "veloria-elia-walk-west-b-v1",
+              "origin": {
+                "x": 0.410804,
+                "y": 0.942057
+              },
+              "displaySize": 60.961021
+            }
+          ],
+          "right": [
+            {
+              "assetKey": "veloria-elia-walk-east-a-v1",
+              "origin": {
+                "x": 0.548927,
+                "y": 0.966797
+              },
+              "displaySize": 59.280496
+            },
+            {
+              "assetKey": "veloria-elia-walk-east-b-v1",
+              "origin": {
+                "x": 0.547424,
+                "y": 0.958333
+              },
+              "displaySize": 59.321379
+            }
+          ]
         }
       }
     },

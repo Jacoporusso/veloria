@@ -73,7 +73,9 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 }
 
 
-const previewNpcAnimation = import.meta.env.DEV && new URLSearchParams(location.search).get('npcAnimationPreview') === 'ranger-ada';
+const requestedNpcAnimation = import.meta.env.DEV ? new URLSearchParams(location.search).get('npcAnimationPreview') : null;
+const previewNpcAnimation = requestedNpcAnimation && (await import('./game/rendering/npc-animation')).npcWalkCycle(requestedNpcAnimation)
+  ? requestedNpcAnimation : null;
 const requestedPreviewMapId = import.meta.env.DEV ? new URLSearchParams(location.search).get('previewMap') : null;
 const previewMapId = requestedPreviewMapId && listMaps().some(map => map.metadata.id === requestedPreviewMapId)
   ? requestedPreviewMapId
@@ -142,7 +144,7 @@ if (import.meta.env.DEV && !previewNpcAnimation) {
   }
 }
 const motionPreviewScene = previewNpcAnimation
-  ? new (await import('./game/scenes/NpcAnimationPreviewScene')).NpcAnimationPreviewScene()
+  ? new (await import('./game/scenes/NpcAnimationPreviewScene')).NpcAnimationPreviewScene(previewNpcAnimation)
   : undefined;
 const game = new Phaser.Game({
   type: Phaser.AUTO,

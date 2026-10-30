@@ -20,13 +20,19 @@ export class NpcAnimationPreviewScene extends Phaser.Scene {
   private toolbar?: HTMLElement;
   private status?: HTMLOutputElement;
   private listeners = new AbortController();
+  private readonly displayName: string;
 
-  constructor() { super('npc-animation-preview'); }
+  constructor(private readonly appearanceId: string) {
+    super('npc-animation-preview');
+    const profile = appearances.profiles.find(profile => profile.id === appearanceId);
+    if (!profile) throw new Error(`Unknown NPC preview identity: ${appearanceId}`);
+    this.displayName = profile.description.split(',')[0];
+  }
 
   preload(): void {
-    const idle = npcIdleViews('ranger-ada');
-    const walk = npcWalkCycle('ranger-ada');
-    if (!idle || !walk) throw new Error('Ada needs authored idle and walk images for the motion preview.');
+    const idle = npcIdleViews(this.appearanceId);
+    const walk = npcWalkCycle(this.appearanceId);
+    if (!idle || !walk) throw new Error(`NPC ${this.appearanceId} needs authored idle and walk images for the motion preview.`);
     for (const pose of [...Object.values(idle), ...Object.values(walk.views).flat()]) {
       const asset = appearances.assets.find(asset => asset.key === pose.assetKey);
       if (!asset) throw new Error(`Preview asset ${pose.assetKey} is missing.`);
@@ -36,11 +42,11 @@ export class NpcAnimationPreviewScene extends Phaser.Scene {
 
   create(): void {
     this.listeners = new AbortController();
-    const idle = npcIdleViews('ranger-ada')!;
-    const walk = npcWalkCycle('ranger-ada')!;
+    const idle = npcIdleViews(this.appearanceId)!;
+    const walk = npcWalkCycle(this.appearanceId)!;
     prepareNpcPoseTextures(this, [...Object.values(idle), ...Object.values(walk.views).flat()]);
     document.body.classList.add('npc-motion-preview');
-    document.querySelector('#game')?.setAttribute('aria-label', 'Prova camminata di Ada');
+    document.querySelector('#game')?.setAttribute('aria-label', `Prova camminata di ${this.displayName}`);
     this.cameras.main.setBackgroundColor('#102d3e');
     this.add.grid(320, 240, 2048, 2048, 32, 32, 0x173b49, 1, 0x96d7cf, .12);
     this.groundAnchor = this.add.graphics().lineStyle(1, 0x9fffea, .9)
@@ -76,7 +82,7 @@ export class NpcAnimationPreviewScene extends Phaser.Scene {
     this.groundAnchor.setPosition(this.logicalPosition.x, this.logicalPosition.y);
     this.animation.update(time, this.direction, this.moving, this.reducedMotion);
     if (this.status) this.status.textContent = this.moving
-      ? `Camminata · passo ${Number(this.actor.getData('npcAnimationFrame')) + 1}/${npcWalkCycle('ranger-ada')!.views[this.direction].length}`
+      ? `Camminata · passo ${Number(this.actor.getData('npcAnimationFrame')) + 1}/${npcWalkCycle(this.appearanceId)!.views[this.direction].length}`
       : 'In attesa';
   }
 
@@ -87,8 +93,8 @@ export class NpcAnimationPreviewScene extends Phaser.Scene {
 
   private createControls(): void {
     const toolbar = document.createElement('section');
-    toolbar.className = 'npc-animation-tools'; toolbar.setAttribute('aria-label', 'Prova animazioni Ada');
-    const title = document.createElement('h2'); title.textContent = 'Ada · prova camminata';
+    toolbar.className = 'npc-animation-tools'; toolbar.setAttribute('aria-label', `Prova animazioni ${this.displayName}`);
+    const title = document.createElement('h2'); title.textContent = `${this.displayName} · prova camminata`;
     const note = document.createElement('p'); note.textContent = 'Scena isolata · progressi non salvati';
     const buttons = document.createElement('div'); buttons.className = 'npc-animation-buttons';
     for (const [direction, name] of [['up', 'nord'], ['down', 'sud'], ['left', 'ovest'], ['right', 'est']] as const) {

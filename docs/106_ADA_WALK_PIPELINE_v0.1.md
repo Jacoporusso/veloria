@@ -1,5 +1,9 @@
 # Ada: pipeline di camminata e prova isolata
 
+## Estensione dello strumento — 30 ottobre
+
+La scena di prova accetta ora qualsiasi profilo con ciclo validato tramite `?npcAnimationPreview=<id>`, con nome, immagini e fasi dal catalogo; Ada resta il ciclo già integrato. Il parametro continua a essere ignorato in produzione. Test e limiti in `124_GENERIC_NPC_WALK_PREVIEW_v0.1.md`. Le sezioni successive descrivono la tranche storica0.4.30.
+
 ## Ambito della versione 0.4.30
 
 Ada dispone di otto disegni di movimento indipendenti: due passi per ciascuna delle quattro direzioni. È un prototipo della pipeline, non una camminata definitiva per tutto il cast. Nella campagna Ada resta nella posizione e nel ruolo previsti: nessuna pattuglia, modifica a collisioni, missioni o dialoghi.

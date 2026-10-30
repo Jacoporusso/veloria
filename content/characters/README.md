@@ -1,6 +1,6 @@
 # Identità visive dei personaggi
 
-Il contenuto0.4.44 copre tutte48 le identità con quattro `idleViews` indipendenti,192 immagini per51 presenze. I profili collocati non usano più `frame` di atlante; le fonti storiche e gli studi restano conservati. Il prototipo `walkCycle` verificato è ancora solo quello di Ada: idle complete e camminate sono deliverable separati. Per prove e limiti vedere `docs/123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md`.
+Tutte48 le identità hanno quattro idleViews indipendenti,192 immagini per51 presenze. I profili collocati non usano più frame di atlante; fonti storiche e studi restano conservati. Il contenuto0.4.45 verifica walkCycle per Ada ed Elia nella scena isolata;46 cicli restano da produrre/verificare. Idle e camminate sono deliverable separati. Prove nei documenti123 e125.
 
 `appearances.v2.json` registra il catalogo immagini e le identità associate: ogni profilo dichiara esplicitamente `assetKey`, gli ID NPC/dialogo delle apparizioni e l’ancoraggio dei piedi; `frame` è presente per le immagini in atlante e può mancare per un’immagine singola. `assets` contiene descrittori `kind: "image"` con chiave e percorso, più `atlas` (`columns`, `rows`) quando l’immagine è un atlas. Gli `unboundStudies` dichiarano anch’essi `assetKey`: sono studi non collocati e non assegnano identità NPC. Non identificare personaggi in base al solo nome visualizzato.
 

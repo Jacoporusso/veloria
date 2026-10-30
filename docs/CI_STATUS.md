@@ -1,6 +1,14 @@
+## 0.4.45 — Camminata Elia e preview generica
+
+Otto passi Elia integrati con quattro direzioni e ancoraggi stabilizzati: due cicli verificati su48. Nove casi Chrome passati, due offline selezionati (Elia e Celia) passati,840 dominio/persistenza più cinque budget, TypeScript/build e validatore1098 risorse/48 mappe passati. Audit conserva altri47 profili,192 idle, manifest Ada, tre Tiled e proprietà di gioco. Copertura446 browser e88 offline assegnati una volta. Prove e limiti nel documento125. Rilascio/cachev209 ancora da attestare. Economia e dopogioco richiesti dall'utente sono pianificati nel documento126, non implementati da questo lotto.
+
 ## 0.4.44 — Ultime cinque idle
 
+Scena walk di sviluppo generalizzata ai profili con ciclo validato: quattro casi Chrome passati (due Ada, ingressi invalidi e caricamento differito motore), TypeScript/build passati; il manifest produzione esclude il modulo preview. Nessun nuovo ciclo contato. Prove in `124_GENERIC_NPC_WALK_PREVIEW_v0.1.md`.
+
 Commit `5375aeb683afd157c3149aa07fee012043d3f77f` pubblicato su main. [Deploy41018164066](https://github.com/Jacoporusso/veloria/actions/runs/41018164066) osservato IN_PROGRESS; [Verify41018163633](https://github.com/Jacoporusso/veloria/actions/runs/41018163633) PENDING. Cachev208 pubblica ancora da attestare. Verify41016147562 del precedente commit budget è COMPLETED/CANCELLED, senza esito funzionale completo.
+
+Osservazione successiva: Deploy41018164066 COMPLETED/SUCCESS. Pages verificata direttamente con cachev208 e chiave `veloria-league-champion-enea-idle-south-v1` nel TMJ pubblico della sala del campione. Verify41018163633 osservata PENDING; Verify41015542092 del Consiglio ancora IN_PROGRESS.
 
 48 identità/192 viste integrate. Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia verificati con cinque casi Chrome mirati e cinque produzione offline. Due ulteriori casi Chrome globali sulle51 presenze nei due orientamenti passati in2,3min: totale sette Chrome distinti. Hash/copie sorgenti/RGBA e corpo56 verificati; quattro mappe, sei metadati e altri43 profili preservati. Audit zero usi Tiled dei due atlanti, ritirati dai soli renderAssets. 840 dominio/persistenza più cinque budget e154 Python passati; validatore1082 risorse/48 fondali/48 mappe, TypeScript/build passati. Copertura443 browser e88 offline assegnati una volta. Rilascio ancora da attestare. Dettagli in `123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md`; camminate e obiettivo complessivo aperti.
 

@@ -298,7 +298,7 @@ for (const npc of [
     const manifestFrame = manifestWalkProfile.frames.find((entry: any) => entry.assetKey === view.assetKey);
     return [manifestFrame.width, manifestFrame.height];
   });
-  if (npc.profile === 'ranger-ada') expect(walkPaths).toHaveLength(8);
+  if (npc.profile === 'ranger-ada' || npc.profile === 'professor-elia') expect(walkPaths).toHaveLength(8);
   const allPaths = [...paths, ...walkPaths];
   await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
   await page.goto('/');

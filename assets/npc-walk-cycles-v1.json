@@ -248,6 +248,290 @@
           "headCenterSourceX": 510.2271
         }
       ]
+    },
+    {
+      "profileId": "professor-elia",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/elia-walk-views-v1.json",
+      "frameDurationMs": 200,
+      "frames": [
+        {
+          "direction": "down",
+          "frameIndex": 0,
+          "assetKey": "veloria-elia-walk-south-a-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-south-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-south-a-v1.webp",
+          "sourceSha256": "3c09c7524e6689efe42988b229bbbd3535e50fca90d545c2607b1902c8d9fb3e",
+          "runtimeSha256": "4beabd2b2bd9a5c607c627cd651cf6cabed1ebf5ed2554e03b0ae395fa7519af",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            242,
+            35,
+            849,
+            1490
+          ],
+          "origin": {
+            "x": 0.509663,
+            "y": 0.970052
+          },
+          "initialSoleOrigin": {
+            "x": 0.583573,
+            "y": 0.970052
+          },
+          "displaySize": 59.117526,
+          "headCenterSourceX": 487.096500975159,
+          "outputId": "exec-b669f066-366a-4caa-ba7a-ab63927427fc",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-b669f066-366a-4caa-ba7a-ab63927427fc.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-s-a-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body character walk-cycle game sprite, one independent drawn walking phase for Professor Elia. Image 1 is the AUTHORED idle reference for this same direction; use it only for identity, anatomy, costume, accessories, palette, and painterly style. Preserve Elia exactly: elderly woman botanist, round dark eyeglasses, silver curly hair gathered into a loose bun with the same amber hair beads, short cream lab coat with lapels and pockets over a sage green button shirt, teal trousers, brown belt with brass buckle, brown lace-up field boots. Preserve the single brown satchel and strap worn on her ANATOMICAL LEFT shoulder and resting on her LEFT hip, as the directional idle references show. Both hands remain empty; no plants, measuring tools, or new props. Draw a genuinely new calm walking pose, not idle, running, jumping, or gesturing. Phase A (frame index 0): anatomical LEFT leg is the advancing/lead step; RIGHT leg trails. Show a clear real gait with visibly different leg and foot placement, separated legs, natural bent knees/weight shift. Arms counter-swing naturally with the legs. One complete centered figure from hair through both boot soles, generous transparent margin, same optical height and foot-contact baseline intended for phase B. True transparent alpha, portrait canvas exactly 1024x1536. Warm polished painterly modern 2D RPG illustration matching the reference. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, extra limbs, or 3D. SOUTH, direct front view, facing the viewer. Phase A lead LEFT leg advances toward camera and appears on viewer-right; RIGHT leg trails. Right arm counter-swings forward on viewer-left; left arm swings naturally on viewer-right without displacing the left-shoulder strap or satchel at her left hip.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-south-v1.png"
+          ]
+        },
+        {
+          "direction": "down",
+          "frameIndex": 1,
+          "assetKey": "veloria-elia-walk-south-b-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-south-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-south-b-v1.webp",
+          "sourceSha256": "3b8327579a81e3b256fd1054cbd8c457209df91a6d488d3fb6050e1ed8fa8c28",
+          "runtimeSha256": "8de8a48e975a8f418acf2ba1b305080bed0266389be50e108c4f394037922388",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            231,
+            33,
+            791,
+            1495
+          ],
+          "origin": {
+            "x": 0.518022,
+            "y": 0.973307
+          },
+          "initialSoleOrigin": {
+            "x": 0.443756,
+            "y": 0.973307
+          },
+          "displaySize": 58.834473,
+          "headCenterSourceX": 495.4890719506766,
+          "outputId": "exec-68a6b3d8-e2f1-4968-92d0-8458572977b9",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-68a6b3d8-e2f1-4968-92d0-8458572977b9.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-s-b-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: one independent transparent portrait 2:3 full-body NPC walk-cycle frame for Professor Elia. Input image 1 is the authored idle reference for this exact direction, used for identity, anatomy, costume, accessories and style. Input image 2 is Elia''s phase-A walking drawing for this direction, used only for visual continuity and matching figure scale/baseline; do not copy its pose. Preserve Elia''s silver curls in the same bun with amber beads, round dark eyeglasses when visible, cream short lab coat with pockets, sage green button shirt, teal trousers, brown belt, brown lace-up field boots, and the single satchel/strap on her anatomical LEFT shoulder and hip. Both hands empty. Phase B (frame index 1) is the clearly opposite real gait: anatomical RIGHT leg advances and LEFT leg trails. Change both legs and counter-swinging arms visibly relative to phase A. Natural calm walking stride, no running, hopping, or idle stance. New drawn anatomy and folds, not geometric deformation, pose movement, flip, or scale of the idle or phase-A image. Full figure head-to-soles, centered, same approximate optical height and foot-contact baseline as phase A, generous margin. True transparent alpha, exactly 1024x1536 portrait. Warm polished painterly modern 2D RPG illustration matching both references. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, added props/person/limbs. Direct SOUTH/front view. Her anatomical RIGHT leg advances toward the viewer on screen-left; anatomical LEFT leg trails on screen-right. Left arm counter-swings forward on screen-right; right arm swings back on screen-left. Keep the satchel on her anatomical LEFT hip/screen-right, strap secure and unobstructed.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-south-v1.png",
+            "C:\\Projects\\Veloria\\.tmp\\elia-walk-candidates\\elia-walk-s-a-v1-raw.png"
+          ]
+        },
+        {
+          "direction": "up",
+          "frameIndex": 0,
+          "assetKey": "veloria-elia-walk-north-a-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-north-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-north-a-v1.webp",
+          "sourceSha256": "e59a6de6bc3295449bf7fc1e3a490294b2d9d02bf479427139755fdf06c63081",
+          "runtimeSha256": "0eca1a5ed8a8b4a07179748ba4f3151ed06a95b3f37eaa593befb695591b12f7",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            240,
+            13,
+            765,
+            1493
+          ],
+          "origin": {
+            "x": 0.507487,
+            "y": 0.972005
+          },
+          "initialSoleOrigin": {
+            "x": 0.584394,
+            "y": 0.972005
+          },
+          "displaySize": 58.118919,
+          "headCenterSourceX": 505.76705436495297,
+          "outputId": "exec-de88a681-2b7f-4c2d-b4a6-f63a470f1671",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-de88a681-2b7f-4c2d-b4a6-f63a470f1671.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-n-a-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body character walk-cycle game sprite, one independent drawn walking phase for Professor Elia. Image 1 is the AUTHORED idle reference for this same direction; use it only for identity, anatomy, costume, accessories, palette, and painterly style. Preserve Elia exactly: elderly woman botanist, round dark eyeglasses, silver curly hair gathered into a loose bun with the same amber hair beads, short cream lab coat with lapels and pockets over a sage green button shirt, teal trousers, brown belt with brass buckle, brown lace-up field boots. Preserve the single brown satchel and strap worn on her ANATOMICAL LEFT shoulder and resting on her LEFT hip, as the directional idle references show. Both hands remain empty; no plants, measuring tools, or new props. Draw a genuinely new calm walking pose, not idle, running, jumping, or gesturing. Phase A (frame index 0): anatomical LEFT leg is the advancing/lead step; RIGHT leg trails. Show a clear real gait with visibly different leg and foot placement, separated legs, natural bent knees/weight shift. Arms counter-swing naturally with the legs. One complete centered figure from hair through both boot soles, generous transparent margin, same optical height and foot-contact baseline intended for phase B. True transparent alpha, portrait canvas exactly 1024x1536. Warm polished painterly modern 2D RPG illustration matching the reference. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, extra limbs, or 3D. NORTH, direct rear view, facing straight away from the viewer; no face visible. From behind, Elia''s anatomical LEFT is viewer-left; keep the satchel on viewer-left/character-left hip and its strap over the same left shoulder. Phase A lead LEFT leg strides away from camera; RIGHT leg trails nearer camera. Arms counter-swing naturally, with the right arm forward as the left leg leads.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-north-v1.png"
+          ]
+        },
+        {
+          "direction": "up",
+          "frameIndex": 1,
+          "assetKey": "veloria-elia-walk-north-b-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-north-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-north-b-v1.webp",
+          "sourceSha256": "0a6db797bb38dbfc67c7274364b8f6a734aa94c2780868f513c4b7dac5e5ed6f",
+          "runtimeSha256": "4b6789685009f0590d8996b418facb94fe817e50ed702450bdc34150e70837de",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            242,
+            16,
+            770,
+            1505
+          ],
+          "origin": {
+            "x": 0.511686,
+            "y": 0.979818
+          },
+          "initialSoleOrigin": {
+            "x": 0.434311,
+            "y": 0.979818
+          },
+          "displaySize": 57.767629,
+          "headCenterSourceX": 509.98170297333206,
+          "outputId": "exec-dead9c9d-2c7d-43ba-9a70-2fd5d8c882ae",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-dead9c9d-2c7d-43ba-9a70-2fd5d8c882ae.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-n-b-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: one independent transparent portrait 2:3 full-body NPC walk-cycle frame for Professor Elia. Input image 1 is the authored idle reference for this exact direction, used for identity, anatomy, costume, accessories and style. Input image 2 is Elia''s phase-A walking drawing for this direction, used only for visual continuity and matching figure scale/baseline; do not copy its pose. Preserve Elia''s silver curls in the same bun with amber beads, round dark eyeglasses when visible, cream short lab coat with pockets, sage green button shirt, teal trousers, brown belt, brown lace-up field boots, and the single satchel/strap on her anatomical LEFT shoulder and hip. Both hands empty. Phase B (frame index 1) is the clearly opposite real gait: anatomical RIGHT leg advances and LEFT leg trails. Change both legs and counter-swinging arms visibly relative to phase A. Natural calm walking stride, no running, hopping, or idle stance. New drawn anatomy and folds, not geometric deformation, pose movement, flip, or scale of the idle or phase-A image. Full figure head-to-soles, centered, same approximate optical height and foot-contact baseline as phase A, generous margin. True transparent alpha, exactly 1024x1536 portrait. Warm polished painterly modern 2D RPG illustration matching both references. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, added props/person/limbs. In this direct NORTH/rear view, her anatomical RIGHT leg (viewer-right from behind) leads away from camera; anatomical LEFT leg (viewer-left) trails nearer camera with a distinct bent knee/heel lift. Left arm counter-swings backward naturally; right arm swings forward. Keep satchel anchored on the anatomical LEFT shoulder/hip, viewer-left from behind, without obscuring gait.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-north-v1.png",
+            "C:\\Projects\\Veloria\\.tmp\\elia-walk-candidates\\elia-walk-n-a-v1-raw.png"
+          ]
+        },
+        {
+          "direction": "left",
+          "frameIndex": 0,
+          "assetKey": "veloria-elia-walk-west-a-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-west-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-west-a-v1.webp",
+          "sourceSha256": "7eb41fbd0b0c98f7c4519621cf9d9cff3f7457ec446485bfbab556b330926eb2",
+          "runtimeSha256": "f08d802aea3e7ec93144e3f6151caf7135825a19f2f23ee617141701de0ba36c",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            84,
+            35,
+            925,
+            1469
+          ],
+          "origin": {
+            "x": 0.410139,
+            "y": 0.95638
+          },
+          "initialSoleOrigin": {
+            "x": 0.423619,
+            "y": 0.95638
+          },
+          "displaySize": 59.983264,
+          "headCenterSourceX": 502.1559729889284,
+          "outputId": "exec-b13e484a-a3a5-4f04-a0a5-1b1a8681cee2",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-b13e484a-a3a5-4f04-a0a5-1b1a8681cee2.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-w-a-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body character walk-cycle game sprite, one independent drawn walking phase for Professor Elia. Image 1 is the AUTHORED idle reference for this same direction; use it only for identity, anatomy, costume, accessories, palette, and painterly style. Preserve Elia exactly: elderly woman botanist, round dark eyeglasses, silver curly hair gathered into a loose bun with the same amber hair beads, short cream lab coat with lapels and pockets over a sage green button shirt, teal trousers, brown belt with brass buckle, brown lace-up field boots. Preserve the single brown satchel and strap worn on her ANATOMICAL LEFT shoulder and resting on her LEFT hip, as the directional idle references show. Both hands remain empty; no plants, measuring tools, or new props. Draw a genuinely new calm walking pose, not idle, running, jumping, or gesturing. Phase A (frame index 0): anatomical LEFT leg is the advancing/lead step; RIGHT leg trails. Show a clear real gait with visibly different leg and foot placement, separated legs, natural bent knees/weight shift. Arms counter-swing naturally with the legs. One complete centered figure from hair through both boot soles, generous transparent margin, same optical height and foot-contact baseline intended for phase B. True transparent alpha, portrait canvas exactly 1024x1536. Warm polished painterly modern 2D RPG illustration matching the reference. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, extra limbs, or 3D. WEST side-profile walk, nose and chest point clearly screen-left. Elia''s anatomical LEFT side is nearest camera. Phase A lead LEFT leg steps forward toward screen-left, with RIGHT leg trailing. Right arm counter-swings forward; keep the satchel and strap on the near anatomical LEFT shoulder/hip.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-west-v1.png"
+          ]
+        },
+        {
+          "direction": "left",
+          "frameIndex": 1,
+          "assetKey": "veloria-elia-walk-west-b-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-west-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-west-b-v1.webp",
+          "sourceSha256": "ea1848e2df240bd371ee7e295286584167fd16d157ea15d690d303b1105bd777",
+          "runtimeSha256": "f1e833617c466a909c659215e5288c95adff00d30c9c6bae7a8403242167a2cd",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            54,
+            36,
+            982,
+            1447
+          ],
+          "origin": {
+            "x": 0.410804,
+            "y": 0.942057
+          },
+          "initialSoleOrigin": {
+            "x": 0.39754,
+            "y": 0.942057
+          },
+          "displaySize": 60.961021,
+          "headCenterSourceX": 501.51850887394437,
+          "outputId": "exec-af251ac3-6db9-48c6-913a-4e96350d89f5",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-af251ac3-6db9-48c6-913a-4e96350d89f5.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-w-b-v2-corrective-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body character walk-cycle game sprite, one independent drawn walking phase for Professor Elia. Image 1 is the AUTHORED idle reference for this same west-facing direction; use it only for identity, anatomy, costume, accessories, palette, and painterly style. Image 2 is West Phase A, for the same direction and optical scale only; draw the true opposite gait phase, not a variation of its stance. Preserve Elia exactly: elderly woman botanist, round dark eyeglasses, silver curly hair in a loose bun with the same amber hair beads, short cream lab coat with lapels and pockets over a sage green button shirt, teal trousers, brown belt with brass buckle, brown lace-up field boots. Preserve the single brown satchel and strap on her ANATOMICAL LEFT shoulder and LEFT hip. In a true west-facing profile, her anatomical LEFT side is the near side and the satchel remains visible on that near side. Do not move the bag to the right hip. Both hands empty; no new props. Draw a genuinely opposite walking pose: Phase B, frame index 1, ANATOMICAL RIGHT leg is the advancing/lead step and anatomical LEFT leg trails. Because she faces screen-left, make the far RIGHT leg visibly extend/step forward toward screen-left while the near LEFT leg visibly trails toward screen-right; clearly separate the two legs and boots so the opposite lead is unmistakable. Swing the near LEFT arm FORWARD toward screen-left, opposite the advancing RIGHT leg; swing the far RIGHT arm BACK toward screen-right. Keep the left satchel fixed on its anatomical side; its strap and bag can naturally occlude part of the near-left arm, but the left arm''s forward swing should still be readable. Natural weight shift and bent knees. Do not repeat Phase A''s near-left leg leading stance or its left arm back / right arm forward arrangement. Complete centered figure from hair through both boot soles, same optical height, foot-contact baseline and generous transparent margin as phase A. True alpha, 1024x1536 portrait canvas. Warm polished painterly modern 2D RPG illustration matching the references. No background, floor, shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, extra limbs, or 3D.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-west-v1.png",
+            "C:\\Projects\\Veloria\\.tmp\\elia-walk-candidates\\elia-walk-w-a-v1-raw.png"
+          ]
+        },
+        {
+          "direction": "right",
+          "frameIndex": 0,
+          "assetKey": "veloria-elia-walk-east-a-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-east-a-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-east-a-v1.webp",
+          "sourceSha256": "6591bff2243e2631e9998569bbc239c99a32930c4e8f3a20065705dad656960f",
+          "runtimeSha256": "4301e37d1fdcd8c931375eb6cd2ac52761dc135f9c8ac5b7d3f0105861b94a90",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            131,
+            34,
+            968,
+            1485
+          ],
+          "origin": {
+            "x": 0.548927,
+            "y": 0.966797
+          },
+          "initialSoleOrigin": {
+            "x": 0.454742,
+            "y": 0.966797
+          },
+          "displaySize": 59.280496,
+          "headCenterSourceX": 509.3395729613863,
+          "outputId": "exec-9c89ca01-02b4-4262-9ac4-2ba09071f561",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-9c89ca01-02b4-4262-9ac4-2ba09071f561.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-e-a-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: transparent portrait 2:3 full-body character walk-cycle game sprite, one independent drawn walking phase for Professor Elia. Image 1 is the AUTHORED idle reference for this same direction; use it only for identity, anatomy, costume, accessories, palette, and painterly style. Preserve Elia exactly: elderly woman botanist, round dark eyeglasses, silver curly hair gathered into a loose bun with the same amber hair beads, short cream lab coat with lapels and pockets over a sage green button shirt, teal trousers, brown belt with brass buckle, brown lace-up field boots. Preserve the single brown satchel and strap worn on her ANATOMICAL LEFT shoulder and resting on her LEFT hip, as the directional idle references show. Both hands remain empty; no plants, measuring tools, or new props. Draw a genuinely new calm walking pose, not idle, running, jumping, or gesturing. Phase A (frame index 0): anatomical LEFT leg is the advancing/lead step; RIGHT leg trails. Show a clear real gait with visibly different leg and foot placement, separated legs, natural bent knees/weight shift. Arms counter-swing naturally with the legs. One complete centered figure from hair through both boot soles, generous transparent margin, same optical height and foot-contact baseline intended for phase B. True transparent alpha, portrait canvas exactly 1024x1536. Warm polished painterly modern 2D RPG illustration matching the reference. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, extra person, extra limbs, or 3D. EAST side-profile walk, nose and chest point clearly screen-right. Elia''s anatomical RIGHT side is nearest camera, nose clearly to screen-right, no mirroring. Phase A lead LEFT leg steps forward toward screen-right; RIGHT leg trails. Right arm counter-swings forward. Her left-shoulder satchel is on the FAR anatomical LEFT side, behind the torso at screen-left; do not move it to the near right flank.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-east-v1.png"
+          ]
+        },
+        {
+          "direction": "right",
+          "frameIndex": 1,
+          "assetKey": "veloria-elia-walk-east-b-v1",
+          "sourcePath": "assets/sources/veloria-elia-walk-east-b-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-elia-walk-east-b-v1.webp",
+          "sourceSha256": "448b095df57d058f4f810a3736e0e6cdb35cb810352a8b91e638001c397026d0",
+          "runtimeSha256": "abfb4b6c26d5bc166378f11b9adb42ba7fd5a64f568eaba27c1765f204ba4f40",
+          "width": 1024,
+          "height": 1536,
+          "alpha128Bounds": [
+            55,
+            22,
+            999,
+            1472
+          ],
+          "origin": {
+            "x": 0.547424,
+            "y": 0.958333
+          },
+          "initialSoleOrigin": {
+            "x": 0.641544,
+            "y": 0.958333
+          },
+          "displaySize": 59.321379,
+          "headCenterSourceX": 507.8377553148259,
+          "outputId": "exec-663b9ca3-0de8-4780-9e34-f40448b237bb",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-663b9ca3-0de8-4780-9e34-f40448b237bb.png",
+          "sourceCandidate": ".tmp/elia-walk-candidates/elia-walk-e-b-v1-raw.png",
+          "prompt": "Use case: illustration-story. Asset type: one independent transparent portrait 2:3 full-body NPC walk-cycle frame for Professor Elia. Input image 1 is the authored idle reference for this exact direction, used for identity, anatomy, costume, accessories and style. Input image 2 is Elia''s phase-A walking drawing for this direction, used only for visual continuity and matching figure scale/baseline; do not copy its pose. Preserve Elia''s silver curls in the same bun with amber beads, round dark eyeglasses when visible, cream short lab coat with pockets, sage green button shirt, teal trousers, brown belt, brown lace-up field boots, and the single satchel/strap on her anatomical LEFT shoulder and hip. Both hands empty. Phase B (frame index 1) is the clearly opposite real gait: anatomical RIGHT leg advances and LEFT leg trails. Change both legs and counter-swinging arms visibly relative to phase A. Natural calm walking stride, no running, hopping, or idle stance. New drawn anatomy and folds, not geometric deformation, pose movement, flip, or scale of the idle or phase-A image. Full figure head-to-soles, centered, same approximate optical height and foot-contact baseline as phase A, generous margin. True transparent alpha, exactly 1024x1536 portrait. Warm polished painterly modern 2D RPG illustration matching both references. No background, floor, cast shadow, glow, halo, vignette, text, crop, flip, mirror, rotation, added props/person/limbs. True EAST profile, nose clearly screen-right and anatomical RIGHT side nearest camera; do not mirror. Her anatomical RIGHT leg leads forward toward screen-right; anatomical LEFT leg trails toward screen-left. Left arm counter-swings back; right arm swings forward. Keep the bag on the FAR anatomical LEFT side, behind the torso at screen-left, never on the near right flank.",
+          "references": [
+            "C:\\Projects\\Veloria\\assets\\sources\\veloria-elia-idle-east-v1.png",
+            "C:\\Projects\\Veloria\\.tmp\\elia-walk-candidates\\elia-walk-e-a-v1-raw.png"
+          ]
+        }
+      ]
     }
   ]
 }
