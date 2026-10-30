@@ -1,5 +1,7 @@
 ## 0.4.46 — Allenamenti ripetibili
 
+Commit `3886ce4cfc5450a65aed3a0f68fb61ecb520e7e0` pubblicato su main. [Deploy41051063886](https://github.com/Jacoporusso/veloria/actions/runs/41051063886) ha completato build/test/validatore e attende la fase deploy (run osservata QUEUED); [Verify41051063958](https://github.com/Jacoporusso/veloria/actions/runs/41051063958) QUEUED. Il sito pubblico non serve ancora cachev210 e training-button all'ultima verifica: disponibilità pubblica non attestata.
+
 Menu allenamenti dalla prima visita alla Lega, sei fasce30–80, ingresso gratuito e premio500–3200 ripetibile. Squadre GenI, mosse HGSS e minimi evolutivi verificati; ricevute di tentativo separate dalla storia e salvataggio prima del lancio. Cinque casi Chrome arena e uno di stabilità NPC passati, più vittoria/acquisto/reload in produzione offline. Screenshot portrait/landscape rivisti. 850 dominio/persistenza, cinque budget,154 Python, validatore1098 risorse/48 mappe e TypeScript/build passati. Copertura451 browser e89 offline una volta. Prove e limiti nel documento127; coppe, ricerca e cattura dei leggendari restano aperte nel documento126. Rilascio/cachev210 da attestare.
 
 ## 0.4.45 — Camminata Elia e preview generica
