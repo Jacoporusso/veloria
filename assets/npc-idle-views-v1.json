@@ -5413,6 +5413,576 @@
         }
       ],
       "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-maia-r16",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-maia-r16",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r16_maia",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-north-v1.webp",
+          "sourceSha256": "d90307e75e49defc0011861af43f2ae40faca378c074cdbd80ad472cd0f29cc7",
+          "runtimeSha256": "67aea2cc92d9643c8947e50d1935f78f039bdb39fb004d1a77829d75d3d5eab0",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.541468,
+            "y": 0.947917
+          },
+          "displaySize": 62.150289,
+          "alpha128Bounds": [
+            288,
+            72,
+            800,
+            1456
+          ],
+          "outputId": "exec-c9095e03-728e-4a0a-922c-b2f1ead116a2",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-c9095e03-728e-4a0a-922c-b2f1ead116a2.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-south-v1.webp",
+          "sourceSha256": "96f4048805759e81bff81f44a20840b97868ee2f24725f8322b62d1d0bf58100",
+          "runtimeSha256": "eaedad4b242389297bfe1b1335d6062616659bc5a6c8084753bb998b286b9905",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.57751,
+            "y": 0.958984
+          },
+          "displaySize": 61.396146,
+          "alpha128Bounds": [
+            259,
+            72,
+            833,
+            1473
+          ],
+          "outputId": "exec-d546826e-c6d1-427f-a792-a04ca4f484e2",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-d546826e-c6d1-427f-a792-a04ca4f484e2.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-west-v1.webp",
+          "sourceSha256": "8474f64d29bc0b7c2e2200aeabe73070ee416c055cd04cc80fe52965b767c420",
+          "runtimeSha256": "bcc056286c1129cb3a8576323831995f2b12839c355f10c0c8cd6efda9cd6b1f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.536544,
+            "y": 0.970703
+          },
+          "displaySize": 59.362319,
+          "alpha128Bounds": [
+            353,
+            42,
+            689,
+            1491
+          ],
+          "outputId": "exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-east-v1.webp",
+          "sourceSha256": "df267f8bdaf70f579cb5a0d1c4155ef2d628c8b3db6b629c902570547cbc31b0",
+          "runtimeSha256": "45ca4bf4f2077990850932854572f8c7d129bac041b197c65c81c175070a9757",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.461123,
+            "y": 0.953776
+          },
+          "displaySize": 60.961021,
+          "alpha128Bounds": [
+            347,
+            54,
+            724,
+            1465
+          ],
+          "outputId": "exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-tobia-r16",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-tobia-r16",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r16_tobia",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-north-v1.webp",
+          "sourceSha256": "75a6ab52dbd94250fa95eb1cb533d69430da8cbb52d1d4460e11786f146fce95",
+          "runtimeSha256": "8d729a5f601c1bea1d00dba013f095fff5b104b531c68245b0d116a66494e5dc",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.461974,
+            "y": 0.954427
+          },
+          "displaySize": 60.788693,
+          "alpha128Bounds": [
+            271,
+            51,
+            755,
+            1466
+          ],
+          "outputId": "exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-south-v1.webp",
+          "sourceSha256": "65965eb6962ca3da92a1a0e7c1f403be2a9e2c91acc9fa8fe2d065b9d10692af",
+          "runtimeSha256": "3156a1b89dd40f762b6ae64bd39f005b616c69a243c752fc8e382f164d1b06aa",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.636622,
+            "y": 0.967448
+          },
+          "displaySize": 59.691881,
+          "alpha128Bounds": [
+            246,
+            45,
+            828,
+            1486
+          ],
+          "outputId": "exec-5581a9d6-d133-4f1e-978d-174ba39bce16",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-5581a9d6-d133-4f1e-978d-174ba39bce16.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-west-v1.webp",
+          "sourceSha256": "69baf88ce2db5cb1e530d785964a4df96d04193218a4741b06d93883cd6de212",
+          "runtimeSha256": "af04f342a6a1207862ca642b3f4874c7c22906ad15611045ec0d9ea1c7a486e6",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.532264,
+            "y": 0.959635
+          },
+          "displaySize": 61.352354,
+          "alpha128Bounds": [
+            351,
+            72,
+            684,
+            1474
+          ],
+          "outputId": "exec-9cc3172a-137b-412a-b4ac-692cf99a945e",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-9cc3172a-137b-412a-b4ac-692cf99a945e.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-east-v1.webp",
+          "sourceSha256": "4862f781dce0fb356a1535da5b7db9c40ad32cb30f15cc43589ce0e5abf5fa0b",
+          "runtimeSha256": "bf18b181d63e3441b5c306ab204fe91c31e61d372687274dca7e3d76d9b1d73c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.490594,
+            "y": 0.944661
+          },
+          "displaySize": 63.480443,
+          "alpha128Bounds": [
+            370,
+            96,
+            679,
+            1451
+          ],
+          "outputId": "exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-receptionist",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-receptionist",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_reception",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-receptionist-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-north-v1.webp",
+          "sourceSha256": "5515abf7f6dfe3570d6a1babf45b8e9a57709fb3dc045aba114290d68803d189",
+          "runtimeSha256": "3d5da47a307c1a4960a2e76c7303dd8894c2c1b2a35ccab3edad6d6b1d685b16",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.494059,
+            "y": 0.951172
+          },
+          "displaySize": 60.874735,
+          "alpha128Bounds": [
+            288,
+            48,
+            719,
+            1461
+          ],
+          "outputId": "exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-receptionist-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-south-v1.webp",
+          "sourceSha256": "9fcc8154315021ab8502ba537b298fccb3b26ff2c8cd4e38df05da2e005e2904",
+          "runtimeSha256": "11fd9e16e8aecbd99c2eca9551ae0a3214c97898777aa788d7b9a200859f677d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.480344,
+            "y": 0.977865
+          },
+          "displaySize": 58.594005,
+          "alpha128Bounds": [
+            308,
+            34,
+            709,
+            1502
+          ],
+          "outputId": "exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-receptionist-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-west-v1.webp",
+          "sourceSha256": "f19d42541174b2ebdbc4fd43fc7956c77bdb6385207e8d060955a607cc2339cc",
+          "runtimeSha256": "537c76c3a394b416dc7078b457db860fb16a0a06628bda050f52353f0e903d02",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.475354,
+            "y": 0.970052
+          },
+          "displaySize": 58.514286,
+          "alpha128Bounds": [
+            342,
+            20,
+            664,
+            1490
+          ],
+          "outputId": "exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-receptionist-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-east-v1.webp",
+          "sourceSha256": "c28984d7392f9e4a4de9be51a2966eb85cd3859f98c07278078c034974a3270e",
+          "runtimeSha256": "3fc0cfba6781bb87bfd034b061438302ca827372823f974c281f7384e536c5fa",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.543059,
+            "y": 0.979167
+          },
+          "displaySize": 57.845326,
+          "alpha128Bounds": [
+            373,
+            17,
+            683,
+            1504
+          ],
+          "outputId": "exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "petalora-custodian-ivo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#petalora-custodian-ivo",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#petalora_ivo",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-north-v1.webp",
+          "sourceSha256": "686a7a6d37e85ef9aac8596dc1c845d6c3771998f300b9819768ab3ad18488aa",
+          "runtimeSha256": "e3e47ff3458487e14c00d8b6f0b4c4ba8cb29dfe25ecc3ed51946312e9b7e9c9",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.517451,
+            "y": 0.955343
+          },
+          "displaySize": 59.867008,
+          "alpha128Bounds": [
+            399,
+            25,
+            855,
+            1198
+          ],
+          "outputId": "exec-31bb2f0c-e586-4737-9f55-d490933871e7",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-31bb2f0c-e586-4737-9f55-d490933871e7.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-south-v1.webp",
+          "sourceSha256": "e7c8a1901da7e8807e26af02831a815102fb910b96ca8b56938cedb331bc8aea",
+          "runtimeSha256": "495df3c9b9ddd7c426cfb2a1dad39f30403dbf2814db5ff9db77150c67ceeca0",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.489318,
+            "y": 0.96252
+          },
+          "displaySize": 58.912752,
+          "alpha128Bounds": [
+            380,
+            15,
+            875,
+            1207
+          ],
+          "outputId": "exec-e6ad1951-54ef-454b-a68d-6d421d278f1c",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-e6ad1951-54ef-454b-a68d-6d421d278f1c.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-west-v1.webp",
+          "sourceSha256": "0d20960813de202301e2b544354056a65f909bc42a93fdb174c02909f4f733e7",
+          "runtimeSha256": "9016316ec4b4720b64daf83f085c723a1533bb91910f0dc64f22eea09706c49c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.546918,
+            "y": 0.963317
+          },
+          "displaySize": 59.765106,
+          "alpha128Bounds": [
+            459,
+            33,
+            817,
+            1208
+          ],
+          "outputId": "exec-25ee67bc-c39a-484d-b805-5b58bed5e84f",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-25ee67bc-c39a-484d-b805-5b58bed5e84f.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-east-v1.webp",
+          "sourceSha256": "6a43431cfbae8b0aa400419f84fbafcf61c79bedf6aef53f563ac83e50ecd609",
+          "runtimeSha256": "5ca6c77c07cfbd010d7134f4e0ebfc396e80805e1d45738db6e53d79a13c244c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.481931,
+            "y": 0.96252
+          },
+          "displaySize": 59.210793,
+          "alpha128Bounds": [
+            439,
+            21,
+            810,
+            1207
+          ],
+          "outputId": "exec-4748efbf-1cab-40fa-98de-0ac8a90d1067",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-4748efbf-1cab-40fa-98de-0ac8a90d1067.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-champion-enea",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-champion-enea",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_champion",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-champion-enea-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-north-v1.webp",
+          "sourceSha256": "ef4a228248566efc594c542ae3b31640a5b844a9a2fbe55d9350faf7dff6fd22",
+          "runtimeSha256": "7bbb44639455e5ced50e1949b4c28c142c488996a9406fb63267a62b6f3f7ecb",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.513284,
+            "y": 0.952474
+          },
+          "displaySize": 62.60262,
+          "alpha128Bounds": [
+            178,
+            89,
+            914,
+            1463
+          ],
+          "outputId": "exec-439f0d15-311d-4667-953c-bb3496c94fc4",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-439f0d15-311d-4667-953c-bb3496c94fc4.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-champion-enea-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-south-v1.webp",
+          "sourceSha256": "7d82ce16098d19f49c81acf8c5410781f4a4a38281f9b3065206a9fd36bdf31a",
+          "runtimeSha256": "6e1fbeb0af054c32895b22b4aaff82fe0ce3a76fb25de903142a0b34f6c3e3b1",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.553384,
+            "y": 0.945312
+          },
+          "displaySize": 63.154185,
+          "alpha128Bounds": [
+            126,
+            90,
+            986,
+            1452
+          ],
+          "outputId": "exec-33afd06d-888a-4da3-aaec-85cc69ba5016",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-33afd06d-888a-4da3-aaec-85cc69ba5016.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-champion-enea-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-west-v1.webp",
+          "sourceSha256": "cb21ca641579ffa21ff660465c9392bba74c752f6f5f2b0793de16f786196d81",
+          "runtimeSha256": "0b481ff0ad89eee02a5f36ace50331cc9f6b7149585a6eb46dca8181ceb654a8",
+          "width": 1144,
+          "height": 1375,
+          "origin": {
+            "x": 0.595095,
+            "y": 0.957091
+          },
+          "displaySize": 61.452514,
+          "alpha128Bounds": [
+            308,
+            63,
+            968,
+            1316
+          ],
+          "outputId": "exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-champion-enea-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-east-v1.webp",
+          "sourceSha256": "599073d7f40228dab4393b0b61c0ec2878732a719f4adad415c2a1ce5c87dd19",
+          "runtimeSha256": "b6e7b0294d9e52a08bd29882117e2063df4422677422af54fa62625f042978ee",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.552607,
+            "y": 0.960286
+          },
+          "displaySize": 61.221352,
+          "alpha128Bounds": [
+            251,
+            70,
+            708,
+            1475
+          ],
+          "outputId": "exec-97803794-f333-40da-b50e-66695ff9a68c",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-97803794-f333-40da-b50e-66695ff9a68c.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
     }
   ]
 }

@@ -1,8 +1,14 @@
+## 0.4.44 — Ultime cinque idle
+
+48 identità/192 viste integrate. Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia verificati con cinque casi Chrome mirati e cinque produzione offline. Due ulteriori casi Chrome globali sulle51 presenze nei due orientamenti passati in2,3min: totale sette Chrome distinti. Hash/copie sorgenti/RGBA e corpo56 verificati; quattro mappe, sei metadati e altri43 profili preservati. Audit zero usi Tiled dei due atlanti, ritirati dai soli renderAssets. 840 dominio/persistenza più cinque budget e154 Python passati; validatore1082 risorse/48 fondali/48 mappe, TypeScript/build passati. Copertura443 browser e88 offline assegnati una volta. Rilascio ancora da attestare. Dettagli in `123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md`; camminate e obiettivo complessivo aperti.
+
 ## 0.4.43 — Consiglio
 
 Misura budget aggiunta con cinque test inclusi in npm test: tutti839 dominio/persistenza e i cinque nuovi controlli passati. Rapporto43 profili/172 pose e limiti in `122_ART_RESOURCE_BUDGET_v0.1.md`. Il totale statico sorgente del precache è327.332.082 byte; non misura la cache completa o la memoria del telefono. Osservazione successiva delle pipeline41015542131/41015542092: entrambe QUEUED; nessun esito pubblico v207 ancora attestato.
 
 Commit `b8f941121255dc10738f553a63dacb87a8877560` pubblicato su main: [Deploy41015542131](https://github.com/Jacoporusso/veloria/actions/runs/41015542131) osservato IN_PROGRESS, [Verify41015542092](https://github.com/Jacoporusso/veloria/actions/runs/41015542092) QUEUED. La disponibilità pubblica della cachev207 non è ancora attestata.
+
+Osservazione successiva: Deploy41015542131 e Deploy41016147520 COMPLETED/SUCCESS. Pages verificata direttamente con cachev207 e chiave `veloria-league-council-silvo-idle-south-v1` nel TMJ pubblico della sala2. Verify41015542092 IN_PROGRESS, Verify41016147562 PENDING; nessun esito completo attribuito alle verifiche.
 
 Quattro identità integrate, totale43/48. Sedici pose con provenienza, hash e RGBA verificati, quattro mappe e altri44 profili preservati; atlante comune ritirato dai soli renderAssets dopo audit a zero usi Tiled. Sei casi Chrome distinti (quattro mirati e due globali sulle51 presenze nei due orientamenti) e quattro produzione offline passati. 839 dominio/persistenza,154 Python, validatore1042 risorse/48 fondali/48 mappe passati; TypeScript e build offline passati. Copertura438 browser e83 offline assegnati una volta. Dettagli in `120_COUNCIL_DIRECTIONAL_IDLE_v0.1.md`. Rilascio del nuovo lotto da attestare; obiettivo complessivo aperto.
 

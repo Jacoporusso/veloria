@@ -5847,12 +5847,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-and-cammino-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 1
+              "value": "veloria-petalora-custodian-ivo-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -5862,12 +5857,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.479
+              "value": 0.489318
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.959
+              "value": 0.96252
             }
           ]
         }

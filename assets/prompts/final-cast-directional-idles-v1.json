@@ -1,0 +1,1026 @@
+{
+  "generator": "built-in imagegen",
+  "approvedInputs": {
+    "scope": "Root-reviewed inputs; integration pending",
+    "profiles": [
+      {
+        "profileId": "route-trainer-maia-r16",
+        "base": "route-trainer-maia-r16",
+        "originalFrame": 2,
+        "sourceAtlas": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/maia-r16-idles-candidates/maia-north-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-c9095e03-728e-4a0a-922c-b2f1ead116a2.png",
+            "outputId": "exec-c9095e03-728e-4a0a-922c-b2f1ead116a2",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. NORTH view: strict rear facing away, back of curly bob and sporty blue/yellow jacket, no face, no front zipper/top/necklace on back.",
+            "sha256": "d90307e75e49defc0011861af43f2ae40faca378c074cdbd80ad472cd0f29cc7",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              288,
+              72,
+              800,
+              1456
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/maia-r16-idles-candidates/maia-south-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-d546826e-c6d1-427f-a792-a04ca4f484e2.png",
+            "outputId": "exec-d546826e-c6d1-427f-a792-a04ca4f484e2",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. SOUTH view: strict front facing toward viewer; black top and jacket front visible.",
+            "sha256": "96f4048805759e81bff81f44a20840b97868ee2f24725f8322b62d1d0bf58100",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              259,
+              72,
+              833,
+              1473
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/maia-r16-idles-candidates/maia-west-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0.png",
+            "outputId": "exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. WEST view: strict side profile, nose pointing SCREEN LEFT. Anatomical LEFT near camera, anatomical RIGHT far. Jacket and yellow outer left-leg stripe correctly visible, no frontal threequarter.",
+            "sha256": "8474f64d29bc0b7c2e2200aeabe73070ee416c055cd04cc80fe52965b767c420",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              353,
+              42,
+              689,
+              1491
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/maia-r16-idles-candidates/maia-east-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236.png",
+            "outputId": "exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. EAST view: strict side profile, nose pointing SCREEN RIGHT. Anatomical RIGHT near camera, anatomical LEFT far. Jacket and yellow outer right-leg stripe correctly visible, no frontal threequarter.",
+            "sha256": "df267f8bdaf70f579cb5a0d1c4155ef2d628c8b3db6b629c902570547cbc31b0",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              347,
+              54,
+              724,
+              1465
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "route-trainer-tobia-r16",
+        "base": "route-trainer-tobia-r16",
+        "originalFrame": 3,
+        "sourceAtlas": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/tobia-r16-idles-candidates/tobia-north-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad.png",
+            "outputId": "exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. NORTH strict REAR view away: backofhead and navyjacket, nofrontface/shirtbuttons or lapels. AnatomicalRIGHT sashknot viewerRIGHT ifnotoccludedbyjacket.",
+            "sha256": "75a6ab52dbd94250fa95eb1cb533d69430da8cbb52d1d4460e11786f146fce95",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              271,
+              51,
+              755,
+              1466
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/tobia-r16-idles-candidates/tobia-south-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-5581a9d6-d133-4f1e-978d-174ba39bce16.png",
+            "outputId": "exec-5581a9d6-d133-4f1e-978d-174ba39bce16",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. SOUTH strict FRONT view towardviewer: shirtfront and jacketlapels, anatomicalRIGHT plum sash knot viewerLEFT.",
+            "sha256": "65965eb6962ca3da92a1a0e7c1f403be2a9e2c91acc9fa8fe2d065b9d10692af",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              246,
+              45,
+              828,
+              1486
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/tobia-r16-idles-candidates/tobia-west-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-9cc3172a-137b-412a-b4ac-692cf99a945e.png",
+            "outputId": "exec-9cc3172a-137b-412a-b4ac-692cf99a945e",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. WEST strict SIDE PROFILE, NOSE POINTING SCREEN LEFT. AnatomicalLEFTnear, RIGHTfar: sashknot onRIGHTfar mostlyoccluded; show neck-length blackhair/jacket/sleeves/ivoryshirt/boots in genuine side silhouette, NOTfrontthreequarter.",
+            "sha256": "69baf88ce2db5cb1e530d785964a4df96d04193218a4741b06d93883cd6de212",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              351,
+              72,
+              684,
+              1474
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/tobia-r16-idles-candidates/tobia-east-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8.png",
+            "outputId": "exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8",
+            "promptExact": "Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. EAST strict SIDE PROFILE, NOSE POINTING SCREEN RIGHT. AnatomicalRIGHTnear with plum sashknot atRIGHThipnear ifnotcoveredbyjacket; anatomicalLEFTfar. Show genuine side silhouette of neck-length blackhair/navyjacket/rolledsleeves/ivoryshirt/boots, NOTfrontthreequarter.",
+            "sha256": "4862f781dce0fb356a1535da5b7db9c40ad32cb30f15cc43589ce0e5abf5fa0b",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              370,
+              96,
+              679,
+              1451
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "league-receptionist",
+        "base": "league-receptionist",
+        "originalFrame": 0,
+        "sourceAtlas": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/league-receptionist-idles-candidates/selected/receptionist-north-v1.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7.png",
+            "outputId": "exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7",
+            "promptExact": "Use case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: use only the TOP LEFT figure, League Reception staff member, from the 2x2 atlas. Preserve source presentation and design faithfully without asserting canon age or gender: short neatly swept-back dark hair, purple tailored suit with white/ivory lapels and cuffs, light blouse, pale lavender neck scarf tied at the side, matching slim trousers, dark purple low shoes, hands gently clasped in front. Keep the same face, proportions, colors and clothing details; do not borrow characters from other atlas cells or invent props. Runtime compass NORTH means rear-facing, showing the back of the head and suit. Full-body rear view, natural neutral idle posture, head to shoes visible. Warm polished softly shaded modern 2D game art matching the source. Centered single figure, generous margins, actual transparent background. No shadow, floor, environment, text, watermark, extra objects, crop, turnaround sheet, or multiple figures.",
+            "sha256": "5515abf7f6dfe3570d6a1babf45b8e9a57709fb3dc045aba114290d68803d189",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              288,
+              48,
+              719,
+              1461
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/league-receptionist-idles-candidates/selected/receptionist-south-v1.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f.png",
+            "outputId": "exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f",
+            "promptExact": "Use case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: use only the TOP LEFT figure, League Reception staff member, from the 2x2 atlas. Preserve the source figure's same facial presentation and distinct design: short neatly swept-back dark hair, deep purple tailored jacket and matching slim trousers, white/ivory lapels and cuffs, light blouse, pale lavender scarf tied at the neck with the same side and drape as the source, dark purple low pointed shoes, hands gently clasped in front. Keep identity, proportions and detail faithful; no invented canon age, gender or lore; no props or details borrowed from the other atlas figures. SOUTH view is front-facing, standing in a calm neutral idle pose with gently clasped hands, full body from hair to shoes visible. Warm polished softly shaded modern 2D game illustration matching source. Single centered figure, generous transparent margin, actual transparent background. No floor, cast shadow, environment, text, watermark, extra items, crop, multi-view sheet or extra figure.",
+            "sha256": "9fcc8154315021ab8502ba537b298fccb3b26ff2c8cd4e38df05da2e005e2904",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              308,
+              34,
+              709,
+              1502
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/league-receptionist-idles-candidates/selected/receptionist-west-v1.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed.png",
+            "outputId": "exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed",
+            "promptExact": "Use case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: only the TOP LEFT League Reception staff figure from the 2x2 atlas. Retain exactly this figure's source presentation without asserting canon age or gender: same neatly swept-back dark hair, plum-purple tailored suit, white/ivory collar and cuffs, light blouse, pale lavender scarf with source-matched asymmetric knot/tail, slim purple trousers and dark low shoes; keep hands gently clasped as source. Runtime WEST orientation: profile faces viewer-left, with the figure's anatomical LEFT side nearest and visible to viewer. Do not flip/mirror the character or shift the scarf's anatomical side. Preserve face, proportions and clothing cut; no extra canon or props. Full-body standing calm idle view, hair to shoes, centered. Warm polished soft-shaded modern 2D art matching source. Actual transparent background, no floor/shadow/scenery/text/watermark, no crop, no extra subjects or multi-view sheet.",
+            "sha256": "f19d42541174b2ebdbc4fd43fc7956c77bdb6385207e8d060955a607cc2339cc",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              342,
+              20,
+              664,
+              1490
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/league-receptionist-idles-candidates/selected/receptionist-east-v1.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3.png",
+            "outputId": "exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3",
+            "promptExact": "Use case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: only the TOP LEFT League Reception staff figure in the 2x2 atlas. Preserve the same source identity and presentation without assigning canon age or gender: neatly swept-back dark hair, plum-purple tailored suit, white/ivory lapels and cuffs, light blouse, pale lavender neck scarf with its original asymmetric side knot and tail, slim purple trousers, dark low pointed shoes, hands gently clasped. Runtime EAST orientation: profile faces viewer-right; anatomical RIGHT side is nearest and visible to viewer. Keep scarf and other source asymmetries on the same anatomical side, with no mirroring. Calm standing idle posture, full hair-to-shoes body visible, centered. Warm polished softly shaded modern 2D illustration matching source. Actual transparent background, no floor/shadow/environment, text, watermark, props, crop, extra figure or multi-view sheet.",
+            "sha256": "c28984d7392f9e4a4de9be51a2966eb85cd3859f98c07278078c034974a3270e",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              373,
+              17,
+              683,
+              1504
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "petalora-custodian-ivo",
+        "base": "petalora-custodian-ivo",
+        "originalFrame": 1,
+        "sourceAtlas": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/petalora-ivo-idles-candidates/ivo-north-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-31bb2f0c-e586-4737-9f55-d490933871e7.png",
+            "outputId": "exec-31bb2f0c-e586-4737-9f55-d490933871e7",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent NORTH rear-view image\nPrimary request: Create one fresh, full-body idle sprite of the Petalora custodian Ivo, facing NORTH away from the viewer. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, not Ferraluce Ivo.\nSubject: Preserve the source figure's silver-white hair and full beard, long olive-green gardener's coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust-colored trousers, and sturdy dark olive work boots. Calm relaxed stance with hands naturally in coat pockets. Show a coherent back view of this same outfit; no invented tools or story items.\nComposition: one centered complete figure from hair to soles, square genuinely transparent background, straight orthographic NORTH-facing rear view, relaxed idle. No scenery, floor, shadow, props, text, logo, watermark, frame, or crop.\nStyle: match the existing source's polished modern illustrated 2D game art, softly painted shading and clean warm contours; not pixel art, 3D, or photorealism.\nConstraints: Preserve identity, outfit, materials and natural body proportions from frame 1. Keep the rear of the coat simple and plausible, with pockets/seams consistent with the front; do not show front chest details on the back. Do not add jewelry, hat, plant, watering can, tools, or other accessories. No claims about canon age or gender.\nAvoid: Ferraluce Ivo (different NPC with dark jacket/copper details and folio), any other atlas characters, extra people/Pokémon, changed coat/pants palette, background color/checkerboard, floor/shadow/glow, cropped hair or shoes.",
+            "sha256": "686a7a6d37e85ef9aac8596dc1c845d6c3771998f300b9819768ab3ad18488aa",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              399,
+              25,
+              855,
+              1198
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/petalora-ivo-idles-candidates/ivo-south-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-e6ad1951-54ef-454b-a68d-6d421d278f1c.png",
+            "outputId": "exec-e6ad1951-54ef-454b-a68d-6d421d278f1c",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent SOUTH front-view image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo, facing SOUTH toward the viewer. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, not Ferraluce Ivo.\nSubject: Preserve the source figure's silver-white hair and full beard, long olive-green gardener's coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust-colored trousers, sturdy dark olive work boots. Calm relaxed stance with hands naturally in coat pockets. Do not invent tools or story items.\nComposition: single centered complete figure from hair to soles, square genuinely transparent background, straight orthographic front view facing SOUTH, relaxed idle. No scenery, floor, shadow, props, text, logo, watermark, frame, or crop.\nStyle: match the polished modern illustrated 2D game art in the source, softly painted shading, clean warm contours; not pixel art, 3D, or photorealism.\nConstraints: Preserve the identity, outfit colors, materials and proportions from frame 1. Keep any source asymmetries natural and consistent; do not mirror clothing pockets or details. No added jewelry, hat, plant, watering can, tools or accessories. Do not assert canon age or gender.\nAvoid: Ferraluce Ivo (different NPC with dark jacket, copper details and folio), other atlas characters, extra people/Pokémon, changed coat/pants palette, background/checkerboard, floor/shadow/glow, cropped hair or shoes.",
+            "sha256": "e7c8a1901da7e8807e26af02831a815102fb910b96ca8b56938cedb331bc8aea",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              380,
+              15,
+              875,
+              1207
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/petalora-ivo-idles-candidates/ivo-west-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-25ee67bc-c39a-484d-b805-5b58bed5e84f.png",
+            "outputId": "exec-25ee67bc-c39a-484d-b805-5b58bed5e84f",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent WEST-facing profile image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo facing WEST, nose and body directed to image-left. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, distinct from Ferraluce Ivo.\nSubject: Match the source's silver-white hair and full beard, long olive-green coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust trousers, dark olive work boots. Calm stance, hands naturally in coat pockets; no tools or invented story details.\nComposition: single centered complete figure head-to-soles, square transparent background, true WEST profile with nose to image-left, no crop/perspective, no floor/scenery/shadow/text/props.\nStyle: polished modern illustrated 2D game art consistent with the source, soft painted shading and warm clean contours; no pixel art, 3D, photorealism.\nConstraints: accurate profile of same outfit/identity, preserve source asymmetries without mirroring; no accessories, jewelry, hat, plants or tools; no canon age/gender assertions.\nAvoid: Ferraluce Ivo with dark coat/copper detail/folio; other atlas figures; extra people/Pokémon; changing palette; opaque/checkerboard background; floor, shadows, cropped hair or feet.",
+            "sha256": "0d20960813de202301e2b544354056a65f909bc42a93fdb174c02909f4f733e7",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              459,
+              33,
+              817,
+              1208
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/petalora-ivo-idles-candidates/ivo-east-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-4748efbf-1cab-40fa-98de-0ac8a90d1067.png",
+            "outputId": "exec-4748efbf-1cab-40fa-98de-0ac8a90d1067",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent EAST-facing profile image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo facing EAST, nose and body directed to image-right. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, distinct from Ferraluce Ivo.\nSubject: Match the source's silver-white hair and full beard, long olive-green coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust trousers, dark olive work boots. Calm stance, hands naturally in coat pockets; no tools or invented story details.\nComposition: single centered complete figure head-to-soles, square transparent background, true EAST profile with nose to image-right, no crop/perspective, no floor/scenery/shadow/text/props.\nStyle: polished modern illustrated 2D game art consistent with source, soft painted shading and warm clean contours; no pixel art, 3D, photorealism.\nConstraints: accurate profile of same outfit/identity, preserve source asymmetries without mirroring; no accessories, jewelry, hat, plants or tools; no canon age/gender assertions.\nAvoid: Ferraluce Ivo with dark coat/copper detail/folio; other atlas figures; extra people/Pokémon; changing palette; opaque/checkerboard background; floor, shadows, cropped hair or feet.",
+            "sha256": "6a43431cfbae8b0aa400419f84fbafcf61c79bedf6aef53f563ac83e50ecd609",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              439,
+              21,
+              810,
+              1207
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "league-champion-enea",
+        "base": "league-champion-enea",
+        "originalFrame": 3,
+        "sourceAtlas": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/champion-enea-idles-candidates/enea-idle-n-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-439f0d15-311d-4667-953c-bb3496c94fc4.png",
+            "outputId": "exec-439f0d15-311d-4667-953c-bb3496c94fc4",
+            "promptExact": "Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction NORTH, direct rear view. Face is fully away and not visible. Show the correct back of the silver hair and a plausible quiet continuation of the existing coat fabrics/edge trim only; no invented back emblems, graphics, or decorative patterns. Keep both arms anatomically placed at the sides; preserve the pocket/chain pose only where it would naturally be seen from behind. Single sprite.",
+            "sha256": "ef4a228248566efc594c542ae3b31640a5b844a9a2fbe55d9350faf7dff6fd22",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              178,
+              89,
+              914,
+              1463
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/champion-enea-idles-candidates/enea-idle-s-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-33afd06d-888a-4da3-aaec-85cc69ba5016.png",
+            "outputId": "exec-33afd06d-888a-4da3-aaec-85cc69ba5016",
+            "promptExact": "Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction SOUTH, direct front view. Preserve the reference's face and hair identity without aging or gendering it further. Show the medallion and hand asymmetry accurately: anatomical right hand on screen-left lightly holding the chain at chest; anatomical left hand on screen-right resting in coat pocket. Both shoulders square to viewer. Single sprite.",
+            "sha256": "7d82ce16098d19f49c81acf8c5410781f4a4a38281f9b3065206a9fd36bdf31a",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              126,
+              90,
+              986,
+              1452
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/champion-enea-idles-candidates/enea-idle-w-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe.png",
+            "outputId": "exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe",
+            "promptExact": "Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction WEST three-quarter/back side orientation, Enea's anatomical LEFT side nearest viewer. The nose and face point toward screen-left; the nearest left shoulder, arm, hip, and leg sit toward screen-left. Do not mirror/flip. Preserve the same medallion-chain and coat-pocket asymmetry on the correct anatomical sides as the garment turns; no invented back decoration. Single sprite.",
+            "sha256": "cb21ca641579ffa21ff660465c9392bba74c752f6f5f2b0793de16f786196d81",
+            "dimensions": [
+              1144,
+              1375
+            ],
+            "alpha128Bounds": [
+              308,
+              63,
+              968,
+              1316
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/champion-enea-idles-candidates/east-v3-selected.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-97803794-f333-40da-b50e-66695ff9a68c.png",
+            "outputId": "exec-97803794-f333-40da-b50e-66695ff9a68c",
+            "promptExact": "Use case: full-body game NPC idle sprite. Asset: one standalone modern illustrated 2D character for Veloria. Input image 1 is the ONLY visual identity reference: the exact source crop of Enea, atlas frame 3. Preserve silver-white softly wavy hair with NO clip, pin or head accessory; the same face/presentation; dark high-neck shirt; long petrol-blue coat with ivory panels/lapels, restrained source-matching gold trim and sparse gold stitch marks; dark belt; simple round gold medallion on its chain; ivory trousers; dark boots with gold accents. Do not invent any jewelry, emblem, symbols, bag, backpack, props or extra clothing. EAST view: unmistakable strict 90-degree profile facing SCREEN RIGHT, anatomical RIGHT side nearest viewer. Exactly one visible eye; side-view nose silhouette points right; torso and both feet align in profile. No three-quarter pose. Relaxed upright idle pose; keep the source's simple medallion and coat design. Tall 2:3 portrait framing, full head-to-sole figure filling about 86% of canvas height with moderate transparent margin, centered; match full-body RPG sprite scale. Warm polished soft-painterly modern 2D illustration matching source. Actual transparent background, no ground, shadow, environment, text, watermark, crop, extra figures, or sprite sheet.",
+            "sha256": "599073d7f40228dab4393b0b61c0ec2878732a719f4adad415c2a1ce5c87dd19",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              251,
+              70,
+              708,
+              1475
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "integratedProfiles": [
+    {
+      "profileId": "route-trainer-maia-r16",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-maia-r16",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r16_maia",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-north-v1.webp",
+          "sourceSha256": "d90307e75e49defc0011861af43f2ae40faca378c074cdbd80ad472cd0f29cc7",
+          "runtimeSha256": "67aea2cc92d9643c8947e50d1935f78f039bdb39fb004d1a77829d75d3d5eab0",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.541468,
+            "y": 0.947917
+          },
+          "displaySize": 62.150289,
+          "alpha128Bounds": [
+            288,
+            72,
+            800,
+            1456
+          ],
+          "outputId": "exec-c9095e03-728e-4a0a-922c-b2f1ead116a2",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-c9095e03-728e-4a0a-922c-b2f1ead116a2.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-south-v1.webp",
+          "sourceSha256": "96f4048805759e81bff81f44a20840b97868ee2f24725f8322b62d1d0bf58100",
+          "runtimeSha256": "eaedad4b242389297bfe1b1335d6062616659bc5a6c8084753bb998b286b9905",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.57751,
+            "y": 0.958984
+          },
+          "displaySize": 61.396146,
+          "alpha128Bounds": [
+            259,
+            72,
+            833,
+            1473
+          ],
+          "outputId": "exec-d546826e-c6d1-427f-a792-a04ca4f484e2",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-d546826e-c6d1-427f-a792-a04ca4f484e2.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-west-v1.webp",
+          "sourceSha256": "8474f64d29bc0b7c2e2200aeabe73070ee416c055cd04cc80fe52965b767c420",
+          "runtimeSha256": "bcc056286c1129cb3a8576323831995f2b12839c355f10c0c8cd6efda9cd6b1f",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.536544,
+            "y": 0.970703
+          },
+          "displaySize": 59.362319,
+          "alpha128Bounds": [
+            353,
+            42,
+            689,
+            1491
+          ],
+          "outputId": "exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-route-trainer-maia-r16-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-maia-r16-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-maia-r16-idle-east-v1.webp",
+          "sourceSha256": "df267f8bdaf70f579cb5a0d1c4155ef2d628c8b3db6b629c902570547cbc31b0",
+          "runtimeSha256": "45ca4bf4f2077990850932854572f8c7d129bac041b197c65c81c175070a9757",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.461123,
+            "y": 0.953776
+          },
+          "displaySize": 60.961021,
+          "alpha128Bounds": [
+            347,
+            54,
+            724,
+            1465
+          ],
+          "outputId": "exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "route-trainer-tobia-r16",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#route-trainer-tobia-r16",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#r16_tobia",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-north-v1.webp",
+          "sourceSha256": "75a6ab52dbd94250fa95eb1cb533d69430da8cbb52d1d4460e11786f146fce95",
+          "runtimeSha256": "8d729a5f601c1bea1d00dba013f095fff5b104b531c68245b0d116a66494e5dc",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.461974,
+            "y": 0.954427
+          },
+          "displaySize": 60.788693,
+          "alpha128Bounds": [
+            271,
+            51,
+            755,
+            1466
+          ],
+          "outputId": "exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-south-v1.webp",
+          "sourceSha256": "65965eb6962ca3da92a1a0e7c1f403be2a9e2c91acc9fa8fe2d065b9d10692af",
+          "runtimeSha256": "3156a1b89dd40f762b6ae64bd39f005b616c69a243c752fc8e382f164d1b06aa",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.636622,
+            "y": 0.967448
+          },
+          "displaySize": 59.691881,
+          "alpha128Bounds": [
+            246,
+            45,
+            828,
+            1486
+          ],
+          "outputId": "exec-5581a9d6-d133-4f1e-978d-174ba39bce16",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-5581a9d6-d133-4f1e-978d-174ba39bce16.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-west-v1.webp",
+          "sourceSha256": "69baf88ce2db5cb1e530d785964a4df96d04193218a4741b06d93883cd6de212",
+          "runtimeSha256": "af04f342a6a1207862ca642b3f4874c7c22906ad15611045ec0d9ea1c7a486e6",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.532264,
+            "y": 0.959635
+          },
+          "displaySize": 61.352354,
+          "alpha128Bounds": [
+            351,
+            72,
+            684,
+            1474
+          ],
+          "outputId": "exec-9cc3172a-137b-412a-b4ac-692cf99a945e",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-9cc3172a-137b-412a-b4ac-692cf99a945e.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-route-trainer-tobia-r16-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-route-trainer-tobia-r16-idle-east-v1.webp",
+          "sourceSha256": "4862f781dce0fb356a1535da5b7db9c40ad32cb30f15cc43589ce0e5abf5fa0b",
+          "runtimeSha256": "bf18b181d63e3441b5c306ab204fe91c31e61d372687274dca7e3d76d9b1d73c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.490594,
+            "y": 0.944661
+          },
+          "displaySize": 63.480443,
+          "alpha128Bounds": [
+            370,
+            96,
+            679,
+            1451
+          ],
+          "outputId": "exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-receptionist",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-receptionist",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_reception",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-receptionist-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-north-v1.webp",
+          "sourceSha256": "5515abf7f6dfe3570d6a1babf45b8e9a57709fb3dc045aba114290d68803d189",
+          "runtimeSha256": "3d5da47a307c1a4960a2e76c7303dd8894c2c1b2a35ccab3edad6d6b1d685b16",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.494059,
+            "y": 0.951172
+          },
+          "displaySize": 60.874735,
+          "alpha128Bounds": [
+            288,
+            48,
+            719,
+            1461
+          ],
+          "outputId": "exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-receptionist-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-south-v1.webp",
+          "sourceSha256": "9fcc8154315021ab8502ba537b298fccb3b26ff2c8cd4e38df05da2e005e2904",
+          "runtimeSha256": "11fd9e16e8aecbd99c2eca9551ae0a3214c97898777aa788d7b9a200859f677d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.480344,
+            "y": 0.977865
+          },
+          "displaySize": 58.594005,
+          "alpha128Bounds": [
+            308,
+            34,
+            709,
+            1502
+          ],
+          "outputId": "exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-receptionist-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-west-v1.webp",
+          "sourceSha256": "f19d42541174b2ebdbc4fd43fc7956c77bdb6385207e8d060955a607cc2339cc",
+          "runtimeSha256": "537c76c3a394b416dc7078b457db860fb16a0a06628bda050f52353f0e903d02",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.475354,
+            "y": 0.970052
+          },
+          "displaySize": 58.514286,
+          "alpha128Bounds": [
+            342,
+            20,
+            664,
+            1490
+          ],
+          "outputId": "exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-receptionist-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-receptionist-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-receptionist-idle-east-v1.webp",
+          "sourceSha256": "c28984d7392f9e4a4de9be51a2966eb85cd3859f98c07278078c034974a3270e",
+          "runtimeSha256": "3fc0cfba6781bb87bfd034b061438302ca827372823f974c281f7384e536c5fa",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.543059,
+            "y": 0.979167
+          },
+          "displaySize": 57.845326,
+          "alpha128Bounds": [
+            373,
+            17,
+            683,
+            1504
+          ],
+          "outputId": "exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "petalora-custodian-ivo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-and-cammino-cast-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#petalora-custodian-ivo",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#petalora_ivo",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-north-v1.webp",
+          "sourceSha256": "686a7a6d37e85ef9aac8596dc1c845d6c3771998f300b9819768ab3ad18488aa",
+          "runtimeSha256": "e3e47ff3458487e14c00d8b6f0b4c4ba8cb29dfe25ecc3ed51946312e9b7e9c9",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.517451,
+            "y": 0.955343
+          },
+          "displaySize": 59.867008,
+          "alpha128Bounds": [
+            399,
+            25,
+            855,
+            1198
+          ],
+          "outputId": "exec-31bb2f0c-e586-4737-9f55-d490933871e7",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-31bb2f0c-e586-4737-9f55-d490933871e7.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-south-v1.webp",
+          "sourceSha256": "e7c8a1901da7e8807e26af02831a815102fb910b96ca8b56938cedb331bc8aea",
+          "runtimeSha256": "495df3c9b9ddd7c426cfb2a1dad39f30403dbf2814db5ff9db77150c67ceeca0",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.489318,
+            "y": 0.96252
+          },
+          "displaySize": 58.912752,
+          "alpha128Bounds": [
+            380,
+            15,
+            875,
+            1207
+          ],
+          "outputId": "exec-e6ad1951-54ef-454b-a68d-6d421d278f1c",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-e6ad1951-54ef-454b-a68d-6d421d278f1c.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-west-v1.webp",
+          "sourceSha256": "0d20960813de202301e2b544354056a65f909bc42a93fdb174c02909f4f733e7",
+          "runtimeSha256": "9016316ec4b4720b64daf83f085c723a1533bb91910f0dc64f22eea09706c49c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.546918,
+            "y": 0.963317
+          },
+          "displaySize": 59.765106,
+          "alpha128Bounds": [
+            459,
+            33,
+            817,
+            1208
+          ],
+          "outputId": "exec-25ee67bc-c39a-484d-b805-5b58bed5e84f",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-25ee67bc-c39a-484d-b805-5b58bed5e84f.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-petalora-custodian-ivo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-petalora-custodian-ivo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-petalora-custodian-ivo-idle-east-v1.webp",
+          "sourceSha256": "6a43431cfbae8b0aa400419f84fbafcf61c79bedf6aef53f563ac83e50ecd609",
+          "runtimeSha256": "5ca6c77c07cfbd010d7134f4e0ebfc396e80805e1d45738db6e53d79a13c244c",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.481931,
+            "y": 0.96252
+          },
+          "displaySize": 59.210793,
+          "alpha128Bounds": [
+            439,
+            21,
+            810,
+            1207
+          ],
+          "outputId": "exec-4748efbf-1cab-40fa-98de-0ac8a90d1067",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-4748efbf-1cab-40fa-98de-0ac8a90d1067.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-champion-enea",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/final-cast-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-cast-opening-and-champion-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-champion-enea",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_champion",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-champion-enea-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-north-v1.webp",
+          "sourceSha256": "ef4a228248566efc594c542ae3b31640a5b844a9a2fbe55d9350faf7dff6fd22",
+          "runtimeSha256": "7bbb44639455e5ced50e1949b4c28c142c488996a9406fb63267a62b6f3f7ecb",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.513284,
+            "y": 0.952474
+          },
+          "displaySize": 62.60262,
+          "alpha128Bounds": [
+            178,
+            89,
+            914,
+            1463
+          ],
+          "outputId": "exec-439f0d15-311d-4667-953c-bb3496c94fc4",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-439f0d15-311d-4667-953c-bb3496c94fc4.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-champion-enea-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-south-v1.webp",
+          "sourceSha256": "7d82ce16098d19f49c81acf8c5410781f4a4a38281f9b3065206a9fd36bdf31a",
+          "runtimeSha256": "6e1fbeb0af054c32895b22b4aaff82fe0ce3a76fb25de903142a0b34f6c3e3b1",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.553384,
+            "y": 0.945312
+          },
+          "displaySize": 63.154185,
+          "alpha128Bounds": [
+            126,
+            90,
+            986,
+            1452
+          ],
+          "outputId": "exec-33afd06d-888a-4da3-aaec-85cc69ba5016",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-33afd06d-888a-4da3-aaec-85cc69ba5016.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-champion-enea-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-west-v1.webp",
+          "sourceSha256": "cb21ca641579ffa21ff660465c9392bba74c752f6f5f2b0793de16f786196d81",
+          "runtimeSha256": "0b481ff0ad89eee02a5f36ace50331cc9f6b7149585a6eb46dca8181ceb654a8",
+          "width": 1144,
+          "height": 1375,
+          "origin": {
+            "x": 0.595095,
+            "y": 0.957091
+          },
+          "displaySize": 61.452514,
+          "alpha128Bounds": [
+            308,
+            63,
+            968,
+            1316
+          ],
+          "outputId": "exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-champion-enea-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-champion-enea-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-champion-enea-idle-east-v1.webp",
+          "sourceSha256": "599073d7f40228dab4393b0b61c0ec2878732a719f4adad415c2a1ce5c87dd19",
+          "runtimeSha256": "b6e7b0294d9e52a08bd29882117e2063df4422677422af54fa62625f042978ee",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.552607,
+            "y": 0.960286
+          },
+          "displaySize": 61.221352,
+          "alpha128Bounds": [
+            251,
+            70,
+            708,
+            1475
+          ],
+          "outputId": "exec-97803794-f333-40da-b50e-66695ff9a68c",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-97803794-f333-40da-b50e-66695ff9a68c.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    }
+  ],
+  "retirementAudit": {
+    "atlasKeys": [
+      "veloria-cast-opening-and-champion-v1",
+      "veloria-league-and-cammino-cast-v1"
+    ],
+    "remainingTiledObjectUses": [],
+    "removedFromMapRenderAssets": [
+      "content/maps/league_champion.map.json",
+      "content/maps/league_forecourt.map.json",
+      "content/maps/petalora.map.json",
+      "content/maps/r01_sentiero_alba.map.json",
+      "content/maps/r03_terrazze_muschio.map.json",
+      "content/maps/r16_cammino_equilibrio.map.json"
+    ],
+    "globalCatalogSourceRuntimeAndPrecache": "preserved"
+  },
+  "reviewHistory": {
+    ".tmp/champion-enea-idles-candidates/provenance.json": "{\n  \"purpose\": \"private sprite candidates only; pending root review, not approved\",\n  \"tool\": \"built-in image_gen\",\n  \"referenceCount\": 1,\n  \"sourceProfile\": \"league-champion-enea\",\n  \"sourcePath\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n  \"candidates\": [\n    {\n      \"direction\": \"N\",\n      \"prompt\": \"Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction NORTH, direct rear view. Face is fully away and not visible. Show the correct back of the silver hair and a plausible quiet continuation of the existing coat fabrics/edge trim only; no invented back emblems, graphics, or decorative patterns. Keep both arms anatomically placed at the sides; preserve the pocket/chain pose only where it would naturally be seen from behind. Single sprite.\",\n      \"reference\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n      \"outputId\": \"exec-439f0d15-311d-4667-953c-bb3496c94fc4\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-439f0d15-311d-4667-953c-bb3496c94fc4.png\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-439f0d15-311d-4667-953c-bb3496c94fc4.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"localCopy\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\champion-enea-idles-candidates\\\\enea-idle-n-v1-raw.png\",\n      \"sha256\": \"ef4a228248566efc594c542ae3b31640a5b844a9a2fbe55d9350faf7dff6fd22\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaGte128Bounds\": [\n        178,\n        89,\n        914,\n        1463\n      ],\n      \"alphaGte128BorderCounts\": {\n        \"left\": 0,\n        \"right\": 0,\n        \"top\": 0,\n        \"bottom\": 0\n      }\n    },\n    {\n      \"direction\": \"S\",\n      \"prompt\": \"Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction SOUTH, direct front view. Preserve the reference's face and hair identity without aging or gendering it further. Show the medallion and hand asymmetry accurately: anatomical right hand on screen-left lightly holding the chain at chest; anatomical left hand on screen-right resting in coat pocket. Both shoulders square to viewer. Single sprite.\",\n      \"reference\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n      \"outputId\": \"exec-33afd06d-888a-4da3-aaec-85cc69ba5016\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-33afd06d-888a-4da3-aaec-85cc69ba5016.png\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-33afd06d-888a-4da3-aaec-85cc69ba5016.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"localCopy\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\champion-enea-idles-candidates\\\\enea-idle-s-v1-raw.png\",\n      \"sha256\": \"7d82ce16098d19f49c81acf8c5410781f4a4a38281f9b3065206a9fd36bdf31a\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaGte128Bounds\": [\n        126,\n        90,\n        986,\n        1452\n      ],\n      \"alphaGte128BorderCounts\": {\n        \"left\": 0,\n        \"right\": 0,\n        \"top\": 0,\n        \"bottom\": 0\n      }\n    },\n    {\n      \"direction\": \"W\",\n      \"prompt\": \"Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction WEST three-quarter/back side orientation, Enea's anatomical LEFT side nearest viewer. The nose and face point toward screen-left; the nearest left shoulder, arm, hip, and leg sit toward screen-left. Do not mirror/flip. Preserve the same medallion-chain and coat-pocket asymmetry on the correct anatomical sides as the garment turns; no invented back decoration. Single sprite.\",\n      \"reference\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n      \"outputId\": \"exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe.png\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-13c80a93-57b3-4fc2-813b-2b6a21a307fe.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"localCopy\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\champion-enea-idles-candidates\\\\enea-idle-w-v1-raw.png\",\n      \"sha256\": \"cb21ca641579ffa21ff660465c9392bba74c752f6f5f2b0793de16f786196d81\",\n      \"dimensions\": [\n        1144,\n        1375\n      ],\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaGte128Bounds\": [\n        308,\n        63,\n        968,\n        1316\n      ],\n      \"alphaGte128BorderCounts\": {\n        \"left\": 0,\n        \"right\": 0,\n        \"top\": 0,\n        \"bottom\": 0\n      }\n    },\n    {\n      \"direction\": \"E\",\n      \"prompt\": \"Generate one standalone full-body idle sprite for Enea, the Veloria Champion, using the viewed reference image solely as identity reference and focusing on the lower-right quadrant (atlas frame 3). Modern illustrated 2D fantasy RPG art, polished soft painterly shading with crisp silhouette. Preserve the source's silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory front panels/lapels and gold edging/details, simple round gold medallion on its chain, belt, ivory trousers, and dark boots with gold accents. Preserve the source garment silhouette and front-side asymmetry: Enea's anatomical right hand (screen-left in front view) lightly holds/touches the medallion chain at chest; anatomical left hand (screen-right in front view) rests in the coat pocket. Do not add unseen coat emblems or new jewelry. Keep a natural neutral idle stance, full body and both feet visible, centered with generous transparent padding. Transparent background; no props, scenery, text, border, ground/shadow, sheet/grid, extra characters, or multiple views. Do not infer or add age/gender details beyond what the reference image itself communicates. Direction EAST three-quarter/back side orientation, Enea's anatomical RIGHT side nearest viewer. The nose and face point toward screen-right; the nearest right shoulder, arm, hip, and leg sit toward screen-right. Do not mirror/flip. Preserve the same medallion-chain and coat-pocket asymmetry on the correct anatomical sides as the garment turns; no invented back decoration. Single sprite.\",\n      \"reference\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n      \"outputId\": \"exec-2e43de35-9903-4b70-b6e6-1903bde98c4d\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-2e43de35-9903-4b70-b6e6-1903bde98c4d.png\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-2e43de35-9903-4b70-b6e6-1903bde98c4d.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"localCopy\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\champion-enea-idles-candidates\\\\enea-idle-e-v1-raw.png\",\n      \"sha256\": \"877c2863a9fd2fd460495a85e43c1d711129aa8b44d2dc3395ef4bb483104901\",\n      \"dimensions\": [\n        1278,\n        1230\n      ],\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaGte128Bounds\": [\n        244,\n        26,\n        955,\n        1207\n      ],\n      \"alphaGte128BorderCounts\": {\n        \"left\": 0,\n        \"right\": 0,\n        \"top\": 0,\n        \"bottom\": 0\n      },\n      \"status\": \"retained raw; excluded from final review board because it appeared substantially underscaled beside the other views\"\n    },\n    {\n      \"direction\": \"E-v2\",\n      \"prompt\": \"Generate one standalone full-body idle character sprite for Enea, using the local source reference atlas and focus only on frame 3 in the lower-right quadrant. Modern illustrated 2D fantasy RPG art, soft painterly shading and crisp silhouette. Direction EAST three-quarter/back side orientation: Enea's nose points clearly to screen-right, anatomical right side nearest viewer and nearest right edge; do not mirror or flip. Preserve the source identity: silver-white short wavy hair, dark high-neck top, long deep petrol-teal coat with ivory panels/lapels and gold trim/details, simple round gold medallion and chain, belt, ivory trousers, dark boots with gold accents. Keep the source asymmetry on correct anatomical sides: right hand (near/screen-right) lightly touches the medallion chain; left hand rests in the coat pocket. Do not invent coat back emblems. Portrait composition with the full character filling about 86% of canvas height, hair near the upper margin and both soles near the lower margin, scale consistent with a full-body front-view sprite; generous but not excessive transparent padding. Transparent background. No ground, shadow, scenery, props, text, border, extra figures, or multi-view sheet. Do not add age or gender details beyond the reference. Output a single sprite.\",\n      \"reference\": \"assets/sources/veloria-cast-opening-and-champion-v1.png frame 3 (lower right)\",\n      \"outputId\": \"exec-c2f5af18-9a4f-47de-826c-3cd51ff044bc\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-c2f5af18-9a4f-47de-826c-3cd51ff044bc.png\",\n      \"localCopy\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\champion-enea-idles-candidates\\\\enea-idle-e-v2-raw.png\",\n      \"status\": \"scale-corrected alternate included in final review board; E-v1 raw preserved\",\n      \"sha256\": \"74912b20a0512f1cca5ea344d6e0e7763054121f99c543b3bc87fcd02ebe9d37\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaGte128Bounds\": [\n        153,\n        15,\n        997,\n        1496\n      ],\n      \"alphaGte128BorderCounts\": {\n        \"left\": 0,\n        \"right\": 0,\n        \"top\": 0,\n        \"bottom\": 0\n      },\n      \"currentReview\": true\n    }\n  ],\n  \"qaBoards\": [\n    \"qa-board.png\",\n    \"qa-board-review.png\"\n  ],\n  \"alphaAudit\": \"alpha-audit.json\"\n}\n",
+    ".tmp/champion-enea-idles-candidates/east-v3-provenance.md": "# Enea East profile correction — private candidate only\n\nThis is a supplemental East-direction correction. Existing agent files `provenance.json`, `qa-board-review.*`, and existing raw candidates were left untouched. Current prompt reference was restricted to one exact crop of Enea, frame 3 (lower right) from `assets/sources/veloria-cast-opening-and-champion-v1.png`; crop is 627×627 at `(627,627)` with no resampling. The viewed reference is saved at `east-v3-reference-frame3.png`, SHA-256 `521e068b5948cc65cba917e0c8a98924f94b3026f53a07f76b0f755bb93780b4`.\n\nCorrective intent: strict East side profile, nose SCREEN RIGHT, anatomical RIGHT side near; one eye only. The first E-v3 result contained an unreferenced gold hair clip. A second no-clip result was square and rendered smaller, so a third call added portrait scale instructions. The third output is the proposed review candidate; previous raw alternatives remain intact. It reads as a true right-facing profile and preserves the source silver hair, petrol/ivory coat, dark high-neck shirt, medallion, belt, trousers, boots. No new props or emblems were requested. Review board `east-v3-qa-board.png` compares the selected portrait with the first clipped alternate; original source pixels are unchanged. QA board metadata is `east-v3-qa-board.json`, detailed alpha metrics are `east-v3-metrics.json`.\n\n## Proposed output\n\n- File: `east-v3-selected.png` (byte-identical copy of `east-v3-retry2-raw.png`)\n- Output ID: `exec-97803794-f333-40da-b50e-66695ff9a68c.png`\n- Generated original: `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-97803794-f333-40da-b50e-66695ff9a68c.png`\n- SHA-256: `599073d7f40228dab4393b0b61c0ec2878732a719f4adad415c2a1ce5c87dd19`\n- Dimensions: 1024×1536 RGBA; alpha range 0–254; alpha≥128 bounds `[251,70,708,1475]`; alpha≥128 border counts top/right/bottom/left all 0. There is one nonzero but sub-128 alpha sample on the bottom border; this very low-alpha edge sample alone is not treated as visible background.\n\n## Retained alternate outputs\n\n1. `east-v3-raw.png`; output ID `exec-469b32f4-33db-491b-8d49-2ebd0244046f.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-469b32f4-33db-491b-8d49-2ebd0244046f.png`; SHA-256 `c8cfbb324ee31dc1040ede5738ec7a572a4763e6e6a69350660c343d9a0b0809`; 1254×1254 RGBA; alpha≥128 bounds `[354,54,801,1188]`, edge counts all 0. True profile, but includes an unreferenced small gold hair clip; retained as a rejected alternate.\n2. `east-v3-retry-raw.png`; output ID `exec-f1a9d5e9-a79b-4f39-984f-c9d68e62265a.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-f1a9d5e9-a79b-4f39-984f-c9d68e62265a.png`; SHA-256 `d225eff13ae8ac3147ec3216bfd49e58bcbf571d59e0a7854a2af4cc6ca4530c`; 1254×1254 RGBA; alpha≥128 bounds `[409,57,797,1175]`, edge counts all 0. True profile and no clip, but square layout is smaller than the portrait candidate.\n\n## Exact prompts\n\n### E-v3, first strict-profile attempt (retained, clipped alternate)\nUse case: full-body game NPC idle sprite. Asset: one standalone modern illustrated 2D character view for the existing Veloria game. Input image 1 is the ONLY visual identity reference: the exact source crop of Enea from atlas frame 3. Preserve this character's silver-white softly wavy hair, same face and source presentation, dark high-neck shirt, petrol-blue long coat with ivory lapels/panels, restrained gold edge trim and original small gold stitching details, dark belt, simple round gold medallion on chain, ivory trousers, dark boots with gold accents. Preserve the medallion and original coat design; add no symbols, insignia, extra jewelry, bag, backpack, or props. EAST directional view: strict 90-degree side profile, nose and chest facing SCREEN RIGHT, anatomical RIGHT side nearest the viewer. This must read unmistakably as a true side profile, not front-facing and not three-quarter: only one eye visible, nose silhouette points right, torso and feet aligned in profile. Calm upright idle stance, complete head-to-boots figure, centered with margins. Match the source's polished warm softly shaded modern illustrated 2D style and proportions. Actual transparent background, no floor, no cast shadow, no scenery, no text, no watermark, no cropping, no multi-view sheet, one figure only.\n\n### E-v3 retry (retained square alternate)\nUse case: full-body game NPC idle sprite. Asset: one standalone modern illustrated 2D character view for the existing Veloria game. Input image 1 is the ONLY visual identity reference: the exact source crop of Enea from atlas frame 3. Preserve this character's silver-white softly wavy natural hair with NO hair clip, pin, headband, or hair ornament; same face and source presentation; dark high-neck shirt; petrol-blue long coat with ivory lapels/panels, restrained gold edge trim and original small gold stitching details; dark belt; simple round gold medallion on chain; ivory trousers; dark boots with gold accents. Preserve the medallion and original coat design; add no symbols, insignia, extra jewelry, bag, backpack, or props. EAST directional view: strict 90-degree side profile, nose and chest facing SCREEN RIGHT, anatomical RIGHT side nearest the viewer. It must read unmistakably as a true side profile, not front-facing and not three-quarter: only one eye visible, nose silhouette points right, torso and feet aligned in profile. Calm upright idle stance, complete head-to-boots figure, centered with margins. Match the source's polished warm softly shaded modern 2D style and proportions. Actual transparent background, no floor, no cast shadow, no scenery, no text, no watermark, no cropping, no multi-view sheet, one figure only.\n\n### E-v3 retry 2 (proposed portrait candidate)\nUse case: full-body game NPC idle sprite. Asset: one standalone modern illustrated 2D character for Veloria. Input image 1 is the ONLY visual identity reference: the exact source crop of Enea, atlas frame 3. Preserve silver-white softly wavy hair with NO clip, pin or head accessory; the same face/presentation; dark high-neck shirt; long petrol-blue coat with ivory panels/lapels, restrained source-matching gold trim and sparse gold stitch marks; dark belt; simple round gold medallion on its chain; ivory trousers; dark boots with gold accents. Do not invent any jewelry, emblem, symbols, bag, backpack, props or extra clothing. EAST view: unmistakable strict 90-degree profile facing SCREEN RIGHT, anatomical RIGHT side nearest viewer. Exactly one visible eye; side-view nose silhouette points right; torso and both feet align in profile. No three-quarter pose. Relaxed upright idle pose; keep the source's simple medallion and coat design. Tall 2:3 portrait framing, full head-to-sole figure filling about 86% of canvas height with moderate transparent margin, centered; match full-body RPG sprite scale. Warm polished soft-painterly modern 2D illustration matching source. Actual transparent background, no ground, shadow, environment, text, watermark, crop, extra figures, or sprite sheet.\n\nAll generated raw files and alternates are retained in this `east-v3-*` set. No production, registry, runtime, test, browser, Git, or prior agent provenance files were changed.\n",
+    ".tmp/league-receptionist-idles-candidates/PROVENANCE.md": "# League Reception idle candidates — private art, review only\n\nFour independent built-in imagegen outputs, using the viewed reference `assets/sources/veloria-league-and-cammino-cast-v1.png`, frame 0 (top-left, 627×627). Profile `league-receptionist`; live NPC/dialogue `league_reception`; Tiled map `league_forecourt.tmj`, object `Accoglienza della Lega`; atlas key `veloria-league-and-cammino-cast-v1`; runtime frame 0. Audit reference: `docs/art/remaining-cast-directional-audit-0.4.41.json`.\n\nThe canon describes the receptionist's welcome role and says appearance and service uniform are artistic proposals; canon does not specify age or gender. These candidates follow the frame's visible presentation only, without adding age, gender, or lore. Compass mapping matches the task: NORTH rear; SOUTH front; WEST profile nose viewer-left with anatomical LEFT near; EAST profile nose viewer-right with anatomical RIGHT near.\n\nRaw generated PNGs are copied unchanged under `raw/`; selected files under `selected/` are identical copies. No flips, pixel cleanup, resampling, or production integration. `receptionist-review-board.png` is an opaque composition QA only. `receptionist-review-board.json` contains script-derived source hashes, dimensions, alpha range/bounds, and corner alpha. `metrics-v1.json` includes alpha≥128 bounds and alpha≥128 edge pixel counts. All selected assets are 1024×1536 RGBA, alpha range 0–254, with all corner alpha 0; none has alpha≥128 on the image border. Hidden RGB at alpha zero is not treated as visible background.\n\n## Output provenance\n\n- NORTH rear: `selected/receptionist-north-v1.png`; exec output ID `exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-2ff2bd9f-c36f-411f-b9b2-10f9b45730d7.png`; SHA-256 `5515abf7f6dfe3570d6a1babf45b8e9a57709fb3dc045aba114290d68803d189`.\n- SOUTH front: `selected/receptionist-south-v1.png`; exec output ID `exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-73bf0a3d-c9b8-4c79-8d1e-45999255e20f.png`; SHA-256 `9fcc8154315021ab8502ba537b298fccb3b26ff2c8cd4e38df05da2e005e2904`.\n- WEST profile nose viewer-left, anatomical LEFT near: `selected/receptionist-west-v1.png`; exec output ID `exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-969d31fe-63c0-492b-bcea-e94c5b4e7aed.png`; SHA-256 `f19d42541174b2ebdbc4fd43fc7956c77bdb6385207e8d060955a607cc2339cc`.\n- EAST profile nose viewer-right, anatomical RIGHT near: `selected/receptionist-east-v1.png`; exec output ID `exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3.png`; generated original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-e32e3aac-f494-4ecc-a04f-0d9d50139fb3.png`; SHA-256 `c28984d7392f9e4a4de9be51a2966eb85cd3859f98c07278078c034974a3270e`.\n\nAll four use the same reference image role: image 1 is the source atlas, and only the top-left League Reception figure is the identity reference.\n\n## Exact NORTH prompt\nUse case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: use only the TOP LEFT figure, League Reception staff member, from the 2x2 atlas. Preserve source presentation and design faithfully without asserting canon age or gender: short neatly swept-back dark hair, purple tailored suit with white/ivory lapels and cuffs, light blouse, pale lavender neck scarf tied at the side, matching slim trousers, dark purple low shoes, hands gently clasped in front. Keep the same face, proportions, colors and clothing details; do not borrow characters from other atlas cells or invent props. Runtime compass NORTH means rear-facing, showing the back of the head and suit. Full-body rear view, natural neutral idle posture, head to shoes visible. Warm polished softly shaded modern 2D game art matching the source. Centered single figure, generous margins, actual transparent background. No shadow, floor, environment, text, watermark, extra objects, crop, turnaround sheet, or multiple figures.\n\n## Exact SOUTH prompt\nUse case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: use only the TOP LEFT figure, League Reception staff member, from the 2x2 atlas. Preserve the source figure's same facial presentation and distinct design: short neatly swept-back dark hair, deep purple tailored jacket and matching slim trousers, white/ivory lapels and cuffs, light blouse, pale lavender scarf tied at the neck with the same side and drape as the source, dark purple low pointed shoes, hands gently clasped in front. Keep identity, proportions and detail faithful; no invented canon age, gender or lore; no props or details borrowed from the other atlas figures. SOUTH view is front-facing, standing in a calm neutral idle pose with gently clasped hands, full body from hair to shoes visible. Warm polished softly shaded modern 2D game illustration matching source. Single centered figure, generous transparent margin, actual transparent background. No floor, cast shadow, environment, text, watermark, extra items, crop, multi-view sheet or extra figure.\n\n## Exact WEST prompt\nUse case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: only the TOP LEFT League Reception staff figure from the 2x2 atlas. Retain exactly this figure's source presentation without asserting canon age or gender: same neatly swept-back dark hair, plum-purple tailored suit, white/ivory collar and cuffs, light blouse, pale lavender scarf with source-matched asymmetric knot/tail, slim purple trousers and dark low shoes; keep hands gently clasped as source. Runtime WEST orientation: profile faces viewer-left, with the figure's anatomical LEFT side nearest and visible to viewer. Do not flip/mirror the character or shift the scarf's anatomical side. Preserve face, proportions and clothing cut; no extra canon or props. Full-body standing calm idle view, hair to shoes, centered. Warm polished soft-shaded modern 2D art matching source. Actual transparent background, no floor/shadow/scenery/text/watermark, no crop, no extra subjects or multi-view sheet.\n\n## Exact EAST prompt\nUse case: game character sprite concept. Asset: one standalone full-body modern illustrated 2D idle sprite. Input image 1 reference: only the TOP LEFT League Reception staff figure in the 2x2 atlas. Preserve the same source identity and presentation without assigning canon age or gender: neatly swept-back dark hair, plum-purple tailored suit, white/ivory lapels and cuffs, light blouse, pale lavender neck scarf with its original asymmetric side knot and tail, slim purple trousers, dark low pointed shoes, hands gently clasped. Runtime EAST orientation: profile faces viewer-right; anatomical RIGHT side is nearest and visible to viewer. Keep scarf and other source asymmetries on the same anatomical side, with no mirroring. Calm standing idle posture, full hair-to-shoes body visible, centered. Warm polished softly shaded modern 2D illustration matching source. Actual transparent background, no floor/shadow/environment, text, watermark, props, crop, extra figure or multi-view sheet.\n\nGenerated outputs were directly copied from their reported builtin paths. The four tool calls each yielded the one output ID listed above; no extra generated alternatives or rejects were emitted in this task.\n",
+    ".tmp/petalora-ivo-idles-candidates/prompts-and-provenance.md": "# Petalora custodian Ivo — private directional idle review\n\nThis is private review art only; no production/runtime files changed. Target profile `petalora-custodian-ivo`, NPC/dialogue `petalora_ivo`, object `Custode Ivo` in `public/tilemaps/petalora.tmj` at (608,256), source sprite frame 1. He is explicitly distinct from Ferraluce's `ferraluce-ivo` / `ferraluce_ivo`, already migrated. Appearance notes say silver beard and gardener clothing are visual proposals and do not specify canon age. Dialogue describes the Petalora channels carrying water between cherry terraces, services on either side, and the north avenue to the gym; no added lore is assumed.\n\nIdentity/style source for all prompts: `C:\\Projects\\Veloria\\assets\\sources\\veloria-league-and-cammino-cast-v1.png`, upper-right cell/frame 1. Built-in `image_gen`; one independent output per direction; transparent background requested. Raw PNG outputs were copied unchanged; all originals and any future rejects remain preserved.\n\n## NORTH — output ID `exec-31bb2f0c-e586-4737-9f55-d490933871e7`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent NORTH rear-view image\nPrimary request: Create one fresh, full-body idle sprite of the Petalora custodian Ivo, facing NORTH away from the viewer. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, not Ferraluce Ivo.\nSubject: Preserve the source figure's silver-white hair and full beard, long olive-green gardener's coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust-colored trousers, and sturdy dark olive work boots. Calm relaxed stance with hands naturally in coat pockets. Show a coherent back view of this same outfit; no invented tools or story items.\nComposition: one centered complete figure from hair to soles, square genuinely transparent background, straight orthographic NORTH-facing rear view, relaxed idle. No scenery, floor, shadow, props, text, logo, watermark, frame, or crop.\nStyle: match the existing source's polished modern illustrated 2D game art, softly painted shading and clean warm contours; not pixel art, 3D, or photorealism.\nConstraints: Preserve identity, outfit, materials and natural body proportions from frame 1. Keep the rear of the coat simple and plausible, with pockets/seams consistent with the front; do not show front chest details on the back. Do not add jewelry, hat, plant, watering can, tools, or other accessories. No claims about canon age or gender.\nAvoid: Ferraluce Ivo (different NPC with dark jacket/copper details and folio), any other atlas characters, extra people/Pokémon, changed coat/pants palette, background color/checkerboard, floor/shadow/glow, cropped hair or shoes.\n```\n\n## SOUTH — output ID `exec-e6ad1951-54ef-454b-a68d-6d421d278f1c`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent SOUTH front-view image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo, facing SOUTH toward the viewer. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, not Ferraluce Ivo.\nSubject: Preserve the source figure's silver-white hair and full beard, long olive-green gardener's coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust-colored trousers, sturdy dark olive work boots. Calm relaxed stance with hands naturally in coat pockets. Do not invent tools or story items.\nComposition: single centered complete figure from hair to soles, square genuinely transparent background, straight orthographic front view facing SOUTH, relaxed idle. No scenery, floor, shadow, props, text, logo, watermark, frame, or crop.\nStyle: match the polished modern illustrated 2D game art in the source, softly painted shading, clean warm contours; not pixel art, 3D, or photorealism.\nConstraints: Preserve the identity, outfit colors, materials and proportions from frame 1. Keep any source asymmetries natural and consistent; do not mirror clothing pockets or details. No added jewelry, hat, plant, watering can, tools or accessories. Do not assert canon age or gender.\nAvoid: Ferraluce Ivo (different NPC with dark jacket, copper details and folio), other atlas characters, extra people/Pokémon, changed coat/pants palette, background/checkerboard, floor/shadow/glow, cropped hair or shoes.\n```\n\n## WEST — output ID `exec-25ee67bc-c39a-484d-b805-5b58bed5e84f`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent WEST-facing profile image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo facing WEST, nose and body directed to image-left. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, distinct from Ferraluce Ivo.\nSubject: Match the source's silver-white hair and full beard, long olive-green coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust trousers, dark olive work boots. Calm stance, hands naturally in coat pockets; no tools or invented story details.\nComposition: single centered complete figure head-to-soles, square transparent background, true WEST profile with nose to image-left, no crop/perspective, no floor/scenery/shadow/text/props.\nStyle: polished modern illustrated 2D game art consistent with the source, soft painted shading and warm clean contours; no pixel art, 3D, photorealism.\nConstraints: accurate profile of same outfit/identity, preserve source asymmetries without mirroring; no accessories, jewelry, hat, plants or tools; no canon age/gender assertions.\nAvoid: Ferraluce Ivo with dark coat/copper detail/folio; other atlas figures; extra people/Pokémon; changing palette; opaque/checkerboard background; floor, shadows, cropped hair or feet.\n```\n\n## EAST — output ID `exec-4748efbf-1cab-40fa-98de-0ac8a90d1067`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body idle sprite candidate for a 2D RPG, one independent EAST-facing profile image\nPrimary request: Create one fresh full-body idle sprite of the Petalora custodian Ivo facing EAST, nose and body directed to image-right. Use only Image 1's upper-right cell (frame 1) as identity/outfit/style reference. This is the Petalora custodian, distinct from Ferraluce Ivo.\nSubject: Match the source's silver-white hair and full beard, long olive-green coat with deep pockets and rolled cuffs, light cream shirt, olive sash/belt, rust trousers, dark olive work boots. Calm stance, hands naturally in coat pockets; no tools or invented story details.\nComposition: single centered complete figure head-to-soles, square transparent background, true EAST profile with nose to image-right, no crop/perspective, no floor/scenery/shadow/text/props.\nStyle: polished modern illustrated 2D game art consistent with source, soft painted shading and warm clean contours; no pixel art, 3D, photorealism.\nConstraints: accurate profile of same outfit/identity, preserve source asymmetries without mirroring; no accessories, jewelry, hat, plants or tools; no canon age/gender assertions.\nAvoid: Ferraluce Ivo with dark coat/copper detail/folio; other atlas figures; extra people/Pokémon; changing palette; opaque/checkerboard background; floor, shadows, cropped hair or feet.\n```\n\n## Provenance\n\nExact generated file paths, output IDs (the `exec-*.png` filenames), raw copy paths, SHA-256 hashes, dimensions, RGBA/alpha bounds and border counts are recorded in `candidate-metadata.json`. Opaque review boards are separate QA composites created by `tools/sprite_review_board.py`; they do not alter sprite pixels.\n",
+    ".tmp/petalora-ivo-idles-candidates/candidate-metadata.json": "{\n  \"classification\": \"private review candidates only; not approved or integrated\",\n  \"profileId\": \"petalora-custodian-ivo\",\n  \"npcId\": \"petalora_ivo\",\n  \"distinctFrom\": \"ferraluce-ivo / ferraluce_ivo\",\n  \"sourcePath\": \"C:\\\\Projects\\\\Veloria\\\\assets\\\\sources\\\\veloria-league-and-cammino-cast-v1.png\",\n  \"sourceFrame\": \"1 / upper-right 627x627\",\n  \"auditPath\": \"docs/art/remaining-cast-directional-audit-0.4.41.json\",\n  \"appearancePath\": \"content/characters/appearances.v2.json\",\n  \"dialoguePath\": \"content/dialogue/world.v1.json#/petalora_ivo\",\n  \"dialogue\": \"Benvenuto a Petalora! Qui i ciliegi crescono grazie ai canali che portano l’acqua fra le terrazze. Alla tua sinistra trovi le cure gratuite, alla tua destra la bottega. Il viale verso nord conduce alla palestra di Dalia: fai arrivare l’acqua alle terrazze per affrontarla. Dopo la Medaglia Corolla puoi uscire a est della piazza: il Viadotto dei Ciliegi conduce alla prima piazza di Vetracielo.\",\n  \"mapPath\": \"public/tilemaps/petalora.tmj\",\n  \"mapObject\": {\n    \"name\": \"Custode Ivo\",\n    \"pixelX\": 608,\n    \"pixelY\": 256,\n    \"npcId\": \"petalora_ivo\",\n    \"dialogueId\": \"petalora_ivo\",\n    \"sprite\": \"veloria-league-and-cammino-cast-v1\",\n    \"frame\": 1,\n    \"appearanceId\": \"petalora-custodian-ivo\"\n  },\n  \"generationTool\": \"built-in image_gen\",\n  \"transparentBackgroundRequested\": true,\n  \"artifacts\": [\n    {\n      \"direction\": \"north\",\n      \"outputId\": \"exec-31bb2f0c-e586-4737-9f55-d490933871e7\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-31bb2f0c-e586-4737-9f55-d490933871e7.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\petalora-ivo-idles-candidates\\\\ivo-north-v1-raw.png\",\n      \"sha256\": \"686a7a6d37e85ef9aac8596dc1c845d6c3771998f300b9819768ab3ad18488aa\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"nonzeroAlphaBounds\": [\n        21,\n        21,\n        1226,\n        1206\n      ],\n      \"alpha128Bounds\": [\n        399,\n        25,\n        855,\n        1198\n      ],\n      \"borderCounts\": {\n        \"nonzeroAlpha\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        },\n        \"alphaAtLeast128\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        }\n      },\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"south\",\n      \"outputId\": \"exec-e6ad1951-54ef-454b-a68d-6d421d278f1c\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-e6ad1951-54ef-454b-a68d-6d421d278f1c.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\petalora-ivo-idles-candidates\\\\ivo-south-v1-raw.png\",\n      \"sha256\": \"e7c8a1901da7e8807e26af02831a815102fb910b96ca8b56938cedb331bc8aea\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"nonzeroAlphaBounds\": [\n        0,\n        12,\n        1242,\n        1236\n      ],\n      \"alpha128Bounds\": [\n        380,\n        15,\n        875,\n        1207\n      ],\n      \"borderCounts\": {\n        \"nonzeroAlpha\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 17,\n          \"right\": 0\n        },\n        \"alphaAtLeast128\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        }\n      },\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"west\",\n      \"outputId\": \"exec-25ee67bc-c39a-484d-b805-5b58bed5e84f\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-25ee67bc-c39a-484d-b805-5b58bed5e84f.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\petalora-ivo-idles-candidates\\\\ivo-west-v1-raw.png\",\n      \"sha256\": \"0d20960813de202301e2b544354056a65f909bc42a93fdb174c02909f4f733e7\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"nonzeroAlphaBounds\": [\n        0,\n        27,\n        1208,\n        1230\n      ],\n      \"alpha128Bounds\": [\n        459,\n        33,\n        817,\n        1208\n      ],\n      \"borderCounts\": {\n        \"nonzeroAlpha\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 1,\n          \"right\": 0\n        },\n        \"alphaAtLeast128\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        }\n      },\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"east\",\n      \"outputId\": \"exec-4748efbf-1cab-40fa-98de-0ac8a90d1067\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-4748efbf-1cab-40fa-98de-0ac8a90d1067.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\petalora-ivo-idles-candidates\\\\ivo-east-v1-raw.png\",\n      \"sha256\": \"6a43431cfbae8b0aa400419f84fbafcf61c79bedf6aef53f563ac83e50ecd609\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"nonzeroAlphaBounds\": [\n        33,\n        16,\n        1138,\n        1210\n      ],\n      \"alpha128Bounds\": [\n        439,\n        21,\n        810,\n        1207\n      ],\n      \"borderCounts\": {\n        \"nonzeroAlpha\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        },\n        \"alphaAtLeast128\": {\n          \"top\": 0,\n          \"bottom\": 0,\n          \"left\": 0,\n          \"right\": 0\n        }\n      },\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    }\n  ],\n  \"reviewNotes\": [\n    \"The source art visibly supplies silver-white hair/beard, olive long coat, cream shirt, olive sash, rust trousers, and dark work boots; age/gender lore was not added.\",\n    \"No clearly distinct anatomical jewelry/badge asymmetry is visible in frame 1; keep pockets, coat seams and stance coherent without mirroring.\",\n    \"QA review uses opaque #dce8eb. Alpha=0 hidden RGB is not backdrop; only alpha>=128 bounds and edge counts are summarized alongside nonzero-alpha counts.\"\n  ]\n}\n",
+    ".tmp/maia-r16-inputs.json": "[\n  {\n    \"direction\": \"south\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. SOUTH view: strict front facing toward viewer; black top and jacket front visible.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-d546826e-c6d1-427f-a792-a04ca4f484e2.png\"\n  },\n  {\n    \"direction\": \"north\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. NORTH view: strict rear facing away, back of curly bob and sporty blue/yellow jacket, no face, no front zipper/top/necklace on back.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-c9095e03-728e-4a0a-922c-b2f1ead116a2.png\"\n  },\n  {\n    \"direction\": \"west\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. WEST view: strict side profile, nose pointing SCREEN LEFT. Anatomical LEFT near camera, anatomical RIGHT far. Jacket and yellow outer left-leg stripe correctly visible, no frontal threequarter.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-fa1a42d1-0966-49df-9af9-2e69c28d21d0.png\"\n  },\n  {\n    \"direction\": \"east\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of MAIA. Reference ONLY frame2 BOTTOM LEFT person in supplied original four-character atlas. Preserve recognizable identity: short voluminous auburn curly bob, warm face, blue sporty cropped zip jacket with yellow lower panels/stripes and rolled sleeves, black cropped top, charcoal joggers with yellow outer-leg stripe, blue/yellow/ivory trainers, small plain gold necklace. Same modern matte illustrated2D soft painterly style; no invented age/lore or extra accessories. Neutral relaxed standing, arms naturally rested, full hair and boots, centered in portrait2:3 with generous transparent margins. Actual transparent RGBA, NO floor/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. EAST view: strict side profile, nose pointing SCREEN RIGHT. Anatomical RIGHT near camera, anatomical LEFT far. Jacket and yellow outer right-leg stripe correctly visible, no frontal threequarter.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-6d6d6ffe-90ab-4b12-b4b7-0f31b3b5d236.png\"\n  }\n]\n",
+    ".tmp/tobia-r16-inputs.json": "[\n  {\n    \"direction\": \"south\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. SOUTH strict FRONT view towardviewer: shirtfront and jacketlapels, anatomicalRIGHT plum sash knot viewerLEFT.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-5581a9d6-d133-4f1e-978d-174ba39bce16.png\"\n  },\n  {\n    \"direction\": \"north\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. NORTH strict REAR view away: backofhead and navyjacket, nofrontface/shirtbuttons or lapels. AnatomicalRIGHT sashknot viewerRIGHT ifnotoccludedbyjacket.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-1aa9f619-cbc0-4d16-a9b5-3467125bafad.png\"\n  },\n  {\n    \"direction\": \"west\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. WEST strict SIDE PROFILE, NOSE POINTING SCREEN LEFT. AnatomicalLEFTnear, RIGHTfar: sashknot onRIGHTfar mostlyoccluded; show neck-length blackhair/jacket/sleeves/ivoryshirt/boots in genuine side silhouette, NOTfrontthreequarter.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-9cc3172a-137b-412a-b4ac-692cf99a945e.png\"\n  },\n  {\n    \"direction\": \"east\",\n    \"prompt\": \"Use case: illustration-story. ONE independent full-body idle game sprite of TOBIA. Reference ONLY frame3 BOTTOM RIGHT person in supplied original four-character atlas. Preserve identity: black neck-length slightly wavy hair parted toward anatomical LEFT, warm tan face, unstructured navy blue jacket with sleeves rolled to forearms, open collar ivory shirt with small gold buttons, plum/burgundy loose trousers with fabric sash tied at anatomical RIGHT hip (front viewerLEFT), black ankle boots with simple brown/gold straps. Same source modern matte illustrated2D soft painterly style. No invented age/lore or accessories. Neutral relaxed standing, hands naturally rested, full hair and boots, centered portrait2:3 generoustransparentmargins. Actual transparent RGBA, NO ground/shadow/glow/vignette/backdrop/checkerboard/text/sheet/otherpeople, never mirror. EAST strict SIDE PROFILE, NOSE POINTING SCREEN RIGHT. AnatomicalRIGHTnear with plum sashknot atRIGHThipnear ifnotcoveredbyjacket; anatomicalLEFTfar. Show genuine side silhouette of neck-length blackhair/navyjacket/rolledsleeves/ivoryshirt/boots, NOTfrontthreequarter.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-4ffa3857-1bcd-407f-aefd-f5e0654e70c8.png\"\n  }\n]\n"
+  },
+  "reviewNotes": "Root inspected original atlases and opaque composites. Enea east-v2 rejected as frontal; east-v3-selected approved as genuine right profile. Crop reference is exact frame3 at627,627 size627x627, no resampling; source atlas preserved. Raw candidates and rejects remain unchanged."
+}

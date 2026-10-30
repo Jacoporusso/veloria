@@ -13439,12 +13439,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-and-cammino-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-route-trainer-maia-r16-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -13469,12 +13464,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.538
+              "value": 0.57751
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.915
+              "value": 0.958984
             }
           ]
         },
@@ -13507,12 +13502,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-and-cammino-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-route-trainer-tobia-r16-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -13537,12 +13527,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.539
+              "value": 0.636622
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.921
+              "value": 0.967448
             }
           ]
         }

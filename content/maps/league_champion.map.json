@@ -25,12 +25,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-cast-opening-and-champion-v1",
-      "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-league-champion-enea-idle-north-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-south-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-west-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-east-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-east-v1.webp"
     }
   ],
   "spawns": [

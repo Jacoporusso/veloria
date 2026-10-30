@@ -1,0 +1,16 @@
+{
+  "atlasKeys": [
+    "veloria-cast-opening-and-champion-v1",
+    "veloria-league-and-cammino-cast-v1"
+  ],
+  "remainingTiledObjectUses": [],
+  "removedFromMapRenderAssets": [
+    "content/maps/league_champion.map.json",
+    "content/maps/league_forecourt.map.json",
+    "content/maps/petalora.map.json",
+    "content/maps/r01_sentiero_alba.map.json",
+    "content/maps/r03_terrazze_muschio.map.json",
+    "content/maps/r16_cammino_equilibrio.map.json"
+  ],
+  "globalCatalogSourceRuntimeAndPrecache": "preserved"
+}

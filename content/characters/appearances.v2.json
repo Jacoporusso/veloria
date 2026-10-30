@@ -1028,6 +1028,106 @@
       "kind": "image",
       "key": "veloria-league-council-nerea-idle-east-v1",
       "path": "assets/sprites/veloria-league-council-nerea-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-maia-r16-idle-north-v1",
+      "path": "assets/sprites/veloria-route-trainer-maia-r16-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-maia-r16-idle-south-v1",
+      "path": "assets/sprites/veloria-route-trainer-maia-r16-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-maia-r16-idle-west-v1",
+      "path": "assets/sprites/veloria-route-trainer-maia-r16-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-maia-r16-idle-east-v1",
+      "path": "assets/sprites/veloria-route-trainer-maia-r16-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-tobia-r16-idle-north-v1",
+      "path": "assets/sprites/veloria-route-trainer-tobia-r16-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-tobia-r16-idle-south-v1",
+      "path": "assets/sprites/veloria-route-trainer-tobia-r16-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-tobia-r16-idle-west-v1",
+      "path": "assets/sprites/veloria-route-trainer-tobia-r16-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-route-trainer-tobia-r16-idle-east-v1",
+      "path": "assets/sprites/veloria-route-trainer-tobia-r16-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-receptionist-idle-north-v1",
+      "path": "assets/sprites/veloria-league-receptionist-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-receptionist-idle-south-v1",
+      "path": "assets/sprites/veloria-league-receptionist-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-receptionist-idle-west-v1",
+      "path": "assets/sprites/veloria-league-receptionist-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-receptionist-idle-east-v1",
+      "path": "assets/sprites/veloria-league-receptionist-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-north-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-south-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-west-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-east-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-north-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-south-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-west-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-champion-enea-idle-east-v1",
+      "path": "assets/sprites/veloria-league-champion-enea-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -2023,12 +2123,45 @@
       "npcIds": [
         "league_champion"
       ],
-      "assetKey": "veloria-cast-opening-and-champion-v1",
-      "frame": 3,
+      "assetKey": "veloria-league-champion-enea-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/league_champion; docs/28_LEAGUE_CHAMPIONSHIP_v0.1.md",
       "origin": {
-        "x": 0.5012,
-        "y": 0.9075
+        "x": 0.553384,
+        "y": 0.945312
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-champion-enea-idle-north-v1",
+          "origin": {
+            "x": 0.513284,
+            "y": 0.952474
+          },
+          "displaySize": 62.60262
+        },
+        "down": {
+          "assetKey": "veloria-league-champion-enea-idle-south-v1",
+          "origin": {
+            "x": 0.553384,
+            "y": 0.945312
+          },
+          "displaySize": 63.154185
+        },
+        "left": {
+          "assetKey": "veloria-league-champion-enea-idle-west-v1",
+          "origin": {
+            "x": 0.595095,
+            "y": 0.957091
+          },
+          "displaySize": 61.452514
+        },
+        "right": {
+          "assetKey": "veloria-league-champion-enea-idle-east-v1",
+          "origin": {
+            "x": 0.552607,
+            "y": 0.960286
+          },
+          "displaySize": 61.221352
+        }
       }
     },
     {
@@ -3240,12 +3373,45 @@
       "npcIds": [
         "league_reception"
       ],
-      "assetKey": "veloria-league-and-cammino-cast-v1",
-      "frame": 0,
+      "assetKey": "veloria-league-receptionist-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/league_reception",
       "origin": {
-        "x": 0.54,
-        "y": 0.951
+        "x": 0.480344,
+        "y": 0.977865
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-receptionist-idle-north-v1",
+          "origin": {
+            "x": 0.494059,
+            "y": 0.951172
+          },
+          "displaySize": 60.874735
+        },
+        "down": {
+          "assetKey": "veloria-league-receptionist-idle-south-v1",
+          "origin": {
+            "x": 0.480344,
+            "y": 0.977865
+          },
+          "displaySize": 58.594005
+        },
+        "left": {
+          "assetKey": "veloria-league-receptionist-idle-west-v1",
+          "origin": {
+            "x": 0.475354,
+            "y": 0.970052
+          },
+          "displaySize": 58.514286
+        },
+        "right": {
+          "assetKey": "veloria-league-receptionist-idle-east-v1",
+          "origin": {
+            "x": 0.543059,
+            "y": 0.979167
+          },
+          "displaySize": 57.845326
+        }
       }
     },
     {
@@ -3257,12 +3423,45 @@
       "npcIds": [
         "petalora_ivo"
       ],
-      "assetKey": "veloria-league-and-cammino-cast-v1",
-      "frame": 1,
+      "assetKey": "veloria-petalora-custodian-ivo-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/petalora_ivo",
       "origin": {
-        "x": 0.479,
-        "y": 0.959
+        "x": 0.489318,
+        "y": 0.96252
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-petalora-custodian-ivo-idle-north-v1",
+          "origin": {
+            "x": 0.517451,
+            "y": 0.955343
+          },
+          "displaySize": 59.867008
+        },
+        "down": {
+          "assetKey": "veloria-petalora-custodian-ivo-idle-south-v1",
+          "origin": {
+            "x": 0.489318,
+            "y": 0.96252
+          },
+          "displaySize": 58.912752
+        },
+        "left": {
+          "assetKey": "veloria-petalora-custodian-ivo-idle-west-v1",
+          "origin": {
+            "x": 0.546918,
+            "y": 0.963317
+          },
+          "displaySize": 59.765106
+        },
+        "right": {
+          "assetKey": "veloria-petalora-custodian-ivo-idle-east-v1",
+          "origin": {
+            "x": 0.481931,
+            "y": 0.96252
+          },
+          "displaySize": 59.210793
+        }
       }
     },
     {
@@ -3274,12 +3473,45 @@
       "npcIds": [
         "r16_maia"
       ],
-      "assetKey": "veloria-league-and-cammino-cast-v1",
-      "frame": 2,
+      "assetKey": "veloria-route-trainer-maia-r16-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r16_maia; content/trainers/r16_maia.trainer.json",
       "origin": {
-        "x": 0.538,
-        "y": 0.915
+        "x": 0.57751,
+        "y": 0.958984
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-route-trainer-maia-r16-idle-north-v1",
+          "origin": {
+            "x": 0.541468,
+            "y": 0.947917
+          },
+          "displaySize": 62.150289
+        },
+        "down": {
+          "assetKey": "veloria-route-trainer-maia-r16-idle-south-v1",
+          "origin": {
+            "x": 0.57751,
+            "y": 0.958984
+          },
+          "displaySize": 61.396146
+        },
+        "left": {
+          "assetKey": "veloria-route-trainer-maia-r16-idle-west-v1",
+          "origin": {
+            "x": 0.536544,
+            "y": 0.970703
+          },
+          "displaySize": 59.362319
+        },
+        "right": {
+          "assetKey": "veloria-route-trainer-maia-r16-idle-east-v1",
+          "origin": {
+            "x": 0.461123,
+            "y": 0.953776
+          },
+          "displaySize": 60.961021
+        }
       }
     },
     {
@@ -3291,12 +3523,45 @@
       "npcIds": [
         "r16_tobia"
       ],
-      "assetKey": "veloria-league-and-cammino-cast-v1",
-      "frame": 3,
+      "assetKey": "veloria-route-trainer-tobia-r16-idle-south-v1",
       "narrativeSource": "content/dialogue/world.v1.json#/r16_tobia; content/trainers/r16_tobia.trainer.json",
       "origin": {
-        "x": 0.539,
-        "y": 0.921
+        "x": 0.636622,
+        "y": 0.967448
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-north-v1",
+          "origin": {
+            "x": 0.461974,
+            "y": 0.954427
+          },
+          "displaySize": 60.788693
+        },
+        "down": {
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-south-v1",
+          "origin": {
+            "x": 0.636622,
+            "y": 0.967448
+          },
+          "displaySize": 59.691881
+        },
+        "left": {
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-west-v1",
+          "origin": {
+            "x": 0.532264,
+            "y": 0.959635
+          },
+          "displaySize": 61.352354
+        },
+        "right": {
+          "assetKey": "veloria-route-trainer-tobia-r16-idle-east-v1",
+          "origin": {
+            "x": 0.490594,
+            "y": 0.944661
+          },
+          "displaySize": 63.480443
+        }
       }
     },
     {

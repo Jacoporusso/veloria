@@ -44,15 +44,6 @@
     },
     {
       "kind": "image",
-      "key": "veloria-cast-opening-and-champion-v1",
-      "path": "assets/sprites/veloria-cast-opening-and-champion-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
-    },
-    {
-      "kind": "image",
       "key": "veloria-sera-idle-south-v1",
       "path": "assets/sprites/veloria-sera-idle-south-v1.webp"
     },

@@ -136,7 +136,7 @@ test('opening route, terrace guide and Champion keep their separate NPC identiti
     ['league-champion-enea', 'league_champion', 'league_champion', 3],
   ] as const;
   const ids = new Set<string>();
-  for (const [profileId, npcId, dialogueId, frame] of expected) {
+  for (const [profileId, npcId, dialogueId] of expected) {
     const profile = catalog.profiles.find((candidate: any) => candidate.id === profileId);
     assert.ok(profile, `missing profile ${profileId}`);
     assert.deepEqual(profile.npcIds, [npcId]);
@@ -147,8 +147,9 @@ test('opening route, terrace guide and Champion keep their separate NPC identiti
       assert.equal(profile.frame, undefined);
       assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
     } else {
-      assert.equal(profile.assetKey, 'veloria-cast-opening-and-champion-v1');
-      assert.equal(profile.frame, frame);
+      assert.equal(profile.assetKey, 'veloria-league-champion-enea-idle-south-v1');
+      assert.equal(profile.frame, undefined);
+      assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4);
     }
     assert.ok(!ids.has(npcId), `NPC identity ${npcId} is reused`);
     ids.add(npcId);
@@ -156,6 +157,18 @@ test('opening route, terrace guide and Champion keep their separate NPC identiti
   assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('r03_path_guide'), true);
   assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('ivo'), false);
   assert.equal(catalog.profiles.find((candidate: any) => candidate.id === 'guide-rami-r03')?.npcIds.includes('oren'), false);
+});
+
+test('every authored NPC identity has four independent calibrated idle views', () => {
+  assert.equal(catalog.profiles.length, 48);
+  const poses = read('assets/npc-idle-views-v1.json').profiles;
+  assert.equal(poses.length, catalog.profiles.length);
+  for (const profile of catalog.profiles) {
+    assert.equal(profile.frame, undefined, profile.id);
+    assert.deepEqual(Object.keys(profile.idleViews).sort(), ['down', 'left', 'right', 'up'], profile.id);
+    assert.equal(new Set(Object.values(profile.idleViews).map((view: any) => view.assetKey)).size, 4, profile.id);
+    assert.equal(poses.filter((entry: any) => entry.profileId === profile.id).length, 1, profile.id);
+  }
 });
 
 test('the narrative explicitly identifies professor Elia', () => {

@@ -6833,12 +6833,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-cast-opening-and-champion-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-league-champion-enea-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -6868,12 +6863,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.5012
+              "value": 0.553384
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9075
+              "value": 0.945312
             }
           ]
         }

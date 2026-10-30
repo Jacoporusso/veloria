@@ -11085,12 +11085,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-and-cammino-cast-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 0
+              "value": "veloria-league-receptionist-idle-south-v1"
             },
             {
               "name": "characterAppearanceId",
@@ -11100,12 +11095,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.54
+              "value": 0.480344
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.951
+              "value": 0.977865
             }
           ]
         }

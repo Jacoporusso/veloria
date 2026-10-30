@@ -72,12 +72,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-league-and-cammino-cast-v1",
-      "path": "assets/sprites/veloria-league-and-cammino-cast-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-petalora-custodian-ivo-idle-north-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-south-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-west-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-petalora-custodian-ivo-idle-east-v1",
+      "path": "assets/sprites/veloria-petalora-custodian-ivo-idle-east-v1.webp"
     }
   ],
   "spawns": [

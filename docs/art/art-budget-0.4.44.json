@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "veloria-content-0.4.44",
+  "limitations": [
+    "File bytes are uncompressed repository bytes, not HTTP transfer or Cache Storage usage.",
+    "Static SHELL source byte subtotal excludes root navigation, build-generated index.html/build-manifest.json, discovered HTML assets and build-manifest dependencies.",
+    "Texture numbers model all registered idle poses per map as RGBA8; they do not measure residency, driver overhead, decode peaks, scenery, avatars, battle assets or physical-device memory.",
+    "Canvas and WebGL estimates are alternatives. Source decoded bytes must not be added as permanently resident storage."
+  ],
+  "idleProfiles": 48,
+  "idlePoseFiles": 192,
+  "idleFileBytes": 175219260,
+  "largestIdleFiles": [
+    {
+      "path": "public/assets/sprites/veloria-dario-idle-south-v1.webp",
+      "bytes": 1447636
+    },
+    {
+      "path": "public/assets/sprites/veloria-dario-idle-north-v1.webp",
+      "bytes": 1399694
+    },
+    {
+      "path": "public/assets/sprites/veloria-nila-idle-south-v1.webp",
+      "bytes": 1377764
+    },
+    {
+      "path": "public/assets/sprites/veloria-nila-idle-north-v1.webp",
+      "bytes": 1320454
+    },
+    {
+      "path": "public/assets/sprites/veloria-nila-idle-west-v1.webp",
+      "bytes": 1295336
+    },
+    {
+      "path": "public/assets/sprites/veloria-selene-idle-north-v1.webp",
+      "bytes": 1268708
+    },
+    {
+      "path": "public/assets/sprites/veloria-selene-idle-south-v1.webp",
+      "bytes": 1222096
+    },
+    {
+      "path": "public/assets/sprites/veloria-rami-idle-south-v1.webp",
+      "bytes": 1192932
+    },
+    {
+      "path": "public/assets/sprites/veloria-nilo-idle-south-v1.webp",
+      "bytes": 1186196
+    },
+    {
+      "path": "public/assets/sprites/veloria-league-champion-enea-idle-south-v1.webp",
+      "bytes": 1184628
+    }
+  ],
+  "staticShell": {
+    "declaredEntries": 517,
+    "uniqueSourceFiles": 514,
+    "sourceFileBytes": 342431448
+  },
+  "maps": [
+    {
+      "mapId": "veloria/ferraluce",
+      "registeredIdlePoseCount": 12,
+      "idleFileBytes": 11060674,
+      "modeledCanvasRgbaBytes": 8323200,
+      "modeledWebglRgbaWithMipBytes": 16777200
+    },
+    {
+      "mapId": "veloria/d04_delta_specchi",
+      "registeredIdlePoseCount": 8,
+      "idleFileBytes": 6594844,
+      "modeledCanvasRgbaBytes": 5554540,
+      "modeledWebglRgbaWithMipBytes": 11184800
+    },
+    {
+      "mapId": "veloria/r01_sentiero_alba",
+      "registeredIdlePoseCount": 8,
+      "idleFileBytes": 8707608,
+      "modeledCanvasRgbaBytes": 5548800,
+      "modeledWebglRgbaWithMipBytes": 11184800
+    },
+    {
+      "mapId": "veloria/r09_dune_salmastre",
+      "registeredIdlePoseCount": 8,
+      "idleFileBytes": 6823208,
+      "modeledCanvasRgbaBytes": 5548800,
+      "modeledWebglRgbaWithMipBytes": 11184800
+    },
+    {
+      "mapId": "veloria/r10_sentiero_canne",
+      "registeredIdlePoseCount": 8,
+      "idleFileBytes": 6695836,
+      "modeledCanvasRgbaBytes": 5548800,
+      "modeledWebglRgbaWithMipBytes": 11184800
+    },
+    {
+      "mapId": "veloria/r16_cammino_equilibrio",
+      "registeredIdlePoseCount": 8,
+      "idleFileBytes": 6858912,
+      "modeledCanvasRgbaBytes": 5548800,
+      "modeledWebglRgbaWithMipBytes": 11184800
+    },
+    {
+      "mapId": "veloria/acquariva",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3655012,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/biancavetta",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3095366,
+      "modeledCanvasRgbaBytes": 3129376,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/borgofonte",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4349496,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/borgofonte_lab",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4156754,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/concordia",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4156754,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/d01_bosco_veli",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 1452146,
+      "modeledCanvasRgbaBytes": 4194304,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/d03_centrale_risonante",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3714320,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/d06_santuario_due_luci",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4156754,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym01_brumalta",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 2030908,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym02_petalora",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3873424,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym03_vetracielo",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3867988,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym04_ferraluce",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3877786,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym05_portolume",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4100106,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym06_acquariva",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4759662,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym07_biancavetta",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4245062,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/gym08_concordia",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4452624,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_champion",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3772930,
+      "modeledCanvasRgbaBytes": 2912800,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_council01",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 1692238,
+      "modeledCanvasRgbaBytes": 4194304,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_council02",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4096434,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_council03",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4265248,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_council04",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3625676,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/league_forecourt",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 2914694,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/passobrina",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 2857830,
+      "modeledCanvasRgbaBytes": 3484352,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/petalora",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 1553384,
+      "modeledCanvasRgbaBytes": 4194304,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/portolume",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3643518,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r03_terrazze_muschio",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4507598,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r04_salita_petali",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4958952,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r05_viadotto_ciliegi",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3991356,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r06_anello_magnetico",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4031334,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r07_condotto_risonante",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 5193722,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r08_costa_turbine",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3810174,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r11_via_cascate",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3360486,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r12_valle_vento",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3880050,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r13_tornanti_bianchi",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3749814,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r14_varco_cristallo",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3187686,
+      "modeledCanvasRgbaBytes": 2836512,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/r15_passo_due_luci",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4349496,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/radicelmo",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 4111988,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/vetracielo",
+      "registeredIdlePoseCount": 4,
+      "idleFileBytes": 3642412,
+      "modeledCanvasRgbaBytes": 2774400,
+      "modeledWebglRgbaWithMipBytes": 5592400
+    },
+    {
+      "mapId": "veloria/borgofonte_home",
+      "registeredIdlePoseCount": 0,
+      "idleFileBytes": 0,
+      "modeledCanvasRgbaBytes": 0,
+      "modeledWebglRgbaWithMipBytes": 0
+    },
+    {
+      "mapId": "veloria/brumalta",
+      "registeredIdlePoseCount": 0,
+      "idleFileBytes": 0,
+      "modeledCanvasRgbaBytes": 0,
+      "modeledWebglRgbaWithMipBytes": 0
+    },
+    {
+      "mapId": "veloria/d05_grotte_cristallo",
+      "registeredIdlePoseCount": 0,
+      "idleFileBytes": 0,
+      "modeledCanvasRgbaBytes": 0,
+      "modeledWebglRgbaWithMipBytes": 0
+    },
+    {
+      "mapId": "veloria/r02_viale_fronde",
+      "registeredIdlePoseCount": 0,
+      "idleFileBytes": 0,
+      "modeledCanvasRgbaBytes": 0,
+      "modeledWebglRgbaWithMipBytes": 0
+    }
+  ]
+}
