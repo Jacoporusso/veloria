@@ -1,3 +1,11 @@
+## 0.4.48 — Cattura basata sulla specie
+
+Commit `30f400b` pubblicato su main. [Deploy41060194584](https://github.com/Jacoporusso/veloria/actions/runs/41060194584) COMPLETED/SUCCESS. Cachev212 verificata direttamente sul sito pubblico; il bundle BattleScene pubblico corrisponde esattamente per SHA256 alla build locale con `--base=/veloria/`. [Verify41060194655](https://github.com/Jacoporusso/veloria/actions/runs/41060194655) osservata PENDING: non attestare un verde completo finché non termina.
+
+Capture rate PokéAPI importati/verificati per151 specie; modello accessibile Veloria dichiarato e distinto dalla formula originale, stessa probabilità nel motore e nella Sfera. Anteprima senza consumo RNG/inventario; illustrazioni fuori dalle schede PS anche in landscape. Passati838 dominio +31 persistenza +5 budget,157 Python, validatore1098 media/48 mappe/67 missioni, TypeScript e build normale/Pages. Quattro casi Chrome passati, screenshot nei due orientamenti rivisti, un lancio Articuno/fuga/settlement/reload realmente offline passato sul build finale. Copertura459 browser e91 offline una sola assegnazione. Prove e limiti nel documento129; calibrazione delle squadre rare, coppe e lavoro generale del progetto ancora aperti.
+
+Osservazione sul lotto0.4.47: Deploy41056806420 inizialmente fallito in Set up job perché GitHub non riusciva a risolvere actions/deploy-pages@v4. Il tag è stato verificato nel repository ufficiale, poi il solo job fallito è stato rieseguito: attempt2 COMPLETED/SUCCESS; cachev211 pubblica verificata prima del successivo rilascio. Verify41056806798 ancora IN_PROGRESS all'ultima osservazione, senza attribuzione di esito completo.
+
 ## 0.4.47 — Ricerche ambientali dei Pokémon rari
 
 Commit `642c0b2` pubblicato su main. [Deploy41056806420](https://github.com/Jacoporusso/veloria/actions/runs/41056806420): build COMPLETED/SUCCESS (npm test, validatore e build Pages), deploy QUEUED all'ultima osservazione. [Verify41056806798](https://github.com/Jacoporusso/veloria/actions/runs/41056806798) QUEUED. La disponibilità pubblica di cachev211 non è ancora attestata: non confondere il push con la pubblicazione completata.
