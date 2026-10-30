@@ -31,8 +31,9 @@
       "capturedFlag": "q_special_articuno_caught",
       "captureEvent": "special/articuno/captured",
       "description": "Tra i cristalli di neve si posa Articuno. Puoi affrontarlo e provare a catturarlo; tornerà se lo scontro non finisce con una cattura.",
-      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria.",
-      "routeHint": "Dopo la Lega, raggiungi Passobrina e prosegui per i Tornanti Bianchi."
+      "unlockHint": "Dopo la Lega, completa la ricerca «La voce del gelo» seguendo gli indizi nel diario.",
+      "routeHint": "Dopo la Lega, raggiungi Passobrina e prosegui per i Tornanti Bianchi.",
+      "researchRequiredFlag": "q_research_articuno_revealed"
     },
     {
       "id": "veloria/special_zapdos",
@@ -45,8 +46,9 @@
       "capturedFlag": "q_special_zapdos_caught",
       "captureEvent": "special/zapdos/captured",
       "description": "Le scariche della Centrale attirano Zapdos. Preparati: sarà possibile riprovare se fuggi o lo mandi KO.",
-      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria.",
-      "routeHint": "Dopo la Lega, raggiungi Ferraluce, percorri il Condotto Risonante e prosegui fino alla Centrale Risonante."
+      "unlockHint": "Dopo la Lega, completa la ricerca «Un circuito nel silenzio» seguendo gli indizi nel diario.",
+      "routeHint": "Dopo la Lega, raggiungi Ferraluce, percorri il Condotto Risonante e prosegui fino alla Centrale Risonante.",
+      "researchRequiredFlag": "q_research_zapdos_revealed"
     },
     {
       "id": "veloria/special_moltres",
@@ -59,8 +61,9 @@
       "capturedFlag": "q_special_moltres_caught",
       "captureEvent": "special/moltres/captured",
       "description": "Moltres illumina la cresta del Passo delle Due Luci. Dopo uno scontro senza cattura, la sua fiamma tornerà qui.",
-      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria.",
-      "routeHint": "Dopo la Lega, raggiungi Concordia e segui il collegamento per il Passo delle Due Luci."
+      "unlockHint": "Dopo la Lega, completa la ricerca «Il canto della cresta» seguendo gli indizi nel diario.",
+      "routeHint": "Dopo la Lega, raggiungi Concordia e segui il collegamento per il Passo delle Due Luci.",
+      "researchRequiredFlag": "q_research_moltres_revealed"
     },
     {
       "id": "veloria/special_mewtwo",
@@ -73,8 +76,9 @@
       "capturedFlag": "q_special_mewtwo_caught",
       "captureEvent": "special/mewtwo/captured",
       "description": "Una forte presenza psichica abita il Santuario: Mewtwo ti osserva. Puoi prepararti e tornare; nessun tentativo fallito lo farà sparire per sempre.",
-      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria.",
-      "routeHint": "Dopo la Lega, raggiungi Concordia e prosegui verso il Santuario delle Due Luci."
+      "unlockHint": "Dopo la Lega, completa la ricerca «Lo specchio senza ombra» seguendo gli indizi nel diario.",
+      "routeHint": "Dopo la Lega, raggiungi Concordia e prosegui verso il Santuario delle Due Luci.",
+      "researchRequiredFlag": "q_research_mewtwo_revealed"
     },
     {
       "id": "veloria/special_mew",
@@ -87,8 +91,9 @@
       "capturedFlag": "q_special_mew_caught",
       "captureEvent": "special/mew/captured",
       "description": "Dopo il tuo viaggio Mew è comparso nel Bosco dei Veli. Scegli tu quando incontrarlo: se non lo catturi, resterà possibile riprovare.",
-      "unlockHint": "Disponibile dopo la vittoria alla Lega di Veloria.",
-      "routeHint": "Dopo la Lega, raggiungi Borgofonte, attraversa il Sentiero dell'Alba e prosegui nel Bosco dei Veli."
+      "unlockHint": "Dopo la Lega, completa la ricerca «Passi tra le foglie» seguendo gli indizi nel diario.",
+      "routeHint": "Dopo la Lega, raggiungi Borgofonte, attraversa il Sentiero dell'Alba e prosegui nel Bosco dei Veli.",
+      "researchRequiredFlag": "q_research_mew_revealed"
     }
   ]
 }

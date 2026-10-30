@@ -3163,7 +3163,7 @@
             {
               "name": "blocksWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_moltres_revealed"
             },
             {
               "name": "blocksUntilFlag",
@@ -3380,12 +3380,126 @@
             {
               "name": "visibleWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_moltres_revealed"
             },
             {
               "name": "collectedFlag",
               "type": "string",
               "value": "q_special_moltres_caught"
+            }
+          ]
+        },
+        {
+          "id": 169,
+          "name": "Pietra della prima luce",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 544,
+          "y": 128,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_moltres"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/moltres/clue/dawn"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_moltres_clue_dawn"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "dawn"
+            }
+          ]
+        },
+        {
+          "id": 170,
+          "name": "Piuma di calore",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 896,
+          "y": 576,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_moltres"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/moltres/clue/warmth"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_moltres_clue_warmth"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "warmth"
+            }
+          ]
+        },
+        {
+          "id": 171,
+          "name": "Risonatore della cresta",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 928,
+          "y": 608,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-puzzle"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_moltres"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/moltres/revealed"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_moltres_revealed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_research_moltres_revealed"
             }
           ]
         }
@@ -3529,7 +3643,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 169,
+  "nextobjectid": 172,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

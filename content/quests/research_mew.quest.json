@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_research_mew",
+  "version": 1,
+  "displayName": "Passi tra le foglie",
+  "steps": [
+    {
+      "id": "rain",
+      "trigger": "research/mew/clue/rain",
+      "setFlag": "q_research_mew_clue_rain",
+      "requiresFlags": []
+    },
+    {
+      "id": "leaves",
+      "trigger": "research/mew/clue/leaves",
+      "setFlag": "q_research_mew_clue_leaves",
+      "requiresFlags": []
+    },
+    {
+      "id": "reveal",
+      "trigger": "research/mew/revealed",
+      "setFlag": "q_research_mew_revealed",
+      "requiresFlags": [
+        "q_league_completed",
+        "q_research_mew_clue_rain",
+        "q_research_mew_clue_leaves"
+      ]
+    }
+  ],
+  "completionFlag": "q_research_mew_revealed",
+  "reward": {
+    "money": 1000
+  }
+}

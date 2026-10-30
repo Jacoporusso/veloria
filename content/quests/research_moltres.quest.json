@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_research_moltres",
+  "version": 1,
+  "displayName": "Il canto della cresta",
+  "steps": [
+    {
+      "id": "dawn",
+      "trigger": "research/moltres/clue/dawn",
+      "setFlag": "q_research_moltres_clue_dawn",
+      "requiresFlags": []
+    },
+    {
+      "id": "warmth",
+      "trigger": "research/moltres/clue/warmth",
+      "setFlag": "q_research_moltres_clue_warmth",
+      "requiresFlags": []
+    },
+    {
+      "id": "reveal",
+      "trigger": "research/moltres/revealed",
+      "setFlag": "q_research_moltres_revealed",
+      "requiresFlags": [
+        "q_league_completed",
+        "q_research_moltres_clue_dawn",
+        "q_research_moltres_clue_warmth"
+      ]
+    }
+  ],
+  "completionFlag": "q_research_moltres_revealed",
+  "reward": {
+    "money": 900
+  }
+}

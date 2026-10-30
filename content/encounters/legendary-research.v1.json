@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "regionId": "veloria",
+  "researches": [
+    {
+      "id": "veloria/research_articuno",
+      "encounterId": "veloria/special_articuno",
+      "questId": "veloria/q_research_articuno",
+      "requiredFlag": "q_league_completed",
+      "revealedFlag": "q_research_articuno_revealed",
+      "capturedFlag": "q_special_articuno_caught",
+      "regionHint": "Nei Tornanti Bianchi si racconta di correnti fredde che non seguono il vento. Cerca le tracce di brina lungo i tornanti.",
+      "clues": [
+        {
+          "id": "wind",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "title": "Pilastro di brina",
+          "text": "La freccia più gelida del pilastro indica NORD. È da qui che comincia il richiamo.",
+          "event": "research/articuno/clue/wind",
+          "flag": "q_research_articuno_clue_wind"
+        },
+        {
+          "id": "ice",
+          "mapId": "veloria/r13_tornanti_bianchi",
+          "title": "Cristalli del tramonto",
+          "text": "Dopo il nord, il gelo segue il tramonto. Per ultima arriva la corrente che guarda l’alba: prima OVEST, poi EST.",
+          "event": "research/articuno/clue/ice",
+          "flag": "q_research_articuno_clue_ice"
+        }
+      ],
+      "puzzle": {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "title": "Arpa delle correnti",
+        "hint": "Ricostruisci le tre correnti usando ciò che hai osservato. Il primo indizio dà la partenza; il secondo completa il percorso.",
+        "options": [
+          {
+            "id": "nord",
+            "label": "↑ NORD"
+          },
+          {
+            "id": "ovest",
+            "label": "← OVEST"
+          },
+          {
+            "id": "est",
+            "label": "→ EST"
+          }
+        ],
+        "solution": [
+          "nord",
+          "ovest",
+          "est"
+        ],
+        "event": "research/articuno/revealed",
+        "progressFlagPrefix": "research_articuno_sequence_"
+      }
+    },
+    {
+      "id": "veloria/research_zapdos",
+      "encounterId": "veloria/special_zapdos",
+      "questId": "veloria/q_research_zapdos",
+      "requiredFlag": "q_league_completed",
+      "revealedFlag": "q_research_zapdos_revealed",
+      "capturedFlag": "q_special_zapdos_caught",
+      "regionHint": "Alla Centrale alcune scariche sembrano rispondere fra loro. Osserva i tre strumenti di sicurezza e ricostruisci il circuito.",
+      "clues": [
+        {
+          "id": "ground",
+          "mapId": "veloria/d03_centrale_risonante",
+          "title": "Morsetto di terra",
+          "text": "Il registro di sicurezza è chiaro: prima di alimentare il circuito, collega la TERRA.",
+          "event": "research/zapdos/clue/ground",
+          "flag": "q_research_zapdos_clue_ground"
+        },
+        {
+          "id": "coil",
+          "mapId": "veloria/d03_centrale_risonante",
+          "title": "Bobina in risonanza",
+          "text": "Una bobina ronza quando il circuito è protetto. La BOBINA va dopo la terra, non per ultima.",
+          "event": "research/zapdos/clue/coil",
+          "flag": "q_research_zapdos_clue_coil"
+        },
+        {
+          "id": "antenna",
+          "mapId": "veloria/d03_centrale_risonante",
+          "title": "Antenna silenziosa",
+          "text": "La targa dice: «Collega l’ANTENNA soltanto dopo aver alimentato la bobina».",
+          "event": "research/zapdos/clue/antenna",
+          "flag": "q_research_zapdos_clue_antenna"
+        }
+      ],
+      "puzzle": {
+        "mapId": "veloria/d03_centrale_risonante",
+        "title": "Quadro delle scariche",
+        "hint": "Collega nell’ordine sicuro i tre elementi descritti nelle targhe. Nessuno strumento viene consumato.",
+        "options": [
+          {
+            "id": "terra",
+            "label": "⏚ TERRA"
+          },
+          {
+            "id": "bobina",
+            "label": "◉ BOBINA"
+          },
+          {
+            "id": "antenna",
+            "label": "⌁ ANTENNA"
+          }
+        ],
+        "solution": [
+          "terra",
+          "bobina",
+          "antenna"
+        ],
+        "event": "research/zapdos/revealed",
+        "progressFlagPrefix": "research_zapdos_sequence_"
+      }
+    },
+    {
+      "id": "veloria/research_moltres",
+      "encounterId": "veloria/special_moltres",
+      "questId": "veloria/q_research_moltres",
+      "requiredFlag": "q_league_completed",
+      "revealedFlag": "q_research_moltres_revealed",
+      "capturedFlag": "q_special_moltres_caught",
+      "regionHint": "Al Passo delle Due Luci alcune pietre conservano il calore anche all’ombra. Leggi i segni della cresta e prova a ricostruirne il canto.",
+      "clues": [
+        {
+          "id": "dawn",
+          "mapId": "veloria/r15_passo_due_luci",
+          "title": "Pietra della prima luce",
+          "text": "Il canto ha quattro parti. Comincia con l’ALBA e torna all’ALBA alla fine.",
+          "event": "research/moltres/clue/dawn",
+          "flag": "q_research_moltres_clue_dawn"
+        },
+        {
+          "id": "warmth",
+          "mapId": "veloria/r15_passo_due_luci",
+          "title": "Piuma di calore",
+          "text": "Fra le due albe, il VENTO apre la strada e la FIAMMA lo segue. La piuma è soltanto una traccia: non devi raccoglierla.",
+          "event": "research/moltres/clue/warmth",
+          "flag": "q_research_moltres_clue_warmth"
+        }
+      ],
+      "puzzle": {
+        "mapId": "veloria/r15_passo_due_luci",
+        "title": "Risonatore della cresta",
+        "hint": "Ricostruisci le quattro parti del canto. I due indizi descrivono inizio, fine e ordine dei segni centrali.",
+        "options": [
+          {
+            "id": "alba",
+            "label": "☀ ALBA"
+          },
+          {
+            "id": "vento",
+            "label": "⌁ VENTO"
+          },
+          {
+            "id": "fiamma",
+            "label": "♨ FIAMMA"
+          }
+        ],
+        "solution": [
+          "alba",
+          "vento",
+          "fiamma",
+          "alba"
+        ],
+        "event": "research/moltres/revealed",
+        "progressFlagPrefix": "research_moltres_sequence_"
+      }
+    },
+    {
+      "id": "veloria/research_mewtwo",
+      "encounterId": "veloria/special_mewtwo",
+      "questId": "veloria/q_research_mewtwo",
+      "requiredFlag": "q_league_completed",
+      "revealedFlag": "q_research_mewtwo_revealed",
+      "capturedFlag": "q_special_mewtwo_caught",
+      "regionHint": "Nel Santuario alcuni riflessi non seguono la luce. Confronta le iscrizioni prima di provare lo specchio centrale.",
+      "clues": [
+        {
+          "id": "inscription",
+          "mapId": "veloria/d06_santuario_due_luci",
+          "title": "Iscrizione di cristallo",
+          "text": "Sul cristallo leggi tre segni: CERCHIO, ONDA, STELLA.",
+          "event": "research/mewtwo/clue/inscription",
+          "flag": "q_research_mewtwo_clue_inscription"
+        },
+        {
+          "id": "mirror",
+          "mapId": "veloria/d06_santuario_due_luci",
+          "title": "Lastra riflessa",
+          "text": "La lastra avverte: «Nello specchio, l’ordine dei tre segni va letto al contrario». La fine della scritta diventa l’inizio.",
+          "event": "research/mewtwo/clue/mirror",
+          "flag": "q_research_mewtwo_clue_mirror"
+        },
+        {
+          "id": "echo",
+          "mapId": "veloria/d06_santuario_due_luci",
+          "title": "Eco della volta",
+          "text": "Dopo i tre segni invertiti, ripeti il PRIMO segno che hai scelto. Solo così il riflesso forma un percorso chiuso.",
+          "event": "research/mewtwo/clue/echo",
+          "flag": "q_research_mewtwo_clue_echo"
+        }
+      ],
+      "puzzle": {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "title": "Specchio delle risonanze",
+        "hint": "Immetti i tre segni nell’ordine riflesso, poi chiudi il percorso come indica l’eco.",
+        "options": [
+          {
+            "id": "cerchio",
+            "label": "○ CERCHIO"
+          },
+          {
+            "id": "onda",
+            "label": "≈ ONDA"
+          },
+          {
+            "id": "stella",
+            "label": "✦ STELLA"
+          }
+        ],
+        "solution": [
+          "stella",
+          "onda",
+          "cerchio",
+          "stella"
+        ],
+        "event": "research/mewtwo/revealed",
+        "progressFlagPrefix": "research_mewtwo_sequence_"
+      }
+    },
+    {
+      "id": "veloria/research_mew",
+      "encounterId": "veloria/special_mew",
+      "questId": "veloria/q_research_mew",
+      "requiredFlag": "q_league_completed",
+      "revealedFlag": "q_research_mew_revealed",
+      "capturedFlag": "q_special_mew_caught",
+      "regionHint": "Nel Bosco dei Veli alcune impronte finiscono senza una strada. Ascolta l’acqua e osserva ciò che si muove fra le foglie.",
+      "clues": [
+        {
+          "id": "rain",
+          "mapId": "veloria/d01_bosco_veli",
+          "title": "Impronte dopo la pioggia",
+          "text": "Le impronte compaiono solo dopo la pioggia. Il primo suono del sentiero è l’ACQUA.",
+          "event": "research/mew/clue/rain",
+          "flag": "q_research_mew_clue_rain"
+        },
+        {
+          "id": "leaves",
+          "mapId": "veloria/d01_bosco_veli",
+          "title": "Foglie sospese",
+          "text": "Dopo l’acqua una FOGLIA si solleva; per ultimo passa il VENTO. Sono tre segni da richiamare, non oggetti da consumare.",
+          "event": "research/mew/clue/leaves",
+          "flag": "q_research_mew_clue_leaves"
+        }
+      ],
+      "puzzle": {
+        "mapId": "veloria/d01_bosco_veli",
+        "title": "Radura dei sussurri",
+        "hint": "Richiama nell’ordine i tre segni osservati. Non serve aspettare la pioggia reale o un’ora particolare.",
+        "options": [
+          {
+            "id": "acqua",
+            "label": "≈ ACQUA"
+          },
+          {
+            "id": "foglia",
+            "label": "♧ FOGLIA"
+          },
+          {
+            "id": "vento",
+            "label": "⌁ VENTO"
+          }
+        ],
+        "solution": [
+          "acqua",
+          "foglia",
+          "vento"
+        ],
+        "event": "research/mew/revealed",
+        "progressFlagPrefix": "research_mew_sequence_"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "veloria/q_research_articuno",
+  "version": 1,
+  "displayName": "La voce del gelo",
+  "steps": [
+    {
+      "id": "wind",
+      "trigger": "research/articuno/clue/wind",
+      "setFlag": "q_research_articuno_clue_wind",
+      "requiresFlags": []
+    },
+    {
+      "id": "ice",
+      "trigger": "research/articuno/clue/ice",
+      "setFlag": "q_research_articuno_clue_ice",
+      "requiresFlags": []
+    },
+    {
+      "id": "reveal",
+      "trigger": "research/articuno/revealed",
+      "setFlag": "q_research_articuno_revealed",
+      "requiresFlags": [
+        "q_league_completed",
+        "q_research_articuno_clue_wind",
+        "q_research_articuno_clue_ice"
+      ]
+    }
+  ],
+  "completionFlag": "q_research_articuno_revealed",
+  "reward": {
+    "money": 800
+  }
+}

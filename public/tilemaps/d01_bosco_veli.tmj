@@ -2766,7 +2766,7 @@
             {
               "name": "blocksWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_mew_revealed"
             },
             {
               "name": "blocksUntilFlag",
@@ -3897,12 +3897,126 @@
             {
               "name": "visibleWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_mew_revealed"
             },
             {
               "name": "collectedFlag",
               "type": "string",
               "value": "q_special_mew_caught"
+            }
+          ]
+        },
+        {
+          "id": 93,
+          "name": "Impronte dopo la pioggia",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 256,
+          "y": 480,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mew"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mew/clue/rain"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mew_clue_rain"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "rain"
+            }
+          ]
+        },
+        {
+          "id": 94,
+          "name": "Foglie sospese",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 576,
+          "y": 288,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mew"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mew/clue/leaves"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mew_clue_leaves"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "leaves"
+            }
+          ]
+        },
+        {
+          "id": 95,
+          "name": "Radura dei sussurri",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 512,
+          "y": 352,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-puzzle"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mew"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mew/revealed"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mew_revealed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_research_mew_revealed"
             }
           ]
         }
@@ -4067,7 +4181,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 93,
+  "nextobjectid": 96,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

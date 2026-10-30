@@ -153,7 +153,8 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
   save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 8, experience: 0, hp: creature.hp,
     maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
-    'prologue_complete_seen', 'q_d05_report', 'q_league_completed', 'q_league_epilogue_seen'])];
+    'prologue_complete_seen', 'q_d05_report', 'q_league_completed', 'q_league_epilogue_seen',
+    'q_research_moltres_revealed'])];
   save.player = { ...save.player, mapId: 'veloria/r15_passo_due_luci', spawnPointId: 'from_cavern', x: 24, y: 16 };
   await seedBrowserSave(page, save);
   const failures: string[] = [], errors: string[] = [];
@@ -176,6 +177,70 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
   expect((await readBrowserSave(page)).flags).toContain('q_r15_network_read');
   expect((await readBrowserSave(page)).flags).not.toContain('q_special_moltres_caught');
   expect(failures).toEqual([]); expect(errors).toEqual([]);
+});
+
+test('Articuno research clues and puzzle progress persist through a real offline reload', async ({ page, context }) => {
+  test.setTimeout(process.env.CI ? 240_000 : 180_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const metadata = JSON.parse(await readFile('content/maps/r13_tornanti_bianchi.map.json', 'utf8'));
+  const cachePaths = [
+    '/tilemaps/r13_tornanti_bianchi.tmj',
+    ...metadata.renderAssets.map((asset: { path: string }) => `/${asset.path.replace(/^public\//, '')}`),
+  ];
+  await page.evaluate(async paths => {
+    await Promise.all(paths.map(async path => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Unable to warm offline resource: ${path}`);
+      await response.arrayBuffer();
+    }));
+  }, cachePaths);
+
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'q_league_completed', 'q_league_epilogue_seen'])];
+  save.player = { ...save.player, mapId: 'veloria/r13_tornanti_bianchi', spawnPointId: 'from_passobrina', x: 1, y: 24 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = [], errors: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url()));
+  page.on('pageerror', error => errors.push(error.message));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player.mapId).toBe('veloria/r13_tornanti_bianchi');
+  expect(await page.evaluate(async () => {
+    const image = new Image(); image.src = '/assets/scenery/veloria-r13_tornanti_bianchi-illustrated-v3.webp';
+    await image.decode(); return [image.naturalWidth, image.naturalHeight];
+  })).toEqual([1448, 1086]);
+
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  const readClue = async (x: number, y: number, flag: string) => {
+    await walkTo(page, 'r13_tornanti_bianchi.tmj', x, y);
+    await action.tap();
+    await expect(page.locator('#dialogue-box')).toBeVisible();
+    for (let index = 0; index < 12 && await page.locator('#dialogue-box').isVisible(); index++) await action.tap();
+    await expect(page.locator('#dialogue-box')).toBeHidden();
+    await expect.poll(async () => (await readBrowserSave(page)).flags).toContain(flag);
+  };
+  await readClue(8, 12, 'q_research_articuno_clue_wind');
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain('q_research_articuno_clue_wind');
+  await readClue(31, 17, 'q_research_articuno_clue_ice');
+
+  await walkTo(page, 'r13_tornanti_bianchi.tmj', 13, 13);
+  await action.tap();
+  await page.getByRole('button', { name: '↑ NORD', exact: true }).tap();
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('research_articuno_sequence_0_nord');
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).flags).toContain('research_articuno_sequence_0_nord');
+  await walkTo(page, 'r13_tornanti_bianchi.tmj', 13, 13);
+  await action.tap();
+  await page.getByRole('button', { name: '← OVEST', exact: true }).tap();
+  await page.getByRole('button', { name: '→ EST', exact: true }).tap();
+  await expect.poll(async () => (await readBrowserSave(page)).flags).toContain('q_research_articuno_revealed');
+  const completed = await readBrowserSave(page);
+  expect(completed.player.money).toBe(save.player.money + 800);
+  expect(completed.flags).not.toContain('q_special_articuno_caught');
+  expect(failures).toEqual([]);
+  expect(errors).toEqual([]);
 });
 
 for (const npc of [

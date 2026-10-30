@@ -3,6 +3,7 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { collectMapCollision } from '../../src/core/world/map-collision.ts';
 import { adjustEnvironmentRegulator, environmentRegulatorState, type EnvironmentRegulator } from '../../src/core/world/environment-regulator.ts';
+import { getLegendaryResearch } from '../../src/game/maps/legendary-research-registry.ts';
 
 const read = (path: string) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
 const map = read('../../public/tilemaps/d06_santuario_due_luci.tmj');
@@ -58,12 +59,28 @@ test('D06 sanctuary entrance, return path and all authored interactions are reac
   assert.equal(specialPokemon.length, 1, 'Mewtwo is a separate post-League encounter');
   assert.ok(hasApproach(seen, specialPokemon[0]), 'Mewtwo can be approached when unlocked');
   const interactions = layer(map, 'interactions').filter((item: any) => props(item).kind !== 'wild-pokemon');
-  assert.equal(interactions.length, 4);
+  assert.equal(interactions.length, 8, 'four original stations plus three research clues and one puzzle');
+  const clues = interactions.filter((item: any) => props(item).kind === 'research-clue');
+  const puzzles = interactions.filter((item: any) => props(item).kind === 'research-puzzle');
+  assert.equal(clues.length, 3);
+  assert.equal(puzzles.length, 1);
+  const research = getLegendaryResearch('veloria/research_mewtwo')!;
+  assert.ok(research);
+  assert.deepEqual(clues.map((item: any) => props(item).researchClueId).sort(), research.clues.map(clue => clue.id).sort());
+  for (const clue of research.clues) {
+    const object = clues.find((item: any) => props(item).researchClueId === clue.id);
+    assert.equal(props(object).questEvent, clue.event);
+    assert.equal(props(object).activatedFlag, clue.flag);
+  }
+  assert.equal(props(puzzles[0]).questEvent, research.puzzle.event);
+  assert.equal(props(puzzles[0]).collectedFlag, research.revealedFlag);
   for (const terminal of interactions) {
     assert.ok(hasApproach(seen, terminal), `${terminal.name} has an approachable side`);
-    const left = terminal.x / 32, top = terminal.y / 32;
-    const right = (terminal.x + terminal.width) / 32 - 1, bottom = (terminal.y + terminal.height) / 32 - 1;
-    for (let y = top; y <= bottom; y++) for (let x = left; x <= right; x++) assert.ok(blocked.has(`${x},${y}`), `${terminal.name} footprint is solid`);
+    if (['hotspot', 'environment-regulator'].includes(props(terminal).kind)) {
+      const left = terminal.x / 32, top = terminal.y / 32;
+      const right = (terminal.x + terminal.width) / 32 - 1, bottom = (terminal.y + terminal.height) / 32 - 1;
+      for (let y = top; y <= bottom; y++) for (let x = left; x <= right; x++) assert.ok(blocked.has(`${x},${y}`), `${terminal.name} footprint is solid`);
+    }
   }
   const npcs = layer(map, 'characters');
   assert.equal(npcs.length, 1);

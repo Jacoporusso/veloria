@@ -13,6 +13,7 @@ import { collectIceTiles } from '../../core/world/ice-movement';
 import { renderEncounterHabitatGrass } from './encounter-habitat-grass.ts';
 import { npcSpriteOrigin } from './npc-sprite-origin.ts';
 import { renderWeatherInstrument } from './weather-instrument.ts';
+import { renderResearchMarker } from './research-marker.ts';
 import { renderWayfindingMarker } from './wayfinding-marker.ts';
 import { renderMapEdgeBackdrop } from './map-edge-backdrop.ts';
 import { npcIdleViews } from './npc-idle-views.ts';
@@ -246,6 +247,10 @@ function renderObject(scene: Phaser.Scene, container: Phaser.GameObjects.Contain
   if (item.properties.visualBaked === true && item.kind !== 'fishing-spot') return;
   const x = item.x, y = item.y, depth = Math.floor(y + item.height);
   switch (item.kind) {
+    case 'research-clue':
+    case 'research-puzzle':
+      renderResearchMarker(scene, container, item, active);
+      break;
     case 'quest-sigil': {
       const cx = x + item.width / 2, cy = y + item.height / 2;
       const marker = attach(container, scene.add.graphics().setDepth(-1).setName('quest-sigil-marker')

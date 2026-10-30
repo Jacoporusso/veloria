@@ -13,23 +13,37 @@ const quests = readdirSync('content/quests').filter(file => file.endsWith('.ques
 const authoredFlags = quests.flatMap(quest => quest.steps.map((step: any) => step.setFlag));
 for (const encounter of specials.encounters) {
   test(`${encounter.id} is visible, approachable, retryable and only settled on capture`, () => {
+    const encounterFlags = [encounter.requiredFlag, ...(encounter.routeRequiredFlags ?? [])];
+    const readyFlags = [...encounterFlags, ...(encounter.researchRequiredFlag ? [encounter.researchRequiredFlag] : [])];
+    const visibilityFlag = encounter.researchRequiredFlag ?? encounter.requiredFlag;
     assert.equal(specialEncounterAvailability(encounter, encounter.mapId, [], true), 'locked');
-    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, [encounter.requiredFlag], false), 'exhausted');
-    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, [encounter.requiredFlag], true), 'available');
+    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, encounterFlags.slice(1), false), 'locked');
+    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, encounterFlags, true),
+      encounter.researchRequiredFlag ? 'researching' : 'available');
+    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, readyFlags, false), 'exhausted');
+    assert.equal(specialEncounterAvailability(encounter, encounter.mapId, readyFlags, true), 'available');
     const map = maps.find(map => map.id === encounter.mapId)!;
     const tiled = read(`public/${map.tiledAsset}`);
     const object = tiled.layers.flatMap((layer: any) => layer.objects ?? []).find((obj: any) =>
       obj.properties?.some((prop: any) => prop.name === 'specialEncounterId' && prop.value === encounter.id));
     assert.ok(object);
     const properties = Object.fromEntries(object.properties.map((prop: any) => [prop.name, prop.value]));
-    assert.equal(properties.visibleWhenFlag, encounter.requiredFlag);
+    const visibleFlag = encounter.researchRequiredFlag ?? encounter.requiredFlag;
+    assert.equal(properties.visibleWhenFlag, visibleFlag);
     assert.equal(properties.collectedFlag, encounter.capturedFlag);
     assert.ok(map.renderAssets.some((asset: any) => asset.key === properties.sprite));
     const collisions = tiled.layers.find((layer: any) => layer.name === 'collision').objects;
     const tile = `${encounter.x},${encounter.y}`;
+    const gate = collisions.find((item: any) => item.x === encounter.x * tiled.tilewidth && item.y === encounter.y * tiled.tileheight);
+    assert.ok(gate, 'special encounter has a conditional collision');
+    const gateProperties = Object.fromEntries(gate.properties.map((prop: any) => [prop.name, prop.value]));
+    assert.equal(gateProperties.blocksWhenFlag, visibleFlag);
+    assert.equal(gateProperties.blocksUntilFlag, encounter.capturedFlag);
     assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, []).has(tile), false, 'invisible Pokémon has no invisible wall');
-    assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, [encounter.requiredFlag]).has(tile), true);
-    assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, [encounter.requiredFlag, encounter.capturedFlag]).has(tile), false);
+    assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, encounterFlags).has(tile),
+      visibilityFlag === encounter.requiredFlag);
+    assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, [...encounterFlags, visibilityFlag]).has(tile), true);
+    assert.equal(collectMapCollision(collisions, tiled.width, tiled.height, [...encounterFlags, visibilityFlag, encounter.capturedFlag]).has(tile), false);
     const flags = authoredFlags.filter((flag: string) => flag !== encounter.capturedFlag);
     const blocked = collectMapCollision(collisions, tiled.width, tiled.height, flags);
     const spawn = map.spawns[0];
@@ -43,7 +57,7 @@ for (const encounter of specials.encounters) {
       }
     }
     assert.ok([[0, 1], [1, 0], [0, -1], [-1, 0]].some(([dx, dy]) => seen.has(`${encounter.x + dx},${encounter.y + dy}`)), 'reachable adjacent interaction tile');
-    const fixture = { flags: [encounter.requiredFlag], player: { money: 0 }, inventory: {}, badges: [] } as unknown as GameSave;
+    const fixture = { flags: readyFlags, player: { money: 0 }, inventory: {}, badges: [] } as unknown as GameSave;
     assert.equal(applyQuestEvent(fixture, `special/${encounter.id}/knocked-out`, quests).progressed, false);
     const capture = applyQuestEvent(fixture, encounter.captureEvent, quests);
     assert.ok(capture.save.flags.includes(encounter.capturedFlag));

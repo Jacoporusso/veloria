@@ -1,6 +1,6 @@
 # Economia ripetibile, dopogioco e ricerca dei leggendari
 
-Avanzamento0.4.46: la prima tranche allenamenti ripetibili è implementata dal menu, accessibile dopo la prima visita alla Lega e anche durante i viaggi; edificio/NPC dedicati non aggiunti. Specifiche, premi e prove nel documento127. Coppe, rivincite itineranti e indagini/catture dei leggendari restano da implementare. Le sezioni successive conservano il piano completo.
+Avanzamento0.4.46: la prima tranche allenamenti ripetibili è implementata dal menu, accessibile dopo la prima visita alla Lega e anche durante i viaggi; edificio/NPC dedicati non aggiunti. Specifiche, premi e prove nel documento127. Le indagini ambientali dei cinque Pokémon rari sono implementate nella tranche0.4.47, con verifiche e stato rilascio nel documento128. Coppe, rivincite itineranti e revisione della probabilità di cattura restano da implementare. Le sezioni successive conservano il piano completo.
 
 Requisiti utente30ottobre: partita arrivata al termine della Lega e tutti i Pokémon raccolti; mancano attività per allenare la squadra e recuperare monete, acquisti sostenibili alla Lega e obiettivi dopo il completamento. I leggendari sono troppo facili da trovare e catturare. Questo documento è un piano implementativo, non una dichiarazione di funzionalità già consegnate.
 

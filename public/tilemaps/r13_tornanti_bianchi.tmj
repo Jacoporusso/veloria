@@ -4256,7 +4256,7 @@
             {
               "name": "blocksWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_articuno_revealed"
             },
             {
               "name": "blocksUntilFlag",
@@ -4414,12 +4414,126 @@
             {
               "name": "visibleWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_articuno_revealed"
             },
             {
               "name": "collectedFlag",
               "type": "string",
               "value": "q_special_articuno_caught"
+            }
+          ]
+        },
+        {
+          "id": 1059,
+          "name": "Pilastro di brina",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 256,
+          "y": 384,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_articuno"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/articuno/clue/wind"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_articuno_clue_wind"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "wind"
+            }
+          ]
+        },
+        {
+          "id": 1060,
+          "name": "Cristalli del tramonto",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 992,
+          "y": 544,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_articuno"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/articuno/clue/ice"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_articuno_clue_ice"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "ice"
+            }
+          ]
+        },
+        {
+          "id": 1061,
+          "name": "Arpa delle correnti",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 416,
+          "y": 416,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-puzzle"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_articuno"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/articuno/revealed"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_articuno_revealed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_research_articuno_revealed"
             }
           ]
         }
@@ -4592,7 +4706,7 @@
     }
   ],
   "nextlayerid": 10,
-  "nextobjectid": 1059,
+  "nextobjectid": 1062,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.10.2",

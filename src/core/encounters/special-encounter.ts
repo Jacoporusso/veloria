@@ -5,6 +5,7 @@ export interface SpecialEncounter {
   readonly level: number;
   readonly requiredFlag: string;
   readonly routeRequiredFlags?: readonly string[];
+  readonly researchRequiredFlag?: string;
   readonly capturedFlag: string;
   readonly captureEvent: string;
   readonly description: string;
@@ -12,21 +13,28 @@ export interface SpecialEncounter {
   readonly routeHint: string;
 }
 
-export type SpecialEncounterDiscoveryState = 'caught' | 'locked' | 'available';
+export type SpecialEncounterDiscoveryState = 'caught' | 'locked' | 'researching' | 'available';
 
 /** Discovery guidance ignores current map and party state; it reflects only lasting progress flags. */
 export function specialEncounterDiscoveryState(encounter: SpecialEncounter, flags: readonly string[]): SpecialEncounterDiscoveryState {
   if (flags.includes(encounter.capturedFlag)) return 'caught';
-  if (!flags.includes(encounter.requiredFlag) || (encounter.routeRequiredFlags ?? []).some(flag => !flags.includes(flag))) return 'locked';
+  if (isRouteLocked(encounter, flags)) return 'locked';
+  if (encounter.researchRequiredFlag && !flags.includes(encounter.researchRequiredFlag)) return 'researching';
   return 'available';
 }
 
 /** Knockout or escape never consumes a special encounter. Only capture settles it. */
 export function specialEncounterAvailability(encounter: SpecialEncounter, mapId: string,
-  flags: readonly string[], hasReadyCompanion: boolean): 'available' | 'wrongMap' | 'locked' | 'caught' | 'exhausted' {
+  flags: readonly string[], hasReadyCompanion: boolean): 'available' | 'wrongMap' | 'locked' | 'researching' | 'caught' | 'exhausted' {
   if (encounter.mapId !== mapId) return 'wrongMap';
   if (flags.includes(encounter.capturedFlag)) return 'caught';
-  if (!flags.includes(encounter.requiredFlag)) return 'locked';
+  if (isRouteLocked(encounter, flags)) return 'locked';
+  if (encounter.researchRequiredFlag && !flags.includes(encounter.researchRequiredFlag)) return 'researching';
   if (!hasReadyCompanion) return 'exhausted';
   return 'available';
+}
+
+function isRouteLocked(encounter: SpecialEncounter, flags: readonly string[]): boolean {
+  return !flags.includes(encounter.requiredFlag) ||
+    (encounter.routeRequiredFlags ?? []).some(flag => !flags.includes(flag));
 }

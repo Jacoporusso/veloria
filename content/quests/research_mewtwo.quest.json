@@ -1,0 +1,40 @@
+{
+  "id": "veloria/q_research_mewtwo",
+  "version": 1,
+  "displayName": "Lo specchio senza ombra",
+  "steps": [
+    {
+      "id": "inscription",
+      "trigger": "research/mewtwo/clue/inscription",
+      "setFlag": "q_research_mewtwo_clue_inscription",
+      "requiresFlags": []
+    },
+    {
+      "id": "mirror",
+      "trigger": "research/mewtwo/clue/mirror",
+      "setFlag": "q_research_mewtwo_clue_mirror",
+      "requiresFlags": []
+    },
+    {
+      "id": "echo",
+      "trigger": "research/mewtwo/clue/echo",
+      "setFlag": "q_research_mewtwo_clue_echo",
+      "requiresFlags": []
+    },
+    {
+      "id": "reveal",
+      "trigger": "research/mewtwo/revealed",
+      "setFlag": "q_research_mewtwo_revealed",
+      "requiresFlags": [
+        "q_league_completed",
+        "q_research_mewtwo_clue_inscription",
+        "q_research_mewtwo_clue_mirror",
+        "q_research_mewtwo_clue_echo"
+      ]
+    }
+  ],
+  "completionFlag": "q_research_mewtwo_revealed",
+  "reward": {
+    "money": 1200
+  }
+}

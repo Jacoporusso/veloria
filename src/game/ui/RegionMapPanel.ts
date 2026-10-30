@@ -7,6 +7,8 @@ import { specialEncounterDiscoveryState } from '../../core/encounters/special-en
 import { battleSpecies, encounterCatalog } from '../battle/catalog.ts';
 import { pokemonRewardsAt } from '../journey/pokemon-reward-guidance.ts';
 import { atlasBackground, loadAtlasDiscoveries, loadAtlasTiled, type AtlasDiscovery } from './atlas-discoveries.ts';
+import { legendaryResearchState } from '../../core/encounters/legendary-research.ts';
+import { legendaryResearchForEncounter } from '../maps/legendary-research-registry.ts';
 
 const ns = 'http://www.w3.org/2000/svg';
 function html<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text?: string) {
@@ -178,7 +180,14 @@ export class RegionMapPanel {
     const encounters = Object.values(specialEncounterCatalog).filter(item => area.mapIds.includes(item.mapId));
     const fishingTarget = this.discoveries.find(point => point.id === discoveryId && point.kind === 'fishing');
     const questTarget = this.discoveries.find(point => point.id === discoveryId && point.kind === 'quest');
-    const focused = Boolean(fishingTarget || questTarget) || gifts.some(reward => reward.guide.questId === discoveryId) || encounters.some(encounter => encounter.id === discoveryId);
+    const researchTarget = this.discoveries.find(point => point.id === discoveryId && point.precision === 'area' && point.researchId);
+    const revealedEncounters = encounters.filter(encounter => {
+      const research = legendaryResearchForEncounter(encounter.id);
+      const state = specialEncounterDiscoveryState(encounter, this.save?.flags ?? []);
+      if (!research) return true;
+      return state === 'caught' || legendaryResearchState(research, this.save?.flags ?? []).status === 'revealed';
+    });
+    const focused = Boolean(fishingTarget || questTarget || researchTarget) || gifts.some(reward => reward.guide.questId === discoveryId) || revealedEncounters.some(encounter => encounter.id === discoveryId);
     this.dialog.classList.toggle('has-discovery-target', focused);
     this.details.replaceChildren(...(!focused ? [title, state, description, ...(gym ? [gym] : [])] : []));
     this.details.closest<HTMLElement>('.region-map-sidebar')!.scrollTop = 0;
@@ -208,9 +217,23 @@ export class RegionMapPanel {
       this.details.append(card);
       card.append(this.locateButton(reward.guide.questId, `Mostra il punto di ${reward.name}`));
     }
-    for (const encounter of encounters.filter(encounter => !focused || encounter.id === discoveryId)) {
+    for (const encounter of encounters.filter(encounter => !focused || encounter.id === discoveryId ||
+      Boolean(researchTarget?.researchId && legendaryResearchForEncounter(encounter.id)?.id === researchTarget.researchId))) {
+      const research = legendaryResearchForEncounter(encounter.id);
       const encounterState = specialEncounterDiscoveryState(encounter, this.save?.flags ?? []);
       const card = html('section', 'region-map-discovery');
+      const researchState = research ? legendaryResearchState(research, this.save?.flags ?? []) : undefined;
+      if (research && researchState && (researchTarget?.researchId === research.id ||
+        (encounterState !== 'caught' && researchState.status !== 'revealed'))) {
+        const macrozonePoint = this.discoveries.find(point => point.id === `${research.id}#area` && point.precision === 'area');
+        card.setAttribute('aria-label', 'Indagine in una macrozona');
+        card.append(html('h4', '', '✦ Tracce di una presenza rara'),
+          html('strong', 'region-map-state', encounterState === 'caught' ? 'Catturato ✓ · indagine facoltativa' : `${researchState.foundClueIds.length}/${research.clues.length} indizi raccolti`),
+          html('p', '', research.regionHint));
+        if (macrozonePoint) card.append(this.locateButton(macrozonePoint.id, 'Mostra la macrozona di ricerca'));
+        this.details.append(card);
+        continue;
+      }
       card.setAttribute('aria-label', `Incontro con ${battleSpecies[encounter.speciesId].name}`);
       card.append(html('h4', '', `✦ ${battleSpecies[encounter.speciesId].name} · Lv.${encounter.level}`),
         html('strong', 'region-map-state', encounterState === 'caught' ? 'Catturato ✓' : encounterState === 'locked' ? 'Da sbloccare' : 'Da raggiungere'));
@@ -225,8 +248,14 @@ export class RegionMapPanel {
   private renderCategoryDetails(label?: string): void {
     const title = label ?? (this.category === 'gift' ? '🎁 Doni' : this.category === 'fishing' ? '🎣 Pesca' : '✦ Incontri');
     const points = this.discoveries.filter(point => point.kind === this.category);
-    this.details.replaceChildren(html('h3', '', title), html('p', '', `${points.length} punti. Tocca un simbolo o scegli qui sotto per vedere la posizione esatta.`));
-    for (const point of points) this.details.append(this.locateButton(point.id, `${point.icon} ${point.name} · ${point.location}`));
+    const description = this.category === 'encounter'
+      ? `${points.length} punti. Le indagini mostrano prima una macrozona; gli altri simboli indicano posizioni consultabili.`
+      : `${points.length} punti. Tocca un simbolo o scegli qui sotto per vedere la posizione esatta.`;
+    this.details.replaceChildren(html('h3', '', title), html('p', '', description));
+    for (const point of points) {
+      const label = point.precision === 'area' ? '✦ Tracce da ricercare · macrozona' : `${point.icon} ${point.name} · ${point.location}`;
+      this.details.append(this.locateButton(point.id, label));
+    }
   }
 
   private hasFishing(mapIds: readonly string[]): boolean {
@@ -367,6 +396,14 @@ export class RegionMapPanel {
     if (!target || !this.isOpen) return;
     const area = this.state?.areas.find(area => area.mapIds.includes(target.mapId));
     if (!area) return;
+    if (target.precision === 'area') {
+      this.target = undefined;
+      this.showArea(area.id, id);
+      this.location.textContent = `${target.name} · ${target.location}`;
+      this.setZoom(this.viewport.clientWidth < 540 ? 3 : 1.5);
+      this.centerArea(area.id);
+      return;
+    }
     this.showArea(area.id, id); this.target = target;
     const request = ++this.focusRequest;
     let tiled: Awaited<ReturnType<typeof loadAtlasTiled>>;

@@ -180,7 +180,8 @@
   ],
   "scriptRefs": [
     "event/forest_signal/read",
-    "interaction/ada/report"
+    "interaction/ada/report",
+    "veloria/q_research_mew"
   ],
   "musicId": "ambient_forest",
   "ambientEffects": [

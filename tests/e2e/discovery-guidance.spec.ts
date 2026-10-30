@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { enterGame } from './helpers/enter-game';
 import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-navigation';
+import legendaryResearch from '../../content/encounters/legendary-research.v1.json' with { type: 'json' };
 
 async function seedAt(page: Page, mapName: string, flags: string[], withoutOldRod = false) {
   const save = await page.evaluate(async ({ name, flags, withoutOldRod }) => {
@@ -40,9 +41,7 @@ test('Journal guidance locates Snorlax and leaves the player in Acquariva', asyn
   const journal = await openJournal(page);
   const snorlaxRow = journal.locator('.journey-quest').filter({ hasText: 'Snorlax' });
   await expect(snorlaxRow.locator('.journey-quest-state')).toHaveText('Da raggiungere');
-  const mewTitle = page.getByText('Un incontro con Mew', { exact: true });
-  const mewRow = mewTitle.locator('xpath=ancestor::article[contains(@class, "journey-quest")]');
-  await expect(mewRow.locator('.journey-quest-state')).toHaveText('Da sbloccare');
+  await expect(page.getByText('Un incontro con Mew', { exact: true })).toHaveCount(0);
   await snorlaxRow.getByRole('button', { name: 'Mostra Snorlax sulla mappa' }).click();
 
   const atlas = page.getByRole('dialog', { name: 'Esplora Veloria' });
@@ -63,21 +62,35 @@ test('Journal guidance locates Snorlax and leaves the player in Acquariva', asyn
   await expect(page.locator('#action-a')).toBeVisible();
 });
 
-test('Atlas shows Zapdos locked, available after the League, and captured from seeded saves', async ({ page }) => {
+test('Atlas keeps Zapdos in its macrozone until revealed, then shows its exact point and capture state', async ({ page }) => {
   await page.goto('/');
   await enterGame(page);
+  const zapdosResearch = legendaryResearch.researches.find(research => research.encounterId === 'veloria/special_zapdos')!;
 
   const phases = [
-    { flags: [], status: 'Da sbloccare' },
-    { flags: ['q_league_completed', 'q_league_epilogue_seen'], status: 'Da raggiungere' },
-    { flags: ['q_league_completed', 'q_league_epilogue_seen', 'q_special_zapdos_caught'], status: 'Catturato ✓' },
+    { flags: [], kind: 'macrozone' as const },
+    { flags: ['q_league_completed', 'q_league_epilogue_seen'], kind: 'macrozone' as const },
+    { flags: ['q_league_completed', 'q_league_epilogue_seen', 'q_research_zapdos_revealed'], kind: 'exact' as const, status: 'Da raggiungere' },
+    { flags: ['q_league_completed', 'q_league_epilogue_seen', 'q_research_zapdos_revealed', 'q_special_zapdos_caught'], kind: 'exact' as const, status: 'Catturato ✓' },
   ];
   for (const [index, phase] of phases.entries()) {
     await seedAt(page, 'ferraluce', phase.flags);
     const atlas = await openAtlas(page);
     await atlas.locator('.region-map-select').selectOption('centrale');
-    const encounter = atlas.getByRole('region', { name: 'Incontro con Zapdos' });
-    await expect(encounter.locator('.region-map-state')).toHaveText(phase.status);
+    if (phase.kind === 'macrozone') {
+      const research = atlas.getByRole('region', { name: 'Indagine in una macrozona' });
+      await expect(research).toContainText('Tracce di una presenza rara');
+      await expect(research.locator('.region-map-state')).toHaveText('0/3 indizi raccolti');
+      await expect(research).toContainText(zapdosResearch.regionHint);
+      await expect(atlas.getByRole('region', { name: 'Incontro con Zapdos' })).toHaveCount(0);
+      await expect(atlas.getByRole('button', { name: 'Mostra la macrozona di ricerca' })).toBeVisible();
+    } else {
+      const encounter = atlas.getByRole('region', { name: 'Incontro con Zapdos' });
+      await expect(encounter.locator('.region-map-state')).toHaveText(phase.status);
+      if (phase.status === 'Da raggiungere') await expect(encounter).toContainText('Centrale Risonante');
+      await expect(encounter.getByRole('button', { name: 'Mostra il punto di Zapdos', exact: true })).toBeVisible();
+      await expect(atlas.getByRole('region', { name: 'Indagine in una macrozona' })).toHaveCount(0);
+    }
     if (index < phases.length - 1) {
       await atlas.getByRole('button', { name: 'Chiudi ×' }).click();
       await expect(atlas).toBeHidden();

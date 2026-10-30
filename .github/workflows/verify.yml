@@ -101,8 +101,10 @@ jobs:
         if: matrix.suite == 'chapters' && matrix.shard == 1
         run: node tools/check_browser_suite_coverage.mjs
 
+      # Shard 9 completed 29 passing cases before the old 24-minute step limit.
+      # Preserve one browser worker and allow the remaining cases to finish.
       - name: Run browser end-to-end tests
-        timeout-minutes: 24
+        timeout-minutes: 36
         env:
           VELORIA_E2E_SUITE: ${{ matrix.suite }}
         run: npm run test:e2e -- --workers=1 --shard=${{ matrix.shard }}/${{ matrix.total }}

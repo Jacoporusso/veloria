@@ -90,7 +90,7 @@ test('R13 illustrated switchbacks reach both habitat edges, Alma, Articuno and B
       'trainer_r13_alma_defeated', 'q_special_articuno_caught',
     ].includes(flag)),
     'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen',
-    'q_league_completed', 'q_league_epilogue_seen',
+    'q_league_completed', 'q_league_epilogue_seen', 'q_research_articuno_revealed',
   ])];
   save.party = readyGen1Party();
   await seedBrowserSave(page, save);
@@ -100,7 +100,7 @@ test('R13 illustrated switchbacks reach both habitat edges, Alma, Articuno and B
 
   // Visit the same stops in geographic order rather than repeatedly retracing
   // the switchbacks; retain every interaction, screenshot and exit assertion.
-  // q_league_completed reveals Articuno; remain on the free tile north of it and do not activate the menu.
+  // The solved investigation reveals Articuno; remain on the free tile north of it and do not activate the menu.
   await captureStop(page, info, 27, 22, 'articuno-approach', { direction: 'Vai in basso', prompt: 'Incontra Articuno' });
   expect((await readBrowserSave(page)).flags).not.toContain('q_special_articuno_caught');
   await expect(page.locator('body')).not.toHaveClass(/battle-active/);

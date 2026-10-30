@@ -6795,7 +6795,7 @@
             {
               "name": "blocksWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_mewtwo_revealed"
             },
             {
               "name": "blocksUntilFlag",
@@ -7038,12 +7038,164 @@
             {
               "name": "visibleWhenFlag",
               "type": "string",
-              "value": "q_league_completed"
+              "value": "q_research_mewtwo_revealed"
             },
             {
               "name": "collectedFlag",
               "type": "string",
               "value": "q_special_mewtwo_caught"
+            }
+          ]
+        },
+        {
+          "id": 2003,
+          "name": "Iscrizione di cristallo",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 256,
+          "y": 256,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mewtwo"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mewtwo/clue/inscription"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mewtwo_clue_inscription"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "inscription"
+            }
+          ]
+        },
+        {
+          "id": 2004,
+          "name": "Lastra riflessa",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 640,
+          "y": 256,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mewtwo"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mewtwo/clue/mirror"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mewtwo_clue_mirror"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "mirror"
+            }
+          ]
+        },
+        {
+          "id": 2005,
+          "name": "Eco della volta",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 416,
+          "y": 160,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-clue"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mewtwo"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mewtwo/clue/echo"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mewtwo_clue_echo"
+            },
+            {
+              "name": "researchClueId",
+              "type": "string",
+              "value": "echo"
+            }
+          ]
+        },
+        {
+          "id": 2006,
+          "name": "Specchio delle risonanze",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 448,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "properties": [
+            {
+              "name": "kind",
+              "type": "string",
+              "value": "research-puzzle"
+            },
+            {
+              "name": "researchId",
+              "type": "string",
+              "value": "veloria/research_mewtwo"
+            },
+            {
+              "name": "questEvent",
+              "type": "string",
+              "value": "research/mewtwo/revealed"
+            },
+            {
+              "name": "activatedFlag",
+              "type": "string",
+              "value": "q_research_mewtwo_revealed"
+            },
+            {
+              "name": "collectedFlag",
+              "type": "string",
+              "value": "q_research_mewtwo_revealed"
             }
           ]
         }
@@ -7154,7 +7306,7 @@
     }
   ],
   "nextlayerid": 9,
-  "nextobjectid": 2003,
+  "nextobjectid": 2007,
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "tiledversion": "1.11.2",

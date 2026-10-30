@@ -1412,6 +1412,159 @@
         "source": "public/tilemaps/r15_passo_due_luci.tmj#object-160"
       }
     ],
+    "research/articuno/clue/ice": [
+      {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "objectName": "Cristalli del tramonto",
+        "x": 1008.0,
+        "y": 579.0,
+        "source": "public/tilemaps/r13_tornanti_bianchi.tmj#object-1060"
+      }
+    ],
+    "research/articuno/clue/wind": [
+      {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "objectName": "Pilastro di brina",
+        "x": 272.0,
+        "y": 419.0,
+        "source": "public/tilemaps/r13_tornanti_bianchi.tmj#object-1059"
+      }
+    ],
+    "research/articuno/revealed": [
+      {
+        "mapId": "veloria/r13_tornanti_bianchi",
+        "objectName": "Arpa delle correnti",
+        "x": 432.0,
+        "y": 451.0,
+        "source": "public/tilemaps/r13_tornanti_bianchi.tmj#object-1061"
+      }
+    ],
+    "research/mew/clue/leaves": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Foglie sospese",
+        "x": 592.0,
+        "y": 323.0,
+        "source": "public/tilemaps/d01_bosco_veli.tmj#object-94"
+      }
+    ],
+    "research/mew/clue/rain": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Impronte dopo la pioggia",
+        "x": 272.0,
+        "y": 515.0,
+        "source": "public/tilemaps/d01_bosco_veli.tmj#object-93"
+      }
+    ],
+    "research/mew/revealed": [
+      {
+        "mapId": "veloria/d01_bosco_veli",
+        "objectName": "Radura dei sussurri",
+        "x": 528.0,
+        "y": 387.0,
+        "source": "public/tilemaps/d01_bosco_veli.tmj#object-95"
+      }
+    ],
+    "research/mewtwo/clue/echo": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Eco della volta",
+        "x": 432.0,
+        "y": 195.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-2005"
+      }
+    ],
+    "research/mewtwo/clue/inscription": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Iscrizione di cristallo",
+        "x": 272.0,
+        "y": 291.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-2003"
+      }
+    ],
+    "research/mewtwo/clue/mirror": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Lastra riflessa",
+        "x": 656.0,
+        "y": 291.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-2004"
+      }
+    ],
+    "research/mewtwo/revealed": [
+      {
+        "mapId": "veloria/d06_santuario_due_luci",
+        "objectName": "Specchio delle risonanze",
+        "x": 464.0,
+        "y": 227.0,
+        "source": "public/tilemaps/d06_santuario_due_luci.tmj#object-2006"
+      }
+    ],
+    "research/moltres/clue/dawn": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Pietra della prima luce",
+        "x": 560.0,
+        "y": 163.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-169"
+      }
+    ],
+    "research/moltres/clue/warmth": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Piuma di calore",
+        "x": 912.0,
+        "y": 611.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-170"
+      }
+    ],
+    "research/moltres/revealed": [
+      {
+        "mapId": "veloria/r15_passo_due_luci",
+        "objectName": "Risonatore della cresta",
+        "x": 944.0,
+        "y": 643.0,
+        "source": "public/tilemaps/r15_passo_due_luci.tmj#object-171"
+      }
+    ],
+    "research/zapdos/clue/antenna": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Antenna silenziosa",
+        "x": 496.0,
+        "y": 259.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-52"
+      }
+    ],
+    "research/zapdos/clue/coil": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Bobina in risonanza",
+        "x": 720.0,
+        "y": 355.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-51"
+      }
+    ],
+    "research/zapdos/clue/ground": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Morsetto di terra",
+        "x": 272.0,
+        "y": 387.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-50"
+      }
+    ],
+    "research/zapdos/revealed": [
+      {
+        "mapId": "veloria/d03_centrale_risonante",
+        "objectName": "Quadro delle scariche",
+        "x": 752.0,
+        "y": 387.0,
+        "source": "public/tilemaps/d03_centrale_risonante.tmj#object-53"
+      }
+    ],
     "vetracielo/lea/orientation": [
       {
         "mapId": "veloria/vetracielo",

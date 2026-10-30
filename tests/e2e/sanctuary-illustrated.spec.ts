@@ -21,6 +21,7 @@ for (const state of ['before-league', 'available', 'caught'] as const) {
       hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
     save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
       'prologue_complete_seen', ...(state === 'before-league' ? [] : ['q_league_completed', 'q_league_epilogue_seen']),
+      ...(state === 'before-league' ? [] : ['q_research_mewtwo_revealed']),
       ...(state === 'caught' ? ['q_special_mewtwo_caught'] : [])])];
     save.player = { ...save.player, mapId: 'veloria/d06_santuario_due_luci', spawnPointId: 'from_concordia', x: 21, y: 17 };
     await seedBrowserSave(page, save); await page.reload(); await enterGame(page);

@@ -12,6 +12,8 @@ import '../../evolution-item-actions.css';
 import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { getMap } from '../maps/map-registry.ts';
 import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
+import { legendaryResearchState } from '../../core/encounters/legendary-research.ts';
+import { legendaryResearchForEncounter } from '../maps/legendary-research-registry.ts';
 import { describePokemonReward } from './pokemon-reward-guidance.ts';
 import { describeQuestMapTarget } from './quest-map-guidance.ts';
 
@@ -233,16 +235,29 @@ export class JourneyPanel {
     }
     this.contents.append(summary, next, element('h3', 'journey-section-title', 'Le tue tappe'), milestones, element('h3', 'journey-section-title', 'Missioni e ricompense'));
     for (const quest of questCatalog as readonly NamedQuest[]) {
+      // The investigation is the only pre-reveal entry; the capture task joins it after discovery.
+      const hiddenCapture = Object.values(specialEncounterCatalog).some(encounter => {
+        const research = legendaryResearchForEncounter(encounter.id);
+        return research && quest.completionFlag === encounter.capturedFlag
+          && !this.save!.flags.includes(research.revealedFlag) && !this.save!.flags.includes(encounter.capturedFlag);
+      });
+      if (hiddenCapture) continue;
       const complete = this.save.flags.includes(quest.completionFlag);
       const stepsDone = quest.steps.filter(step => this.save!.flags.includes(step.setFlag)).length;
       const specialEncounters = Object.values(specialEncounterCatalog)
-        .filter(encounter => encounter.capturedFlag === quest.completionFlag || quest.steps.some(step => step.trigger === encounter.captureEvent))
+        .filter(encounter => encounter.capturedFlag === quest.completionFlag || quest.steps.some(step => step.trigger === encounter.captureEvent) || legendaryResearchForEncounter(encounter.id)?.questId === quest.id)
         .map(encounter => {
           const discovery = specialEncounterDiscoveryState(encounter, this.save!.flags);
+          const research = legendaryResearchForEncounter(encounter.id);
+          const researchState = research ? legendaryResearchState(research, this.save!.flags) : undefined;
           return {
             encounter,
+            research,
+            researchState,
             location: getMap(encounter.mapId).metadata.displayName,
-            status: discovery === 'caught' ? 'Catturato ✓' : discovery === 'available' ? 'Da raggiungere' : 'Da sbloccare',
+            status: discovery === 'caught' ? 'Catturato ✓' : research && researchState!.status !== 'revealed'
+              ? `Indagine · ${researchState!.foundClueIds.length}/${research.clues.length} indizi`
+              : discovery === 'available' ? 'Da raggiungere' : 'Da sbloccare',
           };
         });
       const row = element('article', `journey-quest${complete ? ' complete' : ''}`);
@@ -251,7 +266,9 @@ export class JourneyPanel {
       const questStatus = specialEncounters.length
         ? specialEncounters.map(entry => entry.status).join(' · ')
         : pokemonReward?.status ?? (complete ? 'Completata ✓' : `${stepsDone}/${quest.steps.length} passi`);
-      row.append(element('strong', '', quest.displayName ?? quest.id), element('span', 'journey-quest-state', questStatus));
+      const hiddenResearch = specialEncounters.some(entry => entry.research && entry.researchState?.status !== 'revealed');
+      const questName = hiddenResearch ? 'Indagine nelle macrozone di Veloria' : quest.displayName ?? quest.id;
+      row.append(element('strong', '', questName), element('span', 'journey-quest-state', questStatus));
       if (rewards.length) row.append(element('p', '', `${complete ? 'Ricevuto' : 'Ricompensa'}: ${rewards.join(' · ')}`));
       if (pokemonReward) {
         const { guide, name, location } = pokemonReward;
@@ -269,13 +286,46 @@ export class JourneyPanel {
         }
         row.append(guidance);
       }
-      for (const { encounter, location } of specialEncounters) {
+      for (const { encounter, location, research, researchState } of specialEncounters) {
         const species = battleSpecies[encounter.speciesId];
         const guidance = element('section', 'journey-special-encounter');
+        if (research && researchState && researchState.status !== 'revealed') {
+          guidance.setAttribute('aria-label', 'Ricerca in una macrozona');
+          guidance.append(element('strong', 'journey-special-encounter-title', '✦ Indagine in corso'),
+            element('p', 'journey-special-encounter-route', research.regionHint),
+            element('p', 'journey-special-encounter-action', `${researchState.foundClueIds.length}/${research.clues.length} indizi raccolti. ${researchState.captured ? 'La cattura già registrata resta valida. ' : ''}Segui i segni nella macrozona e osserva il paesaggio.`));
+          for (const clue of research.clues.filter(item => researchState.foundClueIds.includes(item.id))) {
+            guidance.append(element('strong', 'journey-special-encounter-title', clue.title),
+              element('p', 'journey-special-encounter-unlock', clue.text));
+          }
+          if (researchState.status === 'ready') guidance.append(element('p', 'journey-special-encounter-route', research.puzzle.hint));
+          if (this.onShowMap) {
+            const readyForPuzzle = researchState.status === 'ready';
+            const locate = element('button', 'journey-special-map', readyForPuzzle ? '🗺️ Mostra la prova' : '🗺️ Mostra la macrozona');
+            locate.type = 'button';
+            locate.setAttribute('aria-label', readyForPuzzle ? 'Mostra la prova della ricerca sulla mappa' : 'Mostra la macrozona della ricerca sulla mappa');
+            locate.onclick = () => {
+              this.close();
+              this.onShowMap?.(readyForPuzzle ? research.puzzle.mapId : encounter.mapId,
+                `${research.id}#${readyForPuzzle ? 'puzzle' : 'area'}`);
+            };
+            guidance.append(locate);
+          }
+          row.append(guidance);
+          continue;
+        }
         guidance.append(element('strong', 'journey-special-encounter-title', `${species.name} · ${location}`),
           element('p', 'journey-special-encounter-unlock', encounter.unlockHint),
           element('p', 'journey-special-encounter-route', encounter.routeHint),
           element('p', 'journey-special-encounter-action', 'Mettiti accanto all’incontro, premi A e scegli INCONTRA.'));
+        if (research && researchState) {
+          guidance.append(element('p', 'journey-special-encounter-action',
+            `Ricerca facoltativa · ${researchState.foundClueIds.length}/${research.clues.length} indizi raccolti${researchState.captured ? ' · Cattura già registrata' : ''}.`));
+          for (const clue of research.clues.filter(item => researchState.foundClueIds.includes(item.id))) {
+            guidance.append(element('strong', 'journey-special-encounter-title', clue.title),
+              element('p', 'journey-special-encounter-unlock', clue.text));
+          }
+        }
         if (this.onShowMap) {
           const locate = element('button', 'journey-special-map', '🗺️ Vedi sulla mappa');
           locate.type = 'button';

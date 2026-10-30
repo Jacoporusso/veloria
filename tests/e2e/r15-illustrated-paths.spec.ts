@@ -93,7 +93,8 @@ test('R15 illustrated paths connect both readings, Nilo, habitat and both exits'
 });
 
 for (const caught of [false, true]) test(`R15 Moltres footprint follows post-League capture state (${caught})`, async ({ page }, info) => {
-  const flags = ['q_league_completed', 'q_league_epilogue_seen', ...(caught ? ['q_special_moltres_caught'] : [])];
+  const flags = ['q_league_completed', 'q_league_epilogue_seen', 'q_research_moltres_revealed',
+    ...(caught ? ['q_special_moltres_caught'] : [])];
   await checkpoint(page, flags, 24, 16);
   expect(await moltresState(page)).toEqual({ blocked: !caught, sprites: caught ? 0 : 1 });
   if (caught) {

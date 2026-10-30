@@ -55,6 +55,8 @@ import { itemEvolutionRules } from '../battle/catalog.ts';
 import { tradeEvolutionRules } from '../battle/catalog.ts';
 import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { specialEncounterAvailability, type SpecialEncounter } from '../../core/encounters/special-encounter.ts';
+import { chooseResearchSymbol, legendaryResearchState, type LegendaryResearchDefinition } from '../../core/encounters/legendary-research.ts';
+import { getLegendaryResearch } from '../maps/legendary-research-registry.ts';
 import { applyTradeEvolution } from '../../core/services/trade-evolution.ts';
 import { chooseItemEvolution } from '../ui/ItemEvolutionMenu.ts';
 import { showEvolutionCelebration } from '../ui/EvolutionCelebration.ts';
@@ -297,7 +299,7 @@ export class WorldScene extends Phaser.Scene {
     if (!this.mapTransitionLoading && guidanceKey !== this.openingGuidanceKey) this.drawOpeningGuidance();
 
     const adjacent = adjacentGridPoint(this.playerTile, this.facing);
-    const target = !blocked && (this.interactableAtTile(adjacent.x, adjacent.y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y));
+    const target = !blocked && (this.interactionTarget(adjacent.x, adjacent.y));
     this.renderedMap.updateInteractionFocus(target || undefined);
     prompt.hidden = !target;
     if (target && this.promptTargetId !== target.id) {
@@ -706,10 +708,13 @@ export class WorldScene extends Phaser.Scene {
   private interact() {
     if (this.fishingActive) return;
     const {x,y}=adjacentGridPoint(this.playerTile,this.facing);
-    const prop=this.interactableAtTile(x,y) ?? this.interactableAtTile(this.playerTile.x,this.playerTile.y);
+    const prop=this.interactionTarget(x,y);
     if (prop?.kind === 'npc') faceNpcTowardObserver(this.mapLayer, prop, this.playerTile);
     const serviceId = prop?.properties.serviceId;
     const shopId = prop?.properties.shopId;
+    if (prop?.kind === 'research-clue' || prop?.kind === 'research-puzzle') {
+      void this.showResearchInteraction(prop); return;
+    }
     if (prop?.kind === 'wild-pokemon') {
       this.showSpecialEncounterMenu(String(prop.properties.specialEncounterId));
       return;
@@ -795,6 +800,11 @@ export class WorldScene extends Phaser.Scene {
     }
     const message = prop?.properties.message;
     this.showToast(typeof message === 'string' ? message : 'Una brezza leggera attraversa la piazza.');
+  }
+
+  private interactionTarget(x: number, y: number): MapInteractable | undefined {
+    // Preserve facing interactions; inscriptions underfoot are the fallback.
+    return this.interactableAtTile(x, y) ?? this.interactableAtTile(this.playerTile.x, this.playerTile.y);
   }
 
   private interactableAtTile(x:number,y:number):MapInteractable|undefined {
@@ -994,6 +1004,75 @@ export class WorldScene extends Phaser.Scene {
         } },
         { label: 'MI PREPARO', icon: 'close', action: () => undefined },
       ]);
+  }
+
+  private async showResearchInteraction(prop: MapInteractable): Promise<void> {
+    if (this.previewMode || this.battleActive || this.challengeOperationActive) return;
+    const research = getLegendaryResearch(String(prop.properties.researchId));
+    if (!research) return;
+    this.afterDialogue = null;
+    const clueId = prop.properties.researchClueId;
+    if (typeof clueId !== 'string') {
+      if (research.puzzle.mapId === this.map.metadata.id) this.showResearchPuzzle(research);
+      return;
+    }
+    const clue = research.clues.find(clue => clue.id === clueId && clue.mapId === this.map.metadata.id);
+    if (!clue) return;
+    const update = applyQuestEvent(this.save, clue.event, questCatalog, { species: battleSpecies, moves: battleMoves });
+    this.save = update.save;
+    const finish = () => {
+      this.challengeOperationActive = false;
+      this.refreshMapVisuals();
+      const state = legendaryResearchState(research, this.save.flags);
+      this.showDialogue(clue.title, [clue.text, `Indizi nel diario: ${state.foundClueIds.length}/${research.clues.length}. Puoi rileggerli quando vuoi.`]);
+    };
+    if (update.progressed) {
+      this.challengeOperationActive = true;
+      await this.requireChallengeSave(finish);
+    } else finish();
+  }
+
+  private showResearchPuzzle(research: LegendaryResearchDefinition, feedback = ''): void {
+    this.afterDialogue = null;
+    const state = legendaryResearchState(research, this.save.flags);
+    if (state.status === 'locked') {
+      this.showDialogue(research.puzzle.title, ['Puoi annotare gli indizi già adesso. Per completare questa ricerca devi prima vincere la Lega.']); return;
+    }
+    if (state.status === 'searching') {
+      this.showDialogue(research.puzzle.title, [`Prima di attivare la prova, annota gli indizi nell’ambiente. Indizi trovati: ${state.foundClueIds.length}/${research.clues.length}.`, research.regionHint]); return;
+    }
+    if (state.status === 'revealed') {
+      this.showDialogue(research.puzzle.title, [state.captured ? 'Ricerca d’archivio completata. Il Pokémon che hai già catturato resta con te: qui non ne apparirà un’altra copia.'
+        : 'Hai individuato il rifugio. Ora il diario e la mappa possono mostrarti il punto dell’incontro. Dopo una fuga o un KO potrai riprovare.']); return;
+    }
+    this.showServiceOptions(research.puzzle.title, `${feedback ? feedback + ' ' : ''}${research.puzzle.hint} Segni ricostruiti: ${state.progress}/${research.puzzle.solution.length}.`, [
+      ...research.puzzle.options.map(option => ({ label: option.label, icon: 'challenge' as const, action: () => void this.applyResearchSymbol(research, option.id) })),
+      { label: 'RILEGGI GLI INDIZI', icon: 'challenge', action: () => this.showServiceOptions('Appunti di ricerca', research.clues.map(clue => `${clue.title}: ${clue.text}`).join(' '), [
+        { label: 'TORNA ALLA PROVA', icon: 'challenge', action: () => this.showResearchPuzzle(research) },
+        { label: 'NON ORA', icon: 'close', action: () => undefined },
+      ]) },
+      { label: 'AZZERA LA SEQUENZA', icon: 'close', action: () => void this.applyResearchSymbol(research, '__reset') },
+      { label: 'NON ORA', icon: 'close', action: () => undefined },
+    ]);
+  }
+
+  private async applyResearchSymbol(research: LegendaryResearchDefinition, optionId: string): Promise<void> {
+    if (this.battleActive || this.challengeOperationActive || research.puzzle.mapId !== this.map.metadata.id) return;
+    const result = chooseResearchSymbol(research, this.save.flags, optionId);
+    this.save = { ...this.save, flags: result.flags };
+    const quest = result.event ? applyQuestEvent(this.save, result.event, questCatalog, { species: battleSpecies, moves: battleMoves }) : undefined;
+    if (quest) this.save = quest.save;
+    this.challengeOperationActive = true;
+    await this.requireChallengeSave(() => {
+      this.challengeOperationActive = false;
+      this.refreshMapVisuals();
+      if (quest?.completedQuestIds.length) {
+        this.showResearchPuzzle(research);
+        this.journey?.celebrate(quest.completedQuestIds, this.save);
+      } else if (result.outcome === 'wrong') this.showResearchPuzzle(research,
+        optionId === '__reset' ? 'La sequenza è stata azzerata.' : 'La sequenza non coincide. Gli indizi restano nel diario. Riparti dal primo segno.');
+      else this.showResearchPuzzle(research, 'Il segno risponde. Continua la sequenza.');
+    });
   }
 
   private startWildBattle(speciesId: number, level: number, special?: SpecialEncounter) {

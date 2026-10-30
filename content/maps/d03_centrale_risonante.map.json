@@ -97,7 +97,8 @@
     "centrale_technician"
   ],
   "scriptRefs": [
-    "quest/centrale_investigation"
+    "quest/centrale_investigation",
+    "veloria/q_research_zapdos"
   ],
   "musicId": "ambient_brumalta",
   "terrainBase": {

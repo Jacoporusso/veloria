@@ -15,6 +15,9 @@ import { createCreaturePortrait } from '../battle/creature-art.ts';
 import evolutionData from '../../../content/battle/evolution-reference.v1.json';
 import { specialEncounterCatalog } from '../maps/special-encounter-registry.ts';
 import { questCatalog } from '../quests/catalog.ts';
+import { specialEncounterDiscoveryState } from '../../core/encounters/special-encounter.ts';
+import { legendaryResearchState } from '../../core/encounters/legendary-research.ts';
+import { legendaryResearchForEncounter } from '../maps/legendary-research-registry.ts';
 
 const evolutionReference: Readonly<Record<string, { evolutions: readonly {
   targetSpeciesId: number; targetName: string; trigger: string; minimumLevel: number | null; itemName: string | null; locationName?: string;
@@ -230,11 +233,30 @@ export class PokemonPanel {
     }
     for (const encounter of Object.values(specialEncounterCatalog).filter(encounter => encounter.speciesId === speciesId)) {
       otherAcquisitions++;
+      const research = legendaryResearchForEncounter(encounter.id);
+      const discovery = specialEncounterDiscoveryState(encounter, save.flags);
+      const researchState = research ? legendaryResearchState(research, save.flags) : undefined;
+      if (research && discovery !== 'caught' && researchState?.status !== 'revealed') {
+        const state = researchState!;
+        const card = node('article', '', 'pokemon-move');
+        card.append(node('h4', '✨ Ricerca in corso'),
+          node('p', research.regionHint),
+          node('p', `${state.foundClueIds.length}/${research.clues.length} indizi raccolti. Segui gli indizi e osserva la macrozona indicata.`, 'pokemon-note'));
+        habitats.append(card);
+        continue;
+      }
       const name = listMaps().find(map => map.metadata.id === encounter.mapId)?.metadata.displayName ?? encounter.mapId;
       const card = node('article', '', 'pokemon-move');
-      card.append(node('h4', `✨ ${name}`), node('p', `Incontro visibile · Livello ${encounter.level}`),
+      card.append(node('h4', `✨ ${name}`), node('p', discovery === 'caught' ? 'Catturato ✓' : `Incontro visibile · Livello ${encounter.level}`),
         node('p', encounter.unlockHint, 'pokemon-note'),
         node('p', 'Puoi riprovare dopo una fuga o un KO. Dopo la cattura questo incontro è completato.', 'pokemon-note'));
+      if (research) {
+        const state = legendaryResearchState(research, save.flags);
+        card.append(node('p', `Ricerca facoltativa · ${state.foundClueIds.length}/${research.clues.length} indizi raccolti${state.captured ? ' · Cattura già registrata' : ''}.`, 'pokemon-note'));
+        for (const clue of research.clues.filter(item => state.foundClueIds.includes(item.id))) {
+          card.append(node('strong', clue.title), node('p', clue.text, 'pokemon-note'));
+        }
+      }
       habitats.append(card);
     }
     for (const quest of questCatalog) {

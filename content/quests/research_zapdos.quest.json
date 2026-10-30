@@ -1,0 +1,40 @@
+{
+  "id": "veloria/q_research_zapdos",
+  "version": 1,
+  "displayName": "Un circuito nel silenzio",
+  "steps": [
+    {
+      "id": "ground",
+      "trigger": "research/zapdos/clue/ground",
+      "setFlag": "q_research_zapdos_clue_ground",
+      "requiresFlags": []
+    },
+    {
+      "id": "coil",
+      "trigger": "research/zapdos/clue/coil",
+      "setFlag": "q_research_zapdos_clue_coil",
+      "requiresFlags": []
+    },
+    {
+      "id": "antenna",
+      "trigger": "research/zapdos/clue/antenna",
+      "setFlag": "q_research_zapdos_clue_antenna",
+      "requiresFlags": []
+    },
+    {
+      "id": "reveal",
+      "trigger": "research/zapdos/revealed",
+      "setFlag": "q_research_zapdos_revealed",
+      "requiresFlags": [
+        "q_league_completed",
+        "q_research_zapdos_clue_ground",
+        "q_research_zapdos_clue_coil",
+        "q_research_zapdos_clue_antenna"
+      ]
+    }
+  ],
+  "completionFlag": "q_research_zapdos_revealed",
+  "reward": {
+    "money": 900
+  }
+}

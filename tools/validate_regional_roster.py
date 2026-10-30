@@ -33,12 +33,48 @@ def validate_regional_roster(root: Path) -> int:
     steps = [step for quest in quests for step in quest['steps']]
     flags = {step['setFlag'] for step in steps if 'setFlag' in step}
     encounters = read('content/encounters/special-pokemon.v1.json')['encounters']
+    researches = read('content/encounters/legendary-research.v1.json')['researches']
+    research_by_encounter = {research['encounterId']: research for research in researches}
+    require(len(research_by_encounter) == len(researches), 'Duplicate research encounter IDs')
+    require(len({research['id'] for research in researches}) == len(researches), 'Duplicate research IDs')
+    quests_by_id = {quest['id']: quest for quest in quests}
+    for research in researches:
+        label = research['id']
+        require(research['encounterId'] in {entry['id'] for entry in encounters}, f'{label}: unknown encounter')
+        require(research['questId'] in quests_by_id, f'{label}: unknown quest')
+        require(research['requiredFlag'] in flags and research['revealedFlag'] in flags, f'{label}: undeclared gate/reveal flag')
+        quest = quests_by_id[research['questId']]
+        clue_ids = {clue['id'] for clue in research['clues']}
+        require(len(clue_ids) == len(research['clues']) and len(clue_ids) >= 2, f'{label}: duplicate or insufficient clues')
+        for clue in research['clues']:
+            require(clue['mapId'] in maps, f'{label}/{clue["id"]}: unknown map')
+            require(any(step.get('trigger') == clue['event'] and step.get('setFlag') == clue['flag'] for step in quest['steps']),
+                    f'{label}/{clue["id"]}: quest event/flag mismatch')
+        puzzle = research['puzzle']
+        option_ids = {option['id'] for option in puzzle['options']}
+        require(len(option_ids) == len(puzzle['options']) and len(option_ids) >= 2, f'{label}: invalid puzzle options')
+        require(puzzle['solution'] and all(option_id in option_ids for option_id in puzzle['solution']), f'{label}: invalid puzzle solution')
+        reveal = next((step for step in quest['steps'] if step.get('trigger') == puzzle['event']), None)
+        require(reveal is not None and reveal.get('setFlag') == research['revealedFlag'], f'{label}: reveal event/flag mismatch')
+        require(research['requiredFlag'] in reveal.get('requiresFlags', []), f'{label}: reveal does not require its gate')
+        for clue in research['clues']:
+            require(clue['flag'] in reveal.get('requiresFlags', []), f'{label}: reveal does not require clue {clue["id"]}')
+        require(quest.get('completionFlag') == research['revealedFlag'], f'{label}: quest completion flag mismatch')
     require(len({entry['id'] for entry in encounters}) == len(encounters), 'Duplicate special encounter IDs')
     require(len({entry['capturedFlag'] for entry in encounters}) == len(encounters), 'Duplicate special capture flags')
     for entry in encounters:
         label = entry['id']
         require(entry['speciesId'] in allowed and 1 <= entry['level'] <= 100, f'{label}: invalid species/level')
-        require(entry['requiredFlag'] in flags and entry['capturedFlag'] in flags, f'{label}: undeclared flags')
+        require(entry['requiredFlag'] in flags and entry['capturedFlag'] in flags and
+                all(flag in flags for flag in entry.get('routeRequiredFlags', [])), f'{label}: undeclared flags')
+        research = research_by_encounter.get(label)
+        if entry.get('researchRequiredFlag'):
+            require(entry['researchRequiredFlag'] in flags, f'{label}: undeclared research gate')
+            require(research is not None, f'{label}: research gate has no investigation definition')
+            require(entry['researchRequiredFlag'] == research['revealedFlag'], f'{label}: research gate/reveal mismatch')
+            require(research['capturedFlag'] == entry['capturedFlag'], f'{label}: research capture flag mismatch')
+        elif research is not None:
+            require(research['capturedFlag'] == entry['capturedFlag'], f'{label}: research capture flag mismatch')
         require(entry['mapId'] in maps, f'{label}: unknown map')
         metadata = maps[entry['mapId']]
         tiled = read('public/' + metadata['tiledAsset'])
@@ -49,11 +85,12 @@ def validate_regional_roster(root: Path) -> int:
         obj = matches[0]
         properties = props(obj)
         require(properties.get('kind') == 'wild-pokemon', f'{label}: invalid interaction kind')
-        require(properties.get('visibleWhenFlag') == entry['requiredFlag'] and properties.get('collectedFlag') == entry['capturedFlag'], f'{label}: visibility/capture mismatch')
+        visible_flag = entry.get('researchRequiredFlag') or entry['requiredFlag']
+        require(properties.get('visibleWhenFlag') == visible_flag and properties.get('collectedFlag') == entry['capturedFlag'], f'{label}: visibility/capture mismatch')
         require(obj['x'] == entry['x'] * tiled['tilewidth'] and obj['y'] == entry['y'] * tiled['tileheight'], f'{label}: position mismatch')
         require(any(asset['key'] == properties.get('sprite') for asset in metadata.get('renderAssets', [])), f'{label}: unregistered sprite')
         gates = [obj for layer in tiled['layers'] if layer['name'] == 'collision' for obj in layer.get('objects', [])
                  if obj['x'] == entry['x'] * tiled['tilewidth'] and obj['y'] == entry['y'] * tiled['tileheight']]
-        require(any(props(gate).get('blocksWhenFlag') == entry['requiredFlag'] and props(gate).get('blocksUntilFlag') == entry['capturedFlag'] for gate in gates), f'{label}: missing conditional collision')
+        require(any(props(gate).get('blocksWhenFlag') == visible_flag and props(gate).get('blocksUntilFlag') == entry['capturedFlag'] for gate in gates), f'{label}: missing conditional collision')
         require(any(step.get('trigger') == entry['captureEvent'] and step.get('setFlag') == entry['capturedFlag'] and entry['requiredFlag'] in step.get('requiresFlags', []) for step in steps), f'{label}: capture event does not settle its flag')
     return len(ids)

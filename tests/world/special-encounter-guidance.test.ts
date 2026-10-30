@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readdirSync, readFileSync } from 'node:fs';
 import specials from '../../content/encounters/special-pokemon.v1.json' with { type: 'json' };
+import researches from '../../content/encounters/legendary-research.v1.json' with { type: 'json' };
 import { specialEncounterDiscoveryState } from '../../src/core/encounters/special-encounter.ts';
+import { legendaryResearchState } from '../../src/core/encounters/legendary-research.ts';
 
 const maps = readdirSync('content/maps').filter(file => file.endsWith('.map.json'))
   .map(file => JSON.parse(readFileSync(`content/maps/${file}`, 'utf8')));
@@ -26,8 +28,25 @@ test('special encounter discovery distinguishes unlocks, routes and captures', (
 
   for (const encounter of specials.encounters.filter(entry => entry.id !== snorlax.id)) {
     assert.equal(specialEncounterDiscoveryState(encounter, []), 'locked');
-    assert.equal(specialEncounterDiscoveryState(encounter, [encounter.requiredFlag]), 'available');
+    const beforeReveal = [encounter.requiredFlag, ...(encounter.routeRequiredFlags ?? [])];
+    assert.equal(specialEncounterDiscoveryState(encounter, beforeReveal),
+      encounter.researchRequiredFlag ? 'researching' : 'available');
+    if (encounter.researchRequiredFlag) {
+      assert.equal(specialEncounterDiscoveryState(encounter, [...beforeReveal, encounter.researchRequiredFlag]), 'available');
+    }
     assert.equal(specialEncounterDiscoveryState(encounter, [encounter.capturedFlag]), 'caught');
+  }
+});
+
+test('already-captured legendaries remain caught while their optional research archive stays incomplete', () => {
+  for (const research of researches.researches) {
+    const encounter = specials.encounters.find(entry => entry.id === research.encounterId)!;
+    const state = specialEncounterDiscoveryState(encounter, [encounter.capturedFlag]);
+    assert.equal(state, 'caught');
+    const archive = legendaryResearchState(research, [encounter.capturedFlag]);
+    assert.equal(archive.captured, true);
+    assert.notEqual(archive.status, 'revealed', 'capture alone does not complete optional research');
+    assert.deepEqual(archive.foundClueIds, []);
   }
 });
 
