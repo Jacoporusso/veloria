@@ -1,5 +1,7 @@
 ## 0.4.44 — Ultime cinque idle
 
+Commit `5375aeb683afd157c3149aa07fee012043d3f77f` pubblicato su main. [Deploy41018164066](https://github.com/Jacoporusso/veloria/actions/runs/41018164066) osservato IN_PROGRESS; [Verify41018163633](https://github.com/Jacoporusso/veloria/actions/runs/41018163633) PENDING. Cachev208 pubblica ancora da attestare. Verify41016147562 del precedente commit budget è COMPLETED/CANCELLED, senza esito funzionale completo.
+
 48 identità/192 viste integrate. Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia verificati con cinque casi Chrome mirati e cinque produzione offline. Due ulteriori casi Chrome globali sulle51 presenze nei due orientamenti passati in2,3min: totale sette Chrome distinti. Hash/copie sorgenti/RGBA e corpo56 verificati; quattro mappe, sei metadati e altri43 profili preservati. Audit zero usi Tiled dei due atlanti, ritirati dai soli renderAssets. 840 dominio/persistenza più cinque budget e154 Python passati; validatore1082 risorse/48 fondali/48 mappe, TypeScript/build passati. Copertura443 browser e88 offline assegnati una volta. Rilascio ancora da attestare. Dettagli in `123_FINAL_CAST_DIRECTIONAL_IDLE_v0.1.md`; camminate e obiettivo complessivo aperti.
 
 ## 0.4.43 — Consiglio
