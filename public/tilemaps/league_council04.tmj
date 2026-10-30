@@ -6833,12 +6833,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-council-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 3
+              "value": "veloria-league-council-luce-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -6868,12 +6863,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.4799
+              "value": 0.571291
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9809
+              "value": 0.961589
             }
           ]
         }

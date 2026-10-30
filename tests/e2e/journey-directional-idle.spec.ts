@@ -9,6 +9,10 @@ import { readBrowserSave, seedBrowserSave, walkTo } from './helpers/world-naviga
 test.use({ deviceScaleFactor: 1, reducedMotion: 'reduce' });
 
 for (const npc of [
+  {"name": "Consiglio Nerea", "speaker": "Nerea", "profile": "league-council-nerea", "map": "league_council01", "tiled": "league_council01", "id": "league_council1", "spawn": "from_entry", "x": 16, "y": 7, "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge"},
+  {"name": "Consiglio Silvo", "speaker": "Silvo", "profile": "league-council-silvo", "map": "league_council02", "tiled": "league_council02", "id": "league_council2", "spawn": "from_entry", "x": 16, "y": 7, "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge"},
+  {"name": "Consiglio Brando", "speaker": "Brando", "profile": "league-council-brando", "map": "league_council03", "tiled": "league_council03", "id": "league_council3", "spawn": "from_entry", "x": 16, "y": 7, "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1", "challenge_velorialeague_won_council2", "trainer_league_council2_defeated", "challenge_velorialeague_paid_council2"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge"},
+  {"name": "Consiglio Luce", "speaker": "Luce", "profile": "league-council-luce", "map": "league_council04", "tiled": "league_council04", "id": "league_council4", "spawn": "from_entry", "x": 16, "y": 7, "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1", "challenge_velorialeague_won_council2", "trainer_league_council2_defeated", "challenge_velorialeague_paid_council2", "challenge_velorialeague_won_council3", "trainer_league_council3_defeated", "challenge_velorialeague_paid_council3"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge"},
   {"flags": [], "speaker": "Guida Livia", "x": 29, "y": 11, "tiled": "r14_varco_cristallo", "map": "r14_varco_cristallo", "id": "r14_guide", "name": "Guida Livia", "profile": "r14-guide-livia", "spawn": "from_biancavetta"},
   {"flags": [], "spawn": "from_r13", "y": 15, "profile": "biancavetta-guide", "tiled": "biancavetta", "map": "biancavetta", "name": "Guida di Biancavetta", "speaker": "Guida di Biancavetta", "southBlocked": true, "id": "biancavetta_guide", "x": 32},
   {"flags": [], "spawn": "from_r12", "y": 13, "profile": "passobrina-alpine-guide", "westBlocked": true, "tiled": "passobrina", "map": "passobrina", "name": "Guida alpina di Passobrina", "speaker": "Guida alpina", "id": "passobrina_guide", "x": 28},
@@ -49,6 +53,7 @@ for (const npc of [
   const save = await readBrowserSave(page);
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
     'prologue_complete_seen', ...npc.flags])];
+  if ('badges' in npc) save.badges = [...npc.badges];
   save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, x: 'southBlocked' in npc ? npc.x - 1 : npc.x, y: 'southBlocked' in npc ? npc.y : npc.y + 1 };
   const tiled = JSON.parse(await readFile(`public/tilemaps/${npc.tiled}.tmj`, 'utf8'));
   const blocked = collectMapCollision(tiled.layers.find((layer: any) => layer.name === 'collision').objects, tiled.width, tiled.height, save.flags);
@@ -74,6 +79,9 @@ for (const npc of [
         const shop = page.getByRole('dialog', { name: 'Mercante di Ferraluce', exact: true });
         await expect(shop.getByRole('spinbutton', { name: 'Quantità Pozione', exact: true })).toBeVisible();
         await shop.getByRole('button', { name: 'Chiudi', exact: true }).click();
+      } else if ('service' in npc && npc.service === 'challenge') {
+        await expect(page.getByRole('button', { name: 'SFIDA', exact: true })).toBeVisible();
+        await page.getByRole('button', { name: 'NON ORA', exact: true }).click();
       } else if ('service' in npc && npc.service === 'center') {
         await expect(page.getByRole('button', { name: 'RIPOSA', exact: true })).toBeVisible();
         await page.getByRole('button', { name: 'DOPO', exact: true }).click();

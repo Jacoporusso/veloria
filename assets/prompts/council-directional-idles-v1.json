@@ -1,0 +1,824 @@
+{
+  "generator": "built-in imagegen",
+  "approvedInputs": {
+    "scope": "Root-reviewed candidates, no production integration yet",
+    "sourceAtlasSha256": "677f098792c124751a8c2a54a452dc24bcd1c1e7e58bba3b34ce19575a3ce188",
+    "profiles": [
+      {
+        "profileId": "league-council-silvo",
+        "base": "league-council-silvo",
+        "originalFrame": 1,
+        "sourceAtlas": "assets/sources/veloria-league-council-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/council-silvo-idles-candidates/selected/silvo-north-v2.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-42c73de1-24b6-448e-9427-c3f7b6283789.png",
+            "outputId": "exec-42c73de1-24b6-448e-9427-c3f7b6283789",
+            "promptExact": "Use case: game character sprite concept. Asset: single full-body idle NPC sprite. Reference image 1: only the TOP RIGHT Silvo figure in the 2x2 atlas. Preserve source identity exactly: ash-blond curls, forest-green and ochre layered jacket, ivory shirt and trousers, brown belt and boots, brown field notebook satchel on anatomical LEFT. Runtime compass NORTH means rear-facing, showing Silvo's back. Critical anatomical placement: from a rear view anatomical LEFT is on the viewer's LEFT. Put the satchel on the viewer-left hip with strap over the viewer-left shoulder; do not put it on viewer-right. Full-body neutral back view, centered, no crop. Warm polished painterly modern 2D game art matching reference. Actual transparent background, no shadow/environment/text/watermark, no extra props, do not mirror, no sheet or multiple figures.",
+            "sha256": "acdd773ce8c5f57cdd7a448df7d01bbeda2e6aa7d62f516aeebde3f130dc1490",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              247,
+              27,
+              802,
+              1488
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/council-silvo-idles-candidates/selected/silvo-south-v2.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png",
+            "outputId": "exec-ff68252c-05dc-42d1-a45e-e7c2b6091798",
+            "promptExact": "Use case: game character sprite concept. Asset type: one standalone modern illustrated 2D idle sprite candidate, full body. Input image 1: visual reference; use only the TOP RIGHT figure, Silvo, from the 2x2 character atlas. Preserve recognizable source identity and asymmetries: tousled ash-blond curly hair, gentle face, layered forest-green and ochre jacket, ivory shirt and trousers, brown belt, brown field notebook bag with small botanical emblem; hand holding the strap. Keep the bag on Silvo's anatomical LEFT side (which appears on viewer RIGHT in a front view). No invented canon age or gender; preserve source's ambiguous presentation. Primary request: create a clean front-facing NORTH idle view, standing neutrally with slight natural asymmetry, complete figure from hair to boots, readable as an RPG NPC sprite. Style: polished modern illustrated 2D game character art, warm soft painterly shading consistent with reference. Composition: single centered figure, generous transparent margins, upright, feet visible. Constraints: actual transparent background, no ground/shadow/background, no text, no watermark, no extra props or limbs, no cropping, no turnaround sheet or multiple figures, no mirrored anatomy, do not move bag from anatomical left. This is one independent direction candidate.",
+            "sha256": "77d326bd874521183768887c6cc47b6304017d5c25bf8a5122b9f67996636f23",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              249,
+              32,
+              841,
+              1467
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/council-silvo-idles-candidates/selected/silvo-west-v1.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-addc7487-3042-48ac-8af7-5b94386b09f5.png",
+            "outputId": "exec-addc7487-3042-48ac-8af7-5b94386b09f5",
+            "promptExact": "Use case: game character sprite concept. Asset: one standalone modern illustrated 2D idle sprite, full body. Input image 1 is the reference atlas; use only Silvo, the top-right figure. Preserve source identity: ash-blond curls, forest-green and ochre layered jacket, ivory outfit, brown belt and brown field notebook bag with botanical emblem; same gentle facial features. West view means the character faces viewer-left in profile, displaying their anatomical left side toward the viewer; the bag must be on the NEAR anatomical left side (viewer side). Preserve the source silhouette and outfit design, with no invented canon age or gender. Primary request: one full-body west-facing profile idle view, natural neutral stand, head to boots visible. Warm, softly shaded, modern illustrated 2D game art matching reference. Single centered upright figure, transparent margins, actual transparent background, no shadow, no environment, no text or watermark, no extra items, no crop, no multi-view sheet, no mirroring.",
+            "sha256": "6fdf7fbde6fd6df9b8e70b378619f323fe02071ecc5c454eb41bc2d6873dc441",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              332,
+              29,
+              688,
+              1501
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/council-silvo-idles-candidates/selected/silvo-east-v2.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-cfe83cb0-da0a-49b8-96e2-99d881f88392.png",
+            "outputId": "exec-cfe83cb0-da0a-49b8-96e2-99d881f88392",
+            "promptExact": "Use case: game character sprite concept. Asset: single full-body idle NPC sprite. Reference image 1: only the TOP RIGHT Silvo figure in the 2x2 atlas. Preserve source identity, ash-blond curls, forest-green and ochre layered jacket, ivory shirt/trousers, brown belt and boots. Preserve the brown field notebook satchel on Silvo's anatomical LEFT. Runtime compass EAST means profile facing viewer-right, exposing anatomical RIGHT as the near side; the LEFT-side satchel is on the far side and should be mostly occluded behind the torso, with at most a subtle far strap edge visible. Do not place a prominent bag on the near/viewer-right side. No mirroring. Full-body neutral profile, centered, feet visible. Warm polished soft painterly modern 2D game art matching source. Actual transparent background, no floor/shadow/environment/text/watermark, no extra props, no crop, one figure.",
+            "sha256": "adccd62ad3ae8b9709f999e444022030edacf674acaa899a410ffd73e5ea817b",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              320,
+              41,
+              731,
+              1470
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "league-council-brando",
+        "base": "league-council-brando",
+        "originalFrame": 2,
+        "sourceAtlas": "assets/sources/veloria-league-council-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/council-brando-idles-candidates/brando-idle-n-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-79d7523c-d307-4c71-8c35-a202134251f3.png",
+            "outputId": "exec-79d7523c-d307-4c71-8c35-a202134251f3",
+            "promptExact": "Generate one standalone full-body idle character sprite, direction NORTH (back view), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference; show their correct back-view placement. Straight upright relaxed idle stance, arms naturally at sides, both feet fully visible, centered with generous transparent padding. Pure rear-facing view, head/face not visible, front features must not leak into view. Clean, polished, consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.",
+            "sha256": "9c02523fd36512197c4e1d639ef53804f7862c44d706e4ad27895d2994122894",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              186,
+              31,
+              837,
+              1493
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/council-brando-idles-candidates/brando-idle-s-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a.png",
+            "outputId": "exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a",
+            "promptExact": "Generate one standalone full-body idle character sprite, direction SOUTH (front view), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch exactly as the reference. Straight upright relaxed idle stance, arms naturally at sides with hands visible, both feet fully visible, centered with generous transparent padding. Direct front-facing view, both shoulders balanced, no turn or twist. Clean, polished, consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.",
+            "sha256": "398be875269923ed4592785f462007900da8d6f76c648dfc3d7917a8002894b1",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              188,
+              49,
+              830,
+              1485
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/council-brando-idles-candidates/brando-idle-w-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-ecd141ba-6336-47cc-af25-9e0e2054a305.png",
+            "outputId": "exec-ecd141ba-6336-47cc-af25-9e0e2054a305",
+            "promptExact": "Generate one standalone full-body idle character sprite, direction WEST (character's anatomical left side closest to viewer), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference on the near side. Relaxed upright idle stance, both feet fully visible, centered with generous transparent padding. True WEST three-quarter/back side orientation; anatomical left shoulder, arm, hip, and leg are nearest camera and visibly nearest LEFT edge of sprite. Face looks toward screen-left; keep near-side/left body features on screen-left. Do not mirror/flip the character. Clean, polished consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.",
+            "sha256": "2e95659793718a75223c26660282392900d915aa8dc4b05a552950ca090107b5",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              215,
+              40,
+              812,
+              1493
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/council-brando-idles-candidates/brando-idle-e-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-2c46e8bb-264a-45ac-9284-a88b9f14d200.png",
+            "outputId": "exec-2c46e8bb-264a-45ac-9284-a88b9f14d200",
+            "promptExact": "Generate one standalone full-body idle character sprite, direction EAST (character's anatomical right side closest to viewer), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference on the near side. Relaxed upright idle stance, both feet fully visible, centered with generous transparent padding. True EAST three-quarter/back side orientation; anatomical right shoulder, arm, hip, and leg are nearest camera and visibly nearest RIGHT edge of sprite. Face looks toward screen-right; keep near-side/right body features on screen-right. Do not mirror/flip the character. Clean, polished consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.",
+            "sha256": "2d2bec32447dc8f54cd62a951478bd6d8731ad33bf78bb01a0357a914c792653",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              216,
+              42,
+              835,
+              1502
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "league-council-luce",
+        "base": "league-council-luce",
+        "originalFrame": 3,
+        "sourceAtlas": "assets/sources/veloria-league-council-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/council-luce-idles-candidates/luce-north-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137.png",
+            "outputId": "exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137",
+            "promptExact": "Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. NORTH true back view, no frontface. AnatomicalLEFT is viewerLEFT: long LEFTcoatpanel and wide ivory sleeve viewerLEFT. AnatomicalRIGHT is viewerRIGHT: plum sleeve there. RIGHTshin diamond and frontgoldclasp belong to FRONT, thus hidden/absent from the back. Plain plausible rear of blacktop/jacket, preserve shortauburnbob.",
+            "sha256": "a3225411745ceb3fa1f6bb085fe97af1b86b46945eba2a1759b288afe88b67b1",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              260,
+              32,
+              752,
+              1472
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/council-luce-idles-candidates/luce-south-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-17354035-3bf2-4013-8a83-1a781f1e1724.png",
+            "outputId": "exec-17354035-3bf2-4013-8a83-1a781f1e1724",
+            "promptExact": "Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. SOUTH straight front view. AnatomicalLEFT is viewerRIGHT: wide ivory LEFTsleeve and long LEFTcoatpanel appear viewerRIGHT. RIGHTplum sleeve and RIGHTshin diamond appear viewerLEFT. Preserve doublegoldclasp front only.",
+            "sha256": "e9ac334bbdd2f639564c8c578f8c15eed844d9c6f4f420d99c79e0bbbfdfcf2e",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              267,
+              19,
+              815,
+              1477
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/council-luce-idles-candidates/luce-west-v2-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-a5bb456a-46bf-40cc-af50-6b009341d6ca.png",
+            "outputId": "exec-a5bb456a-46bf-40cc-af50-6b009341d6ca",
+            "promptExact": "Use case: illustration-story. One standalone full-body LUCE idle sprite, exact WEST side profile facing screen LEFT, nose pointing LEFT, no front-facing or three-quarter view. Reference image1: ONLY bottom-right person of original atlas. Short wavy auburn bob, warm face, black high neck top with double gold clasp at front, plum trousers, asymmetric ivory/plum jacket with gold wave motifs, plum shoes with gold straps. Anatomical LEFT is NEAR camera: wide plain IVORY LEFT sleeve with PLUM cuff and long knee-length patterned LEFT coat panel must be prominent near camera. Anatomical RIGHT sleeve is PLUM and far, mostly occluded; RIGHT shin gold diamond is far and mostly occluded, LEFT shin is plain. Hands naturally rested at sides, neutral idle. Full hair and boots within generous transparent margin, no cropping. Match source modern illustrated2D matte style. Genuinely transparent RGBA, no backdrop, ground, shadow, glow, vignette, text, sheet, other characters. Never mirror.",
+            "sha256": "292600cfcc851c7a25da19126475659051f83aa6669d57072a10f8a4f98c1ce6",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              310,
+              37,
+              694,
+              1515
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/council-luce-idles-candidates/luce-east-v1-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-e69c2465-8f79-40b0-9841-d6412b019951.png",
+            "outputId": "exec-e69c2465-8f79-40b0-9841-d6412b019951",
+            "promptExact": "Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. EAST strict profile with NOSE pointing RIGHT; anatomical RIGHT is near side. Show near plum RIGHTsleeve with ivoryornament and the RIGHTfrontshin gold diamond at nearfrontedge. Long ivory/plum LEFTcoatpanel and LEFTwideivorysleeve are far, mostlyoccluded. Do not move LEFTpanel to nearRIGHTside.",
+            "sha256": "93f6c1e7ba71c22060af8db2bc755e4d7b6c0a39111f3cf8442e60287f356862",
+            "dimensions": [
+              1024,
+              1536
+            ],
+            "alpha128Bounds": [
+              325,
+              19,
+              796,
+              1491
+            ]
+          }
+        ]
+      },
+      {
+        "profileId": "league-council-nerea",
+        "base": "league-council-nerea",
+        "originalFrame": 0,
+        "sourceAtlas": "assets/sources/veloria-league-council-v1.png",
+        "views": [
+          {
+            "direction": "up",
+            "sourceDirection": "north",
+            "candidatePath": ".tmp/council-nerea-idles-candidates/nerea-north-v2-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75.png",
+            "outputId": "exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent NORTH rear view\nPrimary request: Draw Nerea of the Veloria League Council in a relaxed formal full-body idle stance, facing directly NORTH away from viewer, both shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. Fresh rear-view drawing, not a crop/edit.\nIdentity: same dark elegant updo with a small pearl hair ornament, formal midnight navy and pearl robe with subtle flowing-current motifs, complete back of garment. Match source character and asymmetric hairstyle placement.\nComposition: single centered whole figure, square transparent canvas, strict orthographic back view, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D game art, soft painterly shading and clean warm contours matching Image 1; no pixel art, 3D or photorealism.\nCRITICAL REAR ANATOMY: In source front view Nerea's hair ornament and large chest medallion are on her anatomical LEFT. In this NORTH-facing rear view her anatomical LEFT is on the VIEWER'S LEFT. Place the pearl hair ornament on viewer-left side of the updo. The front chest medallion is on her chest and must NOT appear on her back or shoulder in the rear view; show only the natural robe back and current motifs. Do not add a rear badge or tassel. Keep opposite side plain.\nPalette midnight navy, pearl ivory, subdued silver; calm pose; no invented age or gender.\nAvoid gym Nerea/Portolume identity, harbor cape/turquoise/coral, notebook, whistle, medallion on back, mirrored hair placement, extra jewelry, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.",
+            "sha256": "4d91e5a353742c1773d35bfc2cc5e7ffcdb65e6ccb7d465cabb4c5d33db64538",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              422,
+              11,
+              834,
+              1237
+            ]
+          },
+          {
+            "direction": "down",
+            "sourceDirection": "south",
+            "candidatePath": ".tmp/council-nerea-idles-candidates/nerea-south-v3-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc.png",
+            "outputId": "exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent SOUTH view\nPrimary request: Draw Nerea of the Veloria League Council in a relaxed formal full-body idle stance, facing directly SOUTH toward viewer, both shoes visible. Use only the upper-left Nerea of Image 1 as identity/outfit/style reference. Fresh rendering, not a crop or edit.\nIdentity: dark updo, pearl hair ornament, midnight navy and pearl formal robe with subtle flowing-current motifs, silver chest medallion with hanging pearl tassel. Match the existing source identity and asymmetry exactly; not gym Nerea.\nComposition: single centered whole figure, square transparent canvas, orthographic front view, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D game art, warm contours and softly painted shading matching Image 1; no pixel art, 3D or photorealism.\nCRITICAL SOURCE-IDENTITY SIDE: The source front view shows the hair ornament and large silver chest medallion on Nerea's ANATOMICAL LEFT. Facing SOUTH toward viewer, her anatomical LEFT is on the VIEWER'S RIGHT. Put the hair ornament and the single large round chest medallion with its hanging pearl tassel on the VIEWER'S RIGHT (her anatomical left). Keep her anatomical right / viewer-left side plain. Explicitly follow Image 1's anatomical left-right identity; do not mirror it.\nPalette midnight navy, pearl ivory, subdued silver; calm posture, full flowing robe; no invented age or gender.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, extra medallions, mirrored accessory layout, text/logo/watermark, background color/checkerboard, extra people/Pokémon.",
+            "sha256": "5501dce09f7bf3e99b81d7cf89de4d91fe6cff6b165ddee5c51fdeb456529ae8",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              424,
+              25,
+              861,
+              1211
+            ]
+          },
+          {
+            "direction": "left",
+            "sourceDirection": "west",
+            "candidatePath": ".tmp/council-nerea-idles-candidates/nerea-west-v3-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-3338e7ae-729d-4f49-8c06-0b674260ea2d.png",
+            "outputId": "exec-3338e7ae-729d-4f49-8c06-0b674260ea2d",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent WEST side view\nPrimary request: Draw Nerea of the Veloria League Council in a calm formal full-body idle pose, facing due WEST (profile looks image-left), complete shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. New independent drawing.\nIdentity: same dark updo and pearl hair ornament, midnight navy and pearl formal robe with subtle current motif, silver chest medallion and hanging pearl tassel. Keep source asymmetry on the correct anatomical side.\nComposition: one centered whole figure, strict orthographic WEST-facing profile, square transparent background, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D painterly game art matching Image 1, warm clean contours and soft shading; not pixel art, 3D, photorealistic.\nCRITICAL PROFILE SIDE: Image 1 front view has the distinctive hair ornament and chest medallion on Nerea's anatomical LEFT. In a WEST-facing profile, make that anatomical LEFT the NEAR side visible to the viewer. Show the medallion/tassel clearly on the near shoulder/chest and the hair ornament clearly on the near side of the updo. Keep the far side plain; do not duplicate or mirror the accessories.\nPalette midnight navy, pearl ivory, subdued silver. Graceful vertical robe drape, calm posture. No canon age/gender additions.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, extra badges, duplicate accessories, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.",
+            "sha256": "5b632c51469b1a4cc93c30575152ea886edf3fa8db1ea323e2a8f226cee1af99",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              481,
+              12,
+              811,
+              1243
+            ]
+          },
+          {
+            "direction": "right",
+            "sourceDirection": "east",
+            "candidatePath": ".tmp/council-nerea-idles-candidates/nerea-east-v3-raw.png",
+            "generatedPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b.png",
+            "outputId": "exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b",
+            "promptExact": "Use case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent EAST side view\nPrimary request: Draw Nerea of the Veloria League Council in a calm formal full-body idle pose, facing due EAST (profile looks image-right), complete shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. New independent drawing.\nIdentity: same dark updo and pearl hair ornament, midnight navy and pearl formal robe with subtle current motif, silver chest medallion and hanging pearl tassel. Maintain source asymmetry anatomically.\nComposition: one centered whole figure, strict orthographic EAST-facing profile, square transparent background, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D painterly game art matching Image 1, warm clean contours and soft shading; not pixel art, 3D, photorealistic.\nCRITICAL PROFILE SIDE: Image 1 front view has the distinctive hair ornament and chest medallion on Nerea's anatomical LEFT. In an EAST-facing profile her anatomical RIGHT is the near side, so the LEFT-side ornament and chest medallion belong on the far side and should be mostly occluded by her head/torso. Keep near anatomical-right shoulder and hair side plain. At most a subtle partial edge of the far-side hair ornament may show; do not place a visible medallion on the near shoulder and do not invent a rear badge. This is an accurate east profile of the same person, not a mirrored west view.\nPalette midnight navy, pearl ivory, subdued silver. Graceful vertical robe drape, calm posture. No canon age/gender additions.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, medallion on near/right shoulder, mirrored accessory layout, duplicate accessories, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.",
+            "sha256": "e9421aad34518fff8cc3fa8cf5da345c51540b79562f0335c0cd393da8fa99f7",
+            "dimensions": [
+              1254,
+              1254
+            ],
+            "alpha128Bounds": [
+              463,
+              19,
+              774,
+              1212
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "integratedProfiles": [
+    {
+      "profileId": "league-council-silvo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-silvo",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council2",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-silvo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-north-v1.webp",
+          "sourceSha256": "acdd773ce8c5f57cdd7a448df7d01bbeda2e6aa7d62f516aeebde3f130dc1490",
+          "runtimeSha256": "74d82d2e85f004771c62a93dcd1a40c4fc967c35ece6d7be392e856842038018",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.542096,
+            "y": 0.96875
+          },
+          "displaySize": 58.874743,
+          "alpha128Bounds": [
+            247,
+            27,
+            802,
+            1488
+          ],
+          "outputId": "exec-42c73de1-24b6-448e-9427-c3f7b6283789",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-42c73de1-24b6-448e-9427-c3f7b6283789.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-silvo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-south-v1.webp",
+          "sourceSha256": "77d326bd874521183768887c6cc47b6304017d5c25bf8a5122b9f67996636f23",
+          "runtimeSha256": "f81e603778f90d38d025a8c4f6482e7f2e2cb3bd476da822c83aeca2ad432645",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.578445,
+            "y": 0.955078
+          },
+          "displaySize": 59.941463,
+          "alpha128Bounds": [
+            249,
+            32,
+            841,
+            1467
+          ],
+          "outputId": "exec-ff68252c-05dc-42d1-a45e-e7c2b6091798",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-silvo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-west-v1.webp",
+          "sourceSha256": "6fdf7fbde6fd6df9b8e70b378619f323fe02071ecc5c454eb41bc2d6873dc441",
+          "runtimeSha256": "e829237fcc02fb71285fd3de2301fc28f20dc48a7001d52a70d4461b9d96fa7d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.509555,
+            "y": 0.977214
+          },
+          "displaySize": 58.434783,
+          "alpha128Bounds": [
+            332,
+            29,
+            688,
+            1501
+          ],
+          "outputId": "exec-addc7487-3042-48ac-8af7-5b94386b09f5",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-addc7487-3042-48ac-8af7-5b94386b09f5.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-silvo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-east-v1.webp",
+          "sourceSha256": "adccd62ad3ae8b9709f999e444022030edacf674acaa899a410ffd73e5ea817b",
+          "runtimeSha256": "416a24967c9f92e9ce73cbbc491a5955a59ca5d0dd870b02fc7fda64774aae37",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.498614,
+            "y": 0.957031
+          },
+          "displaySize": 60.193142,
+          "alpha128Bounds": [
+            320,
+            41,
+            731,
+            1470
+          ],
+          "outputId": "exec-cfe83cb0-da0a-49b8-96e2-99d881f88392",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-cfe83cb0-da0a-49b8-96e2-99d881f88392.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-brando",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-brando",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council3",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-brando-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-north-v1.webp",
+          "sourceSha256": "9c02523fd36512197c4e1d639ef53804f7862c44d706e4ad27895d2994122894",
+          "runtimeSha256": "93c01d2f4706ecad4095a471605c934323743c5db8c3fa3cc96541951830c665",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.505411,
+            "y": 0.972005
+          },
+          "displaySize": 58.834473,
+          "alpha128Bounds": [
+            186,
+            31,
+            837,
+            1493
+          ],
+          "outputId": "exec-79d7523c-d307-4c71-8c35-a202134251f3",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-79d7523c-d307-4c71-8c35-a202134251f3.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-brando-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-south-v1.webp",
+          "sourceSha256": "398be875269923ed4592785f462007900da8d6f76c648dfc3d7917a8002894b1",
+          "runtimeSha256": "435d267a605e118be3dcdd2f59c2fe059aa1ceefbf2d2726108638228ac8b47c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.54847,
+            "y": 0.966797
+          },
+          "displaySize": 59.899721,
+          "alpha128Bounds": [
+            188,
+            49,
+            830,
+            1485
+          ],
+          "outputId": "exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-brando-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-west-v1.webp",
+          "sourceSha256": "2e95659793718a75223c26660282392900d915aa8dc4b05a552950ca090107b5",
+          "runtimeSha256": "80a39f0145b1e86a989013e273b53d1ee5588c1769629c4d66302366d6b1ad0c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.724406,
+            "y": 0.972005
+          },
+          "displaySize": 59.198899,
+          "alpha128Bounds": [
+            215,
+            40,
+            812,
+            1493
+          ],
+          "outputId": "exec-ecd141ba-6336-47cc-af25-9e0e2054a305",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-ecd141ba-6336-47cc-af25-9e0e2054a305.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-brando-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-east-v1.webp",
+          "sourceSha256": "2d2bec32447dc8f54cd62a951478bd6d8731ad33bf78bb01a0357a914c792653",
+          "runtimeSha256": "0651244ccab186b020a0a1399fae07cd1fa554f81cf075fe116ffba2915b7765",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.428348,
+            "y": 0.977865
+          },
+          "displaySize": 58.915068,
+          "alpha128Bounds": [
+            216,
+            42,
+            835,
+            1502
+          ],
+          "outputId": "exec-2c46e8bb-264a-45ac-9284-a88b9f14d200",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-2c46e8bb-264a-45ac-9284-a88b9f14d200.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-luce",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-luce",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council4",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-luce-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-north-v1.webp",
+          "sourceSha256": "a3225411745ceb3fa1f6bb085fe97af1b86b46945eba2a1759b288afe88b67b1",
+          "runtimeSha256": "d551c8def081e0d7e6af67603130d1dafd73290c2d28f7cc71c0fffeed191f3e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.55532,
+            "y": 0.958333
+          },
+          "displaySize": 59.733333,
+          "alpha128Bounds": [
+            260,
+            32,
+            752,
+            1472
+          ],
+          "outputId": "exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-luce-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-south-v1.webp",
+          "sourceSha256": "e9ac334bbdd2f639564c8c578f8c15eed844d9c6f4f420d99c79e0bbbfdfcf2e",
+          "runtimeSha256": "a59a4cdf0ede6df8795958c0e05bcc5ba2f7872f5e5e066b8ea99bff4b49b34d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.571291,
+            "y": 0.961589
+          },
+          "displaySize": 58.995885,
+          "alpha128Bounds": [
+            267,
+            19,
+            815,
+            1477
+          ],
+          "outputId": "exec-17354035-3bf2-4013-8a83-1a781f1e1724",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-17354035-3bf2-4013-8a83-1a781f1e1724.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-luce-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-west-v1.webp",
+          "sourceSha256": "292600cfcc851c7a25da19126475659051f83aa6669d57072a10f8a4f98c1ce6",
+          "runtimeSha256": "f6879a8cc085d7cc4afc0c42ee57b533d7240c905d07df24876db7bb0bb3016e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.566314,
+            "y": 0.986328
+          },
+          "displaySize": 58.197564,
+          "alpha128Bounds": [
+            310,
+            37,
+            694,
+            1515
+          ],
+          "outputId": "exec-a5bb456a-46bf-40cc-af50-6b009341d6ca",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-a5bb456a-46bf-40cc-af50-6b009341d6ca.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-luce-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-east-v1.webp",
+          "sourceSha256": "93f6c1e7ba71c22060af8db2bc755e4d7b6c0a39111f3cf8442e60287f356862",
+          "runtimeSha256": "b94e179dc3f242cf6648e64ee45e6f308df18550fb29bc22dce2ab215cb04432",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.422704,
+            "y": 0.970703
+          },
+          "displaySize": 58.434783,
+          "alpha128Bounds": [
+            325,
+            19,
+            796,
+            1491
+          ],
+          "outputId": "exec-e69c2465-8f79-40b0-9841-d6412b019951",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-e69c2465-8f79-40b0-9841-d6412b019951.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-nerea",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-nerea",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council1",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-nerea-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-north-v1.webp",
+          "sourceSha256": "4d91e5a353742c1773d35bfc2cc5e7ffcdb65e6ccb7d465cabb4c5d33db64538",
+          "runtimeSha256": "83fa0aadd0f439545adae7c23091db3ff841a671d1522ba967c7a505f38900a7",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.497533,
+            "y": 0.986443
+          },
+          "displaySize": 57.278956,
+          "alpha128Bounds": [
+            422,
+            11,
+            834,
+            1237
+          ],
+          "outputId": "exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-nerea-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-south-v1.webp",
+          "sourceSha256": "5501dce09f7bf3e99b81d7cf89de4d91fe6cff6b165ddee5c51fdeb456529ae8",
+          "runtimeSha256": "bdd72654ac0cef1f47688052cd5c3cc0a2082d97fcbd045863c1aa1f297e15bf",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.553243,
+            "y": 0.96571
+          },
+          "displaySize": 59.210793,
+          "alpha128Bounds": [
+            424,
+            25,
+            861,
+            1211
+          ],
+          "outputId": "exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-nerea-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-west-v1.webp",
+          "sourceSha256": "5b632c51469b1a4cc93c30575152ea886edf3fa8db1ea323e2a8f226cee1af99",
+          "runtimeSha256": "ba54814e1b43988e7b35ce37d7a81f7ba10208e80a50df1f85d08068639ea26f",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.486242,
+            "y": 0.991228
+          },
+          "displaySize": 57.046304,
+          "alpha128Bounds": [
+            481,
+            12,
+            811,
+            1243
+          ],
+          "outputId": "exec-3338e7ae-729d-4f49-8c06-0b674260ea2d",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-3338e7ae-729d-4f49-8c06-0b674260ea2d.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-nerea-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-east-v1.webp",
+          "sourceSha256": "e9421aad34518fff8cc3fa8cf5da345c51540b79562f0335c0cd393da8fa99f7",
+          "runtimeSha256": "58e643042104ceba07e8002cfa4f2d434ba37fd01ba2fef1654cd7e90c18d1be",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.531886,
+            "y": 0.966507
+          },
+          "displaySize": 58.86337,
+          "alpha128Bounds": [
+            463,
+            19,
+            774,
+            1212
+          ],
+          "outputId": "exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    }
+  ],
+  "retirementAudit": {
+    "atlasKey": "veloria-league-council-v1",
+    "remainingTiledObjectUses": [],
+    "removedFromMapRenderAssets": [
+      "content/maps/league_council01.map.json",
+      "content/maps/league_council02.map.json",
+      "content/maps/league_council03.map.json",
+      "content/maps/league_council04.map.json"
+    ],
+    "globalCatalogSourceRuntimeAndPrecache": "preserved"
+  },
+  "candidateReviewHistory": {
+    ".tmp/council-silvo-idles-candidates/PROVENANCE-v1-superseded.md": "# Silvo idle candidates — private art, review only\n\nSource reference: `assets/sources/veloria-league-council-v1.png`, atlas frame 1 (top right), 627x627, audit `docs/art/remaining-cast-directional-audit-0.4.41.json`; live binding `league_council2`, dialogue `league_council2`, Tiled `league_council02.tmj`, object `Silvo`.\n\nGenerated via built-in imagegen with transparent background. Raw copies are immutable under `raw/`; all additional generated outputs and rejected candidates are retained there. `silvo-review-board.png` is an opaque QA composite only; original RGBA pixels were not modified. `silvo-review-board.json` records selected candidate hashes, dimensions, alpha range/bounds, corners. Alpha-zero hidden RGB is not a background. No resizing, flipping, or cleanup was applied.\n\nSelected output files (IDs are exec filenames, not output folder IDs):\n- North: `exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png`; original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png`; SHA-256 `77d326bd874521183768887c6cc47b6304017d5c25bf8a5122b9f67996636f23`.\n- South: `exec-882d8925-ba3c-419d-8ef2-b74019b9e9b0.png`; original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-882d8925-ba3c-419d-8ef2-b74019b9e9b0.png`; SHA-256 `c69f4d250d744767384323996d63d6d10e283e53effbd32eeca8080d828aaf4b`.\n- West: `exec-addc7487-3042-48ac-8af7-5b94386b09f5.png`; original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-addc7487-3042-48ac-8af7-5b94386b09f5.png`; SHA-256 `6fdf7fbde6fd6df9b8e70b378619f323fe02071ecc5c454eb41bc2d6873dc441`.\n- East: `exec-90e9f5e6-19f4-42f9-bd2d-9bad6ad6bb35.png`; original `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-90e9f5e6-19f4-42f9-bd2d-9bad6ad6bb35.png`; SHA-256 `187b43186dae2997f7cbd25a43cf1b0a278832e78e8868514bf5d00ebdfd1e6b`.\n\nEach selected file is 1024x1536 RGBA. Each prompt was separate; exact prompts follow.\n\n## North prompt\nUse case: game character sprite concept. Asset type: one standalone modern illustrated 2D idle sprite candidate, full body. Input image 1: visual reference; use only the TOP RIGHT figure, Silvo, from the 2x2 character atlas. Preserve recognizable source identity and asymmetries: tousled ash-blond curly hair, gentle face, layered forest-green and ochre jacket, ivory shirt and trousers, brown belt, brown field notebook bag with small botanical emblem; hand holding the strap. Keep the bag on Silvo's anatomical LEFT side (which appears on viewer RIGHT in a front view). No invented canon age or gender; preserve source's ambiguous presentation. Primary request: create a clean front-facing NORTH idle view, standing neutrally with slight natural asymmetry, complete figure from hair to boots, readable as an RPG NPC sprite. Style: polished modern illustrated 2D game character art, warm soft painterly shading consistent with reference. Composition: single centered figure, generous transparent margins, upright, feet visible. Constraints: actual transparent background, no ground/shadow/background, no text, no watermark, no extra props or limbs, no cropping, no turnaround sheet or multiple figures, no mirrored anatomy, do not move bag from anatomical left. This is one independent direction candidate.\n\n## South prompt (selected correction)\nUse case: standalone game character sprite. Input image 1 is the 2x2 atlas; reference only top-right Silvo. One single full-body rear-facing SOUTH view idle sprite. Match Silvo's ash-blond curly hair, exact forest-green/ochre layered jacket, ivory shirt and trousers, belt and boots; do not borrow any other atlas character. Critical asymmetry: in this rear view, Silvo's anatomical LEFT is on the VIEWER'S RIGHT. Place the brown field notebook satchel with botanical emblem on the VIEWER'S RIGHT hip, strap over the anatomical left shoulder; the bag must visibly be on image-right. No bag on image-left. Neutral stance, arms relaxed; no invented canon age or gender. Same polished, warm softly shaded modern illustrated 2D style. Complete centered figure from hair to boots, transparent background, no shadow, no setting, no text, no watermark, no cropping, no extra objects, no multi-view layout, no mirroring.\n\n## West prompt\nUse case: game character sprite concept. Asset: one standalone modern illustrated 2D idle sprite, full body. Input image 1 is the reference atlas; use only Silvo, the top-right figure. Preserve source identity: ash-blond curls, forest-green and ochre layered jacket, ivory outfit, brown belt and brown field notebook bag with botanical emblem; same gentle facial features. West view means the character faces viewer-left in profile, displaying their anatomical left side toward the viewer; the bag must be on the NEAR anatomical left side (viewer side). Preserve the source silhouette and outfit design, with no invented canon age or gender. Primary request: one full-body west-facing profile idle view, natural neutral stand, head to boots visible. Warm, softly shaded, modern illustrated 2D game art matching reference. Single centered upright figure, transparent margins, actual transparent background, no shadow, no environment, no text or watermark, no extra items, no crop, no multi-view sheet, no mirroring.\n\n## East prompt\nSilvo, same source top-right figure; full-body east-facing profile idle sprite. Preserve ash-blond curls, forest green and ochre layered jacket, ivory outfit, brown notebook satchel on anatomical left side; near-side bag placement must appear on viewer RIGHT for this profile's orientation. Keep original design, painterly 2D style. Single complete centered figure, transparent background, no shadow, no extra props, no text.\n\nNote: the first independent request was the same front-facing prompt as North and produced a second, unselected North raw. The original South prompt produced the wrong bag side and remains among raw files; the selected South is the corrected regeneration above. A small-alpha fringe can be seen around the source silhouette; near-zero edge alpha alone is not treated as a significant background, and no pixels were cleaned.\n",
+    ".tmp/council-silvo-idles-candidates/MAPPING-v2.md": "# Silvo directional candidates — corrected mapping (private art only)\n\nRuntime compass mapping follows root's review of the atlas/source convention: NORTH = back/rear view; SOUTH = front view. The original atlas front-facing candidate is now mapped to South and copied unchanged from raw; its embedded source PNG pixels and raw filename were not modified. WEST faces viewer-left with anatomical LEFT as the visible near side; EAST faces viewer-right with anatomical RIGHT near and the anatomical-LEFT bag on the far side, mostly hidden.\n\nReference: `assets/sources/veloria-league-council-v1.png`, frame 1 (top right, 627x627). Audit: `docs/art/remaining-cast-directional-audit-0.4.41.json`; live binding `league_council2`, dialogue `league_council2`, Tiled map `league_council02.tmj`, object `Silvo`.\n\nReview board: `silvo-review-board-v2.png`; machine QA and hashes: `silvo-review-board-v2.json`. All selected PNGs are 1024x1536 RGBA, alpha range [0,254], transparent corners [0,0,0,0]. The board is a derived opaque QA composite only. No source pixel edits, resizing, flipping, or cleanup were made. Some near-zero alpha edge pixels are present; those alone are not treated as significant background.\n\n## Proposed candidates\n\n| Direction | Private candidate | Generation output ID (exec filename) | Generated original path | SHA-256 |\n|---|---|---|---|---|\n| NORTH (rear) | `selected/silvo-north-v2.png` | `exec-42c73de1-24b6-448e-9427-c3f7b6283789.png` | `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-42c73de1-24b6-448e-9427-c3f7b6283789.png` | `acdd773ce8c5f57cdd7a448df7d01bbeda2e6aa7d62f516aeebde3f130dc1490` |\n| SOUTH (front, relabeled copy of original front candidate) | `selected/silvo-south-v2.png` | `exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png` | `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png` | `77d326bd874521183768887c6cc47b6304017d5c25bf8a5122b9f67996636f23` |\n| WEST (near anatomical LEFT visible) | `selected/silvo-west-v1.png` | `exec-addc7487-3042-48ac-8af7-5b94386b09f5.png` | `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-addc7487-3042-48ac-8af7-5b94386b09f5.png` | `6fdf7fbde6fd6df9b8e70b378619f323fe02071ecc5c454eb41bc2d6873dc441` |\n| EAST (near anatomical RIGHT; LEFT satchel far and mostly hidden) | `selected/silvo-east-v2.png` | `exec-cfe83cb0-da0a-49b8-96e2-99d881f88392.png` | `C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-cfe83cb0-da0a-49b8-96e2-99d881f88392.png` | `adccd62ad3ae8b9709f999e444022030edacf674acaa899a410ffd73e5ea817b` |\n\n## Exact North prompt (corrected rear view)\nUse case: game character sprite concept. Asset: single full-body idle NPC sprite. Reference image 1: only the TOP RIGHT Silvo figure in the 2x2 atlas. Preserve source identity exactly: ash-blond curls, forest-green and ochre layered jacket, ivory shirt and trousers, brown belt and boots, brown field notebook satchel on anatomical LEFT. Runtime compass NORTH means rear-facing, showing Silvo's back. Critical anatomical placement: from a rear view anatomical LEFT is on the viewer's LEFT. Put the satchel on the viewer-left hip with strap over the viewer-left shoulder; do not put it on viewer-right. Full-body neutral back view, centered, no crop. Warm polished painterly modern 2D game art matching reference. Actual transparent background, no shadow/environment/text/watermark, no extra props, do not mirror, no sheet or multiple figures.\n\n## Exact South prompt (retained original front candidate)\nUse case: game character sprite concept. Asset type: one standalone modern illustrated 2D idle sprite candidate, full body. Input image 1: visual reference; use only the TOP RIGHT figure, Silvo, from the 2x2 character atlas. Preserve recognizable source identity and asymmetries: tousled ash-blond curly hair, gentle face, layered forest-green and ochre jacket, ivory shirt and trousers, brown belt, brown field notebook bag with small botanical emblem; hand holding the strap. Keep the bag on Silvo's anatomical LEFT side (which appears on viewer RIGHT in a front view). No invented canon age or gender; preserve source's ambiguous presentation. Primary request: create a clean front-facing NORTH idle view, standing neutrally with slight natural asymmetry, complete figure from hair to boots, readable as an RPG NPC sprite. Style: polished modern illustrated 2D game character art, warm soft painterly shading consistent with reference. Composition: single centered figure, generous transparent margins, upright, feet visible. Constraints: actual transparent background, no ground/shadow/background, no text, no watermark, no extra props or limbs, no cropping, no turnaround sheet or multiple figures, no mirrored anatomy, do not move bag from anatomical left. This is one independent direction candidate.\n\nNote: South is the observed front-facing output from the above prompt; direction metadata is corrected here to match the game's compass mapping. The original generated PNG is preserved unchanged in `raw/`.\n\n## Exact West prompt\nUse case: game character sprite concept. Asset: one standalone modern illustrated 2D idle sprite, full body. Input image 1 is the reference atlas; use only Silvo, the top-right figure. Preserve source identity: ash-blond curls, forest-green and ochre layered jacket, ivory outfit, brown belt and brown field notebook bag with botanical emblem; same gentle facial features. West view means the character faces viewer-left in profile, displaying their anatomical left side toward the viewer; the bag must be on the NEAR anatomical left side (viewer side). Preserve the source silhouette and outfit design, with no invented canon age or gender. Primary request: one full-body west-facing profile idle view, natural neutral stand, head to boots visible. Warm, softly shaded, modern illustrated 2D game art matching reference. Single centered upright figure, transparent margins, actual transparent background, no shadow, no environment, no text or watermark, no extra items, no crop, no multi-view sheet, no mirroring.\n\n## Exact East prompt (corrected far-side bag)\nUse case: game character sprite concept. Asset: single full-body idle NPC sprite. Reference image 1: only the TOP RIGHT Silvo figure in the 2x2 atlas. Preserve source identity, ash-blond curls, forest-green and ochre layered jacket, ivory shirt/trousers, brown belt and boots. Preserve the brown field notebook satchel on Silvo's anatomical LEFT. Runtime compass EAST means profile facing viewer-right, exposing anatomical RIGHT as the near side; the LEFT-side satchel is on the far side and should be mostly occluded behind the torso, with at most a subtle far strap edge visible. Do not place a prominent bag on the near/viewer-right side. No mirroring. Full-body neutral profile, centered, feet visible. Warm polished soft painterly modern 2D game art matching source. Actual transparent background, no floor/shadow/environment/text/watermark, no extra props, no crop, one figure.\n\nEarlier candidates with erroneous compass labels/bag sides remain preserved under `raw/` and `discarded/`; do not use them as the current proposed mapping. No production/runtime/registry/Tiled/test/Git changes were made.\n",
+    ".tmp/council-nerea-idles-candidates/prompts-and-provenance.md": "# Nerea League Council directional idle candidates\n\nPrivate art review only. These are four independent built-in image generation outputs for `league-council-nerea` (Nerea of the League Council), not gym Nerea. No generated image is integrated into production. Source identity/style reference: `C:\\Projects\\Veloria\\assets\\sources\\veloria-league-council-v1.png` (frame 0, upper-left). Registry/Tiled audit: `docs/art/remaining-cast-directional-audit-0.4.41.json`; appearance profile `league-council-nerea`; dialogue/NPC `league_council1`; map `public/tilemaps/league_council01.tmj`, object `Nerea` at (512,224), sprite frame 0; formal midnight navy and pearl robe with current motif. This identity is distinct from gym Nerea (`nerea_gym`, `gym05_portolume`). Dialogue: “Benvenuto nella mia sala. La prossima lotta richiede tipi e risorse diverse: guarda la squadra prima di scegliere SFIDA.” No age or gender canon added.\n\nReference path for all: `C:\\Projects\\Veloria\\assets\\sources\\veloria-league-council-v1.png`. Built-in `image_gen`, transparent background requested, one call per direction, no CLI/API.\n\n## SOUTH — output ID `exec-c67ed9ce-05fa-4208-8b36-9e9741557b32`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite candidate for a 2D RPG character, one isolated image\nPrimary request: Create one full-body idle sprite of Nerea, the member of the Veloria League Council, facing SOUTH (toward the viewer). It is a fresh independent pose for the same identity as source reference Image 1, not a crop or edit of the source atlas. Relaxed formal standing pose, arms resting naturally, both shoes visible, centered, consistent readable human proportions.\nInput images: Image 1: identity, clothing, material, and style reference only; use the upper-left frame (Nerea), and never take other characters from it.\nScene/backdrop: genuinely transparent background only; no floor or scenery.\nSubject: match the reference's dark updo with its small pearl hair ornament, navy and pearl formal robe with the subtle flowing-current motifs, simple refined silver clasp/medallion and hanging pearl tassel accessories. Keep the silhouette and accessories recognizable, with restrained detail.\nStyle/medium: modern polished illustrated 2D game art, soft painterly shading and warm refined linework, matching the source asset's storybook rendering; not pixel art, 3D, or photorealistic.\nComposition/framing: single complete figure on a transparent square canvas; head to shoes within bounds with comfortable transparent margin; straight-on orthographic SOUTH view, facing the viewer; calm idle stance, no dramatic perspective.\nLighting/mood: gentle even studio-like character lighting, composed and welcoming.\nColor palette: midnight navy, pearl ivory, subdued silver.\nMaterials/textures: softly painted fabric, clean readable folds, polished but small metal and pearl details.\nConstraints: preserve the asymmetrical ornament placement by character anatomy: on this SOUTH-facing figure, Nerea's anatomical RIGHT is on the VIEWER'S LEFT. Place the distinctive badge/medallion, its hanging tassel, and the pearl hair ornament on her anatomical RIGHT (viewer-left); keep that same anatomical side identity in all directions. Keep clothing formal, long and vertically flowing, with subtle current motif.\nAvoid: gym Nerea from Portolume, casual harbor clothing, cape, turquoise coat, coral, notebook, whistle; any added people, Pokémon, props, text, logo, watermark, shadow, glow, background color or checkerboard; cropped hair, hands, or feet; extra accessories; changing character identity, or making a claim about canon age or gender.\n```\n\n## NORTH — output ID `exec-3dc6d0e5-8b26-4d40-908a-0a884ce096c9`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite candidate for a 2D RPG character, one isolated image\nPrimary request: Create one independent full-body idle sprite of Nerea, the Veloria League Council member, facing NORTH (back to viewer). New pose/image for the same identity as source reference Image 1, not a crop/edit of the atlas. Calm relaxed formal stance, both complete shoes visible, centered, orthographic, back view.\nInput images: Image 1: identity, outfit, material and style reference only; use only upper-left Nerea.\nScene/backdrop: genuine transparent background, no floor or scenery.\nSubject: dark elegant updo with a small pearl hair ornament; formal midnight navy and pearl robe, full-length layered vertical drape, subtle flowing-current motifs visible on sleeve and robe hems; refined silver shoulder medallion and hanging pearl tassel. Keep Nerea recognizable from the reference while showing the back of the same clothes and hairstyle; naturally continue garment details around the back, without inventing a different outfit.\nStyle/medium: matching modern polished illustrated 2D game art from the reference, soft painterly shading, warm clean contours; no pixel art, 3D or photorealism.\nComposition/framing: single complete figure on square transparent canvas, head to shoes with margin, straight orthographic NORTH-facing back view, relaxed idle.\nLighting/mood: gentle even lighting, composed.\nColor palette: midnight navy, pearl ivory, subdued silver.\nMaterials/textures: softly painted formal fabric with readable folds, small pearl and metal details.\nConstraints: preserve asymmetry by character anatomy: on this NORTH-facing figure, Nerea's anatomical RIGHT is on the VIEWER'S RIGHT. The badge/medallion and dangling tassel belong on her anatomical RIGHT shoulder (viewer-right); pearl hair ornament is also on her anatomical RIGHT side (viewer-right). Show these placements consistently from this actual back view. No exact age or gender implication beyond the reference.\nAvoid: Portolume gym Nerea, casual harbor clothes, cape, turquoise coat, coral, notebook, whistle; other people, Pokémon, props, text, logo, watermark, floor, shadow, glow, opaque backdrop/checkerboard; cropping hair or shoes; dramatic angle.\n```\n\n## WEST — output ID `exec-012577ea-bcc5-4cfa-b373-a6480070cdfe`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite candidate for a 2D RPG character, one isolated image\nPrimary request: Create one independent full-body idle sprite of Nerea, the Veloria League Council member, facing WEST (her left profile visible). New drawing for same identity as source reference Image 1, not a crop/edit of the atlas. Relaxed formal standing idle pose, complete shoes visible, centered, exact side profile with no dramatic perspective.\nInput images: Image 1: identity, outfit, material and style reference only; use only upper-left Nerea.\nScene/backdrop: genuine transparent background, no floor or scenery.\nSubject: recognizable dark updo with pearl ornament; formal flowing midnight navy and pearl robe, subtle current motifs on sleeve and lower hem, restrained silver medallion with its hanging pearl tassel. Natural coherent side silhouette; garment and accessories seen in side view, not arranged facing the viewer.\nStyle/medium: matching modern polished illustrated 2D game art from reference, warm clean contours and soft painterly shading; no pixel art, 3D or photorealism.\nComposition/framing: one complete human figure on square transparent canvas, head to shoes and breathing room, straight WEST profile, relaxed idle.\nLighting/mood: gentle even lighting, calm and composed.\nColor palette: midnight navy, pearl ivory, subdued silver.\nMaterials/textures: softly painted formal fabric, readable vertical folds, modest metal and pearl details.\nConstraints: preserve asymmetry by character anatomy: in WEST-facing profile, Nerea's anatomical RIGHT side is the NEAR SIDE, visible at the front / viewer-left side of her silhouette. Put the distinctive medallion and dangling tassel on that near anatomical RIGHT shoulder; pearl hair ornament is also on anatomical RIGHT. Keep it coherent in this strict west profile and consistent as the same person's right-side accessories. No added age or gender canon.\nAvoid: Portolume gym Nerea, casual harbor clothing, cape, turquoise coat, coral, notebook, whistle; other people, Pokémon, props, text, logo, watermark, floor, shadow, glow, opaque background/checkerboard; crop, three-quarter turn, front/back view, extra accessories.\n```\n\n## EAST — output ID `exec-857ad5f1-78de-4dab-9d92-ae958aac6dbc`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite candidate for a 2D RPG character, one isolated image\nPrimary request: Create one independent full-body idle sprite of Nerea, the Veloria League Council member, facing EAST (her right profile visible). New drawing for same identity as source reference Image 1, not a crop/edit of atlas. Relaxed formal standing idle pose, complete shoes visible, centered, exact side profile without dramatic perspective.\nInput images: Image 1: identity, outfit, material and style reference only; use only upper-left Nerea.\nScene/backdrop: genuinely transparent background, no floor or scenery.\nSubject: recognizable dark updo with pearl ornament; formal flowing midnight navy and pearl robe, subtle current motifs on sleeve and lower hem, restrained silver medallion with hanging pearl tassel. Natural coherent side silhouette; clothes/accessories seen in profile, not posed toward viewer.\nStyle/medium: matching reference's modern polished illustrated 2D game art, warm clean contours and soft painterly shading; not pixel art, 3D or photorealism.\nComposition/framing: one complete figure on square transparent canvas, head to shoes with margin, straight EAST profile, relaxed idle stance.\nLighting/mood: gentle even lighting, composed.\nColor palette: midnight navy, pearl ivory, subdued silver.\nMaterials/textures: softly painted formal fabric, readable draping folds, modest silver and pearl details.\nConstraints: preserve asymmetry by anatomy: in EAST-facing profile, Nerea's anatomical RIGHT is the FAR SIDE, visible on the far/back-facing side of her silhouette. Place the distinctive medallion and its dangling tassel on that far anatomical RIGHT shoulder; pearl hair ornament is also on anatomical RIGHT. Keep the correct side placement consistent from this east profile. Do not invent canon age or gender.\nAvoid: Portolume gym Nerea, casual harbor clothing, cape, turquoise coat, coral, notebook, whistle; other people, Pokémon, props, text, logo, watermark, floor, shadow, glow, opaque background/checkerboard; crop, three-quarter turn, front/back view, extra accessories.\n```\n\n## Generated paths and hashes\n\nThe original built-in outputs remain in the generator's default location. The versioned copies under this folder are raw byte copies, with unchanged PNG pixels. SHA-256, dimensions, alpha bounds/range and corner alpha are recorded in `candidate-metadata.json`. QA composites are separately written by `tools/sprite_review_board.py` and are never candidate artwork.\n\n## Replacement candidates (v2 prompts; first attempts retained)\n\n### SOUTH v2 — output ID `exec-a32e8442-6d2c-4e45-a3ee-a84f7babfad0`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body idle sprite candidate for a 2D RPG, independent SOUTH-facing image\nPrimary request: Draw League Council member Nerea in a relaxed full-body idle stance, facing due SOUTH directly toward the viewer, both shoes fully visible. Refer to only upper-left source frame for identity and painterly style. Create a fresh drawing; do not trace or reproduce the exact layout of the reference.\nSubject and identity: retain the dark updo, pearl hair ornament, midnight navy and pearl formal robe, flowing-current motifs, small silver medallion with hanging pearl tassel. No changes to identity or outfit concept.\nComposition: one centered whole figure, orthographic front view, transparent square background, no floor, scenery, shadow, text, extra props, crop, perspective, or other people.\nStyle: match the reference's polished modern illustrated 2D painterly game art, warm clean contours, soft shading. Not pixel art, 3D, or photorealistic.\nCRITICAL ANATOMICAL SIDE PLACEMENT: Nerea is facing the viewer. Her anatomical RIGHT is the LEFT HALF OF THE IMAGE. Therefore place the large distinctive round shoulder badge/medallion, its long hanging pearl tassel, AND the pearl ornament in her hair visibly on the LEFT HALF OF THE IMAGE, on the character's right shoulder and right side of her head. Keep the character's anatomical LEFT side comparatively plain. This left/right instruction explicitly overrides the reference image's displayed accessory placement. Do not put the badge on image-right.\nPalette: midnight navy, pearl ivory, subdued silver. Full garment readable with flowing vertical robe lines and subtle current motif. Do not imply canon age or gender.\nAvoid: gym Nerea/Portolume harbor identity, turquoise coat, coral, notebook, whistle, mirror-symmetry of the badge, copied source placement, extra accessories, checkerboard, colored backdrop, floor, glow, watermark, logo.\n```\n\n### WEST v2 — output ID `exec-a7dd5ead-3ac0-476d-996a-00bad5df770d`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite for a 2D RPG, independent WEST-facing image\nPrimary request: Draw Veloria League Council member Nerea in a calm formal full-body idle pose, facing due WEST (profile looks toward image-left). Source Image 1 is identity/style reference only; use its upper-left Nerea frame and make a fresh full-body drawing.\nSubject: same Nerea, dark updo and pearl ornament, formal midnight navy and pearl flowing robe, restrained current motif, distinctive silver shoulder badge and hanging pearl tassel. Keep complete shoes visible.\nComposition: one centered full-body figure, strict WEST profile, transparent square background, no floor/scenery/shadow/props/text, no crop or dramatic perspective.\nStyle: match reference modern polished 2D painterly game illustration, soft shading and clean warm contours; no 3D, pixel art, photorealism.\nSIDE PLACEMENT REQUIRED: WEST-facing pose; place the asymmetric shoulder badge, hanging tassel, and hair ornament on the NEAR side of Nerea, following the exact review convention WEST nearLEFT. Make this asymmetry clearly visible on the near-side shoulder/hair in the side profile. Do not place the badge on the far shoulder or duplicate it on both sides. Keep the opposite side plain. This positional convention is explicit and takes precedence over the reference's displayed badge location.\nPalette: midnight navy, pearl ivory, subdued silver. Continuous graceful vertical robe lines and calm posture; no invented canon age/gender.\nAvoid: gym Nerea from Portolume, harbor cape, turquoise/coral, notebook, whistle, extra jewelry/accessories, other people/Pokémon, lettering, logo, watermark, opaque/checkerboard backdrop.\n```\n\n### EAST v2 — output ID `exec-5ebe1c64-af2e-449c-a075-77ef7f9524ea`\n\n```text\nUse case: stylized-concept\nAsset type: transparent full-body directional idle sprite for a 2D RPG, independent EAST-facing image\nPrimary request: Draw Veloria League Council member Nerea in a calm formal full-body idle pose, facing due EAST (profile looks toward image-right). Source Image 1 is identity/style reference only; use its upper-left Nerea frame and make a fresh full-body drawing.\nSubject: same Nerea, dark updo with pearl hair ornament, formal midnight navy and pearl flowing robe, restrained current motif, distinctive silver shoulder badge with hanging pearl tassel. Keep complete shoes visible.\nComposition: one centered full-body figure, strict EAST profile, transparent square background, no floor/scenery/shadow/props/text, no crop or dramatic perspective.\nStyle: match reference modern polished 2D painterly game illustration, soft shading and clean warm contours; no 3D, pixel art, photorealism.\nSIDE PLACEMENT REQUIRED: EAST-facing pose; place the asymmetric shoulder badge, hanging tassel, and hair ornament on the NEAR side of Nerea, following exact review convention EAST nearRIGHT. Make this asymmetry clearly visible on the near-side shoulder/hair in the side profile. Do not place the badge on the far shoulder or duplicate it on both sides. Keep the opposite side plain. This positional convention is explicit and takes precedence over the reference's displayed badge location.\nPalette: midnight navy, pearl ivory, subdued silver. Continuous graceful vertical robe lines and calm posture; no invented canon age/gender.\nAvoid: gym Nerea from Portolume, harbor cape, turquoise/coral, notebook, whistle, extra jewelry/accessories, other people/Pokémon, lettering, logo, watermark, opaque/checkerboard backdrop.\n```\n",
+    ".tmp/council-nerea-idles-candidates/prompts-source-left-corrected.md": "# Source-left corrected prompts (replacement review set)\n\nAll prompts below used built-in `image_gen`, requested transparent background, and referenced `C:\\Projects\\Veloria\\assets\\sources\\veloria-league-council-v1.png`, frame 0 upper-left. They correct the earlier mistaken assumption: source front view places Nerea's pearl hair ornament and large chest medallion on anatomical LEFT.\n\n## SOUTH — output `exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent SOUTH view\nPrimary request: Draw Nerea of the Veloria League Council in a relaxed formal full-body idle stance, facing directly SOUTH toward viewer, both shoes visible. Use only the upper-left Nerea of Image 1 as identity/outfit/style reference. Fresh rendering, not a crop or edit.\nIdentity: dark updo, pearl hair ornament, midnight navy and pearl formal robe with subtle flowing-current motifs, silver chest medallion with hanging pearl tassel. Match the existing source identity and asymmetry exactly; not gym Nerea.\nComposition: single centered whole figure, square transparent canvas, orthographic front view, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D game art, warm contours and softly painted shading matching Image 1; no pixel art, 3D or photorealism.\nCRITICAL SOURCE-IDENTITY SIDE: The source front view shows the hair ornament and large silver chest medallion on Nerea's ANATOMICAL LEFT. Facing SOUTH toward viewer, her anatomical LEFT is on the VIEWER'S RIGHT. Put the hair ornament and the single large round chest medallion with its hanging pearl tassel on the VIEWER'S RIGHT (her anatomical left). Keep her anatomical right / viewer-left side plain. Explicitly follow Image 1's anatomical left-right identity; do not mirror it.\nPalette midnight navy, pearl ivory, subdued silver; calm posture, full flowing robe; no invented age or gender.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, extra medallions, mirrored accessory layout, text/logo/watermark, background color/checkerboard, extra people/Pokémon.\n```\n\n## NORTH — output `exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent NORTH rear view\nPrimary request: Draw Nerea of the Veloria League Council in a relaxed formal full-body idle stance, facing directly NORTH away from viewer, both shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. Fresh rear-view drawing, not a crop/edit.\nIdentity: same dark elegant updo with a small pearl hair ornament, formal midnight navy and pearl robe with subtle flowing-current motifs, complete back of garment. Match source character and asymmetric hairstyle placement.\nComposition: single centered whole figure, square transparent canvas, strict orthographic back view, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D game art, soft painterly shading and clean warm contours matching Image 1; no pixel art, 3D or photorealism.\nCRITICAL REAR ANATOMY: In source front view Nerea's hair ornament and large chest medallion are on her anatomical LEFT. In this NORTH-facing rear view her anatomical LEFT is on the VIEWER'S LEFT. Place the pearl hair ornament on viewer-left side of the updo. The front chest medallion is on her chest and must NOT appear on her back or shoulder in the rear view; show only the natural robe back and current motifs. Do not add a rear badge or tassel. Keep opposite side plain.\nPalette midnight navy, pearl ivory, subdued silver; calm pose; no invented age or gender.\nAvoid gym Nerea/Portolume identity, harbor cape/turquoise/coral, notebook, whistle, medallion on back, mirrored hair placement, extra jewelry, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.\n```\n\n## WEST — output `exec-3338e7ae-729d-4f49-8c06-0b674260ea2d`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent WEST side view\nPrimary request: Draw Nerea of the Veloria League Council in a calm formal full-body idle pose, facing due WEST (profile looks image-left), complete shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. New independent drawing.\nIdentity: same dark updo and pearl hair ornament, midnight navy and pearl formal robe with subtle current motif, silver chest medallion and hanging pearl tassel. Keep source asymmetry on the correct anatomical side.\nComposition: one centered whole figure, strict orthographic WEST-facing profile, square transparent background, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D painterly game art matching Image 1, warm clean contours and soft shading; not pixel art, 3D, photorealistic.\nCRITICAL PROFILE SIDE: Image 1 front view has the distinctive hair ornament and chest medallion on Nerea's anatomical LEFT. In a WEST-facing profile, make that anatomical LEFT the NEAR side visible to the viewer. Show the medallion/tassel clearly on the near shoulder/chest and the hair ornament clearly on the near side of the updo. Keep the far side plain; do not duplicate or mirror the accessories.\nPalette midnight navy, pearl ivory, subdued silver. Graceful vertical robe drape, calm posture. No canon age/gender additions.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, extra badges, duplicate accessories, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.\n```\n\n## EAST — output `exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b`\n\n```text\nUse case: stylized-concept\nAsset type: private transparent full-body directional idle sprite candidate for 2D RPG, independent EAST side view\nPrimary request: Draw Nerea of the Veloria League Council in a calm formal full-body idle pose, facing due EAST (profile looks image-right), complete shoes visible. Use only upper-left Nerea in Image 1 for identity/outfit/style. New independent drawing.\nIdentity: same dark updo and pearl hair ornament, midnight navy and pearl formal robe with subtle current motif, silver chest medallion and hanging pearl tassel. Maintain source asymmetry anatomically.\nComposition: one centered whole figure, strict orthographic EAST-facing profile, square transparent background, no floor/scenery/shadow/text/props/crop/dramatic perspective.\nStyle: polished modern illustrated 2D painterly game art matching Image 1, warm clean contours and soft shading; not pixel art, 3D, photorealistic.\nCRITICAL PROFILE SIDE: Image 1 front view has the distinctive hair ornament and chest medallion on Nerea's anatomical LEFT. In an EAST-facing profile her anatomical RIGHT is the near side, so the LEFT-side ornament and chest medallion belong on the far side and should be mostly occluded by her head/torso. Keep near anatomical-right shoulder and hair side plain. At most a subtle partial edge of the far-side hair ornament may show; do not place a visible medallion on the near shoulder and do not invent a rear badge. This is an accurate east profile of the same person, not a mirrored west view.\nPalette midnight navy, pearl ivory, subdued silver. Graceful vertical robe drape, calm posture. No canon age/gender additions.\nAvoid gym Nerea from Portolume, harbor cape/turquoise/coral, notebook, whistle, medallion on near/right shoulder, mirrored accessory layout, duplicate accessories, text/logo/watermark, opaque/checkerboard background, other people/Pokémon.\n```\n",
+    ".tmp/council-nerea-idles-candidates/candidate-metadata.json": "{\n  \"classification\": \"private art candidates; unapproved and not integrated\",\n  \"profileId\": \"league-council-nerea\",\n  \"npcId\": \"league_council1\",\n  \"distinction\": \"League Council Nerea, not gym05 Portolume Nerea / nerea_gym\",\n  \"referencePath\": \"C:\\\\Projects\\\\Veloria\\\\assets\\\\sources\\\\veloria-league-council-v1.png\",\n  \"referenceFrame\": \"0, upper-left 627x627\",\n  \"registryProfilePath\": \"content/characters/appearances.v2.json\",\n  \"dialoguePath\": \"content/dialogue/world.v1.json\",\n  \"mapPath\": \"public/tilemaps/league_council01.tmj\",\n  \"auditPath\": \"docs/art/remaining-cast-directional-audit-0.4.41.json\",\n  \"generationTool\": \"built-in image_gen\",\n  \"transparentBackgroundRequested\": true,\n  \"artifacts\": [\n    {\n      \"direction\": \"south\",\n      \"outputId\": \"exec-c67ed9ce-05fa-4208-8b36-9e9741557b32\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-c67ed9ce-05fa-4208-8b36-9e9741557b32.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-south-v1-raw.png\",\n      \"sha256\": \"ebdb3fac3323a81c50b8d6a9f7f2637190a5bb9cb3dde27becc99650cdd40f95\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        33,\n        22,\n        1240,\n        1212\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"north\",\n      \"outputId\": \"exec-3dc6d0e5-8b26-4d40-908a-0a884ce096c9\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-3dc6d0e5-8b26-4d40-908a-0a884ce096c9.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-north-v1-raw.png\",\n      \"sha256\": \"89094c1b114e1e4e5ec5bf5e1ad79a5af6f1fde0754148c70a8081327b2d6fd2\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        0,\n        18,\n        1234,\n        1226\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"west\",\n      \"outputId\": \"exec-012577ea-bcc5-4cfa-b373-a6480070cdfe\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-012577ea-bcc5-4cfa-b373-a6480070cdfe.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-west-v1-raw.png\",\n      \"sha256\": \"2ebc913849c8f2d44fe4866dbf4562846867f906556df1f70127e4a3cb3d8ef6\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        47,\n        31,\n        1216,\n        1222\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"east\",\n      \"outputId\": \"exec-857ad5f1-78de-4dab-9d92-ae958aac6dbc\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-857ad5f1-78de-4dab-9d92-ae958aac6dbc.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-east-v1-raw.png\",\n      \"sha256\": \"0ee9765780124f728c162e7cf2210fe0e05b64cdf31465539a4233de6437a765\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        33,\n        10,\n        1242,\n        1225\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"south\",\n      \"variant\": \"v2 corrected mapping\",\n      \"outputId\": \"exec-a32e8442-6d2c-4e45-a3ee-a84f7babfad0\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-a32e8442-6d2c-4e45-a3ee-a84f7babfad0.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-south-v2-raw.png\",\n      \"sha256\": \"4102fd0ff094dc46a2371e6ccee957c2a1558ffc667f92d6c5db424ab9cc7818\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        32,\n        13,\n        1226,\n        1230\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"west\",\n      \"variant\": \"v2 corrected mapping\",\n      \"outputId\": \"exec-a7dd5ead-3ac0-476d-996a-00bad5df770d\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-a7dd5ead-3ac0-476d-996a-00bad5df770d.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-west-v2-raw.png\",\n      \"sha256\": \"91d25574e8ce830c2d91cb5caadb254bc00010ab511862ecbffa586f04574272\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        0,\n        0,\n        1234,\n        1244\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"east\",\n      \"variant\": \"v2 corrected mapping\",\n      \"outputId\": \"exec-5ebe1c64-af2e-449c-a075-77ef7f9524ea\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-5ebe1c64-af2e-449c-a075-77ef7f9524ea.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-east-v2-raw.png\",\n      \"sha256\": \"c04ab52f1ffca562287b1d1ba04f0ca2f9fb6ffda83da180e5993ddcc2b53cd2\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        41,\n        10,\n        1224,\n        1224\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"south\",\n      \"variant\": \"v3 source-anatomy corrected\",\n      \"outputId\": \"exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-south-v3-raw.png\",\n      \"sha256\": \"5501dce09f7bf3e99b81d7cf89de4d91fe6cff6b165ddee5c51fdeb456529ae8\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        33,\n        19,\n        1208,\n        1230\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"north\",\n      \"variant\": \"v3 source-anatomy corrected\",\n      \"outputId\": \"exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-north-v2-raw.png\",\n      \"sha256\": \"4d91e5a353742c1773d35bfc2cc5e7ffcdb65e6ccb7d465cabb4c5d33db64538\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        48,\n        1,\n        1226,\n        1240\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"west\",\n      \"variant\": \"v3 source-anatomy corrected\",\n      \"outputId\": \"exec-3338e7ae-729d-4f49-8c06-0b674260ea2d\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-3338e7ae-729d-4f49-8c06-0b674260ea2d.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-west-v3-raw.png\",\n      \"sha256\": \"5b632c51469b1a4cc93c30575152ea886edf3fa8db1ea323e2a8f226cee1af99\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        25,\n        6,\n        1186,\n        1254\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"east\",\n      \"variant\": \"v3 source-anatomy corrected\",\n      \"outputId\": \"exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-5366-7ba0-94dc-b659cc6557d0\\\\exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b.png\",\n      \"rawCopyPath\": \"C:\\\\Projects\\\\Veloria\\\\.tmp\\\\council-nerea-idles-candidates\\\\nerea-east-v3-raw.png\",\n      \"sha256\": \"e9421aad34518fff8cc3fa8cf5da345c51540b79562f0335c0cd393da8fa99f7\",\n      \"dimensions\": [\n        1254,\n        1254\n      ],\n      \"mode\": \"RGBA\",\n      \"alphaRange\": [\n        0,\n        255\n      ],\n      \"alphaBounds\": [\n        31,\n        16,\n        1230,\n        1220\n      ],\n      \"cornerAlpha\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    }\n  ],\n  \"selectedForHumanReview\": {\n    \"south\": \"nerea-south-v3-raw.png\",\n    \"north\": \"nerea-north-v2-raw.png\",\n    \"west\": \"nerea-west-v3-raw.png\",\n    \"east\": \"nerea-east-v3-raw.png\"\n  },\n  \"visualReviewNotes\": [\n    \"Earlier v1/v2 variants remain preserved and are not recommended where their side placement contradicts source anatomy.\",\n    \"Current v3/v2 review set visually follows the source-left asymmetry; East view shows no visible medallion on the near shoulder and mostly hides the far-side ornament.\",\n    \"QA composites use opaque #dce8eb; alpha=0 hidden RGB is not background, and isolated alpha=1 edge pixels alone are not material defects.\"\n  ],\n  \"sourceAnatomyCorrection\": \"Source atlas front frame shows pearl hair ornament and large chest medallion on anatomical LEFT. Mapping is SOUTH front: viewer-right; NORTH back: viewer-left hair ornament only, no chest badge; WEST profile: near-side left accessories visible; EAST profile: anatomical-left accessories on far side mostly occluded.\"\n}\n",
+    ".tmp/council-brando-idles-candidates/provenance.json": "{\n  \"purpose\": \"private art candidate set; pending root review; not approved\",\n  \"sourceReference\": \"assets/sources/veloria-league-council-v1.png frame 2 lower-left\",\n  \"audit\": \"docs/art/remaining-cast-directional-audit-0.4.41.json\",\n  \"tool\": \"built-in image_gen\",\n  \"referenceCount\": 1,\n  \"candidates\": [\n    {\n      \"direction\": \"N\",\n      \"prompt\": \"Generate one standalone full-body idle character sprite, direction NORTH (back view), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference; show their correct back-view placement. Straight upright relaxed idle stance, arms naturally at sides, both feet fully visible, centered with generous transparent padding. Pure rear-facing view, head/face not visible, front features must not leak into view. Clean, polished, consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-79d7523c-d307-4c71-8c35-a202134251f3.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-79d7523c-d307-4c71-8c35-a202134251f3.png\",\n      \"outputId\": \"exec-79d7523c-d307-4c71-8c35-a202134251f3\",\n      \"sha256\": \"9c02523fd36512197c4e1d639ef53804f7862c44d706e4ad27895d2994122894\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaBounds\": [\n        0,\n        28,\n        992,\n        1501\n      ],\n      \"alphaCorners\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"S\",\n      \"prompt\": \"Generate one standalone full-body idle character sprite, direction SOUTH (front view), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch exactly as the reference. Straight upright relaxed idle stance, arms naturally at sides with hands visible, both feet fully visible, centered with generous transparent padding. Direct front-facing view, both shoulders balanced, no turn or twist. Clean, polished, consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a.png\",\n      \"outputId\": \"exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a\",\n      \"sha256\": \"398be875269923ed4592785f462007900da8d6f76c648dfc3d7917a8002894b1\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaBounds\": [\n        33,\n        39,\n        1004,\n        1536\n      ],\n      \"alphaCorners\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"W\",\n      \"prompt\": \"Generate one standalone full-body idle character sprite, direction WEST (character's anatomical left side closest to viewer), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference on the near side. Relaxed upright idle stance, both feet fully visible, centered with generous transparent padding. True WEST three-quarter/back side orientation; anatomical left shoulder, arm, hip, and leg are nearest camera and visibly nearest LEFT edge of sprite. Face looks toward screen-left; keep near-side/left body features on screen-left. Do not mirror/flip the character. Clean, polished consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-ecd141ba-6336-47cc-af25-9e0e2054a305.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-ecd141ba-6336-47cc-af25-9e0e2054a305.png\",\n      \"outputId\": \"exec-ecd141ba-6336-47cc-af25-9e0e2054a305\",\n      \"sha256\": \"2e95659793718a75223c26660282392900d915aa8dc4b05a552950ca090107b5\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaBounds\": [\n        71,\n        37,\n        922,\n        1517\n      ],\n      \"alphaCorners\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"direction\": \"E\",\n      \"prompt\": \"Generate one standalone full-body idle character sprite, direction EAST (character's anatomical right side closest to viewer), modern illustrated 2D fantasy RPG character art. Use the viewed reference image only as character identity reference: focus on the lower-left quadrant of the 2x2 sheet, Brando. Preserve the same short dark curls, warm brown skin, broad compact silhouette, dark petrol-teal short structured jacket with gold/amber trim and seam details, ivory shirt, charcoal cargo trousers, dark gloves, and dark boots with gold accents. Preserve anatomical placement of the gold-edged badge, belt, and diagonal strap/pouch from the reference on the near side. Relaxed upright idle stance, both feet fully visible, centered with generous transparent padding. True EAST three-quarter/back side orientation; anatomical right shoulder, arm, hip, and leg are nearest camera and visibly nearest RIGHT edge of sprite. Face looks toward screen-right; keep near-side/right body features on screen-right. Do not mirror/flip the character. Clean, polished consistent illustrated 2D rendering with restrained painterly shading and crisp silhouette. Transparent background. No props, no text, no extra characters, no ground/shadow, no border, no sheet/grid, no multiple views. Character design must not introduce age or gender cues beyond the reference. Output a single sprite.\",\n      \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-2c46e8bb-264a-45ac-9284-a88b9f14d200.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n      \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\\\exec-2c46e8bb-264a-45ac-9284-a88b9f14d200.png\",\n      \"outputId\": \"exec-2c46e8bb-264a-45ac-9284-a88b9f14d200\",\n      \"sha256\": \"2d2bec32447dc8f54cd62a951478bd6d8731ad33bf78bb01a0357a914c792653\",\n      \"dimensions\": [\n        1024,\n        1536\n      ],\n      \"alphaRange\": [\n        0,\n        254\n      ],\n      \"alphaBounds\": [\n        31,\n        23,\n        1010,\n        1520\n      ],\n      \"alphaCorners\": [\n        0,\n        0,\n        0,\n        0\n      ]\n    }\n  ],\n  \"qaBoard\": \"qa-board.png\",\n  \"qaDetails\": \"qa-board.json\"\n}\n",
+    ".tmp/council-luce-inputs.json": "[\n  {\n    \"direction\": \"south\",\n    \"prompt\": \"Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. SOUTH straight front view. AnatomicalLEFT is viewerRIGHT: wide ivory LEFTsleeve and long LEFTcoatpanel appear viewerRIGHT. RIGHTplum sleeve and RIGHTshin diamond appear viewerLEFT. Preserve doublegoldclasp front only.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-17354035-3bf2-4013-8a83-1a781f1e1724.png\"\n  },\n  {\n    \"direction\": \"north\",\n    \"prompt\": \"Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. NORTH true back view, no frontface. AnatomicalLEFT is viewerLEFT: long LEFTcoatpanel and wide ivory sleeve viewerLEFT. AnatomicalRIGHT is viewerRIGHT: plum sleeve there. RIGHTshin diamond and frontgoldclasp belong to FRONT, thus hidden/absent from the back. Plain plausible rear of blacktop/jacket, preserve shortauburnbob.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137.png\"\n  },\n  {\n    \"direction\": \"west\",\n    \"prompt\": \"Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. WEST strict profile with NOSE pointing LEFT; anatomical LEFT is near side. Show near wide ivory LEFTsleeve and long LEFT patternedcoatpanel. RIGHTplum sleeve and RIGHTfrontshin diamond are FAR and mostlyhidden. Keep sourcestyle/proportions, do not swapasymmetries.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-0de433c5-8389-4472-bfca-593375ddfe0d.png\"\n  },\n  {\n    \"direction\": \"east\",\n    \"prompt\": \"Use case: illustration-story. Generate ONE independent full-body idle game sprite of LUCE, using ONLY frame3 BOTTOM-RIGHT person in supplied original four-character atlas. Identity: short wavy auburn bob, warm expressive face, black high-neck top with small double-circle gold clasp at front, plum trousers, asymmetric ivory/plum long jacket with curved gold/cream wave motifs, flat plum shoes with gold straps. Preserve asymmetries: anatomical LEFT sleeve is wide ivory with plum cuff, LEFT coat panel is long to knee and patterned; anatomical RIGHT sleeve is plum with ivory ornament, RIGHT shin has small gold diamond, LEFT shin plain. Brown/gold belt. Neutral relaxed standing, hands naturally rested, no invented accessories/props or canonical age/gender. Modern matte illustrated2D source style, clean readable silhouette at56worldpx. Full complete boots/hair, centered, portrait2:3 with transparentmargins. Genuinely transparent RGBA, no floor/shadow/glow/vignette/checkerboard/background/text/otherpeople/sheet; never flip. EAST strict profile with NOSE pointing RIGHT; anatomical RIGHT is near side. Show near plum RIGHTsleeve with ivoryornament and the RIGHTfrontshin gold diamond at nearfrontedge. Long ivory/plum LEFTcoatpanel and LEFTwideivorysleeve are far, mostlyoccluded. Do not move LEFTpanel to nearRIGHTside.\",\n    \"generatedPath\": \"C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-e69c2465-8f79-40b0-9841-d6412b019951.png\"\n  }\n]\n",
+    ".tmp/council-luce-idles-candidates/west-v2-provenance.json": "{\n  \"prompt\": \"Use case: illustration-story. One standalone full-body LUCE idle sprite, exact WEST side profile facing screen LEFT, nose pointing LEFT, no front-facing or three-quarter view. Reference image1: ONLY bottom-right person of original atlas. Short wavy auburn bob, warm face, black high neck top with double gold clasp at front, plum trousers, asymmetric ivory/plum jacket with gold wave motifs, plum shoes with gold straps. Anatomical LEFT is NEAR camera: wide plain IVORY LEFT sleeve with PLUM cuff and long knee-length patterned LEFT coat panel must be prominent near camera. Anatomical RIGHT sleeve is PLUM and far, mostly occluded; RIGHT shin gold diamond is far and mostly occluded, LEFT shin is plain. Hands naturally rested at sides, neutral idle. Full hair and boots within generous transparent margin, no cropping. Match source modern illustrated2D matte style. Genuinely transparent RGBA, no backdrop, ground, shadow, glow, vignette, text, sheet, other characters. Never mirror.\",\n  \"outputHint\": \"Generated images are saved to C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92 as C:\\\\Users\\\\jacop\\\\.codex\\\\generated_images\\\\01a14650-01c1-7fe2-b816-3d267a07fc92\\\\exec-a5bb456a-46bf-40cc-af50-6b009341d6ca.png by default.\\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.\",\n  \"status\": \"pending root opaque review\"\n}\n"
+  }
+}

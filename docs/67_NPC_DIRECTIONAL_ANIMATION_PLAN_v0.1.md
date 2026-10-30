@@ -110,3 +110,7 @@ La tecnica della Centrale porta le idle a 36 identità su 48, con 12 da migrare.
 ## Avanzamento 0.4.42
 
 Livia e le guide di Biancavetta e Passobrina portano le idle a 39 identità su 48, con nove ancora da migrare. Dodici pose indipendenti, sei casi Chrome distinti (tre delle guide, Canvas irregolare e due globali) e tre produzione offline passati. Il renderer mantiene il cap anche per rapporti non rappresentabili con un piccolo frame intero, preservando i sorgenti e le proporzioni. Atlante guide/custodi ritirato dai soli renderAssets dopo audit globale a zero usi. Prove e limiti in [documento119](119_GUIDES_TRIO_DIRECTIONAL_IDLE_v0.1.md). Walk, budget complessivo, QA fisica, mappe e campagna naturale restano aperti.
+
+## Avanzamento 0.4.43
+
+Nerea del Consiglio, Silvo, Brando e Luce portano le idle a43 identità su48. Cinque restanti: Enea, accoglienza Lega, Ivo di Petalora, Maia e Tobia. Sedici pose, quattro casi Chrome mirati e quattro produzione offline passati; ancoraggi, anatomia, menu reale delle sfide e geometria delle sale verificati. Atlante comune ritirato dai soli renderAssets dopo audit a zero usi Tiled. Prove, correzioni delle candidate e limiti in [documento120](120_COUNCIL_DIRECTIONAL_IDLE_v0.1.md). Gli altri47 walk, budget, QA fisica, mappe e campagna naturale restano aperti.

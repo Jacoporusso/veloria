@@ -17,11 +17,13 @@ export default defineConfig({
   testIgnore: ['**/offline.spec.ts', '**/gen1-offline.spec.ts', ...(process.env.VELORIA_E2E_SUITE === 'chapters' ? [
     '**/mvp.spec.ts', '**/high-density-world-controls.spec.ts', '**/league.spec.ts',
     '**/acquariva.spec.ts', '**/concordia.spec.ts', '**/crystal.spec.ts', '**/mountain.spec.ts', '**/monorail.spec.ts',
+    '**/league-approach.spec.ts',
     ...worldPathSpecs,
   ] : [])],
   ...(process.env.VELORIA_E2E_SUITE === 'mvp' ? { testMatch: '**/mvp.spec.ts' } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'controls' ? { testMatch: '**/high-density-world-controls.spec.ts' } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'league' ? { testMatch: '**/league.spec.ts' } : {}),
+  ...(process.env.VELORIA_E2E_SUITE === 'league-approach' ? { testMatch: '**/league-approach.spec.ts' } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'world' ? { testMatch: worldPathSpecs } : {}),
   ...(process.env.VELORIA_E2E_SUITE === 'journeys' ? { testMatch: ['**/acquariva.spec.ts', '**/concordia.spec.ts', '**/crystal.spec.ts', '**/mountain.spec.ts', '**/monorail.spec.ts'] } : {}),
   // CI shards individual isolated cases, including the long MVP file. Each

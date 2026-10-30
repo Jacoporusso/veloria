@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const cli = resolve(root, 'node_modules/@playwright/test/cli.js');
-const names = ['chapters', 'world', 'journeys', 'mvp', 'controls', 'league'];
+const names = ['chapters', 'world', 'journeys', 'mvp', 'controls', 'league', 'league-approach'];
 function discover(suite) {
   const env = { ...process.env, CI: 'true' };
   delete env.VELORIA_E2E_SUITE;

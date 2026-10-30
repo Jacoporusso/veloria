@@ -34,12 +34,23 @@
     },
     {
       "kind": "image",
-      "key": "veloria-league-council-v1",
-      "path": "assets/sprites/veloria-league-council-v1.webp",
-      "atlas": {
-        "columns": 2,
-        "rows": 2
-      }
+      "key": "veloria-league-council-brando-idle-north-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-south-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-west-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-east-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-east-v1.webp"
     }
   ],
   "spawns": [

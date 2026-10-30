@@ -1,5 +1,21 @@
-const CACHE = 'veloria-shell-v206';
+const CACHE = 'veloria-shell-v207';
 const SHELL = [
+  './assets/sprites/veloria-league-council-silvo-idle-north-v1.webp',
+  './assets/sprites/veloria-league-council-silvo-idle-south-v1.webp',
+  './assets/sprites/veloria-league-council-silvo-idle-west-v1.webp',
+  './assets/sprites/veloria-league-council-silvo-idle-east-v1.webp',
+  './assets/sprites/veloria-league-council-brando-idle-north-v1.webp',
+  './assets/sprites/veloria-league-council-brando-idle-south-v1.webp',
+  './assets/sprites/veloria-league-council-brando-idle-west-v1.webp',
+  './assets/sprites/veloria-league-council-brando-idle-east-v1.webp',
+  './assets/sprites/veloria-league-council-luce-idle-north-v1.webp',
+  './assets/sprites/veloria-league-council-luce-idle-south-v1.webp',
+  './assets/sprites/veloria-league-council-luce-idle-west-v1.webp',
+  './assets/sprites/veloria-league-council-luce-idle-east-v1.webp',
+  './assets/sprites/veloria-league-council-nerea-idle-north-v1.webp',
+  './assets/sprites/veloria-league-council-nerea-idle-south-v1.webp',
+  './assets/sprites/veloria-league-council-nerea-idle-west-v1.webp',
+  './assets/sprites/veloria-league-council-nerea-idle-east-v1.webp',
   './assets/sprites/veloria-livia-r14-idle-north-v1.webp',
   './assets/sprites/veloria-livia-r14-idle-south-v1.webp',
   './assets/sprites/veloria-livia-r14-idle-west-v1.webp',

@@ -1,6 +1,14 @@
+## 0.4.43 — Consiglio
+
+Quattro identità integrate, totale43/48. Sedici pose con provenienza, hash e RGBA verificati, quattro mappe e altri44 profili preservati; atlante comune ritirato dai soli renderAssets dopo audit a zero usi Tiled. Sei casi Chrome distinti (quattro mirati e due globali sulle51 presenze nei due orientamenti) e quattro produzione offline passati. 839 dominio/persistenza,154 Python, validatore1042 risorse/48 fondali/48 mappe passati; TypeScript e build offline passati. Copertura438 browser e83 offline assegnati una volta. Dettagli in `120_COUNCIL_DIRECTIONAL_IDLE_v0.1.md`. Rilascio del nuovo lotto da attestare; obiettivo complessivo aperto.
+
 ## 0.4.42 — Tre guide e texture irregolari
 
 Commit `79afaa03725b0edf5ab09ccb136361d2a06ffa18`: [Deploy 40947076134](https://github.com/Jacoporusso/veloria/actions/runs/40947076134) COMPLETED/SUCCESS. Pages verificata direttamente: `sw.js` contiene v206 e il TMJ pubblico `tilemaps/r14_varco_cristallo.tmj` contiene `veloria-livia-r14-idle-south-v1`. [Verify 40947076372](https://github.com/Jacoporusso/veloria/actions/runs/40947076372) osservata PENDING; la precedente verifica con la correzione dei casi città, [40943838337](https://github.com/Jacoporusso/veloria/actions/runs/40943838337), è IN_PROGRESS. Nessun esito completo attribuito alle due verifiche.
+
+Osservazione successiva: Verify40947076372 QUEUED. Verify40943838337 COMPLETED/SUCCESS, tutti32 job riusciti, incluso Browser chapters shard2 con i casi città separati per orientamento. Questo esito riguarda il commit0d51f02, precedente al lotto guide.
+
+Esito terminale successivo di Verify40947076372: COMPLETED/FAILURE,31 job riusciti su32. Browser chapters shard6 esaurisce il passo24min dopo26 casi riusciti su30, con il percorso R16/Lega da7,5min. Il lotto0.4.43 assegna integralmente `league-approach.spec.ts` a un job dedicato, mantenendo test e timeout invariati. Motivazione e limiti in `121_LEAGUE_APPROACH_CI_BUDGET_v0.1.md`;33 job totali nella nuova matrice.
 
 Ricontrollo locale della richiesta atlante: quattro casi Chrome di `atlas-exact-targets.spec.ts` passati in 15,9 secondi, incluse categorie/punto pesca nei due orientamenti, missione dal diario, catalogo parzialmente indisponibile e selezione durante il caricamento. Output privato `.tmp/atlas-request-recheck`.
 

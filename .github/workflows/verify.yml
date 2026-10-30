@@ -54,6 +54,10 @@ jobs:
           - {suite: controls, shard: 1, total: 2}
           - {suite: controls, shard: 2, total: 2}
           - {suite: league, shard: 1, total: 1}
+          # Run40947076372 exhausted24 minutes after26 passing chapter cases.
+          # The complete R16/services journey took7.5 minutes on that runner.
+          # Keep its assertions/timeouts and optional battles in one own job.
+          - {suite: league-approach, shard: 1, total: 1}
     runs-on: ubuntu-latest
     # Runner bootstrap can take over 20 minutes; preserve the separately
     # bounded 24-minute browser step plus artifact upload after that setup.

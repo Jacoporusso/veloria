@@ -179,6 +179,10 @@ test('R15 first offline visit keeps the Moltres clearing and light readings inte
 });
 
 for (const npc of [
+  {"name": "Consiglio Nerea", "speaker": "Nerea", "profile": "league-council-nerea", "map": "league_council01", "spawn": "from_entry", "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge", "start": {"x": 16, "y": 8}, "coldStart": false, "x": 16, "y": 7},
+  {"name": "Consiglio Silvo", "speaker": "Silvo", "profile": "league-council-silvo", "map": "league_council02", "spawn": "from_entry", "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge", "start": {"x": 16, "y": 8}, "coldStart": false, "x": 16, "y": 7},
+  {"name": "Consiglio Brando", "speaker": "Brando", "profile": "league-council-brando", "map": "league_council03", "spawn": "from_entry", "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1", "challenge_velorialeague_won_council2", "trainer_league_council2_defeated", "challenge_velorialeague_paid_council2"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge", "start": {"x": 16, "y": 8}, "coldStart": false, "x": 16, "y": 7},
+  {"name": "Consiglio Luce", "speaker": "Luce", "profile": "league-council-luce", "map": "league_council04", "spawn": "from_entry", "flags": ["q_starter_selected", "intro_completed", "tutorial_habitat_seen", "prologue_complete_seen", "q_resonance_restored", "challenge_velorialeague_active", "challenge_velorialeague_won_council1", "trainer_league_council1_defeated", "challenge_velorialeague_paid_council1", "challenge_velorialeague_won_council2", "trainer_league_council2_defeated", "challenge_velorialeague_paid_council2", "challenge_velorialeague_won_council3", "trainer_league_council3_defeated", "challenge_velorialeague_paid_council3"], "badges": ["badge_aurora", "badge_corolla", "badge_circuito", "badge_acciaio", "badge_marea", "badge_riflesso", "badge_brina", "badge_armonia"], "service": "challenge", "start": {"x": 16, "y": 8}, "coldStart": false, "x": 16, "y": 7},
   {"flags": [], "speaker": "Guida Livia", "x": 29, "y": 11, "map": "r14_varco_cristallo", "name": "Guida Livia", "profile": "r14-guide-livia", "spawn": "from_biancavetta", "start": {"x": 29, "y": 12}, "coldStart": false},
   {"flags": [], "spawn": "from_r13", "y": 15, "profile": "biancavetta-guide", "map": "biancavetta", "name": "Guida di Biancavetta", "speaker": "Guida di Biancavetta", "x": 32, "start": {"x": 31, "y": 15}, "coldStart": false, "blockedApproach": {"x": 32, "y": 16}, "approaches": [{"x": 31, "y": 15, "label": "Vai a destra", "pose": "left"}, {"x": 32, "y": 14, "label": "Vai in basso", "pose": "up"}, {"x": 33, "y": 15, "label": "Vai a sinistra", "pose": "right"}]},
   {"flags": [], "spawn": "from_r12", "y": 13, "profile": "passobrina-alpine-guide", "map": "passobrina", "name": "Guida alpina di Passobrina", "speaker": "Guida alpina", "x": 28, "start": {"x": 28, "y": 14}, "coldStart": false, "blockedApproach": {"x": 27, "y": 13}, "approaches": [{"x": 28, "y": 14, "label": "Vai in alto", "pose": "down"}, {"x": 28, "y": 12, "label": "Vai in basso", "pose": "up"}, {"x": 29, "y": 13, "label": "Vai a sinistra", "pose": "right"}]},
@@ -315,6 +319,7 @@ for (const npc of [
   save.party = [{ instanceId: creature.instanceId, speciesId: 1, level: 8, experience: 0,
     hp: creature.hp, maxHp: creature.stats.maxHp, moves: creature.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
   save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen', ...npc.flags])];
+  if ('badges' in npc) save.badges = [...npc.badges];
   save.player = { ...save.player, mapId: `veloria/${npc.map}`, spawnPointId: npc.spawn, ...npc.start };
   await seedBrowserSave(page, save);
   const errors: string[] = [], failures: string[] = [];
@@ -372,6 +377,9 @@ for (const npc of [
       const shop = page.getByRole('dialog', { name: 'Mercante di Ferraluce', exact: true });
       await expect(shop.getByRole('spinbutton', { name: 'Quantità Pozione', exact: true })).toBeVisible();
       await shop.getByRole('button', { name: 'Chiudi', exact: true }).click();
+    } else if ('service' in npc && npc.service === 'challenge') {
+      await expect(page.getByRole('button', { name: 'SFIDA', exact: true })).toBeVisible();
+      await page.getByRole('button', { name: 'NON ORA', exact: true }).click();
     } else if ('service' in npc && npc.service === 'center') {
       await expect(page.getByRole('button', { name: 'RIPOSA', exact: true })).toBeVisible();
       await page.getByRole('button', { name: 'DOPO', exact: true }).click();

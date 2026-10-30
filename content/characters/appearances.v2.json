@@ -948,6 +948,86 @@
       "kind": "image",
       "key": "veloria-biancavetta-guide-idle-north-v1",
       "path": "assets/sprites/veloria-biancavetta-guide-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-silvo-idle-north-v1",
+      "path": "assets/sprites/veloria-league-council-silvo-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-silvo-idle-south-v1",
+      "path": "assets/sprites/veloria-league-council-silvo-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-silvo-idle-west-v1",
+      "path": "assets/sprites/veloria-league-council-silvo-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-silvo-idle-east-v1",
+      "path": "assets/sprites/veloria-league-council-silvo-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-north-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-south-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-west-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-brando-idle-east-v1",
+      "path": "assets/sprites/veloria-league-council-brando-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-luce-idle-north-v1",
+      "path": "assets/sprites/veloria-league-council-luce-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-luce-idle-south-v1",
+      "path": "assets/sprites/veloria-league-council-luce-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-luce-idle-west-v1",
+      "path": "assets/sprites/veloria-league-council-luce-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-luce-idle-east-v1",
+      "path": "assets/sprites/veloria-league-council-luce-idle-east-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-nerea-idle-north-v1",
+      "path": "assets/sprites/veloria-league-council-nerea-idle-north-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-nerea-idle-south-v1",
+      "path": "assets/sprites/veloria-league-council-nerea-idle-south-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-nerea-idle-west-v1",
+      "path": "assets/sprites/veloria-league-council-nerea-idle-west-v1.webp"
+    },
+    {
+      "kind": "image",
+      "key": "veloria-league-council-nerea-idle-east-v1",
+      "path": "assets/sprites/veloria-league-council-nerea-idle-east-v1.webp"
     }
   ],
   "profiles": [
@@ -1593,12 +1673,45 @@
       "npcIds": [
         "league_council1"
       ],
-      "assetKey": "veloria-league-council-v1",
-      "frame": 0,
+      "assetKey": "veloria-league-council-nerea-idle-south-v1",
       "narrativeSource": "content/trainers/league_council1.trainer.json",
       "origin": {
-        "x": 0.6188,
-        "y": 1.0
+        "x": 0.553243,
+        "y": 0.96571
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-council-nerea-idle-north-v1",
+          "origin": {
+            "x": 0.497533,
+            "y": 0.986443
+          },
+          "displaySize": 57.278956
+        },
+        "down": {
+          "assetKey": "veloria-league-council-nerea-idle-south-v1",
+          "origin": {
+            "x": 0.553243,
+            "y": 0.96571
+          },
+          "displaySize": 59.210793
+        },
+        "left": {
+          "assetKey": "veloria-league-council-nerea-idle-west-v1",
+          "origin": {
+            "x": 0.486242,
+            "y": 0.991228
+          },
+          "displaySize": 57.046304
+        },
+        "right": {
+          "assetKey": "veloria-league-council-nerea-idle-east-v1",
+          "origin": {
+            "x": 0.531886,
+            "y": 0.966507
+          },
+          "displaySize": 58.86337
+        }
       }
     },
     {
@@ -1610,12 +1723,45 @@
       "npcIds": [
         "league_council2"
       ],
-      "assetKey": "veloria-league-council-v1",
-      "frame": 1,
+      "assetKey": "veloria-league-council-silvo-idle-south-v1",
       "narrativeSource": "content/trainers/league_council2.trainer.json",
       "origin": {
-        "x": 0.4787,
-        "y": 1.0
+        "x": 0.578445,
+        "y": 0.955078
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-council-silvo-idle-north-v1",
+          "origin": {
+            "x": 0.542096,
+            "y": 0.96875
+          },
+          "displaySize": 58.874743
+        },
+        "down": {
+          "assetKey": "veloria-league-council-silvo-idle-south-v1",
+          "origin": {
+            "x": 0.578445,
+            "y": 0.955078
+          },
+          "displaySize": 59.941463
+        },
+        "left": {
+          "assetKey": "veloria-league-council-silvo-idle-west-v1",
+          "origin": {
+            "x": 0.509555,
+            "y": 0.977214
+          },
+          "displaySize": 58.434783
+        },
+        "right": {
+          "assetKey": "veloria-league-council-silvo-idle-east-v1",
+          "origin": {
+            "x": 0.498614,
+            "y": 0.957031
+          },
+          "displaySize": 60.193142
+        }
       }
     },
     {
@@ -1627,12 +1773,45 @@
       "npcIds": [
         "league_council3"
       ],
-      "assetKey": "veloria-league-council-v1",
-      "frame": 2,
+      "assetKey": "veloria-league-council-brando-idle-south-v1",
       "narrativeSource": "content/trainers/league_council3.trainer.json",
       "origin": {
-        "x": 0.6154,
-        "y": 0.9809
+        "x": 0.54847,
+        "y": 0.966797
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-council-brando-idle-north-v1",
+          "origin": {
+            "x": 0.505411,
+            "y": 0.972005
+          },
+          "displaySize": 58.834473
+        },
+        "down": {
+          "assetKey": "veloria-league-council-brando-idle-south-v1",
+          "origin": {
+            "x": 0.54847,
+            "y": 0.966797
+          },
+          "displaySize": 59.899721
+        },
+        "left": {
+          "assetKey": "veloria-league-council-brando-idle-west-v1",
+          "origin": {
+            "x": 0.724406,
+            "y": 0.972005
+          },
+          "displaySize": 59.198899
+        },
+        "right": {
+          "assetKey": "veloria-league-council-brando-idle-east-v1",
+          "origin": {
+            "x": 0.428348,
+            "y": 0.977865
+          },
+          "displaySize": 58.915068
+        }
       }
     },
     {
@@ -1644,12 +1823,45 @@
       "npcIds": [
         "league_council4"
       ],
-      "assetKey": "veloria-league-council-v1",
-      "frame": 3,
+      "assetKey": "veloria-league-council-luce-idle-south-v1",
       "narrativeSource": "content/trainers/league_council4.trainer.json",
       "origin": {
-        "x": 0.4799,
-        "y": 0.9809
+        "x": 0.571291,
+        "y": 0.961589
+      },
+      "idleViews": {
+        "up": {
+          "assetKey": "veloria-league-council-luce-idle-north-v1",
+          "origin": {
+            "x": 0.55532,
+            "y": 0.958333
+          },
+          "displaySize": 59.733333
+        },
+        "down": {
+          "assetKey": "veloria-league-council-luce-idle-south-v1",
+          "origin": {
+            "x": 0.571291,
+            "y": 0.961589
+          },
+          "displaySize": 58.995885
+        },
+        "left": {
+          "assetKey": "veloria-league-council-luce-idle-west-v1",
+          "origin": {
+            "x": 0.566314,
+            "y": 0.986328
+          },
+          "displaySize": 58.197564
+        },
+        "right": {
+          "assetKey": "veloria-league-council-luce-idle-east-v1",
+          "origin": {
+            "x": 0.422704,
+            "y": 0.970703
+          },
+          "displaySize": 58.434783
+        }
       }
     },
     {

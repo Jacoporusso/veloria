@@ -6833,12 +6833,7 @@
             {
               "name": "sprite",
               "type": "string",
-              "value": "veloria-league-council-v1"
-            },
-            {
-              "name": "spriteFrame",
-              "type": "int",
-              "value": 2
+              "value": "veloria-league-council-brando-idle-south-v1"
             },
             {
               "name": "trainerId",
@@ -6868,12 +6863,12 @@
             {
               "name": "spriteOriginX",
               "type": "float",
-              "value": 0.6154
+              "value": 0.54847
             },
             {
               "name": "spriteOriginY",
               "type": "float",
-              "value": 0.9809
+              "value": 0.966797
             }
           ]
         }

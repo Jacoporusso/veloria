@@ -4957,6 +4957,462 @@
         }
       ],
       "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-silvo",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 1"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-silvo",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council2",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-silvo-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-north-v1.webp",
+          "sourceSha256": "acdd773ce8c5f57cdd7a448df7d01bbeda2e6aa7d62f516aeebde3f130dc1490",
+          "runtimeSha256": "74d82d2e85f004771c62a93dcd1a40c4fc967c35ece6d7be392e856842038018",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.542096,
+            "y": 0.96875
+          },
+          "displaySize": 58.874743,
+          "alpha128Bounds": [
+            247,
+            27,
+            802,
+            1488
+          ],
+          "outputId": "exec-42c73de1-24b6-448e-9427-c3f7b6283789",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-42c73de1-24b6-448e-9427-c3f7b6283789.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-silvo-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-south-v1.webp",
+          "sourceSha256": "77d326bd874521183768887c6cc47b6304017d5c25bf8a5122b9f67996636f23",
+          "runtimeSha256": "f81e603778f90d38d025a8c4f6482e7f2e2cb3bd476da822c83aeca2ad432645",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.578445,
+            "y": 0.955078
+          },
+          "displaySize": 59.941463,
+          "alpha128Bounds": [
+            249,
+            32,
+            841,
+            1467
+          ],
+          "outputId": "exec-ff68252c-05dc-42d1-a45e-e7c2b6091798",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-ff68252c-05dc-42d1-a45e-e7c2b6091798.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-silvo-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-west-v1.webp",
+          "sourceSha256": "6fdf7fbde6fd6df9b8e70b378619f323fe02071ecc5c454eb41bc2d6873dc441",
+          "runtimeSha256": "e829237fcc02fb71285fd3de2301fc28f20dc48a7001d52a70d4461b9d96fa7d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.509555,
+            "y": 0.977214
+          },
+          "displaySize": 58.434783,
+          "alpha128Bounds": [
+            332,
+            29,
+            688,
+            1501
+          ],
+          "outputId": "exec-addc7487-3042-48ac-8af7-5b94386b09f5",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-addc7487-3042-48ac-8af7-5b94386b09f5.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-silvo-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-silvo-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-silvo-idle-east-v1.webp",
+          "sourceSha256": "adccd62ad3ae8b9709f999e444022030edacf674acaa899a410ffd73e5ea817b",
+          "runtimeSha256": "416a24967c9f92e9ce73cbbc491a5955a59ca5d0dd870b02fc7fda64774aae37",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.498614,
+            "y": 0.957031
+          },
+          "displaySize": 60.193142,
+          "alpha128Bounds": [
+            320,
+            41,
+            731,
+            1470
+          ],
+          "outputId": "exec-cfe83cb0-da0a-49b8-96e2-99d881f88392",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-9cc3-7e23-9648-78ebafaf0f96\\exec-cfe83cb0-da0a-49b8-96e2-99d881f88392.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-brando",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 2"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-brando",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council3",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-brando-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-north-v1.webp",
+          "sourceSha256": "9c02523fd36512197c4e1d639ef53804f7862c44d706e4ad27895d2994122894",
+          "runtimeSha256": "93c01d2f4706ecad4095a471605c934323743c5db8c3fa3cc96541951830c665",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.505411,
+            "y": 0.972005
+          },
+          "displaySize": 58.834473,
+          "alpha128Bounds": [
+            186,
+            31,
+            837,
+            1493
+          ],
+          "outputId": "exec-79d7523c-d307-4c71-8c35-a202134251f3",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-79d7523c-d307-4c71-8c35-a202134251f3.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-brando-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-south-v1.webp",
+          "sourceSha256": "398be875269923ed4592785f462007900da8d6f76c648dfc3d7917a8002894b1",
+          "runtimeSha256": "435d267a605e118be3dcdd2f59c2fe059aa1ceefbf2d2726108638228ac8b47c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.54847,
+            "y": 0.966797
+          },
+          "displaySize": 59.899721,
+          "alpha128Bounds": [
+            188,
+            49,
+            830,
+            1485
+          ],
+          "outputId": "exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-a8b827bc-abb8-49c4-986b-54e403bf5a6a.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-brando-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-west-v1.webp",
+          "sourceSha256": "2e95659793718a75223c26660282392900d915aa8dc4b05a552950ca090107b5",
+          "runtimeSha256": "80a39f0145b1e86a989013e273b53d1ee5588c1769629c4d66302366d6b1ad0c",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.724406,
+            "y": 0.972005
+          },
+          "displaySize": 59.198899,
+          "alpha128Bounds": [
+            215,
+            40,
+            812,
+            1493
+          ],
+          "outputId": "exec-ecd141ba-6336-47cc-af25-9e0e2054a305",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-ecd141ba-6336-47cc-af25-9e0e2054a305.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-brando-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-brando-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-brando-idle-east-v1.webp",
+          "sourceSha256": "2d2bec32447dc8f54cd62a951478bd6d8731ad33bf78bb01a0357a914c792653",
+          "runtimeSha256": "0651244ccab186b020a0a1399fae07cd1fa554f81cf075fe116ffba2915b7765",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.428348,
+            "y": 0.977865
+          },
+          "displaySize": 58.915068,
+          "alpha128Bounds": [
+            216,
+            42,
+            835,
+            1502
+          ],
+          "outputId": "exec-2c46e8bb-264a-45ac-9284-a88b9f14d200",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-e6a2-7c23-b7e9-6d0d6facff79\\exec-2c46e8bb-264a-45ac-9284-a88b9f14d200.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-luce",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 3"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-luce",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council4",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-luce-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-north-v1.webp",
+          "sourceSha256": "a3225411745ceb3fa1f6bb085fe97af1b86b46945eba2a1759b288afe88b67b1",
+          "runtimeSha256": "d551c8def081e0d7e6af67603130d1dafd73290c2d28f7cc71c0fffeed191f3e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.55532,
+            "y": 0.958333
+          },
+          "displaySize": 59.733333,
+          "alpha128Bounds": [
+            260,
+            32,
+            752,
+            1472
+          ],
+          "outputId": "exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-29e894d8-4c7f-4eba-a10d-9173eb2b8137.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-luce-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-south-v1.webp",
+          "sourceSha256": "e9ac334bbdd2f639564c8c578f8c15eed844d9c6f4f420d99c79e0bbbfdfcf2e",
+          "runtimeSha256": "a59a4cdf0ede6df8795958c0e05bcc5ba2f7872f5e5e066b8ea99bff4b49b34d",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.571291,
+            "y": 0.961589
+          },
+          "displaySize": 58.995885,
+          "alpha128Bounds": [
+            267,
+            19,
+            815,
+            1477
+          ],
+          "outputId": "exec-17354035-3bf2-4013-8a83-1a781f1e1724",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-17354035-3bf2-4013-8a83-1a781f1e1724.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-luce-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-west-v1.webp",
+          "sourceSha256": "292600cfcc851c7a25da19126475659051f83aa6669d57072a10f8a4f98c1ce6",
+          "runtimeSha256": "f6879a8cc085d7cc4afc0c42ee57b533d7240c905d07df24876db7bb0bb3016e",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.566314,
+            "y": 0.986328
+          },
+          "displaySize": 58.197564,
+          "alpha128Bounds": [
+            310,
+            37,
+            694,
+            1515
+          ],
+          "outputId": "exec-a5bb456a-46bf-40cc-af50-6b009341d6ca",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-a5bb456a-46bf-40cc-af50-6b009341d6ca.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-luce-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-luce-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-luce-idle-east-v1.webp",
+          "sourceSha256": "93f6c1e7ba71c22060af8db2bc755e4d7b6c0a39111f3cf8442e60287f356862",
+          "runtimeSha256": "b94e179dc3f242cf6648e64ee45e6f308df18550fb29bc22dce2ab215cb04432",
+          "width": 1024,
+          "height": 1536,
+          "origin": {
+            "x": 0.422704,
+            "y": 0.970703
+          },
+          "displaySize": 58.434783,
+          "alpha128Bounds": [
+            325,
+            19,
+            796,
+            1491
+          ],
+          "outputId": "exec-e69c2465-8f79-40b0-9841-d6412b019951",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a14650-01c1-7fe2-b816-3d267a07fc92\\exec-e69c2465-8f79-40b0-9841-d6412b019951.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
+    },
+    {
+      "profileId": "league-council-nerea",
+      "generator": "built-in imagegen",
+      "promptDocument": "assets/prompts/council-directional-idles-v1.json",
+      "sourceReferences": [
+        {
+          "path": "assets/sources/veloria-league-council-v1.png",
+          "role": "original identity atlas, frame 0"
+        },
+        {
+          "path": "content/characters/appearances.v2.json#league-council-nerea",
+          "role": "canonical profile"
+        },
+        {
+          "path": "content/dialogue/world.v1.json#league_council1",
+          "role": "dialogue identity"
+        }
+      ],
+      "views": [
+        {
+          "direction": "up",
+          "assetKey": "veloria-league-council-nerea-idle-north-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-north-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-north-v1.webp",
+          "sourceSha256": "4d91e5a353742c1773d35bfc2cc5e7ffcdb65e6ccb7d465cabb4c5d33db64538",
+          "runtimeSha256": "83fa0aadd0f439545adae7c23091db3ff841a671d1522ba967c7a505f38900a7",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.497533,
+            "y": 0.986443
+          },
+          "displaySize": 57.278956,
+          "alpha128Bounds": [
+            422,
+            11,
+            834,
+            1237
+          ],
+          "outputId": "exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-da9fe27a-1abd-4c9f-8929-c14fbe48ab75.png"
+        },
+        {
+          "direction": "down",
+          "assetKey": "veloria-league-council-nerea-idle-south-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-south-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-south-v1.webp",
+          "sourceSha256": "5501dce09f7bf3e99b81d7cf89de4d91fe6cff6b165ddee5c51fdeb456529ae8",
+          "runtimeSha256": "bdd72654ac0cef1f47688052cd5c3cc0a2082d97fcbd045863c1aa1f297e15bf",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.553243,
+            "y": 0.96571
+          },
+          "displaySize": 59.210793,
+          "alpha128Bounds": [
+            424,
+            25,
+            861,
+            1211
+          ],
+          "outputId": "exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-d5c20c8a-fc80-40f0-96e2-b0ac23b0c8dc.png"
+        },
+        {
+          "direction": "left",
+          "assetKey": "veloria-league-council-nerea-idle-west-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-west-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-west-v1.webp",
+          "sourceSha256": "5b632c51469b1a4cc93c30575152ea886edf3fa8db1ea323e2a8f226cee1af99",
+          "runtimeSha256": "ba54814e1b43988e7b35ce37d7a81f7ba10208e80a50df1f85d08068639ea26f",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.486242,
+            "y": 0.991228
+          },
+          "displaySize": 57.046304,
+          "alpha128Bounds": [
+            481,
+            12,
+            811,
+            1243
+          ],
+          "outputId": "exec-3338e7ae-729d-4f49-8c06-0b674260ea2d",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-3338e7ae-729d-4f49-8c06-0b674260ea2d.png"
+        },
+        {
+          "direction": "right",
+          "assetKey": "veloria-league-council-nerea-idle-east-v1",
+          "sourcePath": "assets/sources/veloria-league-council-nerea-idle-east-v1.png",
+          "runtimePath": "public/assets/sprites/veloria-league-council-nerea-idle-east-v1.webp",
+          "sourceSha256": "e9421aad34518fff8cc3fa8cf5da345c51540b79562f0335c0cd393da8fa99f7",
+          "runtimeSha256": "58e643042104ceba07e8002cfa4f2d434ba37fd01ba2fef1654cd7e90c18d1be",
+          "width": 1254,
+          "height": 1254,
+          "origin": {
+            "x": 0.531886,
+            "y": 0.966507
+          },
+          "displaySize": 58.86337,
+          "alpha128Bounds": [
+            463,
+            19,
+            774,
+            1212
+          ],
+          "outputId": "exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b",
+          "generatorOutputPath": "C:\\Users\\jacop\\.codex\\generated_images\\01a18949-5366-7ba0-94dc-b659cc6557d0\\exec-258ad0b4-90cf-430b-9cbd-3fa9c230f57b.png"
+        }
+      ],
+      "calibration": "Full alpha>=128 body height calibrated to 56 world px (displaySize=56*canvasHeight/bodyHeight). origin.y is the exclusive bottom row of the alpha>=128 silhouette divided by canvas height; origin.x is the alpha-weighted centroid of alpha>=128 pixels in the bottom 50 canvas rows. PNG is a byte-for-byte copy of the approved candidate. Lossless WebP decoded RGBA bytes were verified identical."
     }
   ]
 }
