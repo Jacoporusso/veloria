@@ -2,6 +2,8 @@ import type { CreatureSave } from '../../persistence/save-types.ts';
 import type { BattleBaseStats, BattleCreature, BattleStats, BattleType, MoveDefinition, MoveSlot } from './types.ts';
 
 export interface SpeciesBattleDefinition {
+  /** Official PokéAPI capture_rate, 1–255. */
+  readonly captureRate?: number;
   readonly speciesId: number;
   readonly name: string;
   readonly defaultAbilityId?: string;
@@ -75,6 +77,7 @@ export function createBattleCreature(options: CreateBattleCreatureOptions): Batt
     types: [...species.types],
     baseStats: { ...species.baseStats },
     weightKg: species.weightKg,
+    captureRate: species.captureRate,
     growthCurveId: species.growthCurveId ?? 'veloria_medium_fast_v1',
     stats,
     hp: stats.maxHp,
@@ -146,6 +149,9 @@ export function calculateStats(base: BattleBaseStats, level: number): BattleStat
 }
 
 function validateSpecies(species: SpeciesBattleDefinition): void {
+  if (species.captureRate !== undefined && (!Number.isInteger(species.captureRate) || species.captureRate < 1 || species.captureRate > 255)) {
+    throw new Error(`Species ${species.speciesId} has an invalid capture rate.`);
+  }
   if (!species.name.trim() || species.types.length < 1 || species.types.length > 2 || !Number.isFinite(species.experienceYield) || species.experienceYield < 0) {
     throw new Error(`Species ${species.speciesId} has invalid name, types, or experience yield.`);
   }

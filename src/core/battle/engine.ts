@@ -1,4 +1,5 @@
 import { EMERGENCY_MOVE_ID, EMERGENCY_MOVE_NAME, hasUsableBattleMove } from './emergency-move.ts';
+import { captureChance } from './capture-chance.ts';
 import { BATTLE_STATS, MIN_STAT_STAGE, MAX_STAT_STAGE, effectiveStat, effectiveMoveAccuracy } from './stat-stages.ts';
 import { effectivenessFor, experienceForDefeat, type BattleRules } from './rules.ts';
 import { abilityPreventsMove, abilityPreventsTypeDamage, calculateHitDamage } from './damage.ts';
@@ -345,8 +346,7 @@ function applyCapture(
 ): BattleState {
   const target = active(state, 'opponent');
   const item = rules.captureItems[command.itemId];
-  const missingHp = 1 - target.hp / target.stats.maxHp;
-  const chance = Math.max(0, Math.min(1, item.baseChance + (item.missingHpBonus ?? 0) * missingHp + (target.status ? item.statusBonus ?? 0 : 0)));
+  const chance = captureChance(target, item);
   const roll = random(cursor);
   events.push({ type: 'captureAttempted', side: 'player', itemId: command.itemId, wildCreatureId: target.instanceId, chance, roll });
   if (roll >= chance) {
@@ -2225,6 +2225,7 @@ function evolveAfterBattle(recipient: BattleCreature, previousLevel: number, rul
       abilityId: target.defaultAbilityId,
       weightKg: target.weightKg,
       growthCurveId: target.growthCurveId ?? evolved.growthCurveId,
+      captureRate: target.captureRate,
       experienceYield: target.experienceYield,
       stats: evolvedStats,
       hp: evolved.hp === 0 ? 0 : Math.min(evolvedStats.maxHp, evolved.hp + Math.max(0, hpIncrease)),

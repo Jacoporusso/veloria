@@ -64,7 +64,7 @@ test('real battle bag shows Italian names, quantities and recovery effects', asy
   const labels = () => page.evaluate(() => (window as any).__bagGame.scene.keys.battle.ui.list
     .filter((item: any) => item.type === 'Text').map((item: any) => item.text));
   await tapBattleLabel(page, '__bagGame', 'CATTURA');
-  await expect.poll(labels).toContain('SFERA · ×3');
+  await expect.poll(labels).toContain('SFERA · ×3\nCattura ~25%');
   await tapBattleLabel(page, '__bagGame', 'BORSA');
   for (const [width, height] of [[390, 844], [844, 390]]) {
     await page.setViewportSize({ width, height });

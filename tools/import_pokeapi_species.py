@@ -20,6 +20,18 @@ def parameters_for_generation(raw, generation):
     return stats, [item['type']['name'] for item in sorted(types, key=lambda item: item['slot'])]
 
 
+def capture_rate_for_species(raw, species_id):
+    """Return the official PokéAPI capture rate after validating its sourced range."""
+    value = raw.get('capture_rate')
+    if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 255:
+        raise ValueError(f'Invalid capture_rate for species {species_id}: {value!r}')
+    return value
+
+
+def drift_fields(current, expected):
+    return [key for key, value in expected.items() if current.get(key) != value]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fetch', action='store_true')
@@ -47,6 +59,7 @@ def main(argv=None):
         expected = {
             'speciesId': species_id,
             'name': next(name['name'] for name in names['names'] if name['language']['name'] == 'it'),
+            'captureRate': capture_rate_for_species(names, species_id),
             'types': types,
             'baseStats': base_stats,
             'weightKg': raw['weight'] / 10,
@@ -56,8 +69,9 @@ def main(argv=None):
         }
         current = data['species'].get(str(species_id), {})
         if args.check:
-            if any(current.get(key) != value for key, value in expected.items()):
-                raise ValueError(f'Species parameter drift for {species_id}')
+            drift = drift_fields(current, expected)
+            if drift:
+                raise ValueError(f'Species parameter drift for {species_id}: {", ".join(drift)}')
         else:
             data['species'][str(species_id)] = {**expected,
                 'defaultMoveIds': current.get('defaultMoveIds', parent['defaultMoveIds']),

@@ -5,8 +5,10 @@ import { buyFromShop } from './helpers/shop';
 import { readFile, readdir } from 'node:fs/promises';
 import { enterGame } from './helpers/enter-game';
 import { createBattleCreature } from '../../src/core/battle/create-creature.ts';
+import { captureChance } from '../../src/core/battle/capture-chance.ts';
 import speciesRegistry from '../../content/battle/species.v1.json' with { type: 'json' };
 import moveRegistry from '../../content/battle/moves.v1.json' with { type: 'json' };
+import itemRegistry from '../../content/items/items.v1.json' with { type: 'json' };
 import { seedBrowserSave, walkDirection, walkTo as planWalkTo } from './helpers/world-navigation';
 import { prepareMonorailTraveler, stationArrival, travelResources } from './helpers/monorail';
 import { readBrowserSave } from './helpers/world-navigation';
@@ -241,6 +243,105 @@ test('Articuno research clues and puzzle progress persist through a real offline
   expect(completed.flags).not.toContain('q_special_articuno_caught');
   expect(failures).toEqual([]);
   expect(errors).toEqual([]);
+});
+
+test('rare Articuno capture attempt settles once and can be fled offline after a failed throw', async ({ page, context }, info) => {
+  test.setTimeout(process.env.CI ? 240_000 : 180_000);
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const metadata = JSON.parse(await readFile('content/maps/r13_tornanti_bianchi.map.json', 'utf8'));
+  const cachePaths = ['/tilemaps/r13_tornanti_bianchi.tmj',
+    ...metadata.renderAssets.map((asset: { path: string }) => `/${asset.path.replace(/^public\//, '')}`)];
+  await page.evaluate(async paths => {
+    await Promise.all(paths.map(async path => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Unable to warm offline resource: ${path}`);
+      await response.arrayBuffer();
+    }));
+  }, cachePaths);
+
+  const save = await readBrowserSave(page);
+  const rattata = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 19, level: 80, instanceId: 'offline-rare-capture-rattata' });
+  expect(rattata.abilityId).toBe('run-away');
+  save.party = [{ instanceId: rattata.instanceId, speciesId: rattata.speciesId, level: rattata.level, experience: 0,
+    hp: rattata.hp, maxHp: rattata.stats.maxHp, moves: rattata.moves.map(slot => ({ id: slot.moveId, pp: slot.pp })) }];
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen',
+    'prologue_complete_seen', 'q_league_completed', 'q_league_epilogue_seen', 'q_research_articuno_revealed'])];
+  save.inventory = { ...save.inventory, 'poke-ball': 4 };
+  save.rngState = 12345;
+  save.player = { ...save.player, mapId: 'veloria/r13_tornanti_bianchi', spawnPointId: 'from_passobrina', x: 27, y: 22 };
+  await seedBrowserSave(page, save);
+  const failures: string[] = [], errors: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url())); page.on('pageerror', error => errors.push(error.message));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await expect.poll(async () => (await readBrowserSave(page)).player).toMatchObject({ mapId: 'veloria/r13_tornanti_bianchi', x: 27, y: 22 });
+  await page.getByRole('button', { name: 'Vai in basso', exact: true }).tap();
+  const action = page.getByRole('button', { name: 'Conferma e interagisci', exact: true });
+  await action.tap(); await expect(page.getByRole('button', { name: 'INCONTRA', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'INCONTRA', exact: true }).tap();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
+
+  const canvasBox = await page.locator('#game canvas').boundingBox();
+  if (!canvasBox) throw new Error('Battle canvas is not visible offline.');
+  const initialLayout = battleCommandLayout(canvasBox.width, canvasBox.height);
+  await tapBattleControl(page, 'captures');
+  const articuno = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 144, level: 50, instanceId: 'offline-capture-chance-articuno' });
+  const ballRule = (itemRegistry.items as any)['poke-ball'].capture;
+  const modeledChance = captureChance(articuno, ballRule);
+  expect(modeledChance).toBeGreaterThan(0.05);
+  expect(modeledChance).toBeLessThan(0.07);
+  await page.screenshot({ path: info.outputPath(`articuno-capture-chance-${initialLayout.landscape ? 'landscape' : 'portrait'}.png`) });
+  const initialViewport = page.viewportSize();
+  if (initialViewport) {
+    const otherViewport = initialLayout.landscape ? { width: 390, height: 844 } : { width: 844, height: 390 };
+    await page.setViewportSize(otherViewport);
+    await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
+    await page.screenshot({ path: info.outputPath(`articuno-capture-chance-${initialLayout.landscape ? 'portrait' : 'landscape'}.png`) });
+    await page.setViewportSize(initialViewport);
+    await expect(page.locator('#game')).not.toHaveAttribute('aria-busy', 'true');
+  }
+  // Articuno's sourced rate 3/255 and the current poke-ball produce about six percent at full HP.
+  await page.keyboard.press('Enter', { delay: 40 });
+  await advanceBattleMessages(page);
+  if (await page.locator('body').evaluate(body => body.classList.contains('battle-active'))) {
+    const box = await page.locator('#game canvas').boundingBox();
+    if (!box) throw new Error('Battle canvas disappeared before flee.');
+    const nav = battleCommandLayout(box.width, box.height).navigation;
+    await page.touchscreen.tap(box.x + nav.x + nav.width * 4.5 / 5, box.y + nav.y + nav.height / 2);
+    await page.keyboard.press('Enter', { delay: 40 });
+    await advanceBattleMessages(page);
+  }
+  // Resolve the terminal receipt as well as the turn messages: TORNA AL VIAGGIO
+  // is a separate real action after the flee/capture outcome.
+  for (let confirm = 0; confirm < 4 && await page.locator('body').evaluate(body => body.classList.contains('battle-active')); confirm++) {
+    await page.keyboard.press('Enter', { delay: 40 });
+    await page.waitForTimeout(150);
+  }
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+
+  const settled = await readBrowserSave(page);
+  const caught = settled.party.filter(member => member.speciesId === 144);
+  expect(settled.inventory['poke-ball']).toBe(3);
+  expect(settled.rngState).not.toBe(12345);
+  expect(caught.length).toBeLessThanOrEqual(1);
+  if (caught.length) {
+    expect(settled.party).toHaveLength(2);
+    expect(settled.flags).toContain('q_special_articuno_caught');
+  } else {
+    expect(settled.party).toHaveLength(1);
+    expect(settled.party[0]).toMatchObject({ speciesId: 19, level: 80 });
+    expect(settled.flags).not.toContain('q_special_articuno_caught');
+  }
+  await page.reload(); await enterGame(page);
+  const reloaded = await readBrowserSave(page);
+  expect(reloaded.inventory['poke-ball']).toBe(3);
+  expect(reloaded.rngState).toBe(settled.rngState);
+  expect(reloaded.party.filter(member => member.speciesId === 144)).toHaveLength(caught.length);
+  expect(reloaded.flags.includes('q_special_articuno_caught')).toBe(caught.length === 1);
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
 });
 
 for (const npc of [

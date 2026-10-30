@@ -1,4 +1,5 @@
 import { effectiveMoveAccuracy } from '../../core/battle/stat-stages.ts';
+import { captureChance } from '../../core/battle/capture-chance.ts';
 import { estimateMoveDamage } from '../../core/battle/damage.ts';
 import { navigateGrid } from '../input/grid-navigation.ts';
 import { chooseOpponentCommand, type OpponentPolicy } from '../../core/battle/opponent-policy.ts';
@@ -291,8 +292,11 @@ export class BattleScene extends Phaser.Scene {
     const arena = this.commandLayout.arena;
     const fieldWidth = arena.width, fieldHeight = arena.height;
     const size = Math.min(170, fieldWidth * .38, fieldHeight * .37);
-    this.drawCreature(this.displayedCreature('opponent'), 'opponent', fieldWidth * .73, Math.max(124, fieldHeight * .36), size * .88);
-    this.drawCreature(this.displayedCreature('player'), 'player', fieldWidth * .24, fieldHeight * .66, size);
+    // Reserve the full illustration bounds around each HUD, including the idle bob.
+    const opponentY = Math.max(124, fieldHeight * .36, 91 + size * .88 / 2 + 8);
+    const playerY = Math.min(fieldHeight * .66, fieldHeight - 102 - size / 2 - 8);
+    this.drawCreature(this.displayedCreature('opponent'), 'opponent', fieldWidth * .73, opponentY, size * .88);
+    this.drawCreature(this.displayedCreature('player'), 'player', fieldWidth * .24, playerY, size);
     const cardWidth = Math.min(194, fieldWidth * .48);
     this.drawCreatureInfo(this.displayedCreature('opponent'), 'opponent', fieldWidth - cardWidth - 12, 12, cardWidth, 79);
     this.drawCreatureInfo(this.displayedCreature('player'), 'player', 12, fieldHeight - 102, cardWidth, 92);
@@ -637,10 +641,18 @@ export class BattleScene extends Phaser.Scene {
     this.drawGridButtons(x, y, width, options, 2, 3);
   }
 
+  private captureChanceText(itemId: string): string {
+    const chance = captureChance(this.activeCreature('opponent'), this.rules.captureItems[itemId]);
+    if (chance === 1) return '\nCattura garantita';
+    if (chance === 0) return '\nCattura impossibile';
+    if (chance < .01) return '\nCattura <1%';
+    return `\nCattura ~${Math.min(99, Math.round(chance * 100))}%`;
+  }
+
   private drawItemChoices(x: number, y: number, width: number): void {
     const ids = this.mode === 'items' ? this.availableItemIds() : this.availableCaptureIds();
     const options = ids.map(itemId => ({
-      label: `${this.prettyId(itemId)}${this.remainingInventory ? ` · ×${this.remainingInventory[itemId] ?? 0}` : ''}${this.mode === 'items' ? this.itemEffectLabel(itemId) : ''}`,
+      label: `${this.prettyId(itemId)}${this.remainingInventory ? ` · ×${this.remainingInventory[itemId] ?? 0}` : ''}${this.mode === 'items' ? this.itemEffectLabel(itemId) : this.captureChanceText(itemId)}`,
       enabled: true,
       callback: () => this.mode === 'items'
         ? this.act({ kind: 'useItem', itemId, targetIndex: this.state.player.activeIndex })

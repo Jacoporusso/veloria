@@ -8,7 +8,7 @@ export interface BattleItemRule {
 }
 
 export interface CaptureItemRule {
-  /** Probability when the wild creature has full HP and no major status, from 0 to 1. */
+  /** Reference chance before species rarity, from 0 to 1; 1 explicitly guarantees capture. */
   readonly baseChance: number;
   /** Added probability scaled by the fraction of HP missing. */
   readonly missingHpBonus?: number;
@@ -21,6 +21,7 @@ export type ExperienceCurve =
   | { readonly exponent: number; readonly multiplier: number };
 
 export interface EvolutionTarget {
+  readonly captureRate?: number;
   readonly speciesId: number;
   readonly name: string;
   readonly defaultAbilityId?: string;

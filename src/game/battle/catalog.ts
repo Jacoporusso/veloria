@@ -60,7 +60,7 @@ const evolutionRules = progression.evolutions.reduce<Record<number, EvolutionRul
 /** Prototype consumable values remain content-owned until the battle balance pass. */
 export const veloriaBattleRules = {
   ...prototypeBattleRules,
-  id: prototypeBattleRules.id,
+  id: 'veloria_battle_species_capture_v1',
   typeChart: battleTypeChart,
   experienceCurves: growthCurves,
   levelUpMoves: Object.fromEntries(Object.entries(levelUpData.species).map(([id, entries]) => [id, entries.map(entry => {

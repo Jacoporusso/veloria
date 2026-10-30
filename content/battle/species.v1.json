@@ -15,6 +15,7 @@
     "1": {
       "speciesId": 1,
       "name": "Bulbasaur",
+      "captureRate": 45,
       "types": [
         "grass",
         "poison"
@@ -98,6 +99,7 @@
     "2": {
       "speciesId": 2,
       "name": "Ivysaur",
+      "captureRate": 45,
       "types": [
         "grass",
         "poison"
@@ -190,6 +192,7 @@
     "3": {
       "speciesId": 3,
       "name": "Venusaur",
+      "captureRate": 45,
       "types": [
         "grass",
         "poison"
@@ -291,6 +294,7 @@
     "4": {
       "speciesId": 4,
       "name": "Charmander",
+      "captureRate": 45,
       "types": [
         "fire"
       ],
@@ -357,6 +361,7 @@
     "5": {
       "speciesId": 5,
       "name": "Charmeleon",
+      "captureRate": 45,
       "types": [
         "fire"
       ],
@@ -428,6 +433,7 @@
     "6": {
       "speciesId": 6,
       "name": "Charizard",
+      "captureRate": 45,
       "types": [
         "fire",
         "flying"
@@ -529,6 +535,7 @@
     "7": {
       "speciesId": 7,
       "name": "Squirtle",
+      "captureRate": 45,
       "types": [
         "water"
       ],
@@ -611,6 +618,7 @@
     "8": {
       "speciesId": 8,
       "name": "Wartortle",
+      "captureRate": 45,
       "types": [
         "water"
       ],
@@ -702,6 +710,7 @@
     "9": {
       "speciesId": 9,
       "name": "Blastoise",
+      "captureRate": 45,
       "types": [
         "water"
       ],
@@ -802,6 +811,7 @@
     "10": {
       "speciesId": 10,
       "name": "Caterpie",
+      "captureRate": 255,
       "types": [
         "bug"
       ],
@@ -840,6 +850,7 @@
     "11": {
       "speciesId": 11,
       "name": "Metapod",
+      "captureRate": 120,
       "types": [
         "bug"
       ],
@@ -873,6 +884,7 @@
     "12": {
       "speciesId": 12,
       "name": "Butterfree",
+      "captureRate": 45,
       "types": [
         "bug",
         "flying"
@@ -955,6 +967,7 @@
     "13": {
       "speciesId": 13,
       "name": "Weedle",
+      "captureRate": 255,
       "types": [
         "bug",
         "poison"
@@ -994,6 +1007,7 @@
     "14": {
       "speciesId": 14,
       "name": "Kakuna",
+      "captureRate": 120,
       "types": [
         "bug",
         "poison"
@@ -1028,6 +1042,7 @@
     "15": {
       "speciesId": 15,
       "name": "Beedrill",
+      "captureRate": 45,
       "types": [
         "bug",
         "poison"
@@ -1102,6 +1117,7 @@
     "16": {
       "speciesId": 16,
       "name": "Pidgey",
+      "captureRate": 255,
       "types": [
         "normal",
         "flying"
@@ -1181,6 +1197,7 @@
     "17": {
       "speciesId": 17,
       "name": "Pidgeotto",
+      "captureRate": 120,
       "types": [
         "normal",
         "flying"
@@ -1269,6 +1286,7 @@
     "18": {
       "speciesId": 18,
       "name": "Pidgeot",
+      "captureRate": 45,
       "types": [
         "normal",
         "flying"
@@ -1362,6 +1380,7 @@
     "19": {
       "speciesId": 19,
       "name": "Rattata",
+      "captureRate": 255,
       "types": [
         "normal"
       ],
@@ -1441,6 +1460,7 @@
     "20": {
       "speciesId": 20,
       "name": "Raticate",
+      "captureRate": 127,
       "types": [
         "normal"
       ],
@@ -1537,6 +1557,7 @@
     "21": {
       "speciesId": 21,
       "name": "Spearow",
+      "captureRate": 255,
       "types": [
         "normal",
         "flying"
@@ -1609,6 +1630,7 @@
     "22": {
       "speciesId": 22,
       "name": "Fearow",
+      "captureRate": 90,
       "types": [
         "normal",
         "flying"
@@ -1694,6 +1716,7 @@
     "23": {
       "speciesId": 23,
       "name": "Ekans",
+      "captureRate": 255,
       "types": [
         "poison"
       ],
@@ -1777,6 +1800,7 @@
     "24": {
       "speciesId": 24,
       "name": "Arbok",
+      "captureRate": 90,
       "types": [
         "poison"
       ],
@@ -1885,6 +1909,7 @@
     "25": {
       "speciesId": 25,
       "name": "Pikachu",
+      "captureRate": 190,
       "types": [
         "electric"
       ],
@@ -1964,6 +1989,7 @@
     "26": {
       "speciesId": 26,
       "name": "Raichu",
+      "captureRate": 75,
       "types": [
         "electric"
       ],
@@ -2008,6 +2034,7 @@
     "27": {
       "speciesId": 27,
       "name": "Sandshrew",
+      "captureRate": 255,
       "types": [
         "ground"
       ],
@@ -2086,6 +2113,7 @@
     "28": {
       "speciesId": 28,
       "name": "Sandslash",
+      "captureRate": 90,
       "types": [
         "ground"
       ],
@@ -2177,6 +2205,7 @@
     "29": {
       "speciesId": 29,
       "name": "Nidoran♀",
+      "captureRate": 235,
       "types": [
         "poison"
       ],
@@ -2255,6 +2284,7 @@
     "30": {
       "speciesId": 30,
       "name": "Nidorina",
+      "captureRate": 120,
       "types": [
         "poison"
       ],
@@ -2333,6 +2363,7 @@
     "31": {
       "speciesId": 31,
       "name": "Nidoqueen",
+      "captureRate": 45,
       "types": [
         "poison",
         "ground"
@@ -2390,6 +2421,7 @@
     "32": {
       "speciesId": 32,
       "name": "Nidoran♂",
+      "captureRate": 235,
       "types": [
         "poison"
       ],
@@ -2468,6 +2500,7 @@
     "33": {
       "speciesId": 33,
       "name": "Nidorino",
+      "captureRate": 120,
       "types": [
         "poison"
       ],
@@ -2546,6 +2579,7 @@
     "34": {
       "speciesId": 34,
       "name": "Nidoking",
+      "captureRate": 45,
       "types": [
         "poison",
         "ground"
@@ -2603,6 +2637,7 @@
     "35": {
       "speciesId": 35,
       "name": "Clefairy",
+      "captureRate": 150,
       "types": [
         "normal"
       ],
@@ -2698,6 +2733,7 @@
     "36": {
       "speciesId": 36,
       "name": "Clefable",
+      "captureRate": 25,
       "types": [
         "normal"
       ],
@@ -2742,6 +2778,7 @@
     "37": {
       "speciesId": 37,
       "name": "Vulpix",
+      "captureRate": 190,
       "types": [
         "fire"
       ],
@@ -2828,6 +2865,7 @@
     "38": {
       "speciesId": 38,
       "name": "Ninetales",
+      "captureRate": 75,
       "types": [
         "fire"
       ],
@@ -2876,6 +2914,7 @@
     "39": {
       "speciesId": 39,
       "name": "Jigglypuff",
+      "captureRate": 170,
       "types": [
         "normal"
       ],
@@ -2954,6 +2993,7 @@
     "40": {
       "speciesId": 40,
       "name": "Wigglytuff",
+      "captureRate": 50,
       "types": [
         "normal"
       ],
@@ -2998,6 +3038,7 @@
     "41": {
       "speciesId": 41,
       "name": "Zubat",
+      "captureRate": 255,
       "types": [
         "poison",
         "flying"
@@ -3069,6 +3110,7 @@
     "42": {
       "speciesId": 42,
       "name": "Golbat",
+      "captureRate": 90,
       "types": [
         "poison",
         "flying"
@@ -3154,6 +3196,7 @@
     "43": {
       "speciesId": 43,
       "name": "Oddish",
+      "captureRate": 255,
       "types": [
         "grass",
         "poison"
@@ -3229,6 +3272,7 @@
     "44": {
       "speciesId": 44,
       "name": "Gloom",
+      "captureRate": 120,
       "types": [
         "grass",
         "poison"
@@ -3313,6 +3357,7 @@
     "45": {
       "speciesId": 45,
       "name": "Vileplume",
+      "captureRate": 45,
       "types": [
         "grass",
         "poison"
@@ -3366,6 +3411,7 @@
     "46": {
       "speciesId": 46,
       "name": "Paras",
+      "captureRate": 190,
       "types": [
         "bug",
         "grass"
@@ -3432,6 +3478,7 @@
     "47": {
       "speciesId": 47,
       "name": "Parasect",
+      "captureRate": 75,
       "types": [
         "bug",
         "grass"
@@ -3517,6 +3564,7 @@
     "48": {
       "speciesId": 48,
       "name": "Venonat",
+      "captureRate": 190,
       "types": [
         "bug",
         "poison"
@@ -3602,6 +3650,7 @@
     "49": {
       "speciesId": 49,
       "name": "Venomoth",
+      "captureRate": 75,
       "types": [
         "bug",
         "poison"
@@ -3703,6 +3752,7 @@
     "50": {
       "speciesId": 50,
       "name": "Diglett",
+      "captureRate": 255,
       "types": [
         "ground"
       ],
@@ -3782,6 +3832,7 @@
     "51": {
       "speciesId": 51,
       "name": "Dugtrio",
+      "captureRate": 50,
       "types": [
         "ground"
       ],
@@ -3878,6 +3929,7 @@
     "52": {
       "speciesId": 52,
       "name": "Meowth",
+      "captureRate": 255,
       "types": [
         "normal"
       ],
@@ -3964,6 +4016,7 @@
     "53": {
       "speciesId": 53,
       "name": "Persian",
+      "captureRate": 90,
       "types": [
         "normal"
       ],
@@ -4064,6 +4117,7 @@
     "54": {
       "speciesId": 54,
       "name": "Psyduck",
+      "captureRate": 190,
       "types": [
         "water"
       ],
@@ -4143,6 +4197,7 @@
     "55": {
       "speciesId": 55,
       "name": "Golduck",
+      "captureRate": 75,
       "types": [
         "water"
       ],
@@ -4235,6 +4290,7 @@
     "56": {
       "speciesId": 56,
       "name": "Mankey",
+      "captureRate": 190,
       "types": [
         "fighting"
       ],
@@ -4323,6 +4379,7 @@
     "57": {
       "speciesId": 57,
       "name": "Primeape",
+      "captureRate": 75,
       "types": [
         "fighting"
       ],
@@ -4415,6 +4472,7 @@
     "58": {
       "speciesId": 58,
       "name": "Growlithe",
+      "captureRate": 190,
       "types": [
         "fire"
       ],
@@ -4501,6 +4559,7 @@
     "59": {
       "speciesId": 59,
       "name": "Arcanine",
+      "captureRate": 75,
       "types": [
         "fire"
       ],
@@ -4553,6 +4612,7 @@
     "60": {
       "speciesId": 60,
       "name": "Poliwag",
+      "captureRate": 255,
       "types": [
         "water"
       ],
@@ -4631,6 +4691,7 @@
     "61": {
       "speciesId": 61,
       "name": "Poliwhirl",
+      "captureRate": 120,
       "types": [
         "water"
       ],
@@ -4718,6 +4779,7 @@
     "62": {
       "speciesId": 62,
       "name": "Poliwrath",
+      "captureRate": 45,
       "types": [
         "water",
         "fighting"
@@ -4771,6 +4833,7 @@
     "63": {
       "speciesId": 63,
       "name": "Abra",
+      "captureRate": 200,
       "types": [
         "psychic"
       ],
@@ -4800,6 +4863,7 @@
     "64": {
       "speciesId": 64,
       "name": "Kadabra",
+      "captureRate": 100,
       "types": [
         "psychic"
       ],
@@ -4883,6 +4947,7 @@
     "65": {
       "speciesId": 65,
       "name": "Alakazam",
+      "captureRate": 50,
       "types": [
         "psychic"
       ],
@@ -4966,6 +5031,7 @@
     "66": {
       "speciesId": 66,
       "name": "Machop",
+      "captureRate": 180,
       "types": [
         "fighting"
       ],
@@ -5044,6 +5110,7 @@
     "67": {
       "speciesId": 67,
       "name": "Machoke",
+      "captureRate": 90,
       "types": [
         "fighting"
       ],
@@ -5127,6 +5194,7 @@
     "68": {
       "speciesId": 68,
       "name": "Machamp",
+      "captureRate": 45,
       "types": [
         "fighting"
       ],
@@ -5210,6 +5278,7 @@
     "69": {
       "speciesId": 69,
       "name": "Bellsprout",
+      "captureRate": 255,
       "types": [
         "grass",
         "poison"
@@ -5288,6 +5357,7 @@
     "70": {
       "speciesId": 70,
       "name": "Weepinbell",
+      "captureRate": 120,
       "types": [
         "grass",
         "poison"
@@ -5376,6 +5446,7 @@
     "71": {
       "speciesId": 71,
       "name": "Victreebel",
+      "captureRate": 45,
       "types": [
         "grass",
         "poison"
@@ -5441,6 +5512,7 @@
     "72": {
       "speciesId": 72,
       "name": "Tentacool",
+      "captureRate": 190,
       "types": [
         "water",
         "poison"
@@ -5520,6 +5592,7 @@
     "73": {
       "speciesId": 73,
       "name": "Tentacruel",
+      "captureRate": 60,
       "types": [
         "water",
         "poison"
@@ -5608,6 +5681,7 @@
     "74": {
       "speciesId": 74,
       "name": "Geodude",
+      "captureRate": 255,
       "types": [
         "rock",
         "ground"
@@ -5688,6 +5762,7 @@
     "75": {
       "speciesId": 75,
       "name": "Graveler",
+      "captureRate": 120,
       "types": [
         "rock",
         "ground"
@@ -5777,6 +5852,7 @@
     "76": {
       "speciesId": 76,
       "name": "Golem",
+      "captureRate": 45,
       "types": [
         "rock",
         "ground"
@@ -5866,6 +5942,7 @@
     "77": {
       "speciesId": 77,
       "name": "Ponyta",
+      "captureRate": 190,
       "types": [
         "fire"
       ],
@@ -5940,6 +6017,7 @@
     "78": {
       "speciesId": 78,
       "name": "Rapidash",
+      "captureRate": 60,
       "types": [
         "fire"
       ],
@@ -6036,6 +6114,7 @@
     "79": {
       "speciesId": 79,
       "name": "Slowpoke",
+      "captureRate": 190,
       "types": [
         "water",
         "psychic"
@@ -6124,6 +6203,7 @@
     "80": {
       "speciesId": 80,
       "name": "Slowbro",
+      "captureRate": 75,
       "types": [
         "water",
         "psychic"
@@ -6221,6 +6301,7 @@
     "81": {
       "speciesId": 81,
       "name": "Magnemite",
+      "captureRate": 190,
       "types": [
         "electric",
         "steel"
@@ -6308,6 +6389,7 @@
     "82": {
       "speciesId": 82,
       "name": "Magneton",
+      "captureRate": 60,
       "types": [
         "electric",
         "steel"
@@ -6409,6 +6491,7 @@
     "83": {
       "speciesId": 83,
       "name": "Farfetch’d",
+      "captureRate": 45,
       "types": [
         "normal",
         "flying"
@@ -6502,6 +6585,7 @@
     "84": {
       "speciesId": 84,
       "name": "Doduo",
+      "captureRate": 190,
       "types": [
         "normal",
         "flying"
@@ -6578,6 +6662,7 @@
     "85": {
       "speciesId": 85,
       "name": "Dodrio",
+      "captureRate": 45,
       "types": [
         "normal",
         "flying"
@@ -6667,6 +6752,7 @@
     "86": {
       "speciesId": 86,
       "name": "Seel",
+      "captureRate": 190,
       "types": [
         "water"
       ],
@@ -6757,6 +6843,7 @@
     "87": {
       "speciesId": 87,
       "name": "Dewgong",
+      "captureRate": 75,
       "types": [
         "water",
         "ice"
@@ -6866,6 +6953,7 @@
     "88": {
       "speciesId": 88,
       "name": "Grimer",
+      "captureRate": 190,
       "types": [
         "poison"
       ],
@@ -6949,6 +7037,7 @@
     "89": {
       "speciesId": 89,
       "name": "Muk",
+      "captureRate": 75,
       "types": [
         "poison"
       ],
@@ -7041,6 +7130,7 @@
     "90": {
       "speciesId": 90,
       "name": "Shellder",
+      "captureRate": 190,
       "types": [
         "water"
       ],
@@ -7119,6 +7209,7 @@
     "91": {
       "speciesId": 91,
       "name": "Cloyster",
+      "captureRate": 60,
       "types": [
         "water",
         "ice"
@@ -7176,6 +7267,7 @@
     "92": {
       "speciesId": 92,
       "name": "Gastly",
+      "captureRate": 190,
       "types": [
         "ghost",
         "poison"
@@ -7260,6 +7352,7 @@
     "93": {
       "speciesId": 93,
       "name": "Haunter",
+      "captureRate": 90,
       "types": [
         "ghost",
         "poison"
@@ -7352,6 +7445,7 @@
     "94": {
       "speciesId": 94,
       "name": "Gengar",
+      "captureRate": 45,
       "types": [
         "ghost",
         "poison"
@@ -7444,6 +7538,7 @@
     "95": {
       "speciesId": 95,
       "name": "Onix",
+      "captureRate": 45,
       "types": [
         "rock",
         "ground"
@@ -7541,6 +7636,7 @@
     "96": {
       "speciesId": 96,
       "name": "Drowzee",
+      "captureRate": 190,
       "types": [
         "psychic"
       ],
@@ -7627,6 +7723,7 @@
     "97": {
       "speciesId": 97,
       "name": "Hypno",
+      "captureRate": 75,
       "types": [
         "psychic"
       ],
@@ -7731,6 +7828,7 @@
     "98": {
       "speciesId": 98,
       "name": "Krabby",
+      "captureRate": 225,
       "types": [
         "water"
       ],
@@ -7818,6 +7916,7 @@
     "99": {
       "speciesId": 99,
       "name": "Kingler",
+      "captureRate": 60,
       "types": [
         "water"
       ],
@@ -7909,6 +8008,7 @@
     "100": {
       "speciesId": 100,
       "name": "Voltorb",
+      "captureRate": 190,
       "types": [
         "electric"
       ],
@@ -7991,6 +8091,7 @@
     "101": {
       "speciesId": 101,
       "name": "Electrode",
+      "captureRate": 60,
       "types": [
         "electric"
       ],
@@ -8087,6 +8188,7 @@
     "102": {
       "speciesId": 102,
       "name": "Exeggcute",
+      "captureRate": 90,
       "types": [
         "grass",
         "psychic"
@@ -8171,6 +8273,7 @@
     "103": {
       "speciesId": 103,
       "name": "Exeggutor",
+      "captureRate": 45,
       "types": [
         "grass",
         "psychic"
@@ -8236,6 +8339,7 @@
     "104": {
       "speciesId": 104,
       "name": "Cubone",
+      "captureRate": 190,
       "types": [
         "ground"
       ],
@@ -8318,6 +8422,7 @@
     "105": {
       "speciesId": 105,
       "name": "Marowak",
+      "captureRate": 75,
       "types": [
         "ground"
       ],
@@ -8414,6 +8519,7 @@
     "106": {
       "speciesId": 106,
       "name": "Hitmonlee",
+      "captureRate": 45,
       "types": [
         "fighting"
       ],
@@ -8505,6 +8611,7 @@
     "107": {
       "speciesId": 107,
       "name": "Hitmonchan",
+      "captureRate": 45,
       "types": [
         "fighting"
       ],
@@ -8595,6 +8702,7 @@
     "108": {
       "speciesId": 108,
       "name": "Lickitung",
+      "captureRate": 45,
       "types": [
         "normal"
       ],
@@ -8677,6 +8785,7 @@
     "109": {
       "speciesId": 109,
       "name": "Koffing",
+      "captureRate": 190,
       "types": [
         "poison"
       ],
@@ -8755,6 +8864,7 @@
     "110": {
       "speciesId": 110,
       "name": "Weezing",
+      "captureRate": 60,
       "types": [
         "poison"
       ],
@@ -8843,6 +8953,7 @@
     "111": {
       "speciesId": 111,
       "name": "Rhyhorn",
+      "captureRate": 120,
       "types": [
         "ground",
         "rock"
@@ -8914,6 +9025,7 @@
     "112": {
       "speciesId": 112,
       "name": "Rhydon",
+      "captureRate": 60,
       "types": [
         "ground",
         "rock"
@@ -8999,6 +9111,7 @@
     "113": {
       "speciesId": 113,
       "name": "Chansey",
+      "captureRate": 30,
       "types": [
         "normal"
       ],
@@ -9082,6 +9195,7 @@
     "114": {
       "speciesId": 114,
       "name": "Tangela",
+      "captureRate": 45,
       "types": [
         "grass"
       ],
@@ -9177,6 +9291,7 @@
     "115": {
       "speciesId": 115,
       "name": "Kangaskhan",
+      "captureRate": 45,
       "types": [
         "normal"
       ],
@@ -9259,6 +9374,7 @@
     "116": {
       "speciesId": 116,
       "name": "Horsea",
+      "captureRate": 225,
       "types": [
         "water"
       ],
@@ -9333,6 +9449,7 @@
     "117": {
       "speciesId": 117,
       "name": "Seadra",
+      "captureRate": 75,
       "types": [
         "water"
       ],
@@ -9421,6 +9538,7 @@
     "118": {
       "speciesId": 118,
       "name": "Goldeen",
+      "captureRate": 225,
       "types": [
         "water"
       ],
@@ -9500,6 +9618,7 @@
     "119": {
       "speciesId": 119,
       "name": "Seaking",
+      "captureRate": 60,
       "types": [
         "water"
       ],
@@ -9588,6 +9707,7 @@
     "120": {
       "speciesId": 120,
       "name": "Staryu",
+      "captureRate": 225,
       "types": [
         "water"
       ],
@@ -9670,6 +9790,7 @@
     "121": {
       "speciesId": 121,
       "name": "Starmie",
+      "captureRate": 60,
       "types": [
         "water",
         "psychic"
@@ -9719,6 +9840,7 @@
     "122": {
       "speciesId": 122,
       "name": "Mr. Mime",
+      "captureRate": 45,
       "types": [
         "psychic"
       ],
@@ -9827,6 +9949,7 @@
     "123": {
       "speciesId": 123,
       "name": "Scyther",
+      "captureRate": 45,
       "types": [
         "bug",
         "flying"
@@ -9928,6 +10051,7 @@
     "124": {
       "speciesId": 124,
       "name": "Jynx",
+      "captureRate": 45,
       "types": [
         "ice",
         "psychic"
@@ -10025,6 +10149,7 @@
     "125": {
       "speciesId": 125,
       "name": "Electabuzz",
+      "captureRate": 45,
       "types": [
         "electric"
       ],
@@ -10104,6 +10229,7 @@
     "126": {
       "speciesId": 126,
       "name": "Magmar",
+      "captureRate": 45,
       "types": [
         "fire"
       ],
@@ -10183,6 +10309,7 @@
     "127": {
       "speciesId": 127,
       "name": "Pinsir",
+      "captureRate": 45,
       "types": [
         "bug"
       ],
@@ -10266,6 +10393,7 @@
     "128": {
       "speciesId": 128,
       "name": "Tauros",
+      "captureRate": 45,
       "types": [
         "normal"
       ],
@@ -10345,6 +10473,7 @@
     "129": {
       "speciesId": 129,
       "name": "Magikarp",
+      "captureRate": 255,
       "types": [
         "water"
       ],
@@ -10382,6 +10511,7 @@
     "130": {
       "speciesId": 130,
       "name": "Gyarados",
+      "captureRate": 45,
       "types": [
         "water",
         "flying"
@@ -10452,6 +10582,7 @@
     "131": {
       "speciesId": 131,
       "name": "Lapras",
+      "captureRate": 45,
       "types": [
         "water",
         "ice"
@@ -10541,6 +10672,7 @@
     "132": {
       "speciesId": 132,
       "name": "Ditto",
+      "captureRate": 35,
       "types": [
         "normal"
       ],
@@ -10570,6 +10702,7 @@
     "133": {
       "speciesId": 133,
       "name": "Eevee",
+      "captureRate": 45,
       "types": [
         "normal"
       ],
@@ -10641,6 +10774,7 @@
     "134": {
       "speciesId": 134,
       "name": "Vaporeon",
+      "captureRate": 45,
       "types": [
         "water"
       ],
@@ -10724,6 +10858,7 @@
     "135": {
       "speciesId": 135,
       "name": "Jolteon",
+      "captureRate": 45,
       "types": [
         "electric"
       ],
@@ -10807,6 +10942,7 @@
     "136": {
       "speciesId": 136,
       "name": "Flareon",
+      "captureRate": 45,
       "types": [
         "fire"
       ],
@@ -10890,6 +11026,7 @@
     "137": {
       "speciesId": 137,
       "name": "Porygon",
+      "captureRate": 45,
       "types": [
         "normal"
       ],
@@ -10978,6 +11115,7 @@
     "138": {
       "speciesId": 138,
       "name": "Omanyte",
+      "captureRate": 45,
       "types": [
         "rock",
         "water"
@@ -11057,6 +11195,7 @@
     "139": {
       "speciesId": 139,
       "name": "Omastar",
+      "captureRate": 45,
       "types": [
         "rock",
         "water"
@@ -11145,6 +11284,7 @@
     "140": {
       "speciesId": 140,
       "name": "Kabuto",
+      "captureRate": 45,
       "types": [
         "rock",
         "water"
@@ -11220,6 +11360,7 @@
     "141": {
       "speciesId": 141,
       "name": "Kabutops",
+      "captureRate": 45,
       "types": [
         "rock",
         "water"
@@ -11317,6 +11458,7 @@
     "142": {
       "speciesId": 142,
       "name": "Aerodactyl",
+      "captureRate": 45,
       "types": [
         "rock",
         "flying"
@@ -11410,6 +11552,7 @@
     "143": {
       "speciesId": 143,
       "name": "Snorlax",
+      "captureRate": 25,
       "types": [
         "normal"
       ],
@@ -11492,6 +11635,7 @@
     "144": {
       "speciesId": 144,
       "name": "Articuno",
+      "captureRate": 3,
       "types": [
         "ice",
         "flying"
@@ -11575,6 +11719,7 @@
     "145": {
       "speciesId": 145,
       "name": "Zapdos",
+      "captureRate": 3,
       "types": [
         "electric",
         "flying"
@@ -11658,6 +11803,7 @@
     "146": {
       "speciesId": 146,
       "name": "Moltres",
+      "captureRate": 3,
       "types": [
         "fire",
         "flying"
@@ -11741,6 +11887,7 @@
     "147": {
       "speciesId": 147,
       "name": "Dratini",
+      "captureRate": 45,
       "types": [
         "dragon"
       ],
@@ -11820,6 +11967,7 @@
     "148": {
       "speciesId": 148,
       "name": "Dragonair",
+      "captureRate": 45,
       "types": [
         "dragon"
       ],
@@ -11908,6 +12056,7 @@
     "149": {
       "speciesId": 149,
       "name": "Dragonite",
+      "captureRate": 45,
       "types": [
         "dragon",
         "flying"
@@ -12013,6 +12162,7 @@
     "150": {
       "speciesId": 150,
       "name": "Mewtwo",
+      "captureRate": 3,
       "types": [
         "psychic"
       ],
@@ -12107,6 +12257,7 @@
     "151": {
       "speciesId": 151,
       "name": "Mew",
+      "captureRate": 45,
       "types": [
         "psychic"
       ],

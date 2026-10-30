@@ -245,6 +245,8 @@ export interface BattleCreature {
   readonly baseStats?: BattleBaseStats;
   /** Official species mass from PokéAPI, converted from hectograms to kilograms. */
   readonly weightKg?: number;
+  /** Official species capture_rate; transformation does not change it. */
+  readonly captureRate?: number;
   readonly growthCurveId?: string;
   readonly stats: BattleStats;
   readonly hp: number;
