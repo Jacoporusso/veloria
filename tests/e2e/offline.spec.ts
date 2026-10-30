@@ -909,6 +909,49 @@ async function seedOfflineHealing(page: import('@playwright/test').Page) {
   }), prepared);
 }
 
+test('League training pays a real offline victory and earned coins buy supplies', async ({ page, context }) => {
+  test.setTimeout(process.env.CI ? 240_000 : 150_000);
+  await page.addInitScript(() => localStorage.setItem('veloria-animation-quality', 'reduced'));
+  await page.goto('/'); await enterGame(page);
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller), undefined, { timeout: 30_000 });
+  const save = await readBrowserSave(page);
+  save.flags = [...new Set([...save.flags, 'q_starter_selected', 'intro_completed', 'tutorial_habitat_seen', 'prologue_complete_seen',
+    'q_resonance_restored', 'q_league_visited', 'q_league_orientation'])];
+  save.player = { ...save.player, mapId: 'veloria/league_forecourt', spawnPointId: 'league_checkpoint', x: 20, y: 8, money: 0 };
+  save.rngState = 123456; save.inventory.potion = 0;
+  const creature = createBattleCreature({ species: speciesRegistry.species as any, moves: moveRegistry.moves as any,
+    speciesId: 150, level: 80, instanceId: 'offline-training-player', moveIds: ['psychic'] });
+  save.party = [{ instanceId: creature.instanceId, speciesId: 150, level: 80, experience: 0, hp: creature.hp,
+    maxHp: creature.stats.maxHp, moves: creature.moves.map(move => ({ id: move.moveId, pp: move.pp })) }];
+  await seedBrowserSave(page, save);
+  const failures: string[] = [], errors: string[] = [];
+  page.on('requestfailed', request => failures.push(request.url())); page.on('pageerror', error => errors.push(error.message));
+  await context.setOffline(true); await page.reload(); await enterGame(page);
+  await page.getByRole('button', { name: 'Apri menu di gioco', exact: true }).click();
+  await page.getByRole('button', { name: 'Apri allenamenti della Lega', exact: true }).click();
+  await page.getByRole('button', { name: 'LIVELLO 30 · 500 MONETE', exact: true }).click();
+  await page.getByRole('button', { name: 'INIZIA ALLENAMENTO', exact: true }).click();
+  await expect(page.locator('body')).toHaveClass(/battle-active/);
+  for (let input = 0; input < 400 && await page.locator('body').evaluate(body => body.classList.contains('battle-active')); input++) {
+    if (await page.locator('.battle-celebration').isVisible()) {
+      await page.getByRole('button', { name: 'Continua', exact: true }).click(); break;
+    }
+    await page.keyboard.press('Enter'); await page.waitForTimeout(100);
+  }
+  await expect(page.locator('body')).not.toHaveClass(/battle-active/);
+  expect((await readBrowserSave(page)).player.money).toBe(500);
+  expect((await readBrowserSave(page)).flags.some(flag => flag.startsWith('training_attempt_pending_'))).toBe(false);
+  await planWalkTo(page, 'league_forecourt.tmj', 31, 15);
+  await page.getByRole('button', { name: 'Vai in alto', exact: true }).tap();
+  await page.getByRole('button', { name: 'Conferma e interagisci', exact: true }).tap();
+  await buyFromShop(page, 'Pozione');
+  expect((await readBrowserSave(page)).player.money).toBe(300);
+  expect((await readBrowserSave(page)).inventory.potion).toBe(1);
+  await page.reload(); await enterGame(page);
+  expect((await readBrowserSave(page)).player.money).toBe(300);
+  expect(failures).toEqual([]); expect(errors).toEqual([]);
+});
+
 /** Production journey: use the authored responsive geometry and actual touch input, no debug globals. */
 async function tapBattleControl(page: import('@playwright/test').Page, control: 'moves' | 'captures' | 'message' | number) {
   const box = await page.locator('#game canvas').boundingBox();

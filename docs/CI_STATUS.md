@@ -1,8 +1,16 @@
+## 0.4.46 — Allenamenti ripetibili
+
+Menu allenamenti dalla prima visita alla Lega, sei fasce30–80, ingresso gratuito e premio500–3200 ripetibile. Squadre GenI, mosse HGSS e minimi evolutivi verificati; ricevute di tentativo separate dalla storia e salvataggio prima del lancio. Cinque casi Chrome arena e uno di stabilità NPC passati, più vittoria/acquisto/reload in produzione offline. Screenshot portrait/landscape rivisti. 850 dominio/persistenza, cinque budget,154 Python, validatore1098 risorse/48 mappe e TypeScript/build passati. Copertura451 browser e89 offline una volta. Prove e limiti nel documento127; coppe, ricerca e cattura dei leggendari restano aperte nel documento126. Rilascio/cachev210 da attestare.
+
 ## 0.4.45 — Camminata Elia e preview generica
+
+[Deploy41021617346](https://github.com/Jacoporusso/veloria/actions/runs/41021617346) COMPLETED/SUCCESS. [Verify41021617329](https://github.com/Jacoporusso/veloria/actions/runs/41021617329) COMPLETED/FAILURE,32/33 job riusciti: solo chapters7 per aspettativa tween statica obsoleta, corretta nel lotto0.4.46 con prova Chrome passata.
 
 Otto passi Elia integrati con quattro direzioni e ancoraggi stabilizzati: due cicli verificati su48. Nove casi Chrome passati, due offline selezionati (Elia e Celia) passati,840 dominio/persistenza più cinque budget, TypeScript/build e validatore1098 risorse/48 mappe passati. Audit conserva altri47 profili,192 idle, manifest Ada, tre Tiled e proprietà di gioco. Copertura446 browser e88 offline assegnati una volta. Prove e limiti nel documento125. Rilascio/cachev209 ancora da attestare. Economia e dopogioco richiesti dall'utente sono pianificati nel documento126, non implementati da questo lotto.
 
 ## 0.4.44 — Ultime cinque idle
+
+[Verify41018163633](https://github.com/Jacoporusso/veloria/actions/runs/41018163633) termina COMPLETED/FAILURE con32/33 job riusciti per la stessa aspettativa statica nel test npc-idle-motion. Dettagli e correzione nel documento127. Il deploy del lotto resta riuscito; non attribuire verde completo alla Verify.
 
 Scena walk di sviluppo generalizzata ai profili con ciclo validato: quattro casi Chrome passati (due Ada, ingressi invalidi e caricamento differito motore), TypeScript/build passati; il manifest produzione esclude il modulo preview. Nessun nuovo ciclo contato. Prove in `124_GENERIC_NPC_WALK_PREVIEW_v0.1.md`.
 

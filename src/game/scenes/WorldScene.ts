@@ -20,6 +20,7 @@ import { getSignalRouter } from '../maps/signal-router-registry';
 import { getLocalTransportNetwork } from '../maps/local-transport-registry';
 import { localTransportDestinations, planLocalTransportTrip } from '../../core/world/local-transport.ts';
 import { trainerChallengePrompt } from '../battle/trainer-challenge.ts';
+import { beginTrainingAttempt, createTrainingTrainer, recoverTrainingAttempts, settleTrainingAttempt, TRAINING_TIERS } from '../../core/world/training-arena.ts';
 import { selectOpeningGuidance } from '../../core/quests/opening-guidance.ts';
 import { getOpponentPolicy } from '../battle/opponent-policies.ts';
 import Phaser from 'phaser';
@@ -594,6 +595,7 @@ export class WorldScene extends Phaser.Scene {
     });
     document.querySelector('#pokedex-button')?.addEventListener('click', event => this.openPokedex(event.currentTarget as HTMLElement));
     document.querySelector('#team-button')?.addEventListener('click', event => this.openPokedex(event.currentTarget as HTMLElement, 'team'));
+    document.querySelector('#training-button')?.addEventListener('click', () => this.showTrainingMenu());
     document.querySelector('#pokedex-close')?.addEventListener('click', () => this.closePokedex());
     document.querySelector('#pokedex-panel')?.addEventListener('keydown', event => {
       const keyboardEvent = event as KeyboardEvent;
@@ -1062,6 +1064,11 @@ export class WorldScene extends Phaser.Scene {
 
   private recoverChallengeProgress(): void {
     if (this.previewMode) return;
+    const trainingFlags = recoverTrainingAttempts(this.save.flags);
+    if (trainingFlags.length !== this.save.flags.length) {
+      this.save = { ...this.save, flags: trainingFlags };
+      this.challengeRecovered = true;
+    }
     for (const sequence of listChallengeSequences()) {
       const state = challengeSequenceState(sequence, this.save);
       const outsideAttempt = ['active', 'pending'].includes(state.status) && !sequence.memberMapIds.includes(this.save.player.mapId);
@@ -1255,7 +1262,7 @@ export class WorldScene extends Phaser.Scene {
     }
   }
 
-  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }, special?: SpecialEncounter) {
+  private beginBattle(state: BattleState, trainer?: (typeof trainerCatalog)[string], challenge?: { sequence: ChallengeSequence; stageId: string }, special?: SpecialEncounter, training?: { attemptId: string }) {
     if (this.battleActive) return;
     this.battleActive = true;
     const gameRegion = document.querySelector<HTMLElement>('#game');
@@ -1313,6 +1320,22 @@ export class WorldScene extends Phaser.Scene {
             event.type === 'creatureEvolved' && event.side === 'player' && !presentedEvolutions.includes(evolutionReceiptFlag(event)) ? [{ creatureId: event.creatureId,
               fromSpeciesId: event.fromSpeciesId, toSpeciesId: event.toSpeciesId, level: event.level }] : []));
           this.save.inventory = consumeBattleItems(this.save.inventory, events);
+          if (training && trainer) {
+            const outcome = finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player' ? 'won'
+              : finalState.outcome.kind === 'draw' ? 'draw' : 'lost';
+            const result = settleTrainingAttempt({ flags: this.save.flags, money: this.save.player.money,
+              attemptId: training.attemptId, rewardMoney: trainer.rewardMoney + scatteredCoins, outcome });
+            this.save = { ...this.save, flags: result.flags, player: { ...this.save.player, money: result.money } };
+            earnedMoney = result.earnedMoney;
+            dismissMessage = outcome === 'won' ? `Allenamento vinto! Hai guadagnato ${earnedMoney} monete. Puoi scegliere una nuova sfida dal menu.`
+              : 'Allenamento terminato. Esperienza e risorse attuali sono conservate; puoi riprovare senza pagare un ingresso.';
+            if (this.save.party.every(creature => creature.hp === 0)) {
+              this.save = healParty(this.save, battleMoves);
+              dismissMessage += ' La squadra è stata soccorsa e curata.';
+            }
+            challengeSaved = this.persistProgress();
+            return;
+          }
           if (challenge && trainer) {
             const outcome = finalState.outcome.kind === 'won' && finalState.outcome.winner === 'player' ? 'won'
               : finalState.outcome.kind === 'draw' ? 'draw' : 'lost';
@@ -1369,13 +1392,13 @@ export class WorldScene extends Phaser.Scene {
           this.onMusicThemeChange(this.map.metadata.musicId);
           document.body.classList.remove('battle-active');
           gameRegion?.removeAttribute('aria-busy');
-          if (challenge) {
+          if (challenge || training) {
             this.challengeOperationActive = true;
             const finish = async () => {
               this.challengeOperationActive = false;
               this.journey?.celebrate(this.pendingQuestCelebrations);
               this.pendingQuestCelebrations = [];
-              if (challengeReturn) await this.leaveChallenge(challenge.sequence);
+              if (challengeReturn && challenge) await this.leaveChallenge(challenge.sequence);
               this.showToast(dismissMessage);
               if (leagueCompletion) await this.presentLeagueFinale();
             };
@@ -1403,8 +1426,8 @@ export class WorldScene extends Phaser.Scene {
       this.onMusicThemeChange(this.map.metadata.musicId);
       this.showToast('Non è stato possibile caricare la battaglia. Riprova.');
       console.error('Unable to load the battle scene.', error);
-      if (challenge) {
-        this.save = { ...this.save, flags: this.save.flags.filter(flag => flag !== challenge.sequence.pendingBattleFlag) };
+      if (challenge || training) {
+        this.save = { ...this.save, flags: challenge ? this.save.flags.filter(flag => flag !== challenge.sequence.pendingBattleFlag) : recoverTrainingAttempts(this.save.flags) };
         this.challengeOperationActive = true;
         void this.requireChallengeSave(() => { this.challengeOperationActive = false; });
       }
@@ -1763,6 +1786,52 @@ export class WorldScene extends Phaser.Scene {
       { label: 'SFIDA', icon: 'challenge', action: () => this.startTrainerBattle(trainer) },
       { label: 'NON ORA', icon: 'close', action: () => this.showToast('La sfida ti aspetta quando sarai pronto.') },
     ]);
+  }
+
+  private showTrainingMenu(): void {
+    if (this.battleActive || this.moving || this.mapTransitionLoading || this.challengeOperationActive || this.dialogueLines.length) return;
+    if (this.previewMode) { this.showToast('Apri la partita salvata per partecipare agli allenamenti.'); return; }
+    if (!this.save.flags.includes('q_league_visited') && !this.save.flags.includes('q_league_completed') && this.map.metadata.id !== 'veloria/league_forecourt') {
+      this.showDialogue('Allenamenti della Lega', ['Raggiungi il piazzale della Lega per sbloccare gli allenamenti. Poi potrai allenarti anche durante i tuoi viaggi.']); return;
+    }
+    if (listChallengeSequences().some(sequence => this.save.flags.includes(sequence.activeFlag))) {
+      this.showDialogue('Allenamenti della Lega', ['Concludi o interrompi il tentativo della Lega prima di iniziare un allenamento.']); return;
+    }
+    this.showServiceOptions('Allenamenti della Lega', 'Ingresso gratuito · 3 Pokémon avversari. Scegli il livello: ogni vittoria dà esperienza e monete, anche se hai già vinto altre sfide. PS, PP e strumenti usati restano quelli della tua squadra.', [
+      ...TRAINING_TIERS.map(tier => ({ label: `LIVELLO ${tier.level} · ${tier.rewardMoney} MONETE`, icon: 'challenge' as const,
+        action: () => this.showServiceOptions(`Allenamento · livello ${tier.level}`,
+          `Affronterai 3 Pokémon di livello ${tier.level}. Ricompensa: ${tier.rewardMoney} monete per la vittoria. Nessun costo di ingresso; nessuna ricompensa in caso di sconfitta.`, [
+            { label: 'INIZIA ALLENAMENTO', icon: 'challenge', action: () => void this.startTrainingBattle(tier.level) },
+            { label: 'CAMBIA LIVELLO', icon: 'close', action: () => this.showTrainingMenu() },
+            { label: 'NON ORA', icon: 'close', action: () => undefined },
+          ]) })),
+      { label: 'NON ORA', icon: 'close', action: () => undefined },
+    ]);
+  }
+
+  private async startTrainingBattle(level: number): Promise<void> {
+    if (this.battleActive || this.challengeOperationActive || this.previewMode || this.mapTransitionLoading) return;
+    if (!this.save.party.some(creature => creature.hp > 0)) {
+      this.showToast('La squadra è esausta. Al Centro Pokémon puoi recuperare gratuitamente HP e PP.'); return;
+    }
+    const previous = this.save;
+    const attemptId = createUniqueId();
+    let trainer: ReturnType<typeof createTrainingTrainer>['trainer'];
+    let state: BattleState;
+    try {
+      const generated = createTrainingTrainer({ level, rngState: this.save.rngState >>> 0, attemptId, species: battleSpecies, moves: battleMoves });
+      trainer = generated.trainer;
+      this.save = { ...this.save, flags: beginTrainingAttempt(this.save.flags, attemptId), rngState: generated.nextRngState };
+      state = createTrainerBattle({ save: this.save, trainer, registries: { species: battleSpecies, moves: battleMoves }, rules: veloriaBattleRules, battleId: attemptId });
+    } catch (error) {
+      this.save = previous;
+      this.showToast(error instanceof Error ? `Allenamento non avviato: ${error.message}` : 'Allenamento non disponibile.'); return;
+    }
+    this.challengeOperationActive = true;
+    await this.requireChallengeSave(() => {
+      this.challengeOperationActive = false;
+      this.beginBattle(state, trainer, undefined, undefined, { attemptId });
+    });
   }
 
   private starterName() {
